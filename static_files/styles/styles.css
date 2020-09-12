@@ -1,0 +1,61 @@
+.nav{
+    color:black;
+    font: 15px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: right;
+}
+
+.title{
+    color:black;
+    font: 25px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: center;
+}
+
+.info{
+    color:black;
+    font: 25px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: center;
+}
+
+.error{
+    color: red;
+    font: 25px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: center;
+}
+
+.signupbutton{
+    color: #FFFFFF;
+    background: #141F72;
+    padding: 8px 30px;
+    margin: 8px 0px 0px;
+    font: 23px -apple-system, "Lato Black";
+    border-radius: 20px;
+}
+
+.select-user {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.select-user > span {
+    float: none;
+    display: inline-block;
+    font-size: 13px;
+    color: #202020;
+    border: 2px solid;
+    text-align: center;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    padding: 9px 29px;
+    margin: 0 5px;
+    cursor: pointer;
+}
