@@ -1,18 +1,15 @@
 # 2020_2_MVVM
 
-## Students Hunter
+## Students Hunter (репозиторий фронтенда)
 
 Сервис поиска работы для студентов
 
-
-### Репозиторий фронтенда
-
 **Состав:**
 
-* [Маргарита Шуляк](https://github.com/Margot07008)
-* [Виктория Талмаза](https://github.com/viktal/)
-* [Михаил Ершов](https://github.com/maershov)
-* [Владислав Амелин](https://github.com/H-b-IO-T-O-H)
+* Маргарита Шуляк ([Margot07008](https://github.com/Margot07008))
+* Виктория Талмаза ([viktal](https://github.com/viktal/))
+* Михаил Ершов ([maershov](https://github.com/maershov))
+* Владислав Амелин ([H-b-IO-T-O-H](https://github.com/H-b-IO-T-O-H))
 
 **Ментор по фронтенду** - Меркулова Надежда
 
