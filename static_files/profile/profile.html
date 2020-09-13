@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students hunter</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <style>
+        body {
+            background-color: ghostwhite;
+            background-repeat: no-repeat;
+        }
+        {
+            box-sizing: border-box;
+        }
+        .column {
+            float: left;
+            width: 50%;
+        }
+        .column-right {
+            float: right;
+            width: 50%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+
+<header>
+    <div class = "nav"><a href="#">Students Hunt</a></div>
+    <div class = "nav"><a href="#">Выйти</a></div>
+    <div class = "nav"><a href="#">Мой профиль</a></div>
+</header>
+
+
+<main>
+    <main role="main" class="container">
+        <div class="profile-img">
+          <img src="../images/user.png" alt="User" style="background-color:white" width="100" height="125">
+        </div>
+        <div class="info">
+            <label for="exampleFormControlFile1">Загрузите изображение для профиля</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+        <div class = "title">Пользователь  Students Hunt</div>
+        <div class = "text">Moscow, Russia</div>
+        <div class = "text">student@students-hunt.ru</div>
+        <form>
+            <div class="row">
+                <div class="column">
+                    <div class="col-10">
+                        <h2>Ваши резюме:</h2>
+                    </div>
+                    <div class="col-10">
+                        <a href=""><h2>Backend Разработчик</h2></a>
+                        <div class = "resume-info">Кол-во просмотров: 107</div>
+                    </div>
+                    <div class="col-10">
+                        <a href=""><h2>Full-stack Разработчик</h2></a>
+                        <div class = "resume-info">Кол-во просмотров: 117</div>
+                    </div>
+                </div>
+                <div class="column-right">
+                    <div class = "profile-menu"><a href="#">Изменить профиль</a></div>
+                    <div class = "profile-menu"><a href="#">Избранные вакансии</a></div>
+                    <div class = "profile-menu"><a href="#">Любимые компании</a></div>
+                    <div class = "profile-menu"><a href="#">Отправленные заявки</a></div>
+                    <div class = "profile-menu"><a href="#">Приглашения</a></div>
+                </div>
+            </div>
+        </form>
+
+
+
+    </main>
+</main>
+</body>
+</html>

@@ -12,11 +12,24 @@
     text-align: center;
 }
 
+.text{
+    color:black;
+    font: 15px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: center;
+}
+
 .info{
     color:black;
     font: 25px Quicksand, serif;
     margin: 0px 0px 12px;
     text-align: center;
+}
+
+.info{
+    color:black;
+    font: 10px Quicksand, serif;
+    margin: 0px 0px 12px;
 }
 
 .error{
@@ -58,4 +71,15 @@
     padding: 9px 29px;
     margin: 0 5px;
     cursor: pointer;
+}
+
+.profile-img {
+    text-align: center;
+}
+
+.profile-menu {
+    color:black;
+    font: 20px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: right;
 }
