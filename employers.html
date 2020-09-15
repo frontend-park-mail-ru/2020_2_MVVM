@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employers</title>
+    <link rel="stylesheet" type="text/css" href="css/summary.css">
+    <link rel="stylesheet" type="text/css" href="css/employers.css">
+</head>
+<body>
+<header class="block1">
+    <div class="block-overlay"></div>
+</header>
+<div class="form-wrap">
+    <div class="profile">
+        <img src="img/profile.png" alt="">
+        <div class="logo">
+            <p>Загрузить логотип:</p>
+            <label for="profile-img">
+                <input id="profile-img" type="file" value="">
+            </label>
+        </div>
+        <h1>Ваша вакансия</h1>
+    </div>
+    <div id="summary" class="summary">
+        <form method="post" action="#">
+            <div>
+                <p class="description-block">Общая информация</p>
+                <label for="company">Название компании*</label>
+                <input id="company" type="text" value="" required>
+            </div>
+            <div>
+                <label for="summary-name">Название вакансии*</label>
+                <input id="summary-name" type="text" value="" required>
+            </div>
+            <div>
+                <label for="description">Описание вакансии*</label>
+                <textarea id="description" required></textarea>
+            </div>
+            <div class="exp-row">
+                <label for="exp-duration">Требуемый опыт работы</label>
+                <label id="exp-row-start" for="select-duration"></label>
+                <select id="select-duration">
+                    <option id="exp-need" value="">требуется</option>
+                    <option value="">не требуется</option>
+                </select>
+            </div>
+            <p class="description-block">Контакты</p>
+            <div>
+                <label for="email">E-mail</label>
+                <input id="email" type="email" required value="">
+            </div>
+            <div>
+                <label for="tel">Телефон для связи</label>
+                <input id="tel" type="tel" value="" placeholder="+7 ХХХ ххх хх хх">
+            </div>
+            <div>
+                <label for="address">Адрес места работы*</label>
+                <input id="address" type="text" value="" required>
+            </div>
+            <div class="exp-select" id="pos1">
+            </div>
+            <button id="btn1" type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+<script id="template2" type="text/template">
+    <input id="exp-duration" type="text" value="" placeholder="Описание и требуемый стаж...">
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

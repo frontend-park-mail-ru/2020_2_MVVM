@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add summary</title>
+    <link rel="stylesheet" type="text/css" href="css/summary.css">
+</head>
+<body>
+<header class="block">
+    <div class="block-overlay"></div>
+</header>
+<div class="form-wrap">
+    <div class="profile">
+        <img src="img/profile.png" alt="">
+        <div class="logo">
+            <p>Загрузить аватар:</p>
+            <label for="profile-img">
+                <input id="profile-img" type="file" value="">
+            </label>
+        </div>
+        <h1>Ваше резюме</h1>
+    </div>
+    <div id="summary" class="summary">
+        <form method="post" action="#">
+            <div>
+                <p class="description-block">Контакты</p>
+                <label for="username">Имя*</label>
+                <input id="username" type="text" value="" required>
+            </div>
+            <div>
+                <label for="surname">Фамилия</label>
+                <input id="surname" type="text" value="">
+            </div>
+            <div class="switch">
+                <span>Пол*</span>
+                <label for="male">
+                    <input id="male" type="radio" name="sex" value="" required>
+                    <div class="switch-control male"></div>
+                </label>
+                <label for="female">
+                    <input id="female" type="radio" name="sex" value="">
+                    <div class="switch-control female"></div>
+                </label>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="email">E-mail*</label>
+                <input id="email" type="email" required value="">
+            </div>
+            <div>
+                <label for="country">Страна проживания</label>
+                <select id="country">
+                    <option value="">Россия</option>
+                    <option value="">Украина</option>
+                    <option value="">Беларусь</option>
+                </select>
+            </div>
+            <div>
+                <p class="description-block">Основная информация</p>
+            </div>
+            <div>
+                <label for="date-birth">Дата рождения*</label>
+                <input type="date" id="date-birth" name="trip-start" value="2000-01-01"
+                       min="1930-01-01" max="2010-12-12" required>
+            </div>
+            <div>
+                <label for="citizenship">Гражданство*</label>
+                <input id="citizenship" type="text" required>
+            </div>
+            <div class="exp-select" id="pos1">
+                <label for="rb1">Есть опыт работы</label>
+                <input type="radio" name="rb" id="rb1">
+                <label for="rb2">Нет опыта работы</label>
+                <input type="radio" name="rb" id="rb2">
+            </div>
+            <div class="achievements">
+                <p>Ваши сертификаты: </p>
+                <label for="achievement">
+                    <input id="achievement" type="file" value="">
+                </label>
+            </div>
+            <button id="btn1" type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+<script id="template1" type="text/template">
+    <div class="exp-card">
+        <div>
+            <p class="description-block">Специальность</p>
+            <label for="place">Должность*</label>
+            <input id="place" type="text" value="" required>
+        </div>
+        <label for="salary">Зарплата</label>
+        <div class="salary-row">
+            <input id="salary" type="text" value="">
+            <label for="select-salary"></label>
+            <select id="select-salary">
+                <option value="">руб.</option>
+                <option value="">usd</option>
+                <option value="">eur</option>
+            </select>
+        </div>
+        <a href="#" id="prof-exp">Указать профобласти</a>
+        <div>
+            <p class="description-block">Опыт работы</p>
+            <div class="work-exp-row1">
+                <p>Места работы</p>
+                <button id="btn2" type="submit">Добавить место работы</button>
+            </div>
+            <div class="work-exp-row2">
+                <p>О себе</p>
+                <label for="description"></label>
+                <textarea id="description"></textarea>
+            </div>
+        </div>
+        <div>
+            <p class="description-block">Образование</p>
+            <label for="select-education"></label>
+            <select id="select-education" required>
+                <option value="">Среднее</option>
+                <option value="">Среднее Специальное</option>
+                <option value="">Неоконченное высшее</option>
+                <option value="">Высшее</option>
+                <option value="">Бакалавр</option>
+                <option value="">Магистр</option>
+                <option value="">Кандидат Наук</option>
+                <option value="">Доктор наук</option>
+            </select>
+        </div>
+        <div>
+            <p class="description-block">Владение языками</p>
+            <div class="work-exp-row1">
+                <label for="select-language">Родной язык</label>
+                <select id="select-language">
+                    <option value="">Русский</option>
+                    <option value="">Английский</option>
+                    <option value="">Французский</option>
+                    <option value="">Немецкий</option>
+                    <option value="">Китайский</option>
+                    <option value="">Другие</option>
+                </select>
+            </div>
+            <div class="work-exp-row1">
+                <p>Иностранные языки</p>
+                <a href="#" id="lang">Указать ещё один язык</a>
+            </div>
+        </div>
+    </div>
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
