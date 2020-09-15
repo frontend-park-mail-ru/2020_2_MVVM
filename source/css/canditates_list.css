@@ -227,8 +227,13 @@ body{
 	border: 1px solid;
 	border-color: white white #DDDDDD #DDDDDD;
 	margin-bottom: 1px;
-
+	z-index: 0;
 }
+.main__candidate_row:hover{
+	box-shadow: 5px 5px 5px 5px #DDDDDD;
+	z-index: 1;
+}
+
 .main__candidate_photo {
 	min-width:  80px;
 	min-height: 80px;
@@ -289,13 +294,18 @@ body{
 	margin: 20px 0px;
 }
 
-.main__pagination ul li {
+
+.main__pagination  ul  li {
 	display: inline;
-	border-radius: 15px;
+	border-radius: 50%;
 	border: 1px solid #8b91dd;
 	padding: 10px;
+	margin: 0 5px;
 }
 
+.main__pagination ul li a{
+	color: #8b91dd;
+}
 
 /*___________________FOOTER__________________*/
 
