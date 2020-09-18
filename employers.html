@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Резюме работодателя</title>
+    <link rel="stylesheet" type="text/css" href="css/summary.css">
+    <link rel="stylesheet" href="css/general.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__row">
+                <div class="header__top">
+                    <div class="header__item-logo logo"></div>
+                    <div class="header__item-menu menu">
+                        <nav class="menu-list">
+                            <a href="" class="header__item header__item_simple">Главная страница</a>
+                            <a href="" class="header__item header__item_simple">Работодатели</a>
+                            <a href="" class="header__item header__item_simple">Соискатели</a>
+                            <a href="" class="header__item header__item_key-icon">Зарегистрироваться</a>
+                            <a href="" class="header__item header__item_link-icon">Войти</a>
+                        </nav>
+                    </div>
+                </div>
+<!--                <div class="header__bottom">-->
+<!--                    <div class="header__page">-->
+<!--                        Новое резюме-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="form-wrap">
+            <div class="profile">
+                <div class="profile-photo">
+                    <img src="img/profile.png" alt="">
+                </div>
+                <div class="upload-photo">
+                    <div class="btn-upload-photo">
+                        <p>Загрузить аватар</p>
+                    </div>
+                </div>
+                <div>
+                    <h1>Ваше резюме</h1>
+                    <div class="btm-apply-alternative upload-resume">
+                        <div class="btm-apply-alternative-item">Загрузить из файла</div>
+                        <div class="btm-apply-alternative-item">Заказать резюме</div>
+                    </div>
+                </div>
+            </div>
+            <div id="summary" class="summary">
+            <form method="post" action="#">
+                <div>
+                    <p class="description-block">Общая информация</p>
+                    <label for="company">Название компании*</label>
+                    <input id="company" type="text" value="" required>
+                </div>
+                <div>
+                    <label for="summary-name">Название вакансии*</label>
+                    <input id="summary-name" type="text" value="" required>
+                </div>
+                <div>
+                    <label for="description">Описание вакансии*</label>
+                    <textarea id="description" required></textarea>
+                </div>
+                <div class="exp-row">
+                    <label for="exp-duration">Требуемый опыт работы</label>
+                    <label id="exp-row-start" for="select-duration"></label>
+                    <select id="select-duration">
+                        <option id="exp-need" value="">требуется</option>
+                        <option value="">не требуется</option>
+                    </select>
+                </div>
+                <p class="description-block">Контакты</p>
+                <div>
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" required value="">
+                </div>
+                <div>
+                    <label for="tel">Телефон для связи</label>
+                    <input id="tel" type="tel" value="" placeholder="+7 ХХХ ххх хх хх">
+                </div>
+                <div>
+                    <label for="address">Адрес места работы*</label>
+                    <input id="address" type="text" value="" required>
+                </div>
+                <div class="exp-select" id="pos1">
+                </div>
+                <button id="btn1" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-top-column">
+                <img src="img/logo.png"><br>
+                <span>Адрес: 2-я Бауманская ул., д.5, стр.1, Москва, 105005</span> <br>
+                <span>+1 246-345-0695</span><br>
+                <span>info@studhunt.com</span>
+            </div>
+            <div class="footer-top-column">
+                <h3>Частозадаваемые вопросы</h3>
+                <ul>
+                    <li>Конфиденциальность и безопасность</li>
+                    <li>Условия использования</li>
+                    <li>Связь</li>
+                    <li>Поддержка</li>
+                    <li>Как это работает</li>
+                    <li>Наши контакты</li>
+                </ul>
+            </div>
+            <div class="footer-top-column3">
+
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2020 StudHunt Все права защищены. Design by MVVM</span>
+        </div>
+    </div>
+<script id="template2" type="text/template">
+    <input id="exp-duration" type="text" value="" placeholder="Описание и требуемый стаж...">
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

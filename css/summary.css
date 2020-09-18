@@ -1,0 +1,238 @@
+/* Конец обнуления */
+
+.header__row{
+    height: 120px;
+}
+/* summary */
+input[type="file"]{
+    position: relative;
+    color: transparent;
+}
+form div {
+
+    margin-bottom: 15px;
+    position: relative;
+}
+.form-wrap {
+    display: flex;
+    /*justify-content: space-around;*/
+    /*margin: 20px auto;*/
+    width: 100%;
+    /*max-width: 800px;*/
+    /*min-width: 600px;*/
+    /*background: rgba(168,73,163,0.5);*/
+    /*border-radius: 20px;*/
+    /*box-shadow: 0 0 5px #000;*/
+}
+.form-wrap h1 {
+    font-size: 24px;
+    font-weight: 400;
+    position: relative;
+    margin-top: 50px;
+}
+
+.profile {
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding: 30px;
+}
+.profile-photo{
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.btn-upload-photo{
+    border: 2px solid var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
+    padding: 15px 25px;
+    border-radius: 25px;
+    align-self: center;
+    transition: 0.15s;
+    cursor: pointer;
+}
+.btn-upload-photo:hover{
+    background-color: var(--buttons-purple-color);
+    color: white;
+    transition: 0.15s;
+}
+
+.upload-resume{
+    display: flex;
+    justify-content: space-around;
+}
+.summary {
+    /*background: white;*/
+    float: left;
+    width: calc(100% - 300px);
+    padding: 30px 80px;
+    border-radius: 0 20px 20px 0;
+    color: #7b7b7b;
+}
+.form-wrap:after, .summary div:after {
+    content: "";
+    display: table;
+    clear: left;
+}
+
+/********************** стилизация элементов формы **********************/
+label, span {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--border-grey-color);
+    border-radius: 10px;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus { /*выделяем поле при клике*/
+    border: 1px solid var(--main-pink-color);
+}
+.switch label {
+    position: relative;
+    padding-left: 50px;
+    cursor: pointer;
+    width: 50%;
+    float: left;
+    line-height: 40px;
+}
+.switch input {
+    position: absolute;
+    opacity: 0;
+}
+.switch-control {
+    position: absolute;
+    border: 1px solid var(--border-grey-color);
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    background: white;
+    border-radius: 50%;
+    text-align: center;
+}
+.male:before {
+    content: "муж";
+    font-family: FontAwesome, serif;
+    font-weight: bold;
+}
+.female:before {
+    content: "жен";
+    font-family: FontAwesome, serif;
+    font-weight: bold;
+}
+.switch label:hover input ~ .switch-control,
+.switch input:focus ~ .switch-control {
+    color: var(--main-pink-color);
+}
+.switch input:checked ~ .switch-control {
+    color: var(--main-pink-color);
+    border: 1px solid var(--main-pink-color);
+}
+select {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: 1px solid var(--border-grey-color);
+    border-radius: 10px;
+    width: 100%;
+    background: white;
+}
+select[id="country"], select[id="select-education"] {
+    border: 1px solid var(--border-grey-color);
+    border-radius: 10px;
+    width: 100%;
+    background: white;
+}
+
+.description-block {
+    margin: 15px;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+button[id="btn1"] {
+    border: 2px solid var(--main-pink-color);
+    color: white;
+    width: 100%;
+    margin: 50px 0;
+    padding: 15px 35px;
+    border-radius: 25px;
+    align-self: center;
+    transition: 0.15s;
+    cursor: pointer;
+    background: var(--main-pink-color);
+}
+button[id="btn1"]:hover{
+    border: 2px solid var(--main-pink-color);
+    background-color: white;
+    color: var(--main-pink-color);
+    transition: 0.15s;
+}
+
+.exp-card {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 1px #000;
+}
+.salary-row{
+    display: flex;
+}
+a[id="prof-exp"], a[id="lang"] {
+    color: #8473C6FF !important;
+    /*text-decoration: none;*/
+    border-bottom:#8473C6FF 1px dotted;
+}
+.work-exp-row1 {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.work-experience > label{
+    display: inline-block;
+}
+button[id="btn2"] {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 3px;
+    background: #AD7FA8FF;
+    box-shadow: 0 -1px #75507BFF inset;
+}
+button[id="btn2"]:hover { background: #75507BFF; }
+button[id="btn2"]:active {
+    background: rgb(92, 53, 102);
+    box-shadow: 0 3px rgb(92, 53, 102) inset;
+}
+textarea {
+    min-width: 100%;
+    max-width: 100%;
+    padding:5px;
+    border: 1px solid var(--border-grey-color);
+    border-radius: 10px;
+}
+input[id="date-birth"] {
+    border: 1px solid var(--border-grey-color);
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+}
+div.upload-photo {
+    /*max-width: 100%;*/
+    display: flex;
+    justify-content: space-around;
+    color: #8473C6FF;
+}
+div.achievements {
+    display: flex;
+    justify-content: space-between;
+}
+input[id="achievement"] {
+    position: absolute;
+}
+input[id="profile-img"] {
+    width: 145px;
+}

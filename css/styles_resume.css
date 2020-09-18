@@ -1,0 +1,327 @@
+
+.btm_acount {
+    padding: 20px;
+    flex-basis: auto;
+}
+
+.cand-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    color: #ffffff;
+}
+
+.cand-options-contact span {
+    font-size: 13px;
+    font-family: Open Sans, serif;
+    margin-right: 20px;
+}
+
+.cand-options-photo {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    margin-top: 65px;
+}
+
+.cand-options-photo img {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 18px;
+}
+/*.cand-options-main-skill {*/
+
+/*    display: inline-block;*/
+/*    !*flex-direction: row;*!*/
+/*    !*justify-content: space-between;*!*/
+/*}*/
+
+.resume-contacts {
+    width: 70%;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.share-bar {
+    padding: 20px;
+    font-size: 15px;
+    color: #202020;
+    line-height: 40px;
+    font-family: 'Quicksand', serif !important;
+
+}
+
+.share-bar a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 2px solid;
+    border-radius: 50%;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+    margin: 6px;
+}
+
+.share-bar i {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.share-fb {
+    color: #3b5998;
+    border-color: #3b5998;
+}
+
+.share-fb:hover {
+    color: #FFFFFF;
+    background-color: #3b5998;
+}
+
+.share-twitter {
+    color: #1da1f2;
+    border-color: #1da1f2;
+}
+
+.share-twitter:hover {
+    color: #FFFFFF;
+    background-color: #1da1f2;
+}
+
+.about-candidate {
+    text-align: center;
+    margin-left: 140px;
+    padding: 15px 0;
+}
+
+.about-candidate h3 {
+    font-size: 22px;
+    color: #202020;
+    font-weight: bold;
+    font-family: 'Quicksand', serif !important;
+}
+
+.about-candidate p {
+    font-size: 13px;
+    color: #888888;
+    line-height: 13px;
+    font-family: 'Quicksand', serif !important;
+    margin: 10px;
+}
+
+.download-cv {
+    border: 2px solid #8b91dd;
+    color: #8b91dd;
+    font-family: "Open Sans", serif;
+    font-size: 13px;
+    padding: 14px 30px 28px;
+    border-radius: 8px;
+    height: 22.5px;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.download-cv:hover {
+    background-color: #8b91dd;
+    color: #ffffff;
+}
+
+.main-skill-item {
+    display: inline-block;
+    border: solid 2px #ffffff;
+    border-radius: 21px;
+    padding: 6px 20px;
+    margin-right: 20px;
+    font-family: Open Sans, serif;
+    font-size: 13px;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: auto 290px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.content-left-column{
+    grid-column: 1;
+    padding: 0 15px;
+}
+
+.line {
+    border-top: 1px solid #888888 !important;
+    border: 1px solid#FFFFFF;
+    width: auto;
+}
+
+.job-description h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #202020;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    line-height: 1.2;
+    font-family: 'Quicksand', serif !important;
+}
+
+.job-description p {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.job-description {
+    font-size: 13px;
+    color: #888888;
+    line-height: 24px;
+    margin-bottom: 19px;
+    font-family: 'Quicksand', serif !important;
+}
+
+.job-description li {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.education h3 {
+    font-family: 'Quicksand', serif !important;
+    font-size: 16px;
+    color: #8b91dd;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 1px 0;
+}
+.education p span {
+    margin: 1px 0;
+    font-size: 13px;
+    color: #888888;
+}
+
+.university {
+    font-size: 15px;
+    color: #202020;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-right: 5px;
+}
+
+.job-description i {
+    padding-top: 20px;
+    padding-right: 20px;
+    color: #fb236a;
+}
+
+.work-experience {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px
+}
+
+.work-experience i {
+    display: inline-block;
+    border: 2px solid #8b91dd;
+    border-radius: 50%;
+    background: #e8ecec;
+    content: "";
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.work-position {
+    font-size: 16px;
+    color: #8b91dd;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.name-company {
+    color: #202020;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.work-experience p {
+    margin: 1px 0;
+}
+
+.portfolio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.portfolio img {
+    border-radius: 8px;
+}
+
+.portfolio-image:hover img {
+    opacity: 0.3;
+    }
+
+
+    /*background: linear-gradient(45deg, rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);*/
+
+.prof-skills li {
+    font-size: 15px;
+}
+
+.prof-skills i {
+    padding: 5px 10px;
+}
+
+.prof-skills {
+    margin-bottom: 30px;
+}
+
+.content-right-column {
+    grid-column: 2;
+    padding: 0 15px;
+}
+
+.job-overview-container input, textarea {
+    border: 2px solid #e8ecec;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #888888;
+    padding: 10px 25px;
+    font-family: Open Sans, serif;
+    margin-bottom: 15px;
+    width: 100%;
+    resize: vertical;
+}
+
+.submit {
+    border-radius: 30px;
+    background: #424f95;
+    font-size: 18px;
+    font-family: Open Sans, sans-serif;
+    padding: 16px 10px;
+    border: 2px solid #424f95;
+    color: #ffffff;
+    width: 100%;
+}
+
+.submit:hover {
+    color: #424f95;
+    background-color: #ffffff;
+}

@@ -1,0 +1,255 @@
+.main-content {
+    display: grid;
+    grid-template-columns: auto 290px;
+    width: 70%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.logo-employer {
+    float: left;
+    border: 2px solid #e8ecec;
+    border-radius: 8px;
+}
+
+.content-left-column{
+    grid-column: 1;
+    padding: 0 15px;
+}
+
+.header-left-column {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.describe-employer {
+    margin-bottom: 10px;
+    font-weight: 500;
+    box-sizing: border-box;
+    letter-spacing: 0;
+    padding-left: 20px;
+}
+.describe-employer h4 {
+    font-size: 24px;
+    color: #202020;
+    line-height: 1.2;
+    font-family: 'Quicksand', serif !important;
+}
+
+.describe-employer span {
+    font-size: 13px;
+    color: #888888;
+    line-height: 10px;
+
+}
+
+.contact-employment {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 70px;
+}
+
+.contact-employment-item {
+    color: #888888;
+    line-height: 29px;
+    font-size: 13px;
+    margin-right: 40px;
+    margin-top: 11px;
+
+}
+
+.line {
+    border-top: 1px solid #888888 !important;
+    border: 1px solid#FFFFFF;
+    width: auto;
+}
+
+.job-description h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #202020;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    line-height: 1.2;
+    font-family: 'Quicksand', serif !important;
+}
+
+.job-description p {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.job-description {
+    font-size: 13px;
+    color: #888888;
+    line-height: 24px;
+    margin-bottom: 19px;
+    font-family: 'Quicksand', serif !important;
+}
+
+.job-description li {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    list-style-type: none;
+}
+
+.job-description li:before {
+    content: "— ";
+}
+
+.content-right-column {
+    grid-column: 2;
+    padding: 0 15px;
+}
+
+.btm-apply-job {
+    border: solid 2px var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
+    border-radius: 10px;
+    padding: 20px;
+    line-height: 22.5px;
+    font-size: 15px;
+    font-family: 'Quicksand', serif !important;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btm-apply-job:hover {
+    background-color: var(--buttons-purple-color);
+    color: white;
+}
+
+
+
+.share-bar {
+    padding: 20px;
+    font-size: 15px;
+    color: var(--text-light-black);
+    line-height: 40px;
+    font-family: 'Quicksand', serif !important;
+}
+
+.share-bar a {
+    display: inline-block;
+    width: 47px;
+    height: 35px;
+    border: 2px solid;
+    border-radius: 8px;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+    /*margin-top: 6px;*/
+    margin: 6px;
+}
+
+.share-fb {
+    color: var(--faceboock-blue);
+    border-color: var(--faceboock-blue);
+}
+
+.share-fb:hover {
+    color: white;
+    background-color: var(--faceboock-blue);
+}
+
+.share-twitter {
+    color: var(--twitter-light-blue);
+    border-color: var(--twitter-light-blue);
+}
+
+.share-twitter:hover {
+    color: white;
+    background-color: var(--twitter-light-blue);
+}
+
+
+
+.recent-jobs h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-light-black);
+    margin-bottom: 15px;
+    margin-top: 10px;
+    line-height: 1.2;
+    font-family: 'Quicksand', serif !important;
+}
+
+.recent-jobs-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px 0;
+    border-radius: 4px;
+
+}
+
+.recent-jobs-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.recent-jobs-item-right {
+    margin-bottom: 10px;
+    font-weight: 500;
+    box-sizing: border-box;
+    letter-spacing: 0;
+    padding: 20px;
+}
+
+.logo-resent-jobs {
+    float: left;
+}
+
+.describe-recent-jobs {
+    display: inline-block;
+}
+
+.describe-recent-jobs h3 {
+    font-size: 18px;
+    color: var(--text-light-black);
+    line-height: 1.2;
+    font-family: 'Quicksand', serif !important;
+    margin: 3px;
+}
+
+.describe-recent-jobs span {
+    font-size: 13px;
+    color: grey;
+    line-height: 10px;
+    font-family: 'Quicksand', serif !important;
+}
+
+.recent-jobs-item-employer {
+    color: var(--buttons-purple-color);
+    border: 1px solid var(--buttons-purple-color);
+    border-radius: 4px;
+    font-family: Open Sans, serif;
+    font-size: 12px;
+    padding: 7px 0;
+    text-align: center;
+    width: 80px;
+}
+
+.recent-jobs-item-left {
+    padding: 20px;
+}
+
+.recent-jobs-item-left h5 {
+    font-size: 13px;
+    color: grey;
+    line-height: 10px;
+    font-family: 'Quicksand', serif !important;
+    text-align: right;
+    margin-top: 10px;
+}

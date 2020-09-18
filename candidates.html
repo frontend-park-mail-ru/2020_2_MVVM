@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Резюме соискателя</title>
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" type="text/css" href="css/summary.css">
+
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="header__row">
+            <div class="header__top">
+                <div class="header__item-logo logo"></div>
+                <div class="header__item-menu menu">
+                    <nav class="menu-list">
+                        <a href="" class="header__item header__item_simple">Главная страница</a>
+                        <a href="" class="header__item header__item_simple">Работодатели</a>
+                        <a href="" class="header__item header__item_simple">Соискатели</a>
+                        <a href="" class="header__item header__item_key-icon">Зарегистрироваться</a>
+                        <a href="" class="header__item header__item_link-icon">Войти</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="form-wrap">
+    <div class="profile">
+        <div class="profile-photo">
+            <img src="img/profile.png" alt="">
+        </div>
+        <div class="upload-photo">
+            <div class="btn-upload-photo">
+                <p>Загрузить аватар</p>
+            </div>
+        </div>
+        <div>
+            <h1>Ваше резюме</h1>
+            <div class="btm-apply-alternative upload-resume">
+                <div class="btm-apply-alternative-item">Загрузить из файла</div>
+                <div class="btm-apply-alternative-item">Заказать резюме</div>
+            </div>
+        </div>
+    </div>
+    <div id="summary" class="summary">
+        <form method="post" action="#">
+            <div>
+                <p class="description-block">Контактные данные</p>
+                <label for="username">Имя*</label>
+                <input id="username" type="text" value="" required>
+            </div>
+            <div>
+                <label for="surname">Фамилия</label>
+                <input id="surname" type="text" value="">
+            </div>
+            <div class="switch">
+                <span>Пол*</span>
+                <label for="male">
+                    <input id="male" type="radio" name="sex" value="" required>
+                    <div class="switch-control male"></div>
+                </label>
+                <label for="female">
+                    <input id="female" type="radio" name="sex" value="">
+                    <div class="switch-control female"></div>
+                </label>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="email">E-mail*</label>
+                <input id="email" type="email" required value="">
+            </div>
+            <div>
+                <label for="country">Страна проживания</label>
+                <select id="country">
+                    <option value="">Россия</option>
+                    <option value="">Украина</option>
+                    <option value="">Беларусь</option>
+                </select>
+            </div>
+            <div>
+                <p class="description-block">Основная информация</p>
+            </div>
+            <div>
+                <label for="date-birth">Дата рождения*</label>
+                <input type="date" id="date-birth" name="trip-start" value="2000-01-01"
+                       min="1930-01-01" max="2010-12-12" required>
+            </div>
+            <div>
+                <label for="citizenship">Гражданство*</label>
+                <input id="citizenship" type="text" required>
+            </div>
+            <div class="exp-select" id="pos1">
+                <div>Опыт работы</div>
+                <div class="work-experience">
+                    <input type="radio" name="rb" id="rb1">
+                    <label for="rb1">Есть опыт работы</label>
+                </div>
+                <div class="work-experience">
+                    <input type="radio" name="rb" id="rb2">
+                    <label for="rb2">Нет опыта работы</label>
+                </div>
+            </div>
+            <label for="achievement">
+            </label>
+            <div class="achievements">
+                <p>Ваши сертификаты: </p>
+                <label for="achievement">
+                    <input id="achievement" type="file" value="">
+                </label>
+            </div>
+            <button id="btn1" type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>
+</div>
+<div class="footer">
+    <div class="footer-top">
+        <div class="footer-top-column">
+            <img src="img/logo.png"><br>
+            <span>Адрес: 2-я Бауманская ул., д.5, стр.1, Москва, 105005</span> <br>
+            <span>+1 246-345-0695</span><br>
+            <span>info@studhunt.com</span>
+        </div>
+        <div class="footer-top-column">
+            <h3>Частозадаваемые вопросы</h3>
+            <ul>
+                <li>Конфиденциальность и безопасность</li>
+                <li>Условия использования</li>
+                <li>Связь</li>
+                <li>Поддержка</li>
+                <li>Как это работает</li>
+                <li>Наши контакты</li>
+            </ul>
+        </div>
+        <div class="footer-top-column3">
+
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2020 StudHunt Все права защищены. Design by MVVM</span>
+    </div>
+</div>
+
+</body>
+</html>
