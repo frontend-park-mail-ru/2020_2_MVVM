@@ -118,7 +118,7 @@ body{
 }
 
 .header__item_simple:hover{
-    font-size: 16px;
+    opacity: 0.7;
     transition: 0.15s;
 }
 
@@ -142,7 +142,7 @@ body{
 }
 
 .header__item_key-icon:hover{
-    font-size: 20px;
+    opacity: 0.7;
     transition: 0.15s;
 }
 
@@ -161,7 +161,7 @@ body{
 }
 
 .header__item_link-icon:hover{
-    font-size: 20px;
+    opacity: 0.7;
     transition: 0.15s;
 }
 
@@ -208,15 +208,13 @@ body{
     margin-top: 45px;
 }
 
-.main__keywords {
-    padding: 15px 30px;
-    border: 1px solid var(--border-grey-color);
-    border-radius: 10px;
-    margin-bottom: 20px;
+.main__keywords > input{
+    width: 208px;
+    height: 50px;
 }
 
-.main__locations {
-    padding: 15px 30px;
+.main__keywords {
+    padding: 0 5px 0 20px;
     border: 1px solid var(--border-grey-color);
     border-radius: 10px;
     margin-bottom: 20px;
@@ -228,6 +226,17 @@ body{
     background: url(../img/search.png) 0 0/cover;
     width: 16px;
     height: 16px;
+}
+
+.main__locations > input{
+    width: 208px;
+    height: 50px;
+}
+.main__locations {
+    padding: 0 5px 0 20px;
+    border: 1px solid var(--border-grey-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .main__locations::after{
@@ -254,6 +263,16 @@ body{
     position: absolute;
     right: 0;
     background: url("../img/minus.png") 0 0/cover;
+    width: 20px;
+    height: 16px;
+}
+
+.hidden:after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    background: url("../img/plus.png") 0 0/cover;
     width: 20px;
     height: 16px;
 }
@@ -396,6 +415,7 @@ body{
     padding: 0;
     width: 100%;
     text-align: center;
+    cursor: initial;
 }
 
 
@@ -420,6 +440,25 @@ body{
     color: white;
     border: 3px solid var(--buttons-purple-color);
     transition: 0.15s;
+}
+
+.main__prev{
+    position: relative;
+}
+.main__prev > a :before{
+    content: '';
+    display: inline-block;
+    background: url("../img/prev.png") 0 0/cover no-repeat;
+    width: 15px;
+    height: 12px;
+}
+
+.main__next > a :after{
+    content: '';
+    display: inline-block;
+    background: url("../img/next.png") 0 0/cover no-repeat;
+    width: 15px;
+    height: 11px;
 }
 
 /*_____________________________FOOTER_______________________*/

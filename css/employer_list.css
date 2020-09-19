@@ -62,6 +62,9 @@
 .main__description-empl {
 	font-size: 12px;
 	color: grey;
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 

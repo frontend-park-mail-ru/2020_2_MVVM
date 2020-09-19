@@ -1,9 +1,3 @@
-/* Конец обнуления */
-
-.header__row{
-    height: 120px;
-}
-/* summary */
 input[type="file"]{
     position: relative;
     color: transparent;
@@ -15,20 +9,13 @@ form div {
 }
 .form-wrap {
     display: flex;
-    /*justify-content: space-around;*/
-    /*margin: 20px auto;*/
     width: 100%;
-    /*max-width: 800px;*/
-    /*min-width: 600px;*/
-    /*background: rgba(168,73,163,0.5);*/
-    /*border-radius: 20px;*/
-    /*box-shadow: 0 0 5px #000;*/
 }
 .form-wrap h1 {
     font-size: 24px;
     font-weight: 400;
     position: relative;
-    margin-top: 50px;
+    margin: 50px 0 5px;
 }
 
 .profile {
@@ -58,8 +45,11 @@ form div {
 }
 
 .upload-resume{
-    display: flex;
+    padding: 5px;
     justify-content: space-around;
+}
+.upload-resume > .btn1{
+    margin: 5px;
 }
 .summary {
     /*background: white;*/
@@ -92,9 +82,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, te
 }
 .switch label {
     position: relative;
-    padding-left: 50px;
+    padding-right: 10px;
     cursor: pointer;
-    width: 50%;
     float: left;
     line-height: 40px;
 }
@@ -103,25 +92,21 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, te
     opacity: 0;
 }
 .switch-control {
-    position: absolute;
+    display: inline-block;
     border: 1px solid var(--border-grey-color);
     top: 0;
     left: 0;
     height: 40px;
-    width: 40px;
+    width: 80px;
     background: white;
-    border-radius: 50%;
+    border-radius: 10px;
     text-align: center;
 }
 .male:before {
-    content: "муж";
-    font-family: FontAwesome, serif;
-    font-weight: bold;
+    content: "мужской";
 }
 .female:before {
-    content: "жен";
-    font-family: FontAwesome, serif;
-    font-weight: bold;
+    content: "женский";
 }
 .switch label:hover input ~ .switch-control,
 .switch input:focus ~ .switch-control {
@@ -152,7 +137,7 @@ select[id="country"], select[id="select-education"] {
     color: black;
     text-align: center;
 }
-button[id="btn1"] {
+.btn1 {
     border: 2px solid var(--main-pink-color);
     color: white;
     width: 100%;
@@ -164,7 +149,7 @@ button[id="btn1"] {
     cursor: pointer;
     background: var(--main-pink-color);
 }
-button[id="btn1"]:hover{
+.btn1:hover{
     border: 2px solid var(--main-pink-color);
     background-color: white;
     color: var(--main-pink-color);
@@ -182,7 +167,6 @@ button[id="btn1"]:hover{
 }
 a[id="prof-exp"], a[id="lang"] {
     color: #8473C6FF !important;
-    /*text-decoration: none;*/
     border-bottom:#8473C6FF 1px dotted;
 }
 .work-exp-row1 {
@@ -221,7 +205,6 @@ input[id="date-birth"] {
     padding: 10px;
 }
 div.upload-photo {
-    /*max-width: 100%;*/
     display: flex;
     justify-content: space-around;
     color: #8473C6FF;
