@@ -44,17 +44,8 @@ const bodyParser = require('body-parser');
 
 const router = express.Router();
 router.get('/', (req, res) => {
-    let path = '../public/main_page.html';
-    fs.readFile(path, (err, file) => {
-        if (err) {
-            console.log('file read error', path, err);
-            res.write('error in template.html');
-            res.end();
-            return;
-        }
-        res.write(file);
-        res.end();
-    });
+    res.render('../public/main_page.html')
+    res.end()
 });
 router.get('/another', (req, res) => res.json({route: req.originalUrl}));
 router.post('/', (req, res) => res.json({postBody: req.body}));
