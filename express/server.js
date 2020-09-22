@@ -44,11 +44,19 @@ const bodyParser = require('body-parser');
 
 const router = express.Router();
 router.get('/', (req, res) => {
-    res.render('../public/main_page.html')
-    res.end()
+    let pat = path.join(__dirname, '../public/main_page.html')
+    fs.readFile(pat, (err, file) => {
+        if (err) {
+            res.write('error in template.html');
+            res.end();
+            return;
+        }
+        res.write(file);
+        res.end();
+    });
 });
-router.get('/another', (req, res) => res.json({route: req.originalUrl}));
-router.post('/', (req, res) => res.json({postBody: req.body}));
+router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
+router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
