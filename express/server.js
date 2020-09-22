@@ -1,26 +1,6 @@
-/*'use strict';
-const express = require('express');
-const path = require('path');
-const serverless = require('serverless-http');
-const app = express();
-const bodyParser = require('body-parser');
+'use strict';
 
-const router = express.Router();
-router.get('/', (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<h1>Hello from Express.js!</h1>');
-  res.end();
-});
-router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
-router.post('/', (req, res) => res.json({ postBody: req.body }));
-
-app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../public/main_page.html')));
-
-module.exports = app;
-module.exports.handler = serverless(app);
-*/
+/*
 const fs = require('fs');
 const http = require('http');
 const express = http.createServer((req, res) => {
@@ -53,5 +33,35 @@ const express = http.createServer((req, res) => {
     res.end();
   });
 });
+*/
 
-module.exports = express
+const fs = require('fs');
+const express = require('express');
+const path = require('path');
+const serverless = require('serverless-http');
+const app = express();
+const bodyParser = require('body-parser');
+
+const router = express.Router();
+router.get('/', (req, res) => {
+    let path = '../public/main_page.html';
+    fs.readFile(path, (err, file) => {
+        if (err) {
+            console.log('file read error', path, err);
+            res.write('error in template.html');
+            res.end();
+            return;
+        }
+        res.write(file);
+        res.end();
+    });
+});
+router.get('/another', (req, res) => res.json({route: req.originalUrl}));
+router.post('/', (req, res) => res.json({postBody: req.body}));
+
+app.use(bodyParser.json());
+app.use('/.netlify/functions/server', router);  // path must route to lambda
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../public/main_page.html')));
+
+module.exports = app;
+module.exports.handler = serverless(app);
