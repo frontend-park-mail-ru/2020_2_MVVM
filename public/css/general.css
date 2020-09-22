@@ -46,6 +46,10 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 /*_________________________PAGE____________________________*/
 
+* {
+    font-family: Comfortaa, serif;
+}
+
 body{
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
@@ -67,6 +71,12 @@ body{
     background: linear-gradient(to right, rgba(83,100,226,0.55) 0%,rgba(52,51,117,1) 97%,rgba(51,49,114,1) 100%),
     url(../img/bmstuBuilding1.png) 0 0/cover no-repeat;
     z-index: 2;
+}
+
+.header__page h3 {
+    text-align: center;
+    font-family: Comfortaa, serif;
+    line-height: 1.2;
 }
 
 .container {
@@ -250,7 +260,7 @@ body{
 .main__specialism_name {
     display: inline-block;
     color: black;
-    font-size: 17px;
+    font-size: 18px;
     margin-bottom: 25px;
     width: 100%;
     position: relative;
@@ -288,6 +298,7 @@ body{
 
 .main__type_name{
     margin-left: 10px;
+    font-size: 15px;
     cursor: pointer;
 }
 
