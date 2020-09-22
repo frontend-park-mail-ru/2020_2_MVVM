@@ -35,6 +35,7 @@ const express = http.createServer((req, res) => {
 });
 */
 
+const fs = require('fs');
 const express = require('express');
 const path = require('path');
 const serverless = require('serverless-http');
@@ -44,7 +45,16 @@ const bodyParser = require('body-parser');
 const router = express.Router();
 router.get('/', (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.sendFile(path.join(__dirname, '../public/main_page.html'))
+    fs.readFile(path.join(__dirname, '../public/main_page.html'), (err, file) => {
+        if (err) {
+            console.log('file read error', path, err);
+            res.write('error in template.html');
+            res.end();
+            return;
+        }
+        res.write(file);
+        res.end();
+    });
     res.end();
 });
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
