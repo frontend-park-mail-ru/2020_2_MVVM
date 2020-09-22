@@ -1,7 +1,7 @@
 /*const fs = require('fs');
 const http = require('http');
 
-const server = http.createServer((req, res) => {
+const express = http.createServer((req, res) => {
     console.log('requested', req.url);
     let path = '../public';
     switch (req.url) {
@@ -32,7 +32,7 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(3000)
+express.listen(3000)
 */
 'use strict';
 const express = require('express');
@@ -51,8 +51,8 @@ router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../public/main_page.html')));
+app.use('/.netlify/functions/express', router);  // path must route to lambda
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 module.exports = app;
 module.exports.handler = serverless(app);
