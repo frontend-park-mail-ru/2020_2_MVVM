@@ -55,7 +55,7 @@ router.get('/', (req, res) => {
         res.write(file);
         res.end();
     });
-    res.end();
+    res.write("fuck")
 });
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
