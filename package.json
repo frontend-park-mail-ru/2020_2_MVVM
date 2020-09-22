@@ -2,19 +2,28 @@
   "name": "frontentd_proj",
   "version": "1.0.0",
   "description": "## Students Hunter (репозиторий фронтенда)",
-  "main": "index.js",
+  "main": "functions/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "netlify-lambda build express",
+    "start": "nodemon server-local.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/frontend-park-mail-ru/2020_2_MVVM.git"
   },
-  "keywords": [],
+  "keywords": [
+    "netlify",
+    "express.js"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/frontend-park-mail-ru/2020_2_MVVM/issues"
   },
-  "homepage": "https://github.com/frontend-park-mail-ru/2020_2_MVVM#readme"
+  "homepage": "https://github.com/frontend-park-mail-ru/2020_2_MVVM#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "serverless-http": "^2.6.0"
+  }
 }
