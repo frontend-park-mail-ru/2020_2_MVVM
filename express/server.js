@@ -44,8 +44,10 @@ const bodyParser = require('body-parser');
 
 const router = express.Router();
 router.get('/', (req, res) => {
+    const root = path.resolve(__dirname, '../public');
+    console.log(root)
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    fs.readFile(path.join(__dirname, '../public/main_page.html'), (err, file) => {
+    fs.readFile(root + '/main_page.html', (err, file) => {
         if (err) {
             console.log('file read error', path, err);
             res.write('error in template.html');
@@ -55,14 +57,14 @@ router.get('/', (req, res) => {
         res.write(file);
         res.end();
     });
-    res.write("fuck")
 });
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../public/main_page.html')));
+app.use('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/main_page.html'))});
 
 module.exports = app;
 module.exports.handler = serverless(app);
