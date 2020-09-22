@@ -1,6 +1,4 @@
-* {
-    font-family: Comfortaa, serif;
-}
+
 /*_____________________HEADER____________________________________*/
 
 .header__page h3 {
@@ -141,11 +139,13 @@
     font-weight: bold;
     width: 30%;
     margin: auto;
+    transition: 0.15s;
 }
 
 .btm-all-category:hover {
     background-color: var(--main-pink-color);
     color: white;
+    transition: 0.15s;
 }
 
 .make-account-background {
@@ -198,11 +198,13 @@
     font-weight: bold;
     width: 30%;
     margin: auto;
+    transition: 0.15s;
 }
 
 .btm-create-account:hover {
     background-color: white;
     color: var(--main-pink-color);
+    transition: 0.15s;
 }
 
 

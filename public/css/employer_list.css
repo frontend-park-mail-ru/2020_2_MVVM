@@ -7,7 +7,6 @@
 	border-radius: 50%;
 	overflow: hidden;
 	background-size: contain;
-
 }
 
 .main__info-empl {
@@ -60,11 +59,12 @@
 }
 
 .main__description-empl {
-	font-size: 12px;
+	font-size: 13px;
 	color: grey;
-    max-height: 40px;
+    max-height: 60px;
+	text-overflow: ellipsis;
     overflow: hidden;
-    text-overflow: ellipsis;
+	line-height: 1.4;
 }
 
 
