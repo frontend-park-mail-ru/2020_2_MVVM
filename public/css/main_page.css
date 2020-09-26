@@ -1,4 +1,6 @@
-
+* {
+    font-family: Comfortaa, serif;
+}
 /*_____________________HEADER____________________________________*/
 
 .header__page h3 {
@@ -9,7 +11,6 @@
 
 .header__page p {
     text-align: center;
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     margin: 10px;
     color: #d5d8f3;
@@ -25,7 +26,6 @@
 
 .search-form-header > div {
     margin: 10px;
-
 }
 
 .search-form-header input {
@@ -51,7 +51,7 @@
 }
 
 .search-form-header a {
-    color: #ffffff;
+    color: white;
 }
 
 /*_____________________MAIN____________________________________*/
@@ -69,7 +69,6 @@
     font-size: 25px;
     font-weight: 700;
     text-align: center;
-    font-family: Comfortaa, serif;
     line-height: 1.2;
 }
 
@@ -115,7 +114,6 @@
 .category-sec p {
     color: var(--main-pink-color);
     font-size: 13px;
-    font-family: "Open Sans", sans-serif;
     margin-bottom: 20px;
 }
 
@@ -133,11 +131,11 @@
     color: var(--main-pink-color);
     border-radius: 10px;
     padding: 20px;
-    line-height: 22.5px;
+    line-height: 22px;
     font-size: 15px;
     text-align: center;
     font-weight: bold;
-    width: 30%;
+    width: 25%;
     margin: auto;
     transition: 0.15s;
 }
@@ -171,7 +169,6 @@
     font-size: 35px;
     font-weight: 900;
     text-align: center;
-    font-family: Comfortaa, serif;
     line-height: 1.2;
     color: white;
     margin: 30px;
@@ -181,7 +178,6 @@
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    font-family: Comfortaa, serif;
     line-height: 1.2;
     color: white;
     margin: 30px;
@@ -207,7 +203,6 @@
     transition: 0.15s;
 }
 
-
 .featured-jobs h3 {
     font-size: 23px;
     font-weight: 900;
@@ -226,7 +221,6 @@
     align-items: flex-start;
     margin: 30px 0;
     border-radius: 4px;
-
 }
 
 .featured-jobs-item:hover {
@@ -286,28 +280,63 @@
     margin-top: 10px;
 }
 
-.companies-helped {
-    margin: 30px 0;
-}
-
-.companies-helped div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 30px 0;
-
-}
-
-.companies-helped h3{
+.people-helped-box h3{
     font-size: 23px;
     font-weight: 900;
-    color: var(--text-light-black);
+    color: white;
     margin-bottom: 15px;
     margin-top: 10px;
     line-height: 1.2;
     text-align: center;
 }
 
-.companies-helped img {
-    width: 150px;
+.people-helped {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.people-helped-item{
+    margin: 80px 10px  30px;
+    background-color: white;
+    border-radius: 8px;
+    width: 31%;
+}
+
+.people-helped-item img{
+     border-radius: 50%;
+     margin-top: -35px;
+     display: inline;
+     margin-left: 20px;
+ }
+
+.people-helped-item-img:after {
+    position: relative;
+    right: -150px;
+    top: -15px;
+    line-height: 30px;
+    font-size: 100px;
+    font-weight: bolder;
+    color: var(--buttons-purple-color);
+    content: ',,';
+}
+
+.people-helped-item-text h3 {
+    color: black;
+    font-size: 18px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.people-helped-item-text span {
+    color: var(--footer-text-grey);
+    font-size: 15px;
+    margin: 10px;
+}
+
+.people-helped-item-text p {
+    margin: 10px;
+    font-size: 13px;
 }

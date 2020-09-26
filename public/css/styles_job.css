@@ -1,3 +1,7 @@
+* {
+    font-family: Comfortaa, serif;
+}
+
 .main-content {
     display: grid;
     grid-template-columns: auto 290px;
@@ -23,7 +27,6 @@
 .header-left-column {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
 }
@@ -39,7 +42,6 @@
     font-size: 24px;
     color: #202020;
     line-height: 1.2;
-    font-family: 'Quicksand', serif !important;
 }
 
 .describe-employer span {
@@ -80,7 +82,6 @@
     margin-bottom: 15px;
     margin-top: 10px;
     line-height: 1.2;
-    font-family: 'Quicksand', serif !important;
 }
 
 .job-description p {
@@ -93,7 +94,6 @@
     color: #888888;
     line-height: 24px;
     margin-bottom: 19px;
-    font-family: 'Quicksand', serif !important;
 }
 
 .job-description li {
@@ -118,9 +118,12 @@
     padding: 20px;
     line-height: 22.5px;
     font-size: 15px;
-    font-family: 'Quicksand', serif !important;
     text-align: center;
     font-weight: bold;
+}
+
+.job-overview {
+    margin-top: 30px;
 }
 
 .btm-apply-job:hover {
@@ -128,14 +131,11 @@
     color: white;
 }
 
-
-
 .share-bar {
-    padding: 20px;
+    padding-top: 20px;
     font-size: 15px;
     color: var(--text-light-black);
     line-height: 40px;
-    font-family: 'Quicksand', serif !important;
 }
 
 .share-bar a {
@@ -171,6 +171,25 @@
     background-color: var(--twitter-light-blue);
 }
 
+.share-odnoklassniki {
+    color: var(--odnoklassniki-orange);
+    border-color: var(--odnoklassniki-orange);
+}
+
+.share-odnoklassniki:hover {
+    color: white;
+    background-color: var(--odnoklassniki-orange);
+}
+.share-vk {
+    color: var(--vk-blue);
+    border-color: var(--vk-blue);
+}
+
+.share-vk:hover {
+    color: white;
+    background-color: var(--vk-blue);
+}
+
 
 
 .recent-jobs h3 {
@@ -180,7 +199,6 @@
     margin-bottom: 15px;
     margin-top: 10px;
     line-height: 1.2;
-    font-family: 'Quicksand', serif !important;
 }
 
 .recent-jobs-item {
@@ -219,7 +237,6 @@
     font-size: 18px;
     color: var(--text-light-black);
     line-height: 1.2;
-    font-family: 'Quicksand', serif !important;
     margin: 3px;
 }
 
@@ -227,14 +244,12 @@
     font-size: 13px;
     color: grey;
     line-height: 10px;
-    font-family: 'Quicksand', serif !important;
 }
 
 .recent-jobs-item-employer {
     color: var(--buttons-purple-color);
     border: 1px solid var(--buttons-purple-color);
     border-radius: 4px;
-    font-family: Open Sans, serif;
     font-size: 12px;
     padding: 7px 0;
     text-align: center;
@@ -249,7 +264,6 @@
     font-size: 13px;
     color: grey;
     line-height: 10px;
-    font-family: 'Quicksand', serif !important;
     text-align: right;
     margin-top: 10px;
 }

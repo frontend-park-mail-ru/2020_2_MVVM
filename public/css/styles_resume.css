@@ -18,7 +18,6 @@
 
 .cand-options-contact span {
     font-size: 13px;
-    font-family: Open Sans, serif;
     margin-right: 20px;
 }
 
@@ -27,7 +26,10 @@
     border-radius: 50%;
     width: 175px;
     height: 175px;
-    margin-top: 65px;
+    margin-top: 230px;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cand-options-photo img {
@@ -37,12 +39,13 @@
     margin-right: auto;
     margin-top: 18px;
 }
-/*.cand-options-main-skill {*/
 
-/*    display: inline-block;*/
-/*    !*flex-direction: row;*!*/
-/*    !*justify-content: space-between;*!*/
-/*}*/
+.cand-options-bio {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .resume-contacts {
     width: 70%;
@@ -50,7 +53,9 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    height: 150px;
 }
 
 .share-bar {
@@ -58,8 +63,6 @@
     font-size: 15px;
     color: #202020;
     line-height: 40px;
-    font-family: 'Quicksand', serif !important;
-
 }
 
 .share-bar a {
@@ -99,9 +102,27 @@
     background-color: #1da1f2;
 }
 
+.share-odnoklassniki {
+    color: var(--odnoklassniki-orange);
+    border-color: var(--odnoklassniki-orange);
+}
+
+.share-odnoklassniki:hover {
+    color: white;
+    background-color: var(--odnoklassniki-orange);
+}
+.share-vk {
+    color: var(--vk-blue);
+    border-color: var(--vk-blue);
+}
+
+.share-vk:hover {
+    color: white;
+    background-color: var(--vk-blue);
+}
+
 .about-candidate {
     text-align: center;
-    margin-left: 105px;
     padding: 15px 0;
 }
 
@@ -109,21 +130,18 @@
     font-size: 22px;
     color: #202020;
     font-weight: bold;
-    font-family: 'Quicksand', serif !important;
 }
 
 .about-candidate p {
     font-size: 13px;
     color: #888888;
     line-height: 13px;
-    font-family: 'Quicksand', serif !important;
     margin: 10px;
 }
 
 .download-cv {
     border: 2px solid #8b91dd;
     color: #8b91dd;
-    font-family: "Open Sans", serif;
     font-size: 13px;
     padding: 14px 30px 28px;
     border-radius: 8px;
@@ -143,7 +161,6 @@
     border-radius: 21px;
     padding: 6px 20px;
     margin-right: 20px;
-    font-family: Open Sans, serif;
     font-size: 13px;
 }
 
@@ -157,7 +174,6 @@
     padding-right: 15px;
 }
 
-
 .content-left-column{
     grid-column: 1;
     padding: 0 15px;
@@ -166,7 +182,9 @@
 .line {
     border-top: 1px solid #888888 !important;
     border: 1px solid#FFFFFF;
-    width: auto;
+    width: 67%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .job-description h3 {
@@ -176,7 +194,6 @@
     margin-bottom: 15px;
     margin-top: 10px;
     line-height: 1.2;
-    font-family: 'Quicksand', serif !important;
 }
 
 .job-description p {
@@ -189,7 +206,6 @@
     color: #888888;
     line-height: 24px;
     margin-bottom: 19px;
-    font-family: 'Quicksand', serif !important;
 }
 
 .job-description li {
@@ -201,7 +217,6 @@
 }
 
 .education h3 {
-    font-family: 'Quicksand', serif !important;
     font-size: 16px;
     color: #8b91dd;
     font-weight: 500;
@@ -244,6 +259,7 @@
     width: 15px;
     padding: 0;
     margin-right: 10px;
+    flex-shrink: 0;
 }
 
 .work-position {
@@ -273,26 +289,60 @@
 }
 
 .portfolio img {
+    margin: 10px;
     border-radius: 8px;
 }
 
 .portfolio-image:hover img {
     opacity: 0.3;
-    }
-
-
-    /*background: linear-gradient(45deg, rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);*/
+}
 
 .prof-skills li {
     font-size: 15px;
 }
 
 .prof-skills i {
-    padding: 5px 10px;
+    /*padding: 5px 10px;*/
 }
 
 .prof-skills {
     margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.prof-skill-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--text-gray);
+    font-family: sans-serif !important;
+}
+
+.prof-skill-name span {
+    font-size: 13px;
+
+}
+
+.progress-bar {
+    background-color: var(--border-grey-color);
+    border-radius: 10px;
+    height: 8px;
+    margin-bottom: 20px;
+}
+
+.progress-bar-percent {
+    background-color: var(--main-pink-color);
+    border-radius: 10px;
+    height: 8px;
+    margin-bottom: -8px;
+    z-index: 2;
+    position: relative;
+}
+
+.progress-bar span {
+    position: absolute;
+    top: 30px;
+    left: 400px;
 }
 
 .content-right-column {
@@ -301,22 +351,25 @@
 }
 
 .job-overview-container input, textarea {
-    border: 2px solid #e8ecec;
+    border: 2px solid var(--border-grey-color);
     border-radius: 8px;
     font-size: 13px;
     color: #888888;
     padding: 10px 25px;
-    font-family: Open Sans, serif;
     margin-bottom: 15px;
     width: 100%;
     resize: vertical;
 }
 
+
+.job-overview-container textarea {
+    height: 150px;
+}
+
 .submit {
     border-radius: 30px;
     background: #424f95;
-    font-size: 18px;
-    font-family: Open Sans, sans-serif;
+    font-size: 13px;
     padding: 16px 10px;
     border: 2px solid #424f95;
     color: #ffffff;
