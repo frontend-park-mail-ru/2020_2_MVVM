@@ -1,108 +1,108 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Резюме работодателя</title>
-    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="css/summary.css">
-    <link rel="stylesheet" href="css/general.css" />
+  <meta charset="UTF-8">
+  <title>Резюме работодателя</title>
+  <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="css/summary.css">
+  <link rel="stylesheet" href="css/general.css"/>
 </head>
 <body>
-    <header class="header">
-    <div class="container">
-        <div class="header__row">
-            <div class="header__top">
-                <div class="header__item-logo logo"></div>
-                <div class="header__item-menu menu">
-                    <nav class="menu-list">
-                        <a href="StudHunt" class="header__item header__item_simple">Главная страница</a>
-                        <a href="employers" class="header__item header__item_simple">Работодатели</a>
-                        <a href="applicants" class="header__item header__item_simple">Соискатели</a>
-                        <a href="create_resume" class="header__item header__item_big-button">+ Создать резюме</a>
-                        <a href="registration" class="header__item header__item_key-icon">Зарегистрироваться</a>
-                        <a href="login" class="header__item header__item_link-icon">Войти</a>
-                    </nav>
-                </div>
-            </div>
-            <div class="header__bottom">
-                <div class="header__page">
-                    <h3>Создание профиля</h3>
-                </div>
-            </div>
+<header class="header">
+  <div class="container">
+    <div class="header__row">
+      <div class="header__top">
+        <div class="header__item-logo logo"></div>
+        <div class="header__item-menu menu">
+          <nav class="menu-list">
+            <a href="StudHunt" class="header__item header__item_simple">Главная страница</a>
+            <a href="employers" class="header__item header__item_simple">Работодатели</a>
+            <a href="applicants" class="header__item header__item_simple">Соискатели</a>
+            <a href="create_resume" class="header__item header__item_big-button">+ Создать резюме</a>
+            <a href="registration" class="header__item header__item_key-icon">Зарегистрироваться</a>
+            <a href="login" class="header__item header__item_link-icon">Войти</a>
+          </nav>
         </div>
+      </div>
+      <div class="header__bottom">
+        <div class="header__page">
+          <h3>Создание профиля</h3>
+        </div>
+      </div>
     </div>
+  </div>
 </header>
-    <div class="container">
-        <div class="form-wrap">
-            <div class="profile">
-                <div class="profile-photo">
-                    <img src="img/profile.png" alt="">
-                </div>
-                <div class="upload-photo">
-                    <div class="btn-upload-photo">
-                        <p>Загрузить аватар</p>
-                    </div>
-                </div>
-                <div>
-                    <h1>Ваше резюме</h1>
-                    <div class="btm-apply-alternative upload-resume">
-                        <button class="btn1" type="submit">Загрузить из файла</button>
-                        <button class="btn1" type="submit">Заказать резюме</button>
-                    </div>
-                </div>
-            </div>
-            <div id="summary" class="summary">
-            <form method="post" action="#">
-                <div>
-                    <p class="description-block">Общая информация</p>
-                    <label for="company">Название компании*</label>
-                    <input id="company" type="text" value="" required>
-                </div>
-                <div>
-                    <label for="summary-name">Название вакансии*</label>
-                    <input id="summary-name" type="text" value="" required>
-                </div>
-                <div>
-                    <label for="description">Описание вакансии*</label>
-                    <textarea id="description" required></textarea>
-                </div>
-                <div class="exp-row">
-                    <label for="exp-duration">Требуемый опыт работы</label>
-                    <label id="exp-row-start" for="select-duration"></label>
-                    <select id="select-duration">
-                        <option id="exp-need" value="">требуется</option>
-                        <option value="">не требуется</option>
-                    </select>
-                </div>
-                <p class="description-block">Контакты</p>
-                <div>
-                    <label for="email">E-mail</label>
-                    <input id="email" type="email" required value="">
-                </div>
-                <div>
-                    <label for="tel">Телефон для связи</label>
-                    <input id="tel" type="tel" value="" placeholder="+7-(999)-999-99-99">
-                </div>
-                <div>
-                    <label for="address">Адрес места работы*</label>
-                    <input id="address" type="text" value="" required>
-                </div>
-                <div class="exp-select" id="pos1">
-                </div>
-                <button class="btn1" type="submit">Сохранить</button>
-            </form>
+<div class="container">
+  <div class="form-wrap">
+    <div class="profile">
+      <div class="profile-photo">
+        <img src="img/profile.png" alt="">
+      </div>
+      <div class="upload-photo">
+        <div class="btn-upload-photo">
+          <p>Загрузить аватар</p>
         </div>
-    </div>
-    </div>
-    <div class="footer">
-        <div class="footer-bottom">
-            <img src="img/logo.png"><br>
-            <span>Разработано в рамках курса Технопарка командой MVVM</span><br>
-            <span>© 2020 StudHunt</span>
+      </div>
+      <div>
+        <h1>Ваше резюме</h1>
+        <div class="btm-apply-alternative upload-resume">
+          <button class="btn1" type="submit">Загрузить из файла</button>
+          <button class="btn1" type="submit">Заказать резюме</button>
         </div>
+      </div>
     </div>
-    <script id="template2" type="text/template">
-    <input id="exp-duration" type="text" value="" placeholder="Описание и требуемый стаж...">
+    <div id="summary" class="summary">
+      <form method="post" action="#">
+        <div>
+          <p class="description-block">Общая информация</p>
+          <label for="company">Название компании*</label>
+          <input id="company" type="text" value="" required>
+        </div>
+        <div>
+          <label for="summary-name">Название вакансии*</label>
+          <input id="summary-name" type="text" value="" required>
+        </div>
+        <div>
+          <label for="description">Описание вакансии*</label>
+          <textarea id="description" required></textarea>
+        </div>
+        <div class="exp-row">
+          <label for="exp-duration">Требуемый опыт работы</label>
+          <label id="exp-row-start" for="select-duration"></label>
+          <select id="select-duration">
+            <option id="exp-need" value="">требуется</option>
+            <option value="">не требуется</option>
+          </select>
+        </div>
+        <p class="description-block">Контакты</p>
+        <div>
+          <label for="email">E-mail</label>
+          <input id="email" type="email" required value="">
+        </div>
+        <div>
+          <label for="tel">Телефон для связи</label>
+          <input id="tel" type="tel" value="" placeholder="+7-(999)-999-99-99">
+        </div>
+        <div>
+          <label for="address">Адрес места работы*</label>
+          <input id="address" type="text" value="" required>
+        </div>
+        <div class="exp-select" id="pos1">
+        </div>
+        <button class="btn1" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-bottom">
+    <img src="img/logo.png"><br>
+    <span>Разработано в рамках курса Технопарка командой MVVM</span><br>
+    <span>© 2020 StudHunt</span>
+  </div>
+</div>
+<script id="template2" type="text/template">
+  <input id="exp-duration" type="text" value="" placeholder="Описание и требуемый стаж...">
 </script>
 <script src="js/main.js"></script>
 </body>
