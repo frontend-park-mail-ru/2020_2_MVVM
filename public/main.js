@@ -1,6 +1,6 @@
 import {NavBar} from './js/components/navBar/navBar.js'
-import {renderCandList, candidatesListModule} from './js/modules/candidatesList.js'
-import employersListModule from './js/modules/employersList.js'
+import {renderCandList, candidatesListModule} from './js/pages/candidatesList/candidatesList.js'
+import employersListModule from './js/pages/employersList.js'
 
 
 const app = window.document.getElementById('app');

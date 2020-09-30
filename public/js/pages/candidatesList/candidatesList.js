@@ -1,5 +1,5 @@
-import {NavBar} from "../components/navBar/navBar.js";
-import {checkBoxes} from '../components/searchForm/searchForm.js'
+import {NavBar} from "../../components/navBar/navBar.js";
+import {checkBoxes} from '../../components/searchForm/searchForm.js'
 
 export class candidatesListModule {
     constructor(app, user, title) {
