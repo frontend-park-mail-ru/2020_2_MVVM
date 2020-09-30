@@ -1,0 +1,83 @@
+
+
+.main__list{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    cursor: pointer;
+}
+
+.main__list_row {
+    display: flex;
+    padding: 35px 40px;
+    border-radius: 2px;
+    border: 1px solid;
+    border-color: white white var(--border-grey-color) var(--border-grey-color);
+    margin-bottom: 1px;
+    z-index: 0;
+    transition: 0.15s;
+}
+
+.main__list_row:hover{
+    box-shadow: 0 0 25px 5px var(--border-grey-color);
+    z-index: 1;
+    transition: 0.15s;
+}
+
+
+.main__candidate_photo {
+    min-width: 80px;
+    min-height: 80px;
+    max-height: 80px;
+    border-radius: 20%;
+    overflow: hidden;
+    background-size: contain;
+    margin-right: 20px;
+}
+
+.main__candidate_description {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main__candidate_name {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.main__candidate_specialism {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.main__candidate_location {
+    color: grey;
+}
+
+.main__candidate_location:before {
+    content: '';
+    background: url(/spa/public/img/geo1.png) 0 0/cover;
+    display: inline-block;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+.main__candidate_shortlist {
+    border: 2px solid var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
+    padding: 15px 25px;
+    border-radius: 25px;
+    align-self: center;
+    transition: 0.15s;
+}
+
+.main__candidate_shortlist:hover {
+    background-color: var(--buttons-purple-color);
+    color: white;
+    transition: 0.15s;
+}

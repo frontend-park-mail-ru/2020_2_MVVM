@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="css/general.css"/>
+  <link rel="stylesheet" href="js/components/navBar/navBar.css"/>
+  <link rel="stylesheet" href="js/components/searchForm/searchForm.css"/>
+  <link rel="stylesheet" href="js/components/listOfCandidates/listOfCandidates.css"/>
+  <link rel="stylesheet" href="js/components/pagination/pagination.css"/>
+  <link rel="stylesheet" href="js/components/footer/footer.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+</head>
+<body>
+<div id="app"></div>
+
+<script type="module" src="js/components/navBar/navBar.tmpl.js"></script>
+<script type="module" src="js/components/searchForm/searchForm.tmpl.js"></script>
+<script type="module" src="js/components/listOfCandidates/listOfCandidates.tmpl.js"></script>
+<script type="module" src="js/components/pagination/pagination.tmpl.js"></script>
+<script type="module" src="js/components/footer/footer.tmpl.js"></script>
+<script type="module" src="main.js"></script>
+<script type="text/javascript"><!--
+
+function CheckClick(e){
+    t=e.previousSibling;
+    if( (t.tagName==='INPUT')&&(t.type==='checkbox')) t.click();
+}
+
+//--></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <div class="pagination">
+        <ul>
+            <li class="main__prev"><a href=""><i class="main__left"></i> Пред</a></li>
+            <li><a href="">1</a></li>
+            <li class="main__active"><a href="">2</a></li>
+            <li><a href="">3</a></li>
+            <li><span class="main__delimeter">...</span></li>
+            <li><a href="">14</a></li>
+            <li class="main__next"><a href="">След <i class="main__right"></i></a></li>
+        </ul>
+    </div>
+</fest:template>
