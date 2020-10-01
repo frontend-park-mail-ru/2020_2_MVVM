@@ -1,6 +1,7 @@
 import {NavBar, NavBarInit} from "../../components/navBar/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
 
+const app = window.document.getElementById('app');
 
 function createElem(tag, className, parent) {
     const temp = document.createElement(tag);
@@ -9,8 +10,8 @@ function createElem(tag, className, parent) {
     return temp
 }
 
-export function renderEmplList(app, user) {
-    app.innerHTML = document.createElement("div");
+export function renderEmplList(user) {
+    app.innerHTML = '';
 
     const employersList = new NavBarInit(app, user, "Список ваканский");
     employersList.loadNavBar();

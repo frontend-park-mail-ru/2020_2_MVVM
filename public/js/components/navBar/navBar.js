@@ -1,3 +1,5 @@
+import {renderEmplList} from "../../pages/employersList/employersList.js";
+import {renderCandList} from "../../pages/candidatesList/candidatesList.js";
 
 export class NavBarInit {
     constructor(app, user, title) {
@@ -7,6 +9,7 @@ export class NavBarInit {
     }
 
     loadNavBar() {
+
         const navBar = new NavBar(this.app, this.title);
         navBar.loadNavBar(this.user);
     }
@@ -16,6 +19,7 @@ export class NavBar {
 
     constructor(app, title) {
         app.innerHTML = window.fest['navBar.tmpl'](title);
+        addPaths();
     }
 
 
@@ -30,4 +34,22 @@ export class NavBar {
         }
     }
 
+}
+
+
+function addPaths() {
+    const navBar = document.getElementsByClassName('header__item');
+    for (let i=0; i < navBar.length; i++) {
+        navBar[i].addEventListener('click', (app, user) => {
+            switch (navBar[i].textContent){
+                case 'Главная страница':
+                    break;
+                case 'Работодатели':
+                    renderEmplList(user);
+                    break;
+                case  'Соискатели':
+                    renderCandList(user)
+            }
+        });
+    }
 }
