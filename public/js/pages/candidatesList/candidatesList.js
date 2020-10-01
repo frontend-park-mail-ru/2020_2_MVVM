@@ -1,19 +1,6 @@
-import {NavBar} from "../../components/navBar/navBar.js";
+import {NavBar, NavBarInit} from "../../components/navBar/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
 
-export class candidatesListModule {
-    constructor(app, user, title) {
-        this.app = app;
-        this.user = user;
-        this.title = title;
-    }
-
-    loadNavBar() {
-        const navBar = new NavBar(this.app, this.title);
-        navBar.loadNavBar(this.user);
-    }
-
-}
 
 function createElem(tag, className, parent) {
     const temp = document.createElement(tag);
@@ -25,7 +12,7 @@ function createElem(tag, className, parent) {
 export function renderCandList(app, user){
     app.innerHTML = document.createElement("div");
 
-    const candidatesList = new candidatesListModule(app,user, "Соискатели");
+    const candidatesList = new NavBarInit(app,user, "Список резюме");
     candidatesList.loadNavBar();
 
     const main = createElem("div", "main", app);
@@ -54,25 +41,25 @@ export function renderCandList(app, user){
             name: 'Мария Козлова',
             prof: 'UX / UI Дизайнер',
             job: 'yandex.ru',
-            country: 'Москва / Россия',
+            location: ['Москва','Россия'],
         },
         {
             name: 'Иван Иванов',
             prof: 'Слесарь',
             job: 'мгту',
-            country: 'Иркутск / Россия',
+            location: ['Иркутск','Россия'],
         },
         {
             name: 'Елизавета Комарова',
             prof: 'Кассир',
             job: 'Пятерочка',
-            country: 'Новосибирск / Россия',
+            location: ['Новосибирск','Россия'],
         },
         {
             name: 'Екатерина Шумакова',
             prof: 'Программист 1:С',
             job: '1:C',
-            country: 'Санкт-Петербург / Россия',
+            location: ['Санкт-Петербург','Россия'],
         }
     ]
 

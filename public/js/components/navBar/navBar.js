@@ -1,3 +1,17 @@
+
+export class NavBarInit {
+    constructor(app, user, title) {
+        this.app = app;
+        this.user = user;
+        this.title = title;
+    }
+
+    loadNavBar() {
+        const navBar = new NavBar(this.app, this.title);
+        navBar.loadNavBar(this.user);
+    }
+}
+
 export class NavBar {
 
     constructor(app, title) {

@@ -1,13 +1,13 @@
-import {NavBar} from './js/components/navBar/navBar.js'
-import {renderCandList, candidatesListModule} from './js/pages/candidatesList/candidatesList.js'
-import employersListModule from './js/pages/employersList.js'
+import {renderCandList} from './js/pages/candidatesList/candidatesList.js'
+import {renderEmplList} from './js/pages/employersList/employersList.js'
 
 
 const app = window.document.getElementById('app');
 
 
 function start(user) {
-    renderCandList(app, user);
+    // renderCandList(app, user);
+    renderEmplList(app, user);
 }
 
-start(true);
+start(false);
