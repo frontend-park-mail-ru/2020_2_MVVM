@@ -16,7 +16,7 @@ export function renderPersNavBar(user) {
     const employersList = new NavBarInit(app, user, "Личный кабинет");
     employersList.loadNavBar();
 
-    const main = createElem("div", "main", app);
+   const main = createElem("div", "main", app);
     const container = createElem("div", "container", main);
 
     const title = createElem("div", "title", container);
