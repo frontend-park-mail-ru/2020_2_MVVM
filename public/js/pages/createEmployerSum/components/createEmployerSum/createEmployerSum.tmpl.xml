@@ -1,0 +1,64 @@
+<fest:template xmlns:fest="http://fest.mail.ru">
+    <div class="container">
+        <div class="form-wrap">
+            <div class="profile">
+                <div class="profile-photo">
+                    <img src="img/profile.png" alt=""/>
+                </div>
+                <div class="upload-photo">
+                    <div class="btn-upload-photo">
+                        <p>Загрузить аватар</p>
+                    </div>
+                </div>
+                <div>
+                    <h1>Ваше резюме</h1>
+                    <div class="btm-apply-alternative upload-resume">
+                        <button class="btn-pink" type="submit">Загрузить из файла</button>
+                        <button class="btn-pink" type="submit">Заказать резюме</button>
+                    </div>
+                </div>
+            </div>
+            <div id="summary" class="summary">
+                <form class="candidate" method="post" action="#">
+                    <div>
+                        <p class="description-block">Общая информация</p>
+                        <label class="form-labels" for="company">Название компании*</label>
+                        <input class="user-info" id="company" type="text" value=""/>
+                    </div>
+                    <div>
+                        <label class="form-labels" for="summary-name">Название вакансии*</label>
+                        <input class="user-info" id="summary-name" type="text" value=""/>
+                    </div>
+                    <div>
+                        <label class="form-labels" for="description">Описание вакансии*</label>
+                        <textarea id="description"/>
+                    </div>
+                    <div class="exp-row">
+                        <label class="form-labels" for="exp-duration">Требуемый опыт работы</label>
+                        <label class="form-labels" id="exp-row-start" for="education"/>
+                        <select class="user-all" id="education">
+                            <option id="exp-need" value="">требуется</option>
+                            <option value="">не требуется</option>
+                        </select>
+                    </div>
+                    <p class="description-block">Контакты</p>
+                    <div>
+                        <label class="form-labels" for="email">E-mail</label>
+                        <input class="user-info" id="email" type="email" value=""/>
+                    </div>
+                    <div>
+                        <label class="form-labels" for="tel">Телефон для связи</label>
+                        <input class="user-info" id="tel" type="tel" value="" placeholder="+7-(999)-999-99-99"/>
+                    </div>
+                    <div>
+                        <label class="form-labels" for="address">Адрес места работы*</label>
+                        <input class="user-info" id="address" type="text" value=""/>
+                    </div>
+                    <div class="exp-select" id="pos1">
+                    </div>
+                    <button class="btn-pink" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fest:template>

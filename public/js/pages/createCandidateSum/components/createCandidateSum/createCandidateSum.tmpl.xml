@@ -1,5 +1,5 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-    <div class="container">
+
         <div class="form-wrap">
             <div class="profile">
                 <div class="profile-photo">
@@ -148,5 +148,5 @@
                 </form>
             </div>
         </div>
-    </div>
+
 </fest:template>
