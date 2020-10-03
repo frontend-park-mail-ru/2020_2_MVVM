@@ -1,0 +1,104 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+  <fest:each iterate="items" index="i" value="v">
+      <div class="job-description">
+        <fest:each iterate="v.mainInfo" index="i" value="sp">
+          <h3>
+            <fest:value>sp.name</fest:value>
+          </h3>
+          <p>
+            <fest:value>sp.text</fest:value>
+          </p>
+        </fest:each>
+
+        <fest:each iterate="v.education" index="i" value="sp">
+          <h3>
+            <fest:value>sp.name</fest:value>
+          </h3>
+          <fest:for iterate="sp.educationItem" index="i" value="p">
+            <li>
+              <i class="fa fa-graduation-cap fa-2x"></i>
+              <div class="education">
+                <h3> <fest:value>p.type</fest:value> </h3>
+                <p> <fest:value>p.duration</fest:value> </p>
+                <span class="university"> <fest:value>p.university</fest:value> </span>
+                <span class="department">  <fest:value>p.department</fest:value> </span>
+                <p> <fest:value>p.description</fest:value> </p>
+              </div>
+            </li>
+          </fest:for>
+        </fest:each>
+
+        <fest:each iterate="v.workExperience" index="i" value="sp">
+          <h3> <fest:value>sp.name</fest:value> </h3>
+          <fest:for iterate="sp.experienceItem" index="i" value="p">
+            <li>
+              <div class="work-experience">
+                <i></i>
+                <div>
+                  <span class="work-position"> <fest:value>p.position</fest:value> </span>
+                  <span class="name-company"> <fest:value>p.nameCompany</fest:value> </span>
+                  <p> <fest:value>p.duration</fest:value>  </p>
+                  <p> <fest:value>p.description</fest:value> </p>
+                </div>
+              </div>
+
+            </li>
+          </fest:for>
+        </fest:each>
+
+        <fest:each iterate="v.portfolio" index="i" value="sp">
+          <h3> <fest:value>sp.name</fest:value> </h3>
+          <div class="portfolio">
+            <fest:for iterate="sp.portfolioItem" index="i" value="p">
+            <div class="portfolio-image">
+              <fest:atttibute>
+                <a href="#">
+                  <img src="{p.image}"></img>
+                </a>
+              </fest:atttibute>
+            </div>
+            </fest:for>
+          </div>
+        </fest:each>
+
+        <fest:each iterate="v.skills" index="i" value="sp">
+          <h3> <fest:value>sp.name</fest:value> </h3>
+          <ul class="prof-skills">
+            <fest:for iterate="sp.skillsItem" index="i" value="p">
+                <div>
+                  <fest:atttibute>
+                  <div class="prof-skill-item" style="width:{p.percent}">
+                    <div class="prof-skill-name">
+                      <h4> <fest:value>p.skill</fest:value></h4>
+                      <span><fest:value>p.percent</fest:value></span>
+                    </div>
+                    <div class="progress-bar-percent" ></div>
+                  </div>
+                </fest:atttibute>
+                  <div class="progress-bar"></div>
+                </div>
+          </fest:for>
+          </ul>
+        </fest:each>
+
+        <fest:each iterate="v.awards" index="i" value="sp">
+          <h3> <fest:value>sp.name</fest:value> </h3>
+          <fest:for iterate="sp.awardsItem" index="i" value="p">
+            <li>
+              <div class="work-experience">
+                <i></i>
+                <div>
+                  <span class="work-position"> <fest:value>p.award</fest:value> </span>
+                  <p> <fest:value>p.description</fest:value> </p>
+                </div>
+              </div>
+
+            </li>
+          </fest:for>
+        </fest:each>
+
+
+
+      </div>
+  </fest:each>
+</fest:template>

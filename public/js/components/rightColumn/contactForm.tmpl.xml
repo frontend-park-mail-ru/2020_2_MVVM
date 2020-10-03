@@ -1,0 +1,12 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+  <div class="job-overview">
+    <h3>Связаться</h3>
+    <div class="job-overview-container">
+      <input class="job-overview-container-input" type="text" placeholder="Имя"> </input>
+      <input class="job-overview-container-input" type="text" placeholder="Фамилия"> </input>
+      <input class="job-overview-container-input" type="text" placeholder="Название компании"> </input>
+      <textarea placeholder="Сообщение должно сожержать более 50 символов"></textarea>
+      <button class="submit">Отправить Email</button>
+    </div>
+  </div>
+</fest:template>

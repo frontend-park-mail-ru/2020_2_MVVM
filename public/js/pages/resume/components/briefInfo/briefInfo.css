@@ -1,0 +1,67 @@
+.cand-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    color: #ffffff;
+}
+
+.main-skill-item {
+    display: inline-block;
+    border: solid 2px #ffffff;
+    border-radius: 21px;
+    padding: 6px 20px;
+    margin-right: 20px;
+    font-size: 13px;
+}
+
+.cand-options-contact span {
+    font-size: 13px;
+    margin-right: 20px;
+}
+
+.cand-options-photo {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    margin-top: 230px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cand-options-photo img {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 18px;
+}
+
+.cand-options-bio {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-candidate {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.about-candidate h3 {
+    font-size: 22px;
+    color: #202020;
+    font-weight: bold;
+}
+
+.about-candidate p {
+    font-size: 13px;
+    color: #888888;
+    line-height: 13px;
+    margin: 10px;
+}
+
+

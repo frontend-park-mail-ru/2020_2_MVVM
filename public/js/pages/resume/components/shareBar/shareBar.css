@@ -1,0 +1,97 @@
+.resume-contacts {
+    width: 70%;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 150px;
+}
+
+.share-bar {
+    padding: 20px;
+    font-size: 15px;
+    color: #202020;
+    line-height: 40px;
+}
+
+.share-bar a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 2px solid;
+    border-radius: 50%;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+    margin: 6px;
+}
+
+.share-bar i {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.share-fb {
+    color: #3b5998;
+    border-color: #3b5998;
+}
+
+.share-fb:hover {
+    color: #FFFFFF;
+    background-color: #3b5998;
+}
+
+.share-twitter {
+    color: #1da1f2;
+    border-color: #1da1f2;
+}
+
+.share-twitter:hover {
+    color: #FFFFFF;
+    background-color: #1da1f2;
+}
+
+.share-odnoklassniki {
+    color: var(--odnoklassniki-orange);
+    border-color: var(--odnoklassniki-orange);
+}
+
+.share-odnoklassniki:hover {
+    color: white;
+    background-color: var(--odnoklassniki-orange);
+}
+.share-vk {
+    color: var(--vk-blue);
+    border-color: var(--vk-blue);
+}
+
+.share-vk:hover {
+    color: white;
+    background-color: var(--vk-blue);
+}
+
+.download-cv {
+    border: 2px solid #8b91dd;
+    color: #8b91dd;
+    font-size: 13px;
+    padding: 14px 30px 28px;
+    border-radius: 8px;
+    height: 22.5px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.download-cv:hover {
+    background-color: #8b91dd;
+    color: #ffffff;
+}
+
+.line {
+    border-top: 1px solid #888888 !important;
+    border: 1px solid#FFFFFF;
+    width: 67%;
+    margin-left: auto;
+    margin-right: auto;
+}

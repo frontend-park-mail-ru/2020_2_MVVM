@@ -1,0 +1,61 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+  <div class="job-overview">
+  <h3>Обзор <fest:space/> <fest:value>items.name</fest:value></h3>
+  <ul class="job-overview-container">
+    <li>
+      <div class="inline-icon">
+        <i class="fas fa-wallet fa-lg"></i>
+        <div>
+          <h2>Зарплата</h2>
+          <span><fest:value>items.salary</fest:value></span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="inline-icon">
+        <i class="fa fa-mars-double fa-lg"></i>
+        <div>
+          <h2>Пол</h2>
+          <span><fest:value>items.gender</fest:value></span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="inline-icon">
+        <i class="fa fa-thumbtack fa-lg"></i>
+        <div>
+          <h2>Уровень</h2>
+          <span><fest:value>items.level</fest:value></span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="inline-icon">
+        <i class="fa fa-puzzle-piece fa-lg"></i>
+        <div>
+          <h2>Направление</h2>
+          <span><fest:value>items.interest</fest:value></span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="inline-icon">
+        <i class="fa fa-user-shield fa-lg"></i>
+        <div>
+          <h2>Опыт</h2>
+          <span><fest:value>items.experience</fest:value></span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="inline-icon">
+        <i class="fas fa-chart-line fa-lg"></i>
+        <div>
+          <h2>Образование</h2>
+          <span><fest:value>items.education</fest:value></span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  </div>
+</fest:template>
