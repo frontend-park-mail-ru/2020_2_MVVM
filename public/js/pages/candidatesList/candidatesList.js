@@ -1,4 +1,4 @@
-import {NavBar, NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/navBar/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
 
 const app = window.document.getElementById('app');

@@ -1,26 +1,26 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <fest:each iterate="items" index="i" value="v">
         <div class="main__list_row">
-            <div class="main__logo-empl">
+            <div class="main__logo-employers ">
                 <img src="img/em1.jpg" alt="oops"/>
             </div>
-            <div class="main__info-empl">
+            <div class="main__info-employers">
                 <div class="main__info-header">
-                    <div class="main__name-empl">
-                        <a href="" class="main__name-empl_link"><fest:value>v.name</fest:value></a>
+                    <div class="main__name-employers">
+                        <a href="" class="main__name-employers_link"><fest:value>v.name</fest:value></a>
                     </div>
                     <div class="main__count-open-pos"><fest:value>v.openPos</fest:value><fest:space/>открытых позиции</div>
                 </div>
-                    <div class="main__specialosm-empl">
+                    <div class="main__specialosm-employers">
                         <fest:each iterate="v.special" index="i" value="sp">
                             <fest:value>sp</fest:value>,
                         </fest:each>
                     </div>
-                <div class="main__location-empl"><fest:value>v.location[0]</fest:value>,<fest:space/><fest:value>v.location[1]</fest:value></div>
+                <div class="main__location-employers"><fest:value>v.location[0]</fest:value>,<fest:space/><fest:value>v.location[1]</fest:value></div>
 <!--                <fest:each iterate="v.location" index="i" value="loc">-->
 <!--                    <fest:value>loc</fest:value>,-->
 <!--                </fest:each>-->
-                <div class="main__description-empl"><fest:value>v.description</fest:value></div>
+                <div class="main__description-employers"><fest:value>v.description</fest:value></div>
             </div>
         </div>
     </fest:each>

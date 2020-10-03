@@ -1,0 +1,37 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <div class="main-page">
+        <div class="pers__list">
+            <div class="pers__list_row">
+                <div class="description">Имя</div>
+                <div><fest:value>items.firstName</fest:value></div>
+                <div class="pers__list_refactor"><a href="#">Изменить</a></div>
+            </div>
+            <div class="pers__list_row">
+                <div class="description">Фамилия</div>
+                <div><fest:value>items.lastName</fest:value></div>
+                <div class="pers__list_refactor"><a href="#">Изменить</a></div>
+            </div>
+            <div class="pers__list_row">
+                <div class="description">Email</div>
+                <div><fest:value>items.email</fest:value></div>
+                <div class="pers__list_refactor"><a href="#">Изменить</a></div>
+            </div>
+            <div class="pers__list_row">
+                <div class="description">Мобильный телефон</div>
+                <div><fest:value>items.phone</fest:value></div>
+                <div class="pers__list_refactor"><a href="#">Изменить</a></div>
+            </div>
+            <div class="pers__list_row">
+                <div class="description">Район поиска работы</div>
+                <div><fest:value>items.locationOfSearch</fest:value></div>
+                <div class="pers__list_refactor"><a href="#">Изменить</a></div>
+            </div>
+            <div class="pers__list_row">
+                <div class="description">Социальные сети</div>
+                <div><fest:value>items.socialNetworkLinks</fest:value></div>
+                <div class="pers__list_refactor"><a href="#">Добавить</a></div>
+            </div>
+        </div>
+        <div class="delete-account"><a href="#">Удалить аккаунт</a></div>
+    </div>
+</fest:template>
