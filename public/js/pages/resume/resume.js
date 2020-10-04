@@ -13,8 +13,8 @@ function createElem(tag, className, parent) {
 export function renderResume(user) {
     app.innerHTML = '';
 
-    const employersList = new NavBarInit(app, user, "");
-    employersList.loadNavBar();
+    const navBarInit = new NavBarInit(app, user, "");
+    navBarInit.loadNavBar();
 
     const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
 
@@ -33,7 +33,7 @@ export function renderResume(user) {
 
     const main = createElem("div", "main", app);
 
-    const contact = createElem("div", "vacancy-contact", main)
+    const contact = createElem("div", "mainPage-contact", main)
     contact.insertAdjacentHTML("afterEnd", window.fest['contact.tmpl']());
 
     const mainContent = createElem("div", "main-content", main);

@@ -1,0 +1,85 @@
+.make-account-background {
+    padding: 0;
+    margin: 20px 0;
+    max-width: 100%;
+    height: auto;
+    background: linear-gradient(to right, rgba(83,100,226,0.55) 0%,rgba(52,51,117,1) 97%,rgba(51,49,114,1) 100%),
+    url(../img/bmstuNight.jpg) 0 0/cover no-repeat;
+    overflow: hidden;
+}
+
+.main-content {
+    width: 70%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.people-helped-box {
+    grid-column: 1 / 3;
+}
+
+.people-helped-box h3{
+    font-size: 23px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.people-helped {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+.people-helped-item{
+    margin: 80px 10px  30px;
+    background-color: white;
+    border-radius: 8px;
+    width: 31%;
+}
+
+.people-helped-item img{
+    border-radius: 50%;
+    margin-top: -35px;
+    display: inline;
+    margin-left: 20px;
+    height: 100px;
+    width: 100px;
+}
+
+.people-helped-item-img:after {
+    position: relative;
+    right: -150px;
+    top: -15px;
+    line-height: 30px;
+    font-size: 100px;
+    font-weight: bolder;
+    color: var(--buttons-purple-color);
+    content: ',,';
+}
+
+.people-helped-item-text h3 {
+    color: black;
+    font-size: 18px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.people-helped-item-text span {
+    color: var(--footer-text-grey);
+    font-size: 15px;
+    margin: 10px;
+}
+
+.people-helped-item-text p {
+    margin: 10px;
+    font-size: 13px;
+}
