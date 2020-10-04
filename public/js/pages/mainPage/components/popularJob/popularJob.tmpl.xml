@@ -1,0 +1,33 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+  <div class="featured-jobs">
+    <h3>Популярные вакансии</h3>
+    <fest:each iterate="items" index="i" value="v">
+
+    <div class="featured-jobs-item">
+      <div class="featured-jobs-item-right">
+        <div class="logo-featured-jobs">
+          <fest:atttibute> <img src="{v.logo}"></img> </fest:atttibute>
+        </div>
+        <div class="describe-featured-jobs">
+          <h3><fest:value>v.position</fest:value></h3>
+          <span><fest:value>v.nameCompany</fest:value></span>
+          <br></br>
+          <i class="fa fa-map-marker-alt fa-xs"></i>
+          <span><fest:value>v.location</fest:value></span>
+        </div>
+      </div>
+      <div class="featured-jobs-item-left">
+        <div class="inline-heart">
+          <i class="far fa-heart"></i>
+          <div class="featured-jobs-item-employer"><fest:value>v.schedule</fest:value></div>
+        </div>
+        <h5><fest:value>v.durationPublic</fest:value></h5>
+      </div>
+    </div>
+    </fest:each>
+    <div class="btm-all-category">
+      Загрузить больше
+    </div>
+  </div>
+
+</fest:template>

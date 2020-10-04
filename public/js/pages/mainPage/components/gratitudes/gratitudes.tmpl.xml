@@ -1,0 +1,36 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+
+  <div class="make-account-background">
+    <div class="main-content">
+      <div class="people-helped-box">
+        <h3>Люди, которым мы помогли</h3>
+        <div class="people-helped">
+          <fest:each iterate="items" index="i" value="v">
+
+            <div class="people-helped-item">
+              <div class="people-helped-item-img">
+                <fest:atttibute>
+                  <img src="{v.photo}"></img>
+                </fest:atttibute>
+              </div>
+              <div class="people-helped-item-text">
+                <h3>
+                  <fest:value>v.name</fest:value>
+                </h3>
+                <span>
+                  <fest:value>v.position</fest:value>
+                </span>
+                <p>
+                  <fest:value>v.text</fest:value>
+                </p>
+              </div>
+            </div>
+          </fest:each>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</fest:template>

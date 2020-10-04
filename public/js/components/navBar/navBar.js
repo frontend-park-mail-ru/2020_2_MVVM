@@ -1,5 +1,6 @@
 import {renderCandList} from "../../pages/candidatesList/candidatesList.js";
 import {renderEmployersList} from "../../pages/employersList/employersList.js";
+import {renderMainPage} from "../../pages/mainPage/mainPage.js";
 
 export class NavBarInit {
     constructor(app, user, title) {
@@ -43,6 +44,7 @@ function addPaths() {
         navBar[i].addEventListener('click', (app, user) => {
             switch (navBar[i].textContent){
                 case 'Главная страница':
+                    renderMainPage(user);
                     break;
                 case 'Работодатели':
                     renderEmployersList(user);

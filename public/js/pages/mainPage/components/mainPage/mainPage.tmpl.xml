@@ -1,0 +1,16 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+  <p>Поиск работы для студентов</p>
+  <div class="search-form-header">
+    <div class="search-job">
+      <input type="text" placeholder="Профессия, должность или компания"> </input>
+    </div>
+    <div class="search-place">
+      <input type="text" placeholder="Местоположение"> </input>
+    </div>
+    <div class="btm-search">
+      <a href="#">
+        <i class="fa fa-search"></i>
+      </a>
+    </div>
+  </div>
+</fest:template>
