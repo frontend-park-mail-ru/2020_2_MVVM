@@ -1,6 +1,6 @@
 .header {
     background: linear-gradient(to right, rgba(83,100,226,0.55) 0%,rgba(52,51,117,1) 97%,rgba(51,49,114,1) 100%),
-    url(./public/img/bmstuBuilding1.png) 0 0/cover no-repeat;
+    url(/spa/public/img/bmstuBuilding1.png) 0 0/cover no-repeat;
     z-index: 2;
 }
 

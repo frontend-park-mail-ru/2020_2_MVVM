@@ -1,0 +1,14 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+  <div class="make-account-background">
+    <div class="main-content">
+      <div class="create-account">
+        <h3> Измени мир своим резюме! </h3>
+        <p>Создай резюме на StudHunt за считанные минуты!</p>
+        <div class="btm-create-account">
+          Создать аккаунт
+        </div>
+      </div>
+    </div>
+  </div>
+
+</fest:template>
