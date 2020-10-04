@@ -19,12 +19,9 @@ export function renderAuthList(user){
 
     const main = createElem("div", "main", app);
     const container = createElem("div", "container", main);
-    const mainRow = createElem("div", "main__row", container);
-    mainRow.style.display = "flex";
-    const mainList = createElem("div", "main__list",mainRow);
-    mainList.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
-    mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
-    main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
+    // mainRow.style.display = "flex";
+    const mainAuth = createElem("div", "main", main);
+    mainAuth.insertAdjacentHTML("beforeend", window.fest['auth.tmpl']());
 
 
     afterRender();
