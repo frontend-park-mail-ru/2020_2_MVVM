@@ -2,13 +2,13 @@
     <div class="search__job">
         <div class="descriptionCB">Мой статус на сайте</div>
         <div class="search__job_checkbox">
-            <input name="CB" type="radio">Я ищу работу</input>
+            <input class="CB" name="CB" type="radio">Я ищу работу</input>
             <div class="search__job_description">
-                <h5>У меня опубликовано<fest:space/><fest:value>items.resumeCount</fest:value><fest:space/>резюме, пойду найду <a href="#">подходящую вакансию.</a></h5>
+                <h5>У меня опубликовано<fest:space/><fest:value>items.resumeCount</fest:value><fest:space/>резюме, пойду найду <fest:space/><a href="#">подходящую вакансию.</a></h5>
             </div>
         </div>
         <div class="search__job_checkbox">
-            <input name="CB" type="radio">Я не ищу работу</input>
+            <input class="CB" name="CB" type="radio">Я не ищу работу</input>
             <div class="search__job_description">
                 <h5>Мои резюме будут скрыты и убраны из списка, их не увидит никто, даже те работодатели, которым я отправлял отклики.</h5>
             </div>

@@ -1,5 +1,7 @@
 import {NavBarInit} from "../../components/navBar/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
+import {checkoutProfilePage} from './components/personalNavBar/persNavBar.js'
+import {updateProfileFields} from './components/checkboxSearch/checkBox.js'
 
 const app = window.document.getElementById('app');
 
@@ -10,7 +12,7 @@ function createElem(tag, className, parent) {
     return temp
 }
 
-export function renderPersNavBar(user) {
+export function renderPersNavBar(user, isPersonalRusemes) {
     app.innerHTML = '';
 
     const employersList = new NavBarInit(app, user, "Личный кабинет");
@@ -41,15 +43,20 @@ export function renderPersNavBar(user) {
 
     mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
 
-    // personalInfo(person, mainColumnLeft);
-    personalResumes(mainColumnLeft);
+    if (isPersonalRusemes){
+        personalResumes(mainColumnLeft);
+    } else {
+        personalInfo(person, mainColumnLeft);
+    }
 
 
     main.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
+
+    checkoutProfilePage();
+    updateProfileFields();
 }
 
 function personalResumes(mainColumnLeft){
-
     const resumes = [{
         name: 'Первое резюме',
         job: 'Желаемая работа',

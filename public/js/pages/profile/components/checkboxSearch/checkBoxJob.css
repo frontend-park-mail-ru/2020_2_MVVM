@@ -5,9 +5,14 @@
 
 .descriptionCB{
     margin-bottom: 30px;
+    font-size: 20px;
 }
 
 .search__job_description{
     margin: 10px 0;
     font-size: 12px;
+}
+
+.CB{
+    margin-right: 5px;
 }
