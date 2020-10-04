@@ -10,7 +10,7 @@ function createElem(tag, className, parent) {
     return temp
 }
 
-export function renderEmplList(user) {
+export function renderResume(user) {
     app.innerHTML = '';
 
     const employersList = new NavBarInit(app, user, "");
@@ -31,20 +31,16 @@ export function renderEmplList(user) {
 
     candOptions.insertAdjacentHTML("afterEnd", window.fest['briefInfo.tmpl'](briefInfo));
 
-    // Посмотреть как в других проектах все эти блоки раскиданы
-
-
     const main = createElem("div", "main", app);
 
-    const contact = createElem("div", "resume-contact", main)
-    contact.insertAdjacentHTML("afterEnd", window.fest['shareBar.tmpl']());
+    const contact = createElem("div", "vacancy-contact", main)
+    contact.insertAdjacentHTML("afterEnd", window.fest['contact.tmpl']());
 
     const mainContent = createElem("div", "main-content", main);
-    // mainContent.style.display = "flex";
 
     const contentLeftColumn = createElem("div", "content-left-column", mainContent);
 
-    const infoOfEmpl = [
+    const resume = [
         {
             mainInfo: [{
                 name: 'Подробная информация',
@@ -137,7 +133,7 @@ export function renderEmplList(user) {
         },
     ]
 
-    contentLeftColumn.insertAdjacentHTML("beforeend", window.fest['resume.tmpl'](infoOfEmpl));
+    contentLeftColumn.insertAdjacentHTML("beforeend", window.fest['resume.tmpl'](resume));
 
 
     const contentRightColumn = createElem("div", "content-right-column", mainContent);
@@ -158,8 +154,6 @@ export function renderEmplList(user) {
     contentRightColumn.insertAdjacentHTML("beforeend", window.fest['contactForm.tmpl']());
 
     main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
-
-    afterRender();
 }
 
 function afterRender() {

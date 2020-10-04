@@ -1,0 +1,8 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+  <div class="share-bar">
+    <a href="#" class="share-fb"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" title="" class="share-twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" title="" class="share-vk"><i class="fab fa-vk"></i></a>
+    <a href="#" title="" class="share-odnoklassniki"><i class="fab fa-odnoklassniki "></i></a>
+  </div>
+</fest:template>

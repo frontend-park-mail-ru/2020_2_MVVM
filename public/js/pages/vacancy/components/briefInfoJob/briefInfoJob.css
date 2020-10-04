@@ -1,0 +1,85 @@
+.header-left-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 50px;
+    grid-column: 1 / 3;
+}
+
+.logo-employer {
+    float: left;
+    border: 2px solid #e8ecec;
+    border-radius: 8px;
+}
+
+.describe-employer {
+    margin-bottom: 10px;
+    font-weight: 500;
+    box-sizing: border-box;
+    letter-spacing: 0;
+    padding-left: 20px;
+}
+.describe-employer h4 {
+    font-size: 24px;
+    color: #202020;
+    line-height: 1.2;
+}
+
+.describe-employer span {
+    font-size: 13px;
+    color: #888888;
+    line-height: 10px;
+
+}
+
+.contact-employment {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 70px;
+}
+
+.contact-employment-item {
+    color: #888888;
+    line-height: 29px;
+    font-size: 13px;
+    margin-right: 40px;
+    margin-top: 11px;
+}
+.line-box {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+    grid-column: 1 / 3;
+}
+
+.line {
+    border-top: 1px solid #888888 !important;
+    border: 1px solid#FFFFFF;
+    width: auto;
+}
+
+
+
+.btm-apply-job {
+    border: solid 2px var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
+    border-radius: 10px;
+    padding: 20px;
+    line-height: 22.5px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: 15px;
+    width: 260px;
+}
+
+.btm-apply-job:hover {
+    background-color: var(--buttons-purple-color);
+    color: white;
+}

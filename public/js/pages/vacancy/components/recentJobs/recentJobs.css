@@ -1,0 +1,80 @@
+.line {
+    border-top: 1px solid #888888 !important;
+    border: 1px solid#FFFFFF;
+    width: auto;
+}
+
+.recent-jobs h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-light-black);
+    margin-top: 20px;
+    line-height: 1.2;
+}
+
+.recent-jobs-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px 0;
+    border-radius: 4px;
+
+}
+
+.recent-jobs-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.recent-jobs-item-right {
+    margin-bottom: 10px;
+    font-weight: 500;
+    box-sizing: border-box;
+    letter-spacing: 0;
+    padding: 20px;
+}
+
+.logo-resent-jobs {
+    float: left;
+}
+
+.describe-recent-jobs {
+    display: inline-block;
+}
+
+.describe-recent-jobs h3 {
+    font-size: 18px;
+    color: var(--text-light-black);
+    line-height: 1.2;
+    margin: 3px;
+}
+
+.describe-recent-jobs span {
+    font-size: 13px;
+    color: grey;
+    line-height: 10px;
+}
+
+.recent-jobs-item-employer {
+    color: var(--buttons-purple-color);
+    border: 1px solid var(--buttons-purple-color);
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 7px 0;
+    text-align: center;
+    width: 80px;
+}
+
+.recent-jobs-item-left {
+    padding: 20px;
+}
+
+.recent-jobs-item-left h5 {
+    font-size: 13px;
+    color: grey;
+    line-height: 10px;
+    text-align: right;
+    margin-top: 10px;
+}
