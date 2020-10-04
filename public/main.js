@@ -12,9 +12,8 @@ function start(user) {
     // renderEmployersList(user);
     // renderPersNavBar(user);
     // renderEmplList(app, user);
-
      renderCandidateSummaryCreation(user)
-    //renderEmployerSummaryCreation(user)
+     //renderEmployerSummaryCreation(user)
 }
 
 

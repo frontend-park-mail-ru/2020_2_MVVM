@@ -16,9 +16,5 @@ export function renderCandidateSummaryCreation(user) {
     employersList.loadNavBar();
 
     const main = createElem("div", "main", app);
-    const container = createElem("div", "container", main);
-    const mainRow = createElem("div", "main__row", container);
-    mainRow.style.display = "flex";
-
-    mainRow.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl']());
- }
+    main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl']());
+}
