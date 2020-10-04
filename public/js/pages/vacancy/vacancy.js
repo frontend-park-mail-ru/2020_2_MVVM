@@ -1,5 +1,5 @@
-import {NavBar, NavBarInit} from "../../components/navBar/navBar.js";
-import {recentJobs} from '../../pages/vacancy/components/recentJobs/resentJobs.js';
+import {NavBarInit} from "../../components/navBar/navBar.js";
+import {recentJobs} from './components/recentJobs/resentJobs.js';
 
 const app = window.document.getElementById('app');
 
