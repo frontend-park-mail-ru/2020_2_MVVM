@@ -14,7 +14,7 @@ export function renderCandList(user){
 
     app.innerHTML = '';
 
-    const candidatesList = new NavBarInit(app,user, "Список резюме");
+    const candidatesList = new NavBarInit(app, user, "Список резюме");
     candidatesList.loadNavBar();
 
     const main = createElem("div", "main", app);

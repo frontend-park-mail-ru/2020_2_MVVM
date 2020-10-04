@@ -80,7 +80,7 @@
     padding-right: 15px;
 }
 
-.job-description h3 {
+.resume-description h3 {
     font-size: 18px;
     font-weight: 500;
     color: #202020;
@@ -89,19 +89,19 @@
     line-height: 1.2;
 }
 
-.job-description p {
+.resume-description p {
     margin-top: 0.5em;
     margin-bottom: 1em;
 }
 
-.job-description {
+.resume-description {
     font-size: 13px;
     color: #888888;
     line-height: 24px;
     margin-bottom: 19px;
 }
 
-.job-description li {
+.resume-description li {
     margin-top: 0.5em;
     margin-bottom: 1em;
     list-style-type: none;
@@ -130,7 +130,7 @@
     margin-right: 5px;
 }
 
-.job-description i {
+.resume-description i {
     padding-top: 20px;
     padding-right: 20px;
     color: #fb236a;

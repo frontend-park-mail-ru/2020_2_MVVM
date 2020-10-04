@@ -1,6 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
   <fest:each iterate="items" index="i" value="v">
-      <div class="job-description">
+      <div class="resume-description">
         <fest:each iterate="v.mainInfo" index="i" value="sp">
           <h3>
             <fest:value>sp.name</fest:value>
