@@ -1,4 +1,33 @@
-
+.reg {
+    text-align: center;
+}
+.cfield {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    position: center;
+    margin-bottom: 19px;
+    border: 2px solid #e8ecec;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+}
+form button {
+    width: 30%;
+    height: 60px;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    margin-top: 20px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    background-color: #141f72;
+}
 .container {
     max-width: 1223px;
     margin: 0px auto;
@@ -100,6 +129,7 @@
     color:black;
     font: 10px Quicksand, serif;
     margin: 0px 0px 12px;
+    margin-bottom: 20px;
 }
 
 .error{

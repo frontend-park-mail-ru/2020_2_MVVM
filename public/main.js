@@ -6,6 +6,7 @@ import {renderCandidateSummaryCreation} from "./js/pages/createCandidateSum/crea
 import {renderEmployerSummaryCreation} from "./js/pages/createEmployerSum/createEmployerSum.js";
 import {renderVacancy} from "./js/pages/vacancy/vacancy.js";
 import {renderAuthList} from "./js/pages/auth/auth.js";
+import {renderRegList} from "./js/pages/reg/reg.js";
 
 
 const app = window.document.getElementById('app');
@@ -18,7 +19,8 @@ function start(user) {
     // renderEmployerSummaryCreation(user);
     // renderResume(user);
     // renderVacancy(user);
-    renderAuthList(user);
+    // renderAuthList(user);
+    renderRegList(user)
 }
 
 start(false);

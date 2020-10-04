@@ -1,32 +1,25 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="container">
-        <div class = "title">Введите данные для авторизации</div>
-        <div class = "error">Неверные логин или пароль!</div>
-
         <form>
-            <div class="info">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Введите e-mail</label>
-                <div class="col-sm-10">
-                    <div class='input' type="email" id="inputEmail3" placeholder="Email"></div>
-                </div>
-            </div>
-            <div class="info">
-                <label for="inputNickname3" class="col-sm-2 col-form-label">Или Ваш никнейм</label>
-                <div class="col-sm-10">
-                    <div class ='input' type="Nickname" id="inputNickname3" placeholder="Nickname"></div>
-                </div>
-            </div>
-            <div class="info">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Введите Ваш пароль</label>
-                <div class="col-sm-10">
-                    <div class = 'input' type="Password" id="inputPassword3" placeholder="Password"></div>
-                </div>
-            </div>
-
-            <div class="info">
-                <div class="col-sm-10">
-                    <button type="submit" class="signupbutton">Log in</button>
-                </div>
+            <div class="reg">
+                <form>
+                    <div class="cfield">
+                        <input class="text" placeholder="Никнейм"></input>
+                    </div>
+                    <div class="cfield">
+                        <input class="text" placeholder="Имя"></input>
+                    </div>
+                    <div class="cfield">
+                        <input class="text" placeholder="Фамилия"></input>
+                    </div>
+                    <div class="cfield">
+                        <input class="text" placeholder="Email"></input>
+                    </div>
+                    <div class="cfield">
+                        <input class="password" placeholder="********"></input>
+                    </div>
+                    <button type="submit">Войти</button>
+                </form>
             </div>
         </form>
     </div>

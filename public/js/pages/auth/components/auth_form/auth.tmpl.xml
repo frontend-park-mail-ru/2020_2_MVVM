@@ -1,6 +1,20 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="container">
-        <div class = "title">Введите данные для авторизации</div>
-        <div class = "error">Неверные логин или пароль!</div>
+        <form>
+            <div class="auth">
+                <form>
+                    <div class="cfield">
+                        <input class="text" placeholder="Никнейм"></input>
+                    </div>
+                    <div class="cfield">
+                        <input class="password" placeholder="********"></input>
+                    </div>
+                    <div class="cfield">
+                        <input class="text" placeholder="Email"></input>
+                    </div>
+                    <button type="submit">Войти</button>
+                </form>
+            </div>
+        </form>
     </div>
 </fest:template>
