@@ -1,4 +1,4 @@
-import {NavBar, NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/navBar/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
 
 const app = window.document.getElementById('app');
@@ -14,7 +14,7 @@ export function renderCandList(user){
 
     app.innerHTML = '';
 
-    const candidatesList = new NavBarInit(app,user, "Список резюме");
+    const candidatesList = new NavBarInit(app, user, "Список резюме");
     candidatesList.loadNavBar();
 
     const main = createElem("div", "main", app);

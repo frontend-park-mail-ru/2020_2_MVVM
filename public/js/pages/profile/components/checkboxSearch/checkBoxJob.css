@@ -1,0 +1,13 @@
+.search__job{
+    padding: 30px 30px;
+    border: 1px solid var(--border-grey-color);
+}
+
+.descriptionCB{
+    margin-bottom: 30px;
+}
+
+.search__job_description{
+    margin: 10px 0;
+    font-size: 12px;
+}

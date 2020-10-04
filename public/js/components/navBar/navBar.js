@@ -1,5 +1,5 @@
-import {renderEmplList} from "../../pages/employersList/employersList.js";
 import {renderCandList} from "../../pages/candidatesList/candidatesList.js";
+import {renderEmployersList} from "../../pages/employersList/employersList.js";
 
 export class NavBarInit {
     constructor(app, user, title) {
@@ -45,7 +45,7 @@ function addPaths() {
                 case 'Главная страница':
                     break;
                 case 'Работодатели':
-                    renderEmplList(user);
+                    renderEmployersList(user);
                     break;
                 case  'Соискатели':
                     renderCandList(user)
