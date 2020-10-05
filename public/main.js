@@ -21,7 +21,7 @@ function start(user) {
     // renderVacancy(user);
     // renderResume(user);
     renderAuthList(user);
-    // renderRegList(user)
+    // renderRegList(user);
     // renderMainPage(user);
 }
 

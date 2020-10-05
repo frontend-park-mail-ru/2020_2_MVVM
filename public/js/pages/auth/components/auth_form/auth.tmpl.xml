@@ -4,15 +4,15 @@
             <div class="auth">
                 <form>
                     <div class="cfield">
-                        <input class="text" placeholder="Никнейм"></input>
+                        <input class="text" placeholder="Никнейм"/>
                     </div>
                     <div class="cfield">
-                        <input class="password" placeholder="********"></input>
+                        <input class="password" placeholder="********"/>
                     </div>
                     <div class="cfield">
-                        <input class="text" placeholder="Email"></input>
+                        <input class="text" placeholder="Email"/>
                     </div>
-                    <button type="submit">Войти</button>
+                    <button class="enterBtn" type="submit">Войти</button>
                 </form>
             </div>
         </form>

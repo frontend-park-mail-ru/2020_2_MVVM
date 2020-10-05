@@ -14,7 +14,7 @@ export function renderAuthList(user){
 
     app.innerHTML = '';
 
-    const auth = new NavBarInit(app, user, "Войти");
+    const auth = new NavBarInit(app, user, "Авторизация");
     auth.loadNavBar();
 
     const main = createElem("div", "main", app);

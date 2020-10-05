@@ -1,5 +1,7 @@
+
 .reg {
     text-align: center;
+    padding-top: 50px;
 }
 .cfield {
     display: flex;
@@ -14,7 +16,8 @@
     -o-border-radius: 8px;
     border-radius: 8px;
 }
-form button {
+
+.enterBtn {
     width: 30%;
     height: 60px;
     font-size: 17px;
@@ -26,82 +29,15 @@ form button {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     border-radius: 8px;
-    background-color: #141f72;
+    border: 1px solid var(--buttons-purple-color);
+    background-color: var(--buttons-purple-color);
+    color: white;
+    transition: 0.15s;
 }
-.container {
-    max-width: 1223px;
-    margin: 0px auto;
-}
-.header__row {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0;
-}
-.header__top {
-    display: flex;
-    box-sizing: border-box;
-    min-height: 195px;
-    /*flex-wrap: 1;*/
-
-}
-.header__item-logo {
-    /*background: url(../img/logo.png);*/
-    width: 178px;
-    margin: 30px 0 0;
-}
-.logo {
-    width: 178px;
-    height: 40px;
-}
-.header__item-menu {
-    flex-grow: 1;
-    justify-content: flex-end;
-}
-.menu-list{
-    text-align: right;
-    padding: 40px 0 0;
-}
-
-.header__item {
-    padding: 20px;
-    font-size: 14px;
-    color: #fff;
-}
-.header__item_simple:hover{
-    font-size: 16px;
-}
-
-.header__item_big-button {
-    border: 2px solid #fb236a;
-    background-color: #fb236a;
-    border-radius: 35px;
-    overflow: hidden;
-    padding: 15px 25px;
-}
-.header__item_big-button:hover{
-    background-color: transparent;
-}
-
-.header__item_key-icon {
-    font-size: 18px;
-}
-.header__item_key-icon:hover{
-    font-size: 20px;
-}
-
-.header__item_link-icon {
-    font-size: 18px;
-}
-.header__item_link-icon:hover{
-    font-size: 20px;
-}
-.header__bottom {
-    color: #fff;
-    font-size: 30px;
-    margin: 50px 0;
-}
-.header__page {
-    text-align: center;
+.enterBtn:hover{
+    background-color: white;
+    color: var(--buttons-purple-color);
+    transition: 0.15s;
 }
 
 .title{
@@ -111,11 +47,14 @@ form button {
     text-align: center;
 }
 
-.text{
+.text, .password{
     color:black;
     font: 15px Quicksand, serif;
-    margin: 0px 0px 12px;
-    text-align: center;
+    text-align: initial;
+    height: 100%;
+    width: 100%;
+    margin: 0 15px;
+    min-height: 30px;
 }
 
 .info{

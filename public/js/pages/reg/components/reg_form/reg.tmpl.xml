@@ -4,21 +4,21 @@
             <div class="reg">
                 <form>
                     <div class="cfield">
-                        <input class="text" placeholder="Никнейм"></input>
+                        <input class="text" placeholder="Никнейм"/>
                     </div>
                     <div class="cfield">
-                        <input class="text" placeholder="Имя"></input>
+                        <input class="text" placeholder="Имя"/>
                     </div>
                     <div class="cfield">
-                        <input class="text" placeholder="Фамилия"></input>
+                        <input class="text" placeholder="Фамилия"/>
                     </div>
                     <div class="cfield">
-                        <input class="text" placeholder="Email"></input>
+                        <input class="text" placeholder="Email"/>
                     </div>
                     <div class="cfield">
-                        <input class="password" placeholder="********"></input>
+                        <input class="password" placeholder="********"/>
                     </div>
-                    <button type="submit">Войти</button>
+                    <button class="enterBtn" type="submit">Войти</button>
                 </form>
             </div>
         </form>
