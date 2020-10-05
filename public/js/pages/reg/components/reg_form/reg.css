@@ -1,0 +1,149 @@
+.reg {
+    text-align: center;
+}
+.cfield {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    position: center;
+    margin-bottom: 19px;
+    border: 2px solid #e8ecec;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+}
+form button {
+    width: 30%;
+    height: 60px;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    margin-top: 20px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    background-color: #141f72;
+}
+.container {
+    max-width: 1223px;
+    margin: 0px auto;
+}
+.header__row {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+.header__top {
+    display: flex;
+    box-sizing: border-box;
+    min-height: 195px;
+    /*flex-wrap: 1;*/
+
+}
+.header__item-logo {
+    /*background: url(../img/logo.png);*/
+    width: 178px;
+    margin: 30px 0 0;
+}
+.logo {
+    width: 178px;
+    height: 40px;
+}
+.header__item-menu {
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+.menu-list{
+    text-align: right;
+    padding: 40px 0 0;
+}
+
+.header__item {
+    padding: 20px;
+    font-size: 14px;
+    color: #fff;
+}
+.header__item_simple:hover{
+    font-size: 16px;
+}
+
+.header__item_big-button {
+    border: 2px solid #fb236a;
+    background-color: #fb236a;
+    border-radius: 35px;
+    overflow: hidden;
+    padding: 15px 25px;
+}
+.header__item_big-button:hover{
+    background-color: transparent;
+}
+
+.header__item_key-icon {
+    font-size: 18px;
+}
+.header__item_key-icon:hover{
+    font-size: 20px;
+}
+
+.header__item_link-icon {
+    font-size: 18px;
+}
+.header__item_link-icon:hover{
+    font-size: 20px;
+}
+.header__bottom {
+    color: #fff;
+    font-size: 30px;
+    margin: 50px 0;
+}
+.header__page {
+    text-align: center;
+}
+
+.title{
+    color:black;
+    font: 25px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: center;
+}
+
+.text{
+    color:black;
+    font: 15px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: center;
+}
+
+.info{
+    color:black;
+    font: 25px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: center;
+}
+
+.info{
+    color:black;
+    font: 10px Quicksand, serif;
+    margin: 0px 0px 12px;
+    margin-bottom: 20px;
+}
+
+.error{
+    color: red;
+    font: 25px Quicksand, serif;
+    margin: 0px 0px 12px;
+    text-align: center;
+}
+
+.signupbutton{
+    color: #FFFFFF;
+    background: #141F72;
+    padding: 8px 30px;
+    margin: 8px 0px 0px;
+    font: 23px -apple-system, "Lato Black";
+    border-radius: 20px;
+}
