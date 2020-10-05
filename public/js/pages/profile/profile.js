@@ -1,5 +1,4 @@
 import {NavBarInit} from "../../components/navBar/navBar.js";
-import {checkBoxes} from '../../components/searchForm/searchForm.js'
 import {checkoutProfilePage} from './components/personalNavBar/persNavBar.js'
 import {updateProfileFields} from './components/checkboxSearch/checkBox.js'
 
@@ -12,49 +11,57 @@ function createElem(tag, className, parent) {
     return temp
 }
 
-export function renderPersNavBar(user, isPersonalRusemes) {
-    app.innerHTML = '';
 
-    const employersList = new NavBarInit(app, user, "Личный кабинет");
-    employersList.loadNavBar();
+export default class Profile{
 
-   const main = createElem("div", "main", app);
-    const container = createElem("div", "container", main);
+    isPersonalRusemes = true;
 
-    const title = createElem("div", "title", container);
-    title.innerText = "Настройки";
+    render(user){
+        app.innerHTML = '';
 
-    const mainPage = createElem("div", "main__page", container);
-    const mainColumnLeft = createElem("div", "main__page_left", mainPage);
-    mainColumnLeft.insertAdjacentHTML("afterbegin", window.fest['persNavBar.tmpl']());
-    const mainColumnRight = createElem("div", "main__page_right", mainPage);
+        const employersList = new NavBarInit(app, user, "Личный кабинет");
+        employersList.loadNavBar();
+
+        const main = createElem("div", "main", app);
+        const container = createElem("div", "container", main);
+
+        const title = createElem("div", "title", container);
+        title.innerText = "Настройки";
+
+        const mainPage = createElem("div", "main__page", container);
+        const mainColumnLeft = createElem("div", "main__page_left", mainPage);
+        mainColumnLeft.insertAdjacentHTML("afterbegin", window.fest['persNavBar.tmpl']());
+        const mainColumnRight = createElem("div", "main__page_right", mainPage);
 
 
-    const person =  {
-        firstName: 'Margot',
-        lastName: 'Shulyak',
-        email: 'qwerty@gmail.com',
-        phone: '89991111111',
-        resumeCount: '5',
-        locationOfSearch: 'Moscow',
-        socialNetworkLinks: '',
+        const person =  {
+            firstName: 'Margot',
+            lastName: 'Shulyak',
+            email: 'qwerty@gmail.com',
+            phone: '89991111111',
+            resumeCount: '5',
+            locationOfSearch: 'Moscow',
+            socialNetworkLinks: '',
 
+        }
+
+        mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
+
+        if (this.isPersonalRusemes){
+            personalResumes(mainColumnLeft);
+        } else {
+            personalInfo(person, mainColumnLeft);
+        }
+
+
+        main.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
+
+        checkoutProfilePage();
+        updateProfileFields();
     }
-
-    mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
-
-    if (isPersonalRusemes){
-        personalResumes(mainColumnLeft);
-    } else {
-        personalInfo(person, mainColumnLeft);
-    }
-
-
-    main.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
-
-    checkoutProfilePage();
-    updateProfileFields();
 }
+
+
 
 function personalResumes(mainColumnLeft){
     const resumes = [{

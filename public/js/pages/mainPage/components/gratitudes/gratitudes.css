@@ -4,7 +4,7 @@
     max-width: 100%;
     height: auto;
     background: linear-gradient(to right, rgba(83,100,226,0.55) 0%,rgba(52,51,117,1) 97%,rgba(51,49,114,1) 100%),
-    url(../img/bmstuNight.jpg) 0 0/cover no-repeat;
+    url(/spa/public/img/bmstuNight.jpg) 0 0/cover no-repeat;
     overflow: hidden;
 }
 

@@ -10,22 +10,38 @@ function createElem(tag, className, parent) {
     return temp
 }
 
-export function renderAuthList(user){
+export default class AuthList {
 
-    app.innerHTML = '';
+    render(user){
+        app.innerHTML = '';
 
-    const auth = new NavBarInit(app, user, "Авторизация");
-    auth.loadNavBar();
+        const auth = new NavBarInit(app, user, "Авторизация");
+        auth.loadNavBar();
 
-    const main = createElem("div", "main", app);
-    const container = createElem("div", "container", main);
-    // mainRow.style.display = "flex";
-    const mainAuth = createElem("div", "main", main);
-    mainAuth.insertAdjacentHTML("beforeend", window.fest['auth.tmpl']());
+        const main = createElem("div", "main", app);
+        const mainAuth = createElem("div", "main", main);
+        mainAuth.insertAdjacentHTML("beforeend", window.fest['auth.tmpl']());
 
 
-    afterRender();
+        afterRender();
+    }
+
 }
+// export function renderAuthList(user){
+//         app.innerHTML = '';
+//
+//         // const auth = new NavBarInit(app, user, "Авторизация");
+//         // auth.loadNavBar();
+//
+//         const main = createElem("div", "main", app);
+//         const container = createElem("div", "container", main);
+//         // mainRow.style.display = "flex";
+//         const mainAuth = createElem("div", "main", main);
+//         mainAuth.insertAdjacentHTML("beforeend", window.fest['auth.tmpl']());
+//
+//
+//         afterRender();
+// }
 
 function afterRender() {
     checkFrom();

@@ -7,10 +7,16 @@
                     </div>
                     <div class="header__item-menu menu">
                         <nav class="menu-list">
-                            <a href="#" class="header__item header__item_simple">Главная страница</a>
-                            <a href="#" class="header__item header__item_simple">Работодатели</a>
-                            <a href="#" class="header__item header__item_simple">Соискатели</a>
-                            <a href="#" class="header__item header__item_big-button">+ Создать резюме</a>
+                            <a href="/mainPage" class="header__item header__item_simple">Главная страница</a>
+                            <a href="/employersList" class="header__item header__item_simple">Работодатели</a>
+                            <a href="/candidatesList" class="header__item header__item_simple">Соискатели</a>
+<!--                            <fest:if test="user.type=='cand'">-->
+<!--                                <a href="/createResume" class="header__item header__item_big-button">+ Создать резюме</a>-->
+<!--                            </fest:if>-->
+<!--                            <fest:if test="user.type=='empl'">-->
+<!--                                <a href="/createVacancy" class="header__item header__item_big-button">+ Создать резюме</a>-->
+<!--                            </fest:if>-->
+                            <a href="/createVacancy" class="header__item header__item_big-button">+ Создать резюме</a>
                         </nav>
                     </div>
                 </div>

@@ -9,12 +9,15 @@ function createElem(tag, className, parent) {
     return temp
 }
 
-export function renderCandidateSummaryCreation(user) {
-    app.innerHTML = '';
+export default class CreateResume{
+    render(user){
+        app.innerHTML = '';
 
-    const employersList = new NavBarInit(app, user, "Создание резюме");
-    employersList.loadNavBar();
+        const employersList = new NavBarInit(app, user, "Создание резюме");
+        employersList.loadNavBar();
 
-    const main = createElem("div", "main", app);
-    main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl']());
+        const main = createElem("div", "main", app);
+        main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl']());
+    }
 }
+

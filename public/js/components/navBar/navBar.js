@@ -1,7 +1,3 @@
-import {renderCandList} from "../../pages/candidatesList/candidatesList.js";
-import {renderEmployersList} from "../../pages/employersList/employersList.js";
-import {renderAuthList} from "../../pages/auth/auth.js";
-import {renderMainPage} from "../../pages/mainPage/mainPage.js";
 
 export class NavBarInit {
     constructor(app, user, title) {
@@ -21,7 +17,7 @@ export class NavBar {
 
     constructor(app, title) {
         app.innerHTML = window.fest['navBar.tmpl'](title);
-        addPaths();
+        // addPaths();
     }
 
 
@@ -29,34 +25,12 @@ export class NavBar {
         let list = document.getElementsByClassName('menu-list')[0];
         if (user) {
             list.insertAdjacentHTML("beforeend",`<a href="/profile" class="header__item header__item_key-icon js-profile">Профиль</a>
-            <a href="/logout" class="header__item header__item_link-icon js-logout">Выйти</a>`);
+            <a href="#" class="header__item header__item_link-icon js-logout">Выйти</a>`);
         } else {
-            list.insertAdjacentHTML("beforeend", `<a href="#" class="header__item header__item_key-icon js-registration">Зарегистрироваться</a>
-            <a href="#" class="header__item header__item_link-icon js-login">Войти</a>`);
+            list.insertAdjacentHTML("beforeend", `<a href="/reg" class="header__item header__item_key-icon js-registration">Зарегистрироваться</a>
+            <a href="/auth" class="header__item header__item_link-icon js-login">Войти</a>`);
         }
     }
 
 }
 
-
-function addPaths() {
-    const navBar = document.getElementsByClassName('header__item');
-    for (let i=0; i < navBar.length; i++) {
-        navBar[i].addEventListener('click', (app, user) => {
-            switch (navBar[i].textContent){
-                case 'Главная страница':
-                    renderMainPage(user);
-                    break;
-                case 'Работодатели':
-                    renderEmployersList(user);
-                    break;
-                case  'Соискатели':
-                    renderCandList(user)
-                    break;
-                case 'Войти':
-                    renderAuthList(user);
-                    break;
-            }
-        });
-    }
-}

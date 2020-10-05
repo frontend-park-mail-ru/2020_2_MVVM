@@ -10,23 +10,35 @@ function createElem(tag, className, parent) {
     return temp
 }
 
-export function renderRegList(user){
+export default class RegList{
+    render(user){
+        app.innerHTML = '';
 
-    app.innerHTML = '';
+        const auth = new NavBarInit(app, user, "Регистрация");
+        auth.loadNavBar();
 
-    const auth = new NavBarInit(app, user, "Регистрация");
-    auth.loadNavBar();
-
-    const main = createElem("div", "main", app);
-    const container = createElem("div", "container", main);
-    // mainRow.style.display = "flex";
-    const mainAuth = createElem("div", "main", main);
-    mainAuth.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
-
-
-    afterRender();
+        const main = createElem("div", "main", app);
+        const container = createElem("div", "container", main);
+        // mainRow.style.display = "flex";
+        const mainAuth = createElem("div", "main", main);
+        mainAuth.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
+    }
 }
+//
+// export function renderRegList(user){
+//
+//     app.innerHTML = '';
+//
+//     const auth = new NavBarInit(app, user, "Регистрация");
+//     auth.loadNavBar();
+//
+//     const main = createElem("div", "main", app);
+//     const container = createElem("div", "container", main);
+//     // mainRow.style.display = "flex";
+//     const mainAuth = createElem("div", "main", main);
+//     mainAuth.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
+//
+//
+//     afterRender();
+// }
 
-function afterRender() {
-    checkBoxes();
-}
