@@ -16,9 +16,9 @@
                         <input class="text" placeholder="Email"/>
                     </div>
                     <div class="cfield">
-                        <input class="password" placeholder="********"/>
+                        <input id="regPassw" class="password" type="password" placeholder="Введите пароль"/>
                     </div>
-                    <button class="enterBtn" type="submit">Войти</button>
+                    <button class="enterBtn" type="submit">Зарегистрироваться</button>
                 </form>
             </div>
         </form>
