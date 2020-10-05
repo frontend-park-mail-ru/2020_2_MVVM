@@ -20,8 +20,8 @@ function start(user) {
     // renderEmployerSummaryCreation(user);
     // renderVacancy(user);
     // renderResume(user);
-    // renderAuthList(user);
-    renderRegList(user);
+    renderAuthList(user);
+    // renderRegList(user);
     // renderMainPage(user);
 }
 

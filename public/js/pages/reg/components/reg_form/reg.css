@@ -73,16 +73,7 @@
 
 .error{
     color: red;
-    font: 25px Quicksand, serif;
-    margin: 0px 0px 12px;
+    font: 15px Quicksand, serif;
     text-align: center;
 }
 
-.signupbutton{
-    color: #FFFFFF;
-    background: #141F72;
-    padding: 8px 30px;
-    margin: 8px 0px 0px;
-    font: 23px -apple-system, "Lato Black";
-    border-radius: 20px;
-}

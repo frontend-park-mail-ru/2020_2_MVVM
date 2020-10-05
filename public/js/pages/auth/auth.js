@@ -1,5 +1,5 @@
 import {NavBarInit} from "../../components/navBar/navBar.js";
-import {checkBoxes} from '../../components/searchForm/searchForm.js'
+import {checkFrom} from "./components/auth_form/auth.js";
 
 const app = window.document.getElementById('app');
 
@@ -28,5 +28,5 @@ export function renderAuthList(user){
 }
 
 function afterRender() {
-    checkBoxes();
+    checkFrom();
 }
