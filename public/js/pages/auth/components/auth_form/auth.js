@@ -8,19 +8,19 @@ export function checkFrom() {
     const password = document.getElementById('passAuth');
 
 
-    checkField(email, 0, checkEmail, 'email');
-    checkField(password, 2, checkPassw, 'пароль');
+    checkField(email, 0, checkEmail, 'Введите корректный email');
+    checkField(password, 2, checkPassw, 'Пароль должен быть длиннее 8 символов');
 }
 
 
-function checkField(field, count, func, name){
+function checkField(field, count, func, textError){
     field.addEventListener('keydown', function (event) {
         error[count].innerHTML='';
     }, false);
 
     form[0].addEventListener('submit', function (event){
         if (!func(field.value)) {
-            error[count].innerHTML = `Введите корректный ${name}`;
+            error[count].innerHTML = `${textError}`;
             error[count].className = "error";
             error[count].preventDefault();
         }
