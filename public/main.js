@@ -9,7 +9,6 @@ import {renderMainPage} from "./js/pages/mainPage/mainPage.js"
 import {renderAuthList} from "./js/pages/auth/auth.js";
 import {renderRegList} from "./js/pages/reg/reg.js";
 
-
 const app = window.document.getElementById('app');
 
 function start(user) {
@@ -20,7 +19,7 @@ function start(user) {
     // renderEmployerSummaryCreation(user);
     // renderVacancy(user);
     // renderResume(user);
-    renderAuthList(user);
+    // renderAuthList(user);
     // renderRegList(user);
     // renderMainPage(user);
 }
