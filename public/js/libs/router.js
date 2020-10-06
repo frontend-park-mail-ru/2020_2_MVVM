@@ -46,7 +46,8 @@ export default class Router{
         });
 
         // начальный рендер
-        this.change('\/mainPage');
+        // this.change('\/mainPage');
+        this.change('\/reg');
     }
 
 
