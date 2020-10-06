@@ -24,14 +24,17 @@
                         <p class="sum__description__block">Общая информация</p>
                         <label class="sum__form__labels" for="company">Название компании*</label>
                         <input class="sum__user__info"  id="company" type="text" value="" />
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div>
                         <label class="sum__form__labels" for="summary-name">Название вакансии*</label>
                         <input class="sum__user__info" id="summary-name" type="text" value="" />
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div>
                         <label class="sum__form__labels" for="description">Описание вакансии*</label>
                         <textarea class="__sum__text" id="description"/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div class="sum__exp__row">
                         <label class="sum__form__labels" for="exp-duration">Требуемый опыт работы</label>
@@ -45,14 +48,17 @@
                     <div>
                         <label class="sum__form__labels" for="email">E-mail</label>
                         <input class="sum__user__info" id="email" type="email"  value=""/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div>
                         <label class="sum__form__labels" for="tel">Телефон для связи</label>
                         <input class="sum__user__info" id="tel" type="tel" value="" placeholder="+7-(999)-999-99-99"/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div>
                         <label class="sum__form__labels" for="address">Адрес места работы*</label>
                         <input class="sum__user__info" id="address" type="text" value="" />
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div class="sum__exp__select" id="pos1">
                     </div>

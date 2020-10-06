@@ -1,7 +1,7 @@
-import {INCORRECT_EMAIL, INCORRECT_LOGIN, INCORRECT_PASSWD, INCORRECT_AVATAR_F} from './constants.js';
-import {EMAIL_OK, AVATAR_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK} from './constants.js';
-import {EMAIL_EMPTY, LOGIN_EMPTY, PASSWD_EMPTY, INPUT_TEXT_EMPTY} from './constants.js';
-import {EMAIL_EXP, LOGIN_EXP, PASSWD_EXP} from './constants.js';
+import {INCORRECT_EMAIL, INCORRECT_LOGIN, INCORRECT_PASSWD, INCORRECT_AVATAR_F, INCORRECT_INPUT_TEXT, INCORRECT_PHONE,INCORRECT_SALARY} from './constants.js';
+import {EMAIL_OK, AVATAR_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK, PHONE_OK, SALARY_OK} from './constants.js';
+import {EMAIL_EMPTY, LOGIN_EMPTY, PASSWD_EMPTY, INPUT_TEXT_EMPTY, PHONE_EMPTY, SALARY_EMPTY} from './constants.js';
+import {EMAIL_EXP, LOGIN_EXP, PASSWD_EXP, PHONE_EXP} from './constants.js';
 import {JPEG_AVATAR_F, PNG_AVATAR_F} from "./constants.js";
 
 export default class Validation {
@@ -83,12 +83,39 @@ export default class Validation {
             return INPUT_TEXT_EMPTY;
         }
         if (len > maxLength) {
-            return
+            return INCORRECT_INPUT_TEXT;
         }
         return INPUT_TEXT_OK;
     };
 
-    static validateTelephone(passwd) {
+    /**
+     * validateImage - check validity of input image
+     * @return {string}
+     * @param phone
+     */
+    static validateTelephone(phone) {
+        if (!PHONE_EXP.test(phone)){
+            return INCORRECT_PHONE;
+        }
+        if (phone.length === 0){
+            return PHONE_EMPTY;
+        }
+        return PHONE_OK;
+    };
+
+    /**
+     * validateImage - check validity of input image
+     * @return {string}
+     * @param salary
+     */
+    static validateSalary(salary) {
+        if (Number(salary) <= 0){
+            return INCORRECT_SALARY;
+        }
+        if (salary.length === 0){
+            return SALARY_EMPTY;
+        }
+        return SALARY_OK;
     };
 
     /**

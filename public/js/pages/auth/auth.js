@@ -27,8 +27,6 @@ export default class AuthList {
         const mainAuth = createElem("div", "main", main);
         mainAuth.insertAdjacentHTML("beforeend", window.fest['auth.tmpl']());
 
-        // const form = mainAuth.querySelector("form");
-        // form.addEventListener("submit", (event) => this.onsubmit(event, form));
         afterRender();
     }
 

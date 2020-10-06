@@ -24,10 +24,12 @@
                         <p class="sum__description__block">Контактные данные</p>
                         <label class="sum__form__labels" for="username">Имя*</label>
                         <input class="sum__user__info" id="username" type="text" value=""/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div>
                         <label class="sum__form__labels" for="surname">Фамилия*</label>
                         <input class="sum__user__info" id="surname" type="text" value=""/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div class="sum__switch">
                         <div>Пол*</div>
@@ -46,6 +48,7 @@
                     <div>
                         <label class="sum__form__labels" for="email">E-mail*</label>
                         <input class="sum__user__info" id="email" type="email" value=""/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div>
                         <label class="sum__form__labels" for="country">Страна проживания</label>
@@ -66,6 +69,7 @@
                     <div>
                         <label class="sum__form__labels" for="citizenship">Гражданство*</label>
                         <input class="sum__user__info" id="citizenship" type="text"/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div class="sum__exp-select">
                         <label class="sum__form__labels">Опыт работы</label>
@@ -83,10 +87,12 @@
                                 <p class="sum__description__block">Специальность</p>
                                 <label class="sum__form__labels" for="place">Желаемая должность*</label>
                                 <input class="sum__user__info" id="place" type="text" value=""/>
+                                <span class="error" aria-live="polite"/>
                             </div>
                             <label class="sum__form__labels" for="salary">Зарплата</label>
                             <div class="sum__salary__row">
                                 <input class="sum__user__info" id="salary" type="text" value=""/>
+                                <span class="error" aria-live="polite"/>
                                 <label class="sum__form__labels" for="select-salary"/>
                                 <select class="sum__small__field" id="select-salary">
                                     <option value="">руб.</option>
@@ -106,6 +112,7 @@
                                     <p>О себе</p>
                                     <label class="sum__form__labels" for="description"/>
                                     <textarea class="__sum__text" id="description"/>
+                                    <span class="error" aria-live="polite"/>
                                 </div>
                             </div>
                             <div>

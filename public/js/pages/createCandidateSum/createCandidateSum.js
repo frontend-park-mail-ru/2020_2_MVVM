@@ -1,4 +1,5 @@
 import {NavBarInit} from "../../components/navBar/navBar.js";
+import {checkFrom} from "./components/createCandidateSum/createCandidateSum.js";
 
 const app = window.document.getElementById('app');
 
@@ -18,6 +19,11 @@ export default class CreateResume{
 
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl']());
+
+        afterRender();
     }
 }
 
+function afterRender() {
+    checkFrom();
+}

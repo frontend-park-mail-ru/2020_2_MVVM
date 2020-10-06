@@ -1,4 +1,5 @@
 import {NavBarInit} from "../../components/navBar/navBar.js";
+import {checkFrom} from "./components/createEmployerSum/createEmpoyerSum.js";
 
 const app = window.document.getElementById('app');
 
@@ -18,5 +19,11 @@ export default class CreateVacancy{
 
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("afterbegin", window.fest['createEmployerSum.tmpl']());
+
+        afterRender();
     }
+}
+
+function afterRender() {
+    checkFrom();
 }

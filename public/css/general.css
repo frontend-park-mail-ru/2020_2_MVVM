@@ -196,6 +196,15 @@ body{
     color: white;
 }
 
+
+
+.error{
+    color: var(--main-pink-color);
+    font: 15px Quicksand, serif;
+    text-align: center;
+}
+
+
 /*_______________________________PAGINATION___________________*/
 
 
