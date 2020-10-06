@@ -11,6 +11,10 @@ function createElem(tag, className, parent) {
 }
 
 export default class RegList{
+    constructor(onsubmit) {
+        this.onsubmit = onsubmit
+    }
+
     render(user){
         app.innerHTML = '';
 
@@ -22,6 +26,8 @@ export default class RegList{
         mainAuth.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
 
         afterRender();
+        const form = mainAuth.querySelector("form");
+        form.addEventListener("submit", (event) => this.onsubmit(event, form));
     }
 }
 

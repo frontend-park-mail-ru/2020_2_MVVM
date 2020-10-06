@@ -13,10 +13,12 @@ function createElem(tag, className, parent) {
 
 
 export default class Profile{
+    constructor(get_current_user) {
+        this.get_current_user = get_current_user
+    }
+    isPersonalRusemes = false;
 
-    isPersonalRusemes = true;
-
-    render(user){
+    async render(user){
         app.innerHTML = '';
 
         const employersList = new NavBarInit(app, user, "Личный кабинет");
@@ -34,17 +36,7 @@ export default class Profile{
         const mainColumnRight = createElem("div", "main__page_right", mainPage);
 
 
-        const person =  {
-            firstName: 'Margot',
-            lastName: 'Shulyak',
-            email: 'qwerty@gmail.com',
-            phone: '89991111111',
-            resumeCount: '5',
-            locationOfSearch: 'Moscow',
-            socialNetworkLinks: '',
-
-        }
-
+        const person = await this.get_current_user()
         mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
 
         if (this.isPersonalRusemes){

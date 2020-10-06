@@ -49,6 +49,4 @@ export default class Router{
         // начальный рендер
         this.change('\/mainPage', user);
     }
-
-
 }
