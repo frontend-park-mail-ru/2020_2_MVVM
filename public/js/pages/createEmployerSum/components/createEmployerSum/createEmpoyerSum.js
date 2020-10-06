@@ -2,7 +2,7 @@
 import Validation from '../../../../libs/validation.js'
 import {EMAIL_OK, INPUT_TEXT_OK, PHONE_OK} from "../../../../libs/constants.js";
 
-const form = document.getElementsByTagName("send-form-empl");
+const form = document.getElementsByTagName("form");
 let error = document.getElementsByClassName('error');
 
 export function checkFrom() {
