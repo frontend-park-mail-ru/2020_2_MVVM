@@ -11,6 +11,10 @@ function createElem(tag, className, parent) {
 }
 
 export default class RegList{
+    constructor(onsubmit) {
+        this.onsubmit = onsubmit
+    }
+
     render(user){
         app.innerHTML = '';
 
@@ -22,6 +26,9 @@ export default class RegList{
         // mainRow.style.display = "flex";
         const mainAuth = createElem("div", "main", main);
         mainAuth.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
+
+        const form = mainAuth.querySelector("form");
+        form.addEventListener("submit", (event) => this.onsubmit(event, form));
     }
 }
 //
