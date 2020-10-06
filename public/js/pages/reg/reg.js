@@ -26,8 +26,8 @@ export default class RegList{
         mainAuth.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
 
         afterRender();
-        const form = mainAuth.querySelector("form");
-        form.addEventListener("submit", (event) => this.onsubmit(event, form));
+        // const form = mainAuth.querySelector("form");
+        // form.addEventListener("submit", (event) => this.onsubmit(event, form));
     }
 }
 

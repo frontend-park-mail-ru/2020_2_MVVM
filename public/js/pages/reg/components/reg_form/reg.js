@@ -40,7 +40,6 @@ export function checkFrom() {
             event.preventDefault();
             error[4].innerHTML =`${resPasswd}`;
         }
-
     }, false);
 
 
