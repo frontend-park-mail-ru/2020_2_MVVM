@@ -24,29 +24,30 @@ export default class Router{
     /**
      * Делает смену page
      * @param {string} path
+     * @param user
      */
-    change(path) {
+    change(path, user) {
         if (path === this.root){
             return;
         }
         console.log(path);
         this.root = path;
         const obj = this.routes.get(path);
-        obj.page.render(true);
+        obj.page.render(user);
     }
 
-    start() {
+    start(user) {
         document.addEventListener('click', (evt) => {
             const linkElement = evt.target.closest('a');
 
             if (linkElement) {
                 evt.preventDefault();
-                this.change(linkElement.pathname);
+                this.change(linkElement.pathname, user);
             }
         });
 
         // начальный рендер
-        this.change('\/mainPage');
+        this.change('\/mainPage', user);
     }
 
 

@@ -4,19 +4,24 @@
             <div class="reg">
                 <form>
                     <div class="cfield">
-                        <input class="text" placeholder="Никнейм"/>
+                        <input id="nickReg" class="text" placeholder="Никнейм"/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div class="cfield">
-                        <input class="text" placeholder="Имя"/>
+                        <input id="firstNameReg" class="text" placeholder="Имя"/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div class="cfield">
-                        <input class="text" placeholder="Фамилия"/>
+                        <input id="lastNameReg" class="text" placeholder="Фамилия"/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div class="cfield">
-                        <input class="text" placeholder="Email"/>
+                        <input id="emailReg" class="text" placeholder="Email"/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <div class="cfield">
-                        <input id="regPassw" class="password" type="password" placeholder="Введите пароль"/>
+                        <input id="passwReg" class="password" type="password" placeholder="Введите пароль"/>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <button class="enterBtn" type="submit">Зарегистрироваться</button>
                 </form>

@@ -1,4 +1,3 @@
-
 import Router from './libs/router.js';
 import AuthCtrl from './controllers/AuthCtrl.js';
 import RegCtrl from './controllers/RegCtrl.js';
@@ -41,5 +40,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/vacancy', controllers.vacancy.page);
     router.add('/resume', controllers.resume.page);
 
-    router.start();
+    router.start(false);
 });

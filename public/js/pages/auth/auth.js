@@ -1,6 +1,7 @@
 import {NavBarInit} from "../../components/navBar/navBar.js";
 import {checkFrom} from "./components/auth_form/auth.js";
 
+
 const app = window.document.getElementById('app');
 
 function createElem(tag, className, parent) {
@@ -11,6 +12,7 @@ function createElem(tag, className, parent) {
 }
 
 export default class AuthList {
+
 
     render(user){
         app.innerHTML = '';
@@ -27,22 +29,6 @@ export default class AuthList {
     }
 
 }
-// export function renderAuthList(user){
-//         app.innerHTML = '';
-//
-//         // const auth = new NavBarInit(app, user, "Авторизация");
-//         // auth.loadNavBar();
-//
-//         const main = createElem("div", "main", app);
-//         const container = createElem("div", "container", main);
-//         // mainRow.style.display = "flex";
-//         const mainAuth = createElem("div", "main", main);
-//         mainAuth.insertAdjacentHTML("beforeend", window.fest['auth.tmpl']());
-//
-//
-//         afterRender();
-// }
-
 function afterRender() {
     checkFrom();
 }

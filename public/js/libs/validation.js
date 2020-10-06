@@ -1,8 +1,8 @@
-import {INCORRECT_EMAIL, INCORRECT_LOGIN, INCORRECT_PASSWD, INCORRECT_AVATAR_F} from '../components/constants';
-import {EMAIL_OK, AVATAR_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK} from '../components/constants';
-import {EMAIL_EMPTY, LOGIN_EMPTY, PASSWD_EMPTY, INPUT_TEXT_EMPTY} from '../components/constants';
-import {EMAIL_EXP, LOGIN_EXP, PASSWD_EXP} from '../components/constants';
-import {JPEG_AVATAR_F, PNG_AVATAR_F} from "../components/constants";
+import {INCORRECT_EMAIL, INCORRECT_LOGIN, INCORRECT_PASSWD, INCORRECT_AVATAR_F} from './constants.js';
+import {EMAIL_OK, AVATAR_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK} from './constants.js';
+import {EMAIL_EMPTY, LOGIN_EMPTY, PASSWD_EMPTY, INPUT_TEXT_EMPTY} from './constants.js';
+import {EMAIL_EXP, LOGIN_EXP, PASSWD_EXP} from './constants.js';
+import {JPEG_AVATAR_F, PNG_AVATAR_F} from "./constants.js";
 
 export default class Validation {
     /**
