@@ -153,7 +153,7 @@
                         <label class="sum__form__labels" for="achievement">Ваши сертификаты:</label>
                         <input class="sum__achievement" id="achievement" type="file" value=""/>
                     </div>
-                    <button id="send-form1" class="sum__btn__pink" type="submit">Сохранить</button>
+                    <button id="send-form-cand" class="sum__btn__pink" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
