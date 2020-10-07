@@ -4,7 +4,7 @@ export default class CreateResumeCtrl{
     constructor(router) {
         this.router = router;
 
-        this.page = new CreateResume(async (event, form) => {
+        const onsubmit = async (event, form) => {
             event.preventDefault();
 
             let formData = new FormData(form);
@@ -51,9 +51,8 @@ export default class CreateResumeCtrl{
             const content = await response.json();
             console.assert(response.ok);
 
-
-
             this.router.change('\/resume', content.resume.user_id, content.resume.id);
-        });
+        };
+        this.page = new CreateResume(onsubmit);
     }
 }
