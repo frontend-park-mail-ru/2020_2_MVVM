@@ -48,7 +48,7 @@
 
 .main__location-empl:before{
     content: '';
-    background: url(/spa/public/img/geo1.png) 0 0/cover;
+    background: url(/img/geo1.png) 0 0/cover;
     display: inline-block;
     margin-right: 5px;
     width: 16px;
