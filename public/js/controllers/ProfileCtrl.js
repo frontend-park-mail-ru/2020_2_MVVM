@@ -6,7 +6,7 @@ export default class ProfileCtrl{
 
         const get_person = async () => {
             const response = await fetch(
-                "api/v1/users/me",
+                "http://95.163.212.36/api/v1/users/me",
                 {
                     method: "get",
                 },

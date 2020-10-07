@@ -20,7 +20,7 @@ export default class AuthCtrl {
 
             const response = await fetch(
                 // "v1/users/add",
-                "api/v1/users/add",
+                "http://95.163.212.36/api/v1/users/add",
                 // "api/v1/register",
                 {
                     body: formData,

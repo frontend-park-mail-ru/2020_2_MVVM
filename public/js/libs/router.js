@@ -30,13 +30,13 @@ export default class Router{
         if (path === this.root){
             return;
         }
-        console.log(path);
         this.root = path;
         const obj = this.routes.get(path);
         obj.page.render(user);
     }
 
-    start(user) {
+    start() {
+        let user = false;
         document.addEventListener('click', (evt) => {
             const linkElement = evt.target.closest('a');
 

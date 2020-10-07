@@ -5,29 +5,38 @@ import {EMAIL_OK, LOGIN_OK, PASSWD_OK} from "../../../../libs/constants.js";
 const form = document.getElementsByTagName("form");
 let error = document.getElementsByClassName('error');
 
-export function checkFrom() {
+export function checkFrom(submitF) {
     const email = document.getElementById('emailAuth');
     const nickname = document.getElementById('nickAuth');
     const password = document.getElementById('passAuth');
 
 
     form[0].addEventListener('submit', function (event) {
+        let isOk = true;
         const resEmail = Validation.validateEmail(email.value);
         const resNick = Validation.validateLogin(nickname.value);
         const resPasswd = Validation.validatePasswd(password.value);
 
         if (resEmail !== EMAIL_OK){
+            isOk = false;
             event.preventDefault();
             error[0].innerHTML =`${resEmail}`;
         }
         if (resNick !== LOGIN_OK){
-            event.preventDefault();
+            isOk = false;
             error[1].innerHTML =`${resNick}`;
         }
         if (resPasswd !== PASSWD_OK){
-            event.preventDefault();
+            isOk = false;
             error[2].innerHTML =`${resPasswd}`;
         }
+        if (isOk){
+            submitF(event, form);
+        } else {
+            event.preventDefault();
+        }
+
+
     }, false);
 
 

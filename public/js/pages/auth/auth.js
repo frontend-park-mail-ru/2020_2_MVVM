@@ -27,10 +27,10 @@ export default class AuthList {
         const mainAuth = createElem("div", "main", main);
         mainAuth.insertAdjacentHTML("beforeend", window.fest['auth.tmpl']());
 
-        afterRender();
+        afterRender(this.onsubmit);
     }
 
 }
-function afterRender() {
-    checkFrom();
+function afterRender(submitF) {
+    checkFrom(submitF);
 }

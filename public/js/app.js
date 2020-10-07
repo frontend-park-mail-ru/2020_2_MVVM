@@ -40,5 +40,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/vacancy', controllers.vacancy.page);
     router.add('/resume', controllers.resume.page);
 
-    router.start(false);
+    router.start();
 });
