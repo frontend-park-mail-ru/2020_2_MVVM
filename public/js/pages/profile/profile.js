@@ -36,20 +36,20 @@ export default class Profile{
         const mainColumnRight = createElem("div", "main__page_right", mainPage);
 
 
-        const person = await this.get_current_user()
-        mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
+        // const person = await this.get_current_user();
+        mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](user));
 
         if (this.isPersonalRusemes){
             personalResumes(mainColumnLeft);
         } else {
-            personalInfo(person, mainColumnLeft);
+            personalInfo(user, mainColumnLeft);
         }
 
 
         main.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
-        checkoutProfilePage();
-        updateProfileFields();
+        checkoutProfilePage(user);
+        updateProfileFields(user);
     }
 }
 
@@ -72,6 +72,6 @@ function personalResumes(mainColumnLeft){
     mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persResumes.tmpl'](resumes));
 }
 
-function personalInfo(person, mainColumnLeft){
-    mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persInfo.tmpl'](person));
+function personalInfo(user, mainColumnLeft){
+    mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persInfo.tmpl'](user));
 }
