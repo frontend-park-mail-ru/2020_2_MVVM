@@ -45,7 +45,7 @@ export default class EmployersList{
         const mainList = createElem("div", "main__list",mainRow);
 
         const vacancies = await this.fetchVacancyList();
-        mainList.insertAdjacentHTML("beforeend", window.fest['listOfEmployers.tmpl'](vacancies));
+        mainList.insertAdjacentHTML("beforeend", window.fest['listOfEmployers.tmpl'](vacancies.vacancyList));
         mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
         main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
 
