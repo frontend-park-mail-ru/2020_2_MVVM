@@ -9,7 +9,6 @@ export default class AuthCtrl {
             event.preventDefault();
 
             let formData = new FormData();
-            formData.append("name", "kek");
             formData.append("nickname", form[0][0].value);
             formData.append("name", form[0][1].value);
             formData.append("surname", form[0][2].value);
@@ -23,8 +22,8 @@ export default class AuthCtrl {
                     method: "post"
                 });
             const content = await response.json();
-            // console.assert(response.ok);
-            if (content.code === 200) {
+            console.assert(response.ok);
+            if (content.user) {
                 this.router.change('\/auth');
             }
         };
