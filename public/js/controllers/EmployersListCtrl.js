@@ -1,9 +1,25 @@
-
 import EmployersList from "../pages/employersList/employersList.js";
 
-export default class EmployersListCtrl{
+export default class EmployersListCtrl {
     constructor(router) {
         this.router = router;
-        this.page = new EmployersList();
+
+        const fetchVacancyList = async () => {
+            const response = await fetch(
+                "api/v1/vacancy/page?" + new URLSearchParams({
+                    start: 0,
+                    end: 4,
+                }),
+                {
+                    method: "GET",
+                },
+            )
+            console.assert(response.ok)
+            const vacancy = response.json()
+            console.log(vacancy)
+            return vacancy
+        }
+
+        this.page = new EmployersList(fetchVacancyList, router);
     }
 }
