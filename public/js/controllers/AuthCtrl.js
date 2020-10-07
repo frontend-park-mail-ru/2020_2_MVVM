@@ -1,5 +1,5 @@
 import AuthList from '../pages/auth/auth.js';
-import {SUCCESS} from "../libs/constants.js";
+import {SUCCESS,URL} from "../libs/constants.js";
 
 export default class AuthCtrl {
     constructor(router) {
@@ -14,7 +14,7 @@ export default class AuthCtrl {
             formData.append("password", form[0][2].value)
 
             const response = await fetch(
-                "api/v1/auth/login",
+                `${URL}/v1/auth/login`,
                 {
                     body: formData,
                     method: "post",

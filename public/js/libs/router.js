@@ -1,6 +1,6 @@
+import {URL, UNAUTHORISED} from "./constants.js";
 
-
-export default class Router{
+export default class Router {
     constructor(root) {
         this.root = root;
         this.routes = new Map();
@@ -18,7 +18,7 @@ export default class Router{
             return elem;
         }).join('\/');
 
-        this.routes.set(expr, {root:root, page:page});
+        this.routes.set(expr, {root: root, page: page});
     }
 
     /**
@@ -28,26 +28,32 @@ export default class Router{
      */
     change(path, ...args) {
 
-        // const get_person = async () => {
-        //     const response = await fetch(
-        //         "api/v1/users/me",
-        //         {
-        //             method: "get",
-        //         },
-        //     )
-        //     console.assert(response.ok);
-        //     const content = await response.json();
-        //     console.log(content);
-        //     return !!content;
-        // }
+        const get_person = async () => {
+            const response = await fetch(
+                `${URL}/v1/users/me`,
+                {
+                    method: "get",
+                },
+            )
+            // console.assert(response.ok);
+            const content = await response.json();
+            console.log(content.code);
+            return content.code !== UNAUTHORISED;
+        }
+
         if (path === this.root) {
             return;
         }
         this.root = path;
         const obj = this.routes.get(path);
+
+        get_person().then((isauthorized) => {
+            obj.page.render(isauthorized, ...args)
+        });
+
         // TODO: кажется, render надо вызывать у контроллера, который потом вызовет его у вью
         // иначе некуда положить логику хождения на сервер (во вью это делать не стоит)
-        obj.page.render(...args);
+        // obj.page.render(...args);
         // obj.page.render(get_person());
     }
 

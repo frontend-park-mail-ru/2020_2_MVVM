@@ -50,7 +50,10 @@ export default class CreateResumeCtrl{
                 });
             const content = await response.json();
             console.assert(response.ok);
-            this.router.change('\/resume/page');
+
+
+
+            this.router.change('\/resume', content.resume.user_id, content.resume.id);
         });
     }
 }

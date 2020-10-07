@@ -16,7 +16,10 @@
 <!--                            <fest:if test="user.type=='empl'">-->
 <!--                                <a href="/createVacancy" class="header__item header__item_big-button">+ Создать резюме</a>-->
 <!--                            </fest:if>-->
-                            <a href="/createVacancy" class="header__item header__item_big-button">+ Создать резюме</a>
+                            <a href="/createResume" class="header__item header__item_big-button">+ Создать резюме</a>
+                            <a href="/createVacancy" class="header__item header__item_big-button">+ Создать вакансию</a>
+                            <br/>
+                            <br/>
                         </nav>
                     </div>
                 </div>

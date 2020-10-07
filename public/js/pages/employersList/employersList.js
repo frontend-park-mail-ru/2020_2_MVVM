@@ -11,7 +11,11 @@ function createElem(tag, className, parent) {
 }
 
 export default class EmployersList{
-    render(user){
+    constructor(fetchVacancyList, router) {
+        this.fetchVacancyList = fetchVacancyList
+        this.router = router
+    }
+    async render(user){
         app.innerHTML = '';
 
         const employersList = new NavBarInit(app, user, "Список ваканский");
@@ -40,45 +44,8 @@ export default class EmployersList{
 
         const mainList = createElem("div", "main__list",mainRow);
 
-        const infoOfEmpl = [
-            {
-                name: 'Программист 1С',
-                openPos: '4',
-                special: ['IT технологии', 'Бухгалтерской учет'],
-                location: ['Москва','Россия'],
-                description: 'Программирование в среде 1С 8 УПП. Доработка конфигурации по техническим заданиям (проекты). Составление технической документации. Ведение плана работ. Высшее профильное образование. Знание конфигураций 1С:УПП 1.3, 1С Документооборот. Плюсом будет знание: 1С Зарплата',
-            },
-            {
-                name: 'Программист 1С',
-                openPos: '4',
-                special: ['IT технологии', 'Бухгалтерской учет'],
-                location: ['Москва','Россия'],
-                description: 'Программирование в среде 1С 8 УПП. Доработка конфигурации по техническим заданиям (проекты). Составление технической документации. Ведение плана работ. Высшее профильное образование. Знание конфигураций 1С:УПП 1.3, 1С Документооборот. Плюсом будет знание: 1С Зарплата',
-            },
-            {
-                name: 'Программист 1С',
-                openPos: '4',
-                special: ['IT технологии', 'Бухгалтерской учет'],
-                location: ['Москва','Россия'],
-                description: 'Программирование в среде 1С 8 УПП. Доработка конфигурации по техническим заданиям (проекты). Составление технической документации. Ведение плана работ. Высшее профильное образование. Знание конфигураций 1С:УПП 1.3, 1С Документооборот. Плюсом будет знание: 1С Зарплата',
-            },
-            {
-                name: 'Программист 1С',
-                openPos: '4',
-                special: ['IT технологии', 'Бухгалтерской учет'],
-                location: ['Москва','Россия'],
-                description: 'Программирование в среде 1С 8 УПП. Доработка конфигурации по техническим заданиям (проекты). Составление технической документации. Ведение плана работ. Высшее профильное образование. Знание конфигураций 1С:УПП 1.3, 1С Документооборот. Плюсом будет знание: 1С Зарплата',
-            },
-            {
-                name: 'Программист 1С',
-                openPos: '4',
-                special: ['IT технологии', 'Бухгалтерской учет'],
-                location: ['Москва','Россия'],
-                description: 'Программирование в среде 1С 8 УПП. Доработка конфигурации по техническим заданиям (проекты). Составление технической документации. Ведение плана работ. Высшее профильное образование. Знание конфигураций 1С:УПП 1.3, 1С Документооборот. Плюсом будет знание: 1С Зарплата',
-            },
-        ]
-
-        mainList.insertAdjacentHTML("beforeend", window.fest['listOfEmployers.tmpl'](infoOfEmpl));
+        const vacancies = await this.fetchVacancyList();
+        mainList.insertAdjacentHTML("beforeend", window.fest['listOfEmployers.tmpl'](vacancies));
         mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
         main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
 
