@@ -29,3 +29,8 @@ export const PASSWD_EXP = new RegExp(/[^а-яёА-ЯЁ]{5,25}$/);
 export const PHONE_EXP = new RegExp(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
 export const JPEG_AVATAR_F = 'image/jpeg';
 export const PNG_AVATAR_F = 'image/png';
+
+
+//satus code
+
+export const SUCCESS = 200;

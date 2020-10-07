@@ -1,4 +1,5 @@
 import AuthList from '../pages/auth/auth.js';
+import {SUCCESS} from "../libs/constants.js";
 
 export default class AuthCtrl {
     constructor(router) {
@@ -21,7 +22,7 @@ export default class AuthCtrl {
             )
             const content = await response.json();
             console.assert(response.ok);
-            if (content.user) {
+            if (content.code === SUCCESS) {
                 this.router.change('\/mainPage');
             }
         }
