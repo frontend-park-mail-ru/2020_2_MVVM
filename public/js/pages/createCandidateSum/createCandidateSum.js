@@ -14,7 +14,7 @@ export default class CreateResume{
     render(user){
         app.innerHTML = '';
 
-        const employersList = new NavBarInit(app, Boolean(user.id), "Создание резюме");
+        const employersList = new NavBarInit(app, Boolean(user.ID), "Создание резюме");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

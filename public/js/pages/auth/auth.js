@@ -20,7 +20,7 @@ export default class AuthList {
     render(user){
         app.innerHTML = '';
 
-        const auth = new NavBarInit(app, Boolean(user.id), "Авторизация");
+        const auth = new NavBarInit(app, Boolean(user.ID), "Авторизация");
         auth.loadNavBar();
 
         const main = createElem("div", "main", app);

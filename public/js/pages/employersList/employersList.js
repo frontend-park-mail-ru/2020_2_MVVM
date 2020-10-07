@@ -14,7 +14,7 @@ export default class EmployersList{
     render(user){
         app.innerHTML = '';
 
-        const employersList = new NavBarInit(app, Boolean(user.id), "Список ваканский");
+        const employersList = new NavBarInit(app, Boolean(user.ID), "Список ваканский");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

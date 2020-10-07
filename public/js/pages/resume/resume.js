@@ -14,7 +14,7 @@ export default class Resume{
     render(user){
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, Boolean(user.id), "");
+        const navBarInit = new NavBarInit(app, Boolean(user.ID), "");
         navBarInit.loadNavBar();
 
         const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
