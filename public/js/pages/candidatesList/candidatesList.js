@@ -55,8 +55,8 @@ export default class CandidatesList{
 
         for (let i = 0; i < linksToResume.length; i++) {
             linksToResume[i].addEventListener('click', event => {
-                this.router.change('/resume', user, infoOfCand[i].id, infoOfCand[i].resume_id)
                 event.preventDefault()
+                this.router.change('/resume', infoOfCand[i].id, infoOfCand[i].resume_id)
             })
         }
 
