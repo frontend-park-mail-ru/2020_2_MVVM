@@ -21,7 +21,7 @@ export default class Profile{
     async render(user){
         app.innerHTML = '';
 
-        const person = await this.get_current_user();
+        // const person = await this.get_current_user();
 
         const employersList = new NavBarInit(app, user, "Личный кабинет");
         employersList.loadNavBar();
@@ -39,19 +39,19 @@ export default class Profile{
 
 
 
-        mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
+        mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](user));
 
         if (this.isPersonalRusemes){
             personalResumes(mainColumnLeft);
         } else {
-            personalInfo(person, mainColumnLeft);
+            personalInfo(this.get_current_user, mainColumnLeft);
         }
 
 
         main.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
-        checkoutProfilePage(person);
-        updateProfileFields(person);
+        checkoutProfilePage(user);
+        updateProfileFields(user);
     }
 }
 
@@ -75,5 +75,5 @@ function personalResumes(mainColumnLeft){
 }
 
 function personalInfo(person, mainColumnLeft){
-    mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persInfo.tmpl'](person));
+    mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persInfo.tmpl'](person()));
 }
