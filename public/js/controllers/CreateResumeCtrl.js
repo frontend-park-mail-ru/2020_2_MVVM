@@ -9,10 +9,43 @@ export default class CreateResumeCtrl{
 
             let formData = new FormData(form);
 
+            const json = {}
+
+            if (formData.get("description") !== "") {
+                json.description = formData.get("description")
+            }
+
+            if (formData.get("salary_min") !== "") {
+                json.salary_min = parseInt(formData.get("salary_min"))
+            }
+
+            if (formData.get("salary_max") !== "") {
+                json.salary_max = parseInt(formData.get("salary_max"))
+            }
+
+            if (formData.get("gender") !== "") {
+                json.gender = formData.get("gender")
+            }
+
+            if (formData.get("level") !== "") {
+                json.level = formData.get("level")
+            }
+
+            if (formData.get("experience_month") !== "") {
+                json.experience_month = parseInt(formData.get("experience_month"))
+            }
+
+            if (formData.get("education") !== "") {
+                json.education = formData.get("education")
+            }
+
+
+            console.debug(json)
+
             const response = await fetch(
                 "api/v1/resume/add",
                 {
-                    body: formData,
+                    body: JSON.stringify(json),
                     method: "post"
                 });
             const content = await response.json();

@@ -16,8 +16,6 @@ export default class MainPage{
         const navBarInit = new NavBarInit(app, user, "Самый простой способ найти новую работу");
         navBarInit.loadNavBar();
 
-        console.log(app.getElementsByClassName("header__page"));
-
         const searchJob = createElem("div", "search-job", app.getElementsByClassName("header__page")[0])
         searchJob.insertAdjacentHTML("afterEnd", window.fest['searchJob.tmpl']());
 

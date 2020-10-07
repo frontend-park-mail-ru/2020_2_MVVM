@@ -18,10 +18,12 @@ export default class Profile{
     }
     isPersonalRusemes = false;
 
-    async render(user){
+    async render(){
         app.innerHTML = '';
 
-        const employersList = new NavBarInit(app, user, "Личный кабинет");
+        const person = await this.get_current_user();
+
+        const employersList = new NavBarInit(app, Boolean(person), "Личный кабинет");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
@@ -36,7 +38,7 @@ export default class Profile{
         const mainColumnRight = createElem("div", "main__page_right", mainPage);
 
 
-        const person = await this.get_current_user()
+
         mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
 
         if (this.isPersonalRusemes){
@@ -45,10 +47,9 @@ export default class Profile{
             personalInfo(person, mainColumnLeft);
         }
 
-
         main.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
-        checkoutProfilePage();
+        checkoutProfilePage(this.get_current_user);
         updateProfileFields();
     }
 }

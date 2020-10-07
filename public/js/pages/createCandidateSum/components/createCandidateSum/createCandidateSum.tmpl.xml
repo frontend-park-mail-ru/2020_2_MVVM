@@ -20,69 +20,69 @@
             </div>
             <div class="summary">
                 <form class="sum__candidate" method="post" action="#">
-                    <div>
-                        <p class="sum__description__block">Контактные данные</p>
-                        <label class="sum__form__labels" for="username">Имя*</label>
-                        <input class="sum__user__info" id="username" type="text" value=""/>
-                        <span class="error" aria-live="polite"/>
-                    </div>
+<!--                    <div>-->
+<!--                        <p class="sum__description__block">Контактные данные</p>-->
+<!--                        <label class="sum__form__labels" for="username">Имя*</label>-->
+<!--                        <input class="sum__user__info" id="username" type="text" value=""/>-->
+<!--                        <span class="error" aria-live="polite"/>-->
+<!--                    </div>-->
                     <div>
                         <label class="sum__form__labels" for="surname">Фамилия*</label>
                         <input class="sum__user__info" id="surname" type="text" value=""/>
                         <span class="error" aria-live="polite"/>
                     </div>
-                    <div class="sum__switch">
-                        <div>Пол*</div>
-                        <label class="sum__form__switch" for="male">
-                            <input class="sum__input__switch" id="male" type="radio" name="gender" value=""/>
-                            <div class="sum__switch__control sum__male"/>
-                        </label>
-                        <label class="sum__form__switch" for="female">
-                            <input class="sum__input__switch" id="female" type="radio" name="gender" value=""/>
-                            <div class="sum__switch__control sum__female"/>
-                        </label>
-                        <br/>
-                        <br/>
-                        <br/>
-                    </div>
+<!--                    <div class="sum__switch">-->
+<!--                        <div>Пол*</div>-->
+<!--                        <label class="sum__form__switch" for="male">-->
+<!--                            <input class="sum__input__switch" id="male" type="radio" name="gender" value=""/>-->
+<!--                            <div class="sum__switch__control sum__male"/>-->
+<!--                        </label>-->
+<!--                        <label class="sum__form__switch" for="female">-->
+<!--                            <input class="sum__input__switch" id="female" type="radio" name="gender" value=""/>-->
+<!--                            <div class="sum__switch__control sum__female"/>-->
+<!--                        </label>-->
+<!--                        <br/>-->
+<!--                        <br/>-->
+<!--                        <br/>-->
+<!--                    </div>-->
                     <div>
                         <label class="sum__form__labels" for="email">E-mail*</label>
                         <input class="sum__user__info" id="email" type="email" value=""/>
                         <span class="error" aria-live="polite"/>
                     </div>
-                    <div>
-                        <label class="sum__form__labels" for="country">Страна проживания</label>
-                        <select class="sum__user__all" id="country">
-                            <option value="">Россия</option>
-                            <option value="">Украина</option>
-                            <option value="">Беларусь</option>
-                        </select>
-                    </div>
+<!--                    <div>-->
+<!--                        <label class="sum__form__labels" for="country">Страна проживания</label>-->
+<!--                        <select class="sum__user__all" id="country">-->
+<!--                            <option value="">Россия</option>-->
+<!--                            <option value="">Украина</option>-->
+<!--                            <option value="">Беларусь</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
                     <div>
                         <p class="sum__description__block">Основная информация</p>
                     </div>
-                    <div>
-                        <label class="sum__form__labels" for="date-birth">Дата рождения*</label>
-                        <input class="sum__date__birth" type="date" id="date-birth" name="trip-start" value="2000-01-01"
-                               min="1930-01-01" max="2010-12-12"/>
-                    </div>
-                    <div>
-                        <label class="sum__form__labels" for="citizenship">Гражданство*</label>
-                        <input class="sum__user__info" id="citizenship" type="text"/>
-                        <span class="error" aria-live="polite"/>
-                    </div>
+<!--                    <div>-->
+<!--                        <label class="sum__form__labels" for="date-birth">Дата рождения*</label>-->
+<!--                        <input class="sum__date__birth" type="date" id="date-birth" name="trip-start" value="2000-01-01"-->
+<!--                               min="1930-01-01" max="2010-12-12"/>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label class="sum__form__labels" for="citizenship">Гражданство*</label>-->
+<!--                        <input class="sum__user__info" id="citizenship" type="text"/>-->
+<!--                        <span class="error" aria-live="polite"/>-->
+<!--                    </div>-->
                     <div class="sum__exp-select">
                         <label class="sum__form__labels">Опыт работы</label>
                         <input name="experience_month" class="sum__user__info" id="citizenship" type="text"/>
                         <br/>
-                        <div class="sum__work__experience">
-                            <input type="radio" name="rb" id="rb1"/>
-                            <label class="sum__form__labels" for="rb1">Есть опыт работы</label>
-                        </div>
-                        <div class="sum__work__experience">
-                            <input type="radio" name="rb" id="rb2"/>
-                            <label class="sum__form__labels" for="rb2">Нет опыта работы</label>
-                        </div>
+<!--                        <div class="sum__work__experience">-->
+<!--                            <input type="radio" name="rb" id="rb1"/>-->
+<!--                            <label class="sum__form__labels" for="rb1">Есть опыт работы</label>-->
+<!--                        </div>-->
+<!--                        <div class="sum__work__experience">-->
+<!--                            <input type="radio" name="rb" id="rb2"/>-->
+<!--                            <label class="sum__form__labels" for="rb2">Нет опыта работы</label>-->
+<!--                        </div>-->
                         <div class="sum__exp__card">
                             <div>
                                 <p class="sum__description__block">Специальность</p>
@@ -93,16 +93,16 @@
                             <label class="sum__form__labels" for="salary">Зарплата</label>
                             <input name="salary_min" class="sum__user__info" id="citizenship" type="text"/>
                             <input name="salary_max" class="sum__user__info" id="citizenship" type="text"/>
-                            <div class="sum__salary__row">
-                                <input class="sum__user__info" id="salary" type="text" value=""/>
-                                <span class="error" aria-live="polite"/>
-                                <label class="sum__form__labels" for="select-salary"/>
-                                <select class="sum__small__field" id="select-salary">
-                                    <option value="">руб.</option>
-                                    <option value="">usd</option>
-                                    <option value="">eur</option>
-                                </select>
-                            </div>
+<!--                            <div class="sum__salary__row">-->
+<!--                                <input class="sum__user__info" id="salary" type="text" value=""/>-->
+<!--                                <span class="error" aria-live="polite"/>-->
+<!--                                <label class="sum__form__labels" for="select-salary"/>-->
+<!--                                <select class="sum__small__field" id="select-salary">-->
+<!--                                    <option value="">руб.</option>-->
+<!--                                    <option value="">usd</option>-->
+<!--                                    <option value="">eur</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
                             <a class="sum__prof__areas" href="#" id="prof-exp">Указать профобласти</a>
                             <div>
                                 <p class="sum__description__block">Опыт работы</p>
@@ -133,22 +133,22 @@
 <!--                                    <option value="">Доктор наук</option>-->
 <!--                                </select>-->
                             </div>
-                            <div class="sum__description__block">Владение языками</div>
-                            <div class="sum__description__single">
-                                <label class="sum__form__labels" for="select-language">Родной язык</label>
-                                <select class="sum__small__field" id="select-language">
-                                    <option value="">Русский</option>
-                                    <option value="">Английский</option>
-                                    <option value="">Французский</option>
-                                    <option value="">Немецкий</option>
-                                    <option value="">Китайский</option>
-                                    <option value="">Другие</option>
-                                </select>
-                            </div>
-                            <div class="sum__work__exp__row1">
-                                <p>Иностранные языки</p>
-                                <a class="sum__languages" href="#" id="lang">Указать ещё один язык</a>
-                            </div>
+<!--                            <div class="sum__description__block">Владение языками</div>-->
+<!--                            <div class="sum__description__single">-->
+<!--                                <label class="sum__form__labels" for="select-language">Родной язык</label>-->
+<!--                                <select class="sum__small__field" id="select-language">-->
+<!--                                    <option value="">Русский</option>-->
+<!--                                    <option value="">Английский</option>-->
+<!--                                    <option value="">Французский</option>-->
+<!--                                    <option value="">Немецкий</option>-->
+<!--                                    <option value="">Китайский</option>-->
+<!--                                    <option value="">Другие</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                            <div class="sum__work__exp__row1">-->
+<!--                                <p>Иностранные языки</p>-->
+<!--                                <a class="sum__languages" href="#" id="lang">Указать ещё один язык</a>-->
+<!--                            </div>-->
                         </div>
                     </div>
                     <label class="sum__form__labels" for="achievement">

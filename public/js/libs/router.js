@@ -27,18 +27,32 @@ export default class Router{
      * @param args
      */
     change(path, ...args) {
+
+        // const get_person = async () => {
+        //     const response = await fetch(
+        //         "api/v1/users/me",
+        //         {
+        //             method: "get",
+        //         },
+        //     )
+        //     console.assert(response.ok);
+        //     const content = await response.json();
+        //     console.log(content);
+        //     return !!content;
+        // }
         if (path === this.root) {
             return;
         }
-        console.log(path);
         this.root = path;
         const obj = this.routes.get(path);
         // TODO: кажется, render надо вызывать у контроллера, который потом вызовет его у вью
         // иначе некуда положить логику хождения на сервер (во вью это делать не стоит)
         obj.page.render(...args);
+        // obj.page.render(get_person());
     }
 
-    start(user) {
+    start() {
+        let user = false;
         document.addEventListener('click', (evt) => {
             const linkElement = evt.target.closest('a');
 
@@ -50,5 +64,6 @@ export default class Router{
 
         // начальный рендер
         this.change('\/createResume', user);
+        // this.change('\/mainPage', user);
     }
 }
