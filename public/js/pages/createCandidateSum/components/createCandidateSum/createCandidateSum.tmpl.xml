@@ -34,11 +34,11 @@
                     <div class="sum__switch">
                         <div>Пол*</div>
                         <label class="sum__form__switch" for="male">
-                            <input class="sum__input__switch" id="male" type="radio" name="sex" value=""/>
+                            <input class="sum__input__switch" id="male" type="radio" name="gender" value=""/>
                             <div class="sum__switch__control sum__male"/>
                         </label>
                         <label class="sum__form__switch" for="female">
-                            <input class="sum__input__switch" id="female" type="radio" name="sex" value=""/>
+                            <input class="sum__input__switch" id="female" type="radio" name="gender" value=""/>
                             <div class="sum__switch__control sum__female"/>
                         </label>
                         <br/>
@@ -73,6 +73,7 @@
                     </div>
                     <div class="sum__exp-select">
                         <label class="sum__form__labels">Опыт работы</label>
+                        <input name="experience_month" class="sum__user__info" id="citizenship" type="text"/>
                         <br/>
                         <div class="sum__work__experience">
                             <input type="radio" name="rb" id="rb1"/>
@@ -90,6 +91,8 @@
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <label class="sum__form__labels" for="salary">Зарплата</label>
+                            <input name="salary_min" class="sum__user__info" id="citizenship" type="text"/>
+                            <input name="salary_max" class="sum__user__info" id="citizenship" type="text"/>
                             <div class="sum__salary__row">
                                 <input class="sum__user__info" id="salary" type="text" value=""/>
                                 <span class="error" aria-live="polite"/>
@@ -111,23 +114,24 @@
                                 <div class="sum__work__exp__row2">
                                     <p>О себе</p>
                                     <label class="sum__form__labels" for="description"/>
-                                    <textarea class="__sum__text" id="description"/>
+                                    <textarea name="description" class="__sum__text" id="description"/>
                                     <span class="error" aria-live="polite"/>
                                 </div>
                             </div>
                             <div>
                                 <p class="sum__description__block">Образование</p>
+                                <input name="education" class="sum__user__info" id="citizenship" type="text"/>
                                 <label class="sum__form__labels" for="select-education"/>
-                                <select class="sum__user__all" id="select-education">
-                                    <option value="">Среднее</option>
-                                    <option value="">Среднее Специальное</option>
-                                    <option value="">Неоконченное высшее</option>
-                                    <option value="">Высшее</option>
-                                    <option value="">Бакалавр</option>
-                                    <option value="">Магистр</option>
-                                    <option value="">Кандидат Наук</option>
-                                    <option value="">Доктор наук</option>
-                                </select>
+<!--                                <select class="sum__user__all" id="select-education">-->
+<!--                                    <option value="">Среднее</option>-->
+<!--                                    <option value="">Среднее Специальное</option>-->
+<!--                                    <option value="">Неоконченное высшее</option>-->
+<!--                                    <option value="">Высшее</option>-->
+<!--                                    <option value="">Бакалавр</option>-->
+<!--                                    <option value="">Магистр</option>-->
+<!--                                    <option value="">Кандидат Наук</option>-->
+<!--                                    <option value="">Доктор наук</option>-->
+<!--                                </select>-->
                             </div>
                             <div class="sum__description__block">Владение языками</div>
                             <div class="sum__description__single">

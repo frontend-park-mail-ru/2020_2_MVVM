@@ -1,10 +1,10 @@
-import RegList from '../pages/reg/reg.js';
+import CreateResume from "../pages/createCandidateSum/createCandidateSum.js";
 
 export default class AuthCtrl {
     constructor(router) {
         this.router = router;
 
-        this.page = new RegList(async (event, form) => {
+        this.page = new CreateResume(async (event, form) => {
             event.preventDefault();
 
             // We should have fields like <input type="text" name="field_name">

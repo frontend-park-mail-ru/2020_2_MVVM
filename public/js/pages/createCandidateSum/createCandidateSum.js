@@ -11,6 +11,10 @@ function createElem(tag, className, parent) {
 }
 
 export default class CreateResume{
+    constructor(onsubmit) {
+        this.onsubmit = onsubmit
+    }
+
     render(user){
         app.innerHTML = '';
 
@@ -21,6 +25,8 @@ export default class CreateResume{
         main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl']());
 
         afterRender();
+        const form = main.querySelector("form");
+        form.addEventListener("submit", (event) => this.onsubmit(event, form));
     }
 }
 
