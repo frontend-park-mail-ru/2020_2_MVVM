@@ -7,9 +7,9 @@ export function updateProfileFields() {
             if (updateButton[i].textContent === 'Изменить' || updateButton[i].textContent === 'Добавить') {
                 const field = updateButton[i].previousElementSibling.className;
                 updateButton[i].previousSibling.innerHTML=`<input class="pers__list_refactor-${field}">`
-                updateButton[i].innerHTML="<a href='#'>Принять</a>";
+                updateButton[i].innerHTML="<a href='/profile'>Принять</a>";
             } else {
-                updateButton[i].innerHTML="<a href='#'>Изменить</a>";
+                updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
             }
         });
     }
