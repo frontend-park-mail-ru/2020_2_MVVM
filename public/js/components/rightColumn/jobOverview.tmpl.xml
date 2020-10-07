@@ -7,7 +7,7 @@
         <i class="fas fa-wallet fa-lg"></i>
         <div>
           <h2>Зарплата</h2>
-          <span><fest:value>items.salary</fest:value></span>
+          <span><fest:value>items.salary_min</fest:value> - <fest:value>items.salary_max</fest:value></span>
         </div>
       </div>
     </li>
@@ -43,7 +43,7 @@
         <i class="fa fa-user-shield fa-lg"></i>
         <div>
           <h2>Опыт</h2>
-          <span><fest:value>items.experience</fest:value></span>
+          <span><fest:value>items.experience_month</fest:value></span>
         </div>
       </div>
     </li>

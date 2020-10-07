@@ -1,5 +1,6 @@
 import {NavBarInit} from "../../components/navBar/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
+import router from "../../libs/router.js";
 
 const app = window.document.getElementById('app');
 
@@ -11,7 +12,13 @@ function createElem(tag, className, parent) {
 }
 
 export default class CandidatesList{
-    render(user) {
+    // TODO ROUTER - костыль, сделать нормально через контроллеры
+    constructor(fetchCandInfo, router) {
+        this.fetchCandInfo = fetchCandInfo
+        this.router = router
+    }
+
+    async render(user) {
         app.innerHTML = '';
 
         const candidatesList = new NavBarInit(app, user, "Список резюме");
@@ -32,43 +39,26 @@ export default class CandidatesList{
                 type:'Желаемая зарплата',
                 name:['10-50', '50-100', '100-150'],
             }
-        ]
+        ];
 
         mainRow.insertAdjacentHTML("afterbegin", window.fest['searchForm.tmpl'](m));
 
         const mainList = createElem("div", "main__list",mainRow);
 
-        const infoOfCand = [
-            {
-                name: 'Мария Козлова',
-                prof: 'UX / UI Дизайнер',
-                job: 'yandex.ru',
-                location: ['Москва','Россия'],
-            },
-            {
-                name: 'Иван Иванов',
-                prof: 'Слесарь',
-                job: 'мгту',
-                location: ['Иркутск','Россия'],
-            },
-            {
-                name: 'Елизавета Комарова',
-                prof: 'Кассир',
-                job: 'Пятерочка',
-                location: ['Новосибирск','Россия'],
-            },
-            {
-                name: 'Екатерина Шумакова',
-                prof: 'Программист 1:С',
-                job: '1:C',
-                location: ['Санкт-Петербург','Россия'],
-            }
-        ]
-
+        const infoOfCand = await this.fetchCandInfo();
         mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
         mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
         main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
 
+        const linksToResume = main.getElementsByClassName("go_to_resume");
+
+
+        for (let i = 0; i < linksToResume.length; i++) {
+            linksToResume[i].addEventListener('click', event => {
+                this.router.change('/resume', user, infoOfCand[i].id, infoOfCand[i].resume_id)
+                event.preventDefault()
+            })
+        }
 
         afterRender();
     }

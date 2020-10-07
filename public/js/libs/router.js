@@ -24,16 +24,18 @@ export default class Router{
     /**
      * Делает смену page
      * @param {string} path
-     * @param user
+     * @param args
      */
-    change(path, user) {
-        if (path === this.root){
+    change(path, ...args) {
+        if (path === this.root) {
             return;
         }
         console.log(path);
         this.root = path;
         const obj = this.routes.get(path);
-        obj.page.render(user);
+        // TODO: кажется, render надо вызывать у контроллера, который потом вызовет его у вью
+        // иначе некуда положить логику хождения на сервер (во вью это делать не стоит)
+        obj.page.render(...args);
     }
 
     start(user) {

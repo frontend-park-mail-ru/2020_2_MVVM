@@ -1,19 +1,11 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-  <fest:each iterate="items" index="i" value="v">
       <div class="resume-description">
-        <fest:each iterate="v.mainInfo" index="i" value="sp">
-          <h3>
-            <fest:value>sp.name</fest:value>
-          </h3>
+          <h3> Подробная информация </h3>
           <p>
-            <fest:value>sp.text</fest:value>
+            <fest:value>items.text</fest:value>
           </p>
-        </fest:each>
 
-        <fest:each iterate="v.education" index="i" value="sp">
-          <h3>
-            <fest:value>sp.name</fest:value>
-          </h3>
+          <h3> Образование </h3>
           <fest:for iterate="sp.educationItem" index="i" value="p">
             <li>
               <i class="fa fa-graduation-cap fa-2x"></i>
@@ -26,10 +18,8 @@
               </div>
             </li>
           </fest:for>
-        </fest:each>
 
-        <fest:each iterate="v.workExperience" index="i" value="sp">
-          <h3> <fest:value>sp.name</fest:value> </h3>
+          <h3> Опыт работы </h3>
           <fest:for iterate="sp.experienceItem" index="i" value="p">
             <li>
               <div class="work-experience">
@@ -44,10 +34,8 @@
 
             </li>
           </fest:for>
-        </fest:each>
 
-        <fest:each iterate="v.portfolio" index="i" value="sp">
-          <h3> <fest:value>sp.name</fest:value> </h3>
+          <h3> Портфолио </h3>
           <div class="portfolio">
             <fest:for iterate="sp.portfolioItem" index="i" value="p">
             <div class="portfolio-image">
@@ -59,10 +47,8 @@
             </div>
             </fest:for>
           </div>
-        </fest:each>
 
-        <fest:each iterate="v.skills" index="i" value="sp">
-          <h3> <fest:value>sp.name</fest:value> </h3>
+          <h3> Персональные навыки </h3>
           <ul class="prof-skills">
             <fest:for iterate="sp.skillsItem" index="i" value="p">
                 <div>
@@ -79,10 +65,8 @@
                 </div>
           </fest:for>
           </ul>
-        </fest:each>
 
-        <fest:each iterate="v.awards" index="i" value="sp">
-          <h3> <fest:value>sp.name</fest:value> </h3>
+          <h3> Награды </h3>
           <fest:for iterate="sp.awardsItem" index="i" value="p">
             <li>
               <div class="work-experience">
@@ -95,10 +79,8 @@
 
             </li>
           </fest:for>
-        </fest:each>
 
 
 
       </div>
-  </fest:each>
 </fest:template>
