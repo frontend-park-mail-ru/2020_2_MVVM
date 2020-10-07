@@ -25,12 +25,10 @@ export default class RegList{
         const mainAuth = createElem("div", "main", main);
         mainAuth.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
 
-        afterRender();
-        // const form = mainAuth.querySelector("form");
-        // form.addEventListener("submit", (event) => this.onsubmit(event, form));
+        afterRender(this.onsubmit);
     }
 }
 
-function afterRender() {
-    checkFrom();
+function afterRender(submitF) {
+    checkFrom(submitF);
 }

@@ -5,7 +5,9 @@ import {EMAIL_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK} from "../../../../libs/con
 const form = document.getElementsByTagName("form");
 let error = document.getElementsByClassName('error');
 
-export function checkFrom() {
+export function checkFrom(submitF) {
+    let isOk = true;
+
     const email = document.getElementById('emailReg');
     const nickname = document.getElementById('nickReg');
     const password = document.getElementById('passwReg');
@@ -21,24 +23,31 @@ export function checkFrom() {
         const resLastName = Validation.validateTextField(lastName.value);
 
         if (resNick !== LOGIN_OK){
-            event.preventDefault();
+            isOk = false;
             error[0].innerHTML =`${resNick}`;
         }
         if (resFirstName !== INPUT_TEXT_OK){
-            event.preventDefault();
+            isOk = false;
             error[1].innerHTML =`${resFirstName}`;
         }
         if (resLastName !== INPUT_TEXT_OK){
-            event.preventDefault();
+            isOk = false;
             error[2].innerHTML =`${resLastName}`;
         }
         if (resEmail !== EMAIL_OK){
-            event.preventDefault();
+            isOk = false;
             error[3].innerHTML =`${resEmail}`;
         }
         if (resPasswd !== PASSWD_OK){
-            event.preventDefault();
+            isOk = false;
             error[4].innerHTML =`${resPasswd}`;
+        }
+
+        if (isOk){
+            console.log(event,form);
+            submitF(event, form);
+        } else {
+            event.preventDefault();
         }
     }, false);
 
