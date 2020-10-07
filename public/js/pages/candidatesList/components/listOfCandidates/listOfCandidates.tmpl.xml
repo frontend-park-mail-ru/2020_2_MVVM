@@ -12,7 +12,7 @@
 <!--                        <fest:value>loc</fest:value>/-->
 <!--                    </fest:each>-->
                 </div>
-                <a href="/resume/" class="go_to_resume"><div class="main__candidate_shortlist">Подробнее</div></a>
+                <a href="/resume" class="go_to_resume"><div class="main__candidate_shortlist">Подробнее</div></a>
             </div>
         </fest:each>
 </fest:template>
