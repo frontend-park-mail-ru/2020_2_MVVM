@@ -24,12 +24,12 @@ export default class CreateResume{
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl']());
 
-        afterRender(this.onsubmit);
-        // const form = main.querySelector("form");
-        // form.addEventListener("submit", (event) => this.onsubmit(event, form));
+        afterRender();
+        const form = main.querySelector("form");
+        form.addEventListener("submit", (event) => this.onsubmit(event, form));
     }
 }
 
-function afterRender(submitF) {
-    checkFrom(submitF);
+function afterRender() {
+    checkFrom();
 }
