@@ -13,7 +13,7 @@ export default class MainPage{
     render(user){
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, Boolean(user.ID), "Самый простой способ найти новую работу");
+        const navBarInit = new NavBarInit(app, user, "Самый простой способ найти новую работу");
         navBarInit.loadNavBar();
 
         const searchJob = createElem("div", "search-job", app.getElementsByClassName("header__page")[0])

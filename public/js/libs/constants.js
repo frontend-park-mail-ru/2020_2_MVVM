@@ -34,6 +34,8 @@ export const PNG_AVATAR_F = 'image/png';
 //satus code
 
 export const SUCCESS = 200;
+export const UNAUTHORISED = 401;
+
 
 //path
 

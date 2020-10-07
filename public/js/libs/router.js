@@ -1,4 +1,4 @@
-import {URL} from "./constants.js";
+import {URL, UNAUTHORISED} from "./constants.js";
 
 export default class Router{
     constructor(root) {
@@ -37,17 +37,18 @@ export default class Router{
             )
             console.assert(response.ok);
             const content = await response.json();
-            console.log(content);
-            return !!content;
+            console.log(content.code);
+            return content.code !== UNAUTHORISED;
         }
-
 
         if (path === this.root){
             return;
         }
         this.root = path;
         const obj = this.routes.get(path);
-        obj.page.render(get_person());
+
+        get_person().then((result)=>{obj.page.render(result)});
+
     }
 
     start() {

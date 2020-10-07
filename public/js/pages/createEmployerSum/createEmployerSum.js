@@ -14,7 +14,7 @@ export default class CreateVacancy{
     render(user){
         app.innerHTML = '';
 
-        const employersList = new NavBarInit(app, Boolean(user.ID), "Создание вакансию");
+        const employersList = new NavBarInit(app, user, "Создание вакансию");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

@@ -7,7 +7,6 @@ export class NavBarInit {
     }
 
     loadNavBar() {
-
         const navBar = new NavBar(this.app, this.title);
         navBar.loadNavBar(this.user);
     }
@@ -17,11 +16,11 @@ export class NavBar {
 
     constructor(app, title) {
         app.innerHTML = window.fest['navBar.tmpl'](title);
-        // addPaths();
     }
 
 
     loadNavBar(user) {
+        console.log(user);
         let list = document.getElementsByClassName('menu-list')[0];
         if (user) {
             list.insertAdjacentHTML("beforeend",`<a href="/profile" class="header__item header__item_key-icon js-profile">Профиль</a>
