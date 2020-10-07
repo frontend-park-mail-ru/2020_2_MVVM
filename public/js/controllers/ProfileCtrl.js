@@ -1,4 +1,5 @@
 import Profile from "../pages/profile/profile.js";
+import {URL} from "../libs/constants.js";
 
 export default class ProfileCtrl{
     constructor(router) {
@@ -6,7 +7,7 @@ export default class ProfileCtrl{
 
         const get_person = async () => {
             const response = await fetch(
-                "api/v1/users/me",
+                `${URL}/v1/users/me`,
                 {
                     method: "get",
                 },

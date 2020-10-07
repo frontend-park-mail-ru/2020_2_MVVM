@@ -14,7 +14,7 @@ export default class Vacancy{
     render(user) {
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, user, "Вакансия");
+        const navBarInit = new NavBarInit(app, Boolean(user.id), "Вакансия");
         navBarInit.loadNavBar();
 
         const main = createElem("div", "main", app);

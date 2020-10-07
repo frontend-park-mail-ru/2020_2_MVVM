@@ -1,4 +1,5 @@
 import RegList from '../pages/reg/reg.js';
+import {URL} from "../libs/constants.js";
 
 export default class AuthCtrl {
     constructor(router) {
@@ -16,7 +17,7 @@ export default class AuthCtrl {
             formData.append("password", form[0][4].value);
 
             const response = await fetch(
-                "api/v1/users/add",
+                `${URL}/v1/users/add`,
                 {
                     body: formData,
                     method: "post"

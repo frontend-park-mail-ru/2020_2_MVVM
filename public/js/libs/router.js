@@ -1,4 +1,4 @@
-
+import {URL} from "./constants.js";
 
 export default class Router{
     constructor(root) {
@@ -30,7 +30,7 @@ export default class Router{
 
         const get_person = async () => {
             const response = await fetch(
-                "api/v1/users/me",
+                `${URL}/v1/users/me`,
                 {
                     method: "get",
                 },
@@ -40,6 +40,7 @@ export default class Router{
             console.log(content);
             return !!content;
         }
+
 
         if (path === this.root){
             return;
