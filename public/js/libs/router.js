@@ -27,12 +27,26 @@ export default class Router{
      * @param user
      */
     change(path, user) {
+
+        const get_person = async () => {
+            const response = await fetch(
+                "api/v1/users/me",
+                {
+                    method: "get",
+                },
+            )
+            console.assert(response.ok);
+            const content = await response.json();
+            console.log(content);
+            return !!content;
+        }
+
         if (path === this.root){
             return;
         }
         this.root = path;
         const obj = this.routes.get(path);
-        obj.page.render(user);
+        obj.page.render(get_person());
     }
 
     start() {
