@@ -8,15 +8,16 @@ export default class AuthCtrl {
         const onsubmit = async (event, form) => {
             event.preventDefault();
 
-            let formData = new FormData();
-            formData.append("email", form[0][0].value)
-            formData.append("nickname", form[0][1].value)
-            formData.append("password", form[0][2].value)
+            const body = {
+                email: form[0][0].value,
+                nickname: form[0][1].value,
+                password: form[0][2].value,
+            };
 
             const response = await fetch(
                 `${URL}/v1/auth/login`,
                 {
-                    body: formData,
+                    body: JSON.stringify(body),
                     method: "post",
                 },
             )
