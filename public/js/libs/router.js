@@ -69,7 +69,7 @@ export default class Router {
         });
 
         // начальный рендер
-        this.change('\/createResume', user);
-        // this.change('\/mainPage', user);
+        // this.change('\/createResume', user);
+        this.change('\/mainPage', user);
     }
 }
