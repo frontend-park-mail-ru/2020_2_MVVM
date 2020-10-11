@@ -24,6 +24,8 @@ export default class AuthCtrl {
                 });
             const content = await response.json();
             console.assert(response.ok);
+
+
             if (content.error){
                 let formReg = document.getElementsByClassName("reg");
                 formReg[0].insertAdjacentHTML("afterBegin", `<h1>${content.error}</h1>`);

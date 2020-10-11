@@ -14,6 +14,8 @@ export default class ProfileCtrl{
             )
             console.assert(response.ok);
             const content = await response.json();
+            // const content = JSON.stringify({"user":{"id":"ca55070e-ea08-453b-94dc-b97317d89585","nickname":"asdasdasd","name":"asdasdasd","surname":"asdasdasd","email":"asd@asd.ru"}});
+
             return {
                 firstName: content.user.name,
                 lastName: content.user.surname,
