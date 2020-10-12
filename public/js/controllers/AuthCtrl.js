@@ -16,6 +16,7 @@ export default class AuthCtrl {
             const response = await fetch(
                 `${URL}/v1/auth/login`,
                 {
+                    credentials: "include",
                     body: formData,
                     method: "post",
                 },
