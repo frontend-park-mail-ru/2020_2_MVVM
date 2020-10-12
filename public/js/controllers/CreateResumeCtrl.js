@@ -39,20 +39,19 @@ export default class CreateResumeCtrl{
                 json.education = formData.get("education")
             }
 
-
             console.debug(json)
 
             const response = await fetch(
-                "api/v1/resume/add",
+                `${URL}/v1/resume/add`,
                 {
                     body: JSON.stringify(json),
                     method: "post"
                 });
             const content = await response.json();
+            console.log(content);
             console.assert(response.ok);
 
-
-
+            console.log(content.resume.user_id);
             this.router.change('\/resume', content.resume.user_id, content.resume.id);
         });
     }

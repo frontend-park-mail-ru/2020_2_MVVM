@@ -7,20 +7,21 @@
                 <div class="main__info-employers">
                     <div class="main__info-header">
                         <div class="main__name-employers">
-                            <a href="/vacancy" class="main__name-employers_link"><fest:value>v.name</fest:value></a>
+                            <a href="/vacancy" class="main__name-employers_link"><fest:value>v.vacancy_name</fest:value></a>
                         </div>
-                        <div class="main__count-open-pos"><fest:value>v.openPos</fest:value><fest:space/>открытых позиции</div>
+                        <div class="main__count-open-pos">0 открытых позиций</div>
                     </div>
                         <div class="main__specialosm-employers">
                             <fest:each iterate="v.special" index="i" value="sp">
                                 <fest:value>sp</fest:value>,
                             </fest:each>
                         </div>
-                    <div class="main__location-employers"><fest:value>v.location[0]</fest:value>,<fest:space/><fest:value>v.location[1]</fest:value></div>
-    <!--                <fest:each iterate="v.location" index="i" value="loc">-->
-    <!--                    <fest:value>loc</fest:value>,-->
-    <!--                </fest:each>-->
-                    <div class="main__description-employers"><fest:value>v.description</fest:value></div>
+                    <div class="main__location-employers"><fest:value>v.vacancy_description</fest:value>,<fest:space/><fest:value>v.vacancy_description</fest:value></div>
+                    <div class="main__description-employers">Компания: <fest:value>v.company_name</fest:value></div>
+                    <div class="main__description-employers">Адрес: <fest:value>v.company_address</fest:value></div>
+                    <div class="main__description-employers">Требуемый опыт: <fest:value>v.work_experience</fest:value></div>
+                    <div class="main__description-employers">Ключевые навыки: <fest:value>v.skills</fest:value></div>
+                    <div class="main__description-employers">ЗП: <fest:value>v.salary</fest:value></div>
                 </div>
             </div>
     </fest:each>
