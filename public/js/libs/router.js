@@ -33,8 +33,7 @@ export default class Router {
             const response = await network.doGet(`${meURL}`);
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
-                let content = await response.json();
-                return content;
+                return await response.json();
             } else if (response.status === UNAUTHORISED) {
                 let error = new Error(response.statusText);
                 error.response = response;

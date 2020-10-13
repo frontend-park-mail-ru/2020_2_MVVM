@@ -2,11 +2,30 @@
     padding: 50px 0;
     font-size: xx-large;
 }
-
+.persNavBar__menu_btn{
+    display: flex;
+    width: 50%;
+    justify-content: center
+}
+.persNavBar__menu_hrev{
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+}
+.persNavBar__menu_hrev:hover{
+    background: var(--main-pink-color);
+    color: white;
+}
 .persNavBar__menu-list{
-    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    /*padding: 20px 50px;*/
+    border: 1px solid var(--border-grey-color);
 }
 
+.persNavBar{
+    padding-bottom: 50px;
+}
 .pers__list{
     display: flex;
     flex-direction: column;

@@ -46,6 +46,7 @@ export default class CandidatesList{
         const mainList = createElem("div", "main__list",mainRow);
 
         const infoOfCand = await this.fetchCandInfo();
+
         mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
         mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
         main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());

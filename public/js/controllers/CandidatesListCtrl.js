@@ -1,4 +1,5 @@
 import CandidatesList from "../pages/candidatesList/candidatesList.js";
+import {URL} from "../libs/constants.js";
 
 export default class CandidatesListCtrl{
     constructor(router) {
@@ -6,7 +7,7 @@ export default class CandidatesListCtrl{
 
         const fetchCandInfo = async () => {
             const response = await fetch(
-                "api/v1/resume/page?" + new URLSearchParams({
+                `${URL}/v1/resume/page?` + new URLSearchParams({
                     start: 0,
                     limit: 5,
                 }),
@@ -14,17 +15,17 @@ export default class CandidatesListCtrl{
                     method: "GET",
                 },
             )
-            console.assert(response.ok)
-            const resume = (await response.json()).resume
+            console.assert(response.ok);
+            const resume = (await response.json()).resume;
 
             const candInfo = resume.map(async (e) => {
                 const response = await fetch(
-                    `api/v1/users/by/id/${e.user_id}`,
+                    `${URL}/v1/users/by/id/${e.user_id}`,
                     {
                         method: "get",
                     },
                 )
-                const user = (await response.json()).user
+                const user = (await response.json()).user;
                 return {
                     id: user.id,
                     resume_id: e.id,
@@ -34,7 +35,7 @@ export default class CandidatesListCtrl{
                     location: ["TODO", "TODO"]
                 }
             })
-            return await Promise.all(candInfo)
+            return await Promise.all(candInfo);
 
         }
 
