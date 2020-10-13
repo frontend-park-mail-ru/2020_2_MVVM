@@ -200,6 +200,7 @@ body{
 
 .error{
     color: var(--main-pink-color);
+    margin-bottom: 20px;
     font: 15px Quicksand, serif;
     text-align: center;
 }

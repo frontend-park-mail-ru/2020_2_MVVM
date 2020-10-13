@@ -11,10 +11,11 @@ function createElem(tag, className, parent) {
 }
 
 export default class CreateVacancy{
-    render(user){
+    render(isAuthorized, content){
         app.innerHTML = '';
 
-        const employersList = new NavBarInit(app, user, "Создание вакансию");
+
+        const employersList = new NavBarInit(app, isAuthorized, "Создание вакансию");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

@@ -1,4 +1,5 @@
-import {URL, UNAUTHORISED} from "./constants.js";
+import {URL, UNAUTHORISED, meURL} from "./constants.js";
+import {network} from "./networks.js";
 
 export default class Router {
     constructor(root) {
@@ -28,19 +29,17 @@ export default class Router {
      */
     change(path, ...args) {
 
-        const get_person = async () => {
-            const response = await fetch(
-                `${URL}/v1/users/me`,
-                {
-                    credentials: "include",
-                    mode: "cors",
-                    method: "get",
-                },
-            )
-            // console.assert(response.ok);
-            const content = await response.json();
-            console.log(content.code);
-            return content.code !== UNAUTHORISED;
+        const  get_person = async () => {
+            const response = await network.doGet(`${meURL}`);
+            if (response.status >= 200 && response.status < 300) {
+                console.assert(response.ok);
+                let content = await response.json();
+                return content;
+            } else if (response.status === UNAUTHORISED) {
+                let error = new Error(response.statusText);
+                error.response = response;
+                throw error;
+            }
         }
 
         if (path === this.root) {
@@ -49,8 +48,12 @@ export default class Router {
         this.root = path;
         const obj = this.routes.get(path);
 
-        get_person().then((isauthorized) => {
-            obj.page.render(isauthorized, ...args)
+
+        get_person().then((content) => {
+            console.log(content);
+            obj.page.render(true, content, ...args)
+        }).catch(() => {
+            obj.page.render(false, ...args)
         });
 
         // TODO: кажется, render надо вызывать у контроллера, который потом вызовет его у вью

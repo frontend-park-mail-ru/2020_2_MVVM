@@ -1,5 +1,6 @@
 import RegList from '../pages/reg/reg.js';
-import {URL} from "../libs/constants.js";
+import {addURL, UNAUTHORISED} from "../libs/constants.js";
+import {network} from "../libs/networks.js";
 
 export default class AuthCtrl {
     constructor(router) {
@@ -7,6 +8,9 @@ export default class AuthCtrl {
 
         const onsubmit = async (event, form) => {
             event.preventDefault();
+
+            let errorMes = document.getElementsByClassName("error");
+            errorMes[0].innerHTML = '';
 
             const body = {
                 nickname: form[0][0].value,
@@ -16,22 +20,14 @@ export default class AuthCtrl {
                 password: form[0][4].value,
             };
 
-            const response = await fetch(
-                `${URL}/v1/users/add`,
-                {
-                    body: JSON.stringify(body),
-                    method: "post"
-                });
-            const content = await response.json();
-            console.assert(response.ok);
+            const response = await network.doPost(`${addURL}`, body);
 
-
-            if (content.error){
-                let formReg = document.getElementsByClassName("reg");
-                formReg[0].insertAdjacentHTML("afterBegin", `<h1>${content.error}</h1>`);
-            }
-            if (content.user) {
+            if (response.status >= 200 && response.status < 300) {
+                console.assert(response.ok);
                 this.router.change('\/auth');
+            } else {
+                let formReg = document.getElementsByClassName("reg");
+                formReg[0].insertAdjacentHTML("afterBegin", `<div class="error">Пользователь уже существует</div>`);
             }
         };
 

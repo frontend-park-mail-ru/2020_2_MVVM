@@ -18,10 +18,10 @@ export default class CandidatesList{
         this.router = router
     }
 
-    async render(user) {
+    async render(isAuthorized, content) {
         app.innerHTML = '';
 
-        const candidatesList = new NavBarInit(app, user, "Список резюме");
+        const candidatesList = new NavBarInit(app, isAuthorized, "Список резюме");
         candidatesList.loadNavBar();
 
         const main = createElem("div", "main", app);

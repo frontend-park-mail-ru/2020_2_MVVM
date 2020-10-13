@@ -1,4 +1,6 @@
 import {NavBarInit} from "../../components/navBar/navBar.js";
+import {network} from "../../libs/networks.js";
+import {usersByIdURL, resumeByIdURL} from "../../libs/constants.js";
 
 
 const app = window.document.getElementById('app');
@@ -10,68 +12,58 @@ function createElem(tag, className, parent) {
     return temp
 }
 
-export default class Resume {
-    async render(user, user_id, resume_id) {
+const resumeInfo = async (user_id, resume_id) => {
 
-        const resumeInfo = async () => {
-            const response1 = await fetch(
-                `api/v1/users/by/id/${user_id}`,
-                {
-                    method: "get",
-                },
-            )
-            console.assert(response1.ok)
-            const user = (await response1.json()).user
+    const response1 = network.doGet(`${usersByIdURL}${user_id}`);
+    const user = (await response1.json()).user;
+    console.assert(response1.ok);
 
-            const response2 = await fetch(
-                `api/v1/resume/by/id/${resume_id}`,
-                {
-                    method: "GET",
-                },
-            )
+    const response2 = network.doGet(`${resumeByIdURL}${resume_id}`);
 
-            const nullToString = (e) => {
-                if (e == null) {
-                    return "-"
-                }
-                return e
-            }
-            console.assert(response2.ok)
-            const resume = (await response2.json()).resume
-
-            console.log(resume)
-
-            return [{
-                mainSkill: ['TODODesigners'],
-                photo: 'img/es1.jpg',
-                name: user.name + " " + user.surname,
-                position: 'TODO UX / UI Designer at Atract Solutions',
-                mail: user.mail,
-                dateReg: 'TODO2017',
-                location: 'TODOМосква / Россия'
-            }, {
-                user_id: resume.id,
-                salary_min: nullToString(resume.salary_min),
-                salary_max: nullToString(resume.salary_max),
-                gender: nullToString(resume.gender),
-                level: nullToString(resume.level),
-                experience_month: nullToString(resume.experience_month),
-                interest: "TODOManagement",
-                education: nullToString(resume.education),
-            },
-                {text: nullToString(resume.description)}
-            ]
+    const nullToString = (e) => {
+        if (e == null) {
+            return "-";
         }
+        return e;
+    }
 
+    console.assert(response2.ok);
+    const resume = (await response2.json()).resume;
+
+    return [{
+        mainSkill: ['TODODesigners'],
+        photo: 'img/es1.jpg',
+        name: user.name + " " + user.surname,
+        position: 'TODO UX / UI Designer at Atract Solutions',
+        mail: user.mail,
+        dateReg: 'TODO2017',
+        location: 'TODOМосква / Россия'
+    }, {
+        user_id: resume.id,
+        salary_min: nullToString(resume.salary_min),
+        salary_max: nullToString(resume.salary_max),
+        gender: nullToString(resume.gender),
+        level: nullToString(resume.level),
+        experience_month: nullToString(resume.experience_month),
+        interest: "TODOManagement",
+        education: nullToString(resume.education),
+    },
+        {text: nullToString(resume.description)}
+    ]
+}
+
+export default class Resume {
+    async render(isAuthorized, content, user_id, resume_id) {
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, user, "");
+
+        const navBarInit = new NavBarInit(app, isAuthorized, "");
         navBarInit.loadNavBar();
 
-        const infoAll = await resumeInfo();
+        const infoAll = await resumeInfo(user_id, resume_id);
 
-        console.log(infoAll)
+        // console.log(infoAll)
 
         const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
         //

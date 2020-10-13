@@ -1,5 +1,7 @@
 import AuthList from '../pages/auth/auth.js';
-import {SUCCESS,URL} from "../libs/constants.js";
+import {SUCCESS, loginURL, UNAUTHORISED} from "../libs/constants.js";
+import {network} from "../libs/networks.js";
+
 
 export default class AuthCtrl {
     constructor(router) {
@@ -7,6 +9,8 @@ export default class AuthCtrl {
 
         const onsubmit = async (event, form) => {
             event.preventDefault();
+            let errorMes = document.getElementsByClassName("error");
+            errorMes[0].innerHTML = '';
 
             const body = {
                 email: form[0][0].value,
@@ -14,20 +18,14 @@ export default class AuthCtrl {
                 password: form[0][2].value,
             };
 
-            const response = await fetch(
-                `${URL}/v1/auth/login`,
-                {
-                    body: JSON.stringify(body),
-                    credentials: "include",
-                    method: "post",
-                },
-            )
-            const content = await response.json();
-            console.log(content);
+            const response = await network.doPost(`${loginURL}`, body);
 
-            console.assert(response.ok);
-            if (content.code === SUCCESS) {
+            if (response.status >= 200 && response.status < 300) {
+                console.assert(response.ok);
                 this.router.change('\/mainPage');
+            } else {
+                let formAuth = document.getElementsByClassName("auth");
+                formAuth[0].insertAdjacentHTML("afterBegin", `<div class="error">Неверное имя пользователя или пароь</div>`);
             }
         }
         this.page = new AuthList(onsubmit);

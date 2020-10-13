@@ -42,3 +42,12 @@ export const UNAUTHORISED = 401;
 export const URL = "http://95.163.212.36/api";
 // export const URL = "http://localhost/api";
 // export const URL = "api";
+
+
+//urls
+
+export const loginURL = "/v1/auth/login";
+export const meURL = "/v1/users/me";
+export const addURL = "/v1/users/add";
+export const usersByIdURL = "/v1/users/by/id/";
+export const resumeByIdURL = "/v1/resume/by/id/";

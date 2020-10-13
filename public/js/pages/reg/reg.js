@@ -15,10 +15,11 @@ export default class RegList{
         this.onsubmit = onsubmit
     }
 
-    render(user){
+    render(isAuthorized, content){
         app.innerHTML = '';
 
-        const auth = new NavBarInit(app, user, "Регистрация");
+
+        const auth = new NavBarInit(app, isAuthorized, "Регистрация");
         auth.loadNavBar();
 
         const main = createElem("div", "main", app);

@@ -15,10 +15,11 @@ export default class EmployersList{
         this.fetchVacancyList = fetchVacancyList
         this.router = router
     }
-    async render(user){
+    async render(isAuthorized, content){
         app.innerHTML = '';
 
-        const employersList = new NavBarInit(app, user, "Список ваканский");
+
+        const employersList = new NavBarInit(app, isAuthorized, "Список ваканский");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

@@ -10,10 +10,11 @@ function createElem(tag, className, parent) {
 }
 
 export default class MainPage{
-    render(user){
+    render(isAuthorized, content) {
+
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, user, "Самый простой способ найти новую работу");
+        const navBarInit = new NavBarInit(app, isAuthorized, "Самый простой способ найти новую работу");
         navBarInit.loadNavBar();
 
         const searchJob = createElem("div", "search-job", app.getElementsByClassName("header__page")[0])

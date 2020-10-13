@@ -18,9 +18,7 @@ export class NavBar {
         app.innerHTML = window.fest['navBar.tmpl'](title);
     }
 
-
     loadNavBar(user) {
-        console.log(user);
         let list = document.getElementsByClassName('menu-list')[0];
         if (user) {
             list.insertAdjacentHTML("beforeend",`<a href="/profile" class="header__item header__item_key-icon js-profile">Профиль</a>

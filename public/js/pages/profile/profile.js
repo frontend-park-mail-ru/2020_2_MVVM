@@ -13,17 +13,30 @@ function createElem(tag, className, parent) {
 
 
 export default class Profile{
-    constructor(get_current_user) {
-        this.get_current_user = get_current_user
+    constructor() {
+
     }
+
     isPersonalRusemes = false;
 
-    async render(){
+    async render(isAuthorized, content){
         app.innerHTML = '';
 
-        const person = await this.get_current_user();
+        let person;
+        if (isAuthorized) {
+            person = {
+                firstName: content.user.name,
+                lastName: content.user.surname,
+                email: content.user.email,
+                phone: 'NOT READY YET',
+                resumeCount: 'NOT READY YET',
+                locationOfSearch: 'NOT READY YET',
+                socialNetworkLinks: 'NOT READY YET',
+            };
+        }
 
-        const employersList = new NavBarInit(app, Boolean(person), "Личный кабинет");
+
+        const employersList = new NavBarInit(app, isAuthorized, "Личный кабинет");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
@@ -49,7 +62,7 @@ export default class Profile{
 
         main.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
-        checkoutProfilePage(this.get_current_user);
+        checkoutProfilePage(isAuthorized, content);
         updateProfileFields();
     }
 }
