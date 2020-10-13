@@ -23,9 +23,8 @@ export default class AuthCtrl {
             )
             const content = await response.json();
             console.log(content);
-            // const content = JSON.stringify({"user":{"id":"ca55070e-ea08-453b-94dc-b97317d89585","nickname":"asdasdasd","name":"asdasdasd","surname":"asdasdasd","email":"asd@asd.ru"}});
 
-            // console.assert(response.ok);
+            console.assert(response.ok);
             if (content.code === SUCCESS) {
                 this.router.change('\/mainPage');
             }
