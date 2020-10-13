@@ -9,6 +9,7 @@ export function updateProfileFields() {
                 updateButton[i].previousSibling.innerHTML=`<input class="pers__list_refactor-${field}">`
                 updateButton[i].innerHTML="<a href='/profile'>Принять</a>";
             } else {
+                updateButton[i].previousSibling.innerHTML=`<div></div>`
                 updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
             }
         });

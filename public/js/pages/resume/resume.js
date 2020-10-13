@@ -14,11 +14,11 @@ function createElem(tag, className, parent) {
 
 const resumeInfo = async (user_id, resume_id) => {
 
-    const response1 = network.doGet(`${usersByIdURL}${user_id}`);
+    const response1 = await network.doGet(`${usersByIdURL}${user_id}`);
     const user = (await response1.json()).user;
     console.assert(response1.ok);
 
-    const response2 = network.doGet(`${resumeByIdURL}${resume_id}`);
+    const response2 = await network.doGet(`${resumeByIdURL}${resume_id}`);
 
     const nullToString = (e) => {
         if (e == null) {

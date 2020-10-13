@@ -1,7 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="footer">
         <div class="footer-bottom">
-            <img src="img/logo.png"></img><br></br>
             <span>Разработано в рамках курса Технопарка командой MVVM</span><br></br>
             <span>© 2020 StudHunt</span>
         </div>

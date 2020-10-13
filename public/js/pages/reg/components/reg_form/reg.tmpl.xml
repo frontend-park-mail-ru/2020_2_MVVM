@@ -3,25 +3,40 @@
         <form>
             <div class="reg">
                 <form>
-                    <div class="cfield">
-                        <input id="nickReg" class="text" placeholder="Никнейм"/>
-                        <span class="error" aria-live="polite"/>
+                    <div class="form__field_name">
+                        <div class="form__field_lable">Никнейм</div>
+                        <div class="cfield">
+                            <input id="nickReg" class="text" placeholder="Введите никнейм"/>
+                            <span class="error" aria-live="polite"/>
+                        </div>
                     </div>
-                    <div class="cfield">
-                        <input id="firstNameReg" class="text" placeholder="Имя"/>
-                        <span class="error" aria-live="polite"/>
+                    <div class="form__field_name">
+                        <div class="form__field_lable">Имя</div>
+                        <div class="cfield">
+                            <input id="firstNameReg" class="text" placeholder="Введите имя"/>
+                            <span class="error" aria-live="polite"/>
+                        </div>
                     </div>
-                    <div class="cfield">
-                        <input id="lastNameReg" class="text" placeholder="Фамилия"/>
-                        <span class="error" aria-live="polite"/>
+                    <div class="form__field_name">
+                        <div class="form__field_lable">Фамилия</div>
+                        <div class="cfield">
+                            <input id="lastNameReg" class="text" placeholder="Введите фамилию"/>
+                            <span class="error" aria-live="polite"/>
+                        </div>
                     </div>
-                    <div class="cfield">
-                        <input id="emailReg" class="text" placeholder="Email"/>
-                        <span class="error" aria-live="polite"/>
+                    <div class="form__field_name">
+                        <div class="form__field_lable">Email</div>
+                        <div class="cfield">
+                            <input id="emailReg" class="text" placeholder="Введите email"/>
+                            <span class="error" aria-live="polite"/>
+                        </div>
                     </div>
-                    <div class="cfield">
-                        <input id="passwReg" class="password" type="password" placeholder="Введите пароль"/>
-                        <span class="error" aria-live="polite"/>
+                    <div class="form__field_name">
+                        <div class="form__field_lable">Пароль</div>
+                        <div class="cfield">
+                            <input id="passwReg" class="password" type="password" placeholder="Введите пароль"/>
+                            <span class="error" aria-live="polite"/>
+                        </div>
                     </div>
                     <button class="enterBtn" type="submit">Зарегистрироваться</button>
                 </form>
