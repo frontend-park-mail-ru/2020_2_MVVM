@@ -32,6 +32,8 @@ export default class Router {
             const response = await fetch(
                 `${URL}/v1/users/me`,
                 {
+                    credentials: "include",
+                    mode: "cors",
                     method: "get",
                 },
             )

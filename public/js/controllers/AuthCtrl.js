@@ -18,6 +18,7 @@ export default class AuthCtrl {
                 `${URL}/v1/auth/login`,
                 {
                     body: JSON.stringify(body),
+                    credentials: "include",
                     method: "post",
                 },
             )

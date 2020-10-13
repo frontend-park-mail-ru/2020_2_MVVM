@@ -9,6 +9,7 @@ export default class ProfileCtrl{
             const response = await fetch(
                 `${URL}/v1/users/me`,
                 {
+                    credentials: "include",
                     method: "get",
                 },
             )
