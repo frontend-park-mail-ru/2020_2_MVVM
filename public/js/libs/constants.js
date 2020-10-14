@@ -39,9 +39,8 @@ export const UNAUTHORISED = 401;
 
 //path
 
-export const URL = "http://studhunt.ru/api";
+export const URL = "api";
 // export const URL = "http://localhost/api";
-// export const URL = "api";
 
 
 //urls
