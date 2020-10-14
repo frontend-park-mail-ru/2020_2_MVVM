@@ -64,7 +64,7 @@ export default class Profile{
         app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
         checkoutProfilePage(isAuthorized, content);
-        updateProfileFields(person);
+        updateProfileFields();
     }
 }
 
