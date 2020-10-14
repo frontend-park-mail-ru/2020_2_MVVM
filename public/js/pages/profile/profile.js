@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/header/navBar.js";
 import {checkoutProfilePage} from './components/personalNavBar/persNavBar.js'
 import {updateProfileFields} from './components/checkboxSearch/checkBox.js'
 
@@ -37,14 +37,14 @@ export default class Profile{
         }
 
 
-        const employersList = new NavBarInit(app, isAuthorized, "Личный кабинет");
+        const employersList = new NavBarInit(app, isAuthorized, false,"Личный кабинет");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);
 
-        const title = createElem("div", "title", container);
-        title.innerText = "Настройки";
+        const title = createElem("div", "profile__title", container);
+        title.innerText = "Личный кабинет";
 
         const mainPage = createElem("div", "main__page", container);
         const mainColumnLeft = createElem("div", "main__page_left", mainPage);
@@ -61,10 +61,10 @@ export default class Profile{
             personalInfo(person, mainColumnLeft);
         }
 
-        main.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
+        app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
         checkoutProfilePage(isAuthorized, content);
-        updateProfileFields(person);
+        updateProfileFields();
     }
 }
 

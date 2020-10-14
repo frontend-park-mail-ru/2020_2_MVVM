@@ -42,6 +42,7 @@ export default class CreateResumeCtrl{
             }
 
             const response = await network.doPost(addResumeURL, json);
+
             if (response.status >= 200 && response.status < 300) {
                 const content = await response.json();
                 console.assert(response.ok);

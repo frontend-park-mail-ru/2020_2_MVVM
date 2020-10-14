@@ -1,5 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru" >
     <div class="container">
+        <div class="page__name">Создание резюме</div>
         <div class="sum__form__wrap">
             <div class="sum__profile">
                 <div class="sum__profile__photo">
@@ -91,8 +92,10 @@
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <label class="sum__form__labels" for="salary">Зарплата</label>
-                            <input name="salary_min" class="sum__user__info" id="citizenship" type="text"/>
-                            <input name="salary_max" class="sum__user__info" id="citizenship" type="text"/>
+                            <div style="display:flex;">
+                                <h4 style="align-self:end;">От</h4><input name="salary_min" class="sum__user__info" id="citizenship" type="text"/>
+                                <h4 style="align-self:end;">До</h4><input name="salary_max" class="sum__user__info" id="citizenship" type="text"/>
+                            </div>
 <!--                            <div class="sum__salary__row">-->
 <!--                                <input class="sum__user__info" id="salary" type="text" value=""/>-->
 <!--                                <span class="error" aria-live="polite"/>-->

@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/header/navBar.js";
 import {network} from "../../libs/networks.js";
 import {usersByIdURL, resumeByIdURL} from "../../libs/constants.js";
 
@@ -58,7 +58,7 @@ export default class Resume {
         app.innerHTML = '';
 
 
-        const navBarInit = new NavBarInit(app, isAuthorized, "");
+        const navBarInit = new NavBarInit(app, isAuthorized, false,"");
         navBarInit.loadNavBar();
 
         const infoAll = await resumeInfo(user_id, resume_id);

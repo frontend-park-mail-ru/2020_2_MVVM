@@ -1,21 +1,26 @@
 
 export class NavBarInit {
-    constructor(app, user, title) {
+    constructor(app, user,isBig, title) {
         this.app = app;
         this.user = user;
+        this.isBig = isBig;
         this.title = title;
     }
 
     loadNavBar() {
-        const navBar = new NavBar(this.app, this.title);
+        const navBar = new NavBar(this.app, this.isBig, this.title);
         navBar.loadNavBar(this.user);
     }
 }
 
 export class NavBar {
 
-    constructor(app, title) {
-        app.innerHTML = window.fest['navBar.tmpl'](title);
+    constructor(app, isBig, title) {
+        if (isBig) {
+            app.innerHTML = window.fest['bNavBar.tmpl'](title);
+        } else {
+            app.innerHTML = window.fest['sNavBar.tmpl']();
+        }
     }
 
     loadNavBar(user) {

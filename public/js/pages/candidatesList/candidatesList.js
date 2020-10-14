@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/header/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
 import router from "../../libs/router.js";
 
@@ -21,7 +21,7 @@ export default class CandidatesList{
     async render(isAuthorized, content) {
         app.innerHTML = '';
 
-        const candidatesList = new NavBarInit(app, isAuthorized, "Список резюме");
+        const candidatesList = new NavBarInit(app, isAuthorized, false, "Список резюме");
         candidatesList.loadNavBar();
 
         const main = createElem("div", "main", app);

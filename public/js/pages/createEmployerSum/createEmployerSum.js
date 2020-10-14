@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/createEmployerSum/createEmpoyerSum.js";
 
 const app = window.document.getElementById('app');
@@ -15,7 +15,7 @@ export default class CreateVacancy{
         app.innerHTML = '';
 
 
-        const employersList = new NavBarInit(app, isAuthorized, "Создание вакансию");
+        const employersList = new NavBarInit(app, isAuthorized, false,"Создание вакансию");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

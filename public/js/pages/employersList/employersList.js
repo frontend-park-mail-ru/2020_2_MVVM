@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/header/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
 
 const app = window.document.getElementById('app');
@@ -19,7 +19,7 @@ export default class EmployersList{
         app.innerHTML = '';
 
 
-        const employersList = new NavBarInit(app, isAuthorized, "Список ваканский");
+        const employersList = new NavBarInit(app, isAuthorized, false,"Список ваканский");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/header/navBar.js";
 
 const app = window.document.getElementById('app');
 
@@ -14,7 +14,7 @@ export default class MainPage{
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, isAuthorized, "Самый простой способ найти новую работу");
+        const navBarInit = new NavBarInit(app, isAuthorized, true,  "Самый простой способ найти новую работу");
         navBarInit.loadNavBar();
 
         const searchJob = createElem("div", "search-job", app.getElementsByClassName("header__page")[0])
@@ -95,7 +95,7 @@ export default class MainPage{
         main.insertAdjacentHTML("beforeend", window.fest['gratitudes.tmpl'](gratitudes));
 
 
-        main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
+        app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
     }
 }
 

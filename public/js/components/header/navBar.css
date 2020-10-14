@@ -24,7 +24,7 @@
 .header__top {
     display: flex;
     box-sizing: border-box;
-    min-height: 210px;
+    padding: 20px 0;
 }
 
 .header__item-logo {
@@ -123,4 +123,5 @@
 
 .header__page {
     text-align: center;
+    padding: 150px 0;
 }
