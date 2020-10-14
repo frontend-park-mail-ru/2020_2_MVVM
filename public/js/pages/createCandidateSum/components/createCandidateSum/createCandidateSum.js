@@ -5,6 +5,7 @@ import {EMAIL_OK, INPUT_TEXT_OK, SALARY_OK} from "../../../../libs/constants.js"
 const form = document.getElementsByTagName("form");
 let error = document.getElementsByClassName('error');
 
+
 export function checkFrom() {
     let isOk = true;
 

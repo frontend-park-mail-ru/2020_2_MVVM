@@ -80,3 +80,19 @@
     color: white;
     transition: 0.15s;
 }
+
+.btn__add_exp{
+    border: 2px solid var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
+    max-width: 250px;
+    padding: 15px 25px;
+    border-radius: 25px;
+    align-self: center;
+    transition: 0.15s;
+}
+
+.btn__add_exp:hover {
+    background-color: var(--buttons-purple-color);
+    color: white;
+    transition: 0.15s;
+}

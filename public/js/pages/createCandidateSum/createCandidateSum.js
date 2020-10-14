@@ -26,6 +26,13 @@ export default class CreateResume{
         main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl']());
 
         afterRender();
+
+        const btn = document.getElementById("btn__add_exp");
+        console.log(btn);
+        btn.addEventListener('click', (event) => {
+            renderInputForm();
+        });
+
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => this.onsubmit(event, form));
     }
@@ -33,4 +40,9 @@ export default class CreateResume{
 
 function afterRender() {
     checkFrom();
+}
+
+
+function renderInputForm() {
+    app.insertAdjacentHTML("afterbegin", window.fest['popUpCand.tmpl']());
 }
