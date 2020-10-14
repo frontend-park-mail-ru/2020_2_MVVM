@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/header/navBar.js";
 import {recentJobs} from './components/recentJobs/resentJobs.js';
 
 const app = window.document.getElementById('app');
@@ -14,7 +14,7 @@ export default class Vacancy{
     render(isAuthorized, content) {
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, isAuthorized, "Вакансия");
+        const navBarInit = new NavBarInit(app, isAuthorized, true,"Вакансия");
         navBarInit.loadNavBar();
 
         const main = createElem("div", "main", app);

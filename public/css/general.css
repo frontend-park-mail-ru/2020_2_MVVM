@@ -65,6 +65,13 @@ body{
     height: 100%;
 }
 
+/*#app{*/
+/*    height: 100%;*/
+/*    display: flex;*/
+/*    flex-grow: initial;*/
+/*    flex-direction: column;*/
+/*}*/
+
 .main{
     flex-grow: 1;
     overflow-y: hidden;
@@ -209,7 +216,7 @@ body{
 /*_______________________________PAGINATION___________________*/
 
 
-/*_____________________________FOOTER_______________________*/
+/*_____________________________AUTH\REG_______________________*/
 .form__field_lable{
     min-width: 25%;
     text-align: left;
@@ -291,3 +298,21 @@ body{
     margin-bottom: 20px;
 }
 
+
+
+.page__name{
+    margin: 100px 0 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.form__link a{
+    text-decoration: none;
+    color: var(--footer-dark-blue);
+    transition: 0.15s;
+}
+
+.form__link a:hover{
+    color: var(--main-pink-color);
+    transition: 0.15s;
+}

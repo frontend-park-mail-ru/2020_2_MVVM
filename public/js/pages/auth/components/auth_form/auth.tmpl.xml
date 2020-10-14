@@ -1,6 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="container">
-        <form>
+            <div class="page__name">Авторизация</div>
             <div class="auth">
                 <form>
                     <div class="form__field_name">
@@ -26,7 +26,7 @@
                     </div>
                     <button id="entBtnAuth" class="enterBtn" type="submit">Войти</button>
                 </form>
+                <div class="form__link"><a href="/reg">Нет аккаунта? Регистрация</a></div>
             </div>
-        </form>
     </div>
 </fest:template>

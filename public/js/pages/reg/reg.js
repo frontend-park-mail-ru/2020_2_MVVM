@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/reg_form/reg.js";
 
 const app = window.document.getElementById('app');
@@ -19,7 +19,7 @@ export default class RegList{
         app.innerHTML = '';
 
 
-        const auth = new NavBarInit(app, isAuthorized, "Регистрация");
+        const auth = new NavBarInit(app, isAuthorized, false,"Регистрация");
         auth.loadNavBar();
 
         const main = createElem("div", "main", app);

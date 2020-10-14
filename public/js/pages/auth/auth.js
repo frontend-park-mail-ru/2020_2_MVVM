@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/navBar/navBar.js";
+import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/auth_form/auth.js";
 
 
@@ -20,7 +20,7 @@ export default class AuthList {
 
         app.innerHTML = '';
 
-        const auth = new NavBarInit(app, isAuthorized, "Авторизация");
+        const auth = new NavBarInit(app, isAuthorized,false, "Авторизация");
         auth.loadNavBar();
 
         const main = createElem("div", "main", app);
