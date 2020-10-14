@@ -1,5 +1,5 @@
 import RegList from '../pages/reg/reg.js';
-import {addURL, UNAUTHORISED} from "../libs/constants.js";
+import {addUserURL, UNAUTHORISED} from "../libs/constants.js";
 import {network} from "../libs/networks.js";
 
 export default class AuthCtrl {
@@ -20,7 +20,7 @@ export default class AuthCtrl {
                 password: form[0][4].value,
             };
 
-            const response = await network.doPost(`${addURL}`, body);
+            const response = await network.doPost(`${addUserURL}`, body);
 
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
