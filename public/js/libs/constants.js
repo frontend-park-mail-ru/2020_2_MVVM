@@ -39,7 +39,7 @@ export const UNAUTHORISED = 401;
 
 //path
 
-export const URL = "http://95.163.212.36/api";
+export const URL = "http://studhunt.ru/api";
 // export const URL = "http://localhost/api";
 // export const URL = "api";
 
