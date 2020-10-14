@@ -1,11 +1,11 @@
-.title{
+.profile__title{
     padding: 50px 0;
-    font-size: xx-large;
+    font-size: 30px;
 }
 .persNavBar__menu_btn{
     display: flex;
     width: 50%;
-    justify-content: center
+    justify-content: center;
 }
 .persNavBar__menu_hrev{
     padding: 20px 0;
@@ -45,6 +45,11 @@
 .pers__list_refactor{
     margin-right: 0;
     margin-left: auto;
+}
+
+.pers__list_refactor a:hover{
+    text-decoration: none;
+    color: var(--main-pink-color);
 }
 
 .description{

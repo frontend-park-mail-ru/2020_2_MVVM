@@ -43,7 +43,7 @@ export default class Profile{
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);
 
-        const title = createElem("div", "title", container);
+        const title = createElem("div", "profile__title", container);
         title.innerText = "Личный кабинет";
 
         const mainPage = createElem("div", "main__page", container);
