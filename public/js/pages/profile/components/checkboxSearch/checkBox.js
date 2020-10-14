@@ -1,5 +1,7 @@
+import {network} from "../../../../libs/networks.js";
+import {updateUserURL} from "../../../../libs/constants.js";
 
-export function updateProfileFields() {
+export function updateProfileFields(person) {
     const updateButton = document.getElementsByClassName("pers__list_refactor");
 
     for (let i=0; i< updateButton.length; i++){
@@ -9,9 +11,32 @@ export function updateProfileFields() {
                 updateButton[i].previousSibling.innerHTML=`<input class="pers__list_refactor-${field}">`
                 updateButton[i].innerHTML="<a href='/profile'>Принять</a>";
             } else {
-                updateButton[i].previousSibling.innerHTML=`<div></div>`
+                let newValueField = updateButton[i].previousSibling.firstChild.value;
+                updateButton[i].previousSibling.innerHTML=`<div>${newValueField}</div>`;
                 updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
+
+                saveData(updateButton[i], person.id, newValueField);
+
+                // let url = updateUserURL+(person.id).toString();
+                // let field = updateButton[i].previousElementSibling.id;
+                // let data = {
+                //     [field]: newValueField,
+                // };
+                // // console.log(url, JSON.stringify(data));
+                // network.doPut(url, JSON.stringify(data));
             }
         });
     }
+}
+
+
+async function saveData(tmpField, personID, newValueField){
+    let url = updateUserURL+personID;
+    let field = tmpField.previousElementSibling.id;
+    let data = {
+        [field]: newValueField,
+    };
+    // console.log(url, JSON.stringify(data));
+    const response = await network.doPut(url, data);
+    console.log(response.ok);
 }

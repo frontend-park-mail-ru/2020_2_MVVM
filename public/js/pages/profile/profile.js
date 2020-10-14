@@ -25,6 +25,7 @@ export default class Profile{
         let person;
         if (isAuthorized) {
             person = {
+                id: content.user.id,
                 firstName: content.user.name,
                 lastName: content.user.surname,
                 email: content.user.email,
@@ -63,7 +64,7 @@ export default class Profile{
         main.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
         checkoutProfilePage(isAuthorized, content);
-        updateProfileFields();
+        updateProfileFields(person);
     }
 }
 

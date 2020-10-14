@@ -51,3 +51,4 @@ export const meURL = "/v1/users/me";
 export const addURL = "/v1/users/add";
 export const usersByIdURL = "/v1/users/by/id/";
 export const resumeByIdURL = "/v1/resume/by/id/";
+export const updateUserURL = "/v1/users/update/";
