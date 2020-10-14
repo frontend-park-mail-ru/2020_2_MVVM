@@ -19,7 +19,6 @@ export default class CreateResume{
         app.innerHTML = '';
 
 
-
         const employersList = new NavBarInit(app, isAuthorized, false, "Создание резюме");
         employersList.loadNavBar();
 

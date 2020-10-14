@@ -11,7 +11,9 @@ export default class CreateResumeCtrl{
 
             let formData = new FormData(form);
 
-            const json = {}
+            const json = {};
+            console.log(formData.get("education_month"));
+
 
             if (formData.get("description") !== "") {
                 json.description = formData.get("description")
@@ -29,25 +31,27 @@ export default class CreateResumeCtrl{
                 json.gender = formData.get("gender")
             }
 
-            if (formData.get("level") !== "") {
-                json.level = formData.get("level")
+            if (formData.get("career_level") !== "") {
+                json.level = formData.get("career_level")
             }
 
             if (formData.get("experience_month") !== "") {
                 json.experience_month = parseInt(formData.get("experience_month"))
             }
 
-            if (formData.get("education") !== "") {
-                json.education = formData.get("education")
+            if (formData.get("education_level") !== "") {
+                json.education = formData.get("education_level")
             }
 
-            const response = await network.doPost(addResumeURL, json);
+            console.log(json);
 
-            if (response.status >= 200 && response.status < 300) {
-                const content = await response.json();
-                console.assert(response.ok);
-                this.router.change('\/resume', content.resume.user_id, content.resume.id);
-            }
+            // const response = await network.doPost(addResumeURL, json);
+            //
+            // if (response.status >= 200 && response.status < 300) {
+            //     const content = await response.json();
+            //     console.assert(response.ok);
+            //     this.router.change('\/resume', content.resume.user_id, content.resume.id);
+            // }
 
         });
     }
