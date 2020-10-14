@@ -1,5 +1,5 @@
 import Profile from "../pages/profile/profile.js";
-import {meURL, SUCCESS, URL} from "../libs/constants.js";
+import {meUserURL, SUCCESS, URL} from "../libs/constants.js";
 import {network} from "../libs/networks.js";
 
 export default class ProfileCtrl{
@@ -7,7 +7,7 @@ export default class ProfileCtrl{
         this.router = router;
 
         const onload = async () => {
-            const response = await network.doGet(meURL);
+            const response = await network.doGet(meUserURL);
 
             console.assert(response.ok);
 

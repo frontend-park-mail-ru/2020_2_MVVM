@@ -15,15 +15,7 @@ export function updateProfileFields(person) {
                 updateButton[i].previousSibling.innerHTML=`<div>${newValueField}</div>`;
                 updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
 
-                saveData(updateButton[i], person.id, newValueField);
-
-                // let url = updateUserURL+(person.id).toString();
-                // let field = updateButton[i].previousElementSibling.id;
-                // let data = {
-                //     [field]: newValueField,
-                // };
-                // // console.log(url, JSON.stringify(data));
-                // network.doPut(url, JSON.stringify(data));
+                saveData(updateButton[i], person.id, newValueField).catch((error)=>console.log(error));
             }
         });
     }
@@ -34,7 +26,7 @@ async function saveData(tmpField, personID, newValueField){
     let url = updateUserURL+personID;
     let field = tmpField.previousElementSibling.id;
     let data = {
-        [field]: newValueField,
+        [field]: newValueField.toString(),
     };
     // console.log(url, JSON.stringify(data));
     const response = await network.doPut(url, data);
