@@ -20,7 +20,7 @@
     z-index: 2;
     display: flex;
     /*color: var(--text-light-black);*/
-    height: 100%;
+    height: 100vh;
     width: 100%;
     align-items: center;
     overflow-y: visible;
@@ -33,15 +33,18 @@
 
 .popUp__cont_center{
     min-width: 40%;
-    margin: 60px 20px;
-    padding: 70px 50px 50px;
+    margin: 60px 0;
+    padding: 40px 50px 50px;
     background: white;
     border-radius: 15px;
-    height: 100%;
+    height: 90vh;
+    overflow-y: scroll;
+
 }
 
 .popUp__cont_block{
     min-width: 30%;
+    height: 100%;
 }
 
 .popUp__cont_input{
@@ -88,6 +91,7 @@
 
 .btn__add_exp{
     padding: 15px 40px;
+    margin-bottom: 15px;
     border: 1px solid var(--buttons-purple-color);
     border-radius: 10px;
     text-align: center;

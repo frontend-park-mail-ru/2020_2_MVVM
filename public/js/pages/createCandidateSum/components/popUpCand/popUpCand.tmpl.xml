@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="btn__add_exp">сохранить</div>
+                <div class="btn__add_exp" type="submit">сохранить</div>
             </div>
             <div class="popUp__cont_block"/>
         </div>
