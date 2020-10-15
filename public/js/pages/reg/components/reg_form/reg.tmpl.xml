@@ -1,7 +1,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="container">
-        <form>
-            <div class="reg">
+        <div class="page__name">Регистрация</div>
+        <div class="reg">
                 <form>
                     <div class="form__field_name">
                         <div class="form__field_lable">Никнейм</div>
@@ -40,7 +40,8 @@
                     </div>
                     <button class="enterBtn" type="submit">Зарегистрироваться</button>
                 </form>
+                <div class="form__link"><a href="/auth">Уже есть аккаунт</a></div>
             </div>
-        </form>
+
     </div>
 </fest:template>

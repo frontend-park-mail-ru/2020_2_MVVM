@@ -1,6 +1,6 @@
 import CreateResume from "../pages/createCandidateSum/createCandidateSum.js";
 import {network} from "../libs/networks.js";
-import {addURL} from "../libs/constants.js";
+import {addResumeURL} from "../libs/constants.js";
 
 export default class CreateResumeCtrl{
     constructor(router) {
@@ -41,12 +41,14 @@ export default class CreateResumeCtrl{
                 json.education = formData.get("education")
             }
 
-            const response = network.doPost(addURL, json);
-            const content = await response.json();
+            const response = await network.doPost(addResumeURL, json);
 
-            console.assert(response.ok);
+            if (response.status >= 200 && response.status < 300) {
+                const content = await response.json();
+                console.assert(response.ok);
+                this.router.change('\/resume', content.resume.user_id, content.resume.id);
+            }
 
-            this.router.change('\/resume', content.resume.user_id, content.resume.id);
         });
     }
 }

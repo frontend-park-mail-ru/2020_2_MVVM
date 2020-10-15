@@ -1,4 +1,4 @@
-import {URL, UNAUTHORISED, meURL} from "./constants.js";
+import {URL, UNAUTHORISED, meUserURL} from "./constants.js";
 import {network} from "./networks.js";
 
 export default class Router {
@@ -30,7 +30,7 @@ export default class Router {
     change(path, ...args) {
 
         const  get_person = async () => {
-            const response = await network.doGet(`${meURL}`);
+            const response = await network.doGet(`${meUserURL}`);
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
                 return await response.json();

@@ -21,6 +21,7 @@
 
 .search-form-header > div {
     margin: 10px;
+    min-height: 50px;
 }
 
 .search-form-header input {

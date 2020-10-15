@@ -1,5 +1,5 @@
 import EmployersList from "../pages/employersList/employersList.js";
-import {URL} from "../libs/constants.js";
+import {URL, vacancyPageURL} from "../libs/constants.js";
 
 export default class EmployersListCtrl {
     constructor(router) {
@@ -7,7 +7,7 @@ export default class EmployersListCtrl {
 
         const fetchVacancyList = async () => {
             const response = await fetch(
-                `${URL}/v1/vacancy/page?` + new URLSearchParams({
+                `${URL}${vacancyPageURL}` + new URLSearchParams({
                     start: 0,
                     end: 4,
                 }),

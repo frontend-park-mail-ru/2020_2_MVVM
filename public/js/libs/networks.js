@@ -8,7 +8,7 @@ class Network {
             {
                 body: JSON.stringify(data),
                 credentials: "include",
-                method: "post",
+                method: "POST",
             },
         )
     }
@@ -18,7 +18,18 @@ class Network {
             `${URL}${url}`,
             {
                 credentials: "include",
-                method: "get",
+                method: "GET",
+            },
+        )
+    }
+
+    async doPut(url, data){
+        return await fetch(
+            `${URL}${url}`,
+            {
+                body: JSON.stringify(data),
+                credentials: "include",
+                method: "PUT",
             },
         )
     }
