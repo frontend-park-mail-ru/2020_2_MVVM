@@ -1,0 +1,16 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="job">
+    <div class="job">
+        <div class="job__container">
+            <div class="job__container_date">
+                <fest:value>job.start_work_year</fest:value><div class="minus">-</div><fest:value>job.end_work_year</fest:value>
+            </div>
+            <div class="job__container_organization">
+                <fest:value>job.type_of_job</fest:value>
+            </div>
+            <div class="job__container_position">
+                <fest:value>job.job</fest:value>
+            </div>
+        </div>
+        <div class="job__delete">X</div>
+    </div>
+</fest:template>

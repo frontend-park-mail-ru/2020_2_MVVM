@@ -101,10 +101,10 @@
                         </div>
                         <div class="experience__add">
                             <label class="sum__form__labels" for="experience">Опыт работы</label>
-                            <div class="btn__add_exp" id="btn__add_exp">Добавить опыт работы</div>
+                            <div class="experience__add_board" id="experience_board">
 
-<!--                            <textarea name="experience" class="sum__user__info" id="experience"/>-->
-<!--                            <span class="error" aria-live="polite"/>-->
+                            </div>
+                            <div class="btn__add_exp" id="btn__add_exp">Добавить опыт работы</div>
                         </div>
                         <div>
                             <label class="sum__form__labels">Профессиональные навыки</label>

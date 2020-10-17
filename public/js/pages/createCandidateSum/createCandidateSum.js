@@ -6,6 +6,8 @@ import {renderInputForm} from "./components/popUpCand/createOneJob.js"
 export const app = window.document.getElementById('app');
 export let jobsArr=[];
 
+
+
 function createElem(tag, className, parent) {
     const temp = document.createElement(tag);
     temp.className = className;
@@ -20,7 +22,7 @@ export default class CreateResume{
 
     render(isAuthorized, content){
         app.innerHTML = '';
-
+        jobsArr = [];
 
         const employersList = new NavBarInit(app, isAuthorized, false, "Создание резюме");
         employersList.loadNavBar();
@@ -43,6 +45,6 @@ function afterRender() {
 async function popUp() {
     const btn = document.getElementById("btn__add_exp");
     await btn.addEventListener('click', (event) => {
-        renderInputForm();
+        renderInputForm(undefined);
     });
 }

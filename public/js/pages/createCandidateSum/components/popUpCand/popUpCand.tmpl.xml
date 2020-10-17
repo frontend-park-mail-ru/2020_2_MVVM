@@ -1,4 +1,4 @@
-<fest:template xmlns:fest="http://fest.mail.ru" >
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="job">
     <div class="bg">
         <div class="popUp__cont">
             <div class="popUp__cont_block"/>
@@ -10,7 +10,7 @@
                         <label for="start_work">Начало работы</label>
                         <div class="popUp__cont_data">
                             <div>
-                                <input id="start_work" type="date" name="start_work_year"/>
+                                <input id="start_work" type="date" name="start_work_year" value="{job.start_work_year}"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                             <label for="end_work">Окончание работы</label>
                             <div class="popUp__cont_data">
                                 <div>
-                                    <input id="end_work" type="date" name="end_work_year"/>
+                                    <input id="end_work" type="date" name="end_work_year" value="{job.end_work_year}"/>
                                     <span class="error" aria-live="polite"/>
                                 </div>
                             </div>
@@ -32,21 +32,23 @@
                     <div class="popUp__cont_input">
                         <label for="type_of_job">Должность</label>
                         <div>
-                            <input class="popUp__cont_text" id="type_of_job" name="type_of_job" placeholder="Должность"/>
+                            <input class="popUp__cont_text" id="type_of_job" name="type_of_job" placeholder="Должность" value="{job.type_of_job}"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
                     <div class="popUp__cont_input">
                         <label for="job">Организация</label>
                         <div>
-                            <input class="popUp__cont_text" id="job" name="job" placeholder="Название компании"/>
+                            <input class="popUp__cont_text" id="job" name="job" placeholder="Название компании" value="{job.job}"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
                     <div class="popUp__cont_input">
                         <label for="duties">Обязанности на рабочем месте</label>
                         <div>
-                            <textarea class="popUp__cont_text" id="duties" name="duties" placeholder="Опишите, что вы делали на работе. Работодатели часто ищут резюме по ключевым навыкам, например, «работа в торговом зале», «работа с документами», «сопровождение первых лиц», «управление коллективом» и т.д."/>
+                            <textarea class="popUp__cont_text" id="duties" name="duties" placeholder="Опишите, что вы делали на работе. Работодатели часто ищут резюме по ключевым навыкам, например, «работа в торговом зале», «работа с документами», «сопровождение первых лиц», «управление коллективом» и т.д.">
+                                <fest:value>job.duties</fest:value>
+                            </textarea>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>

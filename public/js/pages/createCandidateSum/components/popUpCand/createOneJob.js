@@ -9,11 +9,11 @@ import {
     DATE_START_EMPTY
 } from "../../../../libs/constants.js"
 
-let error = document.getElementsByClassName('error');
+let numOfJob = 0;
 
-export async function renderInputForm() {
+export async function renderInputForm(value) {
 
-    app.insertAdjacentHTML("afterbegin", window.fest['popUpCand.tmpl']());
+    app.insertAdjacentHTML("afterbegin", window.fest['popUpCand.tmpl'](value));
     let exit = document.getElementsByClassName("popUp__cont_block");
     let bg = document.getElementsByClassName("bg");
     exit = Array.prototype.slice.call(exit);
@@ -26,33 +26,54 @@ export async function renderInputForm() {
     const form = bg[0].querySelector("form");
     await form.addEventListener('submit', (event) => {
         collectInfo(event, form, bg[0]).then(value =>{
-            jobsArr.push(value);
+            if (value){
+                jobsArr.push(value);
+                let board = document.getElementById("experience_board");
+                board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
+                board.lastChild.firstChild.addEventListener('click', (event)=>{
+                    console.log(value);
+                    openJob(value);
+                });
+                board.lastChild.lastChild.addEventListener('click', (event)=>{
+                    (event.currentTarget).parentNode.remove();
+                    delete jobsArr[value.numOfJob];
+                });
+            }
         });
     });
+}
+
+
+async function openJob(value){
+    renderInputForm(value);
 }
 
 async function collectInfo(event, form, bg){
     let data = {};
     event.preventDefault();
     const formData =  new FormData(form);
+    data.numOfJob = numOfJob;
     data.start_work_year = formData.get("start_work_year");
     data.end_work_year = formData.get("end_work_year");
     data.type_of_job = formData.get("type_of_job");
     data.job = formData.get("job");
     data.duties = formData.get("duties");
-    if (await checkPopUpCand(data)) {
+    if (await checkPopUpCand(data, form)) {
+        numOfJob++;
         bg.remove();
         return data;
     }
 }
 
-async function checkPopUpCand(data){
+async function checkPopUpCand(data, form){
     let isOk = true;
 
     const resDate = Validation.validateDate(data.start_work_year, data.end_work_year);
     const resType = Validation.validateTextField(data.type_of_job);
     const resJob = Validation.validateTextField(data.job);
     const resDuties = Validation.validateTextField(data.duties);
+
+    let error = form.getElementsByClassName('error');
 
     error = Array.prototype.slice.call(error);
     error.forEach((item)=>{item.innerHTML="";});

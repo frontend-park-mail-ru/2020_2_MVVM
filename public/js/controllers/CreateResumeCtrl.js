@@ -54,15 +54,15 @@ export default class CreateResumeCtrl{
 
             json.experience = jobsArr;
 
-            // console.log(json);
+            console.log(json.experience);
 
-            const response = await network.doPost(addResumeURL, json);
-
-            if (response.status >= 200 && response.status < 300) {
-                const content = await response.json();
-                console.assert(response.ok);
-                this.router.change('\/resume', content.resume.user_id, content.resume.id);
-            }
+            // const response = await network.doPost(addResumeURL, json);
+            //
+            // if (response.status >= 200 && response.status < 300) {
+            //     const content = await response.json();
+            //     console.assert(response.ok);
+            //     this.router.change('\/resume', content.resume.user_id, content.resume.id);
+            // }
 
         });
     }

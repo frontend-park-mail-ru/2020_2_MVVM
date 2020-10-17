@@ -99,6 +99,7 @@
     cursor: pointer;
     color: var(--buttons-purple-color);
     transition: 0.15s;
+    background: white;
 }
 
 .btn__add_exp:hover{
