@@ -5,6 +5,7 @@
             <div class="popUp__cont_center">
                 <div class="popUp__cont_lable">Опыт работы</div>
                 <form class="popUp__cont_form" id="popUp__cand_form">
+                    <span class="error" aria-live="polite"/>
                     <div class="popUp__cont_input">
                         <label for="start_work">Начало работы</label>
                         <div class="popUp__cont_data">

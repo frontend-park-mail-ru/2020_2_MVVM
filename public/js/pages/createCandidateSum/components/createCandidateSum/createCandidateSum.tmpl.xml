@@ -1,4 +1,4 @@
-<fest:template xmlns:fest="http://fest.mail.ru" >
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="user">
     <div class="container">
         <div class="page__name">Создание резюме</div>
         <div class="sum__form__wrap">
@@ -24,12 +24,12 @@
                     <p class="sum__description__block">Контактные данные</p>
                     <div>
                         <label class="sum__form__labels" for="surname">Фамилия</label>
-                        <input class="sum__user__info" id="surname" type="text" value=""/>
+                        <input class="sum__user__info" id="surname" type="text" value="{user.surname}"/>
                         <span class="error" aria-live="polite"/>
                     </div>
                     <div>
                         <label class="sum__form__labels" for="username">Имя</label>
-                        <input class="sum__user__info" id="username" type="text" value=""/>
+                        <input class="sum__user__info" id="username" type="text" value="{user.name}"/>
                         <span class="error" aria-live="polite"/>
                     </div>
                     <div class="sum__switch">
@@ -48,7 +48,7 @@
                     </div>
                     <div>
                         <label class="sum__form__labels" for="email">E-mail</label>
-                        <input class="sum__user__info" id="email" type="email" value=""/>
+                        <input class="sum__user__info" id="email" type="email" value="{user.email}"/>
                         <span class="error" aria-live="polite"/>
                     </div>
 <!--                    <div>-->

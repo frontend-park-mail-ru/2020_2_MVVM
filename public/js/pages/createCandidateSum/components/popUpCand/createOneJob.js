@@ -1,6 +1,13 @@
 import {jobsArr, app} from "../../createCandidateSum.js";
 import Validation from "../../../../libs/validation.js";
-import {DATE_OK, DATE_END_EMPTY, INPUT_TEXT_OK, INPUT_TEXT_EMPTY} from "../../../../libs/constants.js"
+import {
+    DATE_OK,
+    DATE_END_EMPTY,
+    INPUT_TEXT_OK,
+    INPUT_TEXT_EMPTY,
+    DATE_EMPTY,
+    DATE_START_EMPTY
+} from "../../../../libs/constants.js"
 
 let error = document.getElementsByClassName('error');
 
@@ -19,7 +26,7 @@ export async function renderInputForm() {
     const form = bg[0].querySelector("form");
     await form.addEventListener('submit', (event) => {
         collectInfo(event, form, bg[0]).then(value =>{
-            jobsArr.push(value)
+            jobsArr.push(value);
         });
     });
 }
@@ -47,25 +54,31 @@ async function checkPopUpCand(data){
     const resJob = Validation.validateTextField(data.job);
     const resDuties = Validation.validateTextField(data.duties);
 
+    error = Array.prototype.slice.call(error);
+    error.forEach((item)=>{item.innerHTML="";});
+
     if (resDate !== DATE_OK){
         isOk = false;
-        if (resDate === DATE_END_EMPTY){
-            error[1].innerHTML =`${resDate}`;
-        } else {
+        if (resDate === DATE_EMPTY){
             error[0].innerHTML =`${resDate}`;
-        }
+        } else if (resDate === DATE_START_EMPTY){
+            error[1].innerHTML =`${resDate}`;
+        } else if (resDate === DATE_END_EMPTY) {
+            error[2].innerHTML =`${resDate}`;
+        } else
+            error[0].innerHTML =`${resDate}`;
     }
     if (resType !== INPUT_TEXT_OK) {
         isOk = false;
-        error[2].innerHTML =`${resType}`;
+        error[3].innerHTML =`${resType}`;
     }
     if (resJob !== INPUT_TEXT_OK) {
         isOk = false;
-        error[3].innerHTML =`${resJob}`;
+        error[4].innerHTML =`${resJob}`;
     }
     if (resDuties !== INPUT_TEXT_OK && resDuties !== INPUT_TEXT_EMPTY) {
         isOk = false;
-        error[4].innerHTML =`${resDuties}`;
+        error[5].innerHTML =`${resDuties}`;
     }
     return isOk;
 

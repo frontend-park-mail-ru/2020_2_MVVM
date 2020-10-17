@@ -26,8 +26,7 @@ export default class CreateResume{
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
-
-        main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl']());
+        main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl'](content.user));
 
         afterRender();
         popUp();
