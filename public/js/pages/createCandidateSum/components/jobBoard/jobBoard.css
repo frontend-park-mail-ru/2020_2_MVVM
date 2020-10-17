@@ -1,0 +1,35 @@
+
+.job{
+    display: flex;
+    border: 1px solid var(--buttons-purple-color);
+    padding: 10px 10px 0;
+    justify-content: space-between;
+}
+
+.job__container{
+    color: black;
+    width: 100%;
+}
+
+.job__container_date{
+    display: flex;
+    margin-bottom: 5px;
+    color: var(--buttons-purple-color);
+}
+.job__container_date .minus{
+    font-size: 30px;
+    color: var(--buttons-purple-color);
+}
+.job__container_organization{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.job__delete{
+    height: min-content;
+}
+
+.job__delete:hover{
+    cursor: pointer;
+    color: black;
+}

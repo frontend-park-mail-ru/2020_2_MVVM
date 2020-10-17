@@ -58,6 +58,9 @@
 .footer-bottom {
     background-color: var(--footer-dark);
     text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-bottom span {

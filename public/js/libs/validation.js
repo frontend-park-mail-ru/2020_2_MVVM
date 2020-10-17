@@ -1,6 +1,15 @@
-import {INCORRECT_EMAIL, INCORRECT_LOGIN, INCORRECT_PASSWD, INCORRECT_AVATAR_F, INCORRECT_INPUT_TEXT, INCORRECT_PHONE,INCORRECT_SALARY} from './constants.js';
-import {EMAIL_OK, AVATAR_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK, PHONE_OK, SALARY_OK} from './constants.js';
-import {EMAIL_EMPTY, LOGIN_EMPTY, PASSWD_EMPTY, INPUT_TEXT_EMPTY, PHONE_EMPTY, SALARY_EMPTY} from './constants.js';
+import {
+    INCORRECT_EMAIL,
+    INCORRECT_LOGIN,
+    INCORRECT_PASSWD,
+    INCORRECT_AVATAR_F,
+    INCORRECT_INPUT_TEXT,
+    INCORRECT_PHONE,
+    INCORRECT_SALARY,
+    INCORRECT_DATE,
+} from './constants.js';
+import {EMAIL_OK, AVATAR_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK, PHONE_OK, SALARY_OK, DATE_OK} from './constants.js';
+import {EMAIL_EMPTY, LOGIN_EMPTY, PASSWD_EMPTY, INPUT_TEXT_EMPTY, PHONE_EMPTY, SALARY_EMPTY, DATE_EMPTY, DATE_START_EMPTY,DATE_END_EMPTY} from './constants.js';
 import {EMAIL_EXP, LOGIN_EXP, PASSWD_EXP, PHONE_EXP} from './constants.js';
 import {JPEG_AVATAR_F, PNG_AVATAR_F} from "./constants.js";
 
@@ -129,5 +138,28 @@ export default class Validation {
             return INCORRECT_AVATAR_F;
         }
         return AVATAR_OK;
+    }
+
+    static validateDate(start, end){
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+
+        if (!start && !end){
+            return DATE_EMPTY;
+        }
+        if (!start){
+            return DATE_START_EMPTY;
+        }
+        if (!end){
+            return DATE_END_EMPTY;
+        }
+        if (start > end || start > today || end > today) {
+            return INCORRECT_DATE;
+        }
+        return DATE_OK;
     }
 }
