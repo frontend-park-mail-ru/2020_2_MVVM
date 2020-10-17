@@ -19,7 +19,6 @@ export function checkFrom(submitF) {
 
         if (resEmail !== EMAIL_OK){
             isOk = false;
-            event.preventDefault();
             error[0].innerHTML =`${resEmail}`;
         }
         if (resNick !== LOGIN_OK){

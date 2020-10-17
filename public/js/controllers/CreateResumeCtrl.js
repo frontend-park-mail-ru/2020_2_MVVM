@@ -6,7 +6,7 @@ export default class CreateResumeCtrl{
     constructor(router) {
         this.router = router;
 
-        this.page = new CreateResume(async (event, form) => {
+        this.page = new CreateResume(async (event, form, jobsArr) => {
             event.preventDefault();
 
             let formData = new FormData(form);
@@ -39,9 +39,6 @@ export default class CreateResumeCtrl{
                 json.experience_month = parseInt(formData.get("experience_month"));
             }
 
-            if (formData.get("experience") !== "") {
-                json.experience = formData.get("experience");
-            }
 
             if (formData.get("skills") !== "") {
                 json.skills = formData.get("skills");
@@ -55,15 +52,17 @@ export default class CreateResumeCtrl{
                 json.awards = formData.get("awards");
             }
 
-            console.log(json);
+            json.experience = jobsArr;
 
-            // const response = await network.doPost(addResumeURL, json);
-            //
-            // if (response.status >= 200 && response.status < 300) {
-            //     const content = await response.json();
-            //     console.assert(response.ok);
-            //     this.router.change('\/resume', content.resume.user_id, content.resume.id);
-            // }
+            // console.log(json);
+
+            const response = await network.doPost(addResumeURL, json);
+
+            if (response.status >= 200 && response.status < 300) {
+                const content = await response.json();
+                console.assert(response.ok);
+                this.router.change('\/resume', content.resume.user_id, content.resume.id);
+            }
 
         });
     }

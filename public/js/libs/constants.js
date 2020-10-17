@@ -6,12 +6,17 @@ export const AVATAR_OK = 'OK avatar'
 export const SALARY_OK = 'OK salary'
 export const INPUT_TEXT_OK = 'OK input text'
 export const PHONE_OK = 'OK phone number'
+export const DATE_OK = 'OK date'
+
 export const EMAIL_EMPTY = 'EMPTY email'
 export const LOGIN_EMPTY = 'EMPTY login'
 export const PASSWD_EMPTY = 'EMPTY password'
 export const PHONE_EMPTY = 'EMPTY phone'
 export const SALARY_EMPTY = 'EMPTY salary'
 export const INPUT_TEXT_EMPTY = 'EMPTY input text'
+export const DATE_EMPTY = 'EMPTY date fields'
+export const DATE_START_EMPTY = "EMPTY start date"
+export const DATE_END_EMPTY = "EMPTY end date"
 
 // validation common errors
 export const INCORRECT_EMAIL = 'Email should contain "@" and latin letters, numbers, special symbols';
@@ -21,6 +26,7 @@ export const INCORRECT_AVATAR_F = 'Avatar must be jpeg or png format and must be
 export const INCORRECT_INPUT_TEXT = 'Input exceeds limit of characters'
 export const INCORRECT_PHONE = 'wrong phone number'
 export const INCORRECT_SALARY = 'salary can`t be less than zero'
+export const INCORRECT_DATE = 'incorrect date'
 
 // validation allowed expressions
 export const EMAIL_EXP = new RegExp(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/)
