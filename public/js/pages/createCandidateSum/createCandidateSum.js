@@ -22,7 +22,7 @@ export default class CreateResume{
                 user: {
                     surname: "test",
                     name: "test",
-                    email: "test",
+                    email: "test@test.test",
                 },
             }
         }
@@ -33,16 +33,21 @@ export default class CreateResume{
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl'](content.user));
 
-        afterRender();
+        const form = main.querySelector("form");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            afterRender(this.onsubmit, form, jobsArr);
+        });
+
         popUp();
 
-        const form = main.querySelector("form");
-        form.addEventListener("submit", (event) => this.onsubmit(event, form, jobsArr));
+        // const form = main.querySelector("form");
+        // form.addEventListener("submit", (event) => this.onsubmit(event, form, jobsArr));
     }
 }
 
-function afterRender() {
-    checkFrom();
+function afterRender(submitF, form, jobsArr) {
+    checkFrom(submitF, form, jobsArr);
 }
 
 async function popUp() {

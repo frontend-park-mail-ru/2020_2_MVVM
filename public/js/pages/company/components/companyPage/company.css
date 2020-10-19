@@ -11,7 +11,7 @@
 .container__left {
     min-width: 250px;
     width: 40vw;
-    background: var(--border-grey-color);
+    background: var(--background-grey-color);
     height: min-content;
     border-radius: 10px;
     margin-right: 2vw;
