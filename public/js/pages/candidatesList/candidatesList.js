@@ -1,15 +1,8 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
-import router from "../../libs/router.js";
+import createElem from "../../libs/createElem.js";
 
 const app = window.document.getElementById('app');
-
-function createElem(tag, className, parent) {
-    const temp = document.createElement(tag);
-    temp.className = className;
-    parent.appendChild(temp);
-    return temp
-}
 
 export default class CandidatesList{
     // TODO ROUTER - костыль, сделать нормально через контроллеры
@@ -49,7 +42,7 @@ export default class CandidatesList{
 
         mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
         mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
-        main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
+        // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
 
         const linksToResume = main.getElementsByClassName("go_to_resume");
 

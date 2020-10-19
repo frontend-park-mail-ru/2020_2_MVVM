@@ -1,14 +1,9 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/createEmployerSum/createEmpoyerSum.js";
+import createElem from "../../libs/createElem.js";
 
 const app = window.document.getElementById('app');
 
-function createElem(tag, className, parent) {
-    const temp = document.createElement(tag);
-    temp.className = className;
-    parent.appendChild(temp);
-    return temp
-}
 
 export default class CreateVacancy{
     render(isAuthorized, content){

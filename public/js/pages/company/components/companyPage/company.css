@@ -1,0 +1,107 @@
+.main__company {
+    width: 100%;
+    padding: 5vh 20vw 0 9vw;
+}
+.company__container {
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+    width: 100%;
+}
+.container__left {
+    min-width: 250px;
+    width: 40vw;
+    background: var(--border-grey-color);
+    height: min-content;
+    border-radius: 10px;
+    margin-right: 2vw;
+    padding: 15px;
+}
+.container__left_top {
+    width: fit-content;
+    margin: 0 auto 10px;
+}
+.container__left_logo img{
+    width: 100%;
+}
+.container_left_middle {}
+.container__left_contacts {}
+.container__left_contacts .city {}
+.container__left_contacts .web-site {
+    margin-bottom: 2vh;
+}
+.container__left_vacancies {
+    margin-bottom: 2vh;
+}
+.container__left_vacancies .open-vacancies {
+    margin-top: 1vh;
+}
+.container__left_sphere {
+    margin-bottom: 1vh;
+}
+.container__left_sphere label{
+    font-weight: bolder;
+}
+.container__left_vacancies label{
+    font-weight: bolder;
+}
+.container__left_sphere .spheres{
+    margin: 1vh 0 2vh;
+}
+.container__left_bottom {}
+.container__left_bottom .subscribe{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--buttons-purple-color);
+    margin-bottom: 15px;
+    color: var(--buttons-purple-color);
+    text-align: center;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.container__left_bottom .subscribe:hover{
+    background: var(--buttons-purple-color);
+    color: white;
+    transition: 0.15s;
+}
+
+.container__right {
+    padding: 15px;
+    height: fit-content;
+    max-width: 65vw;
+}
+.container__right_top {
+    margin-bottom: 1vh;
+}
+.container__right_top .company-name {
+    font-size: 30px;
+}
+.container__right_middle {
+
+}
+.container__right_middle .info {
+    font-size: 20px;
+    text-align: left;
+}
+.container__right_bottom {
+}
+.container__right_bottom .vacancies {
+    border-top: 1px solid #000;
+    padding-top: 14px;
+    margin: 20px 0;
+}
+.company__vacancies{
+    font-size: 30px;
+    margin-bottom: 2vh;
+}
+.vacancies__current-region{}
+
+.vacancies__current-region .all {
+    margin-bottom: 2vh;
+    font-size: 20px;
+}
+.vacancies__current-region .group {
+    margin-bottom: 1vh;
+    font-size: 15px;
+}

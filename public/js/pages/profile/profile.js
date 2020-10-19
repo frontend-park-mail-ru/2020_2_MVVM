@@ -1,16 +1,9 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkoutProfilePage} from './components/personalNavBar/persNavBar.js'
 import {updateProfileFields} from './components/checkboxSearch/checkBox.js'
+import createElem from "../../libs/createElem.js";
 
 const app = window.document.getElementById('app');
-
-function createElem(tag, className, parent) {
-    const temp = document.createElement(tag);
-    temp.className = className;
-    parent.appendChild(temp);
-    return temp
-}
-
 
 export default class Profile{
     constructor() {
@@ -61,7 +54,7 @@ export default class Profile{
             personalInfo(person, mainColumnLeft);
         }
 
-        app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
+        // app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
         checkoutProfilePage(isAuthorized, content);
         updateProfileFields();

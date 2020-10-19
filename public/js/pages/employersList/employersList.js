@@ -1,14 +1,8 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
+import createElem from "../../libs/createElem.js";
 
 const app = window.document.getElementById('app');
-
-function createElem(tag, className, parent) {
-    const temp = document.createElement(tag);
-    temp.className = className;
-    parent.appendChild(temp);
-    return temp
-}
 
 export default class EmployersList{
     constructor(fetchVacancyList, router) {
@@ -48,7 +42,7 @@ export default class EmployersList{
         const vacancies = await this.fetchVacancyList();
         mainList.insertAdjacentHTML("beforeend", window.fest['listOfEmployers.tmpl'](vacancies.vacancyList));
         mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
-        main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
+        // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
 
         afterRender();
     }

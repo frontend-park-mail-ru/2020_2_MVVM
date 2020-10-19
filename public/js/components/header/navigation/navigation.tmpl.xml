@@ -7,6 +7,8 @@
                 <a href="/mainPage" class="header__item header__item_simple">Главная страница</a>
                 <a href="/employersList" class="header__item header__item_simple">Работодатели</a>
                 <a href="/candidatesList" class="header__item header__item_simple">Соискатели</a>
+                <br/>
+                <br/>
                 <!--                            <fest:if test="user.type=='cand'">-->
                 <!--                                <a href="/createResume" class="header__item header__item_big-button">+ Создать резюме</a>-->
                 <!--                            </fest:if>-->
@@ -15,6 +17,7 @@
                 <!--                            </fest:if>-->
                 <a href="/createResume" class="header__item header__item_big-button">+ Создать резюме</a>
                 <a href="/createVacancy" class="header__item header__item_big-button">+ Создать вакансию</a>
+                <a href="/createCompany" class="header__item header__item_big-button">+ Создать организацию</a>
                 <br/>
                 <br/>
             </nav>
