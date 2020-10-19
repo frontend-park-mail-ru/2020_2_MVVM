@@ -1,19 +1,12 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/createCandidateSum/createCandidateSum.js";
 import {renderInputForm} from "./components/popUpCand/createOneJob.js"
+import createElem from "../../libs/createElem.js";
 
 
 export const app = window.document.getElementById('app');
 export let jobsArr=[];
 
-
-
-function createElem(tag, className, parent) {
-    const temp = document.createElement(tag);
-    temp.className = className;
-    parent.appendChild(temp);
-    return temp
-}
 
 export default class CreateResume{
     constructor(onsubmit) {
@@ -24,22 +17,37 @@ export default class CreateResume{
         app.innerHTML = '';
         jobsArr = [];
 
+        if (!content) {
+            content = {
+                user: {
+                    surname: "test",
+                    name: "test",
+                    email: "test@test.test",
+                },
+            }
+        }
+
         const employersList = new NavBarInit(app, isAuthorized, false, "Создание резюме");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl'](content.user));
 
-        afterRender();
+        const form = main.querySelector("form");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            afterRender(this.onsubmit, form, jobsArr);
+        });
+
         popUp();
 
-        const form = main.querySelector("form");
-        form.addEventListener("submit", (event) => this.onsubmit(event, form, jobsArr));
+        // const form = main.querySelector("form");
+        // form.addEventListener("submit", (event) => this.onsubmit(event, form, jobsArr));
     }
 }
 
-function afterRender() {
-    checkFrom();
+function afterRender(submitF, form, jobsArr) {
+    checkFrom(submitF, form, jobsArr);
 }
 
 async function popUp() {

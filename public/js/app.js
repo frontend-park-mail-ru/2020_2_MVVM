@@ -9,6 +9,8 @@ import CreateResumeCtrl from "./controllers/CreateResumeCtrl.js";
 import CreateVacancyCtrl from "./controllers/CreateVacancyCtrl.js";
 import VacancyCtrl from "./controllers/VacancyCtrl.js";
 import ResumeCtrl from "./controllers/ResumeCtrl.js";
+import CompanyCtrl from "./controllers/CompanyCtrl.js";
+import CreateCompanyCtrl from "./controllers/CreateCompanyCtrl.js";
 
 document.addEventListener('DOMContentLoaded', ()=>{
     const app = document.getElementById('app');
@@ -25,6 +27,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         createVacancy: new CreateVacancyCtrl(router),
         vacancy: new VacancyCtrl(router),
         resume: new ResumeCtrl(router),
+        company: new CompanyCtrl(router),
+        createCompany: new CreateCompanyCtrl(router),
     }
 
 
@@ -39,6 +43,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/createVacancy', controllers.createVacancy.page);
     router.add('/vacancy', controllers.vacancy.page);
     router.add('/resume', controllers.resume.page);
+    router.add('/company', controllers.company.page);
+    router.add('/createCompany', controllers.createCompany.page);
 
     router.start();
 });

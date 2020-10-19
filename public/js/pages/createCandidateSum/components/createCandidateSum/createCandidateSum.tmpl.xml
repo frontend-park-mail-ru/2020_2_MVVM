@@ -24,12 +24,12 @@
                     <p class="sum__description__block">Контактные данные</p>
                     <div>
                         <label class="sum__form__labels" for="surname">Фамилия</label>
-                        <input class="sum__user__info" id="surname" type="text" value="{user.surname}"/>
+                        <input class="sum__user__info" id="surname" name="surname" type="text" value="{user.surname}"/>
                         <span class="error" aria-live="polite"/>
                     </div>
                     <div>
                         <label class="sum__form__labels" for="username">Имя</label>
-                        <input class="sum__user__info" id="username" type="text" value="{user.name}"/>
+                        <input class="sum__user__info" id="username" name="name" type="text" value="{user.name}"/>
                         <span class="error" aria-live="polite"/>
                     </div>
                     <div class="sum__switch">
@@ -48,7 +48,7 @@
                     </div>
                     <div>
                         <label class="sum__form__labels" for="email">E-mail</label>
-                        <input class="sum__user__info" id="email" type="email" value="{user.email}"/>
+                        <input class="sum__user__info" id="email" name="email" type="email" value="{user.email}"/>
                         <span class="error" aria-live="polite"/>
                     </div>
 <!--                    <div>-->
@@ -101,9 +101,7 @@
                         </div>
                         <div class="experience__add">
                             <label class="sum__form__labels" for="experience">Опыт работы</label>
-                            <div class="experience__add_board" id="experience_board">
-
-                            </div>
+                            <div class="experience__add_board" id="experience_board"/>
                             <div class="btn__add_exp" id="btn__add_exp">Добавить опыт работы</div>
                         </div>
                         <div>
@@ -124,12 +122,13 @@
                             <div>
                                 <p class="sum__description__block">Специальность</p>
                                 <label class="sum__form__labels" for="place">Желаемая должность</label>
-                                <input class="sum__user__info" id="place" type="text" value=""/>
+                                <input class="sum__user__info" id="place" name="place" type="text" value=""/>
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <label class="sum__form__labels" for="salary">Зарплата</label>
                             <div style="display:flex;">
                                 <h4 style="align-self:end;">От</h4><input name="salary_min" class="sum__user__info" id="citizenship" type="text"/>
+                                <span class="error" aria-live="polite"/>
                                 <h4 style="align-self:end;">До</h4><input name="salary_max" class="sum__user__info" id="citizenship" type="text"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
