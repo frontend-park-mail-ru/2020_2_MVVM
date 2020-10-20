@@ -7,14 +7,10 @@ export default class CreateResumeCtrl{
         this.router = router;
 
         this.page = new CreateResume(async (form, jobsArr) => {
-            // event.preventDefault();
 
             let formData = new FormData(form);
 
             const json = {};
-            // console.log(formData.get("gender"));
-
-
 
             json.description = formData.get("description");
             json.salary_min = parseInt(formData.get("salary_min"));
@@ -22,6 +18,7 @@ export default class CreateResumeCtrl{
             if (formData.get("gender") !== "") {
                 json.gender = formData.get("gender");
             }
+            json.place = formData.get("place");
             json.career_level = formData.get("career_level");
             json.experience_month = parseInt(formData.get("experience_month"));
             json.skills = formData.get("skills");

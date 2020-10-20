@@ -8,7 +8,7 @@ const app = window.document.getElementById('app');
 
 export default class AuthList {
     constructor(onsubmit) {
-        this.onsubmit = onsubmit
+        this.onsubmit = onsubmit;
     }
 
     render(isAuthorized){
