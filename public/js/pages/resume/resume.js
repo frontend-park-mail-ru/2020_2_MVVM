@@ -7,8 +7,6 @@ import createElem from "../../libs/createElem.js";
 const app = window.document.getElementById('app');
 
 const resumeInfo = async (user_id, resume_id) => {
-
-    console.log(user_id,resume_id);
     const response1 = await network.doGet(`${usersByIdURL}${user_id}`);
     const user = (await response1.json()).user;
     console.assert(response1.ok);
@@ -50,10 +48,7 @@ const resumeInfo = async (user_id, resume_id) => {
 export default class Resume {
     async render(isAuthorized, content, user_id, resume_id) {
 
-        console.log(content, user_id, resume_id);
-
         app.innerHTML = '';
-
 
         const navBarInit = new NavBarInit(app, isAuthorized, false,"");
         navBarInit.loadNavBar();

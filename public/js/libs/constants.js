@@ -63,6 +63,7 @@ export const updateUserURL = "/v1/users/update/";
 export const addResumeURL = "/v1/resume/add";
 export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
+export const resumeMineURL = "/v1/resume/mine";
 
 
 export const addVacancyURL = "/v1/vacancy/add";
