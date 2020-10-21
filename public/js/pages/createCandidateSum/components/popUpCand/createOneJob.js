@@ -41,10 +41,10 @@ export async function renderInputForm(value) {
         collectInfo(event, form, bg[0]).then(value =>{
             if (value){
                 jobsArr.push(value);
+                // openAndDelJob(value);
                 let board = document.getElementById("experience_board");
                 board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
                 board.lastChild.firstChild.addEventListener('click', (event)=>{
-                    console.log(value);
                     openJob(value);
                 });
                 board.lastChild.lastChild.addEventListener('click', (event)=>{
@@ -57,6 +57,21 @@ export async function renderInputForm(value) {
 }
 
 
+export async function openAndDelJob(value) {
+    let board = document.getElementById("experience_board");
+    // board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
+    for (let i = 0; i<board.childElementCount; i++){
+        board.children[i].firstChild.addEventListener('click', (event)=>{
+            openJob(value[i]);
+        });
+        board.children[i].lastChild.addEventListener('click', (event)=>{
+            (event.currentTarget).parentNode.remove();
+            delete jobsArr[value[i].numOfJob];
+        });
+    }
+
+}
+
 async function openJob(value){
     renderInputForm(value);
 }
@@ -68,7 +83,6 @@ async function collectInfo(event, form, bg){
 
     data.numOfJob = numOfJob;
     data.start_work_year = formData.get("start_work_year");
-    console.log(formData.get("end_work_year"));
     if (formData.get("end_work_year") === null && currentWork) {
         data.end_work_year = "today";
     } else {

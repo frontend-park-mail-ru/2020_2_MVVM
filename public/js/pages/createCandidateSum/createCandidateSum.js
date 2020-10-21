@@ -1,6 +1,6 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/createCandidateSum/createCandidateSum.js";
-import {renderInputForm} from "./components/popUpCand/createOneJob.js"
+import {openAndDelJob, renderInputForm} from "./components/popUpCand/createOneJob.js"
 import createElem from "../../libs/createElem.js";
 
 
@@ -16,7 +16,6 @@ export default class CreateResume{
     render(isAuthorized, content, ...args){
         // console.log(args[2]);
         app.innerHTML = '';
-        jobsArr = [];
         let user;
 
         if (args[0] && content){
@@ -98,6 +97,13 @@ export default class CreateResume{
             }
         }
 
+        if (user.user.experience) {
+            jobsArr = user.user.experience;
+        } else {
+            jobsArr = [];
+        }
+
+
         const employersList = new NavBarInit(app, isAuthorized, false, "Создание резюме");
         employersList.loadNavBar();
 
@@ -111,6 +117,7 @@ export default class CreateResume{
             afterRender(this.onsubmit, form, jobsArr);
         });
 
+        openAndDelJob(user.user.experience);
         popUp();
 
     }

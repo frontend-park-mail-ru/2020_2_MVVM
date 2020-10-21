@@ -20,15 +20,6 @@
                     <br/>
                     <div class="popUp__cont_input" id="div-end_work_year">
                         <fest:include context="job.end_work_year" src="../endWorkField/endWorkField.tmpl.xml"/>
-<!--                        <div class="popUp__cont_input">-->
-<!--                            <label for="end_work">Окончание работы</label>-->
-<!--                            <div class="popUp__cont_data">-->
-<!--                                <div>-->
-<!--                                    <input id="end_work" type="date" name="end_work_year" value="{job.end_work_year}"/>-->
-<!--                                    <span class="error" aria-live="polite"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>
                     <span class="error" aria-live="polite"/>
                     <div class="popUp__cont_input">
