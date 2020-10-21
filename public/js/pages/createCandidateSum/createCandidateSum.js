@@ -102,7 +102,6 @@ export default class CreateResume{
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
-        // console.log(user.user);
         main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl'](user.user));
 
 
@@ -114,8 +113,6 @@ export default class CreateResume{
 
         popUp();
 
-        // const form = main.querySelector("form");
-        // form.addEventListener("submit", (event) => this.onsubmit(event, form, jobsArr));
     }
 }
 
