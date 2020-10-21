@@ -157,9 +157,13 @@ export default class Validation {
         if (!end){
             return DATE_END_EMPTY;
         }
-        if (start > end || start > today || end > today) {
+        if (start > today) {
             return INCORRECT_DATE;
         }
+        if (end !== "today" && (start > end || end > today)){
+            return INCORRECT_DATE;
+        }
+
         return DATE_OK;
     }
 }

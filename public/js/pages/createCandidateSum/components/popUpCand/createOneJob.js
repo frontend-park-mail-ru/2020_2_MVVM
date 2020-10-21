@@ -10,6 +10,7 @@ import {
 } from "../../../../libs/constants.js"
 
 let numOfJob = 0;
+let currentWork;
 
 export async function renderInputForm(value) {
 
@@ -23,15 +24,27 @@ export async function renderInputForm(value) {
         });
     });
 
+    const checkbox = document.getElementById("popUp__cont_checkbox");
+    const endWorkField = document.getElementById("div-end_work_year");
+    checkbox.addEventListener('change', (event)=>{
+        if (checkbox.checked) {
+            endWorkField.innerHTML='';
+            currentWork = true;
+        } else {
+            currentWork = false;
+            endWorkField.insertAdjacentHTML("afterbegin", window.fest['endWorkField.tmpl'](value));
+        }
+    });
+
     const form = bg[0].querySelector("form");
     await form.addEventListener('submit', (event) => {
         collectInfo(event, form, bg[0]).then(value =>{
             if (value){
                 jobsArr.push(value);
+                // openAndDelJob(value);
                 let board = document.getElementById("experience_board");
                 board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
                 board.lastChild.firstChild.addEventListener('click', (event)=>{
-                    console.log(value);
                     openJob(value);
                 });
                 board.lastChild.lastChild.addEventListener('click', (event)=>{
@@ -44,6 +57,21 @@ export async function renderInputForm(value) {
 }
 
 
+export async function openAndDelJob(value) {
+    let board = document.getElementById("experience_board");
+    // board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
+    for (let i = 0; i<board.childElementCount; i++){
+        board.children[i].firstChild.addEventListener('click', (event)=>{
+            openJob(value[i]);
+        });
+        board.children[i].lastChild.addEventListener('click', (event)=>{
+            (event.currentTarget).parentNode.remove();
+            delete jobsArr[value[i].numOfJob];
+        });
+    }
+
+}
+
 async function openJob(value){
     renderInputForm(value);
 }
@@ -52,9 +80,14 @@ async function collectInfo(event, form, bg){
     let data = {};
     event.preventDefault();
     const formData =  new FormData(form);
+
     data.numOfJob = numOfJob;
     data.start_work_year = formData.get("start_work_year");
-    data.end_work_year = formData.get("end_work_year");
+    if (formData.get("end_work_year") === null && currentWork) {
+        data.end_work_year = "today";
+    } else {
+        data.end_work_year = formData.get("end_work_year");
+    }
     data.type_of_job = formData.get("type_of_job");
     data.job = formData.get("job");
     data.duties = formData.get("duties");

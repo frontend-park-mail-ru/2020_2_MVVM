@@ -28,6 +28,8 @@ export default class CreateResumeCtrl{
             }
             json.experience = jobsArr;
 
+            console.log(json);
+
             const response = await network.doPost(addResumeURL, json);
 
             if (response.status >= 200 && response.status < 300) {
