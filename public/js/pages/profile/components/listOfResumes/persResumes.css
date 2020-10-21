@@ -7,6 +7,15 @@
     border: 1px solid var(--main-pink-color);
     border-radius: 3%;
 }
+.main__buttons_two{
+    padding: 10px;
+    border: 1px solid var(--main-pink-color);
+    border-radius: 3%;
+}
+.main__buttons_two:hover{
+    background-color: var(--main-pink-color);
+    color: white;
+}
 
 .main__buttons_one:hover{
     background-color: var(--main-pink-color);

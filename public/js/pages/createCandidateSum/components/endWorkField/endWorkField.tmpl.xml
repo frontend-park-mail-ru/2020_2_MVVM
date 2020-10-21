@@ -1,0 +1,8 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="job">
+        <label for="end_work">Окончание работы</label>
+        <div class="popUp__cont_data">
+            <div>
+                <input id="end_work" type="date" name="end_work_year" value="{job.end_work_year}"/>
+            </div>
+        </div>
+</fest:template>

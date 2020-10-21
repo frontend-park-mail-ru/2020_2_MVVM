@@ -1,26 +1,26 @@
 import {NavBarInit} from "../../components/header/navBar.js";
-import {checkoutProfilePage} from './components/personalNavBar/persNavBar.js'
+import {checkoutProfilePage, personalInfo} from './components/personalNavBar/persNavBar.js'
 import {updateProfileFields} from './components/checkboxSearch/checkBox.js'
+import createElem from "../../libs/createElem.js";
+
+
 
 const app = window.document.getElementById('app');
 
-function createElem(tag, className, parent) {
-    const temp = document.createElement(tag);
-    temp.className = className;
-    parent.appendChild(temp);
-    return temp
-}
-
-
 export default class Profile{
-    constructor() {
-
+    constructor(loadResumesF, router) {
+        this.onload = loadResumesF;
+        this.router = router;
     }
 
-    isPersonalRusemes = false;
+    resumes = null;
 
     async render(isAuthorized, content){
+
         app.innerHTML = '';
+        await this.onload().then((data)=>{
+            this.resumes = data;
+        });
 
         let person;
         if (isAuthorized) {
@@ -48,45 +48,42 @@ export default class Profile{
 
         const mainPage = createElem("div", "main__page", container);
         const mainColumnLeft = createElem("div", "main__page_left", mainPage);
-        mainColumnLeft.insertAdjacentHTML("afterbegin", window.fest['persNavBar.tmpl']());
+        const body = createElem("div", "main__page_left-body", mainColumnLeft);
+        await mainColumnLeft.insertAdjacentHTML("afterbegin", window.fest['persNavBar.tmpl']());
+
         const mainColumnRight = createElem("div", "main__page_right", mainPage);
-
-
 
         mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
 
-        if (this.isPersonalRusemes){
-            personalResumes(mainColumnLeft);
-        } else {
-            personalInfo(person, mainColumnLeft);
-        }
 
-        app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
+        // app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
-        checkoutProfilePage(isAuthorized, content);
+        await personalInfo(person, body);
+        await checkoutProfilePage(this, isAuthorized, content, body, person);
         updateProfileFields();
     }
 }
 
 
 
-function personalResumes(mainColumnLeft){
-    const resumes = [{
-        name: 'Первое резюме',
-        job: 'Желаемая работа',
-        },
-        {
-            name: 'Второе резюме',
-            job: 'Желаемая работа',
-        },
-        {
-            name: 'Тертье резюме',
-            job: 'Желаемая работа',
-        }
-        ]
-    mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persResumes.tmpl'](resumes));
-}
-
-function personalInfo(person, mainColumnLeft){
-    mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persInfo.tmpl'](person));
-}
+// function personalResumes(mainColumnLeft, resumes1){
+//     console.log(resumes1);
+//     const resumes = [{
+//         name: 'Первое резюме',
+//         job: 'Желаемая работа',
+//         },
+//         {
+//             name: 'Второе резюме',
+//             job: 'Желаемая работа',
+//         },
+//         {
+//             name: 'Тертье резюме',
+//             job: 'Желаемая работа',
+//         }
+//         ]
+//     mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persResumes.tmpl'](resumes));
+// }
+//
+// function personalInfo(person, mainColumnLeft){
+//     mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persInfo.tmpl'](person));
+// }

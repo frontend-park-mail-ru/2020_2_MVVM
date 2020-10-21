@@ -1,0 +1,71 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="company">
+    <div class="company__container">
+            <div class="container__left">
+                <div class="container__left_top">
+                    <div class="container__left_logo">
+                        <img src="{company.avatar}" alt=""/>
+                    </div>
+                </div>
+                <div class="container_left_middle">
+                    <div class="container__left_contacts">
+                        <div class="container__left_contacts city"><fest:value>company.location</fest:value></div>
+                        <div class="container__left_contacts web-site"><a href=""><fest:value>company.link</fest:value></a> </div>
+                    </div>
+                    <div class="container__left_vacancies">
+                        <label>Вакансии</label>
+                        <div class="container__left_vacancies open-vacancies"><fest:value>company.count_vacancy</fest:value> активных вакансий</div>
+                    </div>
+                    <div class="container__left_sphere">
+                        <label>Сферы деятельности</label>
+                        <div class="container__left_sphere spheres">
+                            <fest:for iterate="company.sphere" index="i" value="v">
+                                <fest:value>v</fest:value><br/>
+                            </fest:for>
+                        </div>
+                    </div>
+                </div>
+                <div class="container__left_bottom">
+                    <div class="container__left_bottom subscribe">Я хочу тут работать</div>
+                    <div class="container__left_bottom subscribe">Подписаться</div>
+                </div>
+            </div>
+            <div class="container__right">
+                <div class="container__right_top">
+                    <div class="container__right_top company-name"><fest:value>company.name</fest:value>, Россия</div>
+                </div>
+                <div class="container__right_middle">
+                    <div class="container__right_middle info">
+                        <fest:value>company.description</fest:value>
+                    </div>
+                </div>
+                <div class="container__right_bottom">
+                    <div class="container__right_bottom vacancies">
+                        <div class="company__vacancies">Вакансии компании</div>
+                        <div class="vacancies__current-region">
+                            <div class="vacancies__current-region all">
+                                <span>Вакансии в текущем регионе: Россия </span><span>25</span>
+                            </div>
+                            <div class="vacancies__current-region group">
+                                <span>Информационные технологии, интернет, телеком</span><span> 2</span>
+                            </div>
+                            <div class="vacancies__current-region group">
+                                <span>Продажи</span><span> 1</span>
+                            </div>
+                            <div class="vacancies__current-region group">
+                                <span>Бухгалтерия, управленческий учет, финансы предприятия</span><span> 1</span>
+                            </div>
+                            <div class="vacancies__current-region group">
+                                <span>Строительство, недвижимость</span><span> 1</span>
+                            </div>
+                            <div class="vacancies__current-region group">
+                                <span>Управление персоналом, тренинги</span><span> 1</span>
+                            </div>
+                            <div class="vacancies__current-region group">
+                                <span>Туризм, гостиницы, рестораны</span><span> 1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</fest:template>

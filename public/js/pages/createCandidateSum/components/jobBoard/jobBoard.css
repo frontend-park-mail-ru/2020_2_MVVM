@@ -4,7 +4,9 @@
     border: 1px solid var(--buttons-purple-color);
     padding: 10px 10px 0;
     justify-content: space-between;
+    cursor: pointer;
 }
+
 
 .job__container{
     color: black;

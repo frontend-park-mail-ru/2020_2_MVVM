@@ -34,7 +34,8 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 
 :root {
-    --border-grey-color: #DDDDDD;
+    --background-grey-color: #efefef;
+    --border-grey-color: #dbdbdb;
     --main-pink-color: #fb236a;
     --buttons-purple-color: #8b91dd;
     --text-light-black: #202020;

@@ -52,7 +52,8 @@ export default class Router {
             console.log(content);
             obj.page.render(true, content, ...args)
         }).catch(() => {
-            obj.page.render(false, ...args)
+            // console.log("kek");
+            obj.page.render(false, null, ...args)
         });
 
         // TODO: кажется, render надо вызывать у контроллера, который потом вызовет его у вью
@@ -74,6 +75,6 @@ export default class Router {
 
         // начальный рендер
         // this.change('\/createResume', user);
-        this.change('\/mainPage', user);
+        this.change('\/company', user);
     }
 }
