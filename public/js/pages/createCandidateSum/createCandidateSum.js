@@ -27,7 +27,7 @@ export default class CreateResume{
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            afterRender(this.onsubmit, form, jobsArr);
+            afterRenderResume(this.onsubmit, form, jobsArr);
         });
 
         popUp();
@@ -35,7 +35,7 @@ export default class CreateResume{
     }
 }
 
-function afterRender(submitF, form, jobsArr) {
+export function afterRenderResume(submitF, form, jobsArr) {
     checkFrom(submitF, form, jobsArr);
 }
 

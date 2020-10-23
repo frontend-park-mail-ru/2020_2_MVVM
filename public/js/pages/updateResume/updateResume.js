@@ -1,6 +1,7 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import createElem from "../../libs/createElem.js";
 import {openAndDelJob} from "../../components/popUpResume/popUpCand/createOneJob.js";
+import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 
 
 export const app = window.document.getElementById('app');
@@ -67,7 +68,7 @@ export default class UpdateResume{
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            afterRender(this.onsubmit, form, jobsArr);
+            afterRenderResume(this.onsubmit, form, jobsArr);
         });
 
         openAndDelJob(user.experience);
@@ -76,9 +77,6 @@ export default class UpdateResume{
     }
 }
 
-function afterRender(submitF, form, jobsArr) {
-    checkFrom(submitF, form, jobsArr);
-}
 
 async function popUp() {
     const btn = document.getElementById("btn__add_exp");
