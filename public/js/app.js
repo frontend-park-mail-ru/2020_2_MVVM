@@ -7,10 +7,12 @@ import CandidatesListCtrl from "./controllers/CandidatesListCtrl.js";
 import ProfileCtrl from "./controllers/ProfileCtrl.js";
 import CreateResumeCtrl from "./controllers/CreateResumeCtrl.js";
 import CreateVacancyCtrl from "./controllers/CreateVacancyCtrl.js";
+import CreateCompanyCtrl from "./controllers/CreateCompanyCtrl.js";
 import VacancyCtrl from "./controllers/VacancyCtrl.js";
 import ResumeCtrl from "./controllers/ResumeCtrl.js";
 import CompanyCtrl from "./controllers/CompanyCtrl.js";
-import CreateCompanyCtrl from "./controllers/CreateCompanyCtrl.js";
+import UpdateResumeCtrl from "./controllers/UpdateResumeCtrl.js";
+
 
 document.addEventListener('DOMContentLoaded', ()=>{
     const app = document.getElementById('app');
@@ -25,10 +27,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         profile: new ProfileCtrl(router),
         createResume: new CreateResumeCtrl(router),
         createVacancy: new CreateVacancyCtrl(router),
+        createCompany: new CreateCompanyCtrl(router),
         vacancy: new VacancyCtrl(router),
         resume: new ResumeCtrl(router),
         company: new CompanyCtrl(router),
-        createCompany: new CreateCompanyCtrl(router),
+        updateResume: new UpdateResumeCtrl(router),
     }
 
 
@@ -41,10 +44,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/profile', controllers.profile.page);
     router.add('/createResume', controllers.createResume.page);
     router.add('/createVacancy', controllers.createVacancy.page);
+    router.add('/createCompanySum', controllers.createCompany.page);
     router.add('/vacancy', controllers.vacancy.page);
     router.add('/resume', controllers.resume.page);
     router.add('/company', controllers.company.page);
-    router.add('/createCompany', controllers.createCompany.page);
+    router.add('/updateResume', controllers.updateResume.page);
+
 
     router.start();
 });

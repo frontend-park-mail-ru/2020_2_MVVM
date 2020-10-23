@@ -25,7 +25,7 @@
         <i class="fa fa-thumbtack fa-lg"></i>
         <div>
           <h2>Уровень</h2>
-          <span><fest:value>items.level</fest:value></span>
+          <span><fest:value>items.experience_level</fest:value></span>
         </div>
       </div>
     </li>

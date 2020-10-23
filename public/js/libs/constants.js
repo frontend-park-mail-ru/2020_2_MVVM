@@ -35,6 +35,7 @@ export const PASSWD_EXP = new RegExp(/[^а-яёА-ЯЁ]{5,25}$/);
 export const PHONE_EXP = new RegExp(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
 export const JPEG_AVATAR_F = 'image/jpeg';
 export const PNG_AVATAR_F = 'image/png';
+export const NOT_NUMBER = 'not number';
 
 
 //satus code
@@ -65,8 +66,72 @@ export const addResumeURL = "/v1/resume/add";
 export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
 export const resumeMineURL = "/v1/resume/mine";
+export const updateResumeURL = "/v1/resume/update";
 
 
 export const addVacancyURL = "/v1/vacancy/add";
 export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
+
+
+//sphere
+export const spheres = [
+    "Автомобильный бизнес",
+    "Гостиницы, рестораны, общепит, кейтеринг",
+    "Государственные организации",
+    "Добывающая отрасль",
+    "ЖКХ",
+    "Информационные технологии, системная интеграция, интернет",
+    "Лесная промышленность, деревообработка",
+    "Медицина, фармацевтика, аптеки",
+    "Металлургия, металлообработка",
+    "Нефть и газ",
+    "Образовательные учреждения",
+    "Общественная деятельность, партии, благотворительность, НКО",
+    "Перевозки, логистика, склад, ВЭД",
+    "Продукты питания",
+    "Промышленное оборудование, техника, станки и комплектующие",
+    "Розничная торговля",
+    "СМИ, маркетинг, реклама, BTL, PR, дизайн, продюсирование",
+    "Сельское хозяйство",
+    "Строительство, недвижимость, эксплуатация, проектирование",
+    "Телекоммуникации, связь",
+    "Товары народного потребления (непищевые)",
+    "Тяжелое машиностроение",
+    "Управление многопрофильными активами",
+    "Услуги для бизнеса",
+    "Услуги для населения",
+    "Финансовый сектор",
+    "Химическое производство, удобрения",
+    "Электроника, приборостроение, бытовая техника, компьютеры и оргтехника",
+    "Энергетика",
+]
+
+export const gender = {
+    "male" : "Мужской",
+    "female" : "Женский",
+}
+
+export const educationLevel = {
+    "middle" : "Среднее cпециальное",
+    "incomplete_higher" : "Неоконченное высшее",
+    "higher" : "Высшее",
+    "bachelor" : "Бакалавр",
+    "master" : "Магистр",
+    "phD" : "Кандидат наук",
+    "doctoral" : "Доктор наук",
+}
+
+export const experienceLevel = {
+    "junior" : "Junior",
+    "middle" : "Middle",
+    "senior" : "Senior"
+}
+
+export const experienceMonth = {
+    "0" : "Не работал",
+    "1" : "Меньше года",
+    "5" : "1-5 лет",
+    "10" : "5-10 лет",
+    "11" : "больше 10 лет",
+}

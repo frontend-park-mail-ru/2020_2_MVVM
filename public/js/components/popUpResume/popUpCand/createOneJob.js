@@ -1,5 +1,5 @@
-import {jobsArr, app} from "../../createCandidateSum.js";
-import Validation from "../../../../libs/validation.js";
+import {jobsArr, app} from "../../../pages/createCandidateSum/createCandidateSum.js";
+import Validation from "../../../libs/validation.js";
 import {
     DATE_OK,
     DATE_END_EMPTY,
@@ -7,7 +7,9 @@ import {
     INPUT_TEXT_EMPTY,
     DATE_EMPTY,
     DATE_START_EMPTY
-} from "../../../../libs/constants.js"
+} from "../../../libs/constants.js"
+
+
 
 let numOfJob = 0;
 let currentWork;
@@ -25,7 +27,7 @@ export async function renderInputForm(value) {
     });
 
     const checkbox = document.getElementById("popUp__cont_checkbox");
-    const endWorkField = document.getElementById("div-end_work_year");
+    const endWorkField = document.getElementById("div-finish");
     checkbox.addEventListener('change', (event)=>{
         if (checkbox.checked) {
             endWorkField.innerHTML='';
@@ -56,25 +58,10 @@ export async function renderInputForm(value) {
     });
 }
 
-
-export async function openAndDelJob(value) {
-    let board = document.getElementById("experience_board");
-    // board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
-    for (let i = 0; i<board.childElementCount; i++){
-        board.children[i].firstChild.addEventListener('click', (event)=>{
-            openJob(value[i]);
-        });
-        board.children[i].lastChild.addEventListener('click', (event)=>{
-            (event.currentTarget).parentNode.remove();
-            delete jobsArr[value[i].numOfJob];
-        });
-    }
-
-}
-
 async function openJob(value){
     renderInputForm(value);
 }
+
 
 async function collectInfo(event, form, bg){
     let data = {};
@@ -82,14 +69,14 @@ async function collectInfo(event, form, bg){
     const formData =  new FormData(form);
 
     data.numOfJob = numOfJob;
-    data.start_work_year = formData.get("start_work_year");
-    if (formData.get("end_work_year") === null && currentWork) {
-        data.end_work_year = "today";
+    data.begin = formData.get("begin");
+    if (formData.get("finish") === null && currentWork) {
+        data.finish = "today";
     } else {
-        data.end_work_year = formData.get("end_work_year");
+        data.finish = formData.get("finish");
     }
-    data.type_of_job = formData.get("type_of_job");
-    data.job = formData.get("job");
+    data.position = formData.get("position");
+    data.name_job = formData.get("name_job");
     data.duties = formData.get("duties");
     if (await checkPopUpCand(data, form)) {
         numOfJob++;
@@ -101,9 +88,9 @@ async function collectInfo(event, form, bg){
 async function checkPopUpCand(data, form){
     let isOk = true;
 
-    const resDate = Validation.validateDate(data.start_work_year, data.end_work_year);
-    const resType = Validation.validateTextField(data.type_of_job);
-    const resJob = Validation.validateTextField(data.job);
+    const resDate = Validation.validateDate(data.begin, data.finish);
+    const resType = Validation.validateTextField(data.position);
+    const resJob = Validation.validateTextField(data.name_job);
     const resDuties = Validation.validateTextField(data.duties);
 
     let error = form.getElementsByClassName('error');
@@ -135,5 +122,19 @@ async function checkPopUpCand(data, form){
         error[5].innerHTML =`${resDuties}`;
     }
     return isOk;
+}
+
+export async function openAndDelJob(value) {
+    let board = document.getElementById("experience_board");
+    // board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
+    for (let i = 0; i<board.childElementCount; i++){
+        board.children[i].firstChild.addEventListener('click', (event)=>{
+            openJob(value[i]);
+        });
+        board.children[i].lastChild.addEventListener('click', (event)=>{
+            (event.currentTarget).parentNode.remove();
+            delete jobsArr[value[i].numOfJob];
+        });
+    }
 
 }
