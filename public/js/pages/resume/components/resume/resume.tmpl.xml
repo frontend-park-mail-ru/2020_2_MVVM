@@ -20,15 +20,20 @@
           </fest:for>
 
           <h3> Опыт работы </h3>
-          <fest:for iterate="sp.experienceItem" index="i" value="p">
+          <fest:for iterate="items.experience_custom_company" index="i" value="p">
             <li>
               <div class="work-experience">
                 <i></i>
                 <div>
                   <span class="work-position"> <fest:value>p.position</fest:value> </span>
-                  <span class="name-company"> <fest:value>p.nameCompany</fest:value> </span>
-                  <p> <fest:value>p.duration</fest:value>  </p>
-                  <p> <fest:value>p.description</fest:value> </p>
+                  <span class="name-company"> <fest:value>p.name_job</fest:value> </span>
+                    <fest:if test="p.finish=='today'">
+                        <p> с<fest:space/> <fest:value>p.begin</fest:value><fest:space/> до <fest:space/> текущего<fest:space/>  времени </p>
+                    </fest:if>
+                    <fest:if test="p.finish!='today'">
+                        <p> с<fest:space/> <fest:value>p.begin</fest:value><fest:space/> до <fest:space/> <fest:value>p.finish</fest:value> </p>
+                    </fest:if>
+                  <p> <fest:value>p.duties</fest:value> </p>
                 </div>
               </div>
 
@@ -49,22 +54,23 @@
           </div>
 
           <h3> Персональные навыки </h3>
-          <ul class="prof-skills">
-            <fest:for iterate="sp.skillsItem" index="i" value="p">
-                <div>
-                  <fest:atttibute>
-                  <div class="prof-skill-item" style="width:{p.percent}">
-                    <div class="prof-skill-name">
-                      <h4> <fest:value>p.skill</fest:value></h4>
-                      <span><fest:value>p.percent</fest:value></span>
-                    </div>
-                    <div class="progress-bar-percent" ></div>
-                  </div>
-                </fest:atttibute>
-                  <div class="progress-bar"></div>
-                </div>
-          </fest:for>
-          </ul>
+<!--          <ul class="prof-skills">-->
+<!--            <fest:for iterate="items.skills" index="i" value="p">-->
+<!--                <div>-->
+<!--                  <fest:atttibute>-->
+<!--                  <div class="prof-skill-item" style="width:{p.percent}">-->
+<!--                    <div class="prof-skill-name">-->
+<!--                      <h4> <fest:value>p.skill</fest:value></h4>-->
+<!--                      <span><fest:value>p.percent</fest:value></span>-->
+<!--                    </div>-->
+<!--                    <div class="progress-bar-percent" ></div>-->
+<!--                  </div>-->
+<!--                </fest:atttibute>-->
+<!--                  <div class="progress-bar"></div>-->
+<!--                </div>-->
+<!--          </fest:for>-->
+<!--          </ul>-->
+          <fest:value>items.skills</fest:value>
 
           <h3> Награды </h3>
           <fest:for iterate="sp.awardsItem" index="i" value="p">
