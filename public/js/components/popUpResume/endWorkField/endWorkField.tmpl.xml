@@ -2,7 +2,7 @@
         <label for="end_work">Окончание работы</label>
         <div class="popUp__cont_data">
             <div>
-                <input id="end_work" type="date" name="end_work_year" value="{job.end_work_year}"/>
+                <input id="end_work" type="date" name="finish" value="{job}"/>
             </div>
         </div>
 </fest:template>

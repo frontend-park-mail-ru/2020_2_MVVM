@@ -12,6 +12,7 @@ import {EMAIL_OK, AVATAR_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK, PHONE_OK, SALAR
 import {EMAIL_EMPTY, LOGIN_EMPTY, PASSWD_EMPTY, INPUT_TEXT_EMPTY, PHONE_EMPTY, SALARY_EMPTY, DATE_EMPTY, DATE_START_EMPTY,DATE_END_EMPTY} from './constants.js';
 import {EMAIL_EXP, LOGIN_EXP, PASSWD_EXP, PHONE_EXP} from './constants.js';
 import {JPEG_AVATAR_F, PNG_AVATAR_F} from "./constants.js";
+import {NOT_NUMBER} from "./constants.js";
 
 export default class Validation {
     /**
@@ -118,7 +119,10 @@ export default class Validation {
      * @param salary
      */
     static validateSalary(salary) {
-        if (Number(salary) <= 0){
+        if (isNaN(Number(salary))) {
+            return NOT_NUMBER;
+        }
+        if (Number(salary) <= 0) {
             return INCORRECT_SALARY;
         }
         if (salary.length === 0){

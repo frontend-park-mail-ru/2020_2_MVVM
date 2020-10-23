@@ -35,6 +35,7 @@ export const PASSWD_EXP = new RegExp(/[^а-яёА-ЯЁ]{5,25}$/);
 export const PHONE_EXP = new RegExp(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
 export const JPEG_AVATAR_F = 'image/jpeg';
 export const PNG_AVATAR_F = 'image/png';
+export const NOT_NUMBER = 'not number';
 
 
 //satus code
@@ -65,6 +66,7 @@ export const addResumeURL = "/v1/resume/add";
 export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
 export const resumeMineURL = "/v1/resume/mine";
+export const updateResumeURL = "/v1/resume/update";
 
 
 export const addVacancyURL = "/v1/vacancy/add";
