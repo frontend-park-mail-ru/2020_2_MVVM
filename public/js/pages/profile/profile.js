@@ -70,15 +70,15 @@ export default class Profile{
 //     console.log(resumes1);
 //     const resumes = [{
 //         name: 'Первое резюме',
-//         job: 'Желаемая работа',
+//         name_job: 'Желаемая работа',
 //         },
 //         {
 //             name: 'Второе резюме',
-//             job: 'Желаемая работа',
+//             name_job: 'Желаемая работа',
 //         },
 //         {
 //             name: 'Тертье резюме',
-//             job: 'Желаемая работа',
+//             name_job: 'Желаемая работа',
 //         }
 //         ]
 //     mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persResumes.tmpl'](resumes));

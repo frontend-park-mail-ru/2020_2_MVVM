@@ -1,13 +1,10 @@
-import CreateResume from "../pages/createCandidateSum/createCandidateSum.js";
-import {network} from "../libs/networks.js";
-import {addResumeURL} from "../libs/constants.js";
+import UpdateResume from "../pages/updateResume/updateResume.js";
 
-export default class CreateResumeCtrl{
+export default class updateResumeCtrl{
     constructor(router) {
         this.router = router;
 
-        this.page = new CreateResume(async (form, jobsArr) => {
-
+        this.page = new UpdateResume(async (form, jobsArr) => {
 
             let formData = new FormData(form);
 
@@ -34,9 +31,7 @@ export default class CreateResumeCtrl{
 
             console.log(json);
 
-
-            //добавить title
-            // const response = await network.doPost(addResumeURL, json);
+            // const response = await network.doPut(updateResumeURL, json);
             //
             // if (response.status >= 200 && response.status < 300) {
             //     const content = await response.json();

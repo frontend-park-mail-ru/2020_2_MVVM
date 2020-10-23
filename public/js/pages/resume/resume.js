@@ -9,6 +9,7 @@ const app = window.document.getElementById('app');
 const resumeInfo = async (user_id, resume_id) => {
     const response1 = await network.doGet(`${usersByIdURL}${user_id}`);
     const user = (await response1.json()).user;
+    console.log(user);
     console.assert(response1.ok);
 
     const response2 = await network.doGet(`${resumeByIdURL}${resume_id}`);
@@ -22,13 +23,52 @@ const resumeInfo = async (user_id, resume_id) => {
 
     console.assert(response2.ok);
     const resume = (await response2.json()).resume;
+    console.log(resume);
+
+    const resp = {
+        resume:{
+            id: "dfvdbf-sdfbc-vbf-b",
+            user_id: "dvsdvs-dv-dfv-dsv-d",
+            awards: null,
+            career_level: "middle",
+            description: "о себе",
+            education_level: "middle",
+            experience_month: 5,
+            gender: "male",
+            place: "желаемая должность",
+            salary_max: 1000,
+            salary_min: 10,
+            skills: "проф навыки",
+            title: "название резюме",
+            date_create: "2020-10-23T00:00:00Z",
+        },
+        experience_custom_company: [
+            {
+                begin: "2020-09-28",
+                duties: "обяз1",
+                finish: "2020-10-03",
+                name_job: "организация1",
+                numOfJob: 1,
+                position: "должность1",
+            },
+            {
+                begin: "2020-09-28",
+                duties: "обяз2",
+                finish: "today",
+                name_job: "организация2",
+                numOfJob: 2,
+                position: "должность2",
+            }
+            ],
+    }
+
 
     return [{
         mainSkill: ['TODODesigners'],
         photo: 'img/es1.jpg',
         name: user.name + " " + user.surname,
         position: 'TODO UX / UI Designer at Atract Solutions',
-        mail: user.mail,
+        mail: user.email,
         dateReg: 'TODO2017',
         location: 'TODOМосква / Россия'
     }, {

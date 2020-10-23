@@ -7,16 +7,18 @@ let error = document.getElementsByClassName('error');
 export function checkFrom(submitF, form, jobsArr) {
     let isOk = true;
 
-    const surname = form[0];
-    const name = form[1];
-    const email = form[4];
-    const description = form[5];
-    const skills = form[8];
-    const place = form[9];
-    const salaryMin = form[10];
-    const salaryMax = form[11];
+    const title = form[0];
+    const surname = form[1];
+    const name = form[2];
+    const email = form[5];
+    const description = form[6];
+    const skills = form[9];
+    const place = form[10];
+    const salaryMin = form[11];
+    const salaryMax = form[12];
 
 
+    const resTitle = Validation.validateTextField(title.value);
     const resSurname = Validation.validateTextField(surname.value);
     const resName = Validation.validateTextField(name.value);
     const resEmail = Validation.validateEmail(email.value);
@@ -27,37 +29,41 @@ export function checkFrom(submitF, form, jobsArr) {
     const resSalaryMax = Validation.validateSalary(salaryMax.value);
 
 
+    if (resTitle !== INPUT_TEXT_OK) {
+        isOk = false;
+        error[0].innerHTML = `${resTitle}`;
+    }
     if (resSurname !== INPUT_TEXT_OK) {
         isOk = false;
-        error[0].innerHTML = `${resSurname}`;
+        error[1].innerHTML = `${resSurname}`;
     }
     if (resName !== INPUT_TEXT_OK) {
         isOk = false;
-        error[1].innerHTML = `${resName}`;
+        error[2].innerHTML = `${resName}`;
     }
     if (resEmail !== EMAIL_OK) {
         isOk = false;
-        error[2].innerHTML = `${resEmail}`;
+        error[3].innerHTML = `${resEmail}`;
     }
     if (resDescription !== INPUT_TEXT_OK) {
         isOk = false;
-        error[3].innerHTML = `${resDescription}`;
+        error[4].innerHTML = `${resDescription}`;
     }
     if (resSkills !== INPUT_TEXT_OK) {
         isOk = false;
-        error[4].innerHTML = `${resSkills}`;
+        error[5].innerHTML = `${resSkills}`;
     }
     if (resPlace !== INPUT_TEXT_OK) {
         isOk = false;
-        error[5].innerHTML = `${resPlace}`;
+        error[6].innerHTML = `${resPlace}`;
     }
     if (resSalaryMin !== SALARY_OK) {
         isOk = false;
-        error[6].innerHTML = `${resSalaryMin}`;
+        error[7].innerHTML = `${resSalaryMin}`;
     }
     if (resSalaryMax !== SALARY_OK) {
         isOk = false;
-        error[7].innerHTML = `${resSalaryMax}`;
+        error[8].innerHTML = `${resSalaryMax}`;
     }
 
     if (isOk) {
@@ -65,11 +71,10 @@ export function checkFrom(submitF, form, jobsArr) {
     }
 
 
-    let arr = [surname, name, email, description, skills, place, salaryMin, salaryMax];
+    let arr = [title, surname, name, email, description, skills, place, salaryMin, salaryMax];
 
     arr.forEach((item, index)=>{
         item.addEventListener('keydown', function (event) {
-            console.log(item, index);
             error[index].innerHTML='';
         });
     }, false);

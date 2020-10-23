@@ -49,7 +49,7 @@ export default class Router {
 
 
         get_person().then((content) => {
-            console.log(content);
+            // console.log(content);
             obj.page.render(true, content, ...args)
         }).catch(() => {
             // console.log("kek");
