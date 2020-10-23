@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/vacancy', controllers.vacancy.page);
     router.add('/resume', controllers.resume.page);
     router.add('/company', controllers.company.page);
-    router.add('/createCompany', controllers.createCompany.page);
+    router.add('/createCompanySum', controllers.createCompany.page);
 
     router.start();
 });
