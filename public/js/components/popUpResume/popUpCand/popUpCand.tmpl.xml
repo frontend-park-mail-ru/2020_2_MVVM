@@ -15,10 +15,18 @@
                             </div>
                         </div>
                     </div>
-                    <fest:if test="job.finish=='today'">
+                    <fest:if test="job.finish == 'today'">
                         <input type="checkbox" id="popUp__cont_checkbox" name="checkbox" checked="true"/>По текущее время
                     </fest:if>
-                    <fest:if test="job.finish!='today'">
+                    <fest:if test="job.finish != 'today'">
+                        <input type="checkbox" id="popUp__cont_checkbox" name="checkbox" />По текущее время
+                        <br/>
+                        <br/>
+                        <div class="popUp__cont_input" id="div-finish">
+                            <fest:include context="job.finish" src="../endWorkField/endWorkField.tmpl.xml"/>
+                        </div>
+                    </fest:if>
+                    <fest:if test="!job">
                         <input type="checkbox" id="popUp__cont_checkbox" name="checkbox" />По текущее время
                         <br/>
                         <br/>
