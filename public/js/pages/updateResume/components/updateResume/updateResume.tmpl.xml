@@ -1,0 +1,337 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="user">
+    <div class="container">
+        <div class="page__name">Создание резюме</div>
+        <div class="sum__form__wrap">
+            <div class="sum__profile">
+                <div class="sum__profile__photo">
+                    <img src="img/profile.png" alt=""/>
+                </div>
+                <div class="sum__upload__photo">
+                    <div class="sum__btn__blue">
+                        <p>Загрузить аватар</p>
+                    </div>
+                </div>
+                <div>
+                    <h1>Ваше резюме</h1>
+                    <div class="btm-apply-alternative sum__upload__resume">
+                        <button class="sum__btn__pink" type="submit">Загрузить из файла</button>
+                        <button class="sum__btn__pink" type="submit">Заказать резюме</button>
+                    </div>
+                </div>
+            </div>
+            <div class="summary">
+                <form class="sum__candidate" method="post" action="#">
+                    <div class="sum__title">
+                        <label class="sum__form__labels" for="title">Название резюме</label>
+                        <input class="sum__user__info" id="title" name="title" type="text" value="{user.title}"/>
+                        <span class="error" aria-live="polite"/>
+                    </div>
+                    <p class="sum__description__block">Контактные данные</p>
+                    <div>
+                        <label class="sum__form__labels" for="surname">Фамилия</label>
+                        <input class="sum__user__info" id="surname" name="surname" type="text" value="{user.surname}"/>
+                        <span class="error" aria-live="polite"/>
+                    </div>
+                    <div>
+                        <label class="sum__form__labels" for="username">Имя</label>
+                        <input class="sum__user__info" id="username" name="name" type="text" value="{user.name}"/>
+                        <span class="error" aria-live="polite"/>
+                    </div>
+                    <div class="sum__switch">
+                        <div>Пол</div>
+                        <fest:if test="user.gender=='male'">
+                            <label class="sum__form__switch" for="male">
+                                <input class="sum__input__switch" id="male" type="radio" name="gender" value="male" checked="true"/>
+                                <div class="sum__switch__control sum__male"/>
+                            </label>
+                            <label class="sum__form__switch" for="female">
+                                <input class="sum__input__switch" id="female" type="radio" name="gender" value="female"/>
+                                <div class="sum__switch__control sum__female"/>
+                            </label>
+                        </fest:if>
+                        <fest:if test="user.gender=='female'">
+                            <label class="sum__form__switch" for="male">
+                                <input class="sum__input__switch" id="male" type="radio" name="gender" value="male" />
+                                <div class="sum__switch__control sum__male"/>
+                            </label>
+                            <label class="sum__form__switch" for="female">
+                                <input class="sum__input__switch" id="female" type="radio" name="gender" value="female" checked="true"/>
+                                <div class="sum__switch__control sum__female"/>
+                            </label>
+                        </fest:if>
+                        <fest:if test="user.gender==null">
+                            <label class="sum__form__switch" for="male">
+                                <input class="sum__input__switch" id="male" type="radio" name="gender" value="male" />
+                                <div class="sum__switch__control sum__male"/>
+                            </label>
+                            <label class="sum__form__switch" for="female">
+                                <input class="sum__input__switch" id="female" type="radio" name="gender" value="female"/>
+                                <div class="sum__switch__control sum__female"/>
+                            </label>
+                        </fest:if>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div>
+                        <label class="sum__form__labels" for="email">E-mail</label>
+                        <input class="sum__user__info" id="email" name="email" type="email" value="{user.email}"/>
+                        <span class="error" aria-live="polite"/>
+                    </div>
+                    <!--                    <div>-->
+                    <!--                        <label class="sum__form__labels" for="country">Страна проживания</label>-->
+                    <!--                        <select class="sum__user__all" id="country">-->
+                    <!--                            <option value="">Россия</option>-->
+                    <!--                            <option value="">Украина</option>-->
+                    <!--                            <option value="">Беларусь</option>-->
+                    <!--                        </select>-->
+                    <!--                    </div>-->
+                    <div>
+                        <p class="sum__description__block">Основная информация</p>
+                    </div>
+                    <div>
+                        <div class="sum__work__exp__row2">
+                            <label class="sum__form__labels" for="description">О себе</label>
+                            <textarea name="description" class="__sum__text" id="description"><fest:value>user.description</fest:value></textarea>
+                            <span class="error" aria-live="polite"/>
+                        </div>
+                    </div>
+                    <!--                    <div>-->
+                    <!--                        <label class="sum__form__labels" for="date-birth">Дата рождения*</label>-->
+                    <!--                        <input class="sum__date__birth" type="date" id="date-birth" name="trip-start" value="2000-01-01"-->
+                    <!--                               min="1930-01-01" max="2010-12-12"/>-->
+                    <!--                    </div>-->
+                    <!--                    <div>-->
+                    <!--                        <label class="sum__form__labels" for="citizenship">Гражданство*</label>-->
+                    <!--                        <input class="sum__user__info" id="citizenship" type="text"/>-->
+                    <!--                        <span class="error" aria-live="polite"/>-->
+                    <!--                    </div>-->
+                    <div class="sum__exp-select">
+                        <div>
+                            <label class="sum__form__labels">Общий трудовой стаж</label>
+                            <select class="sum__user__all" name="experience_month">
+                                <fest:if test="user.experience_month=='0' || user.experience_month==null">
+                                    <option value="0" selected="true">не работал</option>
+                                    <option value="1">меньше года</option>
+                                    <option value="5">1-5 лет</option>
+                                    <option value="10">5-10 лет</option>
+                                    <option value="11">больше 10 лет</option>
+                                </fest:if>
+                                <fest:if test="user.experience_month=='1'">
+                                    <option value="0">не работал</option>
+                                    <option value="1" selected="true">меньше года</option>
+                                    <option value="5">1-5 лет</option>
+                                    <option value="10">5-10 лет</option>
+                                    <option value="11">больше 10 лет</option>
+                                </fest:if>
+                                <fest:if test="user.experience_month=='5'">
+                                    <option value="0">не работал</option>
+                                    <option value="1">меньше года</option>
+                                    <option value="5" selected="true">1-5 лет</option>
+                                    <option value="10">5-10 лет</option>
+                                    <option value="11">больше 10 лет</option>
+                                </fest:if>
+                                <fest:if test="user.experience_month=='10'">
+                                    <option value="0">не работал</option>
+                                    <option value="1">меньше года</option>
+                                    <option value="5">1-5 лет</option>
+                                    <option value="10" selected="true">5-10 лет</option>
+                                    <option value="11">больше 10 лет</option>
+                                </fest:if>
+                                <fest:if test="user.experience_month=='11'">
+                                    <option value="0">не работал</option>
+                                    <option value="1">меньше года</option>
+                                    <option value="5">1-5 лет</option>
+                                    <option value="10">5-10 лет</option>
+                                    <option value="11" selected="true">больше 10 лет</option>
+                                </fest:if>
+                            </select>
+                        </div>
+                        <br/>
+                        <div>
+                            <label class="sum__form__labels">Карьерный уровень</label>
+                            <select class="sum__user__all" name="career_level">
+                                <fest:if test="user.career_level=='junior' || user.career_level==null">
+                                    <option value="junior" selected="true">junior</option>
+                                    <option value="middle">middle</option>
+                                    <option value="senior">senior</option>
+                                </fest:if>
+                                <fest:if test="user.career_level=='middle'">
+                                    <option value="junior">junior</option>
+                                    <option value="middle" selected="true">middle</option>
+                                    <option value="senior">senior</option>
+                                </fest:if>
+                                <fest:if test="user.career_level=='senior'">
+                                    <option value="junior">junior</option>
+                                    <option value="middle">middle</option>
+                                    <option value="senior" selected="true">senior</option>
+                                </fest:if>
+
+                            </select>
+                        </div>
+                        <div class="experience__add">
+                            <label class="sum__form__labels" for="experience">Опыт работы</label>
+                            <div class="experience__add_board" id="experience_board">
+                                <fest:for iterate="user.experience" index="i" value="v">
+                                    <fest:include context="v" src="../../../../components/popUpResume/jobBoard/jobBoard.tmpl.xml"/>
+                                </fest:for>
+                            </div>
+                            <div class="btn__add_exp" id="btn__add_exp">Добавить опыт работы</div>
+                        </div>
+                        <div>
+                            <label class="sum__form__labels">Профессиональные навыки</label>
+                            <textarea name="skills" class="sum__user__info" id="skills" type="text"><fest:value>user.skills</fest:value></textarea>
+                            <span class="error" aria-live="polite"/>
+                        </div>
+                        <br/>
+                        <!--                        <div class="sum__work__experience">-->
+                        <!--                            <input type="radio" name="rb" id="rb1"/>-->
+                        <!--                            <label class="sum__form__labels" for="rb1">Есть опыт работы</label>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="sum__work__experience">-->
+                        <!--                            <input type="radio" name="rb" id="rb2"/>-->
+                        <!--                            <label class="sum__form__labels" for="rb2">Нет опыта работы</label>-->
+                        <!--                        </div>-->
+                        <div class="sum__exp__card">
+                            <div>
+                                <p class="sum__description__block">Специальность</p>
+                                <label class="sum__form__labels" for="place">Желаемая должность</label>
+                                <input class="sum__user__info" id="place" name="place" type="text" value="{user.place}"/>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <label class="sum__form__labels" for="salary">Зарплата</label>
+                            <div style="display:flex;">
+                                <h4 style="align-self:end;">От</h4>
+                                <input name="salary_min" class="sum__user__info" id="citizenship" type="text" value="{user.salary_min}"/>
+                                <span class="error" aria-live="polite"/>
+                                <h4 style="align-self:end;">До</h4>
+                                <input name="salary_max" class="sum__user__info" id="citizenship" type="text" value="{user.salary_max}"/>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <!--                            <div class="sum__salary__row">-->
+                            <!--                                <input class="sum__user__info" id="salary" type="text" value=""/>-->
+                            <!--                                <span class="error" aria-live="polite"/>-->
+                            <!--                                <label class="sum__form__labels" for="select-salary"/>-->
+                            <!--                                <select class="sum__small__field" id="select-salary">-->
+                            <!--                                    <option value="">руб.</option>-->
+                            <!--                                    <option value="">usd</option>-->
+                            <!--                                    <option value="">eur</option>-->
+                            <!--                                </select>-->
+                            <!--                            </div>-->
+                            <div>
+
+                                <p class="sum__description__block">Образование</p>
+                                <label class="sum__form__labels" for="education_level"/>
+                                <select class="sum__user__all" name="education_level">
+                                    <fest:if test="user.education_level=='middle' || user.education_level==null">
+                                        <option value="middle" selected="true">Среднее</option>
+                                        <option value="specialized_secondary">Среднее Специальное</option>
+                                        <option value="incomplete_higher">Неоконченное высшее</option>
+                                        <option value="higher">Высшее</option>
+                                        <option value="bachelor">Бакалавр</option>
+                                        <option value="master">Магистр</option>
+                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="doctoral">Доктор наук</option>
+                                    </fest:if>
+                                    <fest:if test="user.education_level=='specialized_secondary'">
+                                        <option value="middle" >Среднее</option>
+                                        <option value="specialized_secondary" selected="true">Среднее Специальное</option>
+                                        <option value="incomplete_higher">Неоконченное высшее</option>
+                                        <option value="higher">Высшее</option>
+                                        <option value="bachelor">Бакалавр</option>
+                                        <option value="master">Магистр</option>
+                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="doctoral">Доктор наук</option>
+                                    </fest:if>
+                                    <fest:if test="user.education_level=='incomplete_higher'">
+                                        <option value="middle" >Среднее</option>
+                                        <option value="specialized_secondary" >Среднее Специальное</option>
+                                        <option value="incomplete_higher" selected="true">Неоконченное высшее</option>
+                                        <option value="higher">Высшее</option>
+                                        <option value="bachelor">Бакалавр</option>
+                                        <option value="master">Магистр</option>
+                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="doctoral">Доктор наук</option>
+                                    </fest:if>
+                                    <fest:if test="user.education_level=='higher'">
+                                        <option value="middle" >Среднее</option>
+                                        <option value="specialized_secondary" >Среднее Специальное</option>
+                                        <option value="incomplete_higher">Неоконченное высшее</option>
+                                        <option value="higher" selected="true">Высшее</option>
+                                        <option value="bachelor">Бакалавр</option>
+                                        <option value="master">Магистр</option>
+                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="doctoral">Доктор наук</option>
+                                    </fest:if>
+                                    <fest:if test="user.education_level=='bachelor'">
+                                        <option value="middle" >Среднее</option>
+                                        <option value="specialized_secondary" >Среднее Специальное</option>
+                                        <option value="incomplete_higher">Неоконченное высшее</option>
+                                        <option value="higher">Высшее</option>
+                                        <option value="bachelor" selected="true">Бакалавр</option>
+                                        <option value="master">Магистр</option>
+                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="doctoral">Доктор наук</option>
+                                    </fest:if>
+                                    <fest:if test="user.education_level=='master'">
+                                        <option value="middle" >Среднее</option>
+                                        <option value="specialized_secondary">Среднее Специальное</option>
+                                        <option value="incomplete_higher">Неоконченное высшее</option>
+                                        <option value="higher">Высшее</option>
+                                        <option value="bachelor">Бакалавр</option>
+                                        <option value="master" selected="true">Магистр</option>
+                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="doctoral">Доктор наук</option>
+                                    </fest:if>
+                                    <fest:if test="user.education_level=='phD'">
+                                        <option value="middle" >Среднее</option>
+                                        <option value="specialized_secondary">Среднее Специальное</option>
+                                        <option value="incomplete_higher">Неоконченное высшее</option>
+                                        <option value="higher">Высшее</option>
+                                        <option value="bachelor">Бакалавр</option>
+                                        <option value="master">Магистр</option>
+                                        <option value="phD" selected="true">Кандидат Наук</option>
+                                        <option value="doctoral">Доктор наук</option>
+                                    </fest:if>
+                                    <fest:if test="user.education_level=='doctoral'">
+                                        <option value="middle" >Среднее</option>
+                                        <option value="specialized_secondary">Среднее Специальное</option>
+                                        <option value="incomplete_higher">Неоконченное высшее</option>
+                                        <option value="higher">Высшее</option>
+                                        <option value="bachelor">Бакалавр</option>
+                                        <option value="master">Магистр</option>
+                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="doctoral" selected="true">Доктор наук</option>
+                                    </fest:if>
+                                </select>
+                            </div>
+                            <!--                            <div class="sum__description__block">Владение языками</div>-->
+                            <!--                            <div class="sum__description__single">-->
+                            <!--                                <label class="sum__form__labels" for="select-language">Родной язык</label>-->
+                            <!--                                <select class="sum__small__field" id="select-language">-->
+                            <!--                                    <option value="">Русский</option>-->
+                            <!--                                    <option value="">Английский</option>-->
+                            <!--                                    <option value="">Французский</option>-->
+                            <!--                                    <option value="">Немецкий</option>-->
+                            <!--                                    <option value="">Китайский</option>-->
+                            <!--                                    <option value="">Другие</option>-->
+                            <!--                                </select>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="sum__work__exp__row1">-->
+                            <!--                                <p>Иностранные языки</p>-->
+                            <!--                                <a class="sum__languages" href="#" id="lang">Указать ещё один язык</a>-->
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                    <label class="sum__form__labels" for="awards">
+                    </label>
+                    <div class="sum__achievements">
+                        <label class="sum__form__labels" for="awards">Ваши сертификаты:</label>
+                        <input class="sum__achievement" id="awards" type="file" value=""/>
+                    </div>
+                    <button id="send-form-cand" class="sum__btn__pink" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fest:template>
