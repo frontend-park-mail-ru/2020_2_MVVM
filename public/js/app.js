@@ -12,6 +12,7 @@ import VacancyCtrl from "./controllers/VacancyCtrl.js";
 import ResumeCtrl from "./controllers/ResumeCtrl.js";
 import CompanyCtrl from "./controllers/CompanyCtrl.js";
 import UpdateResumeCtrl from "./controllers/UpdateResumeCtrl.js";
+import LogoutCtrl from "./controllers/LogoutCtrl.js";
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         resume: new ResumeCtrl(router),
         company: new CompanyCtrl(router),
         updateResume: new UpdateResumeCtrl(router),
+        logout: new LogoutCtrl(router),
     }
 
 
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/resume', controllers.resume.page);
     router.add('/company', controllers.company.page);
     router.add('/updateResume', controllers.updateResume.page);
+    router.add('/logout', controllers.logout.page);
 
 
     router.start();

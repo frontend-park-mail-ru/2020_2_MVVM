@@ -57,7 +57,7 @@
                     <div class="popUp__cont_input">
                         <label for="duties">Обязанности на рабочем месте</label>
                         <div>
-                            <textarea class="popUp__cont_text" id="duties" name="duties" placeholder="Опишите, что вы делали на работе. Работодатели часто ищут резюме по ключевым навыкам, например, «работа в торговом зале», «работа с документами», «сопровождение первых лиц», «управление коллективом» и т.д.">
+                            <textarea class="popUp__cont_text" id="duties" name="duties" placeholder="Опишите, что вы делали на работе.">
                                 <fest:value>job.duties</fest:value>
                             </textarea>
                             <span class="error" aria-live="polite"/>

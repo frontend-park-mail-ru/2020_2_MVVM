@@ -8,6 +8,7 @@ export function checkoutProfilePage(profile,isAuthorized, content, body, person)
             body.innerHTML='';
             profile.isPersonalRusemes = profNavBar[0].children[i].textContent !== 'Личная информация';
             if (profile.isPersonalRusemes){
+                console.log(profile);
                 personalResumes(profile,body, profile.resumes);
             } else {
                 personalInfo(person, body);
