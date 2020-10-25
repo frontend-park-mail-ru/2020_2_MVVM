@@ -109,30 +109,36 @@ export const spheres = [
 ]
 
 export const gender = {
-    "male" : "Мужской",
-    "female" : "Женский",
+    "male": "Мужской",
+    "female": "Женский",
 }
 
 export const educationLevel = {
-    "middle" : "Среднее cпециальное",
-    "incomplete_higher" : "Неоконченное высшее",
-    "higher" : "Высшее",
-    "bachelor" : "Бакалавр",
-    "master" : "Магистр",
-    "phD" : "Кандидат наук",
-    "doctoral" : "Доктор наук",
+    "middle": "Среднее cпециальное",
+    "incomplete_higher": "Неоконченное высшее",
+    "higher": "Высшее",
+    "bachelor": "Бакалавр",
+    "master": "Магистр",
+    "phD": "Кандидат наук",
+    "doctoral": "Доктор наук",
 }
 
 export const experienceLevel = {
-    "junior" : "Junior",
-    "middle" : "Middle",
-    "senior" : "Senior"
+    "junior": "Junior",
+    "middle": "Middle",
+    "senior": "Senior"
 }
 
 export const experienceMonth = {
-    "0" : "Не работал",
-    "1" : "Меньше года",
-    "5" : "1-5 лет",
-    "10" : "5-10 лет",
-    "11" : "больше 10 лет",
+    0: "Не работал",
+    1: "Меньше года",
+    5: "1-5 лет",
+    10: "5-10 лет",
+    11: "больше 10 лет",
+}
+
+export const city = {
+    1: "Москва",
+    2: "Санкт-Петербург",
+    3: "Екатеринбург",
 }

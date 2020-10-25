@@ -72,7 +72,9 @@ async function collectInfo(event, form, bg){
     data.begin = formData.get("begin");
     if (formData.get("finish") === null && currentWork) {
         data.finish = "today";
+        data.continue_to_today = true;
     } else {
+        data.continue_to_today = false;
         data.finish = formData.get("finish");
     }
     data.position = formData.get("position");

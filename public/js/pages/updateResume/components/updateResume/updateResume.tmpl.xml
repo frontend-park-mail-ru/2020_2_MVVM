@@ -78,14 +78,26 @@
                         <input class="sum__user__info" id="email" name="email" type="email" value="{user.email}"/>
                         <span class="error" aria-live="polite"/>
                     </div>
-                    <!--                    <div>-->
-                    <!--                        <label class="sum__form__labels" for="country">Страна проживания</label>-->
-                    <!--                        <select class="sum__user__all" id="country">-->
-                    <!--                            <option value="">Россия</option>-->
-                    <!--                            <option value="">Украина</option>-->
-                    <!--                            <option value="">Беларусь</option>-->
-                    <!--                        </select>-->
-                    <!--                    </div>-->
+                    <div>
+                        <label class="sum__form__labels" for="area_search">Место работы</label>
+                        <select class="sum__user__all" id="area_search" name="area_search" value="{user.area_search}">
+                            <fest:if test="user.area_search=='1' || user.area_search==null">
+                                <option value="1" selected="true">Москва</option>
+                                <option value="2">Санкт-Петербург</option>
+                                <option value="3">Екатеринбург</option>
+                            </fest:if>
+                            <fest:if test="user.area_search=='2'">
+                                <option value="1">Москва</option>
+                                <option value="2" selected="true">Санкт-Петербург</option>
+                                <option value="3">Екатеринбург</option>
+                            </fest:if>
+                            <fest:if test="user.area_search=='3'">
+                                <option value="1">Москва</option>
+                                <option value="2">Санкт-Петербург</option>
+                                <option value="3" selected="true">Екатеринбург</option>
+                            </fest:if>
+                        </select>
+                    </div>
                     <div>
                         <p class="sum__description__block">Основная информация</p>
                     </div>

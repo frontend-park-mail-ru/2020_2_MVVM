@@ -1,6 +1,14 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {network} from "../../libs/networks.js";
-import {usersByIdURL, resumeByIdURL, gender, educationLevel,experienceLevel, experienceMonth} from "../../libs/constants.js";
+import {
+    usersByIdURL,
+    resumeByIdURL,
+    gender,
+    educationLevel,
+    experienceLevel,
+    experienceMonth,
+    city
+} from "../../libs/constants.js";
 import createElem from "../../libs/createElem.js";
 
 
@@ -25,10 +33,24 @@ const resumeInfo = async (user_id, resume_id) => {
     const resume = (await responseResume.json());
     console.log(resume);
 
-
     const dateRegBd = resume.resume.date_create.toString();
     let dataReg = '';
     dataReg = dateRegBd.slice(8,10) + '-' + dateRegBd.slice(5,7) + '-' + dateRegBd.slice(0,4);
+
+    let experiences = resume.experience_custom_company;
+    if (experiences){
+        experiences.forEach((item)=>{
+            let tmpDate = new Date(item.begin);
+            item.begin = tmpDate.toDateString();
+            if (item.continue_to_today) {
+                item.finish = "today";
+            } else {
+                let tmpDate = new Date(item.finish);
+                item.finish = tmpDate.toDateString();
+            }
+        });
+    }
+
 
     return {
         infoAll : {
@@ -37,7 +59,7 @@ const resumeInfo = async (user_id, resume_id) => {
             position: resume.resume.place,
             mail: user.email,
             dateReg: dataReg,
-            location: 'TODOМосква / Россия',
+            area_search: city[resume.resume.area_search],
         },
         jobOverview : {
                 name: user.name,
@@ -51,7 +73,7 @@ const resumeInfo = async (user_id, resume_id) => {
         },
         description : {
             text: nullToString(resume.resume.description),
-            experience_custom_company: resume.experience_custom_company,
+            experience_custom_company: experiences,
             skills: resume.resume.skills,
         }
 
