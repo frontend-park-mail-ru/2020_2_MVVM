@@ -7,11 +7,11 @@
             <div class="main__info-employers">
                 <div class="main__info-header">
                     <div class="main__name-employers">
-                        <a href="" class="main__name-employers_link"><fest:value>v.title</fest:value></a>
+                        <a href="" class="main__name-employers_link"><fest:value>v.resume.title</fest:value></a>
                     </div>
                 </div>
                 <div class="main__specialosm-employers">
-                    <fest:value>v.description</fest:value>
+                    <fest:value>v.resume.description</fest:value>
                 </div>
             </div>
             <div class="main__buttons">

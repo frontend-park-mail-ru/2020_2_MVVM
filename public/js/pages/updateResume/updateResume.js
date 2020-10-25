@@ -17,33 +17,38 @@ export default class UpdateResume{
         app.innerHTML = '';
         //
         // console.log(content);
-        // console.log(args[2]);
+        console.log(args[2]);
 
 
         let user = {
                 surname: content.user.surname,
                 name: content.user.name,
                 email: content.user.email,
-                title: args[2].title,
-                description: args[2].description,
-                salary_min: args[2].salary_min,
-                salary_max: args[2].salary_max,
-                gender: args[2].gender,
-                place: args[2].place,
-                career_level: args[2].career_level,
-                experience_month: args[2].experience_month,
-                skills: args[2].skills,
-                area_search: args[2].area_search,
-                education_level: args[2].education_level,
-                experience: args[2].experience_custom_company,
+                title: args[2].resume.title,
+                description: args[2].resume.description,
+                salary_min: args[2].resume.salary_min,
+                salary_max: args[2].resume.salary_max,
+                gender: args[2].resume.gender,
+                place: args[2].resume.place,
+                career_level: args[2].resume.career_level,
+                experience_month: args[2].resume.experience_month,
+                skills: args[2].resume.skills,
+                area_search: args[2].resume.area_search,
+                education_level: args[2].resume.education_level,
+                experience: args[2].custom_experience,
             };
 
-
+        // console.log(user);
 
         if (user.experience) {
             user.experience.forEach((item)=>{
+               let tmpDate = new Date(item.begin);
+               item.begin = tmpDate.toISOString().slice(0,10);
                if (item.continue_to_today) {
                    item.finish = "today";
+               } else {
+                   let tmpDate = new Date(item.finish);
+                   item.finish = tmpDate.toISOString().slice(0,10);
                }
             });
 

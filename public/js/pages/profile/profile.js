@@ -22,7 +22,6 @@ export default class Profile{
             this.resumes = data;
         });
 
-        console.log(content);
         let person;
         if (isAuthorized) {
             person = {
