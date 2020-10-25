@@ -25,17 +25,13 @@ export default class CreateResumeCtrl{
             json.experience_month = parseInt(formData.get("experience_month"));
             json.skills = formData.get("skills");
             json.education_level = formData.get("education_level");
+            json.area_search = formData.get("area_search");
             if (formData.get("awards") !== "") {
                 json.awards = formData.get("awards");
             }
-            jobsArr.forEach((item)=>{
-               item.begin += "T00:00:00Z";
-               if (item.finish !== "today") {
-                   item.finish += "T00:00:00Z";
-               }
-            });
             json.custom_experience = jobsArr;
 
+            console.log(json);
             const response = await network.doPost(addResumeURL, json);
 
             if (response.status >= 200 && response.status < 300) {

@@ -56,14 +56,14 @@
                         <input class="sum__user__info" id="email" name="email" type="email" value="{user.email}"/>
                         <span class="error" aria-live="polite"/>
                     </div>
-<!--                    <div>-->
-<!--                        <label class="sum__form__labels" for="country">Страна проживания</label>-->
-<!--                        <select class="sum__user__all" id="country">-->
-<!--                            <option value="">Россия</option>-->
-<!--                            <option value="">Украина</option>-->
-<!--                            <option value="">Беларусь</option>-->
-<!--                        </select>-->
-<!--                    </div>-->
+                    <div>
+                        <label class="sum__form__labels" for="area_search">Место работы</label>
+                        <select class="sum__user__all" id="area_search" name="area_search">
+                            <option value="1" selected="true">Москва</option>
+                            <option value="2">Санкт-Петербург</option>
+                            <option value="3">Екатеринбург</option>
+                        </select>
+                    </div>
                     <div>
                         <p class="sum__description__block">Основная информация</p>
                     </div>

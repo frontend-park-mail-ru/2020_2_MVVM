@@ -33,6 +33,7 @@ export default class UpdateResume{
                 career_level: args[2].career_level,
                 experience_month: args[2].experience_month,
                 skills: args[2].skills,
+                area_search: args[2].area_search,
                 education_level: args[2].education_level,
                 experience: args[2].experience_custom_company,
             };
@@ -40,6 +41,12 @@ export default class UpdateResume{
 
 
         if (user.experience) {
+            user.experience.forEach((item)=>{
+               if (item.continue_to_today) {
+                   item.finish = "today";
+               }
+            });
+
             jobsArr = user.experience;
         } else {
             jobsArr = [];

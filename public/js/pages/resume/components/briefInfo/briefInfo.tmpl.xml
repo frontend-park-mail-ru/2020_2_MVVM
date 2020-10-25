@@ -21,7 +21,7 @@
         <p><fest:value>items.mail</fest:value></p>
         <p>Зарегистрирован с <fest:space/> <fest:value>items.dateReg</fest:value></p>
         <p><i class="fa fa-map-marker"></i>
-          <fest:value>items.Location</fest:value></p>
+          <fest:value>items.area_search</fest:value>/Россия</p>
       </div>
     </div>
     <div class="cand-options-contact">
