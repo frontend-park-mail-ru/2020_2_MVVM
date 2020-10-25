@@ -28,11 +28,13 @@ export default class CreateResumeCtrl{
             if (formData.get("awards") !== "") {
                 json.awards = formData.get("awards");
             }
-            json.custom_experience = {
-                custom_experience:jobsArr
-            };
-
-            console.log(json);
+            jobsArr.forEach((item)=>{
+               item.begin += "T00:00:00Z";
+               if (item.finish !== "today") {
+                   item.finish += "T00:00:00Z";
+               }
+            });
+            json.custom_experience = jobsArr;
 
             const response = await network.doPost(addResumeURL, json);
 

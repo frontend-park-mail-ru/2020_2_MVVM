@@ -1,4 +1,6 @@
 import UpdateResume from "../pages/updateResume/updateResume.js";
+import {network} from "../libs/networks.js";
+import {updateResumeURL} from "../libs/constants.js";
 
 export default class updateResumeCtrl{
     constructor(router) {
@@ -25,19 +27,17 @@ export default class updateResumeCtrl{
             if (formData.get("awards") !== "") {
                 json.awards = formData.get("awards");
             }
-            json.custom_experience = {
-                custom_experience:jobsArr
-            };
+            json.custom_experience = jobsArr;
 
-            console.log(json);
+            // console.log(json);
 
-            // const response = await network.doPut(updateResumeURL, json);
-            //
-            // if (response.status >= 200 && response.status < 300) {
-            //     const content = await response.json();
-            //     console.assert(response.ok);
-            //     this.router.change('\/resume', content.resume.user_id, content.resume.id);
-            // }
+            const response = await network.doPut(updateResumeURL, json);
+
+            if (response.status >= 200 && response.status < 300) {
+                const content = await response.json();
+                console.assert(response.ok);
+                this.router.change('\/resume', content.resume.user_id, content.resume.id);
+            }
 
         });
     }
