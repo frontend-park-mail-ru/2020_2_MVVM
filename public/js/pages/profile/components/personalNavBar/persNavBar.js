@@ -8,7 +8,6 @@ export function checkoutProfilePage(profile,isAuthorized, content, body, person)
             body.innerHTML='';
             profile.isPersonalRusemes = profNavBar[0].children[i].textContent !== 'Личная информация';
             if (profile.isPersonalRusemes){
-                console.log(profile);
                 personalResumes(profile,body, profile.resumes);
             } else {
                 personalInfo(person, body);
@@ -26,7 +25,7 @@ export function personalResumes(profile,mainColumnLeft, resumeList){
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
-            profile.router.change('/resume', resumeList.resume[i].user_id, resumeList.resume[i].id);
+            profile.router.change('/resume', resumeList.resume[i].resume.user_id, resumeList.resume[i].resume.id);
         })
     }
 

@@ -11,7 +11,6 @@ export default class ProfileCtrl{
                 const response = await network.doGet(resumeMineURL);
                 const data = await response.json();
                 console.assert(response.ok);
-                console.log(data);
                 return data;
             } catch (err){
                 console.assert(err);
