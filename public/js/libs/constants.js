@@ -60,7 +60,7 @@ export const logoutURL = "/v1/users/logout";
 export const meUserURL = "/v1/users/me";
 export const addUserURL = "/v1/users/";
 export const usersByIdURL = "/v1/users/by/id/";
-export const updateUserURL = "/v1/users/update/";
+export const updateUserURL = "/v1/users/";
 
 export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";

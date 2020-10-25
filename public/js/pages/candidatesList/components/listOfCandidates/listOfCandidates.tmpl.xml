@@ -6,7 +6,7 @@
                 </div>
                 <div class="main__candidate_description">
                     <div class="main__candidate_name"><a><fest:value>v.name</fest:value></a></div>
-                    <div class="main__candidate_specialism"><a href=''><fest:value>v.prof</fest:value></a><fest:space/> в <fest:space/><fest:value>v.job</fest:value></div>
+                    <div class="main__candidate_specialism"><a href=''><fest:value>v.prof</fest:value></a><fest:space/></div>
                     <div class="main__candidate_location"><fest:value>v.location[0]</fest:value>/<fest:value>v.location[1]</fest:value></div>
 <!--                    <fest:each iterate="v.location" index="i" value="loc">-->
 <!--                        <fest:value>loc</fest:value>/-->
