@@ -1,18 +1,26 @@
-import Router from './libs/router.js';
-import AuthCtrl from './controllers/AuthCtrl.js';
-import RegCtrl from './controllers/RegCtrl.js';
-import MainCtrl from './controllers/MainCtrl.js';
-import EmployersListCtrl from "./controllers/EmployersListCtrl.js";
-import CandidatesListCtrl from "./controllers/CandidatesListCtrl.js";
-import ProfileCtrl from "./controllers/ProfileCtrl.js";
-import CreateResumeCtrl from "./controllers/CreateResumeCtrl.js";
-import CreateVacancyCtrl from "./controllers/CreateVacancyCtrl.js";
-import CreateCompanyCtrl from "./controllers/CreateCompanyCtrl.js";
-import VacancyCtrl from "./controllers/VacancyCtrl.js";
-import ResumeCtrl from "./controllers/ResumeCtrl.js";
-import CompanyCtrl from "./controllers/CompanyCtrl.js";
-import UpdateResumeCtrl from "./controllers/UpdateResumeCtrl.js";
+import Router from './js/libs/router.js';
+import AuthCtrl from './js/controllers/AuthCtrl.js';
+import RegCtrl from './js/controllers/RegCtrl.js';
+import MainCtrl from './js/controllers/MainCtrl.js';
+import EmployersListCtrl from "./js/controllers/EmployersListCtrl.js";
+import CandidatesListCtrl from "./js/controllers/CandidatesListCtrl.js";
+import ProfileCtrl from "./js/controllers/ProfileCtrl.js";
+import CreateResumeCtrl from "./js/controllers/CreateResumeCtrl.js";
+import CreateVacancyCtrl from "./js/controllers/CreateVacancyCtrl.js";
+import CreateCompanyCtrl from "./js/controllers/CreateCompanyCtrl.js";
+import VacancyCtrl from "./js/controllers/VacancyCtrl.js";
+import ResumeCtrl from "./js/controllers/ResumeCtrl.js";
+import CompanyCtrl from "./js/controllers/CompanyCtrl.js";
+import UpdateResumeCtrl from "./js/controllers/UpdateResumeCtrl.js";
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js', {scope: '/'})
+        .then((reg) => {
+            console.log('Registration succeeded. Scope is ' + reg.scope);
+        }).catch((error) => {
+        console.log('Registration failed with ' + error);
+    });
+}
 
 document.addEventListener('DOMContentLoaded', ()=>{
     const app = document.getElementById('app');

@@ -1,4 +1,4 @@
-const PORT = 8080;
+const PORT = 3000;
 
 const path = require('path');
 const express = require('express');
@@ -13,6 +13,10 @@ app.use('/', express.static('public'));
 // app.get('/favicon.ico', (req, res) => {
 //     res.sendFile(root + '/img/favicon-play.ico');
 // });
+
+app.get("/sw.js", (req, res) => {
+    res.sendFile(dist + '/js/sw.js');
+});
 
 app.get('*', (req, res) => {
     res.sendFile(dist + '/index.html');
