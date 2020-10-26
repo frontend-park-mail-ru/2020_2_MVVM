@@ -17,7 +17,6 @@ form.sum__candidate div {
 
 .sum__profile {
     width: 50%;
-
     text-align: center;
     padding: 30px;
 }
@@ -73,6 +72,18 @@ input.sum__user__info {
 
 input.sum__user__info:focus, textarea:focus { /*выделяем поле при клике*/
     border: 1px solid var(--main-pink-color);
+}
+.sum__header__img-upload{
+    border: 2px solid var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
+    padding: 15px 25px;
+    border-radius: 25px;
+    align-self: center;
+    transition: 0.15s;
+    background: white;
+    cursor: pointer;
+    opacity: 0.5;
+    position: absolute;
 }
 label.sum__form__switch {
     position: relative;

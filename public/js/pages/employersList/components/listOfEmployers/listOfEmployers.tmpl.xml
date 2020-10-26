@@ -2,7 +2,7 @@
     <fest:each iterate="items" index="i" value="v">
             <div class="main__list_row">
                 <div class="main__logo-employers ">
-                    <img src="img/em1.jpg" alt="oops"/>
+                    <img src="{v.imgPath}" alt="img/em1.jpg"/>
                 </div>
                 <div class="main__info-employers">
                     <div class="main__info-header">

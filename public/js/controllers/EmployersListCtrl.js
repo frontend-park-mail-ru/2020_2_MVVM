@@ -15,9 +15,7 @@ export default class EmployersListCtrl {
                 },
             )
             console.assert(response.ok)
-            const vacancy = await response.json()
-            console.log(vacancy)
-            return vacancy
+            return await response.json()
         }
 
         this.page = new EmployersList(fetchVacancyList, router);

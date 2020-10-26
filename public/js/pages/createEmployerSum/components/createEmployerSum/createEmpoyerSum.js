@@ -4,7 +4,6 @@ import {EMAIL_OK, INPUT_TEXT_OK, PHONE_OK} from "../../../../libs/constants.js";
 
 const form = document.getElementsByTagName("form");
 let error = document.getElementsByClassName('error');
-
 export function checkFrom() {
     const companyName = document.getElementById('company');
     const vacancyName = document.getElementById('summary-name');
@@ -52,7 +51,7 @@ export function checkFrom() {
     const arr = [companyName, vacancyName, info,email,phoneNumber,address];
 
     arr.forEach((item, index)=>{
-        console.log(index);
+        //console.log(index);
         item.addEventListener('keydown', function (event) {
             error[index].innerHTML='';
         });

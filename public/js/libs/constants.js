@@ -39,6 +39,6 @@ export const UNAUTHORISED = 401;
 
 //path
 
-export const URL = "http://95.163.212.36/api";
+export const URL = "http://127.0.0.1/api";
 // export const URL = "http://localhost/api";
 // export const URL = "api";

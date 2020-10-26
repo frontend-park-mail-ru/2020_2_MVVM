@@ -11,6 +11,10 @@ function createElem(tag, className, parent) {
 }
 
 export default class CreateVacancy{
+    constructor(onsubmit) {
+        this.onsubmit = onsubmit
+    }
+
     render(user){
         app.innerHTML = '';
 
@@ -21,9 +25,11 @@ export default class CreateVacancy{
         main.insertAdjacentHTML("afterbegin", window.fest['createEmployerSum.tmpl']());
 
         afterRender();
+        const form = main.querySelector("form");
+        form.addEventListener("submit", (event) => this.onsubmit(event, form));
     }
 }
 
 function afterRender() {
-    checkFrom();
+    //checkFrom();
 }
