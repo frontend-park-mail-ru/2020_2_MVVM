@@ -207,7 +207,10 @@ this.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(cacheName)
             .then((cache) => {
-                return cache.addAll(cacheUrls);
+                cache.addAll(cacheUrls);
+                console.log("-----------")
+                console.log(cache.keys());
+                return cache;
             })
             .catch((err) => {
                 console.error('smth went wrong with caches.open: ', err);
@@ -215,7 +218,7 @@ this.addEventListener('install', (event) => {
     );
 });
 
-self.addEventListener('fetch', (event) => {
+this.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request)
             .then((cachedResponse) => {
