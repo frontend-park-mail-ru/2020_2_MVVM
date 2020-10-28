@@ -3,14 +3,16 @@ import {updateUserURL} from "../../../../libs/constants.js";
 
 export function updateProfileFields() {
     const updateButton = document.getElementsByClassName("pers__list_refactor");
-
+    console.log(updateButton);
     for (let i=0; i< updateButton.length; i++){
         updateButton[i].addEventListener('click', ()=>{
             if (updateButton[i].textContent === 'Изменить' || updateButton[i].textContent === 'Добавить') {
+                console.log("kek");
                 const field = updateButton[i].previousElementSibling.className;
                 updateButton[i].previousSibling.innerHTML=`<input class="pers__list_refactor-${field}">`
                 updateButton[i].innerHTML="<a href='/profile'>Принять</a>";
             } else {
+                console.log("lol");
                 let newValueField = updateButton[i].previousSibling.firstChild.value;
                 updateButton[i].previousSibling.innerHTML=`<div>${newValueField}</div>`;
                 updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
@@ -28,7 +30,6 @@ async function saveData(tmpField, newValueField){
     let data = {
         [field]: newValueField.toString(),
     };
-    // console.log(url, JSON.stringify(data));
     const response = await network.doPut(url, data);
     console.log(response.ok);
 }
