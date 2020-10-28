@@ -96,3 +96,7 @@
     color: white;
     transition: 0.15s;
 }
+
+.main__serch-form .sum__btn__blue{
+  width: 100%;
+}
