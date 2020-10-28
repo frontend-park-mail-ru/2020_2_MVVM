@@ -7,7 +7,7 @@ import {
     educationLevel,
     experienceLevel,
     experienceMonth,
-    city
+    // city
 } from "../../libs/constants.js";
 import createElem from "../../libs/createElem.js";
 
@@ -59,7 +59,7 @@ const resumeInfo = async (user_id, resume_id) => {
             position: resume.resume.place,
             mail: user.email,
             dateReg: dataReg,
-            area_search: city[resume.resume.area_search],
+            area_search: resume.resume.area_search,
         },
         jobOverview : {
                 name: user.name,
