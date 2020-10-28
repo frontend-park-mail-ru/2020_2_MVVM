@@ -7,6 +7,7 @@ class Network {
             `${URL}${url}`,
             {
                 body: JSON.stringify(data),
+                mode: 'cors',
                 credentials: "include",
                 method: "POST",
             },
@@ -28,6 +29,7 @@ class Network {
             `${URL}${url}`,
             {
                 body: JSON.stringify(data),
+                mode: 'cors',
                 credentials: "include",
                 method: "PUT",
             },

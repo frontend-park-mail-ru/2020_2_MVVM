@@ -46,16 +46,18 @@ export const UNAUTHORISED = 401;
 
 //path
 
-// export const URL = "http://95.163.212.36/api";
 export const URL = "https://studhunt.ru/api";
-// export const URL = "http://localhost/api";
+
 // export const URL = "api";
+
+// export const URL = "http://localhost/api";
 
 
 //urls
 
 export const loginURL = "/v1/users/login";
 export const logoutURL = "/v1/users/logout";
+
 
 export const meUserURL = "/v1/users/me";
 export const addUserURL = "/v1/users/";

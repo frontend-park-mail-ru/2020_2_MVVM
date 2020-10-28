@@ -20,6 +20,7 @@ export default class RegCtrl {
                 password: form[0][4].value,
             };
 
+            let formReg = await document.getElementsByClassName("reg");
             const response = await network.doPost(`${addUserURL}`, body);
 
             if (response.status >= 200 && response.status < 300) {
