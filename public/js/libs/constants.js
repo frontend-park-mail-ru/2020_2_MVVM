@@ -46,12 +46,13 @@ export const UNAUTHORISED = 401;
 
 //path
 
-export const URL = "https://studhunt.ru/api";
+//export const URL = "https://studhunt.ru/api";
 
 // export const URL = "api";
 
-// export const URL = "http://localhost/api";
+//export const URL = "http://localhost/api";
 
+export const URL = "http://127.0.0.1/api";
 
 //urls
 
@@ -70,7 +71,7 @@ export const resumeMineURL = "/v1/resume/mine";
 export const updateResumeURL = "/v1/resume/";
 
 
-export const addVacancyURL = "/v1/vacancy/add";
+export const addVacancyURL = "/v1/vacancy/";
 export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
 

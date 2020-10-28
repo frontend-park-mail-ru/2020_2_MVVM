@@ -11,7 +11,7 @@ export default class Router {
     /**
      * Добавляет новый маршрут
      * @param {string} path
-     * @param {Page} page
+     * @param {AuthList} page
      * @param {HTMLElement} root
      */
     add(path, page, root = this.root) {

@@ -1,28 +1,12 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <fest:each iterate="items" index="i" value="v">
-            <div class="main__list_row">
-                <div class="main__logo-employers ">
-                    <img src="img/em1.jpg" alt="oops"/>
-                </div>
-                <div class="main__info-employers">
-                    <div class="main__info-header">
-                        <div class="main__name-employers">
-                            <a href="/vacancy" class="main__name-employers_link"><fest:value>v.vacancy_name</fest:value></a>
-                        </div>
-                        <div class="main__count-open-pos">0 открытых позиций</div>
-                    </div>
-                        <div class="main__specialosm-employers">
-                            <fest:each iterate="v.special" index="i" value="sp">
-                                <fest:value>sp</fest:value>,
-                            </fest:each>
-                        </div>
-                    <div class="main__location-employers"><fest:value>v.vacancy_description</fest:value>,<fest:space/><fest:value>v.vacancy_description</fest:value></div>
-                    <div class="main__description-employers">Компания: <fest:value>v.company_name</fest:value></div>
-                    <div class="main__description-employers">Адрес: <fest:value>v.company_address</fest:value></div>
-                    <div class="main__description-employers">Требуемый опыт: <fest:value>v.work_experience</fest:value></div>
-                    <div class="main__description-employers">Ключевые навыки: <fest:value>v.skills</fest:value></div>
-                    <div class="main__description-employers">ЗП: <fest:value>v.salary</fest:value></div>
-                </div>
+        <div class="main__card-employer">
+            <div classs="main__card-employer-titles"><fest:value>v.title</fest:value></div>
+            <div class="main__logo-employers ">
+                <img class="vac__avatar" src="{v.imgPath}" alt="img/em1.jpg"/>
             </div>
+            <div>temp1</div>
+            <div>temp2</div>
+        </div>
     </fest:each>
 </fest:template>

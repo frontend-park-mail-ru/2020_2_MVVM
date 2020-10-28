@@ -209,3 +209,9 @@ a.sum__languages, a.sum__prof__areas {
     text-decoration: none;
     border-bottom:#8473C6FF 1px dotted;
 }
+
+input.sum__avatar {
+    opacity: 0.5;
+    width: 100%;
+    /*position: absolute;*/
+}
