@@ -18,6 +18,7 @@ export default class RegCtrl {
                 surname: form[0][2].value,
                 email: form[0][3].value,
                 password: form[0][4].value,
+                user_type: form[0][5].value,
             };
 
             let formReg = await document.getElementsByClassName("reg");
