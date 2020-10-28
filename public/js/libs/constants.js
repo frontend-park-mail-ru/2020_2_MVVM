@@ -59,6 +59,7 @@ export const URL = "http://127.0.0.1/api";
 export const loginURL = "/v1/users/login";
 export const logoutURL = "/v1/users/logout";
 
+
 export const meUserURL = "/v1/users/me";
 export const addUserURL = "/v1/users/";
 export const usersByIdURL = "/v1/users/by/id/";
@@ -69,12 +70,12 @@ export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
 export const resumeMineURL = "/v1/resume/mine";
 export const updateResumeURL = "/v1/resume/";
+export const resumeSearchURL = '/v1/resume/search'
 
 
 export const addVacancyURL = "/v1/vacancy/";
 export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
-
 
 //sphere
 export const spheres = [
@@ -109,6 +110,10 @@ export const spheres = [
     "Энергетика",
 ]
 
+
+
+
+
 export const gender = {
     "male": "Мужской",
     "female": "Женский",
@@ -138,8 +143,8 @@ export const experienceMonth = {
     11: "больше 10 лет",
 }
 
-export const city = {
-    1: "Москва",
-    2: "Санкт-Петербург",
-    3: "Екатеринбург",
-}
+// export const city = {
+//     1: "Москва",
+//     2: "Санкт-Петербург",
+//     3: "Екатеринбург",
+// }

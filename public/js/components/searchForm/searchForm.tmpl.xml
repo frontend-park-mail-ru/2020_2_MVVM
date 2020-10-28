@@ -1,24 +1,25 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="main__navigation">
-        <form action="" class="main__serch-form">
+        <form class="main__serch-form">
             <div class="main__keywords">
-                <input type="text" name="main__search-keywords" placeholder="Ключевые слова"/>
+                <input type="text" name="keywords" placeholder="Ключевые слова"/>
             </div>
-            <div class="main__locations">
-                <input type="text" name="main__locations" placeholder="Поиск по расположению"/>
-            </div>
+<!--            <div class="main__locations">-->
+<!--                <input type="text" name="main__locations" placeholder="Поиск по расположению"/>-->
+<!--            </div>-->
             <div class="main__options">
                 <fest:each iterate="items" index="i" value="v">
                     <div class="main__option_single">
-                        <div class="main__specialism_name"><fest:value>v.type</fest:value></div>
-                            <fest:each iterate="v.name" index="i" value="n">
+                        <div class="main__specialism_name"><fest:value>v.title.text</fest:value></div>
+                            <fest:each iterate="v.fields" index="i" value="n">
                                 <div class="main__type">
-                                    <input type="checkbox"/><div onClick="CheckClick(this)" class="main__type_name"><fest:value>n</fest:value></div><br />
+                                    <input class="checkboxes" type="checkbox" name="{v.title.name}" value="{n.name}"/><div onClick="CheckClick(this)" class="main__type_name"><fest:value>n.text</fest:value></div><br />
                                 </div>
                             </fest:each>
                     </div>
                 </fest:each>
             </div>
+            <button class="sum__btn__blue" type="submit">Поиск</button>
         </form>
     </div>
 </fest:template>

@@ -17,7 +17,7 @@ export default class ProfileCtrl{
             }
         };
 
-        this.page = new Profile(onload,router);
+        this.page = new Profile(onload, router);
 
     }
 }
