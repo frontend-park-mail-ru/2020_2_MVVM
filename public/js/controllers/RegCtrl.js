@@ -11,16 +11,15 @@ export default class RegCtrl {
 
             let errorMes = document.getElementsByClassName("error");
             errorMes[0].innerHTML = '';
-
             const body = {
                 nickname: form[0][0].value,
                 name: form[0][1].value,
                 surname: form[0][2].value,
                 email: form[0][3].value,
                 password: form[0][4].value,
-                user_type: form[0][5].value,
+                user_type: form[0][5].value === "работодатель" ? "employer" : null,
             };
-
+            console.log("value=", body.user_type);
             let formReg = await document.getElementsByClassName("reg");
             const response = await network.doPost(`${addUserURL}`, body);
 
