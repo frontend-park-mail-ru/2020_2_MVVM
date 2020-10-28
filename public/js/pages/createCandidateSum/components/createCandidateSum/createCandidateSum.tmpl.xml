@@ -59,9 +59,9 @@
                     <div>
                         <label class="sum__form__labels" for="area_search">Место работы</label>
                         <select class="sum__user__all" id="area_search" name="area_search">
-                            <option value="1" selected="true">Москва</option>
-                            <option value="2">Санкт-Петербург</option>
-                            <option value="3">Екатеринбург</option>
+                            <option value="москва" selected="true">Москва</option>
+                            <option value="санкт-петербург">Санкт-Петербург</option>
+                            <option value="екатеринбург">Екатеринбург</option>
                         </select>
                     </div>
                     <div>
