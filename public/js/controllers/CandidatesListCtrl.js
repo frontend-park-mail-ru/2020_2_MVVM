@@ -8,10 +8,6 @@ export default class CandidatesListCtrl{
 
         const fetchCandInfo = async (resume) => {
 
-            // const response = await network.doGetLimit(resumePageURL, 0, 10);
-            // console.assert(response.ok);
-            // const resume = (await response.json()).resume;
-
             const candInfo = resume.map(async (e) => {
                 const response = await network.doGet(usersByIdURL+`${e.user_id}`)
                 const user = (await response.json()).user;

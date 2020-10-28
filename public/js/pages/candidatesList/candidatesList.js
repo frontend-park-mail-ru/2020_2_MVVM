@@ -1,7 +1,7 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkBoxes} from '../../components/searchForm/searchForm.js'
 import createElem from "../../libs/createElem.js";
-import {resumePageURL, resumeSearchURL, usersByIdURL} from "../../libs/constants.js";
+import {resumePageURL, resumeSearchURL} from "../../libs/constants.js";
 import {network} from "../../libs/networks.js";
 
 const app = window.document.getElementById('app');
@@ -144,15 +144,18 @@ export default class CandidatesList {
         const response = await network.doGetLimit(resumePageURL, 0, 15);
         console.assert(response.ok);
         const resume = (await response.json()).resume;
-        const infoOfCand = await this.fetchCandInfo(resume);
 
-        mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
-        mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
-        // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
-        getUserResume(this.router, main, infoOfCand);
+        if (resume && resume.length) {
+            const infoOfCand = await this.fetchCandInfo(resume);
 
-
-        afterRender(mainList, main, this.fetchCandInfo, this.router);
+            mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
+            mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
+            // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
+            getUserResume(this.router, main, infoOfCand);
+            afterRender(mainList, main, this.fetchCandInfo, this.router);
+        } else {
+            mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
+        }
     }
 }
 
@@ -185,11 +188,18 @@ async function search(form, mainList, main, fetchCandInfo, router) {
     const response = await network.doPost(resumeSearchURL, data);
     console.assert(response.ok);
     const resume = (await response.json()).resume;
-    const infoOfCand = await fetchCandInfo(resume);
-    console.log(infoOfCand);
+    console.log(resume);
 
-    mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
-    getUserResume(router, main, infoOfCand);
+    if (resume && resume.length) {
+        const infoOfCand = await fetchCandInfo(resume);
+        mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
+        getUserResume(router, main, infoOfCand);
+    } else {
+        mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
+        const pagination = document.getElementsByClassName("pagination");
+        pagination[0].innerHTML = '';
+    }
+
 }
 
 function afterRender(mainList, main, fetchCandInfo, router) {

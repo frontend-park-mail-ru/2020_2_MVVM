@@ -76,6 +76,13 @@ body{
     overflow-y: hidden;
 }
 
+.main__list_empty{
+    text-align: center;
+    padding: 10vh 0;
+    font-size: 30px;
+    color: var(--text-light-black);
+}
+
 /*_____________________HEADER____________________________________*/
 
 .header {
