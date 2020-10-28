@@ -56,17 +56,19 @@ export const URL = "https://studhunt.ru/api";
 //urls
 
 export const loginURL = "/v1/users/login";
+export const logoutURL = "/v1/users/logout";
+
 
 export const meUserURL = "/v1/users/me";
 export const addUserURL = "/v1/users/";
 export const usersByIdURL = "/v1/users/by/id/";
-export const updateUserURL = "/v1/users/update/";
+export const updateUserURL = "/v1/users/";
 
 export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
 export const resumeMineURL = "/v1/resume/mine";
-export const updateResumeURL = "/v1/resume/update";
+export const updateResumeURL = "/v1/resume/";
 
 
 export const addVacancyURL = "/v1/vacancy/add";
@@ -108,30 +110,36 @@ export const spheres = [
 ]
 
 export const gender = {
-    "male" : "Мужской",
-    "female" : "Женский",
+    "male": "Мужской",
+    "female": "Женский",
 }
 
 export const educationLevel = {
-    "middle" : "Среднее cпециальное",
-    "incomplete_higher" : "Неоконченное высшее",
-    "higher" : "Высшее",
-    "bachelor" : "Бакалавр",
-    "master" : "Магистр",
-    "phD" : "Кандидат наук",
-    "doctoral" : "Доктор наук",
+    "middle": "Среднее cпециальное",
+    "incomplete_higher": "Неоконченное высшее",
+    "higher": "Высшее",
+    "bachelor": "Бакалавр",
+    "master": "Магистр",
+    "phD": "Кандидат наук",
+    "doctoral": "Доктор наук",
 }
 
 export const experienceLevel = {
-    "junior" : "Junior",
-    "middle" : "Middle",
-    "senior" : "Senior"
+    "junior": "Junior",
+    "middle": "Middle",
+    "senior": "Senior"
 }
 
 export const experienceMonth = {
-    "0" : "Не работал",
-    "1" : "Меньше года",
-    "5" : "1-5 лет",
-    "10" : "5-10 лет",
-    "11" : "больше 10 лет",
+    0: "Не работал",
+    1: "Меньше года",
+    5: "1-5 лет",
+    10: "5-10 лет",
+    11: "больше 10 лет",
+}
+
+export const city = {
+    1: "Москва",
+    2: "Санкт-Петербург",
+    3: "Екатеринбург",
 }

@@ -25,7 +25,7 @@ export function personalResumes(profile,mainColumnLeft, resumeList){
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
-            profile.router.change('/resume', resumeList.resume[i].user_id, resumeList.resume[i].id);
+            profile.router.change('/resume', resumeList.resume[i].resume.user_id, resumeList.resume[i].resume.id);
         })
     }
 

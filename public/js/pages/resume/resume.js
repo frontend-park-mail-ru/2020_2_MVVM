@@ -1,18 +1,26 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {network} from "../../libs/networks.js";
-import {usersByIdURL, resumeByIdURL, gender, educationLevel,experienceLevel, experienceMonth} from "../../libs/constants.js";
+import {
+    usersByIdURL,
+    resumeByIdURL,
+    gender,
+    educationLevel,
+    experienceLevel,
+    experienceMonth,
+    city
+} from "../../libs/constants.js";
 import createElem from "../../libs/createElem.js";
 
 
 const app = window.document.getElementById('app');
 
 const resumeInfo = async (user_id, resume_id) => {
-    const response1 = await network.doGet(`${usersByIdURL}${user_id}`);
-    const user = (await response1.json()).user;
+    const responseUser = await network.doGet(`${usersByIdURL}${user_id}`);
+    const user = (await responseUser.json()).user;
     console.log(user);
-    console.assert(response1.ok);
+    console.assert(responseUser.ok);
 
-    const response2 = await network.doGet(`${resumeByIdURL}${resume_id}`);
+    const responseResume = await network.doGet(`${resumeByIdURL}${resume_id}`);
 
     const nullToString = (e) => {
         if (e == null) {
@@ -21,75 +29,52 @@ const resumeInfo = async (user_id, resume_id) => {
         return e;
     }
 
-    console.assert(response2.ok);
-    const resume = (await response2.json()).resume;
+    console.assert(responseResume.ok);
+    const resume = (await responseResume.json());
     console.log(resume);
 
-    const resp = {
-        resume:{
-            id: resume.id,
-            user_id: user.id,
-            awards: null,
-            career_level: "junior",
-            description: "о себе",
-            education_level: "middle",
-            experience_month: 5,
-            gender: "male",
-            place: "желаемая должность",
-            salary_max: 1000,
-            salary_min: 10,
-            skills: "проф навыки",
-            title: "название резюме",
-            date_create: "2020-10-23T00:00:00Z",
-        },
-        experience_custom_company: [
-            {
-                begin: "2020-09-28",
-                duties: "обяз1",
-                finish: "2020-10-03",
-                name_job: "организация1",
-                numOfJob: 1,
-                position: "должность1",
-            },
-            {
-                begin: "2020-09-28",
-                duties: "обяз2",
-                finish: "today",
-                name_job: "организация2",
-                numOfJob: 2,
-                position: "должность2",
-            }
-            ],
-    }
-
-    const dateRegBd = resp.resume.date_create.toString();
+    const dateRegBd = resume.resume.date_create.toString();
     let dataReg = '';
     dataReg = dateRegBd.slice(8,10) + '-' + dateRegBd.slice(5,7) + '-' + dateRegBd.slice(0,4);
+
+    let experiences = resume.experience_custom_company;
+    if (experiences){
+        experiences.forEach((item)=>{
+            let tmpDate = new Date(item.begin);
+            item.begin = tmpDate.toDateString();
+            if (item.continue_to_today) {
+                item.finish = "today";
+            } else {
+                let tmpDate = new Date(item.finish);
+                item.finish = tmpDate.toDateString();
+            }
+        });
+    }
 
 
     return {
         infoAll : {
             photo: 'img/es1.jpg',
             name: user.name + " " + user.surname,
-            position: resp.resume.place,
+            position: resume.resume.place,
             mail: user.email,
             dateReg: dataReg,
-            location: 'TODOМосква / Россия',
+            area_search: city[resume.resume.area_search],
         },
         jobOverview : {
                 name: user.name,
-                salary_min: nullToString(resp.resume.salary_min),
-                salary_max: nullToString(resp.resume.salary_max),
-                gender: nullToString(gender[resp.resume.gender]),
-                experience_level: nullToString(experienceLevel[resp.resume.education_level]),
-                experience_month: nullToString(experienceMonth[resp.resume.experience_month]),
+                salary_min: nullToString(resume.resume.salary_min),
+                salary_max: nullToString(resume.resume.salary_max),
+                gender: nullToString(gender[resume.resume.gender]),
+                experience_level: nullToString(experienceLevel[resume.resume.education_level]),
+                experience_month: nullToString(experienceMonth[resume.resume.experience_month]),
                 interest: "TODOManagement",
-                education: nullToString(educationLevel[resp.resume.education_level]),
+                education: nullToString(educationLevel[resume.resume.education_level]),
         },
         description : {
-            text: nullToString(resp.resume.description),
-            experience_custom_company: resp.experience_custom_company,
-            skills: resp.resume.skills,
+            text: nullToString(resume.resume.description),
+            experience_custom_company: experiences,
+            skills: resume.resume.skills,
         }
 
     }

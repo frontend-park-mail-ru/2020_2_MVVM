@@ -29,10 +29,10 @@ export default class Profile{
                 firstName: content.user.name,
                 lastName: content.user.surname,
                 email: content.user.email,
-                phone: 'NOT READY YET',
-                resumeCount: 'NOT READY YET',
-                locationOfSearch: 'NOT READY YET',
-                socialNetworkLinks: 'NOT READY YET',
+                phone: content.user.phone,
+                resumeCount: "NOT READY YET",
+                locationOfSearch: content.user.area_search,
+                socialNetworkLinks: content.user.social_network,
             };
         }
 

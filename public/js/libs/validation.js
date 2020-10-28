@@ -122,11 +122,8 @@ export default class Validation {
         if (isNaN(Number(salary))) {
             return NOT_NUMBER;
         }
-        if (Number(salary) <= 0) {
+        if (salary !== "" && Number(salary) <= 0) {
             return INCORRECT_SALARY;
-        }
-        if (salary.length === 0){
-            return SALARY_EMPTY;
         }
         return SALARY_OK;
     };

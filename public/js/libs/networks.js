@@ -1,4 +1,4 @@
-import {URL} from "./constants.js";
+import {resumePageURL, URL} from "./constants.js";
 
 class Network {
 
@@ -36,6 +36,18 @@ class Network {
         )
     }
 
+    async doGetLimit(url, start, limit){
+        return await fetch(
+            `${URL}${url}` + new URLSearchParams({
+                start: start,
+                limit: limit,
+            }),
+            {
+                method: "GET",
+                credentials: "include",
+            }
+        )
+    }
 }
 
 export const network = new Network();

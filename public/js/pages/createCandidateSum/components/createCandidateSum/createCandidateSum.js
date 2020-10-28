@@ -11,11 +11,11 @@ export function checkFrom(submitF, form, jobsArr) {
     const surname = form[1];
     const name = form[2];
     const email = form[5];
-    const description = form[6];
-    const skills = form[9];
-    const place = form[10];
-    const salaryMin = form[11];
-    const salaryMax = form[12];
+    const description = form[7];
+    const skills = form[10];
+    const place = form[11];
+    const salaryMin = form[12];
+    const salaryMax = form[13];
 
 
     const resTitle = Validation.validateTextField(title.value);
