@@ -38,6 +38,13 @@
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
+                    <div class="form__field_name">
+                        <div class="form__field_lable">Зарегистрироваться как</div>
+                        <select>
+                            <option>соискатель</option>
+                            <option>работодатель</option>
+                        </select>
+                    </div>
                     <button class="enterBtn" type="submit">Зарегистрироваться</button>
                 </form>
                 <div class="form__link"><a href="/auth">Уже есть аккаунт</a></div>

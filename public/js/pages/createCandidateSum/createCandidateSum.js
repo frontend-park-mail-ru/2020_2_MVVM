@@ -14,7 +14,7 @@ export default class CreateResume{
     }
 
     render(isAuthorized, content, ...args){
-        // console.log(args[2]);
+        //console.log(content);
         app.innerHTML = '';
 
         const employersList = new NavBarInit(app, isAuthorized, false, "Создание резюме");

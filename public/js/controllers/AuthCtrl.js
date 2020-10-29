@@ -22,7 +22,7 @@ export default class AuthCtrl {
 
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
-                this.router.change('\/mainPage');
+                this.router.change('\/');
             } else {
                 let formAuth = document.getElementsByClassName("auth");
                 formAuth[0].insertAdjacentHTML("afterBegin", `<div class="error">Неверное имя пользователя или пароль</div>`);
