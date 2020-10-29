@@ -105,10 +105,10 @@ export default class Router {
         // this.change('\/createResume', user);
 
         // if (location.pathname === "/test/public/index.html") {
-        //     this.change('\/mainPage', user);
+            this.change('\/', user);
         // } else {
             console.log(location.pathname);
-            this.change(location.pathname , user);
+            // this.change(location.pathname , user);
         // }
 
 
