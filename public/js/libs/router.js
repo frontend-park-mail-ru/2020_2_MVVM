@@ -102,14 +102,10 @@ export default class Router {
         });
 
         // начальный рендер
-        // this.change('\/createResume', user);
-
-        // if (location.pathname === "/test/public/index.html") {
-            this.change('\/', user);
-        // } else {
+        //     this.change('\/', user);
             console.log(location.pathname);
-            // this.change(location.pathname , user);
-        // }
+            this.change(location.pathname , user);
+
 
 
     }
