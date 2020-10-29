@@ -147,15 +147,14 @@ export default class CandidatesList {
 
         if (resume && resume.length) {
             const infoOfCand = await this.fetchCandInfo(resume);
-
             mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
             mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
             // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
             getUserResume(this.router, main, infoOfCand);
-            afterRender(mainList, main, this.fetchCandInfo, this.router);
         } else {
             mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
         }
+        afterRender(mainList, main, this.fetchCandInfo, this.router);
     }
 }
 
@@ -203,6 +202,7 @@ async function search(form, mainList, main, fetchCandInfo, router) {
 }
 
 function afterRender(mainList, main, fetchCandInfo, router) {
+
     checkBoxes();
 
     let form = document.querySelector("form");
