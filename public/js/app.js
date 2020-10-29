@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     router.add('/auth', controllers.auth.page);
     router.add('/reg', controllers.reg.page);
-    router.add('/mainPage', controllers.mainPage.page);
+    router.add('/', controllers.mainPage.page);
     router.add('/employersList', controllers.employersList.page);
     router.add('/candidatesList', controllers.candidatesList.page);
     router.add('/profile', controllers.profile.page);

@@ -6,6 +6,10 @@ export default class Router {
         this.root = root;
         this.routes = new Map();
         this.currentRoute = null;
+
+        window.addEventListener('popstate', () => {
+            this.change(location.pathname);
+        });
     }
 
     /**
@@ -17,9 +21,9 @@ export default class Router {
     add(path, page, root = this.root) {
         const expr = path.split('/').map((elem) => {
             return elem;
-        }).join('\/');
+        }).join('\\/');
 
-        this.routes.set(expr, {root: root, page: page});
+        this.routes.set(RegExp(`^${expr}$`), {root: root, page: page});
     }
 
     /**
@@ -41,20 +45,44 @@ export default class Router {
             }
         }
 
-        if (path === this.root) {
+        if (this.currentRoute === path) {
             return;
         }
-        this.root = path;
-        const obj = this.routes.get(path);
+
+        for (const key of this.routes.keys()) {
+            if (path.match(key)) {
+                this.currentRoute = path;
+                const obj = this.routes.get(key);
+
+                get_person().then((content) => {
+                    obj.page.render(true, content, ...args)
+                }).catch(() => {
+                    // console.log("kek");
+                    obj.page.render(false, null, ...args)
+                });
+
+                window.history.pushState(null, null, path);
+                return;
+            }
+        }
 
 
-        get_person().then((content) => {
-            // console.log(content);
-            obj.page.render(true, content, ...args)
-        }).catch(() => {
-            // console.log("kek");
-            obj.page.render(false, null, ...args)
-        });
+
+
+        // if (path === this.root) {
+        //     // window.history.replaceState(null, path.slice(1), path);
+        //     return;
+        // }
+        //
+        // this.root = path;
+        // const obj = this.routes.get(path);
+        //
+        // get_person().then((content) => {
+        //     obj.page.render(true, content, ...args)
+        // }).catch(() => {
+        //     // console.log("kek");
+        //     obj.page.render(false, null, ...args)
+        // });
 
         // TODO: кажется, render надо вызывать у контроллера, который потом вызовет его у вью
         // иначе некуда положить логику хождения на сервер (во вью это делать не стоит)
@@ -75,6 +103,14 @@ export default class Router {
 
         // начальный рендер
         // this.change('\/createResume', user);
-        this.change('\/company', user);
+
+        // if (location.pathname === "/test/public/index.html") {
+        //     this.change('\/mainPage', user);
+        // } else {
+            console.log(location.pathname);
+            this.change(location.pathname , user);
+        // }
+
+
     }
 }
