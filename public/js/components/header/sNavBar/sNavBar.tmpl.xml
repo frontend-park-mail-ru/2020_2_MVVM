@@ -2,7 +2,7 @@
     <header class="header">
         <div class="container">
             <div class="header__row">
-                <fest:include src="../navigation/navigation.tmpl.xml"/>
+                <fest:include context="items.user" src="../navigation/navigation.tmpl.xml"/>
             </div>
         </div>
     </header>

@@ -2,10 +2,10 @@
 import Validation from '../../../../libs/validation.js'
 import {EMAIL_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK} from "../../../../libs/constants.js";
 
-const form = document.getElementsByTagName("form");
-let error = document.getElementsByClassName('error');
+// const form = document.getElementsByTagName("form");
+// let error = document.getElementsByClassName('error');
 
-export function checkFrom(submitF) {
+export function checkFrom(submitF, form, error) {
     let isOk = true;
 
     const email = document.getElementById('emailReg');
@@ -15,7 +15,7 @@ export function checkFrom(submitF) {
     const lastName = document.getElementById('lastNameReg');
 
 
-    form[0].addEventListener('submit',function (event){
+    form.addEventListener('submit',function (event){
         const resEmail = Validation.validateEmail(email.value);
         const resNick = Validation.validateLogin(nickname.value);
         const resPasswd = Validation.validatePasswd(password.value);
@@ -44,8 +44,7 @@ export function checkFrom(submitF) {
         }
 
         if (isOk){
-            console.log(event,form);
-            submitF(event, form);
+            submitF(event, form, error);
         } else {
             event.preventDefault();
         }

@@ -5,10 +5,10 @@ import createElem from "../../libs/createElem.js";
 const app = window.document.getElementById('app');
 
 export default class Vacancy{
-    render(isAuthorized, content) {
+    render(content) {
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, isAuthorized, true,"Вакансия");
+        const navBarInit = new NavBarInit(app, content, true,"Вакансия");
         navBarInit.loadNavBar();
 
         const main = createElem("div", "main", app);

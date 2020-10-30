@@ -13,7 +13,7 @@ export default class UpdateResume{
         this.onsubmit = onsubmit
     }
 
-    render(isAuthorized, content, ...args){
+    render(content, ...args){
         app.innerHTML = '';
         //
         // console.log(content);
@@ -58,7 +58,7 @@ export default class UpdateResume{
         }
 
 
-        const employersList = new NavBarInit(app, isAuthorized, false, "");
+        const employersList = new NavBarInit(app, content, false, "");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

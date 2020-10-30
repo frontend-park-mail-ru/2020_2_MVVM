@@ -7,9 +7,9 @@ export default class Router {
         this.routes = new Map();
         this.currentRoute = null;
 
-        window.addEventListener('popstate', () => {
-            this.change(location.pathname);
-        });
+        // window.addEventListener('popstate', () => {
+        //     this.change(location.pathname);
+        // });
     }
 
     /**
@@ -55,39 +55,16 @@ export default class Router {
                 const obj = this.routes.get(key);
 
                 get_person().then((content) => {
-                    obj.page.render(true, content, ...args)
+                    obj.page.render(content, ...args)
                 }).catch(() => {
                     // console.log("kek");
-                    obj.page.render(false, null, ...args)
+                    obj.page.render(null, ...args)
                 });
 
-                window.history.pushState(null, null, path);
+                // window.history.pushState(null, null, path);
                 return;
             }
         }
-
-
-
-
-        // if (path === this.root) {
-        //     // window.history.replaceState(null, path.slice(1), path);
-        //     return;
-        // }
-        //
-        // this.root = path;
-        // const obj = this.routes.get(path);
-        //
-        // get_person().then((content) => {
-        //     obj.page.render(true, content, ...args)
-        // }).catch(() => {
-        //     // console.log("kek");
-        //     obj.page.render(false, null, ...args)
-        // });
-
-        // TODO: кажется, render надо вызывать у контроллера, который потом вызовет его у вью
-        // иначе некуда положить логику хождения на сервер (во вью это делать не стоит)
-        // obj.page.render(...args);
-        // obj.page.render(get_person());
     }
 
     start() {
@@ -102,11 +79,8 @@ export default class Router {
         });
 
         // начальный рендер
-        //     this.change('\/', user);
-            console.log(location.pathname);
-            this.change(location.pathname , user);
-
-
+            this.change('\/', user);
+            // this.change(location.pathname , user);
 
     }
 }

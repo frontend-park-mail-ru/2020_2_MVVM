@@ -1,6 +1,6 @@
 import {app} from "../../../createCandidateSum/createCandidateSum.js";
 
-export function checkoutProfilePage(profile,isAuthorized, content, body, person) {
+export function checkoutProfilePage(profile, content, body, person) {
     const profNavBar = document.getElementsByClassName("persNavBar__menu-list");
 
     for (let i=0; i < profNavBar[0].childElementCount; i++) {
@@ -8,7 +8,12 @@ export function checkoutProfilePage(profile,isAuthorized, content, body, person)
             body.innerHTML='';
             profile.isPersonalRusemes = profNavBar[0].children[i].textContent !== 'Личная информация';
             if (profile.isPersonalRusemes){
-                personalResumes(profile,body, profile.resumes);
+                if (content.user.user_type === "candidate") {
+                    personalResOrVac(profile, true, body, profile.resumes);
+                } else {
+                    personalResOrVac(profile, false,body, profile.vacancies);
+                }
+
             } else {
                 personalInfo(person, body);
             }
@@ -17,15 +22,22 @@ export function checkoutProfilePage(profile,isAuthorized, content, body, person)
 }
 
 
-export function personalResumes(profile,mainColumnLeft, resumeList){
-    mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persResumes.tmpl'](resumeList.resume));
+export function personalResOrVac(profile,isCand, mainColumnLeft, list){
+    if (isCand) {
+        mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persResumes.tmpl'](list.resume));
+    } else {
+        mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persVacancies.tmpl']());
+    }
+
 
     const linksToResume = mainColumnLeft.getElementsByClassName("main__buttons_one");
 
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
-            profile.router.change('/resume', resumeList.resume[i].resume.user_id, resumeList.resume[i].resume.id);
+            if (isCand) {
+                profile.router.change('/resume', list.resume[i].resume.user_id, list.resume[i].resume.id);
+            }
         })
     }
 
@@ -34,7 +46,10 @@ export function personalResumes(profile,mainColumnLeft, resumeList){
     for (let i = 0; i < linksToUpdateResume.length; i++) {
         linksToUpdateResume[i].addEventListener('click', event => {
             event.preventDefault();
-            profile.router.change('/updateResume', resumeList.resume[i].user_id, resumeList.resume[i].id, resumeList.resume[i]);
+            if (isCand) {
+                profile.router.change('/updateResume', list.resume[i].user_id, list.resume[i].id, list.resume[i]);
+            }
+
         })
     }
 }

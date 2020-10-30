@@ -5,11 +5,12 @@ const app = window.document.getElementById('app');
 
 
 export default class MainPage{
-    render(isAuthorized, content) {
+    render(content) {
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, isAuthorized, true,  "Самый простой способ найти новую работу");
+        console.log(content);
+        const navBarInit = new NavBarInit(app, content, true,  "Самый простой способ найти новую работу");
         navBarInit.loadNavBar();
 
         const searchJob = createElem("div", "search-job", app.getElementsByClassName("header__page")[0])
