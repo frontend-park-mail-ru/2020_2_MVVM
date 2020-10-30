@@ -6,43 +6,43 @@
                     <div class="form__field_name">
                         <div class="form__field_lable">Никнейм</div>
                         <div class="cfield">
-                            <input id="nickReg" class="text" placeholder="Введите никнейм"/>
+                            <input id="nickReg" name="nickname" class="text" placeholder="Введите никнейм"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
                     <div class="form__field_name">
                         <div class="form__field_lable">Имя</div>
                         <div class="cfield">
-                            <input id="firstNameReg" class="text" placeholder="Введите имя"/>
+                            <input id="firstNameReg" name="firstname" class="text" placeholder="Введите имя"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
                     <div class="form__field_name">
                         <div class="form__field_lable">Фамилия</div>
                         <div class="cfield">
-                            <input id="lastNameReg" class="text" placeholder="Введите фамилию"/>
+                            <input id="lastNameReg" name="lastname" class="text" placeholder="Введите фамилию"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
                     <div class="form__field_name">
                         <div class="form__field_lable">Email</div>
                         <div class="cfield">
-                            <input id="emailReg" class="text" placeholder="Введите email"/>
+                            <input id="emailReg" name="email" class="text" placeholder="Введите email"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
                     <div class="form__field_name">
                         <div class="form__field_lable">Пароль</div>
                         <div class="cfield">
-                            <input id="passwReg" class="password" type="password" placeholder="Введите пароль"/>
+                            <input id="passwReg" name="password" class="password" type="password" placeholder="Введите пароль"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
                     <div class="form__field_name">
                         <div class="form__field_lable">Зарегистрироваться как</div>
-                        <select>
-                            <option>соискатель</option>
-                            <option>работодатель</option>
+                        <select name="type">
+                            <option value="candidate" selected="true">соискатель</option>
+                            <option value="employer">работодатель</option>
                         </select>
                     </div>
                     <button class="enterBtn" type="submit">Зарегистрироваться</button>

@@ -9,21 +9,25 @@ export default class RegList{
         this.onsubmit = onsubmit
     }
 
-    render(isAuthorized, content){
+    render(content){
         app.innerHTML = '';
 
 
-        const auth = new NavBarInit(app, isAuthorized, false,"Регистрация");
+
+        const auth = new NavBarInit(app, content, false,"Регистрация");
         auth.loadNavBar();
 
         const main = createElem("div", "main", app);
         const mainAuth = createElem("div", "main", main);
         mainAuth.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
 
-        afterRender(this.onsubmit);
+        const form = document.querySelector("form");
+        let error = document.getElementsByClassName('error');
+
+        checkFrom(this.onsubmit, form, error);
     }
 }
-
-function afterRender(submitF) {
-    checkFrom(submitF);
-}
+//
+// function afterRender(submitF) {
+//     checkFrom(submitF);
+// }

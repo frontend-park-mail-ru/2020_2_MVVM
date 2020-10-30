@@ -13,11 +13,11 @@ export default class CreateResume{
         this.onsubmit = onsubmit
     }
 
-    render(isAuthorized, content, ...args){
+    render(content, ...args){
         //console.log(content);
         app.innerHTML = '';
 
-        const employersList = new NavBarInit(app, isAuthorized, false, "Создание резюме");
+        const employersList = new NavBarInit(app, content, false, "Создание резюме");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

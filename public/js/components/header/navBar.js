@@ -8,18 +8,20 @@ export class NavBarInit {
     }
 
     loadNavBar() {
-        const navBar = new NavBar(this.app, this.isBig, this.title);
-        navBar.loadNavBar(this.user);
+
+        const data = this.user ? {title: this.title, user: this.user.user} : {title: this.title, user: null};
+        const navBar = new NavBar(this.app, this.isBig, data);
+        navBar.loadNavBar(data.user);
     }
 }
 
 export class NavBar {
 
-    constructor(app, isBig, title) {
+    constructor(app, isBig, data) {
         if (isBig) {
-            app.innerHTML = window.fest['bNavBar.tmpl'](title);
+            app.innerHTML = window.fest['bNavBar.tmpl'](data);
         } else {
-            app.innerHTML = window.fest['sNavBar.tmpl']();
+            app.innerHTML = window.fest['sNavBar.tmpl'](data);
         }
     }
 

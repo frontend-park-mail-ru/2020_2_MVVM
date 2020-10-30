@@ -4,11 +4,11 @@ import createElem from "../../libs/createElem.js";
 const app = window.document.getElementById('app');
 
 export default class CompanyPage{
-    render(isAuthorized, content) {
+    render(content) {
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, isAuthorized, false);
+        const navBarInit = new NavBarInit(app, content, false);
         navBarInit.loadNavBar();
 
         const main = createElem("div", "main__company", app);

@@ -8,22 +8,20 @@ import createElem from "../../libs/createElem.js";
 const app = window.document.getElementById('app');
 
 export default class Profile{
-    constructor(loadResumesF, router) {
-        this.onload = loadResumesF;
+    constructor(loadResumesF, loadVacanciesF, router) {
+        this.loadResumes = loadResumesF;
+        this.loadVacancies = loadVacanciesF;
         this.router = router;
     }
 
-    resumes = null;
-
-    async render(isAuthorized, content){
+    async render(content){
 
         app.innerHTML = '';
-        await this.onload().then((data)=>{
-            this.resumes = data;
-        });
+        this.vacancies = null;
+        this.resumes = null;
 
         let person;
-        if (isAuthorized) {
+        if (content) {
             person = {
                 id: content.user.id,
                 firstName: content.user.name,
@@ -31,25 +29,35 @@ export default class Profile{
                 email: content.user.email,
                 phone: content.user.phone,
                 resumeCount: "NOT READY YET",
-                locationOfSearch: content.user.area_search,
                 socialNetworkLinks: content.user.social_network,
             };
         }
 
 
-        const employersList = new NavBarInit(app, isAuthorized, false,"Личный кабинет");
-        employersList.loadNavBar();
+        const profile = new NavBarInit(app, content, false,"");
+        profile.loadNavBar();
 
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);
 
         const title = createElem("div", "profile__title", container);
-        title.innerText = "Личный кабинет";
+        if (content.user.user_type === "employer") {
+            title.innerText = "Личный кабинет работодателя";
+            await this.loadVacancies().then((data)=>{
+                this.vacancies = data;
+            });
+        } else {
+            title.innerText = "Личный кабинет соискателя";
+            await this.loadResumes().then((data)=>{
+                this.resumes = data;
+            });
+        }
+
 
         const mainPage = createElem("div", "main__page", container);
         const mainColumnLeft = createElem("div", "main__page_left", mainPage);
         const body = createElem("div", "main__page_left-body", mainColumnLeft);
-        await mainColumnLeft.insertAdjacentHTML("afterbegin", window.fest['persNavBar.tmpl']());
+        await mainColumnLeft.insertAdjacentHTML("afterbegin", window.fest['persNavBar.tmpl'](content.user.user_type));
 
         const mainColumnRight = createElem("div", "main__page_right", mainPage);
 
@@ -59,31 +67,7 @@ export default class Profile{
         // app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
 
         await personalInfo(person, body);
-        await checkoutProfilePage(this, isAuthorized, content, body, person);
+        await checkoutProfilePage(this, content, body, person);
         updateProfileFields();
     }
 }
-
-
-
-// function personalResumes(mainColumnLeft, resumes1){
-//     console.log(resumes1);
-//     const resumes = [{
-//         name: 'Первое резюме',
-//         name_job: 'Желаемая работа',
-//         },
-//         {
-//             name: 'Второе резюме',
-//             name_job: 'Желаемая работа',
-//         },
-//         {
-//             name: 'Тертье резюме',
-//             name_job: 'Желаемая работа',
-//         }
-//         ]
-//     mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persResumes.tmpl'](resumes));
-// }
-//
-// function personalInfo(person, mainColumnLeft){
-//     mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persInfo.tmpl'](person));
-// }

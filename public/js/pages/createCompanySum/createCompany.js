@@ -15,10 +15,10 @@ export default class CreateCompany{
         this.onsubmit = onsubmit
     }
 
-    render(isAuthorized, content){
+    render(content){
         app.innerHTML = '';
 
-        const createCompanyNavBar = new NavBarInit(app, isAuthorized, false, "Создание организации");
+        const createCompanyNavBar = new NavBarInit(app, content, false, "Создание организации");
         createCompanyNavBar.loadNavBar();
 
         const main = createElem("div", "main", app);

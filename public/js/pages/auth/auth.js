@@ -11,11 +11,11 @@ export default class AuthList {
         this.onsubmit = onsubmit;
     }
 
-    render(isAuthorized){
+    render(content){
 
         app.innerHTML = '';
 
-        const auth = new NavBarInit(app, isAuthorized,false, "Авторизация");
+        const auth = new NavBarInit(app, content,false, "Авторизация");
         auth.loadNavBar();
 
         const main = createElem("div", "main", app);

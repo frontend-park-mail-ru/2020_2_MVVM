@@ -6,7 +6,7 @@ export default class ProfileCtrl{
     constructor(router) {
         this.router = router;
 
-        const onload = async () => {
+        const loadResumes = async () => {
             try {
                 const response = await network.doGet(resumeMineURL);
                 const data = await response.json();
@@ -17,7 +17,18 @@ export default class ProfileCtrl{
             }
         };
 
-        this.page = new Profile(onload, router);
+        const loadVacancies = async () => {
+            try {
+                const response = await network.doGet(resumeMineURL);
+                const data = await response.json();
+                console.assert(response.ok);
+                return data;
+            } catch (err){
+                console.assert(err);
+            }
+        };
+
+        this.page = new Profile(loadResumes, loadVacancies, router);
 
     }
 }

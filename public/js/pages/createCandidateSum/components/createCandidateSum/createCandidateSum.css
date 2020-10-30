@@ -1,7 +1,7 @@
 input.sum__achievement{
     max-width: 50%;
 }
-form.sum__candidate div {
+.summary .sum__candidate div {
     margin-bottom: 15px;
 }
 .sum__form__wrap {

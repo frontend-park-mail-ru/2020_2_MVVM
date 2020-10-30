@@ -81,11 +81,11 @@ const resumeInfo = async (user_id, resume_id) => {
 }
 
 export default class Resume {
-    async render(isAuthorized, content, user_id, resume_id) {
+    async render(content, user_id, resume_id) {
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, isAuthorized, false,"");
+        const navBarInit = new NavBarInit(app, content, false,"");
         navBarInit.loadNavBar();
 
         const infoAll = await resumeInfo(user_id, resume_id);
