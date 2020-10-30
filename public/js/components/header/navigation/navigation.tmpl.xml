@@ -11,7 +11,7 @@
                     <a href="/createResume" class="header__item header__item_big-button">+ Создать резюме</a>
                 </fest:if>
                 <fest:if test="items.user_type=='employer'">
-                    <a href="/createVacancy" class="header__item header__item_big-button">+ Создать резюме</a>
+                    <a href="/createVacancy" class="header__item header__item_big-button">+ Создать вакансию</a>
                     <a href="/createCompany" class="header__item header__item_big-button">+ Создать организацию</a>
                 </fest:if>
 <!--                <a href="/createResume" class="header__item header__item_big-button">+ Создать резюме</a>-->

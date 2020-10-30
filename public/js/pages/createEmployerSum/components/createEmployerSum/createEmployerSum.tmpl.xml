@@ -1,6 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
     <div class="container">
-        <div class="page__name">Создание компании</div>
+        <div class="page__name">Создание вакансии</div>
         <div class="sum__form__wrap">
             <form method="post" action="#" id="sum__candidate-form" enctype="multipart/form-data">
                 <div class="sum__profile">
