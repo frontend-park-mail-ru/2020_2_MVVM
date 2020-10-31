@@ -58,6 +58,10 @@
     line-height: 10px;
 }
 
+.describe-featured-jobs svg {
+    margin-right: 5px;
+}
+
 .featured-jobs-item-employer {
     color: var(--buttons-purple-color);
     border: 1px solid var(--buttons-purple-color);
@@ -78,4 +82,15 @@
     line-height: 10px;
     text-align: right;
     margin-top: 10px;
+}
+
+.inline-heart {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.inline-heart svg {
+    color: grey;
+    margin-right: 10px;
 }

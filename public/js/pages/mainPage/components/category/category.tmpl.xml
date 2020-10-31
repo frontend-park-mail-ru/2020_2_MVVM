@@ -7,7 +7,7 @@
       <div class="category-sec">
         <fest:for from="0" to="3" index="i">
           <div>
-            <i class="fa fa-bullhorn fa-4x"></i> <br></br>
+            <i class="fa fa-bullhorn fa-4x"/> <br></br>
             <span><fest:value>items[i].name</fest:value></span>
             <p>(<fest:value>items[i].count</fest:value> вакансии)</p>
           </div>

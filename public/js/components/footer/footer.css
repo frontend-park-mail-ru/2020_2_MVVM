@@ -71,15 +71,3 @@
     line-height: 24px;
     color: var(--footer-text-grey);
 }
-
-.inline-heart {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-.inline-heart i {
-    padding: 5px;
-    color: grey;
-    margin-right: 10px;
-}

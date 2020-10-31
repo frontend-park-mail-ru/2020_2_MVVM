@@ -6,7 +6,8 @@
     <div class="featured-jobs-item">
       <div class="featured-jobs-item-right">
         <div class="logo-featured-jobs">
-          <fest:atttibute> <img src="{v.logo}"></img> </fest:atttibute>
+          <fest:atttibute>
+            <img src="{v.logo}"/> </fest:atttibute>
         </div>
         <div class="describe-featured-jobs">
           <h3><fest:value>v.position</fest:value></h3>
