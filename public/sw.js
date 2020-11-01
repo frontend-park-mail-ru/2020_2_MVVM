@@ -1,4 +1,5 @@
 const cacheName = 'myCache';
+let {assets} = global.serviceWorkerOption;
 const cacheUrls = [
     '/',
     '/css/general.css',
@@ -202,42 +203,93 @@ const cacheUrls = [
     '/index.html',
 
 ];
+//
+// this.addEventListener('install', (event) => {
+//     event.waitUntil(
+//         caches.open(cacheName)
+//             .then((cache) => {
+//                 cache.addAll(cacheUrls);
+//                 console.log("-----------")
+//                 console.log(cache.keys());
+//                 return cache;
+//             })
+//             .catch((err) => {
+//                 console.error('smth went wrong with caches.open: ', err);
+//             })
+//     );
+// });
+//
+// this.addEventListener('fetch', (event) => {
+//     event.respondWith(
+//         caches.open(cacheName).then((cache) =>
+//         cache.match(event.request)
+//             .then((cachedResponse) => {
+//                 if (cachedResponse && !navigator.onLine) {
+//                     return cachedResponse;
+//                 }
+//
+//                 return fetch(event.request);
+//                     // .then((response) => {
+//                     //     return caches.open(cacheName).then((cache) => {
+//                     //         if(!event.request.url.includes('/api/')){
+//                     //             cache.put(event.request.url, response.clone());
+//                     //         }
+//                     //         return response;
+//                     //     });
+//                     // });
+//             }))
+//             .catch((err) => {
+//                 console.error('smth went wrong with caches.match: ', err);
+//             })
+//     );
+// });
 
-this.addEventListener('install', (event) => {
+self.addEventListener('install', (event) => {
+    self.skipWaiting();
+
     event.waitUntil(
         caches.open(cacheName)
-            .then((cache) => {
-                cache.addAll(cacheUrls);
-                console.log("-----------")
-                console.log(cache.keys());
-                return cache;
-            })
-            .catch((err) => {
-                console.error('smth went wrong with caches.open: ', err);
-            })
+            .then((cache) => (cache.addAll(cacheUrls
+            //     [
+            //     '/dist/bundle.js',
+            //     '/dist/style.css',
+            //     '/dist/index.html',
+            //     '/static/fallback.html',
+            //     '/static/img/favicon-play.ico',
+            // ]
+
+            )))
     );
 });
 
-this.addEventListener('fetch', (event) => {
+self.addEventListener('activate', (event) => {
+    console.log('Service worker activated!');
+});
+
+self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request)
             .then((cachedResponse) => {
-                if (cachedResponse && !navigator.onLine) {
+                if (!navigator.onLine && cachedResponse) {
                     return cachedResponse;
                 }
 
-                return fetch(event.request);
-                    // .then((response) => {
-                    //     return caches.open(cacheName).then((cache) => {
-                    //         if(!event.request.url.includes('/api/')){
-                    //             cache.put(event.request.url, response.clone());
-                    //         }
-                    //         return response;
-                    //     });
-                    // });
-            })
-            .catch((err) => {
-                console.error('smth went wrong with caches.match: ', err);
+                return fetch(event.request)
+                    .then((response) => caches
+                        .open(cacheName)
+                        .then((cache) => {
+                            if (event.request.method === 'GET') {
+                                cache.put(event.request, response.clone());
+                            }
+                            return response;
+                        }))
+                    .catch((err) => {
+                        console.error('smth went wrong with caches.match: ', err);
+                        // if (event.request.mode === 'navigate') {
+                            // return caches.match('/static/fallback.html');
+
+                        // }
+                    });
             })
     );
 });
