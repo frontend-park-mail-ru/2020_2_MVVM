@@ -1,6 +1,7 @@
-import CreateVacancy from "../pages/createEmployerSum/createEmployerSum.js";
+import CreateVacancy from "../../pages/createEmployerSum/createEmployerSum.js";
+import {URL, addVacancyURL} from "../../libs/constants.js";
+import {network} from "../../libs/networks.js";
 
-import {URL, addVacancyURL} from "../libs/constants.js";
 
 export default class CreateResumeCtrl {
     constructor(router) {
@@ -15,6 +16,7 @@ export default class CreateResumeCtrl {
                     method: "post"
                 });
             const content = await response.json();
+            console.log("vacancy New:", content)
             /*
              console.assert(response.ok);
              console.log(content.resume.user_id);*/

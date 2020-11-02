@@ -40,7 +40,6 @@ export default class EmployersList{
         const mainList = createElem("div", "main__list",mainRow);
 
         const vacancies = await this.fetchVacancyList();
-        console.log(vacancies.vacancyList)
         vacancies.vacancyList.forEach(function(vacancy, i, _) {
             vacancy.imgPath = `static/${vacancy.ID}`
             console.log( i + ": " + vacancy.ID);

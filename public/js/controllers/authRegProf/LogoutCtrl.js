@@ -1,6 +1,6 @@
-import {network} from "../libs/networks.js";
-import {logoutURL} from "../libs/constants.js";
-import Logout from "../pages/logout/logout.js";
+import {network} from "../../libs/networks.js";
+import {logoutURL} from "../../libs/constants.js";
+import Logout from "../../pages/logout/logout.js";
 
 export default class LogoutCtrl{
     constructor(router) {

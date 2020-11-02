@@ -195,7 +195,7 @@ async function search(form, mainList, main, fetchCandInfo, router) {
     } else {
         mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
         const pagination = document.getElementsByClassName("pagination");
-        pagination[0].innerHTML = '';
+        // pagination[0].innerHTML = '';
     }
 
 }

@@ -1,6 +1,6 @@
-import CompaniesList from "../pages/companiesList/companiesList.js";
-import {usersByIdURL, resumePageURL} from "../libs/constants.js";
-import {network} from "../libs/networks.js";
+import CompaniesList from "../../pages/companiesList/companiesList.js";
+import {usersByIdURL, resumePageURL} from "../../libs/constants.js";
+import {network} from "../../libs/networks.js";
 
 export default class CompaniesListCtrl{
     constructor(router) {

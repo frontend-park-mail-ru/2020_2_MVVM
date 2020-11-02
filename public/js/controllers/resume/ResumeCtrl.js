@@ -1,4 +1,4 @@
-import Resume from "../pages/resume/resume.js";
+import Resume from "../../pages/resume/resume.js";
 
 export default class ResumeCtrl{
     constructor(router) {

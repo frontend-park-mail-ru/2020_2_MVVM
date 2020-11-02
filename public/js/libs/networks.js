@@ -44,6 +44,7 @@ class Network {
             }),
             {
                 method: "GET",
+                mode: 'cors',
                 credentials: "include",
             }
         )

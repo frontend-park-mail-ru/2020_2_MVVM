@@ -1,5 +1,5 @@
-import EmployersList from "../pages/employersList/employersList.js";
-import {URL, vacancyPageURL} from "../libs/constants.js";
+import EmployersList from "../../pages/employersList/employersList.js";
+import {URL, vacancyPageURL} from "../../libs/constants.js";
 
 export default class EmployersListCtrl {
     constructor(router) {
@@ -15,9 +15,9 @@ export default class EmployersListCtrl {
                     method: "GET",
                 },
             )
-            console.assert(response.ok);
+            //console.assert(response.ok);
             const vacancy = await response.json();
-            console.log(vacancy);
+            //console.log(vacancy);
             return vacancy;
         }
 
