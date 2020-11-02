@@ -70,6 +70,7 @@ const resumeInfo = async (user_id, resume_id) => {
                 experience_month: nullToString(experienceMonth[resume.resume.experience_month]),
                 interest: "TODOManagement",
                 education: nullToString(educationLevel[resume.resume.education_level]),
+                career_level: nullToString(resume.resume.career_level),
         },
         description : {
             text: nullToString(resume.resume.description),

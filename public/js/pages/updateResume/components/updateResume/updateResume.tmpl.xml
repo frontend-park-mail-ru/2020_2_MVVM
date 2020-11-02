@@ -237,82 +237,82 @@
                                 <select class="sum__user__all" name="education_level">
                                     <fest:if test="user.education_level=='middle' || user.education_level==null">
                                         <option value="middle" selected="true">Среднее</option>
-                                        <option value="specialized_secondary">Среднее Специальное</option>
+                                        <option value="specialized_secondary">Среднее специальное</option>
                                         <option value="incomplete_higher">Неоконченное высшее</option>
                                         <option value="higher">Высшее</option>
                                         <option value="bachelor">Бакалавр</option>
                                         <option value="master">Магистр</option>
-                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="phD">Кандидат наук</option>
                                         <option value="doctoral">Доктор наук</option>
                                     </fest:if>
                                     <fest:if test="user.education_level=='specialized_secondary'">
                                         <option value="middle" >Среднее</option>
-                                        <option value="specialized_secondary" selected="true">Среднее Специальное</option>
+                                        <option value="specialized_secondary" selected="true">Среднее специальное</option>
                                         <option value="incomplete_higher">Неоконченное высшее</option>
                                         <option value="higher">Высшее</option>
                                         <option value="bachelor">Бакалавр</option>
                                         <option value="master">Магистр</option>
-                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="phD">Кандидат наук</option>
                                         <option value="doctoral">Доктор наук</option>
                                     </fest:if>
                                     <fest:if test="user.education_level=='incomplete_higher'">
                                         <option value="middle" >Среднее</option>
-                                        <option value="specialized_secondary" >Среднее Специальное</option>
+                                        <option value="specialized_secondary" >Среднее специальное</option>
                                         <option value="incomplete_higher" selected="true">Неоконченное высшее</option>
                                         <option value="higher">Высшее</option>
                                         <option value="bachelor">Бакалавр</option>
                                         <option value="master">Магистр</option>
-                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="phD">Кандидат наук</option>
                                         <option value="doctoral">Доктор наук</option>
                                     </fest:if>
                                     <fest:if test="user.education_level=='higher'">
                                         <option value="middle" >Среднее</option>
-                                        <option value="specialized_secondary" >Среднее Специальное</option>
+                                        <option value="specialized_secondary" >Среднее специальное</option>
                                         <option value="incomplete_higher">Неоконченное высшее</option>
                                         <option value="higher" selected="true">Высшее</option>
                                         <option value="bachelor">Бакалавр</option>
                                         <option value="master">Магистр</option>
-                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="phD">Кандидат наук</option>
                                         <option value="doctoral">Доктор наук</option>
                                     </fest:if>
                                     <fest:if test="user.education_level=='bachelor'">
                                         <option value="middle" >Среднее</option>
-                                        <option value="specialized_secondary" >Среднее Специальное</option>
+                                        <option value="specialized_secondary" >Среднее специальное</option>
                                         <option value="incomplete_higher">Неоконченное высшее</option>
                                         <option value="higher">Высшее</option>
                                         <option value="bachelor" selected="true">Бакалавр</option>
                                         <option value="master">Магистр</option>
-                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="phD">Кандидат наук</option>
                                         <option value="doctoral">Доктор наук</option>
                                     </fest:if>
                                     <fest:if test="user.education_level=='master'">
                                         <option value="middle" >Среднее</option>
-                                        <option value="specialized_secondary">Среднее Специальное</option>
+                                        <option value="specialized_secondary">Среднее специальное</option>
                                         <option value="incomplete_higher">Неоконченное высшее</option>
                                         <option value="higher">Высшее</option>
                                         <option value="bachelor">Бакалавр</option>
                                         <option value="master" selected="true">Магистр</option>
-                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="phD">Кандидат наук</option>
                                         <option value="doctoral">Доктор наук</option>
                                     </fest:if>
                                     <fest:if test="user.education_level=='phD'">
                                         <option value="middle" >Среднее</option>
-                                        <option value="specialized_secondary">Среднее Специальное</option>
+                                        <option value="specialized_secondary">Среднее специальное</option>
                                         <option value="incomplete_higher">Неоконченное высшее</option>
                                         <option value="higher">Высшее</option>
                                         <option value="bachelor">Бакалавр</option>
                                         <option value="master">Магистр</option>
-                                        <option value="phD" selected="true">Кандидат Наук</option>
+                                        <option value="phD" selected="true">Кандидат наук</option>
                                         <option value="doctoral">Доктор наук</option>
                                     </fest:if>
                                     <fest:if test="user.education_level=='doctoral'">
                                         <option value="middle" >Среднее</option>
-                                        <option value="specialized_secondary">Среднее Специальное</option>
+                                        <option value="specialized_secondary">Среднее специальное</option>
                                         <option value="incomplete_higher">Неоконченное высшее</option>
                                         <option value="higher">Высшее</option>
                                         <option value="bachelor">Бакалавр</option>
                                         <option value="master">Магистр</option>
-                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="phD">Кандидат наук</option>
                                         <option value="doctoral" selected="true">Доктор наук</option>
                                     </fest:if>
                                 </select>
@@ -334,12 +334,6 @@
                             <!--                                <a class="sum__languages" href="#" id="lang">Указать ещё один язык</a>-->
                             <!--                            </div>-->
                         </div>
-                    </div>
-                    <label class="sum__form__labels" for="awards">
-                    </label>
-                    <div class="sum__achievements">
-                        <label class="sum__form__labels" for="awards">Ваши сертификаты:</label>
-                        <input class="sum__achievement" id="awards" type="file" value=""/>
                     </div>
                     <button id="send-form-cand" class="sum__btn__pink" type="submit">Сохранить</button>
                 </form>
