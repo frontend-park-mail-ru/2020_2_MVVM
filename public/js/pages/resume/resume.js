@@ -16,7 +16,7 @@ const app = window.document.getElementById('app');
 
 const resumeInfo = async (user_id, resume_id) => {
     const responseUser = await network.doGet(`${usersByIdURL}${user_id}`);
-    const user = (await responseUser.json()).user;
+    const user = await responseUser.json();
     console.log(user);
     console.assert(responseUser.ok);
 

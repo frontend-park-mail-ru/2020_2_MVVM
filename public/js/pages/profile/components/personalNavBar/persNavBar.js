@@ -2,16 +2,16 @@ import {app} from "../../../createCandidateSum/createCandidateSum.js";
 
 export function checkoutProfilePage(profile, content, body, person) {
     const profNavBar = document.getElementsByClassName("persNavBar__menu-list");
-
-    for (let i=0; i < profNavBar[0].childElementCount; i++) {
+    for (let i = 0; i < profNavBar[0].childElementCount; i++) {
         profNavBar[0].children[i].addEventListener('click', () => {
-            body.innerHTML='';
+            body.innerHTML = '';
             profile.isPersonalRusemes = profNavBar[0].children[i].textContent !== 'Личная информация';
-            if (profile.isPersonalRusemes){
+            if (profile.isPersonalRusemes) {
                 if (content.user.user_type === "candidate") {
                     personalResOrVac(profile, true, body, profile.resumes);
                 } else {
-                    personalResOrVac(profile, false,body, profile.vacancies);
+                    console.log("vaccc", profile.vacancies);
+                    personalResOrVac(profile, false, body, profile.vacancies);
                 }
 
             } else {
@@ -22,11 +22,12 @@ export function checkoutProfilePage(profile, content, body, person) {
 }
 
 
-export function personalResOrVac(profile,isCand, mainColumnLeft, list){
+export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
+    console.log("list=", list);
     if (isCand) {
         mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persResumes.tmpl'](list.resume));
     } else {
-        mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persVacancies.tmpl']());
+        mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persVacancies.tmpl'](list));
     }
 
 
@@ -38,6 +39,9 @@ export function personalResOrVac(profile,isCand, mainColumnLeft, list){
             if (isCand) {
                 profile.router.change('/resume', list.resume[i].resume.user_id, list.resume[i].resume.id);
             }
+            /*else {
+                profile.router.change('/vacancy', list[i].user_id, list.resume[i].resume.id);
+            }*/
         })
     }
 
@@ -54,6 +58,6 @@ export function personalResOrVac(profile,isCand, mainColumnLeft, list){
     }
 }
 
-export function personalInfo(person, mainColumnLeft){
+export function personalInfo(person, mainColumnLeft) {
     mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persInfo.tmpl'](person));
 }

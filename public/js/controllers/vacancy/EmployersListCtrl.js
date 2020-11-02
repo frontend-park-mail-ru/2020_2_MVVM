@@ -9,7 +9,7 @@ export default class EmployersListCtrl {
             const response = await fetch(
                 `${URL}${vacancyPageURL}` + new URLSearchParams({
                     start: 0,
-                    end: 10,
+                    limit: 10,
                 }),
                 {
                     method: "GET",

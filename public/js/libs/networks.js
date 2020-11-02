@@ -36,13 +36,14 @@ class Network {
         )
     }
 
-    async doGetLimit(url, start, end){
+    async doGetLimit(url, start, limit){
         return await fetch(
             `${URL}${url}` + new URLSearchParams({
                 start: start,
-                end: end,
+                limit: limit,
             }),
             {
+                mode: "cors",
                 method: "GET",
                 credentials: "include",
             }
