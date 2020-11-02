@@ -1,7 +1,7 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import createElem from "../../libs/createElem.js";
 import {openAndDelJob,renderInputForm} from "../../components/popUpResume/popUpCand/createOneJob.js";
-import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
+// import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 
 
 export const app = window.document.getElementById('app');

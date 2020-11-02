@@ -6,7 +6,7 @@ import {EMAIL_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK} from "../../../../libs/con
 // let error = document.getElementsByClassName('error');
 
 export function checkFrom(submitF, form, error) {
-    let isOk = true;
+
 
     const email = document.getElementById('emailReg');
     const nickname = document.getElementById('nickReg');
@@ -16,6 +16,7 @@ export function checkFrom(submitF, form, error) {
 
 
     form.addEventListener('submit',function (event){
+        let isOk = true;
         const resEmail = Validation.validateEmail(email.value);
         const resNick = Validation.validateLogin(nickname.value);
         const resPasswd = Validation.validatePasswd(password.value);

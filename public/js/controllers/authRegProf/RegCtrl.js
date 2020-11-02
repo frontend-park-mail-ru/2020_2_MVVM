@@ -11,7 +11,6 @@ export default class RegCtrl {
 
             console.log(form);
             const formData = new FormData(form);
-            // let errorMes = document.getElementsByClassName("error");
             errorMes[0].innerHTML = '';
 
             const body = {

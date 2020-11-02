@@ -27,7 +27,7 @@ export default class CreateResume{
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            afterRenderResume(this.onsubmit, form, jobsArr);
+            checkFrom(this.onsubmit, form, jobsArr);
         });
 
         popUp();
@@ -35,13 +35,13 @@ export default class CreateResume{
     }
 }
 
-export function afterRenderResume(submitF, form, jobsArr) {
-    checkFrom(submitF, form, jobsArr);
-}
+// export function afterRenderResume(submitF, form, jobsArr) {
+//     checkFrom(submitF, form, jobsArr);
+// }
 
 async function popUp() {
     const btn = document.getElementById("btn__add_exp");
     await btn.addEventListener('click', (event) => {
-        renderInputForm(undefined);
+        renderInputForm(undefined, false);
     });
 }

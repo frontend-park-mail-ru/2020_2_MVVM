@@ -14,8 +14,7 @@ import {
 let numOfJob = 0;
 let currentWork;
 
-export async function renderInputForm(value) {
-
+export async function renderInputForm(value, isUpdate) {
     app.insertAdjacentHTML("afterbegin", window.fest['popUpCand.tmpl'](value));
     let exit = document.getElementsByClassName("popUp__cont_block");
     let bg = document.getElementsByClassName("bg");
@@ -39,15 +38,16 @@ export async function renderInputForm(value) {
     });
 
     const form = bg[0].querySelector("form");
+
     await form.addEventListener('submit', (event) => {
-        collectInfo(event, form, bg[0]).then(value =>{
+        collectInfo(event, form, bg[0], isUpdate).then(value =>{
             if (value){
-                jobsArr.push(value);
-                // openAndDelJob(value);
                 let board = document.getElementById("experience_board");
+                jobsArr.push(value);
                 board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
+                // openAndDelJob(value);
                 board.lastChild.firstChild.addEventListener('click', (event)=>{
-                    openJob(value);
+                    openJob(value, true);
                 });
                 board.lastChild.lastChild.addEventListener('click', (event)=>{
                     (event.currentTarget).parentNode.remove();
@@ -58,12 +58,12 @@ export async function renderInputForm(value) {
     });
 }
 
-async function openJob(value){
-    renderInputForm(value);
+async function openJob(value, isUpdate){
+    renderInputForm(value, isUpdate);
 }
 
 
-async function collectInfo(event, form, bg){
+async function collectInfo(event, form, bg, isUpdate){
     let data = {};
     event.preventDefault();
     const formData =  new FormData(form);
@@ -131,7 +131,7 @@ export async function openAndDelJob(value) {
     // board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
     for (let i = 0; i<board.childElementCount; i++){
         board.children[i].firstChild.addEventListener('click', (event)=>{
-            openJob(value[i]);
+            openJob(value[i], true);
         });
         board.children[i].lastChild.addEventListener('click', (event)=>{
             (event.currentTarget).parentNode.remove();
