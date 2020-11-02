@@ -81,6 +81,8 @@ export const updateVacancyURL = "/v1/vacancy/";
 
 export const addCompanyUrl =  "/v1/company/";
 export const companyByIdURL = "/v1/company/by/id/";
+export const companyPageURL = "/v1/company/page?";
+export const companyMineURL = "/v1/company/mine";
 
 //sphere
 export const spheres = [

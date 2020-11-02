@@ -1,5 +1,5 @@
 import Profile from "../../pages/profile/profile.js";
-import {resumeMineURL, URL, vacancyMineURL, vacancyPageURL, companyByIdURL} from "../../libs/constants.js";
+import {resumeMineURL, URL, vacancyMineURL, vacancyPageURL, companyMineURL} from "../../libs/constants.js";
 import {network} from "../../libs/networks.js";
 
 export default class ProfileCtrl {
@@ -28,21 +28,11 @@ export default class ProfileCtrl {
             }
         };
 
-        const loadCompany = async (comp_id) => {
+        const loadCompany = async () => {
             try {
-                console.log("comp_id in load", comp_id)
-                const response = await network.doGet(companyByIdURL + comp_id);
+                const response = await network.doGet(companyMineURL);
                 const data = await response.json();
-                /*console.log("comp_id in load", comp_id)
-                const data = await fetch(
-                    `${URL}${companyByIdURL}` + new URLSearchParams(comp_id),
-                    {
-                        credentials: "include",
-                        method: "GET",
-                    },
-                )*/
-
-                //console.assert(response.ok);
+                console.assert(response.ok);
                 return data;
             } catch (err) {
                 console.assert(err);

@@ -47,8 +47,8 @@ export default class Profile {
             await this.loadVacancies().then((data) => {
                 this.vacancies = data.vacancyList;
             });
-            // пример загрузки компании для первой вакансии в списке(нужно передать в get-запросе comp_id)
-            await this.loadCompany(this.vacancies[0].CompID).then((data) => {
+            // работодатель может быть привязан ток к одной компании, поэтому для всех вакансий работодателя компания одна
+            await this.loadCompany().then((data) => {
                 this.company = data.official_company;
             });
             //
@@ -59,8 +59,6 @@ export default class Profile {
             });
         }
         console.log("data=", this.vacancies);
-        console.log("comp_id=", this.vacancies[0].CompID);
-        console.log("data=", this.company);
         const mainPage = createElem("div", "main__page", container);
         const mainColumnLeft = createElem("div", "main__page_left", mainPage);
         const body = createElem("div", "main__page_left-body", mainColumnLeft);
