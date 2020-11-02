@@ -1,6 +1,6 @@
-import CreateCompany from "../pages/createCompanySum/createCompany.js";
-import {network} from "../libs/networks.js";
-import {addResumeURL} from "../libs/constants.js";
+import CreateCompany from "../../pages/createCompanySum/createCompany.js";
+import {network} from "../../libs/networks.js";
+import {addResumeURL, addVacancyURL, URL} from "../../libs/constants.js";
 
 export default class CreateCompanyCtrl {
     constructor(router) {
@@ -9,7 +9,7 @@ export default class CreateCompanyCtrl {
 
             let formData = new FormData(form);
 
-            const json = {};
+            /*const json = {};
 
             json.description = formData.get("description");
             json.name = formData.get("name");
@@ -17,7 +17,13 @@ export default class CreateCompanyCtrl {
             json.location = formData.get("location");
             json.sphere = cbArr;
 
-            console.log(json);
+            console.log(json);*/
+            const response = await fetch(
+                `${URL}${addCompanyURL}`,
+                {
+                    body: new FormData(form),
+                    method: "post"
+                });
 
             // const response = await network.doPost(addResumeURL, json);
             //

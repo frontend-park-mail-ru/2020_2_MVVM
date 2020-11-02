@@ -1,13 +1,12 @@
-import CreateResume from "../pages/createCandidateSum/createCandidateSum.js";
-import {network} from "../libs/networks.js";
-import {addResumeURL} from "../libs/constants.js";
+import UpdateResume from "../../pages/updateResume/updateResume.js";
+import {network} from "../../libs/networks.js";
+import {updateResumeURL} from "../../libs/constants.js";
 
-export default class CreateResumeCtrl{
+export default class updateResumeCtrl{
     constructor(router) {
         this.router = router;
 
-        this.page = new CreateResume(async (form, jobsArr) => {
-
+        this.page = new UpdateResume(async (form, jobsArr) => {
 
             let formData = new FormData(form);
 
@@ -25,14 +24,14 @@ export default class CreateResumeCtrl{
             json.experience_month = parseInt(formData.get("experience_month"));
             json.skills = formData.get("skills");
             json.education_level = formData.get("education_level");
-            json.area_search = formData.get("area_search");
             if (formData.get("awards") !== "") {
                 json.awards = formData.get("awards");
             }
             json.custom_experience = jobsArr;
 
-            console.log(json);
-            const response = await network.doPost(addResumeURL, json);
+            // console.log(json);
+
+            const response = await network.doPut(updateResumeURL, json);
 
             if (response.status >= 200 && response.status < 300) {
                 const content = await response.json();

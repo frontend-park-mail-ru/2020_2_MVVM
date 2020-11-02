@@ -1,6 +1,6 @@
-import CreateVacancy from "../pages/createEmployerSum/createEmployerSum.js";
+import CreateVacancy from "../../pages/createEmployerSum/createEmployerSum.js";
+import {URL, addVacancyURL, addResumeURL} from "../../libs/constants.js";
 
-import {URL, addVacancyURL} from "../libs/constants.js";
 
 export default class CreateResumeCtrl {
     constructor(router) {
@@ -14,7 +14,7 @@ export default class CreateResumeCtrl {
                     body: new FormData(form),
                     method: "post"
                 });
-            const content = await response.json();
+            //const content = await response.json();
             /*
              console.assert(response.ok);
              console.log(content.resume.user_id);*/

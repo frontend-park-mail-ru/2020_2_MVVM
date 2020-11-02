@@ -36,11 +36,11 @@ class Network {
         )
     }
 
-    async doGetLimit(url, start, limit){
+    async doGetLimit(url, start, end){
         return await fetch(
             `${URL}${url}` + new URLSearchParams({
                 start: start,
-                limit: limit,
+                end: end,
             }),
             {
                 method: "GET",

@@ -46,11 +46,11 @@ export const UNAUTHORISED = 401;
 
 //path
 
-export const URL = "https://studhunt.ru/api";
+//export const URL = "https://studhunt.ru/api";
 
 // export const URL = "api";
 
-//export const URL = "http://localhost/api";
+export const URL = "http://localhost/api";
 
 //export const URL = "http://127.0.0.1/api";
 
@@ -68,7 +68,7 @@ export const updateUserURL = "/v1/users/";
 export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
-export const resumeMineURL = "/v1/resume/mine";
+export const resumeMineURL = "/v1/";
 export const updateResumeURL = "/v1/resume/";
 export const resumeSearchURL = '/v1/resume/search'
 
@@ -76,6 +76,11 @@ export const resumeSearchURL = '/v1/resume/search'
 export const addVacancyURL = "/v1/vacancy/";
 export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
+export const vacancyMineURL = "/v1/vacancy/mine?";
+export const updateVacancyURL = "/v1/vacancy/";
+
+export const addCompanyUrl =  "/v1/company/";
+export const companyByIdURL = "/v1/company/by/id/";
 
 //sphere
 export const spheres = [

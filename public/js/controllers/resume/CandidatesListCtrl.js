@@ -1,6 +1,6 @@
-import CandidatesList from "../pages/candidatesList/candidatesList.js";
-import {usersByIdURL, resumePageURL} from "../libs/constants.js";
-import {network} from "../libs/networks.js";
+import CandidatesList from "../../pages/candidatesList/candidatesList.js";
+import {usersByIdURL, resumePageURL} from "../../libs/constants.js";
+import {network} from "../../libs/networks.js";
 
 export default class CandidatesListCtrl{
     constructor(router) {

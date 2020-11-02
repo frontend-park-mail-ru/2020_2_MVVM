@@ -1,6 +1,6 @@
-import AuthList from '../pages/auth/auth.js';
-import {SUCCESS, loginURL, UNAUTHORISED} from "../libs/constants.js";
-import {network} from "../libs/networks.js";
+import AuthList from '../../pages/auth/auth.js';
+import {SUCCESS, loginURL, UNAUTHORISED} from "../../libs/constants.js";
+import {network} from "../../libs/networks.js";
 
 
 export default class AuthCtrl {

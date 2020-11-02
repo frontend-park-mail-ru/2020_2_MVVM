@@ -1,6 +1,6 @@
-import RegList from '../pages/reg/reg.js';
-import {addUserURL, UNAUTHORISED} from "../libs/constants.js";
-import {network} from "../libs/networks.js";
+import RegList from '../../pages/reg/reg.js';
+import {addUserURL, UNAUTHORISED} from "../../libs/constants.js";
+import {network} from "../../libs/networks.js";
 
 export default class RegCtrl {
     constructor(router) {
