@@ -72,10 +72,12 @@ export const resumeMineURL = "/v1/resume/mine";
 export const updateResumeURL = "/v1/resume/";
 export const resumeSearchURL = '/v1/resume/search'
 
-
 export const addVacancyURL = "/v1/vacancy/";
 export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
+
+export const companiesPageURL = "/v1/company/page";
+export const companySearchUrl = "/v1/company/search";
 
 //sphere
 export const spheres = [
@@ -142,9 +144,3 @@ export const experienceMonth = {
     10: "5-10 лет",
     11: "больше 10 лет",
 }
-
-// export const city = {
-//     1: "Москва",
-//     2: "Санкт-Петербург",
-//     3: "Екатеринбург",
-// }

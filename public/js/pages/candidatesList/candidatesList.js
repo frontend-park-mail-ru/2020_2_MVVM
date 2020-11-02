@@ -7,7 +7,6 @@ import {network} from "../../libs/networks.js";
 const app = window.document.getElementById('app');
 
 export default class CandidatesList {
-    // TODO ROUTER - костыль, сделать нормально через контроллеры
     constructor(fetchCandInfo, router) {
         this.fetchCandInfo = fetchCandInfo
         this.router = router
@@ -148,7 +147,7 @@ export default class CandidatesList {
         if (resume && resume.length) {
             const infoOfCand = await this.fetchCandInfo(resume);
             mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
-            mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
+            // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
             // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
             getUserResume(this.router, main, infoOfCand);
         } else {
@@ -202,9 +201,7 @@ async function search(form, mainList, main, fetchCandInfo, router) {
 }
 
 function afterRender(mainList, main, fetchCandInfo, router) {
-
     checkBoxes();
-
     let form = document.querySelector("form");
     form.addEventListener('submit', (event) => {
         event.preventDefault();
