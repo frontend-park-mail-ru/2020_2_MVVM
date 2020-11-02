@@ -4,6 +4,7 @@ import createElem from "../../libs/createElem.js";
 
 const app = window.document.getElementById('app');
 
+
 export default class RegList{
     constructor(onsubmit) {
         this.onsubmit = onsubmit
@@ -11,7 +12,6 @@ export default class RegList{
 
     render(content){
         app.innerHTML = '';
-
 
 
         const auth = new NavBarInit(app, content, false,"Регистрация");
@@ -27,7 +27,3 @@ export default class RegList{
         checkFrom(this.onsubmit, form, error);
     }
 }
-//
-// function afterRender(submitF) {
-//     checkFrom(submitF);
-// }
