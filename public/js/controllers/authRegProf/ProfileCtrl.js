@@ -39,6 +39,6 @@ export default class ProfileCtrl {
             }
         };
 
-        this.page = new Profile(null, loadVacancies, loadCompany, router); // ???
+        this.page = new Profile(loadResumes, loadVacancies, loadCompany, router);
     }
 }
