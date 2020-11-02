@@ -1,12 +1,12 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {network} from "../../libs/networks.js";
 import {
-    usersByIdURL,
     resumeByIdURL,
     gender,
     educationLevel,
     experienceLevel,
     experienceMonth,
+    candByIdURL,
     // city
 } from "../../libs/constants.js";
 import createElem from "../../libs/createElem.js";
@@ -15,8 +15,9 @@ import createElem from "../../libs/createElem.js";
 const app = window.document.getElementById('app');
 
 const resumeInfo = async (user_id, resume_id) => {
-    const responseUser = await network.doGet(`${usersByIdURL}${user_id}`);
-    const user = (await responseUser.json()).user;
+    console.log(user_id, resume_id);
+    const responseUser = await network.doGet(candByIdURL + `${user_id}`);
+    const user = await responseUser.json();
     console.log(user);
     console.assert(responseUser.ok);
 

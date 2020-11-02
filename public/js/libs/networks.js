@@ -43,6 +43,7 @@ class Network {
                 limit: limit,
             }),
             {
+                mode: "cors",
                 method: "GET",
                 mode: 'cors',
                 credentials: "include",

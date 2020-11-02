@@ -67,7 +67,7 @@ export default class Profile {
         // mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
 
 
-        //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
+        //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q
 
         await personalInfo(person, body);
         await checkoutProfilePage(this, content, body, person);
