@@ -13,6 +13,7 @@ export default class updateResumeCtrl{
             const json = {};
 
             json.id = formData.get("resume_id");
+            json.area_search = formData.get("area_search");
             json.title = formData.get("title");
             json.description = formData.get("description");
             json.salary_min = parseInt(formData.get("salary_min"));
@@ -37,8 +38,10 @@ export default class updateResumeCtrl{
 
             if (response.status >= 200 && response.status < 300) {
                 const content = await response.json();
+                console.log(content);
                 console.assert(response.ok);
-                this.router.change('\/resume', content.resume.user_id, content.resume.id);
+                console.log("content.resume.user_id = ", content.resume.cand_id);
+                this.router.change('\/resume', content.resume.cand_id, content.resume.id);
             }
 
         });

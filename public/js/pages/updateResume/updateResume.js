@@ -3,19 +3,19 @@ import createElem from "../../libs/createElem.js";
 import {openAndDelJob,renderInputForm} from "../../components/popUpResume/popUpCand/createOneJob.js";
 import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 
-
 export const app = window.document.getElementById('app');
-// export let jobsArr = [];
-
 
 export default class UpdateResume{
     constructor(onsubmit) {
         this.onsubmit = onsubmit;
-        this.jobsArr = [];
+        // this.jobsArr = [];
+        // this.numOfJob = 0;
     }
 
     render(content, ...args){
         app.innerHTML = '';
+        this.jobsArr = [];
+        this.numOfJob = 0;
         //
         // console.log(content);
         console.log(args[2]);
@@ -54,7 +54,21 @@ export default class UpdateResume{
                }
             });
 
-            this.jobsArr = user.experience;
+            user.experience.forEach((item, index)=>{
+                this.jobsArr.push(
+                    {
+                        begin: item.begin,
+                        finish: item.finish,
+                        name_job: item.name_job,
+                        continue_to_today: item.continue_to_today,
+                        position: item.position,
+                        duties: item.duties,
+                        numOfJob: index,
+                    }
+                )
+            });
+            this.numOfJob = user.experience.length;
+            console.log(this.jobsArr);
         }
 
         const employersList = new NavBarInit(app, content, false, "");
@@ -72,9 +86,8 @@ export default class UpdateResume{
             afterRenderResume(this.onsubmit, form, this.jobsArr);
         });
 
-        openAndDelJob(user.experience, this);
+        openAndDelJob(this.jobsArr, this);
         popUp(this);
-
     }
 }
 

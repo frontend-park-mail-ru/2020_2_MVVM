@@ -125,7 +125,8 @@ export const gender = {
 }
 
 export const educationLevel = {
-    "middle": "Среднее cпециальное",
+    "middle": "Среднее",
+    "specialized_secondary": "Среднее специальное",
     "incomplete_higher": "Неоконченное высшее",
     "higher": "Высшее",
     "bachelor": "Бакалавр",

@@ -42,6 +42,7 @@ export async function renderInputForm(value, classCand) {
         collectInfo(event, form, bg[0]).then(value =>{
             if (value){
                 classCand.jobsArr.push(value);
+                classCand.numOfJob++;
                 // openAndDelJob(value);
                 let board = document.getElementById("experience_board");
                 board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
@@ -127,7 +128,6 @@ async function checkPopUpCand(data, form){
 
 export async function openAndDelJob(value, classCand) {
     let board = document.getElementById("experience_board");
-    // board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
     for (let i = 0; i<board.childElementCount; i++){
         board.children[i].firstChild.addEventListener('click', (event)=>{
             openJob(value[i], classCand);

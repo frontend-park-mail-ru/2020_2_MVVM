@@ -32,12 +32,13 @@ export default class CreateResumeCtrl{
             json.custom_experience = jobsArr;
 
             console.log(json);
+
             const response = await network.doPost(addResumeURL, json);
 
             if (response.status >= 200 && response.status < 300) {
                 const content = await response.json();
                 console.assert(response.ok);
-                this.router.change('\/resume', content.resume.user_id, content.resume.id);
+                this.router.change('\/resume', content.resume.cand_id, content.resume.id);
             }
 
         });

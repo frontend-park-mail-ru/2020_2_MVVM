@@ -5,19 +5,18 @@ import {renderInputForm} from "../../components/popUpResume/popUpCand/createOneJ
 
 
 export const app = window.document.getElementById('app');
-// export let jobsArr=[];
-
 
 export default class CreateResume{
     constructor(onsubmit) {
         this.onsubmit = onsubmit
-        this.jobsArr = [];
+        // this.jobsArr = [];
     }
 
     render(content, ...args){
         //console.log(content);
         app.innerHTML = '';
-
+        this.jobsArr = [];
+        this.numOfJob = 0;
 
         const employersList = new NavBarInit(app, content, false, "Создание резюме");
         employersList.loadNavBar();
