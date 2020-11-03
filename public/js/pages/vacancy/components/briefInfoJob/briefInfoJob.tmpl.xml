@@ -5,7 +5,7 @@
       <fest:atttibute> <img src="{items.logo}"></img> </fest:atttibute>
     </div>
     <div class="describe-employer">
-      <h4><fest:value>items.name</fest:value></h4>
+      <a href="" id="companyName"><h4><fest:value>items.name</fest:value></h4></a>
       <span><fest:value>items.location</fest:value></span>
       <div class="contact-employment">
         <div class="contact-employment-item">

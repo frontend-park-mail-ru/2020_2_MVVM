@@ -37,11 +37,15 @@ async function vacancyInfo(user_id, vacancy_id, company_id){
 
 
 export default class Vacancy{
+    constructor(router) {
+        this.router = router;
+    }
+
     async render(content, user_id, vacancy_id, company_id) {
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, content, true,"Вакансия");
+        const navBarInit = new NavBarInit(app, content, false,"Вакансия");
         navBarInit.loadNavBar();
 
         const allInfo = await vacancyInfo(user_id, vacancy_id, company_id);
@@ -111,6 +115,12 @@ export default class Vacancy{
 
         contentRightColumn.insertAdjacentHTML("beforeend", window.fest['shareBar.tmpl']());
 
+
+        // let companyLink = document.getElementById("companyName");
+        // companyLink.addEventListener((event)=>{
+        //     event.preventDefault();
+        //     // this.router.change("/company", )
+        // });
 
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
     }
