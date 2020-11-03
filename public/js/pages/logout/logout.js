@@ -7,5 +7,4 @@ export default class Logout {
     render() {
         this.onsubmit();
     }
-
 }

@@ -37,7 +37,7 @@ const resumeInfo = async (user_id, resume_id) => {
     let dataReg = '';
     dataReg = dateRegBd.slice(8,10) + '-' + dateRegBd.slice(5,7) + '-' + dateRegBd.slice(0,4);
 
-    let experiences = resume.experience_custom_company;
+    let experiences = resume.custom_experience;
     if (experiences){
         experiences.forEach((item)=>{
             let tmpDate = new Date(item.begin);

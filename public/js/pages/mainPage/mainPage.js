@@ -9,7 +9,6 @@ export default class MainPage{
 
         app.innerHTML = '';
 
-        console.log(content);
         const navBarInit = new NavBarInit(app, content, true,  "Самый простой способ найти новую работу");
         navBarInit.loadNavBar();
 
