@@ -61,6 +61,7 @@ export const usersByIdURL = "/v1/users/by/id/";
 export const updateUserURL = "/v1/users/";
 
 export const candByIdURL = "/v1/users/cand/by/id/";
+export const emplByIdURL = "/v1/users/empl/by/id/";
 
 export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";

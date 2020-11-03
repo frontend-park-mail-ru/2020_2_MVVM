@@ -1,12 +1,39 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {recentJobs} from './components/recentJobs/resentJobs.js';
 import createElem from "../../libs/createElem.js";
+import {network} from "../../libs/networks.js";
+import {
+    companyByIdURL,
+    emplByIdURL,
+    vacancyByIdURL,
+    educationLevel,
+    experienceMonth,
+    experienceLevel,
+    gender
+} from "../../libs/constants.js";
 
 const app = window.document.getElementById('app');
 
 
-function vacancyInfo(user_id, vacancy_id, company_id){}
+async function vacancyInfo(user_id, vacancy_id, company_id){
 
+    const allInfo = ([
+        new Promise( (resolve) => network.doGet(emplByIdURL+`${user_id}`).then(resolve)),
+        new Promise((resolve) =>  network.doGet(vacancyByIdURL+`${vacancy_id}`).then(resolve)),
+        new Promise((resolve) =>  network.doGet(companyByIdURL+`${company_id}`).then(resolve)),
+    ]);
+
+
+    const pageInfo = await Promise.all(allInfo).then((values) => {
+        return values;
+    });
+
+    return {
+        userInfo: await pageInfo[0].json(),
+        vacancyInfo: (await pageInfo[1].json()).Vacancy,
+        companyInfo: (await pageInfo[2].json()).company,
+    };
+}
 
 
 export default class Vacancy{
@@ -17,18 +44,19 @@ export default class Vacancy{
         const navBarInit = new NavBarInit(app, content, true,"Вакансия");
         navBarInit.loadNavBar();
 
-        const infoAll = await vacancyInfo(user_id, vacancy_id, company_id);
+        const allInfo = await vacancyInfo(user_id, vacancy_id, company_id);
+        console.log(allInfo);
 
         const main = createElem("div", "main", app);
         const mainContent = createElem("div", "main-content", main);
 
         const briefInfoJob = {
-            name: 'Tix Dog',
+            name: allInfo.companyInfo.name,
             logo: 'img/sj.png',
-            location: '274 Seven Sisters Road, London, N4 2HY',
-            site: 'www.jobhunt.com',
-            phone: '+90 538 963 54 87',
-            mail: 'ali.tufan@jobhunt.com',
+            location: allInfo.vacancyInfo.location,
+            site: allInfo.companyInfo.link,
+            phone: allInfo.userInfo.phone,
+            mail: allInfo.userInfo.email,
         }
         mainContent.insertAdjacentHTML("beforeend", window.fest['briefInfoJob.tmpl'](briefInfoJob));
 
@@ -38,41 +66,22 @@ export default class Vacancy{
             [{
                 mainInfo: [{
                     name: 'Описание работы',
-                    text: 'Company is a 2016 Iowa City-born start-up that develops consectetuer adipiscing elit. ' +
-                        'Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, ' +
-                        'dapibus id, mattis vel, nisi.Sed pretium, ligula sollicitudin laoreet viverra, ' +
-                        'tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. ' +
-                        'Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue.' +
-                        'Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus.' +
-                        'Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, ' +
-                        'lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien '
+                    text: allInfo.vacancyInfo.description,
                 }],
 
                 required: [{
                     name: 'Требуемые знания, Навыки и Способности',
                     requiredItem: [
-                        'Ability to write code – HTML & CSS (SCSS flavor of SASS preferred when writing CSS)',
-                        'Proficient in Photoshop, Illustrator, bonus points for familiarity with Sketch ' +
-                        '(Sketch is our preferred concepting)',
-                        'Cross-browser and platform testing as standard practice',
-                        'Experience using Invision a plus',
-                        'Experience in video production a plus or, at a minimum, a willingness to learn',
+                        allInfo.vacancyInfo.skills,
+                        allInfo.vacancyInfo.requirements,
                     ],
                 }],
                 experience: [{
                     name: 'Образование + Опыт работы',
                     experienceItem: [
-                        'Advanced degree or equivalent experience in graphic and web design',
-                        '3 or more years of professional design experience',
-                        'Direct response email experience',
-                        'Ecommerce website design experience',
-                        'Familiarity with mobile and web apps preferred',
-                        'Excellent communication skills, most notably a demonstrated ability to solicit and ' +
-                        'address creative and design feedback',
-                        'Must be able to work under pressure and meet deadlines while maintaining a positive attitude ' +
-                        'and providing exemplary customer service',
-                        'Ability to work independently and to carry out assignments to completion within parameters ' +
-                        'of instructions given, prescribed routines, and standard accepted practices',
+                        educationLevel[allInfo.vacancyInfo.education_level],
+                        experienceMonth[allInfo.vacancyInfo.experience_month],
+                        experienceLevel[allInfo.vacancyInfo.career_level],
                     ],
                 }],
             }];
@@ -83,16 +92,42 @@ export default class Vacancy{
 
         const contentRightColumn = createElem("div", "content-right-column", mainContent);
 
+        //
+        // const jobOverview1 = {
+        //         name: user.name,
+        //         salary_min: nullToString(resume.resume.salary_min),
+        //         salary_max: nullToString(resume.resume.salary_max),
+        //         gender: nullToString(gender[resume.resume.gender]),
+        //         experience_level: nullToString(experienceLevel[resume.resume.education_level]),
+        //         experience_month: nullToString(experienceMonth[resume.resume.experience_month]),
+        //         interest: "TODOManagement",
+        //         education: nullToString(educationLevel[resume.resume.education_level]),
+        //         career_level: nullToString(resume.resume.career_level),
+        // };
+
         const jobOverview =
             {
-                name: 'вакансии',
-                salary: '£15,000 - £20,000',
-                gender: 'Мужской',
-                level: 'Должностное лицо',
-                interest: 'Менеджмент',
-                experience: '2 Года',
-                education: 'Бакалавриат'
+                name: allInfo.vacancyInfo.title,
+                salary_min: allInfo.vacancyInfo.salary_min,
+                salary_max: allInfo.vacancyInfo.salary_max,
+                gender: 'TODOМужской',
+                interest: allInfo.vacancyInfo.spheres,
+                experience_month: allInfo.vacancyInfo.employment,
+                education: educationLevel[allInfo.vacancyInfo.education_level],
+                career_level: allInfo.vacancyInfo.week_work_hours,
             };
+
+        // const jobOverview =
+        //     {
+        //         name: allInfo.vacancyInfo.title,
+        //         salary_min: allInfo.vacancyInfo.salary_min,
+        //         salary_max: allInfo.vacancyInfo.salary_max,
+        //         gender: 'TODOМужской',
+        //         interest: "фывыфа",
+        //         experience_month: "фывыфа",
+        //         education: "фывыфа",
+        //         career_level: "efsdc",
+        //     };
 
         contentRightColumn.insertAdjacentHTML("beforeend", window.fest['jobOverview.tmpl'](jobOverview));
 
