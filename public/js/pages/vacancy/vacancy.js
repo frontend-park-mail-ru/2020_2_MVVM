@@ -92,19 +92,6 @@ export default class Vacancy{
 
         const contentRightColumn = createElem("div", "content-right-column", mainContent);
 
-        //
-        // const jobOverview1 = {
-        //         name: user.name,
-        //         salary_min: nullToString(resume.resume.salary_min),
-        //         salary_max: nullToString(resume.resume.salary_max),
-        //         gender: nullToString(gender[resume.resume.gender]),
-        //         experience_level: nullToString(experienceLevel[resume.resume.education_level]),
-        //         experience_month: nullToString(experienceMonth[resume.resume.experience_month]),
-        //         interest: "TODOManagement",
-        //         education: nullToString(educationLevel[resume.resume.education_level]),
-        //         career_level: nullToString(resume.resume.career_level),
-        // };
-
         const jobOverview =
             {
                 name: allInfo.vacancyInfo.title,
@@ -117,17 +104,6 @@ export default class Vacancy{
                 career_level: allInfo.vacancyInfo.week_work_hours,
             };
 
-        // const jobOverview =
-        //     {
-        //         name: allInfo.vacancyInfo.title,
-        //         salary_min: allInfo.vacancyInfo.salary_min,
-        //         salary_max: allInfo.vacancyInfo.salary_max,
-        //         gender: 'TODOМужской',
-        //         interest: "фывыфа",
-        //         experience_month: "фывыфа",
-        //         education: "фывыфа",
-        //         career_level: "efsdc",
-        //     };
 
         contentRightColumn.insertAdjacentHTML("beforeend", window.fest['jobOverview.tmpl'](jobOverview));
 

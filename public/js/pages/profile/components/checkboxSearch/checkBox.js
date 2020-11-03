@@ -1,7 +1,7 @@
 import {network} from "../../../../libs/networks.js";
 import {updateUserURL} from "../../../../libs/constants.js";
 
-export function updateProfileFields() {
+export function updateProfileFields(person) {
     const updateButton = document.getElementsByClassName("pers__list_refactor");
     for (let i=0; i< updateButton.length; i++){
         updateButton[i].addEventListener('click', ()=>{
@@ -16,15 +16,19 @@ export function updateProfileFields() {
                 updateButton[i].previousSibling.innerHTML=`<div>${newValueField}</div>`;
                 updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
 
-                saveData(updateButton[i], newValueField).catch((error)=>console.log(error));
+                saveData(person, updateButton[i], newValueField).catch((error)=>console.log(error));
             }
         });
     }
 }
 
 
-async function saveData(tmpField, newValueField){
-    let url = updateUserURL;
+async function saveData(person, tmpField, newValueField){
+    let url;
+
+    url = updateUserURL;
+
+
     let field = tmpField.previousElementSibling.id;
     let data = {
         [field]: newValueField.toString(),

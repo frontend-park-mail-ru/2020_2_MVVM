@@ -38,9 +38,9 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
                 console.log(list.resume[i].resume);
                 profile.router.change('/resume', list.resume[i].resume.cand_id, list.resume[i].resume.id);
             }
-            /*else {
-                profile.router.change('/vacancy', list[i].user_id, list.resume[i].resume.id);
-            }*/
+            else {
+                profile.router.change('/vacancy', list[i].EmpID, list[i].ID, list[i].CompID);
+            }
         })
     }
 
