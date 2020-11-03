@@ -41,9 +41,8 @@ export async function renderInputForm(value, classCand) {
     await form.addEventListener('submit', (event) => {
         collectInfo(classCand, event, form, bg[0]).then(value =>{
             if (value){
-                classCand.jobsArr.push(value);
-                // openAndDelJob(value);
                 let board = document.getElementById("experience_board");
+                classCand.jobsArr.push(value);
                 board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
                 board.lastChild.firstChild.addEventListener('click', (event)=>{
                     openJob(value, classCand);

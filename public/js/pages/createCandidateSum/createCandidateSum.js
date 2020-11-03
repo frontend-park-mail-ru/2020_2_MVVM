@@ -9,7 +9,6 @@ export const app = window.document.getElementById('app');
 export default class CreateResume{
     constructor(onsubmit) {
         this.onsubmit = onsubmit
-        // this.jobsArr = [];
     }
 
     render(content, ...args){

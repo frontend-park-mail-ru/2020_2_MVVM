@@ -180,8 +180,8 @@ async function search(form, mainList, main, fetchCandInfo, router) {
     data.career_level = formData.getAll("career_level");
     data.area_search = formData.getAll("area_search");
     data.experience_month = formData.getAll("experience_month");
-    data.salary_min = 0;
-    data.salary_max = 10000;
+    // data.salary_min = 0;
+    // data.salary_max = 10000;
     data.keywords = formData.get("keywords");
 
 

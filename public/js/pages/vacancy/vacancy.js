@@ -4,12 +4,20 @@ import createElem from "../../libs/createElem.js";
 
 const app = window.document.getElementById('app');
 
+
+function vacancyInfo(user_id, vacancy_id, company_id){}
+
+
+
 export default class Vacancy{
-    render(content) {
+    async render(content, user_id, vacancy_id, company_id) {
+
         app.innerHTML = '';
 
         const navBarInit = new NavBarInit(app, content, true,"Вакансия");
         navBarInit.loadNavBar();
+
+        const infoAll = await vacancyInfo(user_id, vacancy_id, company_id);
 
         const main = createElem("div", "main", app);
         const mainContent = createElem("div", "main-content", main);
