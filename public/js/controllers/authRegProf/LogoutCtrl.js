@@ -8,7 +8,7 @@ export default class LogoutCtrl{
 
         const onsubmit = async () => {
 
-            const response = network.doPost(`${logoutURL}`, "");
+            const response = await network.doPost(`${logoutURL}`, "");
             this.router.change('\/auth');
 
             if (response.status >= 200 && response.status < 300) {
