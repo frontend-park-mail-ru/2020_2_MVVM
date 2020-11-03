@@ -5,12 +5,13 @@ import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 
 
 export const app = window.document.getElementById('app');
-export let jobsArr = [];
+// export let jobsArr = [];
 
 
 export default class UpdateResume{
     constructor(onsubmit) {
-        this.onsubmit = onsubmit
+        this.onsubmit = onsubmit;
+        this.jobsArr = [];
     }
 
     render(content, ...args){
@@ -53,11 +54,8 @@ export default class UpdateResume{
                }
             });
 
-            jobsArr = user.experience;
-        } else {
-            jobsArr = [];
+            this.jobsArr = user.experience;
         }
-
 
         const employersList = new NavBarInit(app, content, false, "");
         employersList.loadNavBar();
@@ -71,20 +69,20 @@ export default class UpdateResume{
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            afterRenderResume(this.onsubmit, form, jobsArr);
+            afterRenderResume(this.onsubmit, form, this.jobsArr);
         });
 
-        openAndDelJob(jobsArr);
-        popUp();
+        openAndDelJob(user.experience, this);
+        popUp(this);
 
     }
 }
 
 
-async function popUp() {
+async function popUp(classCand) {
     const btn = document.getElementById("btn__add_exp");
     await btn.addEventListener('click', (event) => {
-        renderInputForm(undefined);
+        renderInputForm(undefined, classCand);
     });
 }
 

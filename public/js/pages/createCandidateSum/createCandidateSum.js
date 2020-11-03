@@ -5,12 +5,13 @@ import {renderInputForm} from "../../components/popUpResume/popUpCand/createOneJ
 
 
 export const app = window.document.getElementById('app');
-export let jobsArr=[];
+// export let jobsArr=[];
 
 
 export default class CreateResume{
     constructor(onsubmit) {
         this.onsubmit = onsubmit
+        this.jobsArr = [];
     }
 
     render(content, ...args){
@@ -28,10 +29,10 @@ export default class CreateResume{
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            afterRenderResume(this.onsubmit, form, jobsArr);
+            afterRenderResume(this.onsubmit, form, this.jobsArr);
         });
 
-        popUp();
+        popUp(this);
 
     }
 }
@@ -40,9 +41,9 @@ export function afterRenderResume(submitF, form, jobsArray) {
     checkFrom(submitF, form, jobsArray);
 }
 
-async function popUp() {
+async function popUp(classCand) {
     const btn = document.getElementById("btn__add_exp");
     await btn.addEventListener('click', (event) => {
-        renderInputForm(undefined);
+        renderInputForm(undefined, classCand);
     });
 }

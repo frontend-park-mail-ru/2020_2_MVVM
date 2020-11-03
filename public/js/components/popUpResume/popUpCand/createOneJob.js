@@ -1,4 +1,4 @@
-import {jobsArr, app} from "../../../pages/createCandidateSum/createCandidateSum.js";
+import {app} from "../../../pages/createCandidateSum/createCandidateSum.js";
 import Validation from "../../../libs/validation.js";
 import {
     DATE_OK,
@@ -13,7 +13,7 @@ import {
 let numOfJob = 0;
 let currentWork;
 
-export async function renderInputForm(value) {
+export async function renderInputForm(value, classCand) {
 
     app.insertAdjacentHTML("afterbegin", window.fest['popUpCand.tmpl'](value));
     let exit = document.getElementsByClassName("popUp__cont_block");
@@ -41,24 +41,24 @@ export async function renderInputForm(value) {
     await form.addEventListener('submit', (event) => {
         collectInfo(event, form, bg[0]).then(value =>{
             if (value){
-                jobsArr.push(value);
+                classCand.jobsArr.push(value);
                 // openAndDelJob(value);
                 let board = document.getElementById("experience_board");
                 board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
                 board.lastChild.firstChild.addEventListener('click', (event)=>{
-                    openJob(value);
+                    openJob(value, classCand);
                 });
                 board.lastChild.lastChild.addEventListener('click', (event)=>{
                     (event.currentTarget).parentNode.remove();
-                    delete jobsArr[value.numOfJob];
+                    delete classCand.jobsArr[value.numOfJob];
                 });
             }
         });
     });
 }
 
-async function openJob(value){
-    renderInputForm(value);
+async function openJob(value, classCand){
+    renderInputForm(value, classCand);
 }
 
 
@@ -125,16 +125,16 @@ async function checkPopUpCand(data, form){
     return isOk;
 }
 
-export async function openAndDelJob(value) {
+export async function openAndDelJob(value, classCand) {
     let board = document.getElementById("experience_board");
     // board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
     for (let i = 0; i<board.childElementCount; i++){
         board.children[i].firstChild.addEventListener('click', (event)=>{
-            openJob(value[i]);
+            openJob(value[i], classCand);
         });
         board.children[i].lastChild.addEventListener('click', (event)=>{
             (event.currentTarget).parentNode.remove();
-            delete jobsArr[value[i].numOfJob];
+            delete classCand.jobsArr[value[i].numOfJob];
         });
     }
 
