@@ -28,10 +28,10 @@ export default class updateResumeCtrl{
             if (formData.get("awards") !== "") {
                 json.awards = formData.get("awards");
             }
-            console.log(jobsArr);
+
             json.custom_experience = jobsArr;
 
-            // console.log(json);
+            console.log(json);
 
             const response = await network.doPut(updateResumeURL, json);
 

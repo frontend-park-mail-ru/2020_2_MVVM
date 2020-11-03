@@ -79,7 +79,7 @@ export default class Router {
         });
 
         // начальный рендер
-//             this.change('\/', user);
+        //     this.change('\/', user);
             this.change(location.pathname , user);
 
 

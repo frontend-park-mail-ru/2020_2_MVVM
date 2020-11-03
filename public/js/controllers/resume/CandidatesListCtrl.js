@@ -8,11 +8,11 @@ export default class CandidatesListCtrl{
 
         const fetchCandInfo = async (resume) => {
             const candInfo = resume.map(async (e) => {
-                const response = await network.doGet(candByIdURL+`${e.user_id}`);
+                const response = await network.doGet(candByIdURL+`${e.cand_id}`);
                 const user = await response.json();
                 console.log(user);
                 return {
-                    id: e.user_id,
+                    id: e.cand_id,
                     resume_id: e.id,
                     name: user.name + " " + user.surname,
                     prof: e.place,
