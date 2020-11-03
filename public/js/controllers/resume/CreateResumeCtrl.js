@@ -37,7 +37,7 @@ export default class CreateResumeCtrl{
             if (response.status >= 200 && response.status < 300) {
                 const content = await response.json();
                 console.assert(response.ok);
-                this.router.change('\/resume', content.resume.user_id, content.resume.id);
+                this.router.change('\/resume', content.resume.cand_id, content.resume.id);
             }
 
         });
