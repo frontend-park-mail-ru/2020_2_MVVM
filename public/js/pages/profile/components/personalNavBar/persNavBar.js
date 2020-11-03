@@ -49,7 +49,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         linksToUpdateResume[i].addEventListener('click', event => {
             event.preventDefault();
             if (isCand) {
-                profile.router.change('/updateResume', list.resume[i].user_id, list.resume[i].id, list.resume[i]);
+                profile.router.change('/updateResume', list.resume[i].cand_id, list.resume[i].id, list.resume[i]);
             }
 
         })
