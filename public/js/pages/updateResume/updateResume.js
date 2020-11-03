@@ -3,18 +3,19 @@ import createElem from "../../libs/createElem.js";
 import {openAndDelJob,renderInputForm} from "../../components/popUpResume/popUpCand/createOneJob.js";
 import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 
-
 export const app = window.document.getElementById('app');
-export let jobsArr = [];
-
 
 export default class UpdateResume{
     constructor(onsubmit) {
-        this.onsubmit = onsubmit
+        this.onsubmit = onsubmit;
+        // this.jobsArr = [];
+        // this.numOfJob = 0;
     }
 
     render(content, ...args){
         app.innerHTML = '';
+        this.jobsArr = [];
+        this.numOfJob = 0;
         //
         // console.log(content);
         console.log(args[2]);
@@ -53,11 +54,22 @@ export default class UpdateResume{
                }
             });
 
-            jobsArr = user.experience;
-        } else {
-            jobsArr = [];
+            user.experience.forEach((item, index)=>{
+                this.jobsArr.push(
+                    {
+                        begin: item.begin,
+                        finish: item.finish,
+                        name_job: item.name_job,
+                        continue_to_today: item.continue_to_today,
+                        position: item.position,
+                        duties: item.duties,
+                        numOfJob: index,
+                    }
+                )
+            });
+            this.numOfJob = user.experience.length;
+            console.log(this.jobsArr);
         }
-
 
         const employersList = new NavBarInit(app, content, false, "");
         employersList.loadNavBar();
@@ -71,20 +83,19 @@ export default class UpdateResume{
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            afterRenderResume(this.onsubmit, form, jobsArr);
+            afterRenderResume(this.onsubmit, form, this.jobsArr);
         });
 
-        openAndDelJob(jobsArr);
-        popUp();
-
+        openAndDelJob(this.jobsArr, this);
+        popUp(this);
     }
 }
 
 
-async function popUp() {
+async function popUp(classCand) {
     const btn = document.getElementById("btn__add_exp");
     await btn.addEventListener('click', (event) => {
-        renderInputForm(undefined);
+        renderInputForm(undefined, classCand);
     });
 }
 

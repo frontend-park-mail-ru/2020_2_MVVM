@@ -29,6 +29,7 @@ export default class Profile {
                 lastName: content.user.surname,
                 email: content.user.email,
                 phone: content.user.phone,
+                type: content.user.type,
                 resumeCount: "NOT READY YET",
                 socialNetworkLinks: content.user.social_network,
             };
@@ -71,6 +72,6 @@ export default class Profile {
 
         await personalInfo(person, body);
         await checkoutProfilePage(this, content, body, person);
-        updateProfileFields();
+        updateProfileFields(person);
     }
 }

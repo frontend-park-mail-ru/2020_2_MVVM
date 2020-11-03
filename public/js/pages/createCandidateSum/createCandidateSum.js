@@ -5,8 +5,6 @@ import {renderInputForm} from "../../components/popUpResume/popUpCand/createOneJ
 
 
 export const app = window.document.getElementById('app');
-export let jobsArr=[];
-
 
 export default class CreateResume{
     constructor(onsubmit) {
@@ -16,7 +14,8 @@ export default class CreateResume{
     render(content, ...args){
         //console.log(content);
         app.innerHTML = '';
-
+        this.jobsArr = [];
+        this.numOfJob = 0;
 
         const employersList = new NavBarInit(app, content, false, "Создание резюме");
         employersList.loadNavBar();
@@ -28,10 +27,10 @@ export default class CreateResume{
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            afterRenderResume(this.onsubmit, form, jobsArr);
+            afterRenderResume(this.onsubmit, form, this.jobsArr);
         });
 
-        popUp();
+        popUp(this);
 
     }
 }
@@ -40,9 +39,9 @@ export function afterRenderResume(submitF, form, jobsArray) {
     checkFrom(submitF, form, jobsArray);
 }
 
-async function popUp() {
+async function popUp(classCand) {
     const btn = document.getElementById("btn__add_exp");
     await btn.addEventListener('click', (event) => {
-        renderInputForm(undefined);
+        renderInputForm(undefined, classCand);
     });
 }

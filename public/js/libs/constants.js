@@ -61,6 +61,7 @@ export const usersByIdURL = "/v1/users/by/id/";
 export const updateUserURL = "/v1/users/";
 
 export const candByIdURL = "/v1/users/cand/by/id/";
+export const emplByIdURL = "/v1/users/empl/by/id/";
 
 export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";
@@ -75,6 +76,7 @@ export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
 export const vacancyMineURL = "/v1/vacancy/mine?";
 export const updateVacancyURL = "/v1/vacancy/";
+export const vacancySearchURL = '/v1/vacancy/search';
 
 export const addCompanyUrl =  "/v1/company/";
 export const companyByIdURL = "/v1/company/by/id/";
