@@ -10,7 +10,7 @@ import {
 } from "../../../libs/constants.js"
 
 
-let numOfJob = 0;
+// let numOfJob = 0;
 let currentWork;
 
 export async function renderInputForm(value, classCand) {
@@ -39,10 +39,9 @@ export async function renderInputForm(value, classCand) {
 
     const form = bg[0].querySelector("form");
     await form.addEventListener('submit', (event) => {
-        collectInfo(event, form, bg[0]).then(value =>{
+        collectInfo(classCand, event, form, bg[0]).then(value =>{
             if (value){
                 classCand.jobsArr.push(value);
-                classCand.numOfJob++;
                 // openAndDelJob(value);
                 let board = document.getElementById("experience_board");
                 board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
@@ -51,6 +50,8 @@ export async function renderInputForm(value, classCand) {
                 });
                 board.lastChild.lastChild.addEventListener('click', (event)=>{
                     (event.currentTarget).parentNode.remove();
+                    console.log(classCand.jobsArr);
+                    console.log(value);
                     delete classCand.jobsArr[value.numOfJob];
                 });
             }
@@ -63,12 +64,12 @@ async function openJob(value, classCand){
 }
 
 
-async function collectInfo(event, form, bg){
+async function collectInfo(classCand, event, form, bg){
     let data = {};
     event.preventDefault();
     const formData =  new FormData(form);
 
-    data.numOfJob = numOfJob;
+    data.numOfJob = classCand.numOfJob;
     data.begin = formData.get("begin");
     if (formData.get("finish") === null && currentWork) {
         data.finish = "today";
@@ -81,7 +82,7 @@ async function collectInfo(event, form, bg){
     data.name_job = formData.get("name_job");
     data.duties = formData.get("duties");
     if (await checkPopUpCand(data, form)) {
-        numOfJob++;
+        classCand.numOfJob++;
         bg.remove();
         return data;
     }
