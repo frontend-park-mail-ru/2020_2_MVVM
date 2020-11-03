@@ -17,6 +17,7 @@ export default class CreateResume{
         //console.log(content);
         app.innerHTML = '';
 
+
         const employersList = new NavBarInit(app, content, false, "Создание резюме");
         employersList.loadNavBar();
 
@@ -35,8 +36,8 @@ export default class CreateResume{
     }
 }
 
-export function afterRenderResume(submitF, form, jobsArr) {
-    checkFrom(submitF, form, jobsArr);
+export function afterRenderResume(submitF, form, jobsArray) {
+    checkFrom(submitF, form, jobsArray);
 }
 
 async function popUp() {

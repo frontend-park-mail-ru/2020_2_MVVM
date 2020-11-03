@@ -5,7 +5,7 @@ import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 
 
 export const app = window.document.getElementById('app');
-export let jobsArr=[];
+export let jobsArr = [];
 
 
 export default class UpdateResume{
@@ -24,6 +24,7 @@ export default class UpdateResume{
                 surname: content.user.surname,
                 name: content.user.name,
                 email: content.user.email,
+                resume_id: args[2].resume.id,
                 title: args[2].resume.title,
                 description: args[2].resume.description,
                 salary_min: args[2].resume.salary_min,
@@ -73,7 +74,7 @@ export default class UpdateResume{
             afterRenderResume(this.onsubmit, form, jobsArr);
         });
 
-        openAndDelJob(user.experience);
+        openAndDelJob(jobsArr);
         popUp();
 
     }

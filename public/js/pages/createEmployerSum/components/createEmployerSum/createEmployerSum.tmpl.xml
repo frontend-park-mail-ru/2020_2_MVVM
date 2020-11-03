@@ -24,12 +24,39 @@
                 <div id="summary" class="summary">
                     <div class="sum__candidate">
     <!--                <form class="sum__candidate" method="post" action="#" id="sum__candidate-form" enctype="multipart/form-data">-->
+                        <p class="sum__description__block">Информация о представителе</p>
+                        <div>
+                            <label class="sum__form__labels" for="surname">Фамилия</label>
+                            <input class="sum__user__info" id="surname" name="surname" type="text" value="{user.surname}"/>
+                            <span class="error" aria-live="polite"/>
+                        </div>
+                        <div>
+                            <label class="sum__form__labels" for="username">Имя</label>
+                            <input class="sum__user__info" id="username" name="name" type="text" value="{user.name}"/>
+                            <span class="error" aria-live="polite"/>
+                        </div>
                         <div>
                             <p class="sum__description__block">Информация о компании</p>
                             <label class="sum__form__labels" for="company">Название компании*</label>
                             <input class="sum__user__info" name="sum__company-name" id="company" type="text" value="" />
                             <span class="error" aria-live="polite"/>
+                            <div><p class="sum__form__labels">Основные сферы деятельности</p>
+                                <p>..</p>
+                                <p>..</p>
+                                <p>..</p></div>
+                            <div>
+                                <a href="#" class="sum__form__labels">Ссылка на оффициальный сайт компании</a>
+                            </div>
                         </div>
+                        <div class="sum__exp__row">
+                            <label class="sum__form__labels" for="exp-duration">Требуемый опыт работы</label>
+                            <label class="sum__form__labels" id="exp-row-start" for="education"/>
+                            <select class="sum__user__all" id="education">
+                                <option id="exp-need" value="">требуется</option>
+                                <option value="">не требуется</option>
+                            </select>
+                        </div>
+
                         <div>
                             <label class="sum__form__labels" for="summary-name">Название вакансии*</label>
                             <input class="sum__user__info" name="sum__vacancy-name" id="summary-name" type="text" value="" />
@@ -40,23 +67,17 @@
                             <textarea class="__sum__text" name="sum__vacancy-description" id="description"/>
                             <span class="error" aria-live="polite"/>
                         </div>
-                        <div class="sum__exp__row">
-                            <label class="sum__form__labels" for="exp-duration">Требуемый опыт работы</label>
-                            <label class="sum__form__labels" id="exp-row-start" for="education"/>
-                            <select class="sum__user__all" id="education">
-                                <option id="exp-need" value="">требуется</option>
-                                <option value="">не требуется</option>
-                            </select>
-                        </div>
-                        <p class="sum__description__block">Контакты</p>
+
+
+
+                        <p class="sum__description__block">Контактные данные</p>
                         <div>
                             <label class="sum__form__labels" for="email">E-mail</label>
                             <input class="sum__user__info" name="sum__vacancy-email" id="email" type="email"  value=""/>
                             <span class="error" aria-live="polite"/>
                         </div>
-
                         <div>
-                            <label class="sum__form__labels" for="tel">Телефон для связи</label>
+                            <label class="sum__form__labels" for="tel">Телефон</label>
                             <input class="sum__user__info" name="sum__vacancy-tel" id="tel" type="tel" value="" placeholder="+7-(999)-999-99-99"/>
                             <span class="error" aria-live="polite"/>
                         </div>

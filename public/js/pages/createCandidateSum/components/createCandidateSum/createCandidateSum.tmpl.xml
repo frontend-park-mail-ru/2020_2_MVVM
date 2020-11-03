@@ -155,12 +155,12 @@
                                 <label class="sum__form__labels" for="education_level"/>
                                 <select class="sum__user__all" name="education_level">
                                         <option value="middle" selected="true">Среднее</option>
-                                        <option value="specialized_secondary">Среднее Специальное</option>
+                                        <option value="specialized_secondary">Среднее специальное</option>
                                         <option value="incomplete_higher">Неоконченное высшее</option>
                                         <option value="higher">Высшее</option>
                                         <option value="bachelor">Бакалавр</option>
                                         <option value="master">Магистр</option>
-                                        <option value="phD">Кандидат Наук</option>
+                                        <option value="phD">Кандидат наук</option>
                                         <option value="doctoral">Доктор наук</option>
                                 </select>
                             </div>
@@ -181,12 +181,6 @@
 <!--                                <a class="sum__languages" href="#" id="lang">Указать ещё один язык</a>-->
 <!--                            </div>-->
                         </div>
-                    </div>
-                    <label class="sum__form__labels" for="awards">
-                    </label>
-                    <div class="sum__achievements">
-                        <label class="sum__form__labels" for="awards">Ваши сертификаты:</label>
-                        <input class="sum__achievement" id="awards" type="file" value=""/>
                     </div>
                     <button id="send-form-cand" class="sum__btn__pink" type="submit">Сохранить</button>
                 </form>

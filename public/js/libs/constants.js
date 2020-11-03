@@ -45,16 +45,11 @@ export const UNAUTHORISED = 401;
 
 
 //path
-
 export const URL = "https://studhunt.ru/api";
-
 // export const URL = "api";
-
-//export const URL = "http://localhost/api";
-
+// export const URL = "http://localhost/api";
 //export const URL = "http://127.0.0.1/api";
 
-//urls
 
 export const loginURL = "/v1/users/login";
 export const logoutURL = "/v1/users/logout";
@@ -65,17 +60,27 @@ export const addUserURL = "/v1/users/";
 export const usersByIdURL = "/v1/users/by/id/";
 export const updateUserURL = "/v1/users/";
 
+export const candByIdURL = "/v1/users/cand/by/id/";
+
 export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
 export const resumeMineURL = "/v1/resume/mine";
 export const updateResumeURL = "/v1/resume/";
-export const resumeSearchURL = '/v1/resume/search'
+export const resumeSearchURL = '/v1/resume/search';
 
 
 export const addVacancyURL = "/v1/vacancy/";
 export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
+export const vacancyMineURL = "/v1/vacancy/mine?";
+export const updateVacancyURL = "/v1/vacancy/";
+
+export const addCompanyUrl =  "/v1/company/";
+export const companyByIdURL = "/v1/company/by/id/";
+export const companyPageURL = "/v1/company/page?";
+export const companyMineURL = "/v1/company/mine";
+export const companySearchUrl = "/v1/company/search";
 
 //sphere
 export const spheres = [
@@ -142,9 +147,3 @@ export const experienceMonth = {
     10: "5-10 лет",
     11: "больше 10 лет",
 }
-
-// export const city = {
-//     1: "Москва",
-//     2: "Санкт-Петербург",
-//     3: "Екатеринбург",
-// }

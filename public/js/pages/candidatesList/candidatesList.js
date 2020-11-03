@@ -7,7 +7,6 @@ import {network} from "../../libs/networks.js";
 const app = window.document.getElementById('app');
 
 export default class CandidatesList {
-    // TODO ROUTER - костыль, сделать нормально через контроллеры
     constructor(fetchCandInfo, router) {
         this.fetchCandInfo = fetchCandInfo
         this.router = router
@@ -144,11 +143,12 @@ export default class CandidatesList {
         const response = await network.doGetLimit(resumePageURL, 0, 15);
         console.assert(response.ok);
         const resume = (await response.json()).resume;
+        console.log(resume);
 
         if (resume && resume.length) {
             const infoOfCand = await this.fetchCandInfo(resume);
             mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
-            mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
+            // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
             // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
             getUserResume(this.router, main, infoOfCand);
         } else {
@@ -163,8 +163,9 @@ function getUserResume(router, main, infoOfCand) {
     const linksToResume = main.getElementsByClassName("go_to_resume");
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
-            event.preventDefault()
-            router.change('/resume', infoOfCand[i].id, infoOfCand[i].resume_id)
+            event.preventDefault();
+            console.log(infoOfCand[i]);
+            router.change('/resume', infoOfCand[i].id, infoOfCand[i].resume_id);
         })
     }
 }
@@ -196,15 +197,13 @@ async function search(form, mainList, main, fetchCandInfo, router) {
     } else {
         mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
         const pagination = document.getElementsByClassName("pagination");
-        pagination[0].innerHTML = '';
+        // pagination[0].innerHTML = '';
     }
 
 }
 
 function afterRender(mainList, main, fetchCandInfo, router) {
-
     checkBoxes();
-
     let form = document.querySelector("form");
     form.addEventListener('submit', (event) => {
         event.preventDefault();

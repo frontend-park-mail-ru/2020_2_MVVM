@@ -1,4 +1,4 @@
-import Vacancy from "../pages/vacancy/vacancy.js";
+import Vacancy from "../../pages/vacancy/vacancy.js";
 
 export default class VacancyCtrl{
     constructor(router) {

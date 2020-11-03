@@ -7,9 +7,9 @@ export default class Router {
         this.routes = new Map();
         this.currentRoute = null;
 
-        window.addEventListener('popstate', () => {
-            this.change(location.pathname);
-        });
+        // window.addEventListener('popstate', () => {
+        //     this.change(location.pathname);
+        // });
     }
 
     /**
@@ -33,7 +33,7 @@ export default class Router {
      */
     change(path, ...args) {
 
-        const  get_person = async () => {
+        const get_person = async () => {
             const response = await network.doGet(`${meUserURL}`);
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
@@ -60,7 +60,8 @@ export default class Router {
                     obj.page.render(null, ...args)
                 });
 
-                window.history.pushState(null, null, path);
+                // window.history.pushState(null, null, path);
+
                 return;
             }
         }
@@ -78,8 +79,9 @@ export default class Router {
         });
 
         // начальный рендер
-        //     this.change('\/', user);
-            this.change(location.pathname , user);
+            this.change('\/', user);
+            // this.change(location.pathname , user);
+
 
     }
 }

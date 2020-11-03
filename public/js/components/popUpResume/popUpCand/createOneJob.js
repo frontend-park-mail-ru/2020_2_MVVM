@@ -10,7 +10,6 @@ import {
 } from "../../../libs/constants.js"
 
 
-
 let numOfJob = 0;
 let currentWork;
 

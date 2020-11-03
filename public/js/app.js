@@ -1,18 +1,20 @@
 import Router from './libs/router.js';
-import AuthCtrl from './controllers/AuthCtrl.js';
-import RegCtrl from './controllers/RegCtrl.js';
+import AuthCtrl from './controllers/authRegProf/AuthCtrl.js';
+import RegCtrl from './controllers/authRegProf/RegCtrl.js';
 import MainCtrl from './controllers/MainCtrl.js';
-import EmployersListCtrl from "./controllers/EmployersListCtrl.js";
-import CandidatesListCtrl from "./controllers/CandidatesListCtrl.js";
-import ProfileCtrl from "./controllers/ProfileCtrl.js";
-import CreateResumeCtrl from "./controllers/CreateResumeCtrl.js";
-import CreateVacancyCtrl from "./controllers/CreateVacancyCtrl.js";
-import CreateCompanyCtrl from "./controllers/CreateCompanyCtrl.js";
-import VacancyCtrl from "./controllers/VacancyCtrl.js";
-import ResumeCtrl from "./controllers/ResumeCtrl.js";
-import CompanyCtrl from "./controllers/CompanyCtrl.js";
-import UpdateResumeCtrl from "./controllers/UpdateResumeCtrl.js";
-import LogoutCtrl from "./controllers/LogoutCtrl.js";
+import CompaniesListCtrl from "./controllers/company/CompaniesListCtrl.js";
+import EmployersListCtrl from "./controllers/vacancy/EmployersListCtrl.js";
+import CandidatesListCtrl from "./controllers/resume/CandidatesListCtrl.js";
+import ProfileCtrl from "./controllers/authRegProf/ProfileCtrl.js";
+import CreateResumeCtrl from "./controllers/resume/CreateResumeCtrl.js";
+import CreateVacancyCtrl from "./controllers/vacancy/CreateVacancyCtrl.js";
+import CreateCompanyCtrl from "./controllers/company/CreateCompanyCtrl.js";
+import VacancyCtrl from "./controllers/vacancy/VacancyCtrl.js";
+import ResumeCtrl from "./controllers/resume/ResumeCtrl.js";
+import CompanyCtrl from "./controllers/company/CompanyCtrl.js";
+import UpdateResumeCtrl from "./controllers/resume/UpdateResumeCtrl.js";
+import LogoutCtrl from "./controllers/authRegProf/LogoutCtrl.js";
+
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         mainPage: new MainCtrl(router),
         employersList: new EmployersListCtrl(router),
         candidatesList: new CandidatesListCtrl(router),
+        companiesList: new CompaniesListCtrl(router),
         profile: new ProfileCtrl(router),
         createResume: new CreateResumeCtrl(router),
         createVacancy: new CreateVacancyCtrl(router),
@@ -43,6 +46,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/', controllers.mainPage.page);
     router.add('/employersList', controllers.employersList.page);
     router.add('/candidatesList', controllers.candidatesList.page);
+    router.add('/companiesList', controllers.companiesList.page);
     router.add('/profile', controllers.profile.page);
     router.add('/createResume', controllers.createResume.page);
     router.add('/createVacancy', controllers.createVacancy.page);

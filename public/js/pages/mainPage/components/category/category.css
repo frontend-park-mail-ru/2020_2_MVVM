@@ -36,7 +36,7 @@
     border: 1px solid #e8ecec;
 }
 
-.category-sec i {
+.category-sec svg {
     color: var(--buttons-purple-color);
     display: inline-block;
     width: 100%;
@@ -55,7 +55,7 @@
     margin-bottom: 20px;
 }
 
-.category-sec i:hover {
+.category-sec svg:hover {
     color: var(--main-pink-color);
 }
 

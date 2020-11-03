@@ -21,6 +21,10 @@
     margin-right: 20px;
 }
 
+.cand-options-contact svg {
+    margin-right: 5px;
+}
+
 .cand-options-photo {
     border: 2px solid #ffffff;
     border-radius: 50%;
