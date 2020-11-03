@@ -12,6 +12,7 @@ export default class updateResumeCtrl{
 
             const json = {};
 
+            json.id = formData.get("resume_id");
             json.title = formData.get("title");
             json.description = formData.get("description");
             json.salary_min = parseInt(formData.get("salary_min"));
@@ -27,6 +28,7 @@ export default class updateResumeCtrl{
             if (formData.get("awards") !== "") {
                 json.awards = formData.get("awards");
             }
+            console.log(jobsArr);
             json.custom_experience = jobsArr;
 
             // console.log(json);

@@ -42,7 +42,7 @@ export default class EmployersList{
         const vacancies = await this.fetchVacancyList();
         vacancies.vacancyList.forEach(function(vacancy, i, _) {
             vacancy.imgPath = `static/${vacancy.ID}`
-            console.log( i + ": " + vacancy.ID);
+            // console.log( i + ": " + vacancy.ID);
         });
         mainList.insertAdjacentHTML("beforeend", window.fest['listOfEmployers.tmpl'](vacancies.vacancyList));
         mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());

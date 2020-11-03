@@ -15,7 +15,6 @@ import createElem from "../../libs/createElem.js";
 const app = window.document.getElementById('app');
 
 const resumeInfo = async (user_id, resume_id) => {
-    console.log(user_id, resume_id);
     const responseUser = await network.doGet(candByIdURL + `${user_id}`);
     const user = await responseUser.json();
     console.log(user);
@@ -75,7 +74,7 @@ const resumeInfo = async (user_id, resume_id) => {
         },
         description : {
             text: nullToString(resume.resume.description),
-            experience_custom_company: experiences,
+            experience_custom_company: resume.custom_experience,
             skills: resume.resume.skills,
         }
 

@@ -59,7 +59,7 @@
                                 <div class="sum__switch__control sum__female"/>
                             </label>
                         </fest:if>
-                        <fest:if test="user.gender==null">
+                        <fest:if test="user.gender==null || user.gender==''">
                             <label class="sum__form__switch" for="male">
                                 <input class="sum__input__switch" id="male" type="radio" name="gender" value="male" />
                                 <div class="sum__switch__control sum__male"/>
@@ -335,6 +335,7 @@
                             <!--                            </div>-->
                         </div>
                     </div>
+                    <input type="hidden" name="resume_id" value="{user.resume_id}"/>
                     <button id="send-form-cand" class="sum__btn__pink" type="submit">Сохранить</button>
                 </form>
             </div>

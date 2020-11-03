@@ -17,6 +17,7 @@ export default class CreateResume{
         //console.log(content);
         app.innerHTML = '';
 
+
         const employersList = new NavBarInit(app, content, false, "Создание резюме");
         employersList.loadNavBar();
 
@@ -27,7 +28,7 @@ export default class CreateResume{
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            checkFrom(this.onsubmit, form, jobsArr);
+            afterRenderResume(this.onsubmit, form, jobsArr);
         });
 
         popUp();
@@ -35,13 +36,13 @@ export default class CreateResume{
     }
 }
 
-// export function afterRenderResume(submitF, form, jobsArr) {
-//     checkFrom(submitF, form, jobsArr);
-// }
+export function afterRenderResume(submitF, form, jobsArray) {
+    checkFrom(submitF, form, jobsArray);
+}
 
 async function popUp() {
     const btn = document.getElementById("btn__add_exp");
     await btn.addEventListener('click', (event) => {
-        renderInputForm(undefined, false);
+        renderInputForm(undefined);
     });
 }

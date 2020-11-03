@@ -3,7 +3,6 @@ import {updateUserURL} from "../../../../libs/constants.js";
 
 export function updateProfileFields() {
     const updateButton = document.getElementsByClassName("pers__list_refactor");
-    console.log(updateButton);
     for (let i=0; i< updateButton.length; i++){
         updateButton[i].addEventListener('click', ()=>{
             if (updateButton[i].textContent === 'Изменить' || updateButton[i].textContent === 'Добавить') {
