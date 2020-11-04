@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     --vk-blue: #45688e;
     --footer-dark-blue: #24324a;
     --footer-text-grey: #8a99b3;
-    --text-gray: #888888;
+    --text-gray: #2f2f2f;
     --footer-dark: #1d293e;
 }
 
@@ -229,6 +229,7 @@ svg {
 .form__field_lable{
     min-width: 25%;
     text-align: left;
+    font-size: 20px;
 }
 
 .form__field_name{
@@ -285,12 +286,12 @@ svg {
 
 .text, .password{
     color:black;
-    font: 15px Quicksand, serif;
     text-align: initial;
     height: 100%;
     width: 100%;
     margin: 0 15px;
     min-height: 30px;
+    font-size: 18px;
 }
 
 .info{

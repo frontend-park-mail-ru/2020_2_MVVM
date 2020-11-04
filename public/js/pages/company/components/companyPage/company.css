@@ -3,14 +3,13 @@
     padding: 5vh 20vw 0 9vw;
 }
 .company__container {
-    display: flex;
-    height: 100vh;
-    justify-content: space-between;
+    display: grid;
     width: 100%;
+    grid-template-columns: 1fr 1fr
 }
 .container__left {
     min-width: 250px;
-    width: 40vw;
+    max-width: 500px;
     background: var(--background-grey-color);
     height: min-content;
     border-radius: 10px;

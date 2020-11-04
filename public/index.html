@@ -27,15 +27,18 @@
     <link rel="stylesheet" type="text/css"
           href="js/pages/candidatesList/components/listOfCandidates/listOfCandidates.css"/>
 
-    <!--  profile styles -->
-    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/personalInfo/persInfo.css"/>
-    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/checkboxSearch/checkBoxJob.css"/>
-    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/listOfResumes/persResumes.css"/>
+    <!--  listOfCompanies styles -->
+    <link rel="stylesheet" type="text/css"
+          href="js/pages/companiesList/components/companiesList/companyList.css"/>
 
     <!--  listOfEmployers styles -->
     <link rel="stylesheet" type="text/css"
           href="js/pages/employersList/components/listOfEmployers/listOfEmployers.css"/>
 
+    <!--  profile styles -->
+    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/personalInfo/persInfo.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/checkboxSearch/checkBoxJob.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/listOfResumes/persResumes.css"/>
 
     <!--Auth and Reg styles -->
     <link rel="stylesheet" type="text/css" href="js/pages/auth/components/auth_form/auth.css"/>
@@ -91,12 +94,8 @@
 <!-- listOfCandidates -->
 <script type="module" src="js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.js"></script>
 
-<!-- profile -->
-<script type="module" src="js/pages/profile/components/personalNavBar/persNavBar.tmpl.js"></script>
-<script type="module" src="js/pages/profile/components/personalInfo/persInfo.tmpl.js"></script>
-<script type="module" src="js/pages/profile/components/checkboxSearch/checkBoxJob.tmpl.js"></script>
-<script type="module" src="js/pages/profile/components/listOfResumes/persResumes.tmpl.js"></script>
-<script type="module" src="js/pages/profile/components/listOfVacancies/persVacancies.tmpl.js"></script>
+<!-- listOfCompanies -->
+<script type="module" src="js/pages/companiesList/components/companiesList/companiesList.tmpl.js"></script>
 
 <!-- listOfEmployers -->
 <script type="module" src="js/pages/employersList/components/listOfEmployers/listOfEmployers.tmpl.js"></script>
@@ -107,6 +106,13 @@
 <script type="module" src="js/pages/resume/components/resume/resume.tmpl.js"></script>
 <script type="module" src="js/components/rightColumn/jobOverview.tmpl.js"></script>
 <script type="module" src="js/components/rightColumn/contactForm.tmpl.js"></script>
+
+<!-- profile -->
+<script type="module" src="js/pages/profile/components/personalNavBar/persNavBar.tmpl.js"></script>
+<script type="module" src="js/pages/profile/components/personalInfo/persInfo.tmpl.js"></script>
+<script type="module" src="js/pages/profile/components/checkboxSearch/checkBoxJob.tmpl.js"></script>
+<script type="module" src="js/pages/profile/components/listOfResumes/persResumes.tmpl.js"></script>
+<script type="module" src="js/pages/profile/components/listOfVacancies/persVacancies.tmpl.js"></script>
 
 <!--vacancy page-->
 <script type="module" src="js/pages/vacancy/components/briefInfoJob/briefInfoJob.tmpl.js"></script>
@@ -154,13 +160,5 @@
 
 <script type="module" src="js/app.js"></script>
 
-<script type="text/javascript"><!--
-
-function CheckClick(e) {
-    t = e.previousSibling;
-    if ((t.tagName === 'INPUT') && (t.type === 'checkbox')) t.click();
-}
-
-//--></script>
 </body>
 </html>

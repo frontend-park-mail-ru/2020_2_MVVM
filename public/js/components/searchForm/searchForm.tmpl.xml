@@ -13,7 +13,7 @@
                         <div class="main__specialism_name"><fest:value>v.title.text</fest:value></div>
                             <fest:each iterate="v.fields" index="i" value="n">
                                 <div class="main__type">
-                                    <input class="checkboxes" type="checkbox" name="{v.title.name}" value="{n.name}"/><div onClick="CheckClick(this)" class="main__type_name"><fest:value>n.text</fest:value></div><br />
+                                    <input class="checkboxes" type="checkbox" name="{v.title.name}" value="{n.name}"/><div class="main__type_name"><fest:value>n.text</fest:value></div><br />
                                 </div>
                             </fest:each>
                     </div>

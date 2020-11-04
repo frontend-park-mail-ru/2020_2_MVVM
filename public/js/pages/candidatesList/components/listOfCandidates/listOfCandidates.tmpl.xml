@@ -8,9 +8,6 @@
                     <div class="main__candidate_name"><a><fest:value>v.name</fest:value></a></div>
                     <div class="main__candidate_specialism"><a href=''><fest:value>v.prof</fest:value></a><fest:space/></div>
                     <div class="main__candidate_location"><fest:value>v.location[0]</fest:value>/<fest:value>v.location[1]</fest:value></div>
-<!--                    <fest:each iterate="v.location" index="i" value="loc">-->
-<!--                        <fest:value>loc</fest:value>/-->
-<!--                    </fest:each>-->
                 </div>
                 <a href="/resume" class="go_to_resume"><div class="main__candidate_shortlist">Подробнее</div></a>
             </div>
