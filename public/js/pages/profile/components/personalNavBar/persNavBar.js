@@ -35,7 +35,6 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
             if (isCand) {
-                console.log(list.resume[i].resume);
                 profile.router.change('/resume', list.resume[i].resume.cand_id, list.resume[i].resume.id);
             }
             else {
