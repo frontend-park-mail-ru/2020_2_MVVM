@@ -7,15 +7,12 @@ import {spheres} from "../../libs/constants.js";
 export const app = window.document.getElementById('app');
 
 
-
-
-
-export default class CreateCompany{
+export default class CreateCompany {
     constructor(onsubmit) {
         this.onsubmit = onsubmit
     }
 
-    render(content){
+    render(content) {
         app.innerHTML = '';
 
         const createCompanyNavBar = new NavBarInit(app, content, false, "Создание организации");
@@ -41,9 +38,9 @@ function afterRender() {
 function checkCreateOrg(submitF, form) {
     let cbArr = []
     const cb = document.getElementById("checkboxes");
-    for (let i=0; i<cb.childElementCount; i++){
+    for (let i = 0; i < cb.childElementCount; i++) {
         if (cb.children[i].children[0].checked) {
-            cbArr.push(cb.children[i].children[0].id)
+            cbArr.push(parseInt(cb.children[i].children[0].id))
         }
     }
     submitF(form, cbArr);

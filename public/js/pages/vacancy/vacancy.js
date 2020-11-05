@@ -15,12 +15,12 @@ import {
 const app = window.document.getElementById('app');
 
 
-async function vacancyInfo(user_id, vacancy_id, company_id){
+async function vacancyInfo(user_id, vacancy_id, company_id) {
 
     const allInfo = ([
-        new Promise( (resolve) => network.doGet(emplByIdURL+`${user_id}`).then(resolve)),
-        new Promise((resolve) =>  network.doGet(vacancyByIdURL+`${vacancy_id}`).then(resolve)),
-        new Promise((resolve) =>  network.doGet(companyByIdURL+`${company_id}`).then(resolve)),
+        new Promise((resolve) => network.doGet(emplByIdURL + `${user_id}`).then(resolve)),
+        new Promise((resolve) => network.doGet(vacancyByIdURL + `${vacancy_id}`).then(resolve)),
+        new Promise((resolve) => network.doGet(companyByIdURL + `${company_id}`).then(resolve)),
     ]);
 
 
@@ -30,13 +30,13 @@ async function vacancyInfo(user_id, vacancy_id, company_id){
 
     return {
         userInfo: await pageInfo[0].json(),
-        vacancyInfo: (await pageInfo[1].json()).Vacancy,
+        vacancyInfo: (await pageInfo[1].json()).vacancy,
         companyInfo: (await pageInfo[2].json()).company,
     };
 }
 
 
-export default class Vacancy{
+export default class Vacancy {
     constructor(router) {
         this.router = router;
     }
@@ -45,7 +45,7 @@ export default class Vacancy{
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, content, false,"Вакансия");
+        const navBarInit = new NavBarInit(app, content, false, "Вакансия");
         navBarInit.loadNavBar();
 
         const allInfo = await vacancyInfo(user_id, vacancy_id, company_id);

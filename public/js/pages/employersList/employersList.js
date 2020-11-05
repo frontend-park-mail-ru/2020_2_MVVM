@@ -130,7 +130,7 @@ export default class EmployersList{
 
         if (vacancies) {
             vacancies.vacancyList.forEach((vacancy) => {
-                vacancy.imgPath = `static/${vacancy.ID}`;
+                vacancy.imgPath = `static/vacancy/${vacancy.ID}`;
             });
             mainList.insertAdjacentHTML("beforeend", window.fest['listOfEmployers.tmpl'](vacancies.vacancyList));
             mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());

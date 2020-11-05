@@ -48,11 +48,13 @@ export default class Profile {
             await this.loadVacancies().then((data) => {
                 this.vacancies = data.vacancyList;
             });
-            // // работодатель может быть привязан ток к одной компании, поэтому для всех вакансий работодателя компания одна
-            // await this.loadCompany().then((data) => {
-            //     this.company = data.official_company;
-            // });
-            // //
+            console.log(this.vacancies)
+            // работодатель может быть привязан ток к одной компании, поэтому для всех вакансий работодателя компания одна
+            await this.loadCompany().then((data) => {
+                this.company = data.company;
+            });
+            console.log(this.company)
+            //
         } else {
             title.innerText = "Личный кабинет соискателя";
             await this.loadResumes().then((data) => {
