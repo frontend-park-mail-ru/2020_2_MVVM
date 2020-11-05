@@ -1,5 +1,5 @@
 import CreateCompany from "../../pages/createCompanySum/createCompany.js";
-import {URL, addCompanyUrl} from "../../libs/constants.js";
+import {URL, addCompanyURL} from "../../libs/constants.js";
 
 export default class CreateCompanyCtrl {
     constructor(router) {
@@ -15,7 +15,7 @@ export default class CreateCompanyCtrl {
 
             console.log(json);*/
             const response = await fetch(
-                `${URL}${addCompanyUrl}`,
+                `${URL}${addCompanyURL}`,
                 {
                     body: new FormData(form),
                     method: "post"

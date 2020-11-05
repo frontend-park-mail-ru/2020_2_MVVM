@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/general.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/components/header/navBar.css"/>
+
+    <!--  resume styles -->
+    <link rel="stylesheet" type="text/css" href="js/pages/resume/components/briefInfo/briefInfo.css">
+    <link rel="stylesheet" type="text/css" href="js/pages/resume/components/contact/contact.css">
+    <link rel="stylesheet" type="text/css" href="js/pages/resume/components/resume/resume.css"/>
+
+    <!--  vacancy styles -->
+    <link rel="stylesheet" type="text/css" href="js/pages/vacancy/components/vacancy/vacancy.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/vacancy/components/recentJobs/recentJobs.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/vacancy/components/briefInfoJob/briefInfoJob.css"/>
+
+    <!--  resume and vacancy common -->
+    <link rel="stylesheet" type="text/css" href="js/components/searchForm/searchForm.css"/>
+    <link rel="stylesheet" type="text/css" href="js/components/rightColumn/jobOverview.css"/>
+    <link rel="stylesheet" type="text/css" href="js/components/shareBar/shareBar.css"/>
+
+    <!--  listOfCandidates styles -->
+    <link rel="stylesheet" type="text/css"
+          href="js/pages/candidatesList/components/listOfCandidates/listOfCandidates.css"/>
+
+    <!--  listOfCompanies styles -->
+    <link rel="stylesheet" type="text/css"
+          href="js/pages/companiesList/components/companiesList/companyList.css"/>
+
+    <!--  listOfEmployers styles -->
+    <link rel="stylesheet" type="text/css"
+          href="js/pages/employersList/components/listOfEmployers/listOfEmployers.css"/>
+
+    <!--  profile styles -->
+    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/personalInfo/persInfo.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/likesAndResp/likesAndResp.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/listOfResumes/persResumes.css"/>
+
+    <!--Auth and Reg styles -->
+    <link rel="stylesheet" type="text/css" href="js/pages/auth/components/auth_form/auth.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/reg/components/reg_form/reg.css"/>
+
+
+    <!-- Candidates, employers and company summary styles -->
+    <link rel="stylesheet" type="text/css"
+          href="js/pages/createCandidateSum/components/createCandidateSum/createCandidateSum.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="js/pages/createEmployerSum/components/createEmployerSum/createEmployerSum.css"/>
+    <link rel="stylesheet" type="text/css" href="js/components/popUpResume/popUpCand/popUpCand.css"/>
+    <link rel="stylesheet" type="text/css" href="js/components/popUpResume/jobBoard/jobBoard.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/createCompanySum/components/createCompany/createCompany.css"/>
+
+
+    <!--  main page styles -->
+    <link rel="stylesheet" type="text/css" href="js/pages/mainPage/components/mainPage/mainPage.css">
+    <link rel="stylesheet" type="text/css" href="js/pages/mainPage/components/searchJob/searchJob.css">
+    <link rel="stylesheet" type="text/css" href="js/pages/mainPage/components/category/category.css">
+    <link rel="stylesheet" type="text/css" href="js/pages/mainPage/components/createResume/createResume.css">
+    <link rel="stylesheet" type="text/css" href="js/pages/mainPage/components/popularJob/popularJob.css">
+    <link rel="stylesheet" type="text/css" href="js/pages/mainPage/components/gratitudes/gratitudes.css">
+
+
+    <!-- company page stiles-->
+    <link rel="stylesheet" type="text/css" href="js/pages/company/components/companyPage/company.css">
+
+
+    <!-- general -->
+    <link rel="stylesheet" type="text/css" href="js/components/pagination/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="js/components/footer/footer.css"/>
+
+    <!--  font pages -->
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+</head>
+<body>
+<div id="app">
+    <header class="header">
+        <div class="container">
+            <div class="header__row">
+                <div class="header__top"><a href="/">
+                    <div class="header__item-logo logo"></div>
+                </a>
+                    <div class="header__item-menu menu">
+                        <nav class="menu-list"><a href="/employersList" class="header__item header__item_simple">Работодатели</a><a
+                                href="/candidatesList" class="header__item header__item_simple">Соискатели</a><a
+                                href="/companiesList" class="header__item header__item_simple">Компании</a><a
+                                href="/createResume" class="header__item header__item_big-button">+ Создать резюме</a><a
+                                href="/profile" class="header__item header__item_key-icon js-profile">Профиль</a>
+                            <a href="/logout" class="header__item header__item_link-icon js-logout">Выйти</a></nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="container">
+            <div class="profile__title">Личный кабинет соискателя</div>
+            <div class="main__page">
+                <div class="main__page_left">
+                    <div class="persNavBar">
+                        <nav class="persNavBar__menu-list">
+                            <div class="persNavBar__menu_btn"><a href="/profile" class="persNavBar__menu_hrev">Личная
+                                информация</a></div>
+                            <div class="persNavBar__menu_btn"><a href="/profile" class="persNavBar__menu_hrev">Мои
+                                резюме</a></div>
+                        </nav>
+                    </div>
+                    <div class="main__page_left-body">
+                        <div class="main-page">
+                            <div class="pers__list">
+                                <div class="pers__list_row">
+                                    <div class="description">Имя</div>
+                                    <div id="name">candidate</div>
+                                    <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
+                                </div>
+                                <div class="pers__list_row">
+                                    <div class="description">Фамилия</div>
+                                    <div id="surname">candidate</div>
+                                    <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
+                                </div>
+                                <div class="pers__list_row">
+                                    <div class="description">Email</div>
+                                    <div id="email">c@c.ru</div>
+                                    <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
+                                </div>
+                                <div class="pers__list_row">
+                                    <div class="description">Мобильный телефон</div>
+                                    <div id="phone">123123</div>
+                                    <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
+                                </div>
+                                <div class="pers__list_row">
+                                    <div class="description">Социальные сети</div>
+                                    <div id="social_network"></div>
+                                    <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
+                                </div>
+                            </div>
+                            <div class="delete-account"><a href="/profile">Удалить аккаунт</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main__page_right">
+                    <div>Избранные вакансии</div>
+                    <div class="main__list">
+                        <div class="main__list_row">
+                            <div class="main__candidate_photo"><img src="img/candidate.jpg" alt=""></div>
+                            <div class="main__candidate_description">
+                                <div class="main__candidate_name"><a>candidate candidate</a></div>
+                                <div class="main__candidate_specialism"><a href="">temp</a></div>
+                                <div class="main__candidate_location">москва/Росcия</div>
+                            </div>
+                            <a href="/resume" class="go_to_resume">
+                                <div class="main__candidate_shortlist">Подробнее</div>
+                            </a></div>
+                        <div class="main__list_row">
+                            <div class="main__candidate_photo"><img src="img/candidate.jpg" alt=""></div>
+                            <div class="main__candidate_description">
+                                <div class="main__candidate_name"><a>candidate candidate</a></div>
+                                <div class="main__candidate_specialism"><a href="">12</a></div>
+                                <div class="main__candidate_location">москва/Росcия</div>
+                            </div>
+                            <a href="/resume" class="go_to_resume">
+                                <div class="main__candidate_shortlist">Подробнее</div>
+                            </a></div>
+                        <div class="main__list_row">
+                            <div class="main__candidate_photo"><img src="img/candidate.jpg" alt=""></div>
+                            <div class="main__candidate_description">
+                                <div class="main__candidate_name"><a>candidate candidate</a></div>
+                                <div class="main__candidate_specialism"><a href="">23423</a></div>
+                                <div class="main__candidate_location">москва/Росcия</div>
+                            </div>
+                            <a href="/resume" class="go_to_resume">
+                                <div class="main__candidate_shortlist">Подробнее</div>
+                            </a></div>
+                        <div class="main__list_row">
+                            <div class="main__candidate_photo"><img src="img/candidate.jpg" alt=""></div>
+                            <div class="main__candidate_description">
+                                <div class="main__candidate_name"><a>Test test1</a></div>
+                                <div class="main__candidate_specialism"><a href="">qwerty</a></div>
+                                <div class="main__candidate_location">/Росcия</div>
+                            </div>
+                            <a href="/resume" class="go_to_resume">
+                                <div class="main__candidate_shortlist">Подробнее</div>
+                            </a></div>
+                        <div class="main__list_row">
+                            <div class="main__candidate_photo"><img src="img/candidate.jpg" alt=""></div>
+                            <div class="main__candidate_description">
+                                <div class="main__candidate_name"><a>Test test1</a></div>
+                                <div class="main__candidate_specialism"><a href="">йцук</a></div>
+                                <div class="main__candidate_location">москва/Росcия</div>
+                            </div>
+                            <a href="/resume" class="go_to_resume">
+                                <div class="main__candidate_shortlist">Подробнее</div>
+                            </a></div>
+                        <div class="main__list_row">
+                            <div class="main__candidate_photo"><img src="img/candidate.jpg" alt=""></div>
+                            <div class="main__candidate_description">
+                                <div class="main__candidate_name"><a>candidate candidate</a></div>
+                                <div class="main__candidate_specialism"><a href="">23423</a></div>
+                                <div class="main__candidate_location">/Росcия</div>
+                            </div>
+                            <a href="/resume" class="go_to_resume">
+                                <div class="main__candidate_shortlist">Подробнее</div>
+                            </a></div>
+                        <div class="main__list_row">
+                            <div class="main__candidate_photo"><img src="img/candidate.jpg" alt=""></div>
+                            <div class="main__candidate_description">
+                                <div class="main__candidate_name"><a>candidate candidate</a></div>
+                                <div class="main__candidate_specialism"><a href="">епк</a></div>
+                                <div class="main__candidate_location">москва/Росcия</div>
+                            </div>
+                            <a href="/resume" class="go_to_resume">
+                                <div class="main__candidate_shortlist">Подробнее</div>
+                            </a></div>
+                        <div class="main__list_row">
+                            <div class="main__candidate_photo"><img src="img/candidate.jpg" alt=""></div>
+                            <div class="main__candidate_description">
+                                <div class="main__candidate_name"><a>candidate candidate</a></div>
+                                <div class="main__candidate_specialism"><a href="">инженер</a></div>
+                                <div class="main__candidate_location">москва/Росcия</div>
+                            </div>
+                            <a href="/resume" class="go_to_resume">
+                                <div class="main__candidate_shortlist">Подробнее</div>
+                            </a></div>
+                        <div class="main__list_row">
+                            <div class="main__candidate_photo"><img src="img/candidate.jpg" alt=""></div>
+                            <div class="main__candidate_description">
+                                <div class="main__candidate_name"><a>Лиза Яногьян</a></div>
+                                <div class="main__candidate_specialism"><a href="">инженер</a></div>
+                                <div class="main__candidate_location">москва/Росcия</div>
+                            </div>
+                            <a href="/resume" class="go_to_resume">
+                                <div class="main__candidate_shortlist">Подробнее</div>
+                            </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

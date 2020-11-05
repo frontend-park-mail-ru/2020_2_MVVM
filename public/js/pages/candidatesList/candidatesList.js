@@ -143,7 +143,6 @@ export default class CandidatesList {
         const response = await network.doGetLimit(resumePageURL, 0, 15);
         console.assert(response.ok);
         const resume = (await response.json()).resume;
-        console.log(resume);
 
         if (resume && resume.length) {
             const infoOfCand = await this.fetchCandInfo(resume);
@@ -164,7 +163,6 @@ function getUserResume(router, main, infoOfCand) {
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
-            console.log(infoOfCand[i]);
             router.change('/resume', infoOfCand[i].id, infoOfCand[i].resume_id);
         })
     }

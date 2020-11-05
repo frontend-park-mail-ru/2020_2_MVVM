@@ -67,4 +67,12 @@
     margin: 10px;
 }
 
+#add_to_prefer:hover{
+    color:var(--main-pink-color);
+    cursor: pointer;
+}
 
+#delete_from_prefer:hover{
+    color:var(--main-pink-color);
+    cursor: pointer;
+}

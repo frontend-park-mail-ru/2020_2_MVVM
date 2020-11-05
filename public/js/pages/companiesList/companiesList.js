@@ -1,7 +1,7 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import createElem from "../../libs/createElem.js";
 import {network} from "../../libs/networks.js";
-import {companyPageURL, companySearchUrl, spheres} from "../../libs/constants.js";
+import {companyPageURL, companySearchURL, spheres} from "../../libs/constants.js";
 import {checkBoxes} from "../../components/searchForm/searchForm.js";
 
 const app = window.document.getElementById('app');
@@ -99,7 +99,7 @@ async function search(form, mainList, main, router) {
     data.sphere = formData.getAll("sphere");
     data.keywords = formData.get("keywords");
 
-    const response = await network.doPost(companySearchUrl, data);
+    const response = await network.doPost(companySearchURL, data);
     console.assert(response.ok);
 
     await renderCompanyList(response, router, mainList, main);

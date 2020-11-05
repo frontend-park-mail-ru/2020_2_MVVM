@@ -7,6 +7,8 @@ import {
     experienceLevel,
     experienceMonth,
     candByIdURL,
+    addLikeResumeURL,
+    deleteLikeResumeURL,
     // city
 } from "../../libs/constants.js";
 import createElem from "../../libs/createElem.js";
@@ -14,11 +16,11 @@ import createElem from "../../libs/createElem.js";
 
 const app = window.document.getElementById('app');
 
-const resumeInfo = async (user_id, resume_id) => {
+const resumeInfo = async (content, user_id, resume_id) => {
+
     const responseUser = await network.doGet(candByIdURL + `${user_id}`);
-    const user = await responseUser.json();
-    console.log(user);
     console.assert(responseUser.ok);
+    const user = await responseUser.json();
 
     const responseResume = await network.doGet(`${resumeByIdURL}${resume_id}`);
 
@@ -31,7 +33,6 @@ const resumeInfo = async (user_id, resume_id) => {
 
     console.assert(responseResume.ok);
     const resume = (await responseResume.json());
-    console.log(resume);
 
     const dateRegBd = resume.resume.date_create.toString();
     let dataReg = '';
@@ -60,6 +61,8 @@ const resumeInfo = async (user_id, resume_id) => {
             mail: user.email,
             dateReg: dataReg,
             area_search: resume.resume.area_search,
+            user_type: content.user.user_type,
+            is_favorite: resume.is_favorite,
         },
         jobOverview : {
                 name: user.name,
@@ -89,7 +92,7 @@ export default class Resume {
         const navBarInit = new NavBarInit(app, content, false,"");
         navBarInit.loadNavBar();
 
-        const infoAll = await resumeInfo(user_id, resume_id);
+        const infoAll = await resumeInfo(content, user_id, resume_id);
 
 
         const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
@@ -116,6 +119,43 @@ export default class Resume {
 
         contentRightColumn.insertAdjacentHTML("beforeend", window.fest['contactForm.tmpl']());
 
+
+        addDeleteLikes(resume_id, infoAll);
+
+
+
+
+
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
+    }
+}
+
+
+async function addDeleteLikes(resume_id, infoAll){
+    let addLike = document.getElementById("add_to_prefer");
+    let deleteLike = document.getElementById("delete_from_prefer");
+    let likes = document.getElementsByClassName("cand-options-contact");
+
+    if (addLike) {
+        addLike.addEventListener('click', async () =>{
+            const addLikeResp = await network.doPost(addLikeResumeURL + `${resume_id}`);
+            console.assert(addLikeResp.ok);
+            const data = await (addLikeResp.json());
+            infoAll.infoAll.is_favorite = data.favorite_for_empl.favorite_id;
+            likes[0].lastChild.remove();
+            likes[0].insertAdjacentHTML("beforeend", window.fest["favorites.tmpl"](infoAll.infoAll.is_favorite));
+            addDeleteLikes(resume_id, infoAll);
+        });
+    }
+
+    if (deleteLike) {
+        deleteLike.addEventListener('click', async ()=>{
+            const addLikeResp = await network.doDelete(deleteLikeResumeURL + `${infoAll.infoAll.is_favorite}`);
+            console.assert(addLikeResp.ok);
+            infoAll.infoAll.is_favorite = null;
+            likes[0].lastChild.remove();
+            likes[0].insertAdjacentHTML("beforeend", window.fest["favorites.tmpl"](infoAll.infoAll.is_favorite));
+            addDeleteLikes(resume_id, infoAll);
+        });
     }
 }

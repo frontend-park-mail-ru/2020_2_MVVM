@@ -1,5 +1,5 @@
 import Profile from "../../pages/profile/profile.js";
-import {resumeMineURL, URL, vacancyMineURL, vacancyPageURL, companyMineURL} from "../../libs/constants.js";
+import {resumeMineURL, URL, vacancyMineURL, vacancyPageURL, companyMineURL, myLikeResumeURL} from "../../libs/constants.js";
 import {network} from "../../libs/networks.js";
 
 export default class ProfileCtrl {
@@ -39,6 +39,17 @@ export default class ProfileCtrl {
             }
         };
 
-        this.page = new Profile(loadResumes, loadVacancies, loadCompany, router);
+        const loadFavorites = async () => {
+            try {
+                const response = await network.doGet(myLikeResumeURL);
+                const data = await response.json();
+                console.assert(response.ok);
+                return data;
+            } catch (err) {
+                console.assert(err);
+            }
+        };
+
+        this.page = new Profile(loadResumes, loadVacancies,loadFavorites, loadCompany, router);
     }
 }

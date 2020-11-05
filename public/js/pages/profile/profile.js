@@ -1,15 +1,16 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkoutProfilePage, personalInfo} from './components/personalNavBar/persNavBar.js'
-import {updateProfileFields} from './components/checkboxSearch/checkBox.js'
+import {updateProfileFields} from './components/personalInfo/persInfo.js'
 import createElem from "../../libs/createElem.js";
 
 
 const app = window.document.getElementById('app');
 
 export default class Profile {
-    constructor(loadResumesF, loadVacanciesF, loadCompanyF, router) {
+    constructor(loadResumesF, loadVacanciesF, loadFavorites, loadCompanyF, router) {
         this.loadResumes = loadResumesF;
         this.loadVacancies = loadVacanciesF;
+        this.loadFavorites = loadFavorites;
         this.loadCompany = loadCompanyF;
         this.router = router;
     }
@@ -20,6 +21,7 @@ export default class Profile {
         this.vacancies = null;
         this.resumes = null;
         this.company= null;
+        this.favorites = null;
 
         let person;
         if (content) {
@@ -48,24 +50,24 @@ export default class Profile {
             await this.loadVacancies().then((data) => {
                 this.vacancies = data.vacancyList;
             });
-            // // работодатель может быть привязан ток к одной компании, поэтому для всех вакансий работодателя компания одна
-            // await this.loadCompany().then((data) => {
-            //     this.company = data.official_company;
-            // });
-            // //
+            await this.loadFavorites().then((data)=>{
+                this.favorites = data;
+                console.log(this.favorites.resume);
+            })
         } else {
             title.innerText = "Личный кабинет соискателя";
             await this.loadResumes().then((data) => {
                 this.resumes = data;
             });
+
         }
         const mainPage = createElem("div", "main__page", container);
         const mainColumnLeft = createElem("div", "main__page_left", mainPage);
         const body = createElem("div", "main__page_left-body", mainColumnLeft);
         await mainColumnLeft.insertAdjacentHTML("afterbegin", window.fest['persNavBar.tmpl'](content.user.user_type));
 
-        //const mainColumnRight = createElem("div", "main__page_right", mainPage);
-        // mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));
+        const mainColumnRight = createElem("div", "main__page_right", mainPage);
+        mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['listOfCandidates.tmpl'](this.favorites.resume));
 
 
         //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q

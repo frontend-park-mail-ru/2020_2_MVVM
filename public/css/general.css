@@ -239,17 +239,15 @@ svg {
     justify-content: space-between;
 }
 
-.cfield {
+.cfield{
     display: flex;
     width: 100%;
     position: center;
     margin-bottom: 19px;
-    border: 2px solid #e8ecec;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+    height: 50px;
     border-radius: 8px;
+    border: 2px solid var(--border-grey-color);
+
 }
 
 
