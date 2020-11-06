@@ -4,6 +4,7 @@ const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    // entry: ['babel-polyfill', './public/js/app.js'],
     entry: './public/js/app.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -35,10 +36,10 @@ module.exports = {
                 loader: 'fest-webpack-loader'
 
             },
-            // {
-            //     test: /\.html$/,
-            //     loader: 'html-loader',
-            // },
+            {
+                test: /\.html$/,
+                loader: 'html-loader',
+            },
         ]
     },
     plugins: [
