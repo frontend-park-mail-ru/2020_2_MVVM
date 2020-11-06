@@ -40,8 +40,7 @@ export default class updateResumeCtrl{
                 const content = await response.json();
                 console.log(content);
                 console.assert(response.ok);
-                console.log("content.resume.user_id = ", content.resume.cand_id);
-                this.router.change('\/resume', content.resume.cand_id, content.resume.id);
+                this.router.change('\/resume', content);
             }
 
         });

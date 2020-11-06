@@ -6,7 +6,7 @@ const express = require('express');
 const app = express();
 
 const root = path.resolve(__dirname, 'static');
-const dist = path.resolve(__dirname, 'public');
+const dist = path.resolve(__dirname, 'dist');
 
 app.use('/', express.static('public'));
 

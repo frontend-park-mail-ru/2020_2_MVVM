@@ -7,11 +7,12 @@ import createElem from "../../libs/createElem.js";
 const app = window.document.getElementById('app');
 
 export default class Profile {
-    constructor(loadResumesF, loadVacanciesF, loadFavorites, loadCompanyF, router) {
+    constructor(loadResumesF, loadVacanciesF, loadFavoritesF, loadCompanyF,candidateInfoF, router) {
         this.loadResumes = loadResumesF;
         this.loadVacancies = loadVacanciesF;
-        this.loadFavorites = loadFavorites;
+        this.loadFavorites = loadFavoritesF;
         this.loadCompany = loadCompanyF;
+        this.candidateInfo = candidateInfoF;
         this.router = router;
     }
 
@@ -22,6 +23,7 @@ export default class Profile {
         this.resumes = null;
         this.company= null;
         this.favorites = null;
+        this.candInfo = null;
 
         let person;
         if (content) {
@@ -32,7 +34,6 @@ export default class Profile {
                 email: content.user.email,
                 phone: content.user.phone,
                 type: content.user.type,
-                resumeCount: "NOT READY YET",
                 socialNetworkLinks: content.user.social_network,
             };
         }
@@ -49,15 +50,20 @@ export default class Profile {
             title.innerText = "Личный кабинет работодателя";
             await this.loadVacancies().then((data) => {
                 this.vacancies = data.vacancyList;
+                console.log(this.vacancies);
             });
             await this.loadFavorites().then((data)=>{
                 this.favorites = data;
-                console.log(this.favorites.resume);
-            })
+                console.log(this.favorites);
+            });
+            // await this.candidateInfo(this.favorites).then((data)=>{
+            //     this.candInfo = data;
+            //     console.log(this.candInfo);
+            // });
         } else {
             title.innerText = "Личный кабинет соискателя";
             await this.loadResumes().then((data) => {
-                this.resumes = data;
+                this.resumes = data.resume;
             });
 
         }
@@ -67,7 +73,15 @@ export default class Profile {
         await mainColumnLeft.insertAdjacentHTML("afterbegin", window.fest['persNavBar.tmpl'](content.user.user_type));
 
         const mainColumnRight = createElem("div", "main__page_right", mainPage);
-        mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['listOfCandidates.tmpl'](this.favorites.resume));
+        mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['listOfCandidates.tmpl'](this.favorites));
+
+        const linksToFavResume = document.getElementsByClassName("go_to_resume");
+        for (let i = 0; i < linksToFavResume.length; i++) {
+            linksToFavResume[i].addEventListener('click', event => {
+                event.preventDefault();
+                this.router.change('/resume', this.favorites[i]);
+            })
+        }
 
 
         //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q

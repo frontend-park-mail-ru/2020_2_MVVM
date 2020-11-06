@@ -16,23 +16,27 @@ import createElem from "../../libs/createElem.js";
 
 const app = window.document.getElementById('app');
 
-const resumeInfo = async (content, user_id, resume_id) => {
+const nullToString = (e) => {
+    if (e == null) {
+        return "-";
+    }
+    return e;
+}
 
-    const responseUser = await network.doGet(candByIdURL + `${user_id}`);
-    console.assert(responseUser.ok);
-    const user = await responseUser.json();
-
-    const responseResume = await network.doGet(`${resumeByIdURL}${resume_id}`);
-
-    const nullToString = (e) => {
-        if (e == null) {
-            return "-";
-        }
-        return e;
+const resumeInfo = async (content, resumeSource) => {
+    let resume;
+    let result = null;
+    console.log(resumeSource);
+    if (!resumeSource.hasOwnProperty('resume')) {
+        const responseResume = await network.doGet(`${resumeByIdURL}${resumeSource.resume_id}`);
+        console.assert(responseResume.ok);
+        resume = (await responseResume.json());
+        console.log(resume);
+    } else {
+        resume = resumeSource;
+        console.log(result);
     }
 
-    console.assert(responseResume.ok);
-    const resume = (await responseResume.json());
 
     const dateRegBd = resume.resume.date_create.toString();
     let dataReg = '';
@@ -52,20 +56,19 @@ const resumeInfo = async (content, user_id, resume_id) => {
         });
     }
 
-
     return {
-        infoAll : {
-            photo: 'img/es1.jpg',
-            name: user.name + " " + user.surname,
-            position: resume.resume.place,
-            mail: user.email,
-            dateReg: dataReg,
-            area_search: resume.resume.area_search,
-            user_type: content.user.user_type,
-            is_favorite: resume.is_favorite,
-        },
-        jobOverview : {
-                name: user.name,
+            infoAll : {
+                photo: 'img/es1.jpg',
+                name: resumeSource.name + " " + resumeSource.surname,
+                position: resume.resume.place,
+                mail: resumeSource.email,
+                dateReg: dataReg,
+                area_search: resume.resume.area_search,
+                user_type: content.user.user_type,
+                is_favorite: resume.is_favorite,
+            },
+            jobOverview : {
+                name: resumeSource.name,
                 salary_min: nullToString(resume.resume.salary_min),
                 salary_max: nullToString(resume.resume.salary_max),
                 gender: nullToString(gender[resume.resume.gender]),
@@ -74,25 +77,24 @@ const resumeInfo = async (content, user_id, resume_id) => {
                 interest: "TODOManagement",
                 education: nullToString(educationLevel[resume.resume.education_level]),
                 career_level: nullToString(resume.resume.career_level),
-        },
-        description : {
-            text: nullToString(resume.resume.description),
-            experience_custom_company: resume.custom_experience,
-            skills: resume.resume.skills,
+            },
+            description : {
+                text: nullToString(resume.resume.description),
+                experience_custom_company: resume.custom_experience,
+                skills: resume.resume.skills,
+            }
         }
-
-    }
 }
 
 export default class Resume {
-    async render(content, user_id, resume_id) {
+    async render(content, resume) {
 
         app.innerHTML = '';
 
         const navBarInit = new NavBarInit(app, content, false,"");
         navBarInit.loadNavBar();
 
-        const infoAll = await resumeInfo(content, user_id, resume_id);
+        const infoAll = await resumeInfo(content, resume);
 
 
         const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
@@ -120,7 +122,7 @@ export default class Resume {
         contentRightColumn.insertAdjacentHTML("beforeend", window.fest['contactForm.tmpl']());
 
 
-        addDeleteLikes(resume_id, infoAll);
+        addDeleteLikes(resume.resume_id, infoAll);
 
 
 

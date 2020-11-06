@@ -1,5 +1,13 @@
 import Profile from "../../pages/profile/profile.js";
-import {resumeMineURL, URL, vacancyMineURL, vacancyPageURL, companyMineURL, myLikeResumeURL} from "../../libs/constants.js";
+import {
+    resumeMineURL,
+    URL,
+    vacancyMineURL,
+    vacancyPageURL,
+    companyMineURL,
+    myLikeResumeURL,
+    candByIdURL
+} from "../../libs/constants.js";
 import {network} from "../../libs/networks.js";
 
 export default class ProfileCtrl {
@@ -50,6 +58,23 @@ export default class ProfileCtrl {
             }
         };
 
-        this.page = new Profile(loadResumes, loadVacancies,loadFavorites, loadCompany, router);
+        const candidateInfo = async (resume) => {
+            console.log(resume);
+            const candInfo = resume.map(async (e) => {
+                console.log(e);
+                const response = await network.doGet(candByIdURL+`${e.resume.cand_id}`);
+                const user = await response.json();
+                return {
+                    id: e.resume.cand_id,
+                    resume_id: e.id,
+                    name: user.name + " " + user.surname,
+                    prof: e.resume.place,
+                    location: [e.resume.area_search, "Росcия"],
+                }
+            })
+            return await Promise.all(candInfo);
+        }
+
+        this.page = new Profile(loadResumes, loadVacancies,loadFavorites, loadCompany, candidateInfo, router);
     }
 }
