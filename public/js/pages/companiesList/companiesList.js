@@ -4,7 +4,7 @@ import {network} from "../../libs/networks.js";
 import {companyPageURL, companySearchURL, spheres} from "../../libs/constants.js";
 import {checkBoxes} from "../../components/searchForm/searchForm.js";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
-import companiesListTemp from'./components/companiesList/companiesLisr.tmpl.xml'
+import companiesListTemp from'./components/companiesList/companiesList.tmpl.xml'
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
 
 const app = window.document.getElementById('app');
@@ -74,10 +74,10 @@ async function renderCompanyList(response, router, mainList, main) {
     let companies = (await response.json()).companies_list;
 
     if (companies && companies.length) {
-        mainList.insertAdjacentHTML("beforeend", window.fest['companiesList.tmpl'](companies));
+        mainList.insertAdjacentHTML("beforeend", companiesListTemp(companies));
         getCompanyPage(router, main, companies);
     } else {
-        mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
+        mainList.insertAdjacentHTML("beforeend", emptyListTemp());
     }
 }
 

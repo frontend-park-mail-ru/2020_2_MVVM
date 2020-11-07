@@ -17,6 +17,7 @@ import contactTemp from './components/contact/contact.tmpl.xml'
 import resumeTemp from './components/resume/resume.tmpl.xml'
 import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml'
 import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
+import favoritesTemp from 'Js/pages/resume/components/briefInfo/favorites.tmpl.xml'
 
 
 
@@ -163,7 +164,7 @@ async function addDeleteLikes(resume_id, infoAll){
             console.assert(addLikeResp.ok);
             infoAll.infoAll.is_favorite = null;
             likes[0].lastChild.remove();
-            likes[0].insertAdjacentHTML("beforeend", window.fest["favorites.tmpl"](infoAll.infoAll.is_favorite));
+            likes[0].insertAdjacentHTML("beforeend", favoritesTemp(infoAll.infoAll.is_favorite));
             addDeleteLikes(resume_id, infoAll);
         });
     }

@@ -3,6 +3,7 @@ import {checkoutProfilePage, personalInfo} from './components/personalNavBar/per
 import {updateProfileFields} from './components/personalInfo/persInfo.js'
 import createElem from "../../libs/createElem.js";
 import persNB from './components/personalNavBar/persNavBar.tmpl.xml'
+import listOfCandidatesTemp from 'Js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.xml'
 
 
 const app = window.document.getElementById('app');
@@ -67,7 +68,7 @@ export default class Profile {
         await mainColumnLeft.insertAdjacentHTML("afterbegin", persNB(content.user.user_type));
 
         const mainColumnRight = createElem("div", "main__page_right", mainPage);
-        mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['listOfCandidates.tmpl'](this.favorites));
+        mainColumnRight.insertAdjacentHTML("afterbegin", listOfCandidatesTemp(this.favorites));
 
         const linksToFavResume = document.getElementsByClassName("go_to_resume");
         for (let i = 0; i < linksToFavResume.length; i++) {
