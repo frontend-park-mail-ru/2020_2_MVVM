@@ -87,7 +87,7 @@ module.exports = {
             filename: "bundle.css"
         }),
         new ServiceWorkerWebpackPlugin({
-            entry: path.join(__dirname, './js/sw.js'),
+            entry: path.join(__dirname, './public/js/sw.js'),
         }),
     ],
     devServer: {
