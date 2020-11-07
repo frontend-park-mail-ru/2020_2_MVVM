@@ -1,0 +1,14 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <fest:each iterate="items" index="i" value="item">
+        <div class="main__list_row">
+            <div class="main__candidate_photo">
+                <img src="{item.imgPath}" alt=""></img>
+            </div>
+            <div class="main__candidate_description">
+                <div class="main__candidate_name"><a><fest:value>item.name</fest:value></a></div>
+                <div class="main__candidate_location"><fest:value>item.location</fest:value>/Росиия</div>
+            </div>
+            <a href="/company" class="go_to_resume"><div class="main__candidate_shortlist">Подробнее</div></a>
+        </div>
+    </fest:each>
+</fest:template>

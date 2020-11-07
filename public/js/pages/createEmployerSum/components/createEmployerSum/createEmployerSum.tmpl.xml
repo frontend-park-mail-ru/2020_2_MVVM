@@ -82,7 +82,8 @@
                             <div>
                                 <label class="sum__form__labels" for="description">Сфера деятельности</label>
                                 <input class="sum__user__info" name="sphere" type="text"
-                                       value="" placehoder="укажите основную сферу деятельности компании" disabled="disabled"/>
+                                       value="" placehoder="укажите основную сферу деятельности компании"
+                                       disabled="disabled"/>
                             </div>
                             <div>
                                 <label class="sum__form__labels" for="education_level">Требуемый уровень образования

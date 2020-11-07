@@ -4,12 +4,11 @@ import createElem from "../../libs/createElem.js";
 import {network} from "../../libs/networks.js";
 import {
     companyByIdURL,
-    emplByIdURL,
-    vacancyByIdURL,
     educationLevel,
-    experienceMonth,
+    emplByIdURL,
     experienceLevel,
-    gender
+    experienceMonth,
+    vacancyByIdURL
 } from "../../libs/constants.js";
 
 const app = window.document.getElementById('app');
@@ -27,11 +26,13 @@ async function vacancyInfo(user_id, vacancy_id, company_id) {
     const pageInfo = await Promise.all(allInfo).then((values) => {
         return values;
     });
-
+    const userInfo = await pageInfo[0].json()
+    const vacInfo = await pageInfo[1].json()
+    const compInfo = await pageInfo[2].json()
     return {
-        userInfo: await pageInfo[0].json(),
-        vacancyInfo: (await pageInfo[1].json()).vacancy,
-        companyInfo: (await pageInfo[2].json()).company,
+        userInfo: userInfo,
+        vacancyInfo: vacInfo === null ? null : vacInfo.vacancy,
+        companyInfo: compInfo == null ? null : compInfo.company,
     };
 }
 
@@ -45,6 +46,7 @@ export default class Vacancy {
 
         app.innerHTML = '';
 
+        console.log("ids=", user_id, vacancy_id, company_id);
         const navBarInit = new NavBarInit(app, content, false, "Вакансия");
         navBarInit.loadNavBar();
 
@@ -102,10 +104,10 @@ export default class Vacancy {
                 salary_min: allInfo.vacancyInfo.salary_min,
                 salary_max: allInfo.vacancyInfo.salary_max,
                 gender: 'TODOМужской',
-                interest: allInfo.vacancyInfo.spheres,
+                career_level: allInfo.vacancyInfo.career_level,
+                interest: allInfo.vacancyInfo.sphere,
                 experience_month: allInfo.vacancyInfo.employment,
                 education: educationLevel[allInfo.vacancyInfo.education_level],
-                career_level: allInfo.vacancyInfo.week_work_hours,
             };
 
 

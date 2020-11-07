@@ -128,7 +128,7 @@ export default class EmployersList{
 
         const vacancies = await this.fetchVacancyList();
 
-        if (vacancies) {
+        if (vacancies && vacancies.vacancyList) {
             vacancies.vacancyList.forEach((vacancy) => {
                 vacancy.imgPath = `static/vacancy/${vacancy.ID}`;
             });
@@ -139,9 +139,7 @@ export default class EmployersList{
             mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
         }
 
-
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
-
         afterRender(mainList, main, this.fetchVacancyList, this.router);
     }
 }
@@ -188,7 +186,7 @@ function getEmplVacancy(router, main, vacancy) {
     for (let i = 0; i < linksToVacancy.length; i++) {
         linksToVacancy[i].addEventListener('click', event => {
             event.preventDefault();
-            router.change('/vacancy', vacancy[i].EmpID, vacancy[i].ID, vacancy[i].CompID);
+            router.change('/vacancy', vacancy[i].empl_id, vacancy[i].vac_id, vacancy[i].comp_id);
         })
     }
 }

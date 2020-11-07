@@ -22,15 +22,19 @@ export default class CreateVacancy {
             spheres: spheres
         }
         await this.loadCompany().then((data) => {
-            this.content.company = data.company;
-            this.content.comp_logo = `static/company/${data.company.id}`
+            if (data && data.company) {
+                this.content.company = data.company;
+                this.content.comp_logo = `static/company/${data.company.id}`
+            } else {
+                this.content.comp_logo = "img/em1.jpg"
+            }
         });
         console.log(this.content)
         const employersList = new NavBarInit(app, content, false, "Создание вакансии");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
-        main.insertAdjacentHTML("afterbegin", window.fest['createEmployerSum.tmpl'](this.content));
+        main.insertAdjacentHTML("afterbegin", window.fest["createEmployerSum.tmpl"](this.content));
 
         //afterRender();
         const form = main.querySelector("form");

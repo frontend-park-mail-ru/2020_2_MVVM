@@ -1,14 +1,14 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import createElem from "../../libs/createElem.js";
 import {network} from "../../libs/networks.js";
-import {companySearchUrl, spheres} from "../../libs/constants.js";
+import {companySearchUrl, spheres, companyPageURL} from "../../libs/constants.js";
 import {checkBoxes} from "../../components/searchForm/searchForm.js";
 
 const app = window.document.getElementById('app');
 
 export default class CompaniesList {
-    constructor(fetchCompanyInfo, router) {
-        this.fetchCompanyInfo = fetchCompanyInfo;
+    constructor(fetchCompanyList, router) {
+        this.fetchCompanyList = fetchCompanyList;
         this.router = router;
     }
 
@@ -46,12 +46,8 @@ export default class CompaniesList {
         spheres.forEach((item)=>{
             m[0].fields.push({name:item, text:item});
         });
-
-
-        console.log(m);
-
-        const candidatesList = new NavBarInit(app, content, false, "");
-        candidatesList.loadNavBar();
+        const compList = new NavBarInit(app, content, false, "");
+        compList.loadNavBar();
 
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);
@@ -61,56 +57,57 @@ export default class CompaniesList {
         mainRow.insertAdjacentHTML("afterbegin", window.fest['searchForm.tmpl'](m));
 
         const mainList = createElem("div", "main__list", mainRow);
-
-        // const response = await network.doGetLimit(companySearchUrl, 0, 15);
-        // console.assert(response.ok);
-        // const resume = (await response.json()).resume;
-        //
-        // if (resume && resume.length) {
-        //     const infoOfCand = await this.fetchCandInfo(resume);
-        //     mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
-        //     mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
-        //     // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
-        //     getUserResume(this.router, main, infoOfCand);
-        // } else {
-        //     mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
-        // }
-        afterRender(mainList, main, this.fetchCompanyInfo, this.router);
+        const companies = await this.fetchCompanyList();
+        await renderCompanyList(companies, mainList)
+        afterRender(mainList, main, this.router);
     }
 }
 
-function afterRender(mainList, main, fetchCOmpanyInfo, router) {
+function afterRender(mainList, main,  router) {
     checkBoxes();
     let form = document.querySelector("form");
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        search(form, mainList, main, fetchCOmpanyInfo, router);
+        search(form, mainList, main, router);
     });
 }
 
+function checkCreateOrg(form) {
+    let cbArr = []
+    const cb = document.getElementById("checkboxes");
+    for (let i = 0; i < cb.childElementCount; i++) {
+        if (cb.children[i].children[0].checked) {
+            cbArr.push(parseInt(cb.children[i].children[0].id))
+        }
+    }
+    return cbArr
+}
 
-async function search(form, mainList, main, fetchCompanyInfo, router) {
+
+async function search(form, mainList, main, router) {
     mainList.innerHTML = '';
 
     const formData = new FormData(form);
     let data = {};
 
     data.location = formData.getAll("location");
-    data.sphere = formData.getAll("sphere");
+
+    //TODO: spheres by int index
+    //data.spheres = formData.getAll("sphere");
     data.keywords = formData.get("keywords");
+    const companies = await network.doPost(companySearchUrl, data)
+    await renderCompanyList(companies, mainList)
+}
 
-    const response = await network.doPost(companySearchUrl, data);
-    console.assert(response.ok);
-    const companies = (await response.json()).resume;
-    console.log(companies);
-
-    if (companies && companies.length) {
-        const infoOfCompany = await fetchCompanyInfo(companies);
-        mainList.insertAdjacentHTML("beforeend", window.fest['companiesList.tmpl'](infoOfCompany));
-        // getUserResume(router, main, infoOfCand);
+async function renderCompanyList(companies, mainList) {
+    if (companies && companies.companyList) {
+        companies.companyList.forEach((company) => {
+            company.imgPath = `static/company/${company.id}`;
+        });
+        mainList.insertAdjacentHTML("beforeend", window.fest['listOfCompanies.tmpl'](companies.companyList));
+        mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
     } else {
         mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
-        const pagination = document.getElementsByClassName("pagination");
-        pagination[0].innerHTML = '';
     }
+    // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
 }

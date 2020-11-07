@@ -1,5 +1,5 @@
 import CompaniesList from "../../pages/companiesList/companiesList.js";
-import {usersByIdURL, resumePageURL} from "../../libs/constants.js";
+import {usersByIdURL, companyPageURL} from "../../libs/constants.js";
 import {network} from "../../libs/networks.js";
 
 export default class CompaniesListCtrl{
@@ -7,8 +7,7 @@ export default class CompaniesListCtrl{
         this.router = router;
 
         const fetchCompaniesInfo = async (resume) => {
-
-            const companyInfo = resume.map(async (e) => {
+           /* const companyInfo = resume.map(async (e) => {
                 const response = await network.doGet(usersByIdURL+`${e.user_id}`)
                 const company = (await response.json()).user;
                 return {
@@ -19,9 +18,11 @@ export default class CompaniesListCtrl{
                     location: [e.area_search, "Росcия"],
                 }
             })
-            return await Promise.all(companyInfo);
+            return await Promise.all(companyInfo);*/
+            const response = await network.doGetLimit(companyPageURL, 0, 10);
+            return await response.json();
         }
 
-        this.page = new CompaniesList(fetchCompaniesInfo);
+        this.page = new CompaniesList(fetchCompaniesInfo, router);
     }
 }

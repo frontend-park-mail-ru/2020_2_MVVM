@@ -20,11 +20,13 @@ export default class CreateCompanyCtrl {
             json.link = formData.get("link");
             json.location = formData.get("location");
             const response = await network.doPost(addCompanyUrl, json);
+            const content = await response.json();
             if (response.status >= 200 && response.status < 300) {
-                const content = await response.json();
-                console.log("company New:", content.official_company);
+                console.log("company New:", content.company);
                 console.assert(response.ok);
-                this.router.change('\/resume', content.resume.user_id, content.resume.id);
+                this.router.change('\/company', content.company.id);
+            } else {
+                console.log("Error in company creation", content.error);
             }
         });
     }

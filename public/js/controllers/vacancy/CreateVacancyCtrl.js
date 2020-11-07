@@ -44,11 +44,13 @@ export default class CreateResumeCtrl {
             json.email = formData.get("email");
             json.phone = formData.get("phone");
             const response = await network.doPost(addVacancyURL, json);
+            const content = await response.json();
             if (response.status >= 200 && response.status < 300) {
-                const content = await response.json();
                 console.assert(response.ok);
                 console.log("vacancy New:", content)
                 this.router.change('\/vacancy', content.vacancy.empl_id, content.vacancy.vac_id, content.vacancy.comp_id);
+            } else {
+                console.log("Error in vacancy creation", content.error);
             }
         }
 
