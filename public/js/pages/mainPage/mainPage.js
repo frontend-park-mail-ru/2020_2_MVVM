@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/header/navBar.js";
+import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "../../libs/createElem.js";
 import searchJobTemp from 'Js/pages/mainPage/components/searchJob/searchJob.tmpl.xml'
 import categoryTemp from 'Js/pages/mainPage/components/category/category.tmpl.xml'

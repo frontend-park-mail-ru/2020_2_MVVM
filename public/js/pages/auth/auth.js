@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/header/navBar.js";
+import {NavBarInit} from "Js/components/header/navBar";
 import {checkFrom} from "./components/auth_form/auth.js";
 import createElem from "../../libs/createElem.js";
 import authTemp from './components/auth_form/auth.tmpl.xml'

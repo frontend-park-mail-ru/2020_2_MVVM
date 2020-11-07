@@ -9,16 +9,14 @@ export const app = window.document.getElementById('app');
 export default class UpdateResume{
     constructor(onsubmit) {
         this.onsubmit = onsubmit;
-        // this.jobsArr = [];
-        // this.numOfJob = 0;
     }
 
     render(content, ...args){
         app.innerHTML = '';
         this.jobsArr = [];
         this.numOfJob = 0;
-        //
-        // console.log(content);
+
+        
         console.log(args[2]);
 
 
