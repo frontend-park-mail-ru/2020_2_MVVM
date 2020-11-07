@@ -16,7 +16,7 @@ module.exports = {
         alias: {
             'Img': path.resolve(__dirname, 'public/img'),
             'Js': path.resolve(__dirname, 'public/js'),
-            Css: path.resolve(__dirname, 'public/css')
+            'Css': path.resolve(__dirname, 'public/css')
         }
     },
     mode: 'development',
@@ -83,9 +83,9 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({inject: true, template: './index.html'}),
-        // new MiniCssExtractPlugin({
-        //     filename: "bundle.css"
-        // }),
+        new MiniCssExtractPlugin({
+            filename: "bundle.css"
+        }),
         // new ServiceWorkerWebpackPlugin({
         //     entry: path.join(__dirname, 'src/js/sw.js'),
         // }),
