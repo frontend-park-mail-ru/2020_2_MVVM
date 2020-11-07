@@ -145,35 +145,34 @@ export default class CandidatesList {
 
         const response = await network.doGetLimit(resumePageURL, 0, 15);
         console.assert(response.ok);
-        const resume = (await response.json()).resume;
+        const resume = await response.json();
         console.log(resume);
 
         if (resume && resume.length) {
-            const infoOfCand = await this.fetchCandInfo(resume);
-            mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(infoOfCand));
+            mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
             // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
             // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
-            getUserResume(this.router, main, infoOfCand);
+            getUserResume(this.router, main, resume);
         } else {
             mainList.insertAdjacentHTML("beforeend", emptyListTemp());
         }
-        afterRender(mainList, main, this.fetchCandInfo, this.router);
+        afterRender(mainList, main, this.router);
     }
 }
 
 
-function getUserResume(router, main, infoOfCand) {
+function getUserResume(router, main, resume) {
     const linksToResume = main.getElementsByClassName("go_to_resume");
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
-            console.log(infoOfCand[i]);
-            router.change('/resume', infoOfCand[i].id, infoOfCand[i].resume_id);
+            console.log(resume[i]);
+            router.change('/resume', resume[i]);
         })
     }
 }
 
-async function search(form, mainList, main, fetchCandInfo, router) {
+async function search(form, mainList, main, router) {
     mainList.innerHTML = '';
 
     const formData = new FormData(form);
@@ -190,13 +189,12 @@ async function search(form, mainList, main, fetchCandInfo, router) {
 
     const response = await network.doPost(resumeSearchURL, data);
     console.assert(response.ok);
-    const resume = (await response.json()).resume;
+    const resume = (await response.json());
     console.log(resume);
 
     if (resume && resume.length) {
-        const infoOfCand = await fetchCandInfo(resume);
-        mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(infoOfCand));
-        getUserResume(router, main, infoOfCand);
+        mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
+        getUserResume(router, main, resume);
     } else {
         mainList.insertAdjacentHTML("beforeend", emptyListTemp());
         const pagination = document.getElementsByClassName("pagination");
@@ -205,11 +203,11 @@ async function search(form, mainList, main, fetchCandInfo, router) {
 
 }
 
-function afterRender(mainList, main, fetchCandInfo, router) {
+function afterRender(mainList, main, router) {
     checkBoxes();
     let form = document.querySelector("form");
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        search(form, mainList, main, fetchCandInfo, router);
+        search(form, mainList, main, router);
     });
 }

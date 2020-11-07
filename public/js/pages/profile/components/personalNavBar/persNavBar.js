@@ -25,8 +25,9 @@ export function checkoutProfilePage(profile, content, body, person) {
 
 
 export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
+    console.log(list);
     if (isCand) {
-        mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list.resume));
+        mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list));
     } else {
         mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
     }
@@ -38,7 +39,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
             if (isCand) {
-                profile.router.change('/resume', list.resume[i].resume.cand_id, list.resume[i].resume.id);
+                profile.router.change('/resume', list[i]);
             }
             else {
                 profile.router.change('/vacancy', list[i].EmpID, list[i].ID, list[i].CompID);
@@ -46,13 +47,14 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         })
     }
 
+
     const linksToUpdateResume = mainColumnLeft.getElementsByClassName("main__buttons_two");
 
     for (let i = 0; i < linksToUpdateResume.length; i++) {
         linksToUpdateResume[i].addEventListener('click', event => {
             event.preventDefault();
             if (isCand) {
-                profile.router.change('/updateResume', list.resume[i].cand_id, list.resume[i].id, list.resume[i]);
+                profile.router.change('/updateResume', list[i].cand_id, list[i].id, list[i]);
             }
 
         })

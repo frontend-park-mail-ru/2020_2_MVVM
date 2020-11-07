@@ -53,7 +53,7 @@ input.sum__achievement{
     width: calc(100% - 300px);
     padding: 30px 80px;
     border-radius: 0 20px 20px 0;
-    color: #7b7b7b;
+    color: var(--text-gray);
 }
 
 /********************** стилизация элементов формы **********************/
@@ -69,6 +69,7 @@ input.sum__user__info {
     padding: 10px 15px;
     border: 1px solid var(--border-grey-color);
     border-radius: 10px;
+    font-size: 18px;
 }
 
 input.sum__user__info:focus, textarea:focus { /*выделяем поле при клике*/
@@ -119,6 +120,7 @@ select.sum__user__all {
     border-radius: 10px;
     width: 100%;
     background: white;
+    font-size: 18px;
 }
 select.sum__small_field {
     margin-left: 5px;

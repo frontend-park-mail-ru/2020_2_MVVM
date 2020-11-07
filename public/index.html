@@ -27,19 +27,21 @@
 <!--    <link rel="stylesheet" type="text/css"-->
 <!--          href="js/pages/candidatesList/components/listOfCandidates/listOfCandidates.scss"/>-->
 
-<!--    &lt;!&ndash;  profile styles &ndash;&gt;-->
-<!--    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/personalInfo/persInfo.scss"/>-->
-<!--    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/checkboxSearch/checkBoxJob.scss"/>-->
-<!--    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/listOfResumes/persResumes.scss"/>-->
+    <!--  listOfCompanies styles -->
+    <link rel="stylesheet" type="text/css"
+          href="js/pages/companiesList/components/companiesList/companyList.css"/>
 
-<!--    &lt;!&ndash;  listOfEmployers styles &ndash;&gt;-->
-<!--    <link rel="stylesheet" type="text/css"-->
-<!--          href="js/pages/employersList/components/listOfEmployers/listOfEmployers.scss"/>-->
+    <!--  listOfEmployers styles -->
+    <link rel="stylesheet" type="text/css"
+          href="js/pages/employersList/components/listOfEmployers/listOfEmployers.css"/>
 
+    <!--  profile styles -->
+    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/personalInfo/persInfo.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/profile/components/listOfResumes/persResumes.css"/>
 
-<!--    &lt;!&ndash;Auth and Reg styles &ndash;&gt;-->
-<!--    <link rel="stylesheet" type="text/css" href="js/pages/auth/components/auth_form/auth.scss"/>-->
-<!--    <link rel="stylesheet" type="text/css" href="js/pages/reg/components/reg_form/reg.scss"/>-->
+    <!--Auth and Reg styles -->
+    <link rel="stylesheet" type="text/css" href="js/pages/auth/components/auth_form/auth.css"/>
+    <link rel="stylesheet" type="text/css" href="js/pages/reg/components/reg_form/reg.css"/>
 
 
 <!--    &lt;!&ndash; Candidates, employers and company summary styles &ndash;&gt;-->
@@ -72,10 +74,9 @@
     <!--  font pages -->
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
 </head>
-
-
 <body>
 <div id="app"></div>
+<!--<script type="text/javascript" src="./dist/bundle.js"></script>-->
 
 <!--&lt;!&ndash; general &ndash;&gt;-->
 <!--<script type="module" src="js/components/header/bNavBar/bNavBar.tmpl.js"></script>-->
@@ -91,27 +92,30 @@
 <!--&lt;!&ndash; listOfCandidates &ndash;&gt;-->
 <!--<script type="module" src="js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.js"></script>-->
 
-<!--&lt;!&ndash; profile &ndash;&gt;-->
-<!--<script type="module" src="js/pages/profile/components/personalNavBar/persNavBar.tmpl.js"></script>-->
-<!--<script type="module" src="js/pages/profile/components/personalInfo/persInfo.tmpl.js"></script>-->
-<!--<script type="module" src="js/pages/profile/components/checkboxSearch/checkBoxJob.tmpl.js"></script>-->
-<!--<script type="module" src="js/pages/profile/components/listOfResumes/persResumes.tmpl.js"></script>-->
-<!--<script type="module" src="js/pages/profile/components/listOfVacancies/persVacancies.tmpl.js"></script>-->
+<!-- listOfCompanies -->
+<script type="module" src="js/pages/companiesList/components/companiesList/companiesList.tmpl.js"></script>
 
 <!--&lt;!&ndash; listOfEmployers &ndash;&gt;-->
 <!--<script type="module" src="js/pages/employersList/components/listOfEmployers/listOfEmployers.tmpl.js"></script>-->
 
 <!--&lt;!&ndash;resume page&ndash;&gt;-->
 <!--<script type="module" src="js/pages/resume/components/briefInfo/briefInfo.tmpl.js"></script>-->
-<!--<script type="module" src="js/pages/resume/components/contact/contact.tmpl.js"></script>-->
+<!--<script type="module" src="js/pages/resume/components/briefInfo/favorites.tmpl.js"></script>
+<script type="module" src="js/pages/resume/components/contact/contact.tmpl.js"></script>-->
 <!--<script type="module" src="js/pages/resume/components/resume/resume.tmpl.js"></script>-->
 <!--<script type="module" src="js/components/rightColumn/jobOverview.tmpl.js"></script>-->
 <!--<script type="module" src="js/components/rightColumn/contactForm.tmpl.js"></script>-->
 
-<!--&lt;!&ndash;vacancy page&ndash;&gt;-->
-<!--<script type="module" src="js/pages/vacancy/components/briefInfoJob/briefInfoJob.tmpl.js"></script>-->
-<!--<script type="module" src="js/pages/vacancy/components/recentJobs/recentJobs.tmpl.js"></script>-->
-<!--<script type="module" src="js/pages/vacancy/components/vacancy/vacancy.tmpl.js"></script>-->
+<!-- profile -->
+<script type="module" src="js/pages/profile/components/personalNavBar/persNavBar.tmpl.js"></script>
+<script type="module" src="js/pages/profile/components/personalInfo/persInfo.tmpl.js"></script>
+<script type="module" src="js/pages/profile/components/listOfResumes/persResumes.tmpl.js"></script>
+<script type="module" src="js/pages/profile/components/listOfVacancies/persVacancies.tmpl.js"></script>
+
+<!--vacancy page-->
+<script type="module" src="js/pages/vacancy/components/briefInfoJob/briefInfoJob.tmpl.js"></script>
+<script type="module" src="js/pages/vacancy/components/recentJobs/recentJobs.tmpl.js"></script>
+<script type="module" src="js/pages/vacancy/components/vacancy/vacancy.tmpl.js"></script>
 
 <!--&lt;!&ndash;company page&ndash;&gt;-->
 <!--<script type="module" src="js/pages/company/components/companyPage/companyPage.tmpl.js"></script>-->
@@ -152,15 +156,6 @@
 <!--<script type="module" src="js/components/pagination/pagination.tmpl.js"></script>-->
 <!--<script type="module" src="js/components/footer/footer.tmpl.js"></script>-->
 
-<!--<script type="module" src="js/app.js"></script>-->
-
-<script type="text/javascript"><!--
-
-function CheckClick(e) {
-    t = e.previousSibling;
-    if ((t.tagName === 'INPUT') && (t.type === 'checkbox')) t.click();
-}
-
-//--></script>
+<script type="module" src="js/app.js"></script>
 </body>
 </html>

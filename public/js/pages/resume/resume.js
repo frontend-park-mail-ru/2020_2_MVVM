@@ -7,6 +7,8 @@ import {
     experienceLevel,
     experienceMonth,
     candByIdURL,
+    addLikeResumeURL,
+    deleteLikeResumeURL,
     // city
 } from "../../libs/constants.js";
 import createElem from "../../libs/createElem.js";
@@ -20,30 +22,30 @@ import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
 
 const app = window.document.getElementById('app');
 
-const resumeInfo = async (user_id, resume_id) => {
-    const responseUser = await network.doGet(candByIdURL + `${user_id}`);
-    const user = await responseUser.json();
-    console.log(user);
-    console.assert(responseUser.ok);
+const nullToString = (e) => {
+    if (e == null) {
+        return "-";
+    }
+    return e;
+}
 
-    const responseResume = await network.doGet(`${resumeByIdURL}${resume_id}`);
+const resumeInfo = async (content, resumeSource) => {
 
-    const nullToString = (e) => {
-        if (e == null) {
-            return "-";
-        }
-        return e;
+    let resumeData;
+    if (resumeSource.hasOwnProperty('user')) {
+        resumeData = resumeSource;
+    } else {
+        const responseResume = await network.doGet(`${resumeByIdURL}${resumeSource.resume_id}`);
+        console.assert(responseResume.ok);
+        resumeData = await responseResume.json();
     }
 
-    console.assert(responseResume.ok);
-    const resume = (await responseResume.json());
-    console.log(resume);
 
-    const dateRegBd = resume.resume.date_create.toString();
+    const dateRegBd = resumeData.resume.date_create.toString();
     let dataReg = '';
     dataReg = dateRegBd.slice(8,10) + '-' + dateRegBd.slice(5,7) + '-' + dateRegBd.slice(0,4);
 
-    let experiences = resume.custom_experience;
+    let experiences = resumeData.custom_experience;
     if (experiences){
         experiences.forEach((item)=>{
             let tmpDate = new Date(item.begin);
@@ -57,45 +59,49 @@ const resumeInfo = async (user_id, resume_id) => {
         });
     }
 
+    const userInfo = resumeData.user;
+    const resumeInfo = resumeData.resume;
+    console.log(content);
 
     return {
-        infoAll : {
-            photo: 'img/es1.jpg',
-            name: user.name + " " + user.surname,
-            position: resume.resume.place,
-            mail: user.email,
-            dateReg: dataReg,
-            area_search: resume.resume.area_search,
-        },
-        jobOverview : {
-                name: user.name,
-                salary_min: nullToString(resume.resume.salary_min),
-                salary_max: nullToString(resume.resume.salary_max),
-                gender: nullToString(gender[resume.resume.gender]),
-                experience_level: nullToString(experienceLevel[resume.resume.education_level]),
-                experience_month: nullToString(experienceMonth[resume.resume.experience_month]),
+            infoAll : {
+                photo: 'img/es1.jpg',
+                name: userInfo.name + " " + userInfo.surname,
+                position: resumeInfo.place,
+                mail: userInfo.email,
+                dateReg: dataReg,
+                area_search: resumeInfo.area_search,
+                my_user_type: content.user.user_type,
+                is_favorite: resumeData.is_favorite,
+            },
+            jobOverview : {
+                name: userInfo.name,
+                salary_min: nullToString(resumeInfo.salary_min),
+                salary_max: nullToString(resumeInfo.salary_max),
+                gender: nullToString(gender[resumeInfo.gender]),
+                experience_level: nullToString(experienceLevel[resumeInfo.education_level]),
+                experience_month: nullToString(experienceMonth[resumeInfo.experience_month]),
                 interest: "TODOManagement",
-                education: nullToString(educationLevel[resume.resume.education_level]),
-                career_level: nullToString(resume.resume.career_level),
-        },
-        description : {
-            text: nullToString(resume.resume.description),
-            experience_custom_company: resume.custom_experience,
-            skills: resume.resume.skills,
+                education: nullToString(educationLevel[resumeInfo.education_level]),
+                career_level: nullToString(resumeInfo.career_level),
+            },
+            description : {
+                text: nullToString(resumeInfo.description),
+                experience_custom_company: resumeData.custom_experience,
+                skills: resumeInfo.skills,
+            }
         }
-
-    }
 }
 
 export default class Resume {
-    async render(content, user_id, resume_id) {
+    async render(content, resume) {
 
         app.innerHTML = '';
 
         const navBarInit = new NavBarInit(app, content, false,"");
         navBarInit.loadNavBar();
 
-        const infoAll = await resumeInfo(user_id, resume_id);
+        const infoAll = await resumeInfo(content, resume);
 
 
         const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
@@ -122,6 +128,43 @@ export default class Resume {
 
         contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
 
+
+        addDeleteLikes(resume.resume_id, infoAll);
+
+
+
+
+
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
+    }
+}
+
+
+async function addDeleteLikes(resume_id, infoAll){
+    let addLike = document.getElementById("add_to_prefer");
+    let deleteLike = document.getElementById("delete_from_prefer");
+    let likes = document.getElementsByClassName("cand-options-contact");
+
+    if (addLike) {
+        addLike.addEventListener('click', async () =>{
+            const addLikeResp = await network.doPost(addLikeResumeURL + `${resume_id}`);
+            console.assert(addLikeResp.ok);
+            const data = await (addLikeResp.json());
+            infoAll.infoAll.is_favorite = data.favorite_for_empl.favorite_id;
+            likes[0].lastChild.remove();
+            likes[0].insertAdjacentHTML("beforeend", window.fest["favorites.tmpl"](infoAll.infoAll.is_favorite));
+            addDeleteLikes(resume_id, infoAll);
+        });
+    }
+
+    if (deleteLike) {
+        deleteLike.addEventListener('click', async ()=>{
+            const addLikeResp = await network.doDelete(deleteLikeResumeURL + `${infoAll.infoAll.is_favorite}`);
+            console.assert(addLikeResp.ok);
+            infoAll.infoAll.is_favorite = null;
+            likes[0].lastChild.remove();
+            likes[0].insertAdjacentHTML("beforeend", window.fest["favorites.tmpl"](infoAll.infoAll.is_favorite));
+            addDeleteLikes(resume_id, infoAll);
+        });
     }
 }
