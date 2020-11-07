@@ -128,7 +128,7 @@ export default class EmployersList{
 
         const vacancies = await this.fetchVacancyList();
 
-        if (vacancies) {
+        if (vacancies.hasOwnProperty('vacancyList')) {
             vacancies.vacancyList.forEach((vacancy) => {
                 vacancy.imgPath = `static/${vacancy.ID}`;
             });
