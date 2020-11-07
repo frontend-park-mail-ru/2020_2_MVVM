@@ -1,3 +1,5 @@
+import bNavBartemplate from './bNavBar/bNavBar.tmpl.xml'
+import sNavBartemplate from './sNavBar/sNavBar.tmpl.xml'
 
 export class NavBarInit {
     constructor(app, user,isBig, title) {
@@ -19,9 +21,9 @@ export class NavBar {
 
     constructor(app, isBig, data) {
         if (isBig) {
-            app.innerHTML = window.fest['bNavBar.tmpl'](data);
+            app.innerHTML = bNavBartemplate(data);
         } else {
-            app.innerHTML = window.fest['sNavBar.tmpl'](data);
+            app.innerHTML = sNavBartemplate(data);
         }
     }
 

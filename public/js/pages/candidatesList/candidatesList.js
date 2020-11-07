@@ -3,6 +3,9 @@ import {checkBoxes} from '../../components/searchForm/searchForm.js'
 import createElem from "../../libs/createElem.js";
 import {resumePageURL, resumeSearchURL} from "../../libs/constants.js";
 import {network} from "../../libs/networks.js";
+import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
+import listOfCandidatesTemp from './components/listOfCandidates/listOfCandidates.tmpl.xml'
+import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
 
 const app = window.document.getElementById('app');
 
@@ -135,7 +138,7 @@ export default class CandidatesList {
             }
         ];
 
-        mainRow.insertAdjacentHTML("afterbegin", window.fest['searchForm.tmpl'](m));
+        mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
 
         const mainList = createElem("div", "main__list", mainRow);
 
@@ -146,12 +149,12 @@ export default class CandidatesList {
         console.log(resume);
 
         if (resume && resume.length) {
-            mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](resume));
+            mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
             // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
             // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
             getUserResume(this.router, main, resume);
         } else {
-            mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
+            mainList.insertAdjacentHTML("beforeend", emptyListTemp());
         }
         afterRender(mainList, main, this.router);
     }
@@ -190,10 +193,10 @@ async function search(form, mainList, main, router) {
     console.log(resume);
 
     if (resume && resume.length) {
-        mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](resume));
+        mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
         getUserResume(router, main, resume);
     } else {
-        mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
+        mainList.insertAdjacentHTML("beforeend", emptyListTemp());
         const pagination = document.getElementsByClassName("pagination");
         // pagination[0].innerHTML = '';
     }

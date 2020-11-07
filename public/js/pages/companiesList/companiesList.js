@@ -3,6 +3,9 @@ import createElem from "../../libs/createElem.js";
 import {network} from "../../libs/networks.js";
 import {companyPageURL, companySearchURL, spheres} from "../../libs/constants.js";
 import {checkBoxes} from "../../components/searchForm/searchForm.js";
+import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
+import companiesListTemp from'./components/companiesList/companiesList.tmpl.xml'
+import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
 
 const app = window.document.getElementById('app');
 
@@ -55,7 +58,7 @@ export default class CompaniesList {
         const mainRow = createElem("div", "main__row", container);
         mainRow.style.display = "flex";
 
-        mainRow.insertAdjacentHTML("afterbegin", window.fest['searchForm.tmpl'](m));
+        mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
 
         const mainList = createElem("div", "main__list", mainRow);
 
@@ -71,10 +74,10 @@ async function renderCompanyList(response, router, mainList, main) {
     let companies = (await response.json()).companies_list;
 
     if (companies && companies.length) {
-        mainList.insertAdjacentHTML("beforeend", window.fest['companiesList.tmpl'](companies));
+        mainList.insertAdjacentHTML("beforeend", companiesListTemp(companies));
         getCompanyPage(router, main, companies);
     } else {
-        mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
+        mainList.insertAdjacentHTML("beforeend", emptyListTemp());
     }
 }
 

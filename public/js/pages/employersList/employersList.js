@@ -3,6 +3,10 @@ import {checkBoxes} from '../../components/searchForm/searchForm.js'
 import createElem from "../../libs/createElem.js";
 import {network} from "../../libs/networks.js";
 import {vacancySearchURL} from "../../libs/constants.js";
+import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
+import listOfEmployersTemp from './components/listOfEmployers/listOfEmployers.tmpl.xml'
+import paginationTemp from 'Js/components/pagination/pagination.tmpl.xml'
+import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
 
 
 const app = window.document.getElementById('app');
@@ -122,7 +126,7 @@ export default class EmployersList{
         ];
 
 
-        mainRow.insertAdjacentHTML("afterbegin", window.fest['searchForm.tmpl'](m));
+        mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
 
         const mainList = createElem("div", "main__list",mainRow);
 
@@ -132,11 +136,11 @@ export default class EmployersList{
             vacancies.vacancyList.forEach((vacancy) => {
                 vacancy.imgPath = `static/${vacancy.ID}`;
             });
-            mainList.insertAdjacentHTML("beforeend", window.fest['listOfEmployers.tmpl'](vacancies.vacancyList));
-            mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
+            mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancies.vacancyList));
+            mainList.insertAdjacentHTML("beforeend", paginationTemp());
             getEmplVacancy(this.router, main, vacancies.vacancyList);
         } else {
-            mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
+            mainList.insertAdjacentHTML("beforeend", emptyListTemp());
         }
 
 
@@ -174,10 +178,10 @@ async function search(form, mainList, main, fetchVacancyList, router) {
     const vacancy = (await response.json()).vacancyList;
 
     if (vacancy && vacancy.length) {
-        mainList.insertAdjacentHTML("beforeend", window.fest['listOfEmployers.tmpl'](vacancy));
+        mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancy));
         getEmplVacancy(router, main, vacancy);
     } else {
-        mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
+        mainList.insertAdjacentHTML("beforeend", emptyListTemp());
         // const pagination = document.getElementsByClassName("pagination");
         // pagination[0].innerHTML = '';
     }

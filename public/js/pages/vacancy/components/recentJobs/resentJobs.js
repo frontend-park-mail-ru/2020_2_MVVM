@@ -1,3 +1,5 @@
+import recJobsTemp from './recentJobs.tmpl.xml'
+
 export function recentJobs (parent) {
     const jobs = [
         {
@@ -18,5 +20,5 @@ export function recentJobs (parent) {
         },
     ]
 
-    parent.insertAdjacentHTML("beforeend", window.fest['recentJobs.tmpl'](jobs));
+    parent.insertAdjacentHTML("beforeend", recJobsTemp(jobs));
 }
