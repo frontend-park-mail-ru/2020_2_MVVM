@@ -2,6 +2,7 @@ import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/createCandidateSum/createCandidateSum.js";
 import createElem from "../../libs/createElem.js";
 import {renderInputForm} from "../../components/popUpResume/popUpCand/createOneJob.js";
+import createCandidateSumTemp from './components/createCandidateSum/createCandidateSum.tmpl.xml'
 
 
 export const app = window.document.getElementById('app');
@@ -21,7 +22,7 @@ export default class CreateResume{
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
-        main.insertAdjacentHTML("afterbegin", window.fest['createCandidateSum.tmpl'](content.user));
+        main.insertAdjacentHTML("afterbegin", createCandidateSumTemp(content.user));
 
 
         const form = main.querySelector("form");

@@ -1,5 +1,11 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import createElem from "../../libs/createElem.js";
+import searchJobTemp from 'Js/pages/mainPage/components/searchJob/searchJob.tmpl.xml'
+import categoryTemp from 'Js/pages/mainPage/components/category/category.tmpl.xml'
+import createResumeTemp from 'Js/pages/mainPage/components/createResume/createResume.tmpl.xml'
+import popularJobTemp from 'Js/pages/mainPage/components/popularJob/popularJob.tmpl.xml'
+import gratitudesTemp from 'Js/pages/mainPage/components/gratitudes/gratitudes.tmpl.xml'
+import footerTemp from 'Js/components/footer/footer.tmpl.xml'
 
 const app = window.document.getElementById('app');
 
@@ -13,7 +19,7 @@ export default class MainPage{
         navBarInit.loadNavBar();
 
         const searchJob = createElem("div", "search-job", app.getElementsByClassName("header__page")[0])
-        searchJob.insertAdjacentHTML("afterEnd", window.fest['searchJob.tmpl']());
+        searchJob.insertAdjacentHTML("afterEnd", searchJobTemp());
 
         const main = createElem("div", "main", app);
         const category = [
@@ -44,8 +50,8 @@ export default class MainPage{
             }
         ];
 
-        main.insertAdjacentHTML("beforeend", window.fest['category.tmpl'](category));
-        main.insertAdjacentHTML("beforeend", window.fest['createResume.tmpl']());
+        main.insertAdjacentHTML("beforeend", categoryTemp(category));
+        main.insertAdjacentHTML("beforeend", createResumeTemp());
 
         const jobs = [
             {
@@ -65,7 +71,7 @@ export default class MainPage{
                 durationPublic: '5 месяцев назад',
             },
         ]
-        main.insertAdjacentHTML("beforeend", window.fest['popularJob.tmpl'](jobs));
+        main.insertAdjacentHTML("beforeend", popularJobTemp(jobs));
 
         const gratitudes = [
             {
@@ -87,10 +93,10 @@ export default class MainPage{
             },
         ]
 
-        main.insertAdjacentHTML("beforeend", window.fest['gratitudes.tmpl'](gratitudes));
+        main.insertAdjacentHTML("beforeend", gratitudesTemp(gratitudes));
 
 
-        app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
+        app.insertAdjacentHTML("beforeend", footerTemp());
     }
 }
 

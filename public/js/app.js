@@ -14,6 +14,7 @@ import ResumeCtrl from "./controllers/resume/ResumeCtrl.js";
 import CompanyCtrl from "./controllers/company/CompanyCtrl.js";
 import UpdateResumeCtrl from "./controllers/resume/UpdateResumeCtrl.js";
 import LogoutCtrl from "./controllers/authRegProf/LogoutCtrl.js";
+// import '../styles/main.scss'
 
 
 

@@ -10,6 +10,12 @@ import {
     // city
 } from "../../libs/constants.js";
 import createElem from "../../libs/createElem.js";
+import briefInfoTemp from './components/briefInfo/briefInfo.tmpl.xml'
+import contactTemp from './components/contact/contact.tmpl.xml'
+import resumeTemp from './components/resume/resume.tmpl.xml'
+import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml'
+import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
+
 
 
 const app = window.document.getElementById('app');
@@ -95,26 +101,26 @@ export default class Resume {
         const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
 
 
-        candOptions.insertAdjacentHTML("afterEnd", window.fest['briefInfo.tmpl'](infoAll.infoAll));
+        candOptions.insertAdjacentHTML("afterEnd", briefInfoTemp(infoAll.infoAll));
 
         const main = createElem("div", "main", app);
 
         const contact = createElem("div", "mainPage-contact", main)
-        contact.insertAdjacentHTML("afterEnd", window.fest['contact.tmpl']());
+        contact.insertAdjacentHTML("afterEnd", contactTemp());
 
         const mainContent = createElem("div", "main-content", main);
 
         const contentLeftColumn = createElem("div", "content-left-column", mainContent);
 
-        contentLeftColumn.insertAdjacentHTML("beforeend", window.fest['resume.tmpl'](infoAll.description));
+        contentLeftColumn.insertAdjacentHTML("beforeend", resumeTemp(infoAll.description));
 
 
         const contentRightColumn = createElem("div", "content-right-column", mainContent);
 
 
-        contentRightColumn.insertAdjacentHTML("beforeend", window.fest['jobOverview.tmpl'](infoAll.jobOverview));
+        contentRightColumn.insertAdjacentHTML("beforeend", jobOverviewTemp(infoAll.jobOverview));
 
-        contentRightColumn.insertAdjacentHTML("beforeend", window.fest['contactForm.tmpl']());
+        contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
 
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
     }

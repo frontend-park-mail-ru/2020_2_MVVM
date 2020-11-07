@@ -2,6 +2,7 @@ import {NavBarInit} from "../../components/header/navBar.js";
 import {checkoutProfilePage, personalInfo} from './components/personalNavBar/persNavBar.js'
 import {updateProfileFields} from './components/checkboxSearch/checkBox.js'
 import createElem from "../../libs/createElem.js";
+import persNB from './components/personalNavBar/persNavBar.tmpl.xml'
 
 
 const app = window.document.getElementById('app');
@@ -62,7 +63,7 @@ export default class Profile {
         const mainPage = createElem("div", "main__page", container);
         const mainColumnLeft = createElem("div", "main__page_left", mainPage);
         const body = createElem("div", "main__page_left-body", mainColumnLeft);
-        await mainColumnLeft.insertAdjacentHTML("afterbegin", window.fest['persNavBar.tmpl'](content.user.user_type));
+        await mainColumnLeft.insertAdjacentHTML("afterbegin", persNB(content.user.user_type));
 
         //const mainColumnRight = createElem("div", "main__page_right", mainPage);
         // mainColumnRight.insertAdjacentHTML("afterbegin", window.fest['checkBoxJob.tmpl'](person));

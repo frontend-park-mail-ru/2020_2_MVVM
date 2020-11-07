@@ -11,6 +11,11 @@ import {
     experienceLevel,
     gender
 } from "../../libs/constants.js";
+import briefInfoJobTemp from './components/briefInfoJob/briefInfoJob.tmpl.xml'
+import vacancyTemp from './components/vacancy/vacancy.tmpl.xml'
+import jobOverviewTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
+import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
+import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml'
 
 const app = window.document.getElementById('app');
 
@@ -62,7 +67,7 @@ export default class Vacancy{
             phone: allInfo.userInfo.phone,
             mail: allInfo.userInfo.email,
         }
-        mainContent.insertAdjacentHTML("beforeend", window.fest['briefInfoJob.tmpl'](briefInfoJob));
+        mainContent.insertAdjacentHTML("beforeend", briefInfoJobTemp(briefInfoJob));
 
         const contentLeftColumn = createElem("div", "content-left-column", mainContent);
 
@@ -90,7 +95,7 @@ export default class Vacancy{
                 }],
             }];
 
-        contentLeftColumn.insertAdjacentHTML("beforeend", window.fest['vacancy.tmpl'](vacancy));
+        contentLeftColumn.insertAdjacentHTML("beforeend", vacancyTemp(vacancy));
 
         recentJobs(contentLeftColumn);
 
@@ -109,11 +114,11 @@ export default class Vacancy{
             };
 
 
-        contentRightColumn.insertAdjacentHTML("beforeend", window.fest['jobOverview.tmpl'](jobOverview));
+        contentRightColumn.insertAdjacentHTML("beforeend", jobOverviewTemp(jobOverview));
 
-        contentRightColumn.insertAdjacentHTML("beforeend", window.fest['contactForm.tmpl']());
+        contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
 
-        contentRightColumn.insertAdjacentHTML("beforeend", window.fest['shareBar.tmpl']());
+        contentRightColumn.insertAdjacentHTML("beforeend", shareBarTemp());
 
 
         // let companyLink = document.getElementById("companyName");

@@ -2,6 +2,7 @@ import {NavBarInit} from "../../components/header/navBar.js";
 import createElem from "../../libs/createElem.js";
 import {selectCheckbox} from "./components/createCompany/createCompany.js";
 import {spheres} from "../../libs/constants.js";
+import createCompanyTemp from './components/createCompany/createCompany.tmpl.xml'
 
 
 export const app = window.document.getElementById('app');
@@ -22,7 +23,7 @@ export default class CreateCompany{
         createCompanyNavBar.loadNavBar();
 
         const main = createElem("div", "main", app);
-        main.insertAdjacentHTML("afterbegin", window.fest['createCompany.tmpl'](spheres));
+        main.insertAdjacentHTML("afterbegin", createCompanyTemp(spheres));
 
         const form = main.querySelector("form");
         form.addEventListener("submit", (event) => {

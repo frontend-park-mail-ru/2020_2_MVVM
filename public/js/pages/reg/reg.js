@@ -1,6 +1,7 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/reg_form/reg.js";
 import createElem from "../../libs/createElem.js";
+import regTemp from './components/reg_form/reg.tmpl.xml'
 
 const app = window.document.getElementById('app');
 
@@ -19,7 +20,7 @@ export default class RegList{
 
         const main = createElem("div", "main", app);
         const mainAuth = createElem("div", "main", main);
-        mainAuth.insertAdjacentHTML("beforeend", window.fest['reg.tmpl']());
+        mainAuth.insertAdjacentHTML("beforeend", regTemp());
 
         const form = document.querySelector("form");
         let error = document.getElementsByClassName('error');

@@ -1,4 +1,7 @@
 import {app} from "../../../createCandidateSum/createCandidateSum.js";
+import persResumesTemp from 'Js/pages/profile/components/listOfResumes/persResumes.tmpl.xml'
+import persVacanciesTemp from 'Js/pages/profile/components/listOfVacancies/persVacancies.tmpl.xml'
+import createCompanyTemp from '../personalInfo/persInfo.tmpl.xml'
 
 export function checkoutProfilePage(profile, content, body, person) {
     const profNavBar = document.getElementsByClassName("persNavBar__menu-list");
@@ -23,9 +26,9 @@ export function checkoutProfilePage(profile, content, body, person) {
 
 export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
     if (isCand) {
-        mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persResumes.tmpl'](list.resume));
+        mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list.resume));
     } else {
-        mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persVacancies.tmpl'](list));
+        mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
     }
 
 
@@ -57,5 +60,5 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
 }
 
 export function personalInfo(person, mainColumnLeft) {
-    mainColumnLeft.insertAdjacentHTML("beforeend", window.fest['persInfo.tmpl'](person));
+    mainColumnLeft.insertAdjacentHTML("beforeend", createCompanyTemp(person));
 }

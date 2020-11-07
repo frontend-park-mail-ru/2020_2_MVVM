@@ -2,6 +2,7 @@ import {NavBarInit} from "../../components/header/navBar.js";
 import createElem from "../../libs/createElem.js";
 import {openAndDelJob,renderInputForm} from "../../components/popUpResume/popUpCand/createOneJob.js";
 import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
+import updateResumeTemp from './components/updateResume/updateResume.tmpl.xml'
 
 export const app = window.document.getElementById('app');
 
@@ -77,7 +78,7 @@ export default class UpdateResume{
         const main = createElem("div", "main", app);
 
         // console.log(user);
-        main.insertAdjacentHTML("afterbegin", window.fest['updateResume.tmpl'](user));
+        main.insertAdjacentHTML("afterbegin", updateResumeTemp(user));
 
 
         const form = main.querySelector("form");

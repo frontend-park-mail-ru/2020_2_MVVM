@@ -1,5 +1,6 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import createElem from "../../libs/createElem.js";
+import companyTemp from './components/companyPage/companyPage.tmpl.xml'
 
 const app = window.document.getElementById('app');
 
@@ -27,7 +28,7 @@ export default class CompanyPage{
         }
 
 
-        main.insertAdjacentHTML("afterbegin", window.fest['companyPage.tmpl'](tmpContent));
+        main.insertAdjacentHTML("afterbegin", companyTemp(tmpContent));
 
         // app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
     }
