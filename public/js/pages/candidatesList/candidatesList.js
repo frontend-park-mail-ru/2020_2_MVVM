@@ -163,6 +163,7 @@ function getUserResume(router, main, resume) {
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
+            console.log(resume[i]);
             router.change('/resume', resume[i]);
         })
     }

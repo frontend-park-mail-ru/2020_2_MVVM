@@ -38,7 +38,6 @@ export default class updateResumeCtrl{
 
             if (response.status >= 200 && response.status < 300) {
                 const content = await response.json();
-                console.log(content);
                 console.assert(response.ok);
                 this.router.change('\/resume', content);
             }

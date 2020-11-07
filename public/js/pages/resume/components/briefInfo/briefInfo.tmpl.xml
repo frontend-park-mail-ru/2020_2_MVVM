@@ -24,7 +24,7 @@
           <fest:value>items.area_search</fest:value>/Россия</p>
       </div>
     </div>
-      <fest:if test="items.user_type=='employer'">
+      <fest:if test="items.my_user_type=='employer'">
         <div class="cand-options-contact">
           <i class="fa fa-envelope"></i>
           <span>Написать</span>

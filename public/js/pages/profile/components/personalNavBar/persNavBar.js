@@ -36,7 +36,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
             if (isCand) {
-                profile.router.change('/resume', list[i].resume);
+                profile.router.change('/resume', list[i]);
             }
             else {
                 profile.router.change('/vacancy', list[i].EmpID, list[i].ID, list[i].CompID);

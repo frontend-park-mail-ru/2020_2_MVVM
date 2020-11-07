@@ -7,12 +7,11 @@ import createElem from "../../libs/createElem.js";
 const app = window.document.getElementById('app');
 
 export default class Profile {
-    constructor(loadResumesF, loadVacanciesF, loadFavoritesF, loadCompanyF,candidateInfoF, router) {
+    constructor(loadResumesF, loadVacanciesF, loadFavoritesF, loadCompanyF, router) {
         this.loadResumes = loadResumesF;
         this.loadVacancies = loadVacanciesF;
         this.loadFavorites = loadFavoritesF;
         this.loadCompany = loadCompanyF;
-        this.candidateInfo = candidateInfoF;
         this.router = router;
     }
 
@@ -23,7 +22,6 @@ export default class Profile {
         this.resumes = null;
         this.company= null;
         this.favorites = null;
-        this.candInfo = null;
 
         let person;
         if (content) {
@@ -50,20 +48,15 @@ export default class Profile {
             title.innerText = "Личный кабинет работодателя";
             await this.loadVacancies().then((data) => {
                 this.vacancies = data.vacancyList;
-                console.log(this.vacancies);
             });
             await this.loadFavorites().then((data)=>{
                 this.favorites = data;
-                console.log(this.favorites);
             });
-            // await this.candidateInfo(this.favorites).then((data)=>{
-            //     this.candInfo = data;
-            //     console.log(this.candInfo);
-            // });
         } else {
             title.innerText = "Личный кабинет соискателя";
             await this.loadResumes().then((data) => {
-                this.resumes = data.resume;
+                console.log(data);
+                this.resumes = data;
             });
 
         }

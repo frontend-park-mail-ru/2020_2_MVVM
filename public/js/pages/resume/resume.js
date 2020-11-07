@@ -24,25 +24,22 @@ const nullToString = (e) => {
 }
 
 const resumeInfo = async (content, resumeSource) => {
-    let resume;
-    let result = null;
-    console.log(resumeSource);
-    if (!resumeSource.hasOwnProperty('resume')) {
+
+    let resumeData;
+    if (resumeSource.hasOwnProperty('user')) {
+        resumeData = resumeSource;
+    } else {
         const responseResume = await network.doGet(`${resumeByIdURL}${resumeSource.resume_id}`);
         console.assert(responseResume.ok);
-        resume = (await responseResume.json());
-        console.log(resume);
-    } else {
-        resume = resumeSource;
-        console.log(result);
+        resumeData = await responseResume.json();
     }
 
 
-    const dateRegBd = resume.resume.date_create.toString();
+    const dateRegBd = resumeData.resume.date_create.toString();
     let dataReg = '';
     dataReg = dateRegBd.slice(8,10) + '-' + dateRegBd.slice(5,7) + '-' + dateRegBd.slice(0,4);
 
-    let experiences = resume.custom_experience;
+    let experiences = resumeData.custom_experience;
     if (experiences){
         experiences.forEach((item)=>{
             let tmpDate = new Date(item.begin);
@@ -56,32 +53,36 @@ const resumeInfo = async (content, resumeSource) => {
         });
     }
 
+    const userInfo = resumeData.user;
+    const resumeInfo = resumeData.resume;
+    console.log(content);
+
     return {
             infoAll : {
                 photo: 'img/es1.jpg',
-                name: resumeSource.name + " " + resumeSource.surname,
-                position: resume.resume.place,
-                mail: resumeSource.email,
+                name: userInfo.name + " " + userInfo.surname,
+                position: resumeInfo.place,
+                mail: userInfo.email,
                 dateReg: dataReg,
-                area_search: resume.resume.area_search,
-                user_type: content.user.user_type,
-                is_favorite: resume.is_favorite,
+                area_search: resumeInfo.area_search,
+                my_user_type: content.user.user_type,
+                is_favorite: resumeData.is_favorite,
             },
             jobOverview : {
-                name: resumeSource.name,
-                salary_min: nullToString(resume.resume.salary_min),
-                salary_max: nullToString(resume.resume.salary_max),
-                gender: nullToString(gender[resume.resume.gender]),
-                experience_level: nullToString(experienceLevel[resume.resume.education_level]),
-                experience_month: nullToString(experienceMonth[resume.resume.experience_month]),
+                name: userInfo.name,
+                salary_min: nullToString(resumeInfo.salary_min),
+                salary_max: nullToString(resumeInfo.salary_max),
+                gender: nullToString(gender[resumeInfo.gender]),
+                experience_level: nullToString(experienceLevel[resumeInfo.education_level]),
+                experience_month: nullToString(experienceMonth[resumeInfo.experience_month]),
                 interest: "TODOManagement",
-                education: nullToString(educationLevel[resume.resume.education_level]),
-                career_level: nullToString(resume.resume.career_level),
+                education: nullToString(educationLevel[resumeInfo.education_level]),
+                career_level: nullToString(resumeInfo.career_level),
             },
             description : {
-                text: nullToString(resume.resume.description),
-                experience_custom_company: resume.custom_experience,
-                skills: resume.resume.skills,
+                text: nullToString(resumeInfo.description),
+                experience_custom_company: resumeData.custom_experience,
+                skills: resumeInfo.skills,
             }
         }
 }
