@@ -1,4 +1,4 @@
-import {resumePageURL, URL} from "./constants.js";
+import {URL} from "./constants.js";
 
 class Network {
 
@@ -45,9 +45,18 @@ class Network {
             {
                 mode: "cors",
                 method: "GET",
-                mode: 'cors',
                 credentials: "include",
             }
+        )
+    }
+
+    async doDelete(url) {
+        return await fetch(
+            `${URL}${url}`,
+            {
+                credentials: "include",
+                method: "DELETE",
+            },
         )
     }
 }

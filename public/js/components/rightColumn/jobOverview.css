@@ -59,8 +59,8 @@
 .job-overview-container input, textarea {
     border: 2px solid var(--border-grey-color);
     border-radius: 8px;
-    font-size: 13px;
-    color: #888888;
+    font-size: 18px;
+    color: var(--text-gray);
     padding: 10px 25px;
     margin-bottom: 15px;
     width: 100%;

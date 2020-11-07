@@ -1,0 +1,25 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <fest:each iterate="items" index="i" value="v">
+        <div class="main__list_rowGrid main__list_row">
+            <div class="companyLogo">
+                <div class="main__candidate_photo">
+                    <img src="img/candidate.jpg" alt=""/>
+                </div>
+            </div>
+            <div class="companyInfo">
+                <div class="main__candidate_name"><a><fest:value>v.name</fest:value></a></div>
+                <div class="main__candidate_specialism"><a href='{v.link}'><fest:value>v.link</fest:value></a></div>
+                <div class="main__candidate_location"><fest:value>v.location</fest:value></div>
+                <div class="company__description">
+                    <fest:each iterate="v.spheres" index="i" value="sphereArr">
+                        <fest:value>sphereArr</fest:value>
+                        <br/>
+                    </fest:each>
+                </div>
+            </div>
+            <div class="companyBtn">
+                <a href="" class="go_to_resume"><div class="main__candidate_shortlist">Подробнее</div></a>
+            </div>
+        </div>
+    </fest:each>
+</fest:template>

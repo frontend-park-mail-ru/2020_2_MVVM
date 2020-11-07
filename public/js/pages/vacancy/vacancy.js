@@ -49,7 +49,6 @@ export default class Vacancy{
         navBarInit.loadNavBar();
 
         const allInfo = await vacancyInfo(user_id, vacancy_id, company_id);
-        console.log(allInfo);
 
         const main = createElem("div", "main", app);
         const mainContent = createElem("div", "main-content", main);
@@ -92,6 +91,13 @@ export default class Vacancy{
 
         contentLeftColumn.insertAdjacentHTML("beforeend", window.fest['vacancy.tmpl'](vacancy));
 
+        let companyLink = document.getElementById("companyName");
+        companyLink.addEventListener('click', event =>{
+            event.preventDefault();
+            this.router.change("/company", allInfo.companyInfo);
+        });
+
+
         recentJobs(contentLeftColumn);
 
         const contentRightColumn = createElem("div", "content-right-column", mainContent);
@@ -116,11 +122,7 @@ export default class Vacancy{
         contentRightColumn.insertAdjacentHTML("beforeend", window.fest['shareBar.tmpl']());
 
 
-        // let companyLink = document.getElementById("companyName");
-        // companyLink.addEventListener((event)=>{
-        //     event.preventDefault();
-        //     // this.router.change("/company", )
-        // });
+
 
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
     }

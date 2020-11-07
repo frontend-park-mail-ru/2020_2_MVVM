@@ -7,10 +7,10 @@ export default class CandidatesListCtrl{
         this.router = router;
 
         const fetchCandInfo = async (resume) => {
+            // console.log(resume);
             const candInfo = resume.map(async (e) => {
                 const response = await network.doGet(candByIdURL+`${e.cand_id}`);
                 const user = await response.json();
-                console.log(user);
                 return {
                     id: e.cand_id,
                     resume_id: e.id,

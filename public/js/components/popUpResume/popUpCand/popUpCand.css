@@ -76,7 +76,7 @@
 
 .popUp__cont_input textarea {
     resize: none;
-    padding: 0 5px 0 20px;
+    padding: 7px 5px 0 20px;
     border: 1px solid var(--border-grey-color);
     border-radius: 10px;
     margin: 20px 0;

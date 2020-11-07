@@ -78,11 +78,15 @@ export const vacancyMineURL = "/v1/vacancy/mine?";
 export const updateVacancyURL = "/v1/vacancy/";
 export const vacancySearchURL = '/v1/vacancy/search';
 
-export const addCompanyUrl =  "/v1/company/";
+export const addCompanyURL =  "/v1/company/";
 export const companyByIdURL = "/v1/company/by/id/";
 export const companyPageURL = "/v1/company/page?";
 export const companyMineURL = "/v1/company/mine";
-export const companySearchUrl = "/v1/company/search";
+export const companySearchURL = "/v1/company/search";
+
+export const addLikeResumeURL = "/v1/resume/favorite/by/id/";
+export const deleteLikeResumeURL = "/v1/resume/favorite/by/id/";
+export const myLikeResumeURL = "/v1/resume/myfavorites";
 
 //sphere
 export const spheres = [

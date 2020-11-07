@@ -70,7 +70,7 @@
                     <div>
                         <div class="sum__work__exp__row2">
                             <label class="sum__form__labels" for="description">О себе</label>
-                            <textarea name="description" class="__sum__text" id="description"/>
+                            <textarea name="description" class="" id="description"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>

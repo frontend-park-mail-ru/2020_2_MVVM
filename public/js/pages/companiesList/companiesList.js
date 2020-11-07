@@ -1,14 +1,13 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import createElem from "../../libs/createElem.js";
 import {network} from "../../libs/networks.js";
-import {companySearchUrl, spheres} from "../../libs/constants.js";
+import {companyPageURL, companySearchURL, spheres} from "../../libs/constants.js";
 import {checkBoxes} from "../../components/searchForm/searchForm.js";
 
 const app = window.document.getElementById('app');
 
 export default class CompaniesList {
-    constructor(fetchCompanyInfo, router) {
-        this.fetchCompanyInfo = fetchCompanyInfo;
+    constructor(router) {
         this.router = router;
     }
 
@@ -48,8 +47,6 @@ export default class CompaniesList {
         });
 
 
-        console.log(m);
-
         const candidatesList = new NavBarInit(app, content, false, "");
         candidatesList.loadNavBar();
 
@@ -62,34 +59,37 @@ export default class CompaniesList {
 
         const mainList = createElem("div", "main__list", mainRow);
 
-        // const response = await network.doGetLimit(companySearchUrl, 0, 15);
-        // console.assert(response.ok);
-        // const resume = (await response.json()).resume;
-        //
-        // if (resume && resume.length) {
-        //     const infoOfCand = await this.fetchCandInfo(resume);
-        //     mainList.insertAdjacentHTML("beforeend", window.fest['listOfCandidates.tmpl'](infoOfCand));
-        //     mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
-        //     // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
-        //     getUserResume(this.router, main, infoOfCand);
-        // } else {
-        //     mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
-        // }
-        afterRender(mainList, main, this.fetchCompanyInfo, this.router);
+        const response = await network.doGetLimit(companyPageURL, 0, 15);
+        console.assert(response.ok);
+
+        await renderCompanyList(response, this.router, mainList, main);
+        afterRender(mainList, main, this.router);
     }
 }
 
-function afterRender(mainList, main, fetchCOmpanyInfo, router) {
+async function renderCompanyList(response, router, mainList, main) {
+    let companies = (await response.json()).companies_list;
+
+    if (companies && companies.length) {
+        mainList.insertAdjacentHTML("beforeend", window.fest['companiesList.tmpl'](companies));
+        getCompanyPage(router, main, companies);
+    } else {
+        mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
+    }
+}
+
+
+function afterRender(mainList, main, fetchCompanyInfo, router) {
     checkBoxes();
     let form = document.querySelector("form");
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        search(form, mainList, main, fetchCOmpanyInfo, router);
+        search(form, mainList, main, router);
     });
 }
 
 
-async function search(form, mainList, main, fetchCompanyInfo, router) {
+async function search(form, mainList, main, router) {
     mainList.innerHTML = '';
 
     const formData = new FormData(form);
@@ -99,18 +99,19 @@ async function search(form, mainList, main, fetchCompanyInfo, router) {
     data.sphere = formData.getAll("sphere");
     data.keywords = formData.get("keywords");
 
-    const response = await network.doPost(companySearchUrl, data);
+    const response = await network.doPost(companySearchURL, data);
     console.assert(response.ok);
-    const companies = (await response.json()).resume;
-    console.log(companies);
 
-    if (companies && companies.length) {
-        const infoOfCompany = await fetchCompanyInfo(companies);
-        mainList.insertAdjacentHTML("beforeend", window.fest['companiesList.tmpl'](infoOfCompany));
-        // getUserResume(router, main, infoOfCand);
-    } else {
-        mainList.insertAdjacentHTML("beforeend", window.fest['emptyList.tmpl']());
-        const pagination = document.getElementsByClassName("pagination");
-        pagination[0].innerHTML = '';
+    await renderCompanyList(response, router, mainList, main);
+}
+
+
+function getCompanyPage(router, main, companies) {
+    const linksToCompanyPage = main.getElementsByClassName("go_to_resume");
+    for (let i = 0; i < linksToCompanyPage.length; i++) {
+        linksToCompanyPage[i].addEventListener('click', event => {
+            event.preventDefault();
+            router.change('/company', companies[i]);
+        })
     }
 }
