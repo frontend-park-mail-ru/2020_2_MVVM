@@ -20,7 +20,7 @@ import '../styles/main.scss'
 
 document.addEventListener('DOMContentLoaded', ()=>{
     const app = document.getElementById('app');
-    const router = new Router("/");
+    const router = new Router(app);
 
     const controllers = {
         auth: new AuthCtrl(router),
