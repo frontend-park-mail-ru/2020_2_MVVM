@@ -86,9 +86,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "bundle.css"
         }),
-        // new ServiceWorkerWebpackPlugin({
-        //     entry: path.join(__dirname, 'src/js/sw.js'),
-        // }),
+        new ServiceWorkerWebpackPlugin({
+            entry: path.join(__dirname, './js/sw.js'),
+        }),
     ],
     devServer: {
         port: 3000,
