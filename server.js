@@ -5,10 +5,11 @@ const express = require('express');
 
 const app = express();
 
-const root = path.resolve(__dirname, 'static');
+const root = path.resolve(__dirname, 'public');
 const dist = path.resolve(__dirname, 'dist');
 
-app.use('/', express.static('public'));
+app.use('/public', express.static('public'));
+app.use('/dist', express.static('dist'));
 
 // app.get('/favicon.ico', (req, res) => {
 //     res.sendFile(root + '/img/favicon-play.ico');
