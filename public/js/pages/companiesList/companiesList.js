@@ -1,16 +1,17 @@
-import {NavBarInit} from "../../components/header/navBar.js";
+import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "../../libs/createElem.js";
-import {network} from "../../libs/networks.js";
-import {companyPageURL, companySearchURL, spheres} from "../../libs/constants.js";
-import {checkBoxes} from "../../components/searchForm/searchForm.js";
-import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
-import companiesListTemp from'./components/companiesList/companiesList.tmpl.xml'
-import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
+import {network} from "Js/libs/networks";
+import {companySearchURL, spheres, companyPageURL} from "Js/libs/constants";
+import {checkBoxes} from "Js/components/searchForm/searchForm";
+import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml';
+import listOfCompaniesTemp from './components/listOfCompanies/listOfCompanies.tmpl.xml';
+import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml';
 
 const app = window.document.getElementById('app');
 
 export default class CompaniesList {
-    constructor(router) {
+    constructor(fetchCompanyList, router) {
+        this.fetchCompanyList = fetchCompanyList;
         this.router = router;
     }
 
@@ -49,9 +50,9 @@ export default class CompaniesList {
             m[0].fields.push({name:item, text:item});
         });
 
+        const compList = new NavBarInit(app, content, false, "");
+        compList.loadNavBar();
 
-        const candidatesList = new NavBarInit(app, content, false, "");
-        candidatesList.loadNavBar();
 
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);
@@ -62,33 +63,22 @@ export default class CompaniesList {
 
         const mainList = createElem("div", "main__list", mainRow);
 
-        const response = await network.doGetLimit(companyPageURL, 0, 15);
-        console.assert(response.ok);
-
-        await renderCompanyList(response, this.router, mainList, main);
+        const companies = await this.fetchCompanyList();
+        console.log(companies);
+        await renderCompanyList(companies, mainList, this.router);
         afterRender(mainList, main, this.router);
     }
 }
 
-async function renderCompanyList(response, router, mainList, main) {
-    let companies = (await response.json()).companies_list;
-
-    if (companies && companies.length) {
-        mainList.insertAdjacentHTML("beforeend", companiesListTemp(companies));
-        getCompanyPage(router, main, companies);
-    } else {
-        mainList.insertAdjacentHTML("beforeend", emptyListTemp());
-    }
-}
-
-
-function afterRender(mainList, main, fetchCompanyInfo, router) {
+function afterRender(mainList, main,  router) {
     checkBoxes();
     let form = document.querySelector("form");
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         search(form, mainList, main, router);
     });
+
+
 }
 
 
@@ -99,22 +89,40 @@ async function search(form, mainList, main, router) {
     let data = {};
 
     data.location = formData.getAll("location");
-    data.sphere = formData.getAll("sphere");
+    data.spheres = [];
+    formData.getAll("sphere").forEach((item)=>{
+        let tmp = spheres.indexOf(item);
+        if (tmp !== -1) {
+            data.spheres.push(tmp);
+        }
+    });
     data.keywords = formData.get("keywords");
+    const companiesResponse = await network.doPost(companySearchURL, data);
+    const companies = await companiesResponse.json();
+    await renderCompanyList(companies, mainList, router);
+}
 
-    const response = await network.doPost(companySearchURL, data);
-    console.assert(response.ok);
-
-    await renderCompanyList(response, router, mainList, main);
+async function renderCompanyList(companies, mainList, router) {
+    if (companies && companies.companyList) {
+        companies.companyList.forEach((company) => {
+            company.imgPath = `static/company/${company.id}`;
+        });
+        mainList.insertAdjacentHTML("beforeend", listOfCompaniesTemp(companies.companyList));
+        getCompanyPage(router, companies.companyList);
+        // mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
+    } else {
+        mainList.insertAdjacentHTML("beforeend",  emptyListTemp());
+    }
+    // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
 }
 
 
-function getCompanyPage(router, main, companies) {
-    const linksToCompanyPage = main.getElementsByClassName("go_to_resume");
-    for (let i = 0; i < linksToCompanyPage.length; i++) {
-        linksToCompanyPage[i].addEventListener('click', event => {
+function getCompanyPage(router, company) {
+    const linksToCompany = document.getElementsByClassName("go_to_resume");
+    for (let i = 0; i < linksToCompany.length; i++) {
+        linksToCompany[i].addEventListener('click', event => {
             event.preventDefault();
-            router.change('/company', companies[i]);
+            router.change('/company', company[i]);
         })
     }
 }

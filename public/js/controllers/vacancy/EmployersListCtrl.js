@@ -1,26 +1,14 @@
 import EmployersList from "../../pages/employersList/employersList.js";
-import {URL, vacancyPageURL} from "../../libs/constants.js";
+import {vacancyPageURL} from "../../libs/constants.js";
+import {network} from "../../libs/networks.js";
 
 export default class EmployersListCtrl {
     constructor(router) {
         this.router = router;
-
         const fetchVacancyList = async () => {
-            const response = await fetch(
-                `${URL}${vacancyPageURL}` + new URLSearchParams({
-                    start: 0,
-                    limit: 10,
-                }),
-                {
-                    method: "GET",
-                },
-            )
-            //console.assert(response.ok);
-            const vacancy = await response.json();
-            //console.log(vacancy);
-            return vacancy;
+            const response = await network.doGetLimit(vacancyPageURL, 0, 10);
+            return await response.json();
         }
-
         this.page = new EmployersList(fetchVacancyList, router);
     }
 }

@@ -25,8 +25,8 @@ export function checkoutProfilePage(profile, content, body, person) {
 
 
 export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
-    console.log(list);
     if (isCand) {
+        console.log(list);
         mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list));
     } else {
         mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
@@ -42,7 +42,8 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
                 profile.router.change('/resume', list[i]);
             }
             else {
-                profile.router.change('/vacancy', list[i].EmpID, list[i].ID, list[i].CompID);
+                console.log(list[i]);
+                profile.router.change('/vacancy', list[i].empl_id, list[i].vac_id, list[i].comp_id);
             }
         })
     }

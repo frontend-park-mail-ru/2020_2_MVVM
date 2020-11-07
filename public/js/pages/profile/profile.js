@@ -54,10 +54,14 @@ export default class Profile {
             await this.loadFavorites().then((data)=>{
                 this.favorites = data;
             });
+            // работодатель может быть привязан ток к одной компании, поэтому для всех вакансий работодателя компания одна
+            await this.loadCompany().then((data) => {
+                this.company = data.company;
+            });
+
         } else {
             title.innerText = "Личный кабинет соискателя";
             await this.loadResumes().then((data) => {
-                console.log(data);
                 this.resumes = data;
             });
 

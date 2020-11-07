@@ -1,11 +1,14 @@
 @import "Js/components/header/navBar";
 @import "Js/components/searchForm/searchForm";
 @import "Js/components/shareBar/shareBar";
+@import "Js/components/footer/footer";
 @import "Js/components/pagination/pagination";
+@import "Js/components/rightColumn/jobOverview";
+@import "Js/components/popUpResume/jobBoard/jobBoard";
+@import "Js/components/popUpResume/popUpCand/popUpCand";
 @import "Js/pages/createCandidateSum/components/createCandidateSum/createCandidateSum";
 @import "Js/pages/reg/components/reg_form/reg";
 @import "Js/pages/profile/components/listOfResumes/persResumes";
-@import "Js/pages/profile/components/checkboxSearch/checkBoxJob";
 @import "Js/pages/profile/components/personalInfo/persInfo";
 @import "Js/pages/company/components/companyPage/company";
 @import "Js/pages/employersList/components/listOfEmployers/listOfEmployers";
@@ -25,6 +28,9 @@
 @import "Js/pages/vacancy/components/recentJobs/recentJobs";
 @import "Js/pages/vacancy/components/vacancy/vacancy";
 @import "Css/general";
+
+@import "Js/pages/companiesList/components/companiesList/companyList";
+@import "Js/pages/company/components/companyPage/company";
 
 /*
     ./components/searchForm/searchForm.scss

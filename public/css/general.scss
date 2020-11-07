@@ -353,14 +353,18 @@ svg {
 
 
 .main__candidate_photo {
-    min-width: 80px;
-    min-height: 80px;
-    max-height: 80px;
-    border-radius: 20%;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
-    background-size: contain;
-    margin-right: 20px;
+    border-radius: 50%;
 }
+
+img.avatar {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+
 
 .main__candidate_description {
     flex: 1 1 auto;

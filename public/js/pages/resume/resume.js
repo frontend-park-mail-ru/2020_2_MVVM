@@ -1,16 +1,14 @@
-import {NavBarInit} from "../../components/header/navBar.js";
-import {network} from "../../libs/networks.js";
+import {NavBarInit} from "Js/components/header/navBar";
+import {network} from "Js/libs/networks";
 import {
     resumeByIdURL,
     gender,
     educationLevel,
     experienceLevel,
     experienceMonth,
-    candByIdURL,
     addLikeResumeURL,
     deleteLikeResumeURL,
-    // city
-} from "../../libs/constants.js";
+} from "Js/libs/constants";
 import createElem from "../../libs/createElem.js";
 import briefInfoTemp from './components/briefInfo/briefInfo.tmpl.xml'
 import contactTemp from './components/contact/contact.tmpl.xml'

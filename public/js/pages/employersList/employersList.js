@@ -1,8 +1,8 @@
-import {NavBarInit} from "../../components/header/navBar.js";
-import {checkBoxes} from '../../components/searchForm/searchForm.js'
+import {NavBarInit} from "Js/components/header/navBar";
+import {checkBoxes} from 'Js/components/searchForm/searchForm'
 import createElem from "../../libs/createElem.js";
-import {network} from "../../libs/networks.js";
-import {vacancySearchURL} from "../../libs/constants.js";
+import {network} from "Js/libs/networks";
+import {vacancySearchURL} from "Js/libs/constants";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
 import listOfEmployersTemp from './components/listOfEmployers/listOfEmployers.tmpl.xml'
 import paginationTemp from 'Js/components/pagination/pagination.tmpl.xml'
@@ -131,10 +131,11 @@ export default class EmployersList{
         const mainList = createElem("div", "main__list",mainRow);
 
         const vacancies = await this.fetchVacancyList();
+        console.log(vacancies);
 
-        if (vacancies.hasOwnProperty('vacancyList')) {
+        if (vacancies && vacancies.vacancyList) {
             vacancies.vacancyList.forEach((vacancy) => {
-                vacancy.imgPath = `static/${vacancy.ID}`;
+                vacancy.imgPath = `static/vacancy/${vacancy.vac_id}`;
             });
             mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancies.vacancyList));
             mainList.insertAdjacentHTML("beforeend", paginationTemp());
@@ -143,9 +144,7 @@ export default class EmployersList{
             mainList.insertAdjacentHTML("beforeend", emptyListTemp());
         }
 
-
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
-
         afterRender(mainList, main, this.fetchVacancyList, this.router);
     }
 }
@@ -192,7 +191,7 @@ function getEmplVacancy(router, main, vacancy) {
     for (let i = 0; i < linksToVacancy.length; i++) {
         linksToVacancy[i].addEventListener('click', event => {
             event.preventDefault();
-            router.change('/vacancy', vacancy[i].EmpID, vacancy[i].ID, vacancy[i].CompID);
+            router.change('/vacancy', vacancy[i].empl_id, vacancy[i].vac_id, vacancy[i].comp_id);
         })
     }
 }

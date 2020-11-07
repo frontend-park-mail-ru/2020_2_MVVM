@@ -183,6 +183,7 @@ textarea.__sum__text {
     padding:5px;
     border: 1px solid var(--border-grey-color);
     border-radius: 10px;
+    color: black;
 }
 input.sum__date__birth {
     border: 1px solid var(--border-grey-color);
@@ -207,7 +208,6 @@ div.sum__achievements {
     line-height: 1.2;
 }
 a.sum__languages, a.sum__prof__areas {
-    color: #8473C6FF !important;
     text-decoration: none;
     border-bottom:#8473C6FF 1px dotted;
 }
