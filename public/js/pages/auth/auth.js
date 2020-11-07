@@ -1,6 +1,7 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/auth_form/auth.js";
 import createElem from "../../libs/createElem.js";
+import authTemp from './components/auth_form/auth.tmpl.xml'
 
 
 const app = window.document.getElementById('app');
@@ -20,7 +21,7 @@ export default class AuthList {
 
         const main = createElem("div", "main", app);
         const mainAuth = createElem("div", "main", main);
-        mainAuth.insertAdjacentHTML("beforeend", window.fest['auth.tmpl']());
+        mainAuth.insertAdjacentHTML("beforeend", authTemp());
 
         afterRender(this.onsubmit);
     }

@@ -1,5 +1,8 @@
 import {app} from "../../../pages/createCandidateSum/createCandidateSum.js";
 import Validation from "../../../libs/validation.js";
+import endWorkTemplate from '../endWorkField/endWorkField.tmpl.xml'
+import jobBoardTemplate from '../jobBoard/jobBoard.tmpl.xml'
+import popUpCandTemplate from './popUpCand.tmpl.xml'
 import {
     DATE_OK,
     DATE_END_EMPTY,
@@ -15,7 +18,7 @@ let currentWork;
 
 export async function renderInputForm(value, classCand) {
 
-    app.insertAdjacentHTML("afterbegin", window.fest['popUpCand.tmpl'](value));
+    app.insertAdjacentHTML("afterbegin", popUpCandTemplate(value));
     let exit = document.getElementsByClassName("popUp__cont_block");
     let bg = document.getElementsByClassName("bg");
     exit = Array.prototype.slice.call(exit);
@@ -33,7 +36,7 @@ export async function renderInputForm(value, classCand) {
             currentWork = true;
         } else {
             currentWork = false;
-            endWorkField.insertAdjacentHTML("afterbegin", window.fest['endWorkField.tmpl'](value));
+            endWorkField.insertAdjacentHTML("afterbegin", endWorkTemplate(value));
         }
     });
 
@@ -43,7 +46,7 @@ export async function renderInputForm(value, classCand) {
             if (value){
                 let board = document.getElementById("experience_board");
                 classCand.jobsArr.push(value);
-                board.insertAdjacentHTML("beforeend", window.fest["jobBoard.tmpl"](value));
+                board.insertAdjacentHTML("beforeend", jobBoardTemplate(value));
                 board.lastChild.firstChild.addEventListener('click', (event)=>{
                     openJob(value, classCand);
                 });
