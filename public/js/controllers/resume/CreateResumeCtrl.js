@@ -1,6 +1,7 @@
 import CreateResume from "../../pages/createCandidateSum/createCandidateSum.js";
-import {network} from "../../libs/networks.js";
-import {addResumeURL} from "../../libs/constants.js";
+import {network} from "Js/libs/networks";
+import {addResumeURL} from "Js/libs/constants";
+import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
 export default class CreateResumeCtrl{
     constructor(router) {
@@ -10,8 +11,13 @@ export default class CreateResumeCtrl{
 
 
             let formData = new FormData(form);
-
             const json = {};
+
+            const resumeLogo = formData.get("sum__avatar");
+            json.avatar = "";
+            if (resumeLogo.size !== 0) {
+                json.avatar = await getBase64(resumeLogo);
+            }
 
             json.title = formData.get("title");
             json.description = formData.get("description");
@@ -29,6 +35,18 @@ export default class CreateResumeCtrl{
             if (formData.get("awards") !== "") {
                 json.awards = formData.get("awards");
             }
+            console.log(jobsArr);
+            jobsArr.forEach((item)=>{
+                let dBegin = new Date(item.begin);
+                item.begin = dBegin.toISOString();
+                if (item.finish === "today") {
+                    item.finish = null;
+                } else {
+                    let dEnd = new Date(item.finish);
+                    item.finish = dEnd.toISOString();
+                }
+            });
+
             json.custom_experience = jobsArr;
 
             console.log(json);

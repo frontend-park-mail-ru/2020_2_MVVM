@@ -1,8 +1,7 @@
 import CreateCompany from "../../pages/createCompanySum/createCompany.js";
-
-import {addCompanyUrl} from "../../libs/constants.js";
-import {network} from "../../libs/networks.js";
-import {getBase64} from "../../components/base64FileUpload/base64Upload.js";
+import {addCompanyURL} from "Js/libs/constants";
+import {network} from "Js/libs/networks";
+import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
 
 export default class CreateCompanyCtrl {
@@ -20,14 +19,18 @@ export default class CreateCompanyCtrl {
             json.description = formData.get("description");
             json.spheres = cbArr;
             json.link = formData.get("link");
-            json.location = formData.get("location");
-            const response = await network.doPost(addCompanyUrl, json);
+            json.area_search = formData.get("area_search");
+
+            const response = await network.doPost(addCompanyURL, json);
             const content = await response.json();
             if (response.status >= 200 && response.status < 300) {
                 console.log("company New:", content.company);
                 console.assert(response.ok);
-                this.router.change('\/company', content.company.id);
+                console.log(content);
+                this.router.change('/company', content.company);
             } else {
+                const errorField = document.getElementsByClassName("error");
+                errorField[0].innerHTML=`${content.error}`;
                 console.log("Error in company creation", content.error);
             }
         });

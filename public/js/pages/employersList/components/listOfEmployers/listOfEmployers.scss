@@ -1,9 +1,12 @@
 
-/*.main__logo-employers {*/
-/*    max-width: 100px;*/
-/*    max-height: 100px;*/
-/*    overflow: hidden;*/
-/*}*/
+.main__logo-employers {
+    max-width: 150px;
+    overflow: hidden;
+}
+
+.main__logo-employers img{
+  width: 100%;
+}
 
 /*div.main__card-employer {*/
 /*    display: flex;*/
@@ -32,8 +35,11 @@
 /*}*/
 
 .main__info-employers {
-    padding-left: 10px;
-    max-width: 25vw;
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    grid-row-gap: 5px;
+    max-height: 150px;
+    overflow-y: hidden;
 }
 
 /*.main__info-header{*/
@@ -53,9 +59,10 @@
 /*    margin-bottom: 10px;*/
 /*}*/
 
-/*.main__name-employers_link {*/
-
-/*}*/
+.main__name-employers_link {
+    font-size: 25px;
+    font-weight: bolder;
+}
 
 /*.main__count-open-pos {*/
 /*    font-size: 12px;*/

@@ -14,7 +14,6 @@ export default class RegCtrl {
             errorMes[0].innerHTML = '';
 
             const body = {
-                nickname: formData.get("nickname"),
                 name: formData.get("firstname"),
                 surname: formData.get("lastname"),
                 email: formData.get("email"),
@@ -22,7 +21,6 @@ export default class RegCtrl {
                 user_type: formData.get("type"),
             };
 
-            console.log("value=", body.user_type);
             let formReg = await document.getElementsByClassName("reg");
             const response = await network.doPost(`${addUserURL}`, body);
 

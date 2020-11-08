@@ -1,74 +1,87 @@
-import {NavBarInit} from "../../components/header/navBar.js";
+import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "../../libs/createElem.js";
-import {openAndDelJob,renderInputForm} from "../../components/popUpResume/popUpCand/createOneJob.js";
+import {openAndDelJob,renderInputForm} from "Js/components/popUpResume/popUpCand/createOneJob";
 import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 import updateResumeTemp from './components/updateResume/updateResume.tmpl.xml'
+import {network} from "Js/libs/networks";
+import {DOMAIN, resumeByIdURL} from "Js/libs/constants";
 
 export const app = window.document.getElementById('app');
+
+async function getAllInfo (updClass, resumeSource) {
+    const responseResume = await network.doGet(`${resumeByIdURL}${resumeSource.resume_id}`);
+    console.assert(responseResume.ok);
+    const resumeData = await responseResume.json();
+
+    console.log(resumeData);
+    const resumeInfo = resumeData.resume;
+    const experienceInfo = resumeData.custom_experience;
+    const userInfo = resumeData.user;
+
+    let updResume = {
+        surname: userInfo.surname,
+        name: userInfo.name,
+        email: userInfo.email,
+        resume_id: resumeInfo.id,
+        title: resumeInfo.title,
+        description: resumeInfo.description,
+        salary_min: resumeInfo.salary_min,
+        salary_max: resumeInfo.salary_max,
+        gender: resumeInfo.gender,
+        place: resumeInfo.place,
+        career_level: resumeInfo.career_level,
+        experience_month: resumeInfo.experience_month,
+        skills: resumeInfo.skills,
+        area_search: resumeInfo.area_search,
+        education_level: resumeInfo.education_level,
+        experience: experienceInfo,
+        imgPath: `${DOMAIN}/static/resume/${resumeInfo.id}`,
+    };
+
+    if (updResume.experience) {
+        updResume.experience.forEach((item)=>{
+            let tmpDate = new Date(item.begin);
+            item.begin = tmpDate.toISOString().slice(0,10);
+            if (item.continue_to_today) {
+                item.finish = "today";
+            } else {
+                let tmpDate = new Date(item.finish);
+                item.finish = tmpDate.toISOString().slice(0,10);
+            }
+        });
+
+        updResume.experience.forEach((item, index)=>{
+            updClass.jobsArr.push(
+                {
+                    begin: item.begin,
+                    finish: item.finish,
+                    name_job: item.name_job,
+                    continue_to_today: item.continue_to_today,
+                    position: item.position,
+                    duties: item.duties,
+                    numOfJob: index,
+                }
+            )
+        });
+        updClass.numOfJob = updResume.experience.length;
+    }
+
+    return updResume;
+
+}
 
 export default class UpdateResume{
     constructor(onsubmit) {
         this.onsubmit = onsubmit;
     }
 
-    render(content, ...args){
+    async render(content, resumeInfo){
         app.innerHTML = '';
         this.jobsArr = [];
         this.numOfJob = 0;
 
-        
-        console.log(args[2]);
 
-
-        let user = {
-                surname: content.user.surname,
-                name: content.user.name,
-                email: content.user.email,
-                resume_id: args[2].resume.id,
-                title: args[2].resume.title,
-                description: args[2].resume.description,
-                salary_min: args[2].resume.salary_min,
-                salary_max: args[2].resume.salary_max,
-                gender: args[2].resume.gender,
-                place: args[2].resume.place,
-                career_level: args[2].resume.career_level,
-                experience_month: args[2].resume.experience_month,
-                skills: args[2].resume.skills,
-                area_search: args[2].resume.area_search,
-                education_level: args[2].resume.education_level,
-                experience: args[2].custom_experience,
-            };
-
-        // console.log(user);
-
-        if (user.experience) {
-            user.experience.forEach((item)=>{
-               let tmpDate = new Date(item.begin);
-               item.begin = tmpDate.toISOString().slice(0,10);
-               if (item.continue_to_today) {
-                   item.finish = "today";
-               } else {
-                   let tmpDate = new Date(item.finish);
-                   item.finish = tmpDate.toISOString().slice(0,10);
-               }
-            });
-
-            user.experience.forEach((item, index)=>{
-                this.jobsArr.push(
-                    {
-                        begin: item.begin,
-                        finish: item.finish,
-                        name_job: item.name_job,
-                        continue_to_today: item.continue_to_today,
-                        position: item.position,
-                        duties: item.duties,
-                        numOfJob: index,
-                    }
-                )
-            });
-            this.numOfJob = user.experience.length;
-            console.log(this.jobsArr);
-        }
+        const user = await getAllInfo(this, resumeInfo);
 
         const employersList = new NavBarInit(app, content, false, "");
         employersList.loadNavBar();

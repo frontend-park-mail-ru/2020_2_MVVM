@@ -1,6 +1,7 @@
 import UpdateResume from "../../pages/updateResume/updateResume.js";
-import {network} from "../../libs/networks.js";
-import {updateResumeURL} from "../../libs/constants.js";
+import {network} from "Js/libs/networks";
+import {addResumeURL} from "Js/libs/constants";
+import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
 export default class updateResumeCtrl{
     constructor(router) {
@@ -11,6 +12,12 @@ export default class updateResumeCtrl{
             let formData = new FormData(form);
 
             const json = {};
+
+            const resumeLogo = formData.get("sum__avatar");
+            json.avatar = "";
+            if (resumeLogo !== "") {
+                json.avatar = await getBase64(resumeLogo);
+            }
 
             json.id = formData.get("resume_id");
             json.area_search = formData.get("area_search");
@@ -34,7 +41,7 @@ export default class updateResumeCtrl{
 
             console.log(json);
 
-            const response = await network.doPut(updateResumeURL, json);
+            const response = await network.doPut(addResumeURL, json);
 
             if (response.status >= 200 && response.status < 300) {
                 const content = await response.json();

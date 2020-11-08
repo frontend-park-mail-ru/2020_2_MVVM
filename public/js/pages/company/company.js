@@ -1,7 +1,7 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "../../libs/createElem.js";
 import companyTemp from './components/companyPage/companyPage.tmpl.xml'
-import {spheres} from "Js/libs/constants";
+import {DOMAIN, spheres} from "Js/libs/constants";
 import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
 const app = window.document.getElementById('app');
@@ -24,7 +24,7 @@ export default class CompanyPage{
             location: companyInfo.location,
             link: companyInfo.link,
             sphere: [],
-            avatar: companyInfo.imgPath,
+            avatar: `${DOMAIN}static/company/`+companyInfo.id,
             description: companyInfo.description,
             count_vacancy: companyInfo.vac_count,
         };

@@ -1,5 +1,5 @@
-import {network} from "../../libs/networks.js";
-import {logoutURL} from "../../libs/constants.js";
+import {network} from "Js/libs/networks";
+import {logoutURL} from "Js/libs/constants";
 import Logout from "../../pages/logout/logout.js";
 
 export default class LogoutCtrl{

@@ -1,7 +1,7 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import {checkBoxes} from 'Js/components/searchForm/searchForm'
 import createElem from "../../libs/createElem.js";
-import {resumePageURL, resumeSearchURL} from "Js/libs/constants";
+import {DOMAIN, resumePageURL, resumeSearchURL} from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
 import listOfCandidatesTemp from './components/listOfCandidates/listOfCandidates.tmpl.xml'
@@ -10,8 +10,7 @@ import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
 const app = window.document.getElementById('app');
 
 export default class CandidatesList {
-    constructor(fetchCandInfo, router) {
-        this.fetchCandInfo = fetchCandInfo
+    constructor(router) {
         this.router = router
     }
 
@@ -101,13 +100,13 @@ export default class CandidatesList {
                 },
                 fields: [
                     {
-                        name: "москва",
+                        name: "Москва",
                         text: "Москва"
                     }, {
-                        name: "санкт-петербург",
+                        name: "Санкт-петербург",
                         text: "Санкт-Петербург"
                     }, {
-                        name: "екатеринбург",
+                        name: "Екатеринбург",
                         text: "Екатеринбург"
                     }
                 ]
@@ -155,6 +154,9 @@ async function renderResumeList(response, main, mainList, router){
     console.log(resume);
 
     if (resume && resume.length) {
+        resume.forEach((item) => {
+            item.imgPath = `${DOMAIN}static/resume/${item.resume_id}`;
+        });
         mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
         // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
@@ -184,7 +186,10 @@ async function search(form, mainList, main, router) {
     data.education_level = formData.getAll("education_level");
     data.career_level = formData.getAll("career_level");
     data.area_search = formData.getAll("area_search");
-    data.experience_month = formData.getAll("experience_month");
+    data.experience_month = await formData.getAll("experience_month");
+    data.experience_month.forEach((item, idx, arr)=>{
+        arr[idx] = parseInt(item);
+    });
     // data.salary_min = 0;
     // data.salary_max = 10000;
     data.keywords = formData.get("keywords");

@@ -3,16 +3,16 @@ import {recentJobs} from './components/recentJobs/resentJobs.js';
 import createElem from "../../libs/createElem.js";
 import {network} from "Js/libs/networks";
 import {
-    companyByIdURL,
+    companyByIdURL, DOMAIN,
     educationLevel,
     emplByIdURL,
     experienceLevel,
-    experienceMonth,
+    experienceMonth, gender, spheres,
     vacancyByIdURL
 } from "Js/libs/constants";
 import briefInfoJobTemp from './components/briefInfoJob/briefInfoJob.tmpl.xml'
 import vacancyTemp from './components/vacancy/vacancy.tmpl.xml'
-import jobOverviewTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
+import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml'
 import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
 import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml'
 
@@ -61,10 +61,10 @@ export default class Vacancy {
 
         const briefInfoJob = {
             name: allInfo.companyInfo.name,
-            logo: 'img/sj.png',
-            location: allInfo.vacancyInfo.location,
+            logo: `${DOMAIN}static/vacancy/`+allInfo.vacancyInfo.vac_id,
+            location: `${allInfo.vacancyInfo.location}/${allInfo.vacancyInfo.area_search}`,
             site: allInfo.companyInfo.link,
-            phone: allInfo.userInfo.phone,
+            phone: allInfo.vacancyInfo.phone,
             mail: allInfo.userInfo.email,
         }
         mainContent.insertAdjacentHTML("beforeend", briefInfoJobTemp(briefInfoJob));
@@ -113,9 +113,9 @@ export default class Vacancy {
                 name: allInfo.vacancyInfo.title,
                 salary_min: allInfo.vacancyInfo.salary_min,
                 salary_max: allInfo.vacancyInfo.salary_max,
-                gender: 'TODOМужской',
+                gender: (allInfo.vacancyInfo.gender ? gender[allInfo.vacancyInfo.gender]:"Любой"),
                 career_level: allInfo.vacancyInfo.career_level,
-                interest: allInfo.vacancyInfo.sphere,
+                interest: spheres[allInfo.vacancyInfo.sphere],
                 experience_month: allInfo.vacancyInfo.employment,
                 education: educationLevel[allInfo.vacancyInfo.education_level],
             };

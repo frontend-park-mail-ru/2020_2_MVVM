@@ -1,7 +1,7 @@
 import CreateVacancy from "../../pages/createEmployerSum/createEmployerSum.js";
-import {addVacancyURL, companyMineURL} from "../../libs/constants.js";
-import {network} from "../../libs/networks.js";
-import {getBase64} from "../../components/base64FileUpload/base64Upload.js";
+import {addVacancyURL, companyMineURL} from "Js/libs/constants";
+import {network} from "Js/libs/networks";
+import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
 
 export default class CreateResumeCtrl {
@@ -20,9 +20,15 @@ export default class CreateResumeCtrl {
 
         const sendVacancy = async (event, form) => {
             event.preventDefault();
-            const formData = new FormData(form),
-                avatar = formData.get("sum__avatar"),
-                json = {};
+            const formData = new FormData(form);
+            const avatar = formData.get("sum__avatar");
+            let json = {};
+
+            json.gender = formData.get("gender");
+            if (json.gender==="all") {
+                json.gender = null;
+            }
+
             json.avatar = "";
             if (avatar !== "") {
                 json.avatar = await getBase64(avatar);
@@ -33,24 +39,25 @@ export default class CreateResumeCtrl {
             json.salary_max = parseInt(formData.get("salary_max").toString());
             json.requirements = formData.get("requirements");
             json.duties = formData.get("duties");
-            //json.sphere = formData.get("sphere");
-            json.sphere = 0;
+            json.sphere = Number(formData.get("sphere"));
             json.skills = formData.get("skills");
             json.employment = formData.get("employment");
-            json.experince_work = formData.get("experience_month");
+            json.experience_month = parseInt(formData.get("experience_month"));
             json.location = formData.get("location");
             json.career_level = formData.get("career_level");
             json.education_level = formData.get("education_level");
             json.email = formData.get("email");
             json.phone = formData.get("phone");
+            json.area_search = formData.get("area_search");
             const response = await network.doPost(addVacancyURL, json);
             const content = await response.json();
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
                 console.log("vacancy New:", content)
-                this.router.change('\/vacancy', content.vacancy.empl_id, content.vacancy.vac_id, content.vacancy.comp_id);
+                this.router.change('/vacancy', content.vacancy.empl_id, content.vacancy.vac_id, content.vacancy.comp_id);
             } else {
-                console.log("Error in vacancy creation", content.error);
+                const errorField = document.getElementsByClassName("error");
+                errorField[0].innerHTML=`${content.error}`;
             }
         }
 

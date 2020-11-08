@@ -1,7 +1,7 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "../../libs/createElem.js";
 import {network} from "Js/libs/networks";
-import {companySearchURL, spheres, companyPageURL} from "Js/libs/constants";
+import {companySearchURL, spheres, companyPageURL, DOMAIN} from "Js/libs/constants";
 import {checkBoxes} from "Js/components/searchForm/searchForm";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml';
 import listOfCompaniesTemp from './components/listOfCompanies/listOfCompanies.tmpl.xml';
@@ -28,18 +28,18 @@ export default class CompaniesList {
             },
             {
                 title: {
-                    name: "location",
+                    name: "area_search",
                     text: "Город"
                 },
                 fields: [
                     {
-                        name: "москва",
+                        name: "Москва",
                         text: "Москва"
                     }, {
-                        name: "санкт-петербург",
+                        name: "Санкт-петербург",
                         text: "Санкт-Петербург"
                     }, {
-                        name: "екатеринбург",
+                        name: "Екатеринбург",
                         text: "Екатеринбург"
                     }
                 ]
@@ -88,7 +88,7 @@ async function search(form, mainList, main, router) {
     const formData = new FormData(form);
     let data = {};
 
-    data.location = formData.getAll("location");
+    data.area_search = formData.getAll("area_search");
     data.spheres = [];
     formData.getAll("sphere").forEach((item)=>{
         let tmp = spheres.indexOf(item);
@@ -105,7 +105,7 @@ async function search(form, mainList, main, router) {
 async function renderCompanyList(companies, mainList, router) {
     if (companies && companies.companyList) {
         companies.companyList.forEach((company) => {
-            company.imgPath = `static/company/${company.id}`;
+            company.imgPath = `${DOMAIN}static/company/${company.id}`;
         });
         mainList.insertAdjacentHTML("beforeend", listOfCompaniesTemp(companies.companyList));
         getCompanyPage(router, companies.companyList);

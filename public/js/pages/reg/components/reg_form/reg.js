@@ -1,16 +1,12 @@
 
 import Validation from '../../../../libs/validation.js'
-import {EMAIL_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK} from "../../../../libs/constants.js";
-
-// const form = document.getElementsByTagName("form");
-// let error = document.getElementsByClassName('error');
+import {EMAIL_OK, PASSWD_OK, INPUT_TEXT_OK} from "Js/libs/constants";
 
 export function checkFrom(submitF, form, error) {
 
-
     const email = document.getElementById('emailReg');
-    const nickname = document.getElementById('nickReg');
     const password = document.getElementById('passwReg');
+    const password2 = document.getElementById('passwReg2');
     const firstName = document.getElementById('firstNameReg');
     const lastName = document.getElementById('lastNameReg');
 
@@ -18,30 +14,32 @@ export function checkFrom(submitF, form, error) {
     form.addEventListener('submit',function (event){
         let isOk = true;
         const resEmail = Validation.validateEmail(email.value);
-        const resNick = Validation.validateLogin(nickname.value);
         const resPasswd = Validation.validatePasswd(password.value);
+        const resPasswd2 = Validation.validatePasswd(password2.value);
         const resFirstName = Validation.validateTextField(firstName.value);
         const resLastName = Validation.validateTextField(lastName.value);
 
-        if (resNick !== LOGIN_OK){
-            isOk = false;
-            error[0].innerHTML =`${resNick}`;
-        }
+
         if (resFirstName !== INPUT_TEXT_OK){
             isOk = false;
-            error[1].innerHTML =`${resFirstName}`;
+            error[0].innerHTML =`${resFirstName}`;
         }
         if (resLastName !== INPUT_TEXT_OK){
             isOk = false;
-            error[2].innerHTML =`${resLastName}`;
+            error[1].innerHTML =`${resLastName}`;
         }
         if (resEmail !== EMAIL_OK){
             isOk = false;
-            error[3].innerHTML =`${resEmail}`;
+            error[2].innerHTML =`${resEmail}`;
         }
         if (resPasswd !== PASSWD_OK){
             isOk = false;
-            error[4].innerHTML =`${resPasswd}`;
+            error[3].innerHTML =`${resPasswd}`;
+        }
+        if (password.value !== password2.value) {
+            isOk = false;
+            error[3].innerHTML = "Пароли не совпадают";
+            error[4].innerHTML = "Пароли не совпадают";
         }
 
         if (isOk){
@@ -52,10 +50,9 @@ export function checkFrom(submitF, form, error) {
     }, false);
 
 
-    const arr = [nickname, firstName, lastName, email, password];
+    const arr = [firstName, lastName, email, password, password2];
 
     arr.forEach((item, index)=>{
-        console.log(index);
         item.addEventListener('keydown', function (event) {
             error[index].innerHTML='';
         });

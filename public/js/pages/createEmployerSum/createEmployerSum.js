@@ -1,7 +1,7 @@
 import {NavBarInit} from "Js/components/header/navBar";
 // import createElem from "../../libs/createElem.js";
 import createElem from "Js/libs/createElem";
-import {spheres} from "Js/libs/constants";
+import {DOMAIN, spheres} from "Js/libs/constants";
 import createEmployerSumTemp from "./components/createEmployerSum/createEmployerSum.tmpl.xml"
 
 
@@ -22,12 +22,12 @@ export default class CreateVacancy {
             user: content.user,
             company: null,
             comp_logo: null,
-            spheres: spheres
+            spheres: spheres,
         }
         await this.loadCompany().then((data) => {
             if (data && data.company) {
                 this.content.company = data.company;
-                this.content.comp_logo = `static/company/${data.company.id}`
+                this.content.comp_logo = `${DOMAIN}static/company/${data.company.id}`
             } else {
                 this.content.comp_logo = "img/em1.jpg"
             }

@@ -1,6 +1,6 @@
 import AuthList from '../../pages/auth/auth.js';
-import {SUCCESS, loginURL, UNAUTHORISED} from "../../libs/constants.js";
-import {network} from "../../libs/networks.js";
+import {SUCCESS, loginURL, UNAUTHORISED} from "Js/libs/constants";
+import {network} from "Js/libs/networks";
 
 
 export default class AuthCtrl {
@@ -12,10 +12,11 @@ export default class AuthCtrl {
             let errorMes = document.getElementsByClassName("error");
             errorMes[0].innerHTML = '';
 
+            const formData = new FormData(form);
+
             const body = {
-                email: form[0][0].value,
-                nickname: form[0][1].value,
-                password: form[0][2].value,
+                email: formData.get("email"),
+                password: formData.get("password"),
             };
 
             const response = await network.doPost(`${loginURL}`, body);

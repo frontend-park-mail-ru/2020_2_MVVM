@@ -1,4 +1,4 @@
-import {app} from "../../../pages/createCandidateSum/createCandidateSum.js";
+import {app} from "Js/pages/createCandidateSum/createCandidateSum";
 import Validation from "../../../libs/validation.js";
 import endWorkTemplate from '../endWorkField/endWorkField.tmpl.xml'
 import jobBoardTemplate from '../jobBoard/jobBoard.tmpl.xml'
@@ -10,10 +10,9 @@ import {
     INPUT_TEXT_EMPTY,
     DATE_EMPTY,
     DATE_START_EMPTY
-} from "../../../libs/constants.js"
+} from "Js/libs/constants"
 
 
-// let numOfJob = 0;
 let currentWork;
 
 export async function renderInputForm(value, classCand) {

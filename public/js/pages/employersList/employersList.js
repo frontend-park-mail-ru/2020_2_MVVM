@@ -2,7 +2,7 @@ import {NavBarInit} from "Js/components/header/navBar";
 import {checkBoxes} from 'Js/components/searchForm/searchForm'
 import createElem from "../../libs/createElem.js";
 import {network} from "Js/libs/networks";
-import {vacancySearchURL} from "Js/libs/constants";
+import {DOMAIN, URL, vacancySearchURL} from "Js/libs/constants";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
 import listOfEmployersTemp from './components/listOfEmployers/listOfEmployers.tmpl.xml'
 import paginationTemp from 'Js/components/pagination/pagination.tmpl.xml'
@@ -88,13 +88,13 @@ export default class EmployersList{
                 },
                 fields: [
                     {
-                        name: "москва",
+                        name: "Москва",
                         text: "Москва"
                     }, {
-                        name: "санкт-петербург",
+                        name: "Санкт-петербург",
                         text: "Санкт-Петербург"
                     }, {
-                        name: "екатеринбург",
+                        name: "Екатеринбург",
                         text: "Екатеринбург"
                     }
                 ]
@@ -131,18 +131,7 @@ export default class EmployersList{
         const mainList = createElem("div", "main__list",mainRow);
 
         const vacancies = await this.fetchVacancyList();
-        console.log(vacancies);
-
-        if (vacancies && vacancies.vacancyList) {
-            vacancies.vacancyList.forEach((vacancy) => {
-                vacancy.imgPath = `static/vacancy/${vacancy.vac_id}`;
-            });
-            mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancies.vacancyList));
-            mainList.insertAdjacentHTML("beforeend", paginationTemp());
-            getEmplVacancy(this.router, main, vacancies.vacancyList);
-        } else {
-            mainList.insertAdjacentHTML("beforeend", emptyListTemp());
-        }
+        await getVacanciesList(vacancies, main, mainList, this.router);
 
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
         afterRender(mainList, main, this.fetchVacancyList, this.router);
@@ -168,21 +157,29 @@ async function search(form, mainList, main, fetchVacancyList, router) {
     data.education_level = formData.getAll("education_level");
     data.career_level = formData.getAll("career_level");
     data.area_search = formData.getAll("area_search");
-    // data.experience_month = formData.getAll("experience_month");
     data.keywords = formData.get("keywords");
+    data.experience_month = await formData.getAll("experience_month");
+    data.experience_month.forEach((item, idx, arr)=>{
+        arr[idx] = parseInt(item);
+    });
 
 
     const response = await network.doPost(vacancySearchURL, data);
     console.assert(response.ok);
-    const vacancy = (await response.json()).vacancyList;
+    const vacancies = await response.json();
+    await getVacanciesList(vacancies, main, mainList, router);
+}
 
-    if (vacancy && vacancy.length) {
-        mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancy));
-        getEmplVacancy(router, main, vacancy);
+async function getVacanciesList(vacancies, main, mainList, router) {
+    if (vacancies && vacancies.vacancyList) {
+        vacancies.vacancyList.forEach((vacancy) => {
+            vacancy.imgPath = `${DOMAIN}static/vacancy/${vacancy.vac_id}`;
+        });
+        mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancies.vacancyList));
+        mainList.insertAdjacentHTML("beforeend", paginationTemp());
+        getEmplVacancy(router, main, vacancies.vacancyList);
     } else {
         mainList.insertAdjacentHTML("beforeend", emptyListTemp());
-        // const pagination = document.getElementsByClassName("pagination");
-        // pagination[0].innerHTML = '';
     }
 }
 

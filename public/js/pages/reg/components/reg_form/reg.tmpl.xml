@@ -4,13 +4,6 @@
         <div class="reg">
                 <form>
                     <div class="form__field_name">
-                        <div class="form__field_lable">Никнейм</div>
-                        <div class="cfield">
-                            <input id="nickReg" name="nickname" class="text" placeholder="Введите никнейм"/>
-                            <span class="error" aria-live="polite"/>
-                        </div>
-                    </div>
-                    <div class="form__field_name">
                         <div class="form__field_lable">Имя</div>
                         <div class="cfield">
                             <input id="firstNameReg" name="firstname" class="text" placeholder="Введите имя"/>
@@ -35,6 +28,13 @@
                         <div class="form__field_lable">Пароль</div>
                         <div class="cfield">
                             <input id="passwReg" name="password" class="password" type="password" placeholder="Введите пароль"/>
+                            <span class="error" aria-live="polite"/>
+                        </div>
+                    </div>
+                    <div class="form__field_name">
+                        <div class="form__field_lable"></div>
+                        <div class="cfield">
+                            <input id="passwReg2" name="password2" class="password" type="password" placeholder="Повторите пароль"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
