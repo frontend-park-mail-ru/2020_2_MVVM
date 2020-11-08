@@ -2,24 +2,25 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+ 
+const publicPath = path.resolve(__dirname, 'public');
+const distPath = path.resolve(__dirname, 'dist');
+ 
 module.exports = {
-    context: path.resolve(__dirname, 'public'),
-    // entry: ['babel-polyfill', './public/js/app.js'],
+    context: publicPath,
     entry: './js/app.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-        publicPath: "/"
+        path: distPath,
+        publicPath: '',
+        filename: 'dist/bundle.js',
     },
     resolve: {
         alias: {
-            'Img': path.resolve(__dirname, 'public/img'),
-            'Js': path.resolve(__dirname, 'public/js'),
-            'Css': path.resolve(__dirname, 'public/css')
+            'Img': path.join(publicPath, '/img'),
+            'Js': path.join(publicPath, '/js'),
+            'Css': path.join(publicPath, '/css'),
         }
     },
-    mode: 'development',
     module: {
         rules: [
             {
@@ -33,30 +34,32 @@ module.exports = {
                 }
             },
             {
-
                 test: /\.scss$/,
-
                 use: [
-
-                    {loader: MiniCssExtractPlugin.loader},
-
-                    {loader: 'css-loader'},
-
                     {
-
-                        loader: 'postcss-loader',
-
+                        loader: MiniCssExtractPlugin.loader
                     },
-
-                    {loader: 'sass-loader'},
-
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        'autoprefixer',
+                                    ],
+                                ],
+                            },
+                        }
+                    },
+                    {
+                        loader: 'sass-loader'
+                    },
                 ],
-
+ 
             },
-            // {
-            //     test: /\.js$/,
-            //     loader: 'babel-loader',
-            // },
             {
                 test: /\.css$/,
                 use: ['css-loader'],
@@ -64,7 +67,7 @@ module.exports = {
             {
                 test: /\.xml$/,
                 loader: 'fest-webpack-loader'
-
+ 
             },
             {
                 test: /\.html$/,
@@ -82,9 +85,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({inject: true, template: './index.html'}),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './index.html'
+        }),
         new MiniCssExtractPlugin({
-            filename: "bundle.css"
+            filename: 'dist/bundle.css'
         }),
         // new ServiceWorkerWebpackPlugin({
         //     entry: path.join(__dirname, 'src/js/sw.js'),
