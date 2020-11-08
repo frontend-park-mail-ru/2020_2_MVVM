@@ -7,7 +7,7 @@ import {
     experienceLevel,
     experienceMonth,
     addLikeResumeURL,
-    deleteLikeResumeURL,
+    deleteLikeResumeURL, DOMAIN,
 } from "Js/libs/constants";
 import createElem from "../../libs/createElem.js";
 import briefInfoTemp from './components/briefInfo/briefInfo.tmpl.xml'
@@ -64,7 +64,7 @@ const resumeInfo = async (content, resumeSource) => {
 
     return {
             infoAll : {
-                photo: 'img/es1.jpg',
+                imgPath: `${DOMAIN}static/resume/${resumeInfo.id}`,
                 name: userInfo.name + " " + userInfo.surname,
                 position: resumeInfo.place,
                 mail: userInfo.email,
@@ -151,7 +151,7 @@ async function addDeleteLikes(resume_id, infoAll){
             const data = await (addLikeResp.json());
             infoAll.infoAll.is_favorite = data.favorite_for_empl.favorite_id;
             likes[0].lastChild.remove();
-            likes[0].insertAdjacentHTML("beforeend", window.fest["favorites.tmpl"](infoAll.infoAll.is_favorite));
+            likes[0].insertAdjacentHTML("beforeend",favoritesTemp(infoAll.infoAll.is_favorite));
             addDeleteLikes(resume_id, infoAll);
         });
     }

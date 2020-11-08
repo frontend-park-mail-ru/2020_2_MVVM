@@ -1,7 +1,7 @@
 input.sum__achievement{
     max-width: 50%;
 }
-.summary .sum__candidate div {
+.summary div {
     margin-bottom: 15px;
 }
 .sum__form__wrap {
@@ -17,28 +17,34 @@ input.sum__achievement{
 
 .sum__profile {
     width: 50%;
-
     text-align: center;
     padding: 30px;
 }
 .sum__profile__photo{
+    max-width: inherit;
     margin-bottom: 20px;
     width: 100%;
 }
+
+.sum__profile__photo img {
+    width: 100%;
+}
+
 .sum__btn__blue{
     border: 2px solid var(--buttons-purple-color);
     color: var(--buttons-purple-color);
-    padding: 15px 25px;
     border-radius: 25px;
     align-self: center;
     transition: 0.15s;
     background: white;
     cursor: pointer;
+    padding: 15px 25px;
 }
 .sum__btn__blue:hover{
     background-color: var(--buttons-purple-color);
     color: white;
     transition: 0.15s;
+    cursor: pointer;
 }
 .sum__upload__resume{
     padding: 5px;
