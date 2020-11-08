@@ -3,6 +3,7 @@ import persResumesTemp from 'Js/pages/profile/components/listOfResumes/persResum
 import persVacanciesTemp from 'Js/pages/profile/components/listOfVacancies/persVacancies.tmpl.xml'
 import createCompanyTemp from '../personalInfo/persInfo.tmpl.xml'
 import {DOMAIN} from "Js/libs/constants";
+import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
 
 export function checkoutProfilePage(profile, content, body, person) {
     const profNavBar = document.getElementsByClassName("persNavBar__menu-list");
@@ -26,17 +27,22 @@ export function checkoutProfilePage(profile, content, body, person) {
 
 
 export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
-    if (isCand) {
-        list.forEach((resume) => {
-            resume.imgPath = `${DOMAIN}static/resume/${resume.resume_id}`;
-        });
-        mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list));
+    if (list && list.length) {
+        if (isCand) {
+            list.forEach((resume) => {
+                resume.imgPath = `${DOMAIN}static/resume/${resume.resume_id}`;
+            });
+            mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list));
+        } else {
+            list.forEach((vacancy) => {
+                vacancy.imgPath = `${DOMAIN}static/vacancy/${vacancy.vac_id}`;
+            });
+            mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
+        }
     } else {
-        list.forEach((vacancy) => {
-            vacancy.imgPath = `${DOMAIN}static/vacancy/${vacancy.vac_id}`;
-        });
-        mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
+        mainColumnLeft.insertAdjacentHTML("beforeend", emptyListTemp());
     }
+
 
 
     const linksToResume = mainColumnLeft.getElementsByClassName("main__buttons_one");

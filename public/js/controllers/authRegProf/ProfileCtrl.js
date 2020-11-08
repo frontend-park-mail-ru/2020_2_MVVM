@@ -7,8 +7,8 @@ import {
     companyMineURL,
     myLikeResumeURL,
     candByIdURL
-} from "../../libs/constants.js";
-import {network} from "../../libs/networks.js";
+} from "Js/libs/constants";
+import {network} from "Js/libs/networks";
 
 export default class ProfileCtrl {
     constructor(router) {
