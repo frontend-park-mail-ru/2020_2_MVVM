@@ -162,7 +162,7 @@ async function renderResumeList(response, main, mainList, router){
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
         getUserResume(router, main, resume);
     } else {
-        mainList.insertAdjacentHTML("beforeend", emptyListTemp());
+        mainList.insertAdjacentHTML("beforeend", emptyListTemp("Ничего не найдено"));
     }
 }
 

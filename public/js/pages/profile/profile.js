@@ -87,7 +87,7 @@ export default class Profile {
                 })
             }
         } else {
-            mainColumnRight.insertAdjacentHTML("beforeend", emptyListTemp());
+            mainColumnRight.insertAdjacentHTML("beforeend", emptyListTemp("Нет избранных"));
         }
 
 

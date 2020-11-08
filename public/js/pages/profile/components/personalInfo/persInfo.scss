@@ -11,11 +11,12 @@
     padding: 20px 0;
     width: 100%;
     text-align: center;
+    cursor: pointer;
 }
-.persNavBar__menu_hrev:hover{
-    background: var(--main-pink-color);
-    color: white;
-}
+//.persNavBar__menu_hrev:hover{
+//    background: var(--main-pink-color);
+//    color: white;
+//}
 .persNavBar__menu-list{
     display: flex;
     justify-content: space-evenly;

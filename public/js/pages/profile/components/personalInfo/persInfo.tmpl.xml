@@ -21,11 +21,6 @@
                 <div id="phone"><fest:value>items.phone</fest:value></div>
                 <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
             </div>
-            <div class="pers__list_row">
-                <div class="description">Социальные сети</div>
-                <div id="social_network"><fest:value>items.socialNetworkLinks</fest:value></div>
-                <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
-            </div>
         </div>
         <div class="delete-account"><a href="/profile">Удалить аккаунт</a></div>
     </div>
