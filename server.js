@@ -9,6 +9,7 @@ const root = path.resolve(__dirname, 'public');
 const dist = path.resolve(__dirname, 'dist');
 
 app.use('/public', express.static('public'));
+app.use('/src', express.static('dist/src'));
 app.use('/dist', express.static('dist'));
 
 // app.get('/favicon.ico', (req, res) => {

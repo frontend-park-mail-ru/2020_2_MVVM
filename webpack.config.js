@@ -67,7 +67,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        outputPath: 'src/images',
+                        outputPath: 'images',
                     }
                 }]
             },
@@ -85,12 +85,11 @@ module.exports = {
         // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public/index.html'),
-            base: '/dist/',
         }),
     ],
     devServer: {
         port: 8080,
-        historyApiFallback: true
+        historyApiFallback: true,
     },
     performance: { hints: false },
 };
