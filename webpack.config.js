@@ -8,7 +8,7 @@ module.exports = {
     entry: './public/js/app.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'static/bundle.js',
+        filename: 'src/bundle.js',
     },
     resolve: {
         alias: {
@@ -67,7 +67,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        outputPath: 'static/images',
+                        outputPath: 'src/images',
                     }
                 }]
             },
@@ -75,7 +75,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'static/bundle.css',
+            filename: 'src/bundle.css',
         }),
         // new ServiceWorkerWebpackPlugin({
         //     entry: path.resolve(__dirname, 'public/js/sw.js'),
