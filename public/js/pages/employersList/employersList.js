@@ -179,7 +179,7 @@ async function getVacanciesList(vacancies, main, mainList, router) {
         mainList.insertAdjacentHTML("beforeend", paginationTemp());
         getEmplVacancy(router, main, vacancies.vacancyList);
     } else {
-        mainList.insertAdjacentHTML("beforeend", emptyListTemp());
+        mainList.insertAdjacentHTML("beforeend", emptyListTemp("Ничего не найдено"));
     }
 }
 

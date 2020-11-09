@@ -111,7 +111,7 @@ async function renderCompanyList(companies, mainList, router) {
         getCompanyPage(router, companies.companyList);
         // mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
     } else {
-        mainList.insertAdjacentHTML("beforeend",  emptyListTemp());
+        mainList.insertAdjacentHTML("beforeend",  emptyListTemp("Ничего не найдено"));
     }
     // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
 }

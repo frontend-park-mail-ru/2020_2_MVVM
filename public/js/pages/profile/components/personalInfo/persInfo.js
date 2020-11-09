@@ -1,36 +1,74 @@
 import {network} from "../../../../libs/networks.js";
-import {updateUserURL} from "../../../../libs/constants.js";
+import {EMAIL_OK, INPUT_TEXT_OK, PHONE_OK, updateUserURL} from "../../../../libs/constants.js";
+import Validation from "Js/libs/validation";
 
 export function updateProfileFields(person) {
     const updateButton = document.getElementsByClassName("pers__list_refactor");
     for (let i=0; i< updateButton.length; i++){
         updateButton[i].addEventListener('click', ()=>{
             if (updateButton[i].textContent === 'Изменить' || updateButton[i].textContent === 'Добавить') {
-                console.log("kek");
-                const field = updateButton[i].previousElementSibling.className;
-                updateButton[i].previousSibling.innerHTML=`<input class="pers__list_refactor-${field}">`
+                updateButton[i].previousSibling.innerHTML=`<input class="pers__list_refactor-input">`
                 updateButton[i].innerHTML="<a href='/profile'>Принять</a>";
             } else {
-                console.log("lol");
                 let newValueField = updateButton[i].previousSibling.firstChild.value;
                 updateButton[i].previousSibling.innerHTML=`<div>${newValueField}</div>`;
                 updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
 
-                saveData(person, updateButton[i], newValueField).catch((error)=>console.log(error));
+                saveData(person, updateButton[i], newValueField);
             }
         });
     }
 }
 
 
-async function saveData(person, tmpField, newValueField){
-
+function saveData(person, tmpField, newValueField){
+    let isOk = true;
+    let error = document.getElementsByClassName("error");
+    error[0].innerHTML = "";
     let field = tmpField.previousElementSibling.id;
 
-    let data = {
-        [field]: newValueField.toString(),
-    };
+   if (field === "name" ) {
+       const resName = Validation.validateTextField(newValueField);
+       if (resName !== INPUT_TEXT_OK) {
+           error[0].innerHTML = `${resName}`;
+           isOk = false;
+       }
+   }
 
-    const response = await network.doPut(updateUserURL, data);
-    console.log(response.ok);
+    if (field === "surname" ) {
+        const resSurname = Validation.validateTextField(newValueField);
+        if (resSurname !== INPUT_TEXT_OK) {
+            error[0].innerHTML = `${resSurname}`;
+            isOk = false;
+        }
+    }
+
+    if (field === "phone" ) {
+        const resPhone = Validation.validateTelephone(newValueField);
+        if (resPhone !== PHONE_OK) {
+            error[0].innerHTML = `${resPhone}`;
+            isOk = false;
+        }
+    }
+
+    if (field === "email" ) {
+        const resEmail = Validation.validateEmail(newValueField);
+        if (resEmail !== EMAIL_OK) {
+            error[0].innerHTML = `${resEmail}`;
+            isOk = false;
+        }
+    }
+
+
+    if (isOk) {
+        console.log(isOk);
+        let data = {
+            [field]: newValueField.toString(),
+        };
+        doSubmit(data);
+    }
+}
+
+async function doSubmit(data) {
+    await network.doPut(updateUserURL, data);
 }

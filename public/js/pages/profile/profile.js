@@ -55,7 +55,6 @@ export default class Profile {
             await this.loadFavorites().then((data)=>{
                 this.favorites = data;
             });
-            // работодатель может быть привязан ток к одной компании, поэтому для всех вакансий работодателя компания одна
             await this.loadCompany().then((data) => {
                 this.company = data.company;
             });
@@ -68,28 +67,8 @@ export default class Profile {
 
         }
         const mainPage = createElem("div", "main__page", container);
-        const mainColumnLeft = createElem("div", "main__page_left", mainPage);
-        const body = createElem("div", "main__page_left-body", mainColumnLeft);
-        await mainColumnLeft.insertAdjacentHTML("afterbegin", persNB(content.user.user_type));
-
-        const mainColumnRight = createElem("div", "main__page_right", mainPage);
-        mainColumnRight.insertAdjacentHTML("afterbegin", "<div style='font-size: 25px; text-align: center; margin-bottom: 10px'>Избранные</div>");
-        if (this.favorites) {
-            this.favorites.forEach((res) => {
-                res.imgPath = `${DOMAIN}static/resume/${res.resume_id}`;
-            });
-            mainColumnRight.insertAdjacentHTML("beforeend", listOfCandidatesTemp(this.favorites));
-            const linksToFavResume = document.getElementsByClassName("go_to_resume");
-            for (let i = 0; i < linksToFavResume.length; i++) {
-                linksToFavResume[i].addEventListener('click', event => {
-                    event.preventDefault();
-                    this.router.change('/resume', this.favorites[i]);
-                })
-            }
-        } else {
-            mainColumnRight.insertAdjacentHTML("beforeend", emptyListTemp());
-        }
-
+        const body = createElem("div", "main__page_body", mainPage);
+        await mainPage.insertAdjacentHTML("afterbegin", persNB(content.user.user_type));
 
         //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q
 
