@@ -63,14 +63,18 @@ module.exports = {
                 loader: 'html-loader',
             },
             {
-                test: /\.(png|jpg|gif)$/,
-                use: [{
-                    loader: 'file-loader',
+            test: /\.(png|jpg|gif)$/,
+            use: [
+                {
+                    loader: 'url-loader',
                     options: {
-                        outputPath: 'src/images',
-                    }
-                }]
-            },
+                        publicPath: '/src/',
+                        outputPath: 'src/',
+                        name: 'images/[name].[hash].[ext]',
+                    },
+                },
+            ],
+        },
         ],
     },
     plugins: [
