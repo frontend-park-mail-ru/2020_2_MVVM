@@ -77,19 +77,20 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'src/bundle.css',
         }),
-        // new ServiceWorkerWebpackPlugin({
-        //     entry: path.resolve(__dirname, 'public/js/sw.js'),
-        //     options: {
-        //         scope: '/',
-        //     },
-        // }),
+        new ServiceWorkerWebpackPlugin({
+            entry: path.resolve(__dirname, 'public/js/sw.js'),
+            options: {
+                scope: '/',
+            },
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public/index.html'),
         }),
     ],
     devServer: {
-        port: 8080,
+        port: 3000,
         historyApiFallback: true,
+        // https: true,
     },
     performance: { hints: false },
 };
