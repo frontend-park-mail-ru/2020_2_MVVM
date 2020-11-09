@@ -22,6 +22,12 @@ https://studhunt.ru/
 **Как запустить проект локально:**
 npm run start:dev
 
+**Как запустить проект на сервере:**
+
+git pull
+rm -rf dist
+npm install
+npm run build
 
 ### Ссылки:
 
