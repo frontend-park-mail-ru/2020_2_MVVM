@@ -70,7 +70,7 @@ const resumeInfo = async (content, resumeSource) => {
                 mail: userInfo.email,
                 dateReg: dataReg,
                 area_search: resumeInfo.area_search,
-                my_user_type: content.user.user_type,
+                my_user_type: (content ? content.user.user_type : null),
                 is_favorite: resumeData.is_favorite,
             },
             jobOverview : {
