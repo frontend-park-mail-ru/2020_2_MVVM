@@ -8,6 +8,8 @@
             <fest:if test="user_type == 'employer'">
                 <div class="persNavBar__menu_btn"><div class="persNavBar__menu_hrev">Мои вакансии</div></div>
             </fest:if>
+            <div class="persNavBar__menu_btn"><div class="persNavBar__menu_hrev">Избранные</div></div>
+            <div class="persNavBar__menu_btn"><div class="persNavBar__menu_hrev">Отклики</div></div>
         </nav>
     </div>
 </fest:template>
