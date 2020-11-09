@@ -1,10 +1,11 @@
-import {NavBarInit} from "../../components/header/navBar.js";
+import {NavBarInit} from "Js/components/header/navBar";
 import {checkoutProfilePage, personalInfo} from './components/personalNavBar/persNavBar.js'
 import {updateProfileFields} from './components/personalInfo/persInfo.js'
 import createElem from "../../libs/createElem.js";
 import persNB from './components/personalNavBar/persNavBar.tmpl.xml'
 import listOfCandidatesTemp from 'Js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.xml'
-
+import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
+import {DOMAIN} from "Js/libs/constants";
 
 const app = window.document.getElementById('app');
 
@@ -54,10 +55,14 @@ export default class Profile {
             await this.loadFavorites().then((data)=>{
                 this.favorites = data;
             });
+            // работодатель может быть привязан ток к одной компании, поэтому для всех вакансий работодателя компания одна
+            await this.loadCompany().then((data) => {
+                this.company = data.company;
+            });
+
         } else {
             title.innerText = "Личный кабинет соискателя";
             await this.loadResumes().then((data) => {
-                console.log(data);
                 this.resumes = data;
             });
 
@@ -68,14 +73,21 @@ export default class Profile {
         await mainColumnLeft.insertAdjacentHTML("afterbegin", persNB(content.user.user_type));
 
         const mainColumnRight = createElem("div", "main__page_right", mainPage);
-        mainColumnRight.insertAdjacentHTML("afterbegin", listOfCandidatesTemp(this.favorites));
-
-        const linksToFavResume = document.getElementsByClassName("go_to_resume");
-        for (let i = 0; i < linksToFavResume.length; i++) {
-            linksToFavResume[i].addEventListener('click', event => {
-                event.preventDefault();
-                this.router.change('/resume', this.favorites[i]);
-            })
+        mainColumnRight.insertAdjacentHTML("afterbegin", "<div style='font-size: 25px; text-align: center; margin-bottom: 10px'>Избранные</div>");
+        if (this.favorites) {
+            this.favorites.forEach((res) => {
+                res.imgPath = `${DOMAIN}static/resume/${res.resume_id}`;
+            });
+            mainColumnRight.insertAdjacentHTML("beforeend", listOfCandidatesTemp(this.favorites));
+            const linksToFavResume = document.getElementsByClassName("go_to_resume");
+            for (let i = 0; i < linksToFavResume.length; i++) {
+                linksToFavResume[i].addEventListener('click', event => {
+                    event.preventDefault();
+                    this.router.change('/resume', this.favorites[i]);
+                })
+            }
+        } else {
+            mainColumnRight.insertAdjacentHTML("beforeend", emptyListTemp());
         }
 
 

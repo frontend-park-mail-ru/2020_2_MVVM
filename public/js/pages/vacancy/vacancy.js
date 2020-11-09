@@ -1,47 +1,48 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {recentJobs} from './components/recentJobs/resentJobs.js';
 import createElem from "../../libs/createElem.js";
-import {network} from "../../libs/networks.js";
+import {network} from "Js/libs/networks";
 import {
-    companyByIdURL,
-    emplByIdURL,
-    vacancyByIdURL,
+    companyByIdURL, DOMAIN,
     educationLevel,
-    experienceMonth,
+    emplByIdURL,
     experienceLevel,
-    gender
-} from "../../libs/constants.js";
+    experienceMonth, gender, spheres,
+    vacancyByIdURL
+} from "Js/libs/constants";
 import briefInfoJobTemp from './components/briefInfoJob/briefInfoJob.tmpl.xml'
 import vacancyTemp from './components/vacancy/vacancy.tmpl.xml'
-import jobOverviewTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
+import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml'
 import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
 import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml'
 
 const app = window.document.getElementById('app');
 
 
-async function vacancyInfo(user_id, vacancy_id, company_id){
+async function vacancyInfo(user_id, vacancy_id, company_id) {
 
     const allInfo = ([
-        new Promise( (resolve) => network.doGet(emplByIdURL+`${user_id}`).then(resolve)),
-        new Promise((resolve) =>  network.doGet(vacancyByIdURL+`${vacancy_id}`).then(resolve)),
-        new Promise((resolve) =>  network.doGet(companyByIdURL+`${company_id}`).then(resolve)),
+        new Promise((resolve) => network.doGet(emplByIdURL + `${user_id}`).then(resolve)),
+        new Promise((resolve) => network.doGet(vacancyByIdURL + `${vacancy_id}`).then(resolve)),
+        new Promise((resolve) => network.doGet(companyByIdURL + `${company_id}`).then(resolve)),
     ]);
 
 
     const pageInfo = await Promise.all(allInfo).then((values) => {
         return values;
     });
-
+    const userInfo = await pageInfo[0].json()
+    const vacInfo = await pageInfo[1].json()
+    const compInfo = await pageInfo[2].json()
     return {
-        userInfo: await pageInfo[0].json(),
-        vacancyInfo: (await pageInfo[1].json()).Vacancy,
-        companyInfo: (await pageInfo[2].json()).company,
+        userInfo: userInfo,
+        vacancyInfo: vacInfo === null ? null : vacInfo.vacancy,
+        companyInfo: compInfo == null ? null : compInfo.company,
     };
 }
 
 
-export default class Vacancy{
+export default class Vacancy {
     constructor(router) {
         this.router = router;
     }
@@ -50,7 +51,7 @@ export default class Vacancy{
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, content, false,"Вакансия");
+        const navBarInit = new NavBarInit(app, content, false, "Вакансия");
         navBarInit.loadNavBar();
 
         const allInfo = await vacancyInfo(user_id, vacancy_id, company_id);
@@ -60,10 +61,10 @@ export default class Vacancy{
 
         const briefInfoJob = {
             name: allInfo.companyInfo.name,
-            logo: 'img/sj.png',
-            location: allInfo.vacancyInfo.location,
+            logo: `${DOMAIN}static/vacancy/`+allInfo.vacancyInfo.vac_id,
+            location: `${allInfo.vacancyInfo.location}/${allInfo.vacancyInfo.area_search}`,
             site: allInfo.companyInfo.link,
-            phone: allInfo.userInfo.phone,
+            phone: allInfo.vacancyInfo.phone,
             mail: allInfo.userInfo.email,
         }
         mainContent.insertAdjacentHTML("beforeend", briefInfoJobTemp(briefInfoJob));
@@ -112,11 +113,11 @@ export default class Vacancy{
                 name: allInfo.vacancyInfo.title,
                 salary_min: allInfo.vacancyInfo.salary_min,
                 salary_max: allInfo.vacancyInfo.salary_max,
-                gender: 'TODOМужской',
-                interest: allInfo.vacancyInfo.spheres,
+                gender: (allInfo.vacancyInfo.gender ? gender[allInfo.vacancyInfo.gender]:"Любой"),
+                career_level: allInfo.vacancyInfo.career_level,
+                interest: spheres[allInfo.vacancyInfo.sphere],
                 experience_month: allInfo.vacancyInfo.employment,
                 education: educationLevel[allInfo.vacancyInfo.education_level],
-                career_level: allInfo.vacancyInfo.week_work_hours,
             };
 
 

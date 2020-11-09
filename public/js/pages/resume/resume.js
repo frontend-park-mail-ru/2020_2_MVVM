@@ -1,16 +1,14 @@
-import {NavBarInit} from "../../components/header/navBar.js";
-import {network} from "../../libs/networks.js";
+import {NavBarInit} from "Js/components/header/navBar";
+import {network} from "Js/libs/networks";
 import {
     resumeByIdURL,
     gender,
     educationLevel,
     experienceLevel,
     experienceMonth,
-    candByIdURL,
     addLikeResumeURL,
-    deleteLikeResumeURL,
-    // city
-} from "../../libs/constants.js";
+    deleteLikeResumeURL, DOMAIN,
+} from "Js/libs/constants";
 import createElem from "../../libs/createElem.js";
 import briefInfoTemp from './components/briefInfo/briefInfo.tmpl.xml'
 import contactTemp from './components/contact/contact.tmpl.xml'
@@ -66,13 +64,13 @@ const resumeInfo = async (content, resumeSource) => {
 
     return {
             infoAll : {
-                photo: 'img/es1.jpg',
+                imgPath: `${DOMAIN}static/resume/${resumeInfo.id}`,
                 name: userInfo.name + " " + userInfo.surname,
                 position: resumeInfo.place,
                 mail: userInfo.email,
                 dateReg: dataReg,
                 area_search: resumeInfo.area_search,
-                my_user_type: content.user.user_type,
+                my_user_type: (content ? content.user.user_type : null),
                 is_favorite: resumeData.is_favorite,
             },
             jobOverview : {
@@ -153,7 +151,7 @@ async function addDeleteLikes(resume_id, infoAll){
             const data = await (addLikeResp.json());
             infoAll.infoAll.is_favorite = data.favorite_for_empl.favorite_id;
             likes[0].lastChild.remove();
-            likes[0].insertAdjacentHTML("beforeend", window.fest["favorites.tmpl"](infoAll.infoAll.is_favorite));
+            likes[0].insertAdjacentHTML("beforeend",favoritesTemp(infoAll.infoAll.is_favorite));
             addDeleteLikes(resume_id, infoAll);
         });
     }

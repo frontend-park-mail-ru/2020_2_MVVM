@@ -2,6 +2,8 @@ import {app} from "../../../createCandidateSum/createCandidateSum.js";
 import persResumesTemp from 'Js/pages/profile/components/listOfResumes/persResumes.tmpl.xml'
 import persVacanciesTemp from 'Js/pages/profile/components/listOfVacancies/persVacancies.tmpl.xml'
 import createCompanyTemp from '../personalInfo/persInfo.tmpl.xml'
+import {DOMAIN} from "Js/libs/constants";
+import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
 
 export function checkoutProfilePage(profile, content, body, person) {
     const profNavBar = document.getElementsByClassName("persNavBar__menu-list");
@@ -25,12 +27,22 @@ export function checkoutProfilePage(profile, content, body, person) {
 
 
 export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
-    console.log(list);
-    if (isCand) {
-        mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list));
+    if (list && list.length) {
+        if (isCand) {
+            list.forEach((resume) => {
+                resume.imgPath = `${DOMAIN}static/resume/${resume.resume_id}`;
+            });
+            mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list));
+        } else {
+            list.forEach((vacancy) => {
+                vacancy.imgPath = `${DOMAIN}static/vacancy/${vacancy.vac_id}`;
+            });
+            mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
+        }
     } else {
-        mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
+        mainColumnLeft.insertAdjacentHTML("beforeend", emptyListTemp());
     }
+
 
 
     const linksToResume = mainColumnLeft.getElementsByClassName("main__buttons_one");
@@ -42,7 +54,8 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
                 profile.router.change('/resume', list[i]);
             }
             else {
-                profile.router.change('/vacancy', list[i].EmpID, list[i].ID, list[i].CompID);
+                console.log(list[i]);
+                profile.router.change('/vacancy', list[i].empl_id, list[i].vac_id, list[i].comp_id);
             }
         })
     }
@@ -54,7 +67,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         linksToUpdateResume[i].addEventListener('click', event => {
             event.preventDefault();
             if (isCand) {
-                profile.router.change('/updateResume', list[i].cand_id, list[i].id, list[i]);
+                profile.router.change('/updateResume', list[i]);
             }
 
         })

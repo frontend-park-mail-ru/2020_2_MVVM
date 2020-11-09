@@ -1,8 +1,8 @@
-import {NavBarInit} from "../../components/header/navBar.js";
-import {checkBoxes} from '../../components/searchForm/searchForm.js'
+import {NavBarInit} from "Js/components/header/navBar";
+import {checkBoxes} from 'Js/components/searchForm/searchForm'
 import createElem from "../../libs/createElem.js";
-import {resumePageURL, resumeSearchURL} from "../../libs/constants.js";
-import {network} from "../../libs/networks.js";
+import {DOMAIN, resumePageURL, resumeSearchURL} from "Js/libs/constants";
+import {network} from "Js/libs/networks";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
 import listOfCandidatesTemp from './components/listOfCandidates/listOfCandidates.tmpl.xml'
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
@@ -10,8 +10,7 @@ import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
 const app = window.document.getElementById('app');
 
 export default class CandidatesList {
-    constructor(fetchCandInfo, router) {
-        this.fetchCandInfo = fetchCandInfo
+    constructor(router) {
         this.router = router
     }
 
@@ -101,13 +100,13 @@ export default class CandidatesList {
                 },
                 fields: [
                     {
-                        name: "москва",
+                        name: "Москва",
                         text: "Москва"
                     }, {
-                        name: "санкт-петербург",
+                        name: "Санкт-петербург",
                         text: "Санкт-Петербург"
                     }, {
-                        name: "екатеринбург",
+                        name: "Екатеринбург",
                         text: "Екатеринбург"
                     }
                 ]
@@ -145,18 +144,25 @@ export default class CandidatesList {
 
         const response = await network.doGetLimit(resumePageURL, 0, 15);
         console.assert(response.ok);
-        const resume = await response.json();
-        console.log(resume);
-
-        if (resume && resume.length) {
-            mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
-            // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
-            // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
-            getUserResume(this.router, main, resume);
-        } else {
-            mainList.insertAdjacentHTML("beforeend", emptyListTemp());
-        }
+        await renderResumeList(response, main, mainList, this.router);
         afterRender(mainList, main, this.router);
+    }
+}
+
+async function renderResumeList(response, main, mainList, router){
+    const resume = await response.json();
+    console.log(resume);
+
+    if (resume && resume.length) {
+        resume.forEach((item) => {
+            item.imgPath = `${DOMAIN}static/resume/${item.resume_id}`;
+        });
+        mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
+        // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
+        // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
+        getUserResume(router, main, resume);
+    } else {
+        mainList.insertAdjacentHTML("beforeend", emptyListTemp());
     }
 }
 
@@ -166,7 +172,6 @@ function getUserResume(router, main, resume) {
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
-            console.log(resume[i]);
             router.change('/resume', resume[i]);
         })
     }
@@ -181,26 +186,17 @@ async function search(form, mainList, main, router) {
     data.education_level = formData.getAll("education_level");
     data.career_level = formData.getAll("career_level");
     data.area_search = formData.getAll("area_search");
-    data.experience_month = formData.getAll("experience_month");
+    data.experience_month = await formData.getAll("experience_month");
+    data.experience_month.forEach((item, idx, arr)=>{
+        arr[idx] = parseInt(item);
+    });
     // data.salary_min = 0;
     // data.salary_max = 10000;
     data.keywords = formData.get("keywords");
 
-
     const response = await network.doPost(resumeSearchURL, data);
     console.assert(response.ok);
-    const resume = (await response.json());
-    console.log(resume);
-
-    if (resume && resume.length) {
-        mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
-        getUserResume(router, main, resume);
-    } else {
-        mainList.insertAdjacentHTML("beforeend", emptyListTemp());
-        const pagination = document.getElementsByClassName("pagination");
-        // pagination[0].innerHTML = '';
-    }
-
+    await renderResumeList(response, main, mainList, router);
 }
 
 function afterRender(mainList, main, router) {

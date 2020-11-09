@@ -1,4 +1,39 @@
-#sum__candidate-form{
+.sum__form {
     display: flex;
     width: 100%;
+}
+
+.rectangle {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    font: 14px "Trebuchet MS", "Lucida Sans";
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+.rectangle p {
+    padding: .4em .4em .4em .8em;
+    background: var(--background-grey-color);
+}
+
+.comp__logo_title {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 5px;
+}
+
+.comp__title {
+    font-size: 20px;
+    color: black;
+}
+
+.comp__logo_avatar {
+    max-width: 200px;
+    overflow: hidden;
+    border-radius: 5%;
+}
+
+.comp__description {
+    font-size: 16px;
+    color: black;
 }

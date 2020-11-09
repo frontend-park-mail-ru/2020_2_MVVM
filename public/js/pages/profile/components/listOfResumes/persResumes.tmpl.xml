@@ -2,16 +2,16 @@
     <fest:each iterate="items" index="i" value="v">
         <div class="main__list_row">
             <div class="main__logo-employers">
-                <img src="img/em1.jpg" alt="oops"/>
+                <img src="{v.imgPath}" alt="oops"/>
             </div>
             <div class="main__info-employers">
                 <div class="main__info-header">
                     <div class="main__name-employers">
-                        <a href="" class="main__name-employers_link"><fest:value>v.resume.title</fest:value></a>
+                        <div class="main__name-employers_link"><fest:value>v.title</fest:value></div>
                     </div>
                 </div>
                 <div class="main__specialosm-employers">
-                    <fest:value>v.resume.description</fest:value>
+                    <fest:value>v.description</fest:value>
                 </div>
             </div>
             <div class="main__buttons">

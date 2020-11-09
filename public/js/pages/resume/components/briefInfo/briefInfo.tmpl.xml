@@ -13,7 +13,7 @@
 
     <div class="cand-options-bio">
       <div class="cand-options-photo">
-        <img src="img/es1.jpg" alt=""> </img>
+        <img src="{items.imgPath}" alt=""> </img>
       </div>
       <div class="about-candidate">
         <h3><fest:value>items.name</fest:value></h3>

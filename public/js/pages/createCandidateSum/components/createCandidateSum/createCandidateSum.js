@@ -7,15 +7,15 @@ let error = document.getElementsByClassName('error');
 export function checkFrom(submitF, form, jobsArr) {
     let isOk = true;
 
-    const title = form[0];
-    const surname = form[1];
-    const name = form[2];
-    const email = form[5];
-    const description = form[7];
-    const skills = form[10];
-    const place = form[11];
-    const salaryMin = form[12];
-    const salaryMax = form[13];
+    const title = form[1];
+    const surname = form[2];
+    const name = form[3];
+    const email = form[6];
+    const description = form[8];
+    const skills = form[11];
+    const place = form[12];
+    const salaryMin = form[13];
+    const salaryMax = form[14];
 
 
     const resTitle = Validation.validateTextField(title.value);

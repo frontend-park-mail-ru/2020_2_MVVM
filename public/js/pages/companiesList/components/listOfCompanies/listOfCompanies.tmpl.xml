@@ -5,12 +5,12 @@
                 <img src="{item.imgPath}" alt=""></img>
             </div>
             <div class="main__candidate_description">
-                <div class="main__candidate_name"><a><fest:value>item.title</fest:value></a></div>
+                <div class="main__candidate_name"><a><fest:value>item.name</fest:value></a></div>
                 <div class="main__candidate_specialism"><fest:value>item.description</fest:value><fest:space/></div>
                 <div class="main__candidate_location"><fest:value>item.area_search</fest:value>/Росиия</div>
             </div>
             <div class="main__candidate_button">
-                <a href="/vacancy" class="go_to_resume"><div class="main__candidate_shortlist">Подробнее</div></a>
+                <a href="/company" class="go_to_resume"><div class="main__candidate_shortlist">Подробнее</div></a>
             </div>
         </div>
     </fest:each>

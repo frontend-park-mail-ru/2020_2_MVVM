@@ -1,4 +1,4 @@
-import {NavBarInit} from "../../components/header/navBar.js";
+import {NavBarInit} from "Js/components/header/navBar";
 import {checkFrom} from "./components/auth_form/auth.js";
 import createElem from "../../libs/createElem.js";
 import authTemp from './components/auth_form/auth.tmpl.xml'
@@ -23,10 +23,13 @@ export default class AuthList {
         const mainAuth = createElem("div", "main", main);
         mainAuth.insertAdjacentHTML("beforeend", authTemp());
 
-        afterRender(this.onsubmit);
+        const form = document.querySelector("form");
+        let error = document.getElementsByClassName('error');
+
+        afterRender(this.onsubmit, form, error);
     }
 
 }
-function afterRender(submitF) {
-    checkFrom(submitF);
+function afterRender(submitF, form, error) {
+    checkFrom(submitF,form, error);
 }

@@ -13,13 +13,13 @@
                     </div>
                     <div class="container__left_vacancies">
                         <label>Вакансии</label>
-                        <div class="container__left_vacancies open-vacancies"><fest:value>company.count_vacancy</fest:value> активных вакансий</div>
+                        <div class="container__left_vacancies open-vacancies"><fest:value>company.count_vacancy</fest:value><fest:space/>активных вакансий</div>
                     </div>
                     <div class="container__left_sphere">
                         <label>Сферы деятельности</label>
                         <div class="container__left_sphere spheres">
                             <fest:for iterate="company.sphere" index="i" value="v">
-                                <fest:value>v</fest:value><br/>
+                                -<fest:value>v</fest:value><br/>
                             </fest:for>
                         </div>
                     </div>
@@ -43,26 +43,13 @@
                         <div class="company__vacancies">Вакансии компании</div>
                         <div class="vacancies__current-region">
                             <div class="vacancies__current-region all">
-                                <span>Вакансии в текущем регионе: Россия </span><span>25</span>
+                                <span>Вакансии в текущем регионе: Россия </span><span><fest:space/><fest:value>company.count_vacancy</fest:value></span>
                             </div>
-                            <div class="vacancies__current-region group">
-                                <span>Информационные технологии, интернет, телеком</span><span> 2</span>
-                            </div>
-                            <div class="vacancies__current-region group">
-                                <span>Продажи</span><span> 1</span>
-                            </div>
-                            <div class="vacancies__current-region group">
-                                <span>Бухгалтерия, управленческий учет, финансы предприятия</span><span> 1</span>
-                            </div>
-                            <div class="vacancies__current-region group">
-                                <span>Строительство, недвижимость</span><span> 1</span>
-                            </div>
-                            <div class="vacancies__current-region group">
-                                <span>Управление персоналом, тренинги</span><span> 1</span>
-                            </div>
-                            <div class="vacancies__current-region group">
-                                <span>Туризм, гостиницы, рестораны</span><span> 1</span>
-                            </div>
+                            <fest:each iterate="company.sphere" index="i" value="v">
+                                <div class="vacancies__current-region group">
+                                    <span><fest:value>v</fest:value></span><span><fest:space/>2</span>
+                                </div>
+                            </fest:each>
                         </div>
                     </div>
                 </div>
