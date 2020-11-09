@@ -27,16 +27,14 @@
 .persNavBar{
     padding-bottom: 50px;
 }
-.pers__list{
-    display: flex;
-    flex-direction: column;
-    min-width: 70%;
-}
+
 
 .pers__list_row{
     border-top: 1px solid var(--border-grey-color);
     border-bottom: 1px solid var(--border-grey-color);
-    display: flex;
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr;
+    grid-column-gap: 5px;
     padding: 0 20px;
     height: 50px;
     align-items: center;
@@ -44,8 +42,7 @@
 }
 
 .pers__list_refactor{
-    margin-right: 0;
-    margin-left: auto;
+
 }
 
 .pers__list_refactor a:hover{
@@ -60,14 +57,23 @@
 
 .main__page{
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr;
 }
 
-.main__page_left{
-    min-width: 60%;
-    margin: 0 50px 0 0;
+.main__page_body {
+    max-width: 60%;
+    margin: auto;
 }
+
 
 .delete-account{
     margin: 50px 0;
+}
+
+.input-field {
+    height: 50%;
+}
+
+.pers__list_refactor-input{
+    height: 100%;
 }

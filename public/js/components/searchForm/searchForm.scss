@@ -27,7 +27,7 @@
 .main__keywords::after{
     content: '';
     display: inline-block;
-    background: url(/img/search.png) 0 0/cover;
+    background: url('~Img/search.png') 0 0/cover;
     width: 16px;
     height: 16px;
 }
@@ -46,7 +46,7 @@
 .main__locations::after{
     content: '';
     display: inline-block;
-    background: url(/img/geo.png) 0 0/cover;
+    background: url('~Img/geo.png') 0 0/cover;
     width: 16px;
     height: 16px;
 }
@@ -82,7 +82,7 @@
     display: inline-block;
     position: absolute;
     right: 0;
-    background: url("/img/minus.png") 0 0/cover;
+    background: url('~Img/minus.png') 0 0/cover;
     width: 20px;
     height: 16px;
 }
@@ -92,7 +92,7 @@
     display: inline-block;
     position: absolute;
     right: 0;
-    background: url("/img/plus.png") 0 0/cover;
+    background: url('~Img/plus.png') 0 0/cover;
     width: 20px;
     height: 16px;
 }

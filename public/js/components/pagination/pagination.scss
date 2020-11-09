@@ -43,7 +43,7 @@
 .main__prev > a :before{
     content: '';
     display: inline-block;
-    background: url("/img/prev.png") 0 0/cover no-repeat;
+    background: url('~Img/prev.png') 0 0/cover no-repeat;
     width: 15px;
     height: 12px;
 }
@@ -51,7 +51,7 @@
 .main__next > a :after{
     content: '';
     display: inline-block;
-    background: url("/img/next.png") 0 0/cover no-repeat;
+    background: url('~Img/next.png') 0 0/cover no-repeat;
     width: 15px;
     height: 11px;
 }

@@ -4,28 +4,65 @@ import persVacanciesTemp from 'Js/pages/profile/components/listOfVacancies/persV
 import createCompanyTemp from '../personalInfo/persInfo.tmpl.xml'
 import {DOMAIN} from "Js/libs/constants";
 import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
+import listOfCandidatesTemp from "Js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.xml";
+import {updateProfileFields} from "Js/pages/profile/components/personalInfo/persInfo";
+
+
+function doCheckout(profile, content, body, person, navBar, idx) {
+    body.innerHTML = '';
+    switch (idx) {
+        case 0: {
+            personalInfo(person, body);
+            updateProfileFields(person);
+        }
+        break;
+        case 1: {
+            if (content.user.user_type === "candidate") {
+                personalResOrVac(profile, true, body, profile.resumes);
+            } else {
+                personalResOrVac(profile, false, body, profile.vacancies);
+            }
+        }
+        break;
+        case 2: {
+            personalLikes(profile, body);
+        }
+        break;
+        case 3: {
+
+        }
+    }
+
+    // navBar.children[idx].style = "color:white; background: var(--main-pink-color)";
+    navBar.childNodes.forEach((item, i)=>{
+        if (i===idx) {
+            item.style = "color:white; background: var(--main-pink-color)";
+        } else {
+            item.style = "color:var(--main-pink-color); background: white"
+        }
+    });
+
+    // profile.isPersonalRusemes = navBar.children[idx].textContent !== 'Личная информация';
+    // if (profile.isPersonalRusemes) {
+    //     navBar.children[1].style = "color:white; background: var(--main-pink-color)";
+    //     navBar.children[0].style = "color:var(--main-pink-color); background: white";
+    //     if (content.user.user_type === "candidate") {
+    //         personalResOrVac(profile, true, body, profile.resumes);
+    //     } else {
+    //         personalResOrVac(profile, false, body, profile.vacancies);
+    //     }
+    // } else {
+    //     navBar.children[0].style = "color:white; background: var(--main-pink-color)";
+    //     navBar.children[1].style = "color:var(--main-pink-color); background: white";
+    //     personalInfo(person, body);
+    // }
+}
 
 export function checkoutProfilePage(profile, content, body, person) {
     const profNavBar = document.getElementsByClassName("persNavBar__menu-list");
-    profNavBar[0].children[0].style = "color:white; background: var(--main-pink-color)";
-    profNavBar[0].children[1].style = "color:var(--main-pink-color); background: white";
     for (let i = 0; i < profNavBar[0].childElementCount; i++) {
         profNavBar[0].children[i].addEventListener('click', () => {
-            body.innerHTML = '';
-            profile.isPersonalRusemes = profNavBar[0].children[i].textContent !== 'Личная информация';
-            if (profile.isPersonalRusemes) {
-                profNavBar[0].children[1].style = "color:white; background: var(--main-pink-color)";
-                profNavBar[0].children[0].style = "color:var(--main-pink-color); background: white";
-                if (content.user.user_type === "candidate") {
-                    personalResOrVac(profile, true, body, profile.resumes);
-                } else {
-                    personalResOrVac(profile, false, body, profile.vacancies);
-                }
-            } else {
-                profNavBar[0].children[0].style = "color:white; background: var(--main-pink-color)";
-                profNavBar[0].children[1].style = "color:var(--main-pink-color); background: white";
-                personalInfo(person, body);
-            }
+            doCheckout(profile, content, body, person, profNavBar[0], i);
         });
     }
 }
@@ -81,4 +118,22 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
 
 export function personalInfo(person, mainColumnLeft) {
     mainColumnLeft.insertAdjacentHTML("beforeend", createCompanyTemp(person));
+}
+
+function personalLikes(profile, mainColumnLeft) {
+    if (profile.favorites) {
+        profile.favorites.forEach((res) => {
+            res.imgPath = `${DOMAIN}static/resume/${res.resume_id}`;
+        });
+        mainColumnLeft.insertAdjacentHTML("beforeend", listOfCandidatesTemp(profile.favorites));
+        const linksToFavResume = document.getElementsByClassName("go_to_resume");
+        for (let i = 0; i < linksToFavResume.length; i++) {
+            linksToFavResume[i].addEventListener('click', event => {
+                event.preventDefault();
+                profile.router.change('/resume', profile.favorites[i]);
+            })
+        }
+    } else {
+        mainColumnLeft.insertAdjacentHTML("beforeend", emptyListTemp("Нет избранных"));
+    }
 }

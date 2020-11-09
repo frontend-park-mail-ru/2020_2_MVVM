@@ -1,15 +1,15 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="user_type">
     <div class="persNavBar">
         <nav class="persNavBar__menu-list">
-            <div class="persNavBar__menu_btn"><div class="persNavBar__menu_hrev">Личная информация</div></div>
+            <div class="persNavBar__menu_btn" style="color: white; background: var(--main-pink-color);"><div class="persNavBar__menu_hrev">Личная информация</div></div>
             <fest:if test="user_type == 'candidate'">
-                <div class="persNavBar__menu_btn"><div class="persNavBar__menu_hrev">Мои резюме</div></div>
+                <div class="persNavBar__menu_btn" style="color: var(--main-pink-color); background: white"><div class="persNavBar__menu_hrev">Мои резюме</div></div>
             </fest:if>
             <fest:if test="user_type == 'employer'">
-                <div class="persNavBar__menu_btn"><div class="persNavBar__menu_hrev">Мои вакансии</div></div>
+                <div class="persNavBar__menu_btn" style="color: var(--main-pink-color); background: white"><div class="persNavBar__menu_hrev">Мои вакансии</div></div>
             </fest:if>
-            <div class="persNavBar__menu_btn"><div class="persNavBar__menu_hrev">Избранные</div></div>
-            <div class="persNavBar__menu_btn"><div class="persNavBar__menu_hrev">Отклики</div></div>
+            <div class="persNavBar__menu_btn" style="color: var(--main-pink-color); background: white"><div class="persNavBar__menu_hrev">Избранные</div></div>
+            <div class="persNavBar__menu_btn" style="color: var(--main-pink-color); background: white"><div class="persNavBar__menu_hrev">Отклики</div></div>
         </nav>
     </div>
 </fest:template>

@@ -14,6 +14,7 @@ import ResumeCtrl from "./controllers/resume/ResumeCtrl.js";
 import CompanyCtrl from "./controllers/company/CompanyCtrl.js";
 import UpdateResumeCtrl from "./controllers/resume/UpdateResumeCtrl.js";
 import LogoutCtrl from "./controllers/authRegProf/LogoutCtrl.js";
+import runtime from 'serviceworker-webpack-plugin/lib/runtime';
 import '../styles/main.scss'
 
 
@@ -21,6 +22,9 @@ import '../styles/main.scss'
 document.addEventListener('DOMContentLoaded', ()=>{
     const app = document.getElementById('app');
     const router = new Router(app);
+    if ('serviceWorker' in navigator) {
+        runtime.register();
+    }
 
     const controllers = {
         auth: new AuthCtrl(router),
