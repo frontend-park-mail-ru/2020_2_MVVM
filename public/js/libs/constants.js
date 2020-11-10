@@ -1,32 +1,32 @@
 // validation status
-export const EMAIL_OK = 'OK email'
-export const LOGIN_OK = 'OK login'
-export const PASSWD_OK = 'OK password'
-export const AVATAR_OK = 'OK avatar'
-export const SALARY_OK = 'OK salary'
-export const INPUT_TEXT_OK = 'OK input text'
-export const PHONE_OK = 'OK phone number'
-export const DATE_OK = 'OK date'
+export const EMAIL_OK = 'верный email'
+export const LOGIN_OK = 'верный логин'
+export const PASSWD_OK = 'верный пароль'
+export const AVATAR_OK = 'валидное изображение для профиля'
+export const SALARY_OK = 'корректное значение зарплаты'
+export const INPUT_TEXT_OK = 'корректный текст для ввода'
+export const PHONE_OK = 'верный номер тел.'
+export const DATE_OK = 'корректная дата'
 
-export const EMAIL_EMPTY = 'EMPTY email'
-export const LOGIN_EMPTY = 'EMPTY login'
-export const PASSWD_EMPTY = 'EMPTY password'
-export const PHONE_EMPTY = 'EMPTY phone'
-export const SALARY_EMPTY = 'EMPTY salary'
-export const INPUT_TEXT_EMPTY = 'EMPTY input text'
-export const DATE_EMPTY = 'EMPTY date fields'
-export const DATE_START_EMPTY = "EMPTY start date"
-export const DATE_END_EMPTY = "EMPTY end date"
+export const EMAIL_EMPTY = 'email пустой'
+export const LOGIN_EMPTY = 'пустой логин'
+export const PASSWD_EMPTY = 'пустой пароль'
+export const PHONE_EMPTY = 'пустое поле номера тел.'
+export const SALARY_EMPTY = 'пустое поле зарплаты'
+export const INPUT_TEXT_EMPTY = 'пустой вводимый текст'
+export const DATE_EMPTY = 'пустое значение даты'
+export const DATE_START_EMPTY = "начальная дата не введена"
+export const DATE_END_EMPTY = "конечная дата не введена"
 
 // validation common errors
-export const INCORRECT_EMAIL = 'Email should contain "@" and latin letters, numbers, special symbols';
-export const INCORRECT_LOGIN = 'Login should have 4-20 symbols and contain latin letters and numbers';
-export const INCORRECT_PASSWD = 'Password should has at least 5-25 symbols and not contain russian letters';
-export const INCORRECT_AVATAR_F = 'Avatar must be jpeg or png format and must be less than 10 MB in size';
-export const INCORRECT_INPUT_TEXT = 'Input exceeds limit of characters'
-export const INCORRECT_PHONE = 'wrong phone number'
-export const INCORRECT_SALARY = 'salary can`t be less than zero'
-export const INCORRECT_DATE = 'incorrect date'
+export const INCORRECT_EMAIL = 'Email должен содержать "@" и латинские буквы, цифры, символы';
+export const INCORRECT_LOGIN = 'Логин должен содержать 4-20 символов, а также содержать латинские символы и цифры';
+export const INCORRECT_PASSWD = 'Пароль должен содержать по крайней мере от 5 до 25 символов и не включать символы кириллицы';
+export const INCORRECT_AVATAR_F = 'Аваатар должен быть формата jpeg или png и быть размером менее 10 MB';
+export const INCORRECT_INPUT_TEXT = 'Неверное количество символов'
+export const INCORRECT_PHONE = 'Неверный номер телефона'
+export const INCORRECT_SALARY = 'поле не может принимать отрицательное значение'
+export const INCORRECT_DATE = 'некорректная дата'
 
 // validation allowed expressions
 export const EMAIL_EXP = new RegExp(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/)
