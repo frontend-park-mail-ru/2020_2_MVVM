@@ -1,7 +1,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="container">
             <div class="page__name">Авторизация</div>
-            <div class="auth">
+            <div class="js_auth">
                 <form>
                     <div class="form__field_name">
                         <div class="form__field_lable">Email</div>

@@ -4,7 +4,7 @@
       <div class="create-account">
         <h3> Измени мир своим резюме! </h3>
         <p>Создай резюме на StudHunt за считанные минуты!</p>
-        <a href="/reg"><div class="btm-create-account">
+        <a href="/reg"><div class="create-account__btm">
           Создать аккаунт
         </div></a>
       </div>

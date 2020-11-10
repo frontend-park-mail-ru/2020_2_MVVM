@@ -25,7 +25,7 @@ export default class AuthCtrl {
                 console.assert(response.ok);
                 this.router.change('\/');
             } else {
-                let formAuth = document.getElementsByClassName("auth");
+                let formAuth = document.getElementsByClassName("js_auth");
                 formAuth[0].insertAdjacentHTML("afterBegin", `<div class="error">Неверное имя пользователя или пароль</div>`);
             }
         }
