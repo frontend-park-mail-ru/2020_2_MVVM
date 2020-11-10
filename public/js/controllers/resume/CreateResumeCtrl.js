@@ -1,13 +1,24 @@
 import CreateResume from "../../pages/createCandidateSum/createCandidateSum.js";
 import {network} from "Js/libs/networks";
-import {addResumeURL} from "Js/libs/constants";
+import {addResumeURL, meUserURL} from "Js/libs/constants";
 import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
 export default class CreateResumeCtrl{
     constructor(router) {
         this.router = router;
 
-        this.page = new CreateResume(async (form, jobsArr) => {
+        const loadUser = async () => {
+            try {
+                const response = await network.doGet(meUserURL);
+                const data = await response.json();
+                console.assert(response.ok);
+                return data;
+            } catch (err) {
+                console.assert(err);
+            }
+        };
+
+        this.page = new CreateResume(loadUser,async (form, jobsArr) => {
 
 
             let formData = new FormData(form);

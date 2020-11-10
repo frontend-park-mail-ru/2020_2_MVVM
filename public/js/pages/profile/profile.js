@@ -1,7 +1,7 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import {checkoutProfilePage, personalInfo} from './components/personalNavBar/persNavBar.js'
 import {updateProfileFields} from './components/personalInfo/persInfo.js'
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import persNB from './components/personalNavBar/persNavBar.tmpl.xml'
 import listOfCandidatesTemp from 'Js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.xml'
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
@@ -10,11 +10,14 @@ import {DOMAIN} from "Js/libs/constants";
 const app = window.document.getElementById('app');
 
 export default class Profile {
-    constructor(loadResumesF, loadVacanciesF, loadFavoritesF, loadCompanyF, router) {
+    constructor(router, loadResumesF, loadVacanciesF, loadFavoritesF, loadCompanyF, loadUserF,  updateStatusF,getMyResponsesF) {
         this.loadResumes = loadResumesF;
         this.loadVacancies = loadVacanciesF;
         this.loadFavorites = loadFavoritesF;
         this.loadCompany = loadCompanyF;
+        this.loadUserInfo = loadUserF;
+        this.updateStatus = updateStatusF;
+        this.getMyResponses = getMyResponsesF;
         this.router = router;
     }
 
@@ -25,19 +28,10 @@ export default class Profile {
         this.resumes = null;
         this.company= null;
         this.favorites = null;
+        this.responses = null;
+        this.user = null;
 
-        let person;
-        if (content) {
-            person = {
-                id: content.user.id,
-                firstName: content.user.name,
-                lastName: content.user.surname,
-                email: content.user.email,
-                phone: content.user.phone,
-                type: content.user.type,
-                socialNetworkLinks: content.user.social_network,
-            };
-        }
+        const person = (await this.loadUserInfo()).user;
 
 
         const profile = new NavBarInit(app, content, false, "");
@@ -47,7 +41,12 @@ export default class Profile {
         const container = createElem("div", "container", main);
 
         const title = createElem("div", "profile__title", container);
-        if (content.user.user_type === "employer") {
+
+        await this.getMyResponses().then((data) => {
+            this.responses = data;
+        });
+
+        if (localStorage.getItem('user_type') === "employer") {
             title.innerText = "Личный кабинет работодателя";
             await this.loadVacancies().then((data) => {
                 this.vacancies = data.vacancyList;
@@ -58,17 +57,15 @@ export default class Profile {
             await this.loadCompany().then((data) => {
                 this.company = data.company;
             });
-
         } else {
             title.innerText = "Личный кабинет соискателя";
             await this.loadResumes().then((data) => {
                 this.resumes = data;
             });
-
         }
         const mainPage = createElem("div", "main__page", container);
         const body = createElem("div", "main__page_body", mainPage);
-        await mainPage.insertAdjacentHTML("afterbegin", persNB(content.user.user_type));
+        await mainPage.insertAdjacentHTML("afterbegin", persNB(localStorage.getItem('user_type')));
 
         //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q
 

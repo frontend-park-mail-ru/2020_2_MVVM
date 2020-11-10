@@ -1,6 +1,6 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import {checkFrom} from "./components/auth_form/auth.js";
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import authTemp from './components/auth_form/auth.tmpl.xml'
 
 
@@ -17,6 +17,7 @@ export default class AuthList {
         app.innerHTML = '';
 
         const auth = new NavBarInit(app, content,false, "Авторизация");
+        console.log(content);
         auth.loadNavBar();
 
         const main = createElem("div", "main", app);

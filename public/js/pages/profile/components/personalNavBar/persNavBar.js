@@ -13,11 +13,11 @@ function doCheckout(profile, content, body, person, navBar, idx) {
     switch (idx) {
         case 0: {
             personalInfo(person, body);
-            updateProfileFields(person);
+            updateProfileFields();
         }
         break;
         case 1: {
-            if (content.user.user_type === "candidate") {
+            if (localStorage.getItem('user_type') === "candidate") {
                 personalResOrVac(profile, true, body, profile.resumes);
             } else {
                 personalResOrVac(profile, false, body, profile.vacancies);
@@ -29,7 +29,7 @@ function doCheckout(profile, content, body, person, navBar, idx) {
         }
         break;
         case 3: {
-
+            personalResponses(profile, body);
         }
     }
 
@@ -42,20 +42,6 @@ function doCheckout(profile, content, body, person, navBar, idx) {
         }
     });
 
-    // profile.isPersonalRusemes = navBar.children[idx].textContent !== 'Личная информация';
-    // if (profile.isPersonalRusemes) {
-    //     navBar.children[1].style = "color:white; background: var(--main-pink-color)";
-    //     navBar.children[0].style = "color:var(--main-pink-color); background: white";
-    //     if (content.user.user_type === "candidate") {
-    //         personalResOrVac(profile, true, body, profile.resumes);
-    //     } else {
-    //         personalResOrVac(profile, false, body, profile.vacancies);
-    //     }
-    // } else {
-    //     navBar.children[0].style = "color:white; background: var(--main-pink-color)";
-    //     navBar.children[1].style = "color:var(--main-pink-color); background: white";
-    //     personalInfo(person, body);
-    // }
 }
 
 export function checkoutProfilePage(profile, content, body, person) {
@@ -93,6 +79,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
             if (isCand) {
+                console.log(list[i]);
                 profile.router.change('/resume', list[i]);
             }
             else {
@@ -136,4 +123,8 @@ function personalLikes(profile, mainColumnLeft) {
     } else {
         mainColumnLeft.insertAdjacentHTML("beforeend", emptyListTemp("Нет избранных"));
     }
+}
+
+function personalResponses(profile, body) {
+
 }

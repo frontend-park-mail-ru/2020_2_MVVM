@@ -1,5 +1,5 @@
 import {NavBarInit} from "Js/components/header/navBar";
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import companyTemp from './components/companyPage/companyPage.tmpl.xml'
 import {DOMAIN, spheres} from "Js/libs/constants";
 import {getBase64} from "Js/components/base64FileUpload/base64Upload";

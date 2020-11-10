@@ -3,12 +3,12 @@
         <div class="pers__list">
             <div class="pers__list_row">
                 <div class="description">Имя</div>
-                <div class="input-field" id="name"><fest:value>items.firstName</fest:value></div>
+                <div class="input-field" id="name"><fest:value>items.name</fest:value></div>
                 <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
             </div>
             <div class="pers__list_row">
                 <div class="description">Фамилия</div>
-                <div class="input-field" id="surname"><fest:value>items.lastName</fest:value></div>
+                <div class="input-field" id="surname"><fest:value>items.surname</fest:value></div>
                 <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
             </div>
             <div class="pers__list_row">

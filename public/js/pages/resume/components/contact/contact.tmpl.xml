@@ -1,19 +1,28 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-  <div class="resume-contacts">
-    <div class="share-bar">
-      <a href="#" class="share-fb"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" title="" class="share-twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" title="" class="share-vk"><i class="fab fa-vk"></i></a>
-      <a href="#" title="" class="share-odnoklassniki"><i class="fab fa-odnoklassniki "></i></a>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="user_type">
+    <div class="resume-contacts">
+        <div class="share-bar">
+            <a href="#" class="share-fb">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" title="" class="share-twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" title="" class="share-vk">
+                <i class="fab fa-vk"></i>
+            </a>
+            <a href="#" title="" class="share-odnoklassniki">
+                <i class="fab fa-odnoklassniki "></i>
+            </a>
+        </div>
+        <fest:if test="user_type=='employer'">
+            <div id="responseResumeBtn" class="download-cv">
+                <i class="fa fa-paper-plane"></i>
+                Откликнуться
+            </div>
+        </fest:if>
     </div>
-    <div class="download-cv">
-      Скачать CV
-      <i class="fas fa-download"></i>
+    <div class="line-box-cv">
+        <hr class="line"></hr>
     </div>
-
-  </div>
-  <div class="line-box-cv">
-    <hr class="line"></hr>
-  </div>
 
 </fest:template>

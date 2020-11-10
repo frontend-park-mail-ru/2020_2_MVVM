@@ -9,10 +9,11 @@ export default class LogoutCtrl{
         const onsubmit = async () => {
 
             const response = await network.doPost(`${logoutURL}`, "");
-            this.router.change('\/auth');
 
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
+                localStorage.setItem('user_type', '');
+                this.router.change('\/auth');
             }
         }
         this.page = new Logout(onsubmit);

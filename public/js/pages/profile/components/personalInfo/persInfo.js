@@ -2,7 +2,7 @@ import {network} from "../../../../libs/networks.js";
 import {EMAIL_OK, INPUT_TEXT_OK, PHONE_OK, updateUserURL} from "../../../../libs/constants.js";
 import Validation from "Js/libs/validation";
 
-export function updateProfileFields(person) {
+export function updateProfileFields() {
     const updateButton = document.getElementsByClassName("pers__list_refactor");
     for (let i=0; i< updateButton.length; i++){
         updateButton[i].addEventListener('click', ()=>{
@@ -14,14 +14,14 @@ export function updateProfileFields(person) {
                 updateButton[i].previousSibling.innerHTML=`<div>${newValueField}</div>`;
                 updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
 
-                saveData(person, updateButton[i], newValueField);
+                saveData(updateButton[i], newValueField);
             }
         });
     }
 }
 
 
-function saveData(person, tmpField, newValueField){
+function saveData(tmpField, newValueField){
     let isOk = true;
     let error = document.getElementsByClassName("error");
     error[0].innerHTML = "";

@@ -1,7 +1,7 @@
-import {NavBarInit} from "../../components/header/navBar.js";
-import createElem from "../../libs/createElem.js";
+import {NavBarInit} from "Js/components/header/navBar";
+import createElem from "Js/libs/createElem";
 import {selectCheckbox} from "./components/createCompany/createCompany.js";
-import {spheres} from "../../libs/constants.js";
+import {spheres} from "Js/libs/constants";
 import createCompanyTemp from './components/createCompany/createCompany.tmpl.xml'
 
 

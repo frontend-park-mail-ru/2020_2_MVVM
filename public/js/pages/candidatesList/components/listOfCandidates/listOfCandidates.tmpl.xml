@@ -6,7 +6,7 @@
                 </div>
                 <div class="main__candidate_description">
                     <div class="main__candidate_name"><a><fest:value>v.name</fest:value><fest:space/><fest:value>v.surname</fest:value></a></div>
-                    <div class="main__candidate_specialism"><a href=''><fest:value>v.place</fest:value></a><fest:space/></div>
+                    <div class="main__candidate_specialism"><div><fest:value>v.place</fest:value></div><fest:space/></div>
                     <div class="main__candidate_location"><fest:value>v.location</fest:value>/Россия</div>
                 </div>
                 <div class="main__candidate_button">

@@ -396,6 +396,7 @@ svg {
   height: 100%;
   overflow: hidden;
   border-radius: 50%;
+    min-width: 130px;
 }
 
 .main__candidate_photo img {
@@ -482,4 +483,11 @@ img.avatar {
 
 .main__serch-form .sum__btn__blue {
   width: 100%;
+}
+
+.response__done{
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    margin: auto;
 }

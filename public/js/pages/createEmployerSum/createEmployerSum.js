@@ -1,5 +1,4 @@
 import {NavBarInit} from "Js/components/header/navBar";
-// import createElem from "../../libs/createElem.js";
 import createElem from "Js/libs/createElem";
 import {DOMAIN, spheres} from "Js/libs/constants";
 import createEmployerSumTemp from "./components/createEmployerSum/createEmployerSum.tmpl.xml"

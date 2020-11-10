@@ -1,28 +1,30 @@
-import {NavBarInit} from "../../components/header/navBar.js";
+import {NavBarInit} from "Js/components/header/navBar";
 import {checkFrom} from "./components/createCandidateSum/createCandidateSum.js";
-import createElem from "../../libs/createElem.js";
-import {renderInputForm} from "../../components/popUpResume/popUpCand/createOneJob.js";
+import createElem from "Js/libs/createElem";
+import {renderInputForm} from "Js/components/popUpResume/popUpCand/createOneJob";
 import createCandidateSumTemp from './components/createCandidateSum/createCandidateSum.tmpl.xml'
 
 
 export const app = window.document.getElementById('app');
 
 export default class CreateResume{
-    constructor(onsubmit) {
+    constructor(loadUserF, onsubmit ) {
         this.onsubmit = onsubmit
+        this.userInfo = loadUserF;
     }
 
-    render(content, ...args){
+    async render(content, ...args){
         //console.log(content);
         app.innerHTML = '';
         this.jobsArr = [];
         this.numOfJob = 0;
+        this.user = await this.userInfo();
 
         const employersList = new NavBarInit(app, content, false, "Создание резюме");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
-        main.insertAdjacentHTML("afterbegin", createCandidateSumTemp(content.user));
+        main.insertAdjacentHTML("afterbegin", createCandidateSumTemp(this.user.user));
 
 
         const form = main.querySelector("form");

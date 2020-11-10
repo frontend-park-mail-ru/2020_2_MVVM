@@ -1,5 +1,5 @@
 import {NavBarInit} from "Js/components/header/navBar";
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import {network} from "Js/libs/networks";
 import {companySearchURL, spheres, companyPageURL, DOMAIN} from "Js/libs/constants";
 import {checkBoxes} from "Js/components/searchForm/searchForm";

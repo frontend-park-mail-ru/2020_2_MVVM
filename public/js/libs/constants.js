@@ -90,6 +90,13 @@ export const addLikeResumeURL = "/v1/resume/favorite/by/id/";
 export const deleteLikeResumeURL = "/v1/resume/favorite/by/id/";
 export const myLikeResumeURL = "/v1/resume/myfavorites";
 
+export const createRespURL = "/v1/response/";
+export const updateRespStatusURL = "/v1/response";
+export const getMyRespURL = "/v1/my";
+
+export const myFreeResumesURL = "/v1/response/free/resumes/";
+export const myFreeVacanciesURL = "/v1/response/free/vacancies/";
+
 //sphere
 export const spheres = [
     "Автомобильный бизнес",

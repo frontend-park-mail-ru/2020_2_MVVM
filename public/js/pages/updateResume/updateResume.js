@@ -1,5 +1,5 @@
 import {NavBarInit} from "Js/components/header/navBar";
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import {openAndDelJob,renderInputForm} from "Js/components/popUpResume/popUpCand/createOneJob";
 import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 import updateResumeTemp from './components/updateResume/updateResume.tmpl.xml'
