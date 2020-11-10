@@ -1,5 +1,5 @@
 import CreateVacancy from "../../pages/createEmployerSum/createEmployerSum.js";
-import {addVacancyURL, companyMineURL} from "Js/libs/constants";
+import {addVacancyURL, companyMineURL, meUserURL} from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
@@ -10,6 +10,17 @@ export default class CreateResumeCtrl {
         const loadCompany = async () => {
             try {
                 const response = await network.doGet(companyMineURL);
+                const data = await response.json();
+                console.assert(response.ok);
+                return data;
+            } catch (err) {
+                console.assert(err);
+            }
+        };
+
+        const loadUser = async () => {
+            try {
+                const response = await network.doGet(meUserURL);
                 const data = await response.json();
                 console.assert(response.ok);
                 return data;
@@ -61,6 +72,6 @@ export default class CreateResumeCtrl {
             }
         }
 
-        this.page = new CreateVacancy(sendVacancy, loadCompany, router);
+        this.page = new CreateVacancy(sendVacancy, loadCompany,loadUser, router);
     }
 }

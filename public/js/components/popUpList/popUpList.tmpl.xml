@@ -23,8 +23,10 @@
                         </div>
                     </fest:if>
                     <fest:if test="data.user_type=='employer'">
-                        <div class="popUp__cont_lable-empty">К сожалению, список вакансий пуст :(</div>
-                        <a href="/createVacancy" class="btn__add_exp">+ Создать вакансию</a>
+                        <div class="popUp__cont_center-empty">
+                            <div class="popUp__cont_lable-empty">К сожалению, список вакансий пуст :(</div>
+                            <a href="/createVacancy" class="btn__add_exp">+ Создать вакансию</a>
+                        </div>
                     </fest:if>
                 </fest:if>
                 <fest:if test="data.list!=null">
