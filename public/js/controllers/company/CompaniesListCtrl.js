@@ -1,7 +1,6 @@
 import CompaniesList from "../../pages/companiesList/companiesList.js";
-
-import {usersByIdURL, companyPageURL} from "../../libs/constants.js";
-import {network} from "../../libs/networks.js";
+import {companyPageURL} from "Js/libs/constants";
+import {network} from "Js/libs/networks";
 
 
 export default class CompaniesListCtrl{

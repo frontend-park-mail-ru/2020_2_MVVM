@@ -5,7 +5,7 @@
             <form class="sum__form" method="post" action="#">
                 <div class="sum__profile">
                     <div class="sum__profile__photo">
-                        <img src="{user.imgPath}" alt=""/>
+                        <img class="updCandImg" src="{user.imgPath}" alt=""/>
                     </div>
                     <p class="sum__description__block">Загрузить аватар</p>
                     <div class="sum__upload__photo">

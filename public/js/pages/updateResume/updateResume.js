@@ -90,6 +90,10 @@ export default class UpdateResume{
 
         // console.log(user);
         main.insertAdjacentHTML("afterbegin", updateResumeTemp(user));
+        let imgs = document.getElementsByClassName("updCandImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
+        }
 
 
         const form = main.querySelector("form");

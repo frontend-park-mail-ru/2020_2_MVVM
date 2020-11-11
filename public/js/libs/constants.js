@@ -92,7 +92,7 @@ export const myLikeResumeURL = "/v1/resume/myfavorites";
 
 export const createRespURL = "/v1/response/";
 export const updateRespStatusURL = "/v1/response";
-export const getMyRespURL = "/v1/my";
+export const getMyRespURL = "/v1/response/my";
 
 export const myFreeResumesURL = "/v1/response/free/resumes/";
 export const myFreeVacanciesURL = "/v1/response/free/vacancies/";
@@ -162,4 +162,11 @@ export const experienceMonth = {
     5: "1-5 лет",
     10: "5-10 лет",
     11: "больше 10 лет",
+}
+
+
+export const responsesStatus = {
+    "sent": "Отправлено",
+    "accepted": "Приглашение",
+    "refusal": "Отказ"
 }

@@ -24,6 +24,7 @@ export default class AuthCtrl {
             if (response.status >= 200 && response.status < 300) {
                 const res = await response.json();
                 localStorage.setItem('user_type', res.user.user_type);
+                localStorage.setItem('id', res.user.id);
                 this.router.change('\/');
             } else {
                 let formAuth = document.getElementsByClassName("auth");

@@ -1,4 +1,5 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <div class="pers">
         <span class="error" aria-live="polite"/>
         <div class="pers__list">
             <div class="pers__list_row">
@@ -23,4 +24,5 @@
             </div>
         </div>
         <div class="delete-account"><a href="/profile">Удалить аккаунт</a></div>
+    </div>
 </fest:template>

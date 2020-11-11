@@ -66,7 +66,7 @@ export default class Vacancy {
 
         const briefInfoJob = {
             name: allInfo.companyInfo.name,
-            logo: `${DOMAIN}static/vacancy/`+allInfo.vacancyInfo.vac_id,
+            logo: `${DOMAIN}static/company/`+company_id,
             location: `${allInfo.vacancyInfo.location}/${allInfo.vacancyInfo.area_search}`,
             site: allInfo.companyInfo.link,
             phone: allInfo.vacancyInfo.phone,
@@ -74,6 +74,11 @@ export default class Vacancy {
             my_user_type: localStorage.getItem('user_type'),
         }
         mainContent.insertAdjacentHTML("beforeend", briefInfoJobTemp(briefInfoJob));
+        let imgs = document.getElementsByClassName("pageOfVacImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
+        }
+
 
         const contentLeftColumn = createElem("div", "content-left-column", mainContent);
 

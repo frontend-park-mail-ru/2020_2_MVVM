@@ -1,23 +1,25 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-    <fest:each iterate="items" index="i" value="v">
-        <div class="main__list_row">
-            <div class="main__logo-employers">
-                <img src="{v.imgPath}" alt="oops"/>
-            </div>
-            <div class="main__info-employers">
-                <div class="main__info-header">
-                    <div class="main__name-employers">
-                        <div class="main__name-employers_link"><fest:value>v.title</fest:value></div>
+    <div class="main__list-profile">
+        <fest:each iterate="items" index="i" value="v">
+            <div class="main__list_row">
+                <div class="main__logo-employers">
+                    <img class="persResImg" src="{v.imgPath}" alt="oops"/>
+                </div>
+                <div class="main__info-employers">
+                    <div class="main__info-header">
+                        <div class="main__name-employers">
+                            <div class="main__name-employers_link"><fest:value>v.title</fest:value></div>
+                        </div>
+                    </div>
+                    <div class="main__specialosm-employers">
+                        <fest:value>v.description</fest:value>
                     </div>
                 </div>
-                <div class="main__specialosm-employers">
-                    <fest:value>v.description</fest:value>
+                <div class="main__buttons">
+                    <div class="main__buttons_one">Просмотреть резюме</div>
+                    <div class="main__buttons_two">Изменить резюме</div>
                 </div>
             </div>
-            <div class="main__buttons">
-                <div class="main__buttons_one">Просмотреть резюме</div>
-                <div class="main__buttons_two">Изменить резюме</div>
-            </div>
-        </div>
-    </fest:each>
+        </fest:each>
+    </div>
 </fest:template>

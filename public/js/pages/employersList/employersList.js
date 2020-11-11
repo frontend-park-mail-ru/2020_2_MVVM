@@ -173,9 +173,14 @@ async function search(form, mainList, main, fetchVacancyList, router) {
 async function getVacanciesList(vacancies, main, mainList, router) {
     if (vacancies && vacancies.vacancyList) {
         vacancies.vacancyList.forEach((vacancy) => {
-            vacancy.imgPath = `${DOMAIN}static/vacancy/${vacancy.vac_id}`;
+            console.log(vacancy);
+            vacancy.imgPath = `${DOMAIN}static/company/${vacancy.comp_id}`;
         });
         mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancies.vacancyList));
+        let imgs = document.getElementsByClassName("listOfCompImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
+        }
         mainList.insertAdjacentHTML("beforeend", paginationTemp());
         getEmplVacancy(router, main, vacancies.vacancyList);
     } else {

@@ -108,6 +108,10 @@ async function renderCompanyList(companies, mainList, router) {
             company.imgPath = `${DOMAIN}static/company/${company.id}`;
         });
         mainList.insertAdjacentHTML("beforeend", listOfCompaniesTemp(companies.companyList));
+        let imgs = document.getElementsByClassName("listOfCompImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
+        }
         getCompanyPage(router, companies.companyList);
         // mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
     } else {

@@ -10,7 +10,8 @@ import {DOMAIN} from "Js/libs/constants";
 const app = window.document.getElementById('app');
 
 export default class Profile {
-    constructor(router, loadResumesF, loadVacanciesF, loadFavoritesF, loadCompanyF, loadUserF,  updateStatusF,getMyResponsesF) {
+    constructor(router, loadResumesF, loadVacanciesF, loadFavoritesF, loadCompanyF,
+                loadUserF,  updateStatusF,getMyResponsesF, getCompanyByIdF) {
         this.loadResumes = loadResumesF;
         this.loadVacancies = loadVacanciesF;
         this.loadFavorites = loadFavoritesF;
@@ -18,6 +19,7 @@ export default class Profile {
         this.loadUserInfo = loadUserF;
         this.updateStatus = updateStatusF;
         this.getMyResponses = getMyResponsesF;
+        this.getCompanyById = getCompanyByIdF;
         this.router = router;
     }
 

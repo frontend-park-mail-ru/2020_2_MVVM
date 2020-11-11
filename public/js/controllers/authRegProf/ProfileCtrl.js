@@ -6,7 +6,7 @@ import {
     vacancyPageURL,
     companyMineURL,
     myLikeResumeURL,
-    candByIdURL, meUserURL, updateRespStatusURL, getMyRespURL
+    candByIdURL, meUserURL, updateRespStatusURL, getMyRespURL, companyByIdURL
 } from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 
@@ -36,7 +36,7 @@ export default class ProfileCtrl {
             }
         };
 
-        const loadCompany = async () => {
+        const loadMyCompanies = async () => {
             try {
                 const response = await network.doGet(companyMineURL);
                 const data = await response.json();
@@ -91,6 +91,18 @@ export default class ProfileCtrl {
             }
         }
 
-        this.page = new Profile(router, loadResumes, loadVacancies,loadFavorites, loadCompany,loadUser,  updateStatus,getMyResponses );
+        const getCompanyById = async (company_id) => {
+            try{
+                const response = await network.doGet(companyByIdURL+`${company_id}`);
+                const data = await response.json();
+                console.assert(response.ok);
+                return data.company;
+            } catch (err) {
+                console.assert(err);
+            }
+        }
+
+        this.page = new Profile(router, loadResumes, loadVacancies,loadFavorites, loadMyCompanies,loadUser,
+            updateStatus,getMyResponses, getCompanyById);
     }
 }

@@ -100,6 +100,7 @@ export default class Resume {
         this.myVacancies = loadMyVacanciesF;
     }
     async render(content, resume) {
+        console.log(resume);
 
         app.innerHTML = '';
 
@@ -113,6 +114,10 @@ export default class Resume {
 
 
         candOptions.insertAdjacentHTML("afterEnd", briefInfoTemp(infoAll.infoAll));
+        let imgs = document.getElementsByClassName("briefCandImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
+        }
 
         const main = createElem("div", "main", app);
 
@@ -153,7 +158,8 @@ async function renderResumeResp(resumeCls, resume_id, title) {
         const vacancyList = await resumeCls.myVacancies(resume_id);
         if (vacancyList) {
             vacancyList.forEach((item)=>{
-                item.imgPath = `${DOMAIN}static/vacancy/${item.vac_id}`;
+                console.log(item);
+                item.imgPath = `${DOMAIN}static/company/${item.comp_id}`;
             });
         }
         selectedVacancy = popUpList(app, resumeCls, resume_id, {list:vacancyList, title:title} );

@@ -32,17 +32,11 @@ export default class CreateResumeCtrl {
         const sendVacancy = async (event, form) => {
             event.preventDefault();
             const formData = new FormData(form);
-            const avatar = formData.get("sum__avatar");
             let json = {};
 
             json.gender = formData.get("gender");
             if (json.gender==="all") {
                 json.gender = null;
-            }
-
-            json.avatar = "";
-            if (avatar !== "") {
-                json.avatar = await getBase64(avatar);
             }
             json.title = formData.get("name");
             json.description = formData.get("description");

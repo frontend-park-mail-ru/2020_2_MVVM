@@ -2,7 +2,7 @@
     <div class="header-left-column">
         <div class="logo-employer">
             <fest:atttibute>
-                <img src="{items.logo}"></img>
+                <img class="pageOfVacImg" src="{items.logo}"></img>
             </fest:atttibute>
         </div>
         <div class="describe-employer">

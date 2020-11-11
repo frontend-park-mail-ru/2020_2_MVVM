@@ -2,7 +2,6 @@ import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "Js/libs/createElem";
 import companyTemp from './components/companyPage/companyPage.tmpl.xml'
 import {DOMAIN, spheres} from "Js/libs/constants";
-import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
 const app = window.document.getElementById('app');
 
@@ -39,6 +38,11 @@ export default class CompanyPage{
 
 
         main.insertAdjacentHTML("afterbegin", companyTemp(tmpContent));
+        let imgs = document.getElementsByClassName("pageOfCompImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
+            //TODO change path
+        }
 
         // app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
     }
