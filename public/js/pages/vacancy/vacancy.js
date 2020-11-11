@@ -136,7 +136,7 @@ export default class Vacancy {
 
         contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
 
-        contentRightColumn.insertAdjacentHTML("beforeend", shareBarTemp());
+        // contentRightColumn.insertAdjacentHTML("beforeend", shareBarTemp());
 
         if (localStorage.getItem('user_type') === 'candidate') {
             renderVacancyResp(this, vacancy_id, jobOverview.name);

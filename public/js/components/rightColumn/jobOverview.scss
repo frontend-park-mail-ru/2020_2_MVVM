@@ -74,15 +74,15 @@
 
 .submit {
     border-radius: 30px;
-    background: #424f95;
+    background: white;
     font-size: 13px;
     padding: 16px 10px;
     border: 2px solid #424f95;
-    color: #ffffff;
     width: 100%;
+    color: #424f95;
 }
 
 .submit:hover {
-    color: #424f95;
-    background-color: #ffffff;
+    color: white;
+    background-color: #424f95;
 }

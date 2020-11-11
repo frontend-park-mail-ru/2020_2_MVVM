@@ -34,12 +34,11 @@ function doCheckout(profile, content, body, person, navBar, idx) {
         }
     }
 
-    // navBar.children[idx].style = "color:white; background: var(--main-pink-color)";
     navBar.childNodes.forEach((item, i)=>{
         if (i===idx) {
-            item.style = "color:white; background: var(--main-pink-color)";
+            item.style = "color:white; background: var(--buttons-purple-color)";
         } else {
-            item.style = "color:var(--main-pink-color); background: white"
+            item.style = "color:var(--buttons-purple-color); background: white"
         }
     });
 
@@ -149,14 +148,14 @@ async function personalResponses(profile, body) {
         myResponses.user_type = localStorage.getItem('user_type');
         body.insertAdjacentHTML('afterbegin', responsesTemp(myResponses));
         createLinks(profile, myResponses.responses);
-        acceptReject(profile, myResponses.responses);
+        acceptReject(profile, myResponses.responses, body);
     } else {
         body.insertAdjacentHTML('afterbegin', emptyListTemp("У вас еще нет откликов"));
     }
 
 }
 
-async function acceptReject(profile, myResponses) {
+async function acceptReject(profile, myResponses, body) {
     const acceptBtn = document.getElementsByClassName("response__row_buttons-accept");
     const rejectBtn = document.getElementsByClassName("response__row_buttons-reject");
     const respStatus = document.getElementsByClassName("response__row_status");
@@ -170,22 +169,22 @@ async function acceptReject(profile, myResponses) {
                 rejectBtn[i].remove();
                 respStatus[idx].innerHTML='Приглашение';
                 respStatus[idx].style.color = "var(--accept-green)";
+                respStatus[idx].style.fontSize = "20px";
             });
         });
         rejectBtn[i].addEventListener('click', event=>{
             const elem = event.target;
             const arrMatch = /.*?(\d+)$/.exec(elem.id);
             const idx = Number(arrMatch[1]);
-            profile.updateStatus(myResponses[idx].response_id, "reject").then(()=>{
+            profile.updateStatus(myResponses[idx].response_id, "refusal").then(()=>{
                 acceptBtn[i].remove();
                 rejectBtn[i].remove();
                 respStatus[idx].innerHTML='Отказ';
                 respStatus[idx].style.color = "var(--reject-red)";
+                respStatus[idx].style.fontSize = "20px";
             });
         });
     }
-
-
 }
 
 async function createLinks(profile, myResponses) {

@@ -91,7 +91,7 @@ export const deleteLikeResumeURL = "/v1/resume/favorite/by/id/";
 export const myLikeResumeURL = "/v1/resume/myfavorites";
 
 export const createRespURL = "/v1/response/";
-export const updateRespStatusURL = "/v1/response";
+export const updateRespStatusURL = "/v1/response/update";
 export const getMyRespURL = "/v1/response/my";
 
 export const myFreeResumesURL = "/v1/response/free/resumes/";

@@ -71,7 +71,7 @@ export default class ProfileCtrl {
 
         const updateStatus = async (response_id, statusResp) => {
             try{
-                const response = await network.doPut(updateRespStatusURL, {response_id: response_id, status: statusResp});
+                const response = await network.doPost(updateRespStatusURL, {response_id: response_id, status: statusResp});
                 const data = await response.json();
                 console.assert(response.ok);
                 return data;

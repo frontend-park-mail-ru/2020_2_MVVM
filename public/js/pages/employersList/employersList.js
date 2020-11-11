@@ -181,7 +181,7 @@ async function getVacanciesList(vacancies, main, mainList, router) {
         for (let i=0; i<imgs.length;i++){
             imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
         }
-        mainList.insertAdjacentHTML("beforeend", paginationTemp());
+        // mainList.insertAdjacentHTML("beforeend", paginationTemp());
         getEmplVacancy(router, main, vacancies.vacancyList);
     } else {
         mainList.insertAdjacentHTML("beforeend", emptyListTemp("Ничего не найдено"));

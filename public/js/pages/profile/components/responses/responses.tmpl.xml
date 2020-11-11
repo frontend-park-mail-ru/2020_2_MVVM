@@ -3,14 +3,22 @@
         <fest:if test="data.user_type=='candidate'">
             <fest:for iterate="data.responses" index="i" value="v">
                 <div class="response__row">
-                    <fest:if test="v.initial=='employer'">
-                        <div class="response__row_status">Ожидается ответ</div>
-                    </fest:if>
-                    <fest:if test="v.initial=='candidate'">
-                        <div class="response__row_status">
-                            <fest:value>v.status</fest:value>
-                        </div>
-                    </fest:if>
+                    <div class="response__row_status">
+                        <fest:if test="v.status=='Отказ'">
+                            <div class="response__row_status-reject"><fest:value>v.status</fest:value></div>
+                        </fest:if>
+                        <fest:if test="v.status=='Приглашение'">
+                            <div class="response__row_status-accept"><fest:value>v.status</fest:value></div>
+                        </fest:if>
+                        <fest:if test="v.status=='Отправлено'">
+                            <fest:if test="v.initial=='employer'">
+                                <div class="response__row_status-default">Ожидается ответ</div>
+                            </fest:if>
+                            <fest:if test="v.initial=='candidate'">
+                                <div class="response__row_status-default"><fest:value>v.status</fest:value></div>
+                            </fest:if>
+                        </fest:if>
+                    </div>
                     <div class="response__row_company-info">
                         <div>
                             <p class="responses__row_text">Отклик на:</p>
@@ -45,14 +53,37 @@
         <fest:if test="data.user_type=='employer'">
             <fest:for iterate="data.responses" index="i" value="v">
                 <div class="response__row">
-                    <fest:if test="v.initial=='candidate'">
-                        <div class="response__row_status">Ожидается ответ</div>
-                    </fest:if>
-                    <fest:if test="v.initial=='employer'">
-                        <div class="response__row_status">
-                            <fest:value>v.status</fest:value>
-                        </div>
-                    </fest:if>
+                    <div class="response__row_status">
+                        <fest:if test="v.status=='Отказ'">
+                            <div class="response__row_status-reject"><fest:value>v.status</fest:value></div>
+                        </fest:if>
+                        <fest:if test="v.status=='Приглашение'">
+                            <div class="response__row_status-accept"><fest:value>v.status</fest:value></div>
+                        </fest:if>
+                        <fest:if test="v.status=='Отправлено'">
+                            <fest:if test="v.initial=='candidate'">
+                                <div class="response__row_status-default">Ожидается ответ</div>
+                            </fest:if>
+                            <fest:if test="v.initial=='employer'">
+                                <div class="response__row_status-default"><fest:value>v.status</fest:value></div>
+                            </fest:if>
+                        </fest:if>
+
+
+<!--                        <fest:if test="v.initial=='employer'">-->
+<!--                            <fest:if test="v.status=='Отказ'">-->
+<!--                                <div class="response__row_status-reject"><fest:value>v.status</fest:value></div>-->
+<!--                            </fest:if>-->
+<!--                            <fest:if test="v.status=='Приглашение'">-->
+<!--                                <div class="response__row_status-accept"><fest:value>v.status</fest:value></div>-->
+<!--                            </fest:if>-->
+<!--                            <fest:if test="v.status=='Отправлено'">-->
+<!--                                <div class="response__row_status-default"><fest:value>v.status</fest:value></div>-->
+<!--                            </fest:if>-->
+<!--                        </fest:if>-->
+
+
+                    </div>
                     <div class="response__row_company-info">
                         <div>
                             <p class="responses__row_text">Отклик на:</p>
