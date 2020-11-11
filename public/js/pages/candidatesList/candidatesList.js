@@ -1,6 +1,6 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import {checkBoxes} from 'Js/components/searchForm/searchForm'
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import {DOMAIN, resumePageURL, resumeSearchURL} from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
@@ -158,6 +158,10 @@ async function renderResumeList(response, main, mainList, router){
             item.imgPath = `${DOMAIN}static/resume/${item.resume_id}`;
         });
         mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
+        let imgs = document.getElementsByClassName("listOfCandImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
+        }
         // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
         getUserResume(router, main, resume);

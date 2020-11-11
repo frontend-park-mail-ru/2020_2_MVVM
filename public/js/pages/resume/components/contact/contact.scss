@@ -73,19 +73,22 @@
 }
 
 .download-cv {
-    border: 2px solid #8b91dd;
-    color: #8b91dd;
+    border: 2px solid var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
     font-size: 13px;
     padding: 14px 30px 28px;
     border-radius: 8px;
     height: 22.5px;
     text-align: center;
     margin-right: 30px;
+    cursor: pointer;
+    transition: 0.15ms;
 }
 
 .download-cv:hover {
-    background-color: #8b91dd;
-    color: #ffffff;
+    background-color: var(--buttons-purple-color);
+    color: white;
+    transition: 0.15ms;
 }
 
 .line-box-cv {

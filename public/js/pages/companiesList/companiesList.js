@@ -1,5 +1,5 @@
 import {NavBarInit} from "Js/components/header/navBar";
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import {network} from "Js/libs/networks";
 import {companySearchURL, spheres, companyPageURL, DOMAIN} from "Js/libs/constants";
 import {checkBoxes} from "Js/components/searchForm/searchForm";
@@ -108,6 +108,10 @@ async function renderCompanyList(companies, mainList, router) {
             company.imgPath = `${DOMAIN}static/company/${company.id}`;
         });
         mainList.insertAdjacentHTML("beforeend", listOfCompaniesTemp(companies.companyList));
+        let imgs = document.getElementsByClassName("listOfCompImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
+        }
         getCompanyPage(router, companies.companyList);
         // mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
     } else {

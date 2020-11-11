@@ -11,7 +11,7 @@ export class NavBarInit {
 
     loadNavBar() {
 
-        const data = this.user ? {title: this.title, user: this.user.user} : {title: this.title, user: null};
+        const data = {title: this.title, user: this.user};
         const navBar = new NavBar(this.app, this.isBig, data);
         navBar.loadNavBar(data.user);
     }

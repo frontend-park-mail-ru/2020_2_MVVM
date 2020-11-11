@@ -20,5 +20,5 @@ export function recentJobs (parent) {
         },
     ]
 
-    parent.insertAdjacentHTML("beforeend", recJobsTemp(jobs));
+    // parent.insertAdjacentHTML("beforeend", recJobsTemp(jobs));
 }

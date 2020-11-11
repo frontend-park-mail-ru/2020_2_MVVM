@@ -1,6 +1,6 @@
 import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/reg_form/reg.js";
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import regTemp from './components/reg_form/reg.tmpl.xml'
 
 const app = window.document.getElementById('app');

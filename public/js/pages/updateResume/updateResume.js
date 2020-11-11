@@ -1,5 +1,5 @@
 import {NavBarInit} from "Js/components/header/navBar";
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import {openAndDelJob,renderInputForm} from "Js/components/popUpResume/popUpCand/createOneJob";
 import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 import updateResumeTemp from './components/updateResume/updateResume.tmpl.xml'
@@ -90,6 +90,10 @@ export default class UpdateResume{
 
         // console.log(user);
         main.insertAdjacentHTML("afterbegin", updateResumeTemp(user));
+        let imgs = document.getElementsByClassName("updCandImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
+        }
 
 
         const form = main.querySelector("form");

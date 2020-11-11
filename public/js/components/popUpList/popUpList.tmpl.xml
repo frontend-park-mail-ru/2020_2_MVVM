@@ -1,0 +1,58 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="data">
+    <div class="bg">
+        <div id="popUpContent" class="popUp__cont">
+            <div class="popUp__cont_block"/>
+            <div class="popUp__cont_center">
+                <fest:if test="data.user_type=='candidate'">
+                    <div class="popUp__cont_lable">Отклик на вакансию: "<fest:value>data.title</fest:value>"</div>
+                </fest:if>
+                <fest:if test="data.user_type=='employer'">
+                    <div class="popUp__cont_lable">Отклик на резюме: "<fest:value>data.title</fest:value>"</div>
+                </fest:if>
+                <fest:if test="data.user_type=='candidate'">
+                    <div class="popUp__cont_lable-small">Резюме для отклика</div>
+                </fest:if>
+                <fest:if test="data.user_type=='employer'">
+                    <div class="popUp__cont_lable-small">Вакансия для отклика</div>
+                </fest:if>
+                <fest:if test="data.list==null">
+                    <fest:if test="data.user_type=='candidate'">
+                        <div class="popUp__cont_center-empty">
+                            <div class="popUp__cont_lable-empty">К сожалению, список резюме пуст :(</div>
+                            <a href="/createResume" class="btn__add_exp">+ Создать резюме</a>
+                        </div>
+                    </fest:if>
+                    <fest:if test="data.user_type=='employer'">
+                        <div class="popUp__cont_center-empty">
+                            <div class="popUp__cont_lable-empty">К сожалению, список вакансий пуст :(</div>
+                            <a href="/createVacancy" class="btn__add_exp">+ Создать вакансию</a>
+                        </div>
+                    </fest:if>
+                </fest:if>
+                <fest:if test="data.list!=null">
+                    <fest:for iterate="data.list" index="i" value="v">
+                    <div class="main__list_row">
+                        <div class="main__candidate_photo">
+                            <img src="{v.imgPath}" alt=""></img>
+                        </div>
+                        <div class="main__candidate_description">
+                            <div class="main__candidate_name"><a><fest:value>v.title</fest:value></a></div>
+                            <div class="main__candidate_specialism"><div><fest:value>v.description</fest:value></div><fest:space/></div>
+                            <fest:if test="data.user_type=='employer'">
+                                <div class="main__candidate_specialism"><fest:value>v.area_search</fest:value></div>
+                            </fest:if>
+                            <fest:if test="data.user_type=='candidate'">
+                                <div class="main__candidate_specialism"><fest:value>v.place</fest:value></div>
+                            </fest:if>
+                        </div>
+                        <div class="main__candidate_button">
+                            <a href="" class="go_to_resume"><div class="main__candidate_shortlist">Выбрать</div></a>
+                        </div>
+                    </div>
+                </fest:for>
+                </fest:if>
+            </div>
+            <div class="popUp__cont_block"/>
+        </div>
+    </div>
+</fest:template>

@@ -3,7 +3,7 @@
             <div class="container__left">
                 <div class="container__left_top">
                     <div class="container__left_logo">
-                        <img src="{company.avatar}" alt=""/>
+                        <img class="pageOfCompImg" src="{company.avatar}" alt=""/>
                     </div>
                 </div>
                 <div class="container_left_middle">

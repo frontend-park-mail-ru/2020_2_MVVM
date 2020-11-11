@@ -9,13 +9,14 @@ import {
     addLikeResumeURL,
     deleteLikeResumeURL, DOMAIN,
 } from "Js/libs/constants";
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
 import briefInfoTemp from './components/briefInfo/briefInfo.tmpl.xml'
 import contactTemp from './components/contact/contact.tmpl.xml'
 import resumeTemp from './components/resume/resume.tmpl.xml'
 import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml'
 import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
 import favoritesTemp from 'Js/pages/resume/components/briefInfo/favorites.tmpl.xml'
+import popUpList from "Js/components/popUpList/popUpList";
 
 
 
@@ -28,7 +29,7 @@ const nullToString = (e) => {
     return e;
 }
 
-const resumeInfo = async (content, resumeSource) => {
+const resumeInfo = async (resumeSource) => {
 
     let resumeData;
     if (resumeSource.hasOwnProperty('user')) {
@@ -60,7 +61,7 @@ const resumeInfo = async (content, resumeSource) => {
 
     const userInfo = resumeData.user;
     const resumeInfo = resumeData.resume;
-    console.log(content);
+
 
     return {
             infoAll : {
@@ -70,7 +71,7 @@ const resumeInfo = async (content, resumeSource) => {
                 mail: userInfo.email,
                 dateReg: dataReg,
                 area_search: resumeInfo.area_search,
-                my_user_type: (content ? content.user.user_type : null),
+                my_user_type: localStorage.getItem('user_type'),
                 is_favorite: resumeData.is_favorite,
             },
             jobOverview : {
@@ -93,25 +94,35 @@ const resumeInfo = async (content, resumeSource) => {
 }
 
 export default class Resume {
+    constructor(router, createRespF, loadMyVacanciesF) {
+        this.router = router;
+        this.createResp = createRespF;
+        this.myVacancies = loadMyVacanciesF;
+    }
     async render(content, resume) {
+        console.log(resume);
 
         app.innerHTML = '';
 
         const navBarInit = new NavBarInit(app, content, false,"");
         navBarInit.loadNavBar();
 
-        const infoAll = await resumeInfo(content, resume);
+        const infoAll = await resumeInfo(resume);
 
 
         const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
 
 
         candOptions.insertAdjacentHTML("afterEnd", briefInfoTemp(infoAll.infoAll));
+        let imgs = document.getElementsByClassName("briefCandImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
+        }
 
         const main = createElem("div", "main", app);
 
         const contact = createElem("div", "mainPage-contact", main)
-        contact.insertAdjacentHTML("afterEnd", contactTemp());
+        contact.insertAdjacentHTML("afterEnd", contactTemp(localStorage.getItem('user_type')));
 
         const mainContent = createElem("div", "main-content", main);
 
@@ -129,13 +140,30 @@ export default class Resume {
 
 
         addDeleteLikes(resume.resume_id, infoAll);
-
-
-
+        if (localStorage.getItem('user_type') === 'employer') {
+            renderResumeResp(this, resume.resume_id, infoAll.infoAll.name);
+        }
 
 
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
     }
+}
+
+async function renderResumeResp(resumeCls, resume_id, title) {
+    const responseBtn = document.getElementById("responseResumeBtn");
+
+    let selectedVacancy = null;
+
+    responseBtn.addEventListener('click', async () =>{
+        const vacancyList = await resumeCls.myVacancies(resume_id);
+        if (vacancyList) {
+            vacancyList.forEach((item)=>{
+                console.log(item);
+                item.imgPath = `${DOMAIN}static/company/${item.comp_id}`;
+            });
+        }
+        selectedVacancy = popUpList(app, resumeCls, resume_id, {list:vacancyList, title:title} );
+    });
 }
 
 

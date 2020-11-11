@@ -10,6 +10,7 @@
 @import "Js/pages/reg/components/reg_form/reg";
 @import "Js/pages/profile/components/listOfResumes/persResumes";
 @import "Js/pages/profile/components/personalInfo/persInfo";
+@import "Js/pages/profile/components/responses/responses";
 @import "Js/pages/company/components/companyPage/company";
 @import "Js/pages/employersList/components/listOfEmployers/listOfEmployers";
 @import "Js/pages/resume/components/briefInfo/briefInfo";
@@ -27,43 +28,9 @@
 @import "Js/pages/vacancy/components/briefInfoJob/briefInfoJob";
 @import "Js/pages/vacancy/components/recentJobs/recentJobs";
 @import "Js/pages/vacancy/components/vacancy/vacancy";
-@import "Css/general";
-
 @import "Js/pages/companiesList/components/companiesList/companyList";
 @import "Js/pages/company/components/companyPage/company";
-
-/*
-    ./components/searchForm/searchForm.scss
-    ./components/shareBar/shareBar.scss
-    ./components/pagination/pagination.scss
-    ./pages/createCandidateSum/components/createCandidateSum/createCandidateSum.scss
-    ./pages/reg/components/reg_form/reg.scss
-    ./pages/profile/components/listOfResumes/persResumes.scss
-    ./pages/profile/components/checkboxSearch/checkBoxJob.scss
-    ./pages/profile/components/personalInfo/persInfo.scss
-    ./pages/company/components/companyPage/company.scss
-    ./pages/employersList/components/listOfEmployers/listOfEmployers.scss
-    ./pages/resume/components/briefInfo/briefInfo.scss
-    ./pages/resume/components/resume/resume.scss
-    ./pages/resume/components/contact/contact.scss
-    ./pages/createCompanySum/components/createCompany/createCompany.scss
-    ./pages/createEmployerSum/components/createEmployerSum/createEmployerSum.scss
-    ./pages/mainPage/components/popularJob/popularJob.scss
-    ./pages/mainPage/components/searchJob/searchJob.scss
-    ./pages/mainPage/components/category/category.scss
-    ./pages/mainPage/components/createResume/createResume.scss
-    ./pages/mainPage/components/gratitudes/gratitudes.scss
-    ./pages/mainPage/components/mainPage/mainPage.scss
-    ./pages/auth/components/auth_form/auth.scss
-    ./pages/vacancy/components/briefInfoJob/briefInfoJob.scss
-    ./pages/vacancy/components/recentJobs/recentJobs.scss
-    ./pages/vacancy/components/vacancy/vacancy.scss
- */
-
-
-
-
-
+@import "Css/general";
 
 
 

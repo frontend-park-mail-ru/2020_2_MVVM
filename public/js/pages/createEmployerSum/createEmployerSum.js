@@ -1,5 +1,4 @@
 import {NavBarInit} from "Js/components/header/navBar";
-// import createElem from "../../libs/createElem.js";
 import createElem from "Js/libs/createElem";
 import {DOMAIN, spheres} from "Js/libs/constants";
 import createEmployerSumTemp from "./components/createEmployerSum/createEmployerSum.tmpl.xml"
@@ -10,16 +9,17 @@ const app = window.document.getElementById('app');
 
 
 export default class CreateVacancy {
-    constructor(sendVacancy, loadCompany, router) {
+    constructor(sendVacancy, loadCompany, loadUserInfo, router) {
         this.sendVacancy = sendVacancy;
         this.loadCompany = loadCompany
+        this.userInfo = loadUserInfo;
         this.router = router;
     }
 
     async render(content) {
         app.innerHTML = '';
         this.content = {
-            user: content.user,
+            user: (await this.userInfo()).user,
             company: null,
             comp_logo: null,
             spheres: spheres,

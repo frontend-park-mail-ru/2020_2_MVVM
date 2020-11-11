@@ -31,6 +31,15 @@
     margin-bottom: 45px;
 }
 
+.popUp__cont_lable-small{
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.popUp__cont_lable-empty{
+    font-size: 20px;
+}
+
 .popUp__cont_center{
     min-width: 40%;
     margin: 60px 0;
@@ -39,7 +48,14 @@
     border-radius: 15px;
     height: 90vh;
     overflow-y: scroll;
+}
 
+.popUp__cont_center-empty{
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-rows: 1fr 1fr;
+    align-items: end;
+    justify-items: center;
 }
 
 .popUp__cont_block{

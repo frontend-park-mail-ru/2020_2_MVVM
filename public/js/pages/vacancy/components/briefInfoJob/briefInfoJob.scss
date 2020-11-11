@@ -11,6 +11,7 @@
     float: left;
     border: 2px solid #e8ecec;
     border-radius: 8px;
+    max-width: 20vw;
 }
 
 .describe-employer {
@@ -71,9 +72,7 @@
 
 
 .btm-apply-job {
-    border: solid 2px var(--buttons-purple-color);
-    color: var(--buttons-purple-color);
-    border-radius: 10px;
+    border-radius: 40px;
     padding: 20px;
     line-height: 22.5px;
     font-size: 15px;
@@ -82,9 +81,14 @@
     margin-left: auto;
     margin-right: 15px;
     width: 260px;
+    cursor: pointer;
+    transition: 0.15s;
+    border: solid 2px var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
 }
 
 .btm-apply-job:hover {
     background-color: var(--buttons-purple-color);
     color: white;
+    transition: 0.15s;
 }

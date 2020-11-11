@@ -3,19 +3,6 @@
         <div class="page__name">Создание вакансии</div>
         <div class="sum__form__wrap">
             <form method="post" action="#" class="sum__form">
-                <div class="sum__profile">
-                    <div class="sum__profile__photo">
-                        <img src="" alt=""/>
-                    </div>
-                    <p class="sum__description__block">Загрузить аватар</p>
-                    <div class="sum__upload__photo">
-                        <div class="sum__btn__blue">
-                            <input id="comp__img_upload" class="sum__header__img-upload" name="sum__avatar" type="file"
-                                   accept=".jpg, .jpeg, .png">
-                            </input>
-                        </div>
-                    </div>
-                </div>
                 <div id="summary" class="summary">
                     <div class="sum__candidate">
                         <span class="error" aria-live="polite"/>

@@ -1,5 +1,5 @@
 import CreateVacancy from "../../pages/createEmployerSum/createEmployerSum.js";
-import {addVacancyURL, companyMineURL} from "Js/libs/constants";
+import {addVacancyURL, companyMineURL, meUserURL} from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
@@ -18,20 +18,25 @@ export default class CreateResumeCtrl {
             }
         };
 
+        const loadUser = async () => {
+            try {
+                const response = await network.doGet(meUserURL);
+                const data = await response.json();
+                console.assert(response.ok);
+                return data;
+            } catch (err) {
+                console.assert(err);
+            }
+        };
+
         const sendVacancy = async (event, form) => {
             event.preventDefault();
             const formData = new FormData(form);
-            const avatar = formData.get("sum__avatar");
             let json = {};
 
             json.gender = formData.get("gender");
             if (json.gender==="all") {
                 json.gender = null;
-            }
-
-            json.avatar = "";
-            if (avatar !== "") {
-                json.avatar = await getBase64(avatar);
             }
             json.title = formData.get("name");
             json.description = formData.get("description");
@@ -61,6 +66,6 @@ export default class CreateResumeCtrl {
             }
         }
 
-        this.page = new CreateVacancy(sendVacancy, loadCompany, router);
+        this.page = new CreateVacancy(sendVacancy, loadCompany,loadUser, router);
     }
 }

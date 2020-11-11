@@ -3,21 +3,21 @@
         <div class="page__name">Создание резюме</div>
         <div class="sum__form__wrap">
             <form class="sum__form" method="post" action="#">
-                <div class="sum__profile">
-                    <div class="sum__profile__photo">
-                        <img src="" alt=""/>
-                    </div>
-                    <p class="sum__description__block">Загрузить аватар</p>
-                    <div class="sum__upload__photo">
-                        <div class="sum__btn__blue">
-                            <input id="comp__img_upload" class="sum__header__img-upload" name="sum__avatar" type="file"
-                                   accept=".jpg, .jpeg, .png">
-                            </input>
-                        </div>
-                    </div>
-                </div>
                 <div class="summary">
-    <!--                <form class="sum__candidate" method="post" action="#">-->
+                    <div class="sum__candidate">
+                        <div class="sum__profile">
+                            <div class="sum__profile__photo">
+                                <img src="" alt=""/>
+                            </div>
+                            <p class="sum__description__block">Загрузить аватар</p>
+                            <div class="sum__upload__photo">
+                                <div class="sum__btn__blue">
+                                    <input id="comp__img_upload" class="sum__header__img-upload" name="sum__avatar" type="file"
+                                           accept=".jpg, .jpeg, .png">
+                                    </input>
+                                </div>
+                            </div>
+                        </div>
                         <div class="sum__title">
                             <label class="sum__form__labels" for="title">Название резюме</label>
                             <input class="sum__user__info" id="title" name="title" type="text" value=""/>
@@ -71,56 +71,7 @@
                                 <span class="error" aria-live="polite"/>
                             </div>
                         </div>
-    <!--                    <div>-->
-    <!--                        <label class="sum__form__labels" for="date-birth">Дата рождения*</label>-->
-    <!--                        <input class="sum__date__birth" type="date" id="date-birth" name="trip-start" value="2000-01-01"-->
-    <!--                               min="1930-01-01" max="2010-12-12"/>-->
-    <!--                    </div>-->
-    <!--                    <div>-->
-    <!--                        <label class="sum__form__labels" for="citizenship">Гражданство*</label>-->
-    <!--                        <input class="sum__user__info" id="citizenship" type="text"/>-->
-    <!--                        <span class="error" aria-live="polite"/>-->
-    <!--                    </div>-->
-                        <div class="sum__exp-select">
-                            <div>
-                                <label class="sum__form__labels">Общий трудовой стаж</label>
-                                <select class="sum__user__all" name="experience_month">
-                                        <option value="0" selected="true">не работал</option>
-                                        <option value="1">меньше года</option>
-                                        <option value="5">1-5 лет</option>
-                                        <option value="10">5-10 лет</option>
-                                        <option value="11">больше 10 лет</option>
-                                </select>
-                            </div>
-                            <br/>
-                            <div>
-                                <label class="sum__form__labels">Карьерный уровень</label>
-                                <select class="sum__user__all" name="career_level">
-                                        <option value="junior" selected="true">junior</option>
-                                        <option value="middle">middle</option>
-                                        <option value="senior">senior</option>
-                                </select>
-                            </div>
-                            <div class="experience__add">
-                                <label class="sum__form__labels" for="experience">Опыт работы</label>
-                                <div class="experience__add_board" id="experience_board"/>
-                                <div class="btn__add_exp" id="btn__add_exp">Добавить опыт работы</div>
-                            </div>
-                            <div>
-                                <label class="sum__form__labels">Профессиональные навыки</label>
-                                <textarea name="skills" class="sum__user__info" id="skills" type="text"/>
-                                <span class="error" aria-live="polite"/>
-                            </div>
-                            <br/>
-    <!--                        <div class="sum__work__experience">-->
-    <!--                            <input type="radio" name="rb" id="rb1"/>-->
-    <!--                            <label class="sum__form__labels" for="rb1">Есть опыт работы</label>-->
-    <!--                        </div>-->
-    <!--                        <div class="sum__work__experience">-->
-    <!--                            <input type="radio" name="rb" id="rb2"/>-->
-    <!--                            <label class="sum__form__labels" for="rb2">Нет опыта работы</label>-->
-    <!--                        </div>-->
-                            <div class="sum__exp__card">
+                        <div class="sum__exp__card">
                                 <div>
                                     <p class="sum__description__block">Специальность</p>
                                     <label class="sum__form__labels" for="place">Желаемая должность</label>
@@ -178,9 +129,8 @@
     <!--                                <a class="sum__languages" href="#" id="lang">Указать ещё один язык</a>-->
     <!--                            </div>-->
                             </div>
-                        </div>
-                        <button id="send-form-cand" class="sum__btn__pink" type="submit">Сохранить</button>
-    <!--                </form>-->
+                    </div>
+                    <button id="send-form-cand" class="sum__btn__pink" type="submit">Сохранить</button>
                 </div>
             </form>
         </div>

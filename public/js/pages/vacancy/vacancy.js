@@ -1,6 +1,7 @@
-import {NavBarInit} from "../../components/header/navBar.js";
+import {NavBarInit} from "Js/components/header/navBar";
 import {recentJobs} from './components/recentJobs/resentJobs.js';
-import createElem from "../../libs/createElem.js";
+import createElem from "Js/libs/createElem";
+import popUpList from "Js/components/popUpList/popUpList";
 import {network} from "Js/libs/networks";
 import {
     companyByIdURL, DOMAIN,
@@ -10,11 +11,13 @@ import {
     experienceMonth, gender, spheres,
     vacancyByIdURL
 } from "Js/libs/constants";
-import briefInfoJobTemp from './components/briefInfoJob/briefInfoJob.tmpl.xml'
-import vacancyTemp from './components/vacancy/vacancy.tmpl.xml'
-import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml'
-import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
-import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml'
+import briefInfoJobTemp from './components/briefInfoJob/briefInfoJob.tmpl.xml';
+import vacancyTemp from './components/vacancy/vacancy.tmpl.xml';
+import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml';
+import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml';
+import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml';
+
+
 
 const app = window.document.getElementById('app');
 
@@ -43,8 +46,10 @@ async function vacancyInfo(user_id, vacancy_id, company_id) {
 
 
 export default class Vacancy {
-    constructor(router) {
+    constructor(router, createRespF, myResumesF) {
         this.router = router;
+        this.createResp = createRespF;
+        this.myResumes = myResumesF;
     }
 
     async render(content, user_id, vacancy_id, company_id) {
@@ -61,13 +66,19 @@ export default class Vacancy {
 
         const briefInfoJob = {
             name: allInfo.companyInfo.name,
-            logo: `${DOMAIN}static/vacancy/`+allInfo.vacancyInfo.vac_id,
+            logo: `${DOMAIN}static/company/`+company_id,
             location: `${allInfo.vacancyInfo.location}/${allInfo.vacancyInfo.area_search}`,
             site: allInfo.companyInfo.link,
             phone: allInfo.vacancyInfo.phone,
             mail: allInfo.userInfo.email,
+            my_user_type: localStorage.getItem('user_type'),
         }
         mainContent.insertAdjacentHTML("beforeend", briefInfoJobTemp(briefInfoJob));
+        let imgs = document.getElementsByClassName("pageOfVacImg");
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
+        }
+
 
         const contentLeftColumn = createElem("div", "content-left-column", mainContent);
 
@@ -125,13 +136,27 @@ export default class Vacancy {
 
         contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
 
-        contentRightColumn.insertAdjacentHTML("beforeend", shareBarTemp());
+        // contentRightColumn.insertAdjacentHTML("beforeend", shareBarTemp());
 
-
-
-
+        if (localStorage.getItem('user_type') === 'candidate') {
+            renderVacancyResp(this, vacancy_id, jobOverview.name);
+        }
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
     }
 }
 
+async function renderVacancyResp(vacancyCls, vac_id, title) {
+    const responseBtn = document.getElementById("responseVacancyBtn");
 
+    let selectedResume = null;
+
+    responseBtn.addEventListener('click', async () =>{
+        const resumeList = await vacancyCls.myResumes(vac_id);
+        if (resumeList) {
+            resumeList.forEach((item)=>{
+                item.imgPath = `${DOMAIN}static/resume/${item.resume_id}`;
+            })
+        }
+       selectedResume = popUpList(app, vacancyCls, vac_id, {list:resumeList, title:title});
+    });
+}

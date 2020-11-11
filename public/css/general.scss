@@ -64,6 +64,7 @@ ul li {
 
 img {
   vertical-align: top;
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 :root {
-  --background-grey-color: #efefef;
+  --background-grey-color: #efefef52;
   --border-grey-color: #dbdbdb;
   --main-pink-color: #fb236a;
   --buttons-purple-color: #8b91dd;
@@ -86,6 +87,8 @@ h1, h2, h3, h4, h5, h6 {
   --footer-text-grey: #8a99b3;
   --text-gray: #2f2f2f;
   --footer-dark: #1d293e;
+  --accept-green: #84c484;
+  --reject-red: #ef6b6b;
 }
 
 /*_________________________PAGE____________________________*/
@@ -396,6 +399,7 @@ svg {
   height: 100%;
   overflow: hidden;
   border-radius: 50%;
+    min-width: 130px;
 }
 
 .main__candidate_photo img {
@@ -482,4 +486,11 @@ img.avatar {
 
 .main__serch-form .sum__btn__blue {
   width: 100%;
+}
+
+.response__done{
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    margin: auto;
 }

@@ -35,17 +35,6 @@ export default class Router {
      */
     change(path, ...args) {
 
-        const get_person = async () => {
-            const response = await network.doGet(`${meUserURL}`);
-            if (response.status >= 200 && response.status < 300) {
-                console.assert(response.ok);
-                return await response.json();
-            } else if (response.status === UNAUTHORISED) {
-                let error = new Error(response.statusText);
-                error.response = response;
-                throw error;
-            }
-        }
 
         if (this.currentRoute === path) {
             return;
@@ -55,12 +44,9 @@ export default class Router {
             if (path.match(key)) {
                 this.currentRoute = path;
                 const obj = this.routes.get(key);
+                const user_type = localStorage.getItem('user_type');
 
-                get_person().then((content) => {
-                    obj.page.render(content, ...args)
-                }).catch(() => {
-                    obj.page.render(null, ...args)
-                });
+                obj.page.render(user_type, ...args)
 
                 window.history.pushState(null, null, path);
 
@@ -70,7 +56,24 @@ export default class Router {
     }
 
     start() {
-        let user = false;
+        const get_person = async () => {
+            const response = await network.doGet(meUserURL);
+            if (response.status >= 200 && response.status < 300) {
+                console.assert(response.ok);
+                return await response.json();
+            } else if (response.status === UNAUTHORISED) {
+                let error = new Error(response.statusText);
+                error.response = response;
+                throw error;
+            }
+        };
+
+        const user = get_person().then((content) => {
+            localStorage.setItem('user_type', content.user.user_type);
+        }).catch(()=>{
+            localStorage.setItem('user_type', '');
+        })
+
         document.addEventListener('click', (evt) => {
             const linkElement = evt.target.closest('a');
 

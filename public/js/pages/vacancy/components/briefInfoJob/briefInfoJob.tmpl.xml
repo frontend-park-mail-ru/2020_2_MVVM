@@ -1,35 +1,42 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-
-  <div class="header-left-column">
-    <div class="logo-employer">
-      <fest:atttibute> <img src="{items.logo}"></img> </fest:atttibute>
-    </div>
-    <div class="describe-employer">
-      <a href="" id="companyName"><h4><fest:value>items.name</fest:value></h4></a>
-      <span><fest:value>items.location</fest:value></span>
-      <div class="contact-employment">
-        <div class="contact-employment-item">
-          <i class="fa fa-unlink"></i>
-          <fest:value>items.site</fest:value>
+    <div class="header-left-column">
+        <div class="logo-employer">
+            <fest:atttibute>
+                <img class="pageOfVacImg" src="{items.logo}"></img>
+            </fest:atttibute>
         </div>
-        <div class="contact-employment-item">
-          <i class="fa fa-phone"></i>
-          <fest:value>items.phone</fest:value>
+        <div class="describe-employer">
+            <a href="" id="companyName">
+                <h4>
+                    <fest:value>items.name</fest:value>
+                </h4>
+            </a>
+            <span>
+                <fest:value>items.location</fest:value>
+            </span>
+            <div class="contact-employment">
+                <div class="contact-employment-item">
+                    <i class="fa fa-unlink"></i>
+                    <fest:value>items.site</fest:value>
+                </div>
+                <div class="contact-employment-item">
+                    <i class="fa fa-phone"></i>
+                    <fest:value>items.phone</fest:value>
+                </div>
+                <div class="contact-employment-item">
+                    <i class="fa fa-envelope"></i>
+                    <fest:value>items.mail</fest:value>
+                </div>
+            </div>
         </div>
-        <div class="contact-employment-item">
-          <i class="fa fa-envelope"></i>
-          <fest:value>items.mail</fest:value>
-        </div>
-      </div>
+        <fest:if test="items.my_user_type=='candidate'">
+            <div id="responseVacancyBtn" class="btm-apply-job">
+                <i class="fa fa-paper-plane"></i>
+                Откликнуться
+            </div>
+        </fest:if>
     </div>
-    <div class="btm-apply-job">
-      <i class="fa fa-paper-plane"></i>
-      Откликнуться
+    <div class="line-box">
+        <hr class="line"></hr>
     </div>
-      </div>
-  <div class="line-box">
-    <hr class="line"></hr>
-  </div>
-
-
 </fest:template>

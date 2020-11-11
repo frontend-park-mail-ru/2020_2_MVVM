@@ -60,11 +60,6 @@
     grid-template-columns: 1fr;
 }
 
-.main__page_body {
-    max-width: 60%;
-    margin: auto;
-}
-
 
 .delete-account{
     margin: 50px 0;
@@ -76,4 +71,10 @@
 
 .pers__list_refactor-input{
     height: 100%;
+    border: 1px solid var(--main-pink-color);
+}
+
+.pers{
+    max-width: 60%;
+    margin: auto;
 }

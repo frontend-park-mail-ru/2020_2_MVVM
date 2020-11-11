@@ -22,13 +22,15 @@ export default class AuthCtrl {
             const response = await network.doPost(`${loginURL}`, body);
 
             if (response.status >= 200 && response.status < 300) {
-                console.assert(response.ok);
+                const res = await response.json();
+                localStorage.setItem('user_type', res.user.user_type);
+                localStorage.setItem('id', res.user.id);
                 this.router.change('\/');
             } else {
                 let formAuth = document.getElementsByClassName("auth");
                 formAuth[0].insertAdjacentHTML("afterBegin", `<div class="error">Неверное имя пользователя или пароль</div>`);
             }
-        }
+        };
         this.page = new AuthList(onsubmit);
     }
 }
