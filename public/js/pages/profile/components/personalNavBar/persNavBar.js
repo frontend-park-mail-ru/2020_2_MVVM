@@ -141,7 +141,7 @@ function personalLikes(profile, mainColumnLeft) {
 async function personalResponses(profile, body) {
     let myResponses = {};
     myResponses.responses = await profile.getMyResponses();
-    if (myResponses.length) {
+    if (myResponses.responses.length) {
         myResponses.responses.forEach((item) => {
             item.date_create = item.date_create.slice(0,10);
             item.status = responsesStatus[item.status];
@@ -151,7 +151,7 @@ async function personalResponses(profile, body) {
         createLinks(profile, myResponses.responses);
         acceptReject(profile, myResponses.responses);
     } else {
-        body.insertAdjacentHTML('afterbegin', emptyListTemp("У вас еще нет откликов!"));
+        body.insertAdjacentHTML('afterbegin', emptyListTemp("У вас еще нет откликов"));
     }
 
 }
