@@ -33,8 +33,10 @@
                     </div>
                     <div class="response__row_buttons">
                         <fest:if test="v.initial=='employer'">
-                            <div class="response__row_buttons-accept">Принять</div>
-                            <div class="response__row_buttons-reject">Отказаться</div>
+                            <fest:if test="v.status=='sent'">
+                                <div id="accept{i}" class="response__row_buttons-accept">Принять</div>
+                                <div id="reject{i}" class="response__row_buttons-reject">Отказаться</div>
+                            </fest:if>
                         </fest:if>
                     </div>
                 </div>
@@ -71,8 +73,10 @@
                     </div>
                     <div class="response__row_buttons">
                         <fest:if test="v.initial=='candidate'">
-                            <div class="response__row_buttons-accept">Принять</div>
-                            <div class="response__row_buttons-reject">Отказаться</div>
+                            <fest:if test="v.status=='Отправлено'">
+                                <div id="accept{i}" class="response__row_buttons-accept">Принять</div>
+                                <div id="reject{i}" class="response__row_buttons-reject">Отказаться</div>
+                            </fest:if>
                         </fest:if>
                     </div>
                 </div>

@@ -141,13 +141,51 @@ function personalLikes(profile, mainColumnLeft) {
 async function personalResponses(profile, body) {
     let myResponses = {};
     myResponses.responses = await profile.getMyResponses();
-    myResponses.responses.forEach((item) => {
-        item.date_create = item.date_create.slice(0,10);
-        item.status = responsesStatus[item.status];
-    })
-    myResponses.user_type = localStorage.getItem('user_type');
-    body.insertAdjacentHTML('afterbegin', responsesTemp(myResponses));
-    createLinks(profile, myResponses.responses);
+    if (myResponses.length) {
+        myResponses.responses.forEach((item) => {
+            item.date_create = item.date_create.slice(0,10);
+            item.status = responsesStatus[item.status];
+        })
+        myResponses.user_type = localStorage.getItem('user_type');
+        body.insertAdjacentHTML('afterbegin', responsesTemp(myResponses));
+        createLinks(profile, myResponses.responses);
+        acceptReject(profile, myResponses.responses);
+    } else {
+        body.insertAdjacentHTML('afterbegin', emptyListTemp("У вас еще нет откликов!"));
+    }
+
+}
+
+async function acceptReject(profile, myResponses) {
+    const acceptBtn = document.getElementsByClassName("response__row_buttons-accept");
+    const rejectBtn = document.getElementsByClassName("response__row_buttons-reject");
+    const respStatus = document.getElementsByClassName("response__row_status");
+    for (let i=0; i<acceptBtn.length; i++) {
+        acceptBtn[i].addEventListener('click', event=>{
+            const elem = event.target;
+            const arrMatch = /.*?(\d+)$/.exec(elem.id);
+            const idx = Number(arrMatch[1]);
+            profile.updateStatus(myResponses[idx].response_id, "accepted").then(()=>{
+                acceptBtn[i].remove();
+                rejectBtn[i].remove();
+                respStatus[idx].innerHTML='Приглашение';
+                respStatus[idx].style.color = "var(--accept-green)";
+            });
+        });
+        rejectBtn[i].addEventListener('click', event=>{
+            const elem = event.target;
+            const arrMatch = /.*?(\d+)$/.exec(elem.id);
+            const idx = Number(arrMatch[1]);
+            profile.updateStatus(myResponses[idx].response_id, "reject").then(()=>{
+                acceptBtn[i].remove();
+                rejectBtn[i].remove();
+                respStatus[idx].innerHTML='Отказ';
+                respStatus[idx].style.color = "var(--reject-red)";
+            });
+        });
+    }
+
+
 }
 
 async function createLinks(profile, myResponses) {
@@ -156,26 +194,25 @@ async function createLinks(profile, myResponses) {
     const linkToCompany = document.getElementsByClassName("responses__company-link");
 
     myResponses.forEach((item, idx) => {
-        if (linkToResume) {
+        if (linkToResume.length) {
             linkToResume[idx].addEventListener('click', event=>{
                 event.preventDefault();
                 profile.router.change('/resume', {resume_id: item.resume_id});
             });
         }
-        if (linkToVacancy) {
+        if (linkToVacancy.length) {
             linkToVacancy[idx].addEventListener('click', event=>{
                 event.preventDefault();
                 profile.router.change('/vacancy', localStorage.getItem('id'), item.vacancy_id, item.company_id);
             });
         }
-        if (linkToCompany) {
+        if (linkToCompany.length) {
             linkToCompany[idx].addEventListener('click', event=>{
                 event.preventDefault();
                 profile.getCompanyById(item.company_id).then((data)=>{
                     console.log(data);
                     profile.router.change('/company', data);
                 });
-                // profile.router.change('/company', );
             });
         }
     })
