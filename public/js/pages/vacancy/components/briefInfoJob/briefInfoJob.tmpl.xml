@@ -12,7 +12,7 @@
                 </h4>
             </a>
             <span>
-                <fest:value>items.location</fest:value>
+                Россия<fest:value>items.location</fest:value>
             </span>
             <div class="contact-employment">
                 <div class="contact-employment-item">

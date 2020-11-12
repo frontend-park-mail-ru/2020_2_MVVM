@@ -1,6 +1,6 @@
 
 import Validation from '../../../../libs/validation.js'
-import {EMAIL_OK, INPUT_TEXT_OK, SALARY_OK} from "../../../../libs/constants.js";
+import {EMAIL_OK, INPUT_TEXT_OK, SALARY_OK} from "Js/libs/constants";
 let error = document.getElementsByClassName('error');
 
 

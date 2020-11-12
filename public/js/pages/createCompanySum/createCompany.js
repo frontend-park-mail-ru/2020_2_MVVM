@@ -1,8 +1,9 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "Js/libs/createElem";
 import {selectCheckbox} from "./components/createCompany/createCompany.js";
-import {spheres} from "Js/libs/constants";
+import {INPUT_TEXT_OK, spheres} from "Js/libs/constants";
 import createCompanyTemp from './components/createCompany/createCompany.tmpl.xml'
+import Validation from "Js/libs/validation";
 
 
 export const app = window.document.getElementById('app');
@@ -36,6 +37,8 @@ function afterRender() {
     selectCheckbox();
 }
 
+let error = document.getElementsByClassName('error');
+
 function checkCreateOrg(submitF, form) {
     let cbArr = []
     const cb = document.getElementById("checkboxes");
@@ -44,5 +47,25 @@ function checkCreateOrg(submitF, form) {
             cbArr.push(parseInt(cb.children[i].children[0].id))
         }
     }
-    submitF(form, cbArr);
+
+    let isOk = true;
+    const organizationName = document.getElementById('organizationName');
+    const description = document.getElementById('description');
+
+    const resOrganizationName = Validation.validateTextField(organizationName.value);
+    const resDescription = Validation.validateTextField(description.value);
+
+    if (resOrganizationName !== INPUT_TEXT_OK) {
+        isOk = false;
+        error[0].innerHTML = `${resOrganizationName}`;
+    }
+    if (resDescription !== INPUT_TEXT_OK) {
+        isOk = false;
+        error[1].innerHTML = `${resDescription}`;
+    }
+
+    if (isOk) {
+        submitF(form, cbArr);
+    }
+
 }

@@ -1,5 +1,5 @@
 import AuthList from '../../pages/auth/auth.js';
-import {SUCCESS, loginURL, UNAUTHORISED} from "Js/libs/constants";
+import {loginURL, UNAUTHORISED} from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 
 
@@ -23,6 +23,7 @@ export default class AuthCtrl {
 
             if (response.status >= 200 && response.status < 300) {
                 const res = await response.json();
+                console.log(res);
                 localStorage.setItem('user_type', res.user.user_type);
                 localStorage.setItem('id', res.user.id);
                 this.router.change('\/');

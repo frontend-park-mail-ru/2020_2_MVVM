@@ -13,6 +13,7 @@ export class NavBarInit {
 
         const data = {title: this.title, user: this.user};
         const navBar = new NavBar(this.app, this.isBig, data);
+        console.log(data.user);
         navBar.loadNavBar(data.user);
     }
 }
