@@ -415,8 +415,9 @@ img.avatar {
 
 .main__candidate_description {
   display: grid;
-  grid-template-rows: 1fr auto 1fr;
+    grid-template-rows: 1fr auto auto;
   grid-gap: 5px;
+    min-width: 50px;
 }
 
 .main__candidate_specialism {
@@ -428,12 +429,14 @@ img.avatar {
   color: var(--text-gray);
   font-size: 25px;
   font-weight: bolder;
+    word-break: break-all;
 }
 
 .main__candidate_specialism {
   font-size: 15px;
   max-height: 100px;
   overflow-y: hidden;
+    word-break: break-all;
 }
 
 .main__candidate_location {

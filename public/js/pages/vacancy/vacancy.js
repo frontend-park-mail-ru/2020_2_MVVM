@@ -15,17 +15,16 @@ import briefInfoJobTemp from './components/briefInfoJob/briefInfoJob.tmpl.xml';
 import vacancyTemp from './components/vacancy/vacancy.tmpl.xml';
 import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml';
 import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml';
-import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml';
+// import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml';
 
 
 
 const app = window.document.getElementById('app');
 
 
-async function vacancyInfo(user_id, vacancy_id, company_id) {
+async function vacancyInfo(vacancy_id, company_id) {
 
     const allInfo = ([
-        // new Promise((resolve) => network.doGet(emplByIdURL + `${user_id}`).then(resolve)),
         new Promise((resolve) => network.doGet(vacancyByIdURL + `${vacancy_id}`).then(resolve)),
         new Promise((resolve) => network.doGet(companyByIdURL + `${company_id}`).then(resolve)),
     ]);
@@ -34,11 +33,9 @@ async function vacancyInfo(user_id, vacancy_id, company_id) {
     const pageInfo = await Promise.all(allInfo).then((values) => {
         return values;
     });
-    // const userInfo = await pageInfo[0].json()
     const vacInfo = await pageInfo[0].json()
     const compInfo = await pageInfo[1].json()
     return {
-        // userInfo: userInfo.user,
         vacancyInfo: vacInfo === null ? null : vacInfo.vacancy,
         companyInfo: compInfo == null ? null : compInfo.company,
     };
@@ -52,14 +49,14 @@ export default class Vacancy {
         this.myResumes = myResumesF;
     }
 
-    async render(content, user_id, vacancy_id, company_id) {
+    async render(content, vacancy_id, company_id) {
 
         app.innerHTML = '';
 
         const navBarInit = new NavBarInit(app, content, false, "Вакансия");
         navBarInit.loadNavBar();
 
-        const allInfo = await vacancyInfo(user_id, vacancy_id, company_id);
+        const allInfo = await vacancyInfo(vacancy_id, company_id);
 
         const main = createElem("div", "main", app);
         const mainContent = createElem("div", "main-content", main);

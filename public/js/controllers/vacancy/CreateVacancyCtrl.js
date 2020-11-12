@@ -59,7 +59,7 @@ export default class CreateResumeCtrl {
 
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
-                this.router.change('/vacancy', content.vacancy.empl_id, content.vacancy.vac_id, content.vacancy.comp_id);
+                this.router.change('/vacancy', content.vacancy.vac_id, content.vacancy.comp_id);
             } else {
                 const errorField = document.getElementsByClassName("error");
                 const errLen = errorField.length;
