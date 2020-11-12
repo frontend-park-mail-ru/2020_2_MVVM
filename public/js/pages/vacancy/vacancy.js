@@ -38,7 +38,7 @@ async function vacancyInfo(user_id, vacancy_id, company_id) {
     const vacInfo = await pageInfo[1].json()
     const compInfo = await pageInfo[2].json()
     return {
-        userInfo: userInfo,
+        userInfo: userInfo.user,
         vacancyInfo: vacInfo === null ? null : vacInfo.vacancy,
         companyInfo: compInfo == null ? null : compInfo.company,
     };

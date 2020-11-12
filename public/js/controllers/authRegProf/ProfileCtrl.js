@@ -1,12 +1,10 @@
 import Profile from "../../pages/profile/profile.js";
 import {
     resumeMineURL,
-    URL,
     vacancyMineURL,
-    vacancyPageURL,
     companyMineURL,
     myLikeResumeURL,
-    candByIdURL, meUserURL, updateRespStatusURL, getMyRespURL, companyByIdURL
+    meUserURL, updateRespStatusURL, getMyRespURL, companyByIdURL
 } from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 
@@ -102,7 +100,9 @@ export default class ProfileCtrl {
             }
         }
 
-        this.page = new Profile(router, loadResumes, loadVacancies,loadFavorites, loadMyCompanies,loadUser,
-            updateStatus,getMyResponses, getCompanyById);
+        if (localStorage.getItem('user_type') !== '') {
+            this.page = new Profile(router, loadResumes, loadVacancies,loadFavorites, loadMyCompanies,loadUser,
+                updateStatus,getMyResponses, getCompanyById);
+        }
     }
 }

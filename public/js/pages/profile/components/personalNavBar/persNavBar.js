@@ -140,7 +140,7 @@ function personalLikes(profile, mainColumnLeft) {
 async function personalResponses(profile, body) {
     let myResponses = {};
     myResponses.responses = await profile.getMyResponses();
-    if (myResponses.responses.length) {
+    if (myResponses.responses && myResponses.responses.length) {
         myResponses.responses.forEach((item) => {
             item.date_create = item.date_create.slice(0,10);
             item.status = responsesStatus[item.status];

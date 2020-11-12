@@ -42,23 +42,6 @@ export default class Validation {
         return EMAIL_OK;
     };
 
-    /**
-     * validateLogin - check validity of input login (using RegExp)
-     * @param {string} login
-     * @return {string}
-     **/
-    static validateLogin(login) {
-        if (!this.isString(login)) {
-            throw TypeError;
-        }
-        if (login.length === 0) {
-            return LOGIN_EMPTY;
-        }
-        if (!LOGIN_EXP.test(login)) {
-            return INCORRECT_LOGIN
-        }
-        return LOGIN_OK;
-    };
 
     /**
      * validatePasswd - check validity of input login (using RegExp)
@@ -119,6 +102,9 @@ export default class Validation {
      * @param salary
      */
     static validateSalary(salary) {
+        // if (salary === '') {
+        //     return INCORRECT_SALARY;
+        // }
         if (isNaN(Number(salary))) {
             return NOT_NUMBER;
         }

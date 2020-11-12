@@ -20,7 +20,6 @@ export default class CreateResumeCtrl{
 
         this.page = new CreateResume(loadUser,async (form, jobsArr) => {
 
-
             let formData = new FormData(form);
             const json = {};
 
@@ -46,7 +45,7 @@ export default class CreateResumeCtrl{
             if (formData.get("awards") !== "") {
                 json.awards = formData.get("awards");
             }
-            console.log(jobsArr);
+
             jobsArr.forEach((item)=>{
                 let dBegin = new Date(item.begin);
                 item.begin = dBegin.toISOString();
@@ -60,7 +59,6 @@ export default class CreateResumeCtrl{
 
             json.custom_experience = jobsArr;
 
-            console.log(json);
 
             const response = await network.doPost(addResumeURL, json);
 
@@ -69,6 +67,10 @@ export default class CreateResumeCtrl{
                 console.assert(response.ok);
                 console.log(content);
                 this.router.change('\/resume', content);
+            } else {
+                const errorField = document.getElementsByClassName("error");
+                const errLen = errorField.length;
+                errorField[errLen-1].innerHTML=`${content.error}`;
             }
 
         });

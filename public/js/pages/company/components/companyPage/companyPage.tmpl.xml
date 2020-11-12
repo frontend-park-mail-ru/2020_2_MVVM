@@ -19,7 +19,7 @@
                         <label>Сферы деятельности</label>
                         <div class="container__left_sphere spheres">
                             <fest:for iterate="company.sphere" index="i" value="v">
-                                -<fest:value>v</fest:value><br/>
+                                -<fest:value>v</fest:value><br/><br/>
                             </fest:for>
                         </div>
                     </div>

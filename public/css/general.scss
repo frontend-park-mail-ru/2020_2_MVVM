@@ -303,7 +303,7 @@ svg {
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
-  border-radius: 8px;
+    border-radius: 50px;
   border: 1px solid var(--buttons-purple-color);
   background-color: var(--buttons-purple-color);
   color: white;
@@ -407,7 +407,7 @@ svg {
 }
 
 img.avatar {
-  width: auto;
+  //width: auto;
   height: 100%;
   margin: 0 auto;
 }

@@ -1,7 +1,9 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "Js/libs/createElem";
 import {DOMAIN, spheres} from "Js/libs/constants";
-import createEmployerSumTemp from "./components/createEmployerSum/createEmployerSum.tmpl.xml"
+import createEmployerSumTemp from "./components/createEmployerSum/createEmployerSum.tmpl.xml";
+import {checkFrom} from "Js/pages/createEmployerSum/components/createEmployerSum/createEmpoyerSum"
+import {afterRenderResume} from "Js/pages/createCandidateSum/createCandidateSum";
 
 
 
@@ -39,12 +41,17 @@ export default class CreateVacancy {
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("afterbegin", createEmployerSumTemp(this.content));
 
-        //afterRender();
+
         const form = main.querySelector("form");
-        form.addEventListener("submit", (event) => this.sendVacancy(event, form));
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            afterRenderVacancy(this.sendVacancy, form);
+        });
+        // const form = main.querySelector("form");
+        // form.addEventListener("submit", (event) => this.sendVacancy(event, form));
     }
 }
 
-function afterRender() {
-    checkFrom();
+function afterRenderVacancy(submitF, form) {
+    checkFrom(submitF, form);
 }

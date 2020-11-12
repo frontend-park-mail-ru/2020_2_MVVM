@@ -173,7 +173,6 @@ async function search(form, mainList, main, fetchVacancyList, router) {
 async function getVacanciesList(vacancies, main, mainList, router) {
     if (vacancies && vacancies.vacancyList) {
         vacancies.vacancyList.forEach((vacancy) => {
-            console.log(vacancy);
             vacancy.imgPath = `${DOMAIN}static/company/${vacancy.comp_id}`;
         });
         mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancies.vacancyList));

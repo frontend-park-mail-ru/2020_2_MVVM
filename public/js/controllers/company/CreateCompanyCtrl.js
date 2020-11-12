@@ -22,7 +22,9 @@ export default class CreateCompanyCtrl {
             json.area_search = formData.get("area_search");
 
             const response = await network.doPost(addCompanyURL, json);
+            console.log(response);
             const content = await response.json();
+
             if (response.status >= 200 && response.status < 300) {
                 console.log("company New:", content.company);
                 console.assert(response.ok);
@@ -30,8 +32,10 @@ export default class CreateCompanyCtrl {
                 this.router.change('/company', content.company);
             } else {
                 const errorField = document.getElementsByClassName("error");
-                errorField[0].innerHTML=`${content.error}`;
-                console.log("Error in company creation", content.error);
+                const errLen = errorField.length;
+                errorField[errLen-1].innerHTML=`Размер изображения слишком большой`;
+
+
             }
         });
     }

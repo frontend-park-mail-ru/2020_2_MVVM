@@ -15,7 +15,6 @@ export function checkFrom(submitF, form, error) {
         let isOk = true;
         const resEmail = Validation.validateEmail(email.value);
         const resPasswd = Validation.validatePasswd(password.value);
-        const resPasswd2 = Validation.validatePasswd(password2.value);
         const resFirstName = Validation.validateTextField(firstName.value);
         const resLastName = Validation.validateTextField(lastName.value);
 

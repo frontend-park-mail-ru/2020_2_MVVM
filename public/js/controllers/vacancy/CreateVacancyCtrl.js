@@ -29,8 +29,7 @@ export default class CreateResumeCtrl {
             }
         };
 
-        const sendVacancy = async (event, form) => {
-            event.preventDefault();
+        const sendVacancy = async (form) => {
             const formData = new FormData(form);
             let json = {};
 
@@ -54,15 +53,17 @@ export default class CreateResumeCtrl {
             json.email = formData.get("email");
             json.phone = formData.get("phone");
             json.area_search = formData.get("area_search");
+
             const response = await network.doPost(addVacancyURL, json);
             const content = await response.json();
+
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
-                console.log("vacancy New:", content)
                 this.router.change('/vacancy', content.vacancy.empl_id, content.vacancy.vac_id, content.vacancy.comp_id);
             } else {
                 const errorField = document.getElementsByClassName("error");
-                errorField[0].innerHTML=`${content.error}`;
+                const errLen = errorField.length;
+                errorField[errLen-1].innerHTML=`${content.error}`;
             }
         }
 
