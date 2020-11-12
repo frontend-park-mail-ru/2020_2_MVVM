@@ -100,7 +100,6 @@ export default class Resume {
         this.myVacancies = loadMyVacanciesF;
     }
     async render(content, resume) {
-        console.log(resume);
 
         app.innerHTML = '';
 

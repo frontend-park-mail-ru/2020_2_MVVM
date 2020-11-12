@@ -100,6 +100,7 @@ export default class ProfileCtrl {
             }
         }
 
+
         if (localStorage.getItem('user_type') !== '') {
             this.page = new Profile(router, loadResumes, loadVacancies,loadFavorites, loadMyCompanies,loadUser,
                 updateStatus,getMyResponses, getCompanyById);
