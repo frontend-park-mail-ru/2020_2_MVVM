@@ -82,7 +82,7 @@ module.exports = {
             filename: 'src/bundle.css',
         }),
         new ServiceWorkerWebpackPlugin({
-            entry: path.resolve(__dirname, 'public/js/sw.js'),
+            entry: path.resolve(__dirname, 'public/sw.js'),
             options: {
                 scope: '/',
             },
