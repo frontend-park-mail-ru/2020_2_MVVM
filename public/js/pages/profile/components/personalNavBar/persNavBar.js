@@ -196,12 +196,14 @@ async function createLinks(profile, myResponses) {
         if (linkToResume.length) {
             linkToResume[idx].addEventListener('click', event=>{
                 event.preventDefault();
+                console.log(item);
                 profile.router.change('/resume', {resume_id: item.resume_id});
             });
         }
         if (linkToVacancy.length) {
             linkToVacancy[idx].addEventListener('click', event=>{
                 event.preventDefault();
+                console.log(item);
                 profile.router.change('/vacancy', localStorage.getItem('id'), item.vacancy_id, item.company_id);
             });
         }
