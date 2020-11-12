@@ -33,9 +33,7 @@ export default class CreateCompanyCtrl {
             } else {
                 const errorField = document.getElementsByClassName("error");
                 const errLen = errorField.length;
-                errorField[errLen-1].innerHTML=`Размер изображения слишком большой`;
-
-
+                errorField[errLen-1].innerHTML=`${content.error}`;
             }
         });
     }
