@@ -4,15 +4,16 @@ import {DOMAIN} from "Js/libs/constants";
 
 
 export default function popUpList(app, responsedCls, responsedId, data) {
+    console.log(data);
     data.user_type = localStorage.getItem('user_type');
     if (data.list && data.list.length) {
         if (data.user_type==='candidate') {
             data.list.forEach((resume) => {
                 resume.imgPath = `${DOMAIN}static/resume/${resume.resume_id}`;
             });
-        } else {
+        } else if (data.user_type==='employer'){
             data.list.forEach((vacancy) => {
-                vacancy.imgPath = `${DOMAIN}static/vacancy/${vacancy.vacancy_id}`;
+                vacancy.imgPath = `${DOMAIN}static/company/${vacancy.comp_id}`;
             });
         }
     }
