@@ -76,7 +76,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
             }
         }
     } else {
-        mainColumnLeft.insertAdjacentHTML("beforeend", emptyListTemp("Ваш список пуст"));
+        mainColumnLeft.insertAdjacentHTML("beforeend", emptyListTemp("Списк резюме пуст"));
     }
 
 
@@ -92,7 +92,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
             }
             else {
                 console.log(list[i]);
-                profile.router.change('/vacancy', list[i].empl_id, list[i].vac_id, list[i].comp_id);
+                profile.router.change('/vacancy', list[i].vac_id, list[i].comp_id);
             }
         })
     }
@@ -204,7 +204,7 @@ async function createLinks(profile, myResponses) {
             linkToVacancy[idx].addEventListener('click', event=>{
                 event.preventDefault();
                 console.log(item);
-                profile.router.change('/vacancy', localStorage.getItem('id'), item.vacancy_id, item.company_id);
+                profile.router.change('/vacancy', item.vacancy_id, item.company_id);
             });
         }
         if (linkToCompany.length) {

@@ -77,12 +77,12 @@
     background: white;
     font-size: 13px;
     padding: 16px 10px;
-    border: 2px solid #424f95;
+    border: 2px solid var(--buttons-purple-color);
     width: 100%;
-    color: #424f95;
+    color: var(--buttons-purple-color);
 }
 
 .submit:hover {
     color: white;
-    background-color: #424f95;
+    background-color: var(--buttons-purple-color);
 }

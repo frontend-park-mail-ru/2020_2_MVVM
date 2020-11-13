@@ -11,7 +11,7 @@
     float: left;
     border: 2px solid #e8ecec;
     border-radius: 8px;
-    max-width: 20vw;
+    width: 150px;
 }
 
 .describe-employer {
@@ -91,4 +91,8 @@
     background-color: var(--buttons-purple-color);
     color: white;
     transition: 0.15s;
+}
+
+.pageOfVacImg{
+  width: 100%;
 }

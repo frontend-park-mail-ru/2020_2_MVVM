@@ -9,6 +9,7 @@ input.sum__achievement{
 .sum__form__wrap {
     display: flex;
     width: 100%;
+  justify-content: center;
 }
 .sum__form__wrap h1 {
     font-size: 24px;
@@ -27,7 +28,7 @@ input.sum__achievement{
 }
 
 .sum__profile__photo img {
-    width: 100%;
+    max-width: 50%;
 }
 
 .sum__btn__blue{
@@ -56,11 +57,11 @@ input.sum__achievement{
 }
 .summary {
     /*background: white;*/
-    width: 50%;
+    width: 100%;
     max-width: 50vw;
     border-radius: 0 20px 20px 0;
     color: var(--text-gray);
-    margin: auto;
+
 }
 
 .sum__candidate{
@@ -170,6 +171,7 @@ div.sum__description__single {
     transition: 0.15s;
 }
 .sum__exp__card {
+    background: white;
     margin-top: 15px;
     padding: 10px;
     border-radius: 3px;

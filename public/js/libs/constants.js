@@ -18,7 +18,7 @@ export const DATE_EMPTY = 'пустое значение даты'
 export const DATE_START_EMPTY = "начальная дата не введена"
 export const DATE_END_EMPTY = "конечная дата не введена"
 
-// validation common errors
+
 export const INCORRECT_EMAIL = 'Email должен содержать "@" и латинские буквы, цифры, символы';
 export const INCORRECT_LOGIN = 'Логин должен содержать 4-20 символов, а также содержать латинские символы и цифры';
 export const INCORRECT_PASSWD = 'Пароль должен содержать по крайней мере от 5 до 25 символов и не включать символы кириллицы';
@@ -28,10 +28,10 @@ export const INCORRECT_PHONE = 'Неверный номер телефона'
 export const INCORRECT_SALARY = 'поле не может принимать отрицательное значение'
 export const INCORRECT_DATE = 'некорректная дата'
 
+
 // validation allowed expressions
-export const EMAIL_EXP = new RegExp(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/)
-export const LOGIN_EXP = new RegExp(/^[a-zA-Z][a-zA-Z0-9-_]{4,20}$/);
-export const PASSWD_EXP = new RegExp(/[^а-яёА-ЯЁ]{5,25}$/);
+export const EMAIL_EXP = new RegExp(/^([A-z0-9_-]+\.)*[A-z0-9_-]+@[A-z0-9_-]+(\.[A-z0-9_-]+)*\.[A-z]{2,6}$/)
+export const PASSWD_EXP = new RegExp(/^.{5,25}$/);
 export const PHONE_EXP = new RegExp(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
 export const JPEG_AVATAR_F = 'image/jpeg';
 export const PNG_AVATAR_F = 'image/png';

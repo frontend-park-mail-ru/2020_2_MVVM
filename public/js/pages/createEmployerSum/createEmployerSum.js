@@ -47,8 +47,7 @@ export default class CreateVacancy {
             event.preventDefault();
             afterRenderVacancy(this.sendVacancy, form);
         });
-        // const form = main.querySelector("form");
-        // form.addEventListener("submit", (event) => this.sendVacancy(event, form));
+
     }
 }
 

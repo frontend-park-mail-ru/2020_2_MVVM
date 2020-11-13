@@ -3,6 +3,34 @@
         <div class="page__name">Создание вакансии</div>
         <div class="sum__form__wrap">
             <form method="post" action="#" class="sum__form">
+                <div>
+                    <div class="sum__exp__card">
+                    <p class="sum__description__block">Информация о компании</p>
+                    <div class="comp__logo_title">
+                        <div class="comp__logo_avatar">
+                            <img class="avatar" src="{content.comp_logo}" alt=""/>
+                        </div>
+                        <p class="comp__title">
+                            <fest:value>content.company.name</fest:value>
+                        </p>
+                    </div>
+                    <br/>
+                    <p class="comp__description">
+                        <fest:value>content.company.description</fest:value>
+                    </p>
+                    <br/>
+                    <div class="rectangle">
+                        <fest:for iterate="content.company.spheres" index="i">
+                            <p>
+                                <fest:value>content.spheres[content.company.spheres[i]]</fest:value>
+                            </p>
+                        </fest:for>
+                    </div>
+                    <div class="sum__form__labels">Ссылка на оффициальный сайт
+                        компании:<a href="{content.company.link}"><fest:space/><fest:value>content.company.link</fest:value></a>
+                    </div>
+                </div>
+                </div>
                 <div id="summary" class="summary">
                     <div class="sum__candidate">
                         <div class="sum__exp__card">
@@ -17,34 +45,6 @@
                                 <input class="sum__user__info" id="username" name="name" type="text"
                                        value="{content.user.name}"
                                        disabled="disabled"/>
-                            </div>
-                        </div>
-                        <div class="sum__exp__card">
-                            <p class="sum__description__block">Информация о компании</p>
-                            <div class="comp__logo_title">
-                                <div class="comp__logo_avatar">
-                                    <img class="avatar" src="{content.comp_logo}" alt=""/>
-                                </div>
-                                <p class="comp__title">
-                                    <fest:value>content.company.name</fest:value>
-                                </p>
-                            </div>
-                            <br/>
-                            <p class="comp__description">
-                                <fest:value>content.company.description</fest:value>
-                            </p>
-                            <br/>
-                            <div class="rectangle">
-                                <fest:for iterate="content.company.spheres" index="i">
-                                    <p>
-                                        <fest:value>content.spheres[content.company.spheres[i]]</fest:value>
-                                    </p>
-                                </fest:for>
-                            </div>
-                            <div>
-                                <div class="sum__form__labels">Ссылка на оффициальный сайт
-                                    компании:<a href="{content.company.link}"><fest:space/><fest:value>content.company.link</fest:value></a>
-                                </div>
                             </div>
                         </div>
                         <div class="sum__exp__card">

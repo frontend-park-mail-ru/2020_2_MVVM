@@ -1,10 +1,34 @@
 import popUpListTemp from "Js/components/popUpList/popUpList.tmpl.xml";
 import responseResultTemp from "Js/components/popUpList/responseResult.tmpl.xml";
+import {DOMAIN} from "Js/libs/constants";
 
 
 export default function popUpList(app, responsedCls, responsedId, data) {
     data.user_type = localStorage.getItem('user_type');
+    if (data.list && data.list.length) {
+        if (data.user_type==='candidate') {
+            data.list.forEach((resume) => {
+                resume.imgPath = `${DOMAIN}static/resume/${resume.resume_id}`;
+            });
+        } else {
+            data.list.forEach((vacancy) => {
+                vacancy.imgPath = `${DOMAIN}static/vacancy/${vacancy.vacancy_id}`;
+            });
+        }
+    }
+
     app.insertAdjacentHTML("afterbegin", popUpListTemp(data));
+    let imgs = document.getElementsByClassName("listOfPopImg");
+    if (data.user_type==='candidate') {
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
+        }
+    } else {
+        for (let i=0; i<imgs.length;i++){
+            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/vacancy/default.png`};
+        }
+    }
+
 
     let exit = document.getElementsByClassName("popUp__cont_block");
     let bg = document.getElementsByClassName("bg");

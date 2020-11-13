@@ -23,7 +23,9 @@ export default class RegCtrl {
 
             let formReg = await document.getElementsByClassName("reg");
             const response = await network.doPost(`${addUserURL}`, body);
-            const content = await response.json();
+
+            const res = await response.json();
+
 
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
@@ -31,7 +33,8 @@ export default class RegCtrl {
             } else if (response.status === 409){
                 formReg[0].insertAdjacentHTML("afterBegin", `<div class="error">Пользователь уже существует</div>`);
             } else {
-                formReg[0].insertAdjacentHTML("afterBegin", `<div class="error">${content.error}</div>`);
+                formReg[0].insertAdjacentHTML("afterBegin", `<div class="error">${res.error}</div>`);
+
             }
         };
 

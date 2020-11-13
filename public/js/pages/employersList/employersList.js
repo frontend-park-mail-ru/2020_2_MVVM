@@ -192,7 +192,7 @@ function getEmplVacancy(router, main, vacancy) {
     for (let i = 0; i < linksToVacancy.length; i++) {
         linksToVacancy[i].addEventListener('click', event => {
             event.preventDefault();
-            router.change('/vacancy', vacancy[i].empl_id, vacancy[i].vac_id, vacancy[i].comp_id);
+            router.change('/vacancy', vacancy[i].vac_id, vacancy[i].comp_id);
         })
     }
 }

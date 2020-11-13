@@ -1,6 +1,8 @@
 .sum__form {
-    display: flex;
-    width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 90%;
+  grid-column-gap: 10%;
 }
 
 .rectangle {
@@ -9,6 +11,7 @@
     grid-gap: 5px;
     font: 14px "Trebuchet MS", "Lucida Sans";
     text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+  margin-bottom: 10px;
 }
 
 .rectangle p {

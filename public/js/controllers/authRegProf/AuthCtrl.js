@@ -1,5 +1,5 @@
 import AuthList from '../../pages/auth/auth.js';
-import {loginURL, UNAUTHORISED} from "Js/libs/constants";
+import {companyMineURL, loginURL, UNAUTHORISED} from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 
 
@@ -21,15 +21,26 @@ export default class AuthCtrl {
 
             const response = await network.doPost(`${loginURL}`, body);
 
+            // console.log(res);
+
             if (response.status >= 200 && response.status < 300) {
                 const res = await response.json();
-                console.log(res);
                 localStorage.setItem('user_type', res.user.user_type);
-                localStorage.setItem('id', res.user.id);
+                if (localStorage.getItem('user_type') === 'employer') {
+                    const response = await network.doGet(companyMineURL);
+                    const ans = await response.json();
+                    if (ans.company) {
+                        localStorage.setItem('has_company', "true");
+                    } else {
+                        localStorage.setItem('has_company', "false");
+                    }
+                } else if (localStorage.getItem('user_type')==='candidate'){
+                    localStorage.setItem('has_company', "false");
+                }
                 this.router.change('\/');
-            } else {
+            } else if (response.status === 500) {
                 let formAuth = document.getElementsByClassName("auth");
-                formAuth[0].insertAdjacentHTML("afterBegin", `<div class="error">Неверное имя пользователя или пароль</div>`);
+                formAuth[0].insertAdjacentHTML("afterBegin", `<div class="error">Пользователь не существует</div>`);
             }
         };
         this.page = new AuthList(onsubmit);

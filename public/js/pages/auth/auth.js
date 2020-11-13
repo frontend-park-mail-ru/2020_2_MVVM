@@ -21,8 +21,7 @@ export default class AuthList {
         auth.loadNavBar();
 
         const main = createElem("div", "main", app);
-        const mainAuth = createElem("div", "main", main);
-        mainAuth.insertAdjacentHTML("beforeend", authTemp());
+        main.insertAdjacentHTML("beforeend", authTemp());
 
         const form = document.querySelector("form");
         let error = document.getElementsByClassName('error');

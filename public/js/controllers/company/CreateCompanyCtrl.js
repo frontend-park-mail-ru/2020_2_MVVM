@@ -26,9 +26,8 @@ export default class CreateCompanyCtrl {
             const content = await response.json();
 
             if (response.status >= 200 && response.status < 300) {
-                console.log("company New:", content.company);
+                localStorage.setItem('has_company', 'true');
                 console.assert(response.ok);
-                console.log(content);
                 this.router.change('/company', content.company);
             } else {
                 const errorField = document.getElementsByClassName("error");

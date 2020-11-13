@@ -1,6 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="header-left-column">
-        <div class="logo-employer">
+        <div class="logo-employer" style="background: url({items.logo})">
             <fest:atttibute>
                 <img class="pageOfVacImg" src="{items.logo}"></img>
             </fest:atttibute>
@@ -15,18 +15,24 @@
                 Россия<fest:value>items.location</fest:value>
             </span>
             <div class="contact-employment">
-                <div class="contact-employment-item">
-                    <i class="fa fa-unlink"></i>
-                    <fest:value>items.site</fest:value>
-                </div>
-                <div class="contact-employment-item">
-                    <i class="fa fa-phone"></i>
-                    <fest:value>items.phone</fest:value>
-                </div>
-                <div class="contact-employment-item">
-                    <i class="fa fa-envelope"></i>
-                    <fest:value>items.mail</fest:value>
-                </div>
+                <fest:if test="items.site">
+                    <div class="contact-employment-item">
+                        <i class="fa fa-unlink"></i>
+                        <fest:value>items.site</fest:value>
+                    </div>
+                </fest:if>
+                <fest:if test="items.phone">
+                    <div class="contact-employment-item">
+                        <i class="fa fa-phone"></i>
+                        <fest:value>items.phone</fest:value>
+                    </div>
+                </fest:if>
+                <fest:if test="items.mail">
+                    <div class="contact-employment-item">
+                        <i class="fa fa-envelope"></i>
+                        <fest:value>items.mail</fest:value>
+                    </div>
+                </fest:if>
             </div>
         </div>
         <fest:if test="items.my_user_type=='candidate'">
