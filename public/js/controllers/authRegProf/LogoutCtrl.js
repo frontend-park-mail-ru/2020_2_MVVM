@@ -13,7 +13,6 @@ export default class LogoutCtrl{
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
                 localStorage.setItem('user_type', '');
-                localStorage.setItem('id', '');
                 this.router.change('\/auth');
             }
         }

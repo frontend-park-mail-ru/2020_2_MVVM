@@ -7,13 +7,17 @@
                 <a href="/employersList" class="header__item header__item_simple">Вакансии</a>
                 <a href="/candidatesList" class="header__item header__item_simple">Соискатели</a>
                 <a href="/companiesList" class="header__item header__item_simple">Компании</a>
-                <fest:if test="items!=null">
-                    <fest:if test="items=='candidate'">
+                <fest:if test="items.user!=null">
+                    <fest:if test="items.user=='candidate'">
                         <a href="/createResume" class="header__item header__item_big-button">+ Создать резюме</a>
                     </fest:if>
-                    <fest:if test="items=='employer'">
-                        <a href="/createVacancy" class="header__item header__item_big-button">+ Создать вакансию</a>
-                        <a href="/createCompany" class="header__item header__item_big-button">+ Создать организацию</a>
+                    <fest:if test="items.user=='employer'">
+                        <fest:if test="items.has_company==true">
+                            <a href="/createVacancy" class="header__item header__item_big-button">+ Создать вакансию</a>
+                        </fest:if>
+                        <fest:if test="items.has_company==false">
+                            <a href="/createCompany" class="header__item header__item_big-button">+ Создать организацию</a>
+                        </fest:if>
                     </fest:if>
                 </fest:if>
             </nav>

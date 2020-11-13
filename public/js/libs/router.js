@@ -72,7 +72,6 @@ export default class Router {
             localStorage.setItem('user_type', content.user.user_type);
         }).catch(()=>{
             localStorage.setItem('user_type', '');
-            localStorage.setItem('id', '');
         })
 
         document.addEventListener('click', (evt) => {

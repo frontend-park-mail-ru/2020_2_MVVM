@@ -5,15 +5,15 @@ export class NavBarInit {
     constructor(app, user,isBig, title) {
         this.app = app;
         this.user = user;
+        this.has_company = localStorage.getItem('has_company');
         this.isBig = isBig;
         this.title = title;
     }
 
     loadNavBar() {
-
-        const data = {title: this.title, user: this.user};
+        let has_company = this.has_company === 'true';
+        const data = {title: this.title, user: this.user, has_company: has_company};
         const navBar = new NavBar(this.app, this.isBig, data);
-        console.log(data.user);
         navBar.loadNavBar(data.user);
     }
 }
