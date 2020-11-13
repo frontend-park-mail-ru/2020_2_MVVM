@@ -1,6 +1,5 @@
 import {
     INCORRECT_EMAIL,
-    INCORRECT_LOGIN,
     INCORRECT_PASSWD,
     INCORRECT_AVATAR_F,
     INCORRECT_INPUT_TEXT,
@@ -8,9 +7,9 @@ import {
     INCORRECT_SALARY,
     INCORRECT_DATE,
 } from './constants.js';
-import {EMAIL_OK, AVATAR_OK, LOGIN_OK, PASSWD_OK, INPUT_TEXT_OK, PHONE_OK, SALARY_OK, DATE_OK} from './constants.js';
-import {EMAIL_EMPTY, LOGIN_EMPTY, PASSWD_EMPTY, INPUT_TEXT_EMPTY, PHONE_EMPTY, SALARY_EMPTY, DATE_EMPTY, DATE_START_EMPTY,DATE_END_EMPTY} from './constants.js';
-import {EMAIL_EXP, LOGIN_EXP, PASSWD_EXP, PHONE_EXP} from './constants.js';
+import {EMAIL_OK, AVATAR_OK, PASSWD_OK, INPUT_TEXT_OK, PHONE_OK, SALARY_OK, DATE_OK} from './constants.js';
+import {EMAIL_EMPTY, PASSWD_EMPTY, INPUT_TEXT_EMPTY, PHONE_EMPTY, SALARY_EMPTY, DATE_EMPTY, DATE_START_EMPTY,DATE_END_EMPTY} from './constants.js';
+import {EMAIL_EXP, PASSWD_EXP, PHONE_EXP} from './constants.js';
 import {JPEG_AVATAR_F, PNG_AVATAR_F} from "./constants.js";
 import {NOT_NUMBER} from "./constants.js";
 

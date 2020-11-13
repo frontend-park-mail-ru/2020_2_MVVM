@@ -42,10 +42,10 @@ export default class Router {
         for (const key of this.routes.keys()) {
             if (path.match(key)) {
                 this.currentRoute = path;
+                const obj = this.routes.get(key);
 
                 const user_type = localStorage.getItem('user_type');
 
-                const obj = this.routes.get(key);
                 obj.page.render(user_type, ...args)
 
                 window.history.pushState(null, null, path);

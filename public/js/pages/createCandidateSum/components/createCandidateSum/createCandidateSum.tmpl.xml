@@ -3,87 +3,95 @@
         <div class="page__name">Создание резюме</div>
         <div class="sum__form__wrap">
             <form class="sum__form" method="post" action="#">
+                <div class="sum__profile">
+                    <div class="sum__exp__card">
+                        <div class="sum__profile__photo">
+                            <img src="https://studhunt.ru/static/resume/default.png" alt=""/>
+                        </div>
+                        <p class="sum__description__block">Загрузить логотип</p>
+                        <div class="sum__upload__photo">
+                            <div class="sum__btn__blue">
+                                <input id="comp__img_upload" class="sum__header__img-upload" name="sum__avatar" type="file"
+                                       accept=".jpg, .jpeg, .png">
+                                </input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="summary">
                     <div class="sum__candidate">
-                        <div class="sum__profile">
-                            <div class="sum__profile__photo">
-                                <img src="" alt=""/>
-                            </div>
-                            <p class="sum__description__block">Загрузить аватар</p>
-                            <div class="sum__upload__photo">
-                                <div class="sum__btn__blue">
-                                    <input id="comp__img_upload" class="sum__header__img-upload" name="sum__avatar" type="file"
-                                           accept=".jpg, .jpeg, .png">
-                                    </input>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sum__title">
-                            <label class="sum__form__labels" for="title">Название резюме</label>
-                            <input class="sum__user__info" id="title" name="title" type="text" value=""/>
-                            <span class="error" aria-live="polite"/>
-                        </div>
-                        <p class="sum__description__block">Контактные данные</p>
-                        <div>
-                            <label class="sum__form__labels" for="surname">Фамилия</label>
-                            <input class="sum__user__info" id="surname" name="surname" type="text" value="{user.surname}"/>
-                            <span class="error" aria-live="polite"/>
-                        </div>
-                        <div>
-                            <label class="sum__form__labels" for="username">Имя</label>
-                            <input class="sum__user__info" id="name" name="name" type="text" value="{user.name}"/>
-                            <span class="error" aria-live="polite"/>
-                        </div>
-                        <div class="sum__switch">
-                            <div>Пол</div>
-                                <label class="sum__form__switch" for="male">
-                                    <input class="sum__input__switch" id="male" type="radio" name="gender" value="male" />
-                                    <div class="sum__switch__control sum__male"/>
-                                </label>
-                                <label class="sum__form__switch" for="female">
-                                    <input class="sum__input__switch" id="female" type="radio" name="gender" value="female"/>
-                                    <div class="sum__switch__control sum__female"/>
-                                </label>
-                            <br/>
-                            <br/>
-                            <br/>
-                        </div>
-                        <div>
-                            <label class="sum__form__labels" for="email">E-mail</label>
-                            <input class="sum__user__info" id="email" name="email" type="email" value="{user.email}"/>
-                            <span class="error" aria-live="polite"/>
-                        </div>
-                        <div>
-                            <label class="sum__form__labels" for="area_search">Место работы</label>
-                            <select class="sum__user__all" id="area_search" name="area_search">
-                                <option value="Москва" selected="true">Москва</option>
-                                <option value="Санкт-петербург">Санкт-Петербург</option>
-                                <option value="Екатеринбург">Екатеринбург</option>
-                            </select>
-                        </div>
-                        <div>
-                            <p class="sum__description__block">Основная информация</p>
-                        </div>
-                        <div>
-                            <label class="sum__form__labels">Общий трудовой стаж</label>
-                            <select class="sum__user__all" name="experience_month">
-                                <option value="0" selected="true">не работал</option>
-                                <option value="1">меньше года</option>
-                                <option value="5">1-5 лет</option>
-                                <option value="10">5-10 лет</option>
-                                <option value="11">больше 10 лет</option>
-                            </select>
-                        </div>
-                        <div class="experience__add">
-                            <label class="sum__form__labels" for="experience">Опыт работы</label>
-                            <div class="experience__add_board" id="experience_board"/>
-                            <div class="btn__add_exp" id="btn__add_exp">Добавить опыт работы</div>
-                        </div>
-                        <div>
-                            <div class="sum__work__exp__row2">
-                                <label class="sum__form__labels" for="description">О себе</label>
-                                <textarea name="description" class="" id="description"/>
+                        <div class="sum__exp__card">
+                            <div class="sum__title">
+                                <p class="sum__description__block">Название резюме</p>
+                                <input class="sum__user__info" id="title" name="title" type="text" value=""/>
                                 <span class="error" aria-live="polite"/>
+                            </div>
+                        </div>
+                        <div class="sum__exp__card">
+                            <p class="sum__description__block">Контактные данные</p>
+                            <div>
+                                <label class="sum__form__labels" for="surname">Фамилия</label>
+                                <input class="sum__user__info" id="surname" name="surname" type="text" value="{user.surname}"/>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <div>
+                                <label class="sum__form__labels" for="username">Имя</label>
+                                <input class="sum__user__info" id="name" name="name" type="text" value="{user.name}"/>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <div class="sum__switch">
+                                <div>Пол</div>
+                                    <label class="sum__form__switch" for="male">
+                                        <input class="sum__input__switch" id="male" type="radio" name="gender" value="male" />
+                                        <div class="sum__switch__control sum__male"/>
+                                    </label>
+                                    <label class="sum__form__switch" for="female">
+                                        <input class="sum__input__switch" id="female" type="radio" name="gender" value="female"/>
+                                        <div class="sum__switch__control sum__female"/>
+                                    </label>
+                                <br/>
+                                <br/>
+                                <br/>
+                            </div>
+                            <div>
+                                <label class="sum__form__labels" for="email">E-mail</label>
+                                <input class="sum__user__info" id="email" name="email" type="email" value="{user.email}"/>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <div>
+                                <label class="sum__form__labels" for="area_search">Место работы</label>
+                                <select class="sum__user__all" id="area_search" name="area_search">
+                                    <option value="Москва" selected="true">Москва</option>
+                                    <option value="Санкт-петербург">Санкт-Петербург</option>
+                                    <option value="Екатеринбург">Екатеринбург</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="sum__exp__card">
+                            <div>
+                                <p class="sum__description__block">Основная информация</p>
+                            </div>
+                            <div>
+                                <label class="sum__form__labels">Общий трудовой стаж</label>
+                                <select class="sum__user__all" name="experience_month">
+                                    <option value="0" selected="true">не работал</option>
+                                    <option value="1">меньше года</option>
+                                    <option value="5">1-5 лет</option>
+                                    <option value="10">5-10 лет</option>
+                                    <option value="11">больше 10 лет</option>
+                                </select>
+                            </div>
+                            <div class="experience__add">
+                                <label class="sum__form__labels" for="experience">Опыт работы</label>
+                                <div class="experience__add_board" id="experience_board"/>
+                                <div class="btn__add_exp" id="btn__add_exp">Добавить опыт работы</div>
+                            </div>
+                            <div>
+                                <div class="sum__work__exp__row2">
+                                    <label class="sum__form__labels" for="description">О себе</label>
+                                    <textarea name="description" class="" id="description"/>
+                                    <span class="error" aria-live="polite"/>
+                                </div>
                             </div>
                         </div>
                         <div class="sum__exp__card">

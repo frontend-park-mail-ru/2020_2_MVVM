@@ -1,12 +1,17 @@
 .profile__title{
     padding: 50px 0;
     font-size: 30px;
+    text-align: center;
 }
 .persNavBar__menu_btn{
     display: flex;
     width: 50%;
     justify-content: center;
 }
+.persNavBar__menu_btn:hover{
+  background: var(--buttons-purple-color);
+}
+
 .persNavBar__menu_hrev{
     padding: 20px 0;
     width: 100%;
@@ -63,6 +68,7 @@
 
 .delete-account{
     margin: 50px 0;
+    text-align: end;
 }
 
 .input-field {

@@ -64,7 +64,7 @@ ul li {
 
 img {
   vertical-align: top;
-    width: 100%;
+    //width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 :root {
-  --background-grey-color: #efefef52;
+  --background-grey-color: rgba(185, 190, 195, 0.15);
   --border-grey-color: #dbdbdb;
   --main-pink-color: #fb236a;
   --buttons-purple-color: #8b91dd;
@@ -110,12 +110,15 @@ body {
 
 #app {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+    //width: 100vw;
 }
 
 .main {
+  background: var(--background-grey-color);
   flex-grow: 1;
   overflow-y: hidden;
+  min-height: 100%;
 }
 
 .main__list_empty {
@@ -127,18 +130,13 @@ body {
 
 /*_____________________HEADER____________________________________*/
 
-.header {
-  background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%),
-  url(../img/bmstuBuilding1.png) 0 0/cover no-repeat;
-  z-index: 2;
-}
 
 /*________________________MAIN PART___________________*/
 
-
-.main {
-  flex: 1 1 100%;
-}
+//
+//.main {
+//  flex: 1 1 100%;
+//}
 
 .main__row {
   display: flex;
@@ -152,22 +150,22 @@ body {
   /*cursor: pointer;*/
 }
 
-.main__list_row {
-  display: flex;
-  padding: 35px 40px;
-  border-radius: 2px;
-  border: 1px solid;
-  border-color: white white var(--border-grey-color) var(--border-grey-color);
-  margin-bottom: 1px;
-  z-index: 0;
-  transition: 0.15s;
-}
-
-.main__list_row:hover {
-  box-shadow: 0 0 25px 5px var(--border-grey-color);
-  z-index: 1;
-  transition: 0.15s;
-}
+//.main__list_row {
+//  display: flex;
+//  padding: 35px 40px;
+//  border-radius: 2px;
+//  border: 1px solid;
+//  border-color: white white var(--border-grey-color) var(--border-grey-color);
+//  margin-bottom: 1px;
+//  z-index: 0;
+//  transition: 0.15s;
+//}
+//
+//.main__list_row:hover {
+//  box-shadow: 0 0 25px 5px var(--border-grey-color);
+//  z-index: 1;
+//  transition: 0.15s;
+//}
 
 .job-overview {
   margin-top: 30px;
@@ -183,10 +181,11 @@ body {
 }
 
 .job-overview-container {
-  border: 2px solid var(--border-grey-color);
+  border: 1px solid var(--border-grey-color);
   border-radius: 8px;
   padding: 15px;
   list-style-type: none;
+  background: white;
 }
 
 .job-overview-container li {
@@ -278,19 +277,26 @@ svg {
   align-content: space-around;
   align-items: baseline;
   justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form__field_cont{
+  width: 100%;
 }
 
 .cfield {
-  display: flex;
+  font-size: 18px;
+  background: white;
+  padding: 0 10px;
   width: 100%;
-  position: center;
-  margin-bottom: 19px;
   height: 50px;
   border-radius: 8px;
-  border: 2px solid var(--border-grey-color);
-
+  border: 1px solid var(--border-grey-color);
 }
 
+.cfield:focus{
+  border: 1px solid var(--buttons-purple-color);
+}
 
 .enterBtn {
   width: 100%;
@@ -308,13 +314,18 @@ svg {
   background-color: var(--buttons-purple-color);
   color: white;
   transition: 0.15s;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .enterBtn:hover {
   background-color: white;
   color: var(--buttons-purple-color);
   transition: 0.15s;
+}
+
+.form__field_lable-select{
+  font-size: 20px;
+  margin: 10px 0;
 }
 
 .title {
@@ -350,14 +361,15 @@ svg {
 
 
 .page__name {
-  margin: 100px 0 50px;
+  margin: 50px 0;
   text-align: center;
   font-size: 30px;
 }
 
 .form__link a {
   text-decoration: none;
-  color: var(--footer-dark-blue);
+    font-weight: 900;
+  color: var(--buttons-purple-color);
   transition: 0.15s;
 }
 
@@ -377,6 +389,7 @@ svg {
 }
 
 .main__list_row {
+  background: white;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-gap: 30px;
@@ -386,6 +399,9 @@ svg {
   margin-bottom: 1px;
   z-index: 0;
   transition: 0.15s;
+  height: 25vh;
+  padding: 20px;
+  min-width: fit-content
 }
 
 .main__list_row:hover {
@@ -396,7 +412,7 @@ svg {
 
 
 .main__candidate_photo {
-  height: 100%;
+  align-self: center;
   overflow: hidden;
   border-radius: 50%;
     min-width: 130px;
@@ -404,6 +420,7 @@ svg {
 
 .main__candidate_photo img {
   width: 100%;
+  height: inherit;
 }
 
 img.avatar {
@@ -415,7 +432,7 @@ img.avatar {
 
 .main__candidate_description {
   display: grid;
-    grid-template-rows: 1fr auto auto;
+    grid-template-rows: auto auto auto;
   grid-gap: 5px;
     min-width: 50px;
 }
@@ -474,7 +491,7 @@ img.avatar {
 .btn__add_exp {
   border: 2px solid var(--buttons-purple-color);
   color: var(--buttons-purple-color);
-  max-width: 250px;
+  max-width: 280px;
   padding: 15px 25px;
   border-radius: 25px;
   align-self: center;

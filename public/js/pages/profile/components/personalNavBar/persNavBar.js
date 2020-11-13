@@ -76,7 +76,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
             }
         }
     } else {
-        mainColumnLeft.insertAdjacentHTML("beforeend", emptyListTemp("Ваш список пуст"));
+        mainColumnLeft.insertAdjacentHTML("beforeend", emptyListTemp("Списк резюме пуст"));
     }
 
 

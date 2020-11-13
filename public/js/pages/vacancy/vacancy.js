@@ -67,7 +67,7 @@ export default class Vacancy {
             location: `${allInfo.vacancyInfo.location}/${allInfo.vacancyInfo.area_search}`,
             site: allInfo.companyInfo.link,
             phone: allInfo.vacancyInfo.phone,
-            // mail: allInfo.userInfo.email,
+            mail: allInfo.vacancyInfo.email,
             my_user_type: localStorage.getItem('user_type'),
         }
         mainContent.insertAdjacentHTML("beforeend", briefInfoJobTemp(briefInfoJob));

@@ -5,7 +5,8 @@
                 <fest:include context="items.user" src="../navigation/navigation.tmpl.xml"/>
                 <div class="header__bottom">
                     <div class="header__page">
-                        <h3><fest:value>items.title</fest:value></h3>
+                        <h3><fest:value>items.title</fest:value>
+                        </h3>
                     </div>
                 </div>
             </div>
