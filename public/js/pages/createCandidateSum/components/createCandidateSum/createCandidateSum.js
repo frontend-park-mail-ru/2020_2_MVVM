@@ -65,6 +65,7 @@ export function checkFrom(submitF, form, jobsArr) {
         error[8].innerHTML = `${resSalaryMax}`;
     }
 
+
     if (isOk) {
         submitF(form, jobsArr);
     }
@@ -77,5 +78,6 @@ export function checkFrom(submitF, form, jobsArr) {
             error[index].innerHTML='';
         });
     }, false);
+
 
 }
