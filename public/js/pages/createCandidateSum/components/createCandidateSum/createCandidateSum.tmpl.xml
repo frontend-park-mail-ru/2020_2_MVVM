@@ -116,6 +116,7 @@
                                     <span class="error" aria-live="polite"/>
                                 </div>
                             </div>
+                        <span class="error" aria-live="polite"/>
                     </div>
                     <button id="send-form-cand" class="sum__btn__pink" type="submit">Сохранить</button>
                 </div>
