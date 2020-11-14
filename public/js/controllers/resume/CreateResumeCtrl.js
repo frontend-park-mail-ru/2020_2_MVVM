@@ -25,7 +25,7 @@ export default class CreateResumeCtrl{
 
             const resumeLogo = formData.get("sum__avatar");
             json.avatar = "";
-            if (resumeLogo.size !== 0) {
+            if (resumeLogo !== "") {
                 json.avatar = await getBase64(resumeLogo);
             }
 
