@@ -18,7 +18,7 @@
                 <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
             </div>
             <div class="pers__list_row">
-                <div class="description">Password</div>
+                <div class="description">Пароль</div>
                 <div class="input-field" id="password"><fest:value>items.password</fest:value></div>
                 <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>
             </div>
