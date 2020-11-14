@@ -72,6 +72,8 @@ function saveData(tmpField, newValueField){
 async function doSubmit(data) {
     const response = await network.doPut(updateUserURL, data);
     const res = await response.json();
+    console.log(response)
+    console.log(res)
     if (response.status >= 200 && response.status < 300) {
         console.assert(response.ok);
     } else {
