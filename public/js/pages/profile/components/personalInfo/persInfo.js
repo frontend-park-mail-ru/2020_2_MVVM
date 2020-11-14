@@ -59,6 +59,14 @@ function saveData(tmpField, newValueField){
         }
     }
 
+    if (field === "password" ) {
+        const resPass = Validation.validatePasswd(newValueField);
+        if (resPass !== EMAIL_OK) {
+            error[0].innerHTML = `${resPass}`;
+            isOk = false;
+        }
+    }
+
 
     if (isOk) {
         console.log(isOk);

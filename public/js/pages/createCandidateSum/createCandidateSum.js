@@ -33,7 +33,7 @@ export default class CreateResume{
             afterRenderResume(this.onsubmit, form, this.jobsArr);
         });
 
-//         popUp(this);
+        popUp(this);
 
     }
 }
@@ -42,9 +42,9 @@ export function afterRenderResume(submitF, form, jobsArray) {
     checkFrom(submitF, form, jobsArray);
 }
 
-// async function popUp(classCand) {
-//     const btn = document.getElementById("btn__add_exp");
-//     await btn.addEventListener('click', (event) => {
-//         renderInputForm(undefined, classCand);
-//     });
-// }
+async function popUp(classCand) {
+    const btn = document.getElementById("btn__add_exp");
+    await btn.addEventListener('click', (event) => {
+        renderInputForm(undefined, classCand);
+    });
+}
