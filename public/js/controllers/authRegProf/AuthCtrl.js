@@ -20,11 +20,8 @@ export default class AuthCtrl {
             };
 
             const response = await network.doPost(`${loginURL}`, body);
-
-            // console.log(res);
-
+            const res = await response.json();
             if (response.status >= 200 && response.status < 300) {
-                const res = await response.json();
                 localStorage.setItem('user_type', res.user.user_type);
                 if (localStorage.getItem('user_type') === 'employer') {
                     const response = await network.doGet(companyMineURL);
@@ -34,13 +31,13 @@ export default class AuthCtrl {
                     } else {
                         localStorage.setItem('has_company', "false");
                     }
-                } else if (localStorage.getItem('user_type')==='candidate'){
+                } else if (localStorage.getItem('user_type') === 'candidate') {
                     localStorage.setItem('has_company', "false");
                 }
                 this.router.change('\/');
-            } else if (response.status === 500) {
+            } else {
                 let formAuth = document.getElementsByClassName("auth");
-                formAuth[0].insertAdjacentHTML("afterBegin", `<div class="error">Пользователь не существует</div>`);
+                formAuth[0].insertAdjacentHTML("afterBegin", `<div class="error">${res.error}</div>`);
             }
         };
         this.page = new AuthList(onsubmit);

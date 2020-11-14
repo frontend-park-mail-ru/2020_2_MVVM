@@ -8,25 +8,25 @@ export const INPUT_TEXT_OK = 'корректный текст для ввода'
 export const PHONE_OK = 'верный номер тел.'
 export const DATE_OK = 'корректная дата'
 
-export const EMAIL_EMPTY = 'email пустой'
-export const LOGIN_EMPTY = 'пустой логин'
-export const PASSWD_EMPTY = 'пустой пароль'
-export const PHONE_EMPTY = 'пустое поле номера тел.'
-export const SALARY_EMPTY = 'пустое поле зарплаты'
-export const INPUT_TEXT_EMPTY = 'пустой вводимый текст'
-export const DATE_EMPTY = 'пустое значение даты'
-export const DATE_START_EMPTY = "начальная дата не введена"
-export const DATE_END_EMPTY = "конечная дата не введена"
+export const EMAIL_EMPTY = 'Укажите email.'
+export const LOGIN_EMPTY = 'Укажите логин.'
+export const PASSWD_EMPTY = 'Укажите пароль.'
+export const PHONE_EMPTY = 'Укажите номера телефона.'
+export const SALARY_EMPTY = 'Укажите зарплату.'
+export const INPUT_TEXT_EMPTY = 'Поле обязательно для заполнения.'
+export const DATE_EMPTY = 'Укажите дату.'
+export const DATE_START_EMPTY = "Начальная дата не введена."
+export const DATE_END_EMPTY = "Конечная дата не введена."
 
 
-export const INCORRECT_EMAIL = 'Email должен содержать "@" и латинские буквы, цифры, символы';
-export const INCORRECT_LOGIN = 'Логин должен содержать 4-20 символов, а также содержать латинские символы и цифры';
-export const INCORRECT_PASSWD = 'Пароль должен содержать по крайней мере от 5 до 25 символов и не включать символы кириллицы';
-export const INCORRECT_AVATAR_F = 'Аваатар должен быть формата jpeg или png и быть размером менее 10 MB';
-export const INCORRECT_INPUT_TEXT = 'Неверное количество символов'
-export const INCORRECT_PHONE = 'Неверный номер телефона'
-export const INCORRECT_SALARY = 'поле не может принимать отрицательное значение'
-export const INCORRECT_DATE = 'некорректная дата'
+export const INCORRECT_EMAIL = 'Email должен содержать "@" и латинские буквы, цифры, символы.';
+export const INCORRECT_LOGIN = 'Логин должен содержать 4-20 символов, а также содержать латинские символы и цифры.';
+export const INCORRECT_PASSWD = 'Пароль должен содержать по крайней мере от 5 до 25 символов.';
+export const INCORRECT_AVATAR_F = 'Аватар должен быть формата jpeg или png и быть размером менее 1 MB.';
+export const INCORRECT_INPUT_TEXT = 'Неверное количество символов.'
+export const INCORRECT_PHONE = 'Неверный номер телефона.'
+export const INCORRECT_SALARY = 'Поле не может принимать отрицательное значение.'
+export const INCORRECT_DATE = 'Некорректная дата.'
 
 
 // validation allowed expressions
@@ -79,7 +79,7 @@ export const vacancyMineURL = "/v1/vacancy/mine?";
 export const updateVacancyURL = "/v1/vacancy/";
 export const vacancySearchURL = '/v1/vacancy/search';
 
-export const addCompanyURL =  "/v1/company/";
+export const addCompanyURL = "/v1/company/";
 export const companyByIdURL = "/v1/company/by/id/";
 export const companyPageURL = "/v1/company/page?";
 export const companyMineURL = "/v1/company/mine";
@@ -128,9 +128,6 @@ export const spheres = [
     "Электроника, приборостроение, бытовая техника, компьютеры и оргтехника",
     "Энергетика",
 ]
-
-
-
 
 
 export const gender = {

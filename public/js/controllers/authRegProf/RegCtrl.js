@@ -30,8 +30,6 @@ export default class RegCtrl {
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
                 this.router.change('\/auth');
-            } else if (response.status === 409){
-                formReg[0].insertAdjacentHTML("afterBegin", `<div class="error">Пользователь уже существует</div>`);
             } else {
                 formReg[0].insertAdjacentHTML("afterBegin", `<div class="error">${res.error}</div>`);
 
