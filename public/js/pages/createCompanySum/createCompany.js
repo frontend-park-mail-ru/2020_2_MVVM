@@ -17,7 +17,7 @@ export default class CreateCompany {
     render(content) {
         app.innerHTML = '';
 
-        const createCompanyNavBar = new NavBarInit(app, content, false, "Создание организации");
+        const createCompanyNavBar = new NavBarInit(app,  false, "Создание организации");
         createCompanyNavBar.loadNavBar();
 
         const main = createElem("div", "main", app);

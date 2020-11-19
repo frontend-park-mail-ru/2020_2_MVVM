@@ -103,7 +103,7 @@ export default class Resume {
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, content, false,"");
+        const navBarInit = new NavBarInit(app,  false,"");
         navBarInit.loadNavBar();
 
         const infoAll = await resumeInfo(resume);

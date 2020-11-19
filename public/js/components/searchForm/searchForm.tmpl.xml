@@ -1,25 +1,23 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-    <div class="main__navigation">
-        <form class="main__serch-form">
-            <div class="main__keywords">
-                <input type="text" name="keywords" placeholder="Ключевые слова"/>
+    <div class="main-navigation">
+        <form class="main-search-form">
+            <div class="keywords-search">
+                <input class="keywords-search__input" type="text" name="keywords" placeholder="Ключевые слова"/>
             </div>
-<!--            <div class="main__locations">-->
-<!--                <input type="text" name="main__locations" placeholder="Поиск по расположению"/>-->
-<!--            </div>-->
-            <div class="main__options">
+            <div class="options-search">
                 <fest:each iterate="items" index="i" value="v">
-                    <div class="main__option_single">
-                        <div class="main__specialism_name"><fest:value>v.title.text</fest:value></div>
+                    <div class="option-single">
+                        <div class="option-single-title"><fest:value>v.title.text</fest:value></div>
                             <fest:each iterate="v.fields" index="i" value="n">
-                                <div class="main__type">
-                                    <input class="checkboxes" type="checkbox" name="{v.title.name}" value="{n.name}"/><div class="main__type_name"><fest:value>n.text</fest:value></div><br />
+                                <div class="option-type">
+                                    <input class="option-type__checkbox" type="checkbox" name="{v.title.name}" value="{n.name}"/>
+                                    <div class="option-type__name"><fest:value>n.text</fest:value></div><br/>
                                 </div>
                             </fest:each>
                     </div>
                 </fest:each>
             </div>
-            <button class="sum__btn__blue" type="submit">Поиск</button>
+            <button class="main-search-form__btn" type="submit">Поиск</button>
         </form>
     </div>
 </fest:template>

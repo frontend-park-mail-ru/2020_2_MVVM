@@ -38,6 +38,12 @@ export const PNG_AVATAR_F = 'image/png';
 export const NOT_NUMBER = 'not number';
 
 
+//scales
+export const DESKTOP_WIDTH = 1440;
+export const DESKTOP_HEIGHT = 1024;
+export const MOBILE_WIDTH = 720;
+export const MOBILE_HEIGHT = 1280;
+
 //satus code
 
 export const SUCCESS = 200;

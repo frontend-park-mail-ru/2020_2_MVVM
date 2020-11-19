@@ -1,25 +1,43 @@
+@import './public/css/vars';
+
 .category {
-    width: 70%;
-    margin: 50px auto;
+    max-width: 100rem;
+    margin: $margin-title auto;
+
+    &__header{
+        font-size: $font-size_h2;
+        text-align: center;
+        line-height: 1.2;
+    }
+    &__label {
+        font-size: $font-size_h5;
+        color: var(--text-gray);
+        text-align: center;
+        margin-bottom: 5rem;
+    }
+
+    &__btn{
+        border: $border_btn solid var(--main-pink-color);
+        color: var(--main-pink-color);
+        border-radius: $border-radius_btn;
+        padding: $btn_padding;
+        font-size: $font-size_btn;
+        text-align: center;
+        width: 25rem;
+        margin: auto;
+        cursor: pointer;
+
+        &:hover{
+            background-color: var(--main-pink-color);
+            color: white;
+        }
+    }
 }
 
-.category h3 {
-    font-size: 25px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.2;
-}
-
-.category p {
-    font-size: 15px;
-    color: #888888;
-    text-align: center;
-    padding: 5px;
-}
 
 .category-grid {
   background: white;
-    margin: 30px 0;
+    margin: 5rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,54 +49,38 @@
     justify-content: space-around;
 }
 
-.category-sec > div {
+.category-sec-row {
     text-align: center;
-    width: 100%;
-    border: 1px solid #e8ecec;
-}
+    width: 100rem;
+    border: $border_btn solid var(--border-grey-color);
 
-.category-sec svg {
-    color: var(--buttons-purple-color);
-    display: inline-block;
-    width: 100%;
-    margin: 20px 0;
-}
+    &__svg {
+        color: var(--buttons-purple-color);
+        display: inline-block;
+        width: 100%;
+        margin: 3rem 0;
 
-.category-sec span {
-    font-size: 18px;
-    color: #232323;
-    margin: 10px 0;
-}
+        &:hover {
+            color: var(--main-pink-color);
+            cursor: pointer;
+        }
+    }
 
-.category-sec p {
-    color: var(--main-pink-color);
-    font-size: 13px;
-    margin-bottom: 20px;
-}
+    &__sphere {
+        font-size: $font-size_h4;
+        color: var(--text-light-black);
+        margin: 1rem 0;
+    }
 
-.category-sec svg:hover {
-    color: var(--main-pink-color);
-}
+    &__count {
+        color: var(--main-pink-color);
+        font-size: $font-size_h5;
+        margin-bottom: 3rem;
+    }
 
-.category-sec > div:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-.btm-all-category {
-    border: solid 2px var(--main-pink-color);
-    color: var(--main-pink-color);
-    border-radius: 50px;
-    padding: 20px;
-    line-height: 22px;
-    font-size: 15px;
-    text-align: center;
-    font-weight: bold;
-    width: 25%;
-    margin: auto;
-}
-
-.btm-all-category:hover {
-    background-color: var(--main-pink-color);
-    color: white;
+    &:hover{
+        z-index: 2;
+        box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.3);
+        transition: box-shadow 0.3s ease-in-out;
+    }
 }

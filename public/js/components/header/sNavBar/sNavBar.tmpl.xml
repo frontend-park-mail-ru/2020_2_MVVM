@@ -1,9 +1,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-    <header class="header">
+    <header class="header header_small">
         <div class="container">
-            <div class="header__row">
-                <fest:include context="items" src="../navigation/navigation.tmpl.xml"/>
-            </div>
-        </div>
+            <div class="header-row">
+                <fest:include context="items" src="../navigation/navigation.tmpl.xml"/></div></div>
     </header>
 </fest:template>

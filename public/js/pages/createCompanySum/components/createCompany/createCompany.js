@@ -4,7 +4,7 @@ export function selectCheckbox(){
     const checkbox = document.getElementById("selectBox");
 
     checkbox.addEventListener('click', ()=>{
-        let checkboxes = document.getElementById("checkboxes");
+        let checkboxes = document.getElementById("option-type__checkbox");
         if (!expanded) {
             checkboxes.style.display = "block";
             expanded = true;

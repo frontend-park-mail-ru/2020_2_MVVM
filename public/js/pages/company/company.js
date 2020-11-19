@@ -11,7 +11,7 @@ export default class CompanyPage{
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, content, false);
+        const navBarInit = new NavBarInit(app,  false);
         navBarInit.loadNavBar();
 
         const main = createElem("div", "main__company", app);

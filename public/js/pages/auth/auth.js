@@ -16,7 +16,7 @@ export default class AuthList {
 
         app.innerHTML = '';
 
-        const auth = new NavBarInit(app, content,false, "Авторизация");
+        const auth = new NavBarInit(app,false, "Авторизация");
         console.log(content);
         auth.loadNavBar();
 

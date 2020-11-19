@@ -53,7 +53,7 @@ export default class Vacancy {
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, content, false, "Вакансия");
+        const navBarInit = new NavBarInit(app,  false, "Вакансия");
         navBarInit.loadNavBar();
 
         const allInfo = await vacancyInfo(vacancy_id, company_id);

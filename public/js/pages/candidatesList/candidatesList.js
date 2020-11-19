@@ -17,7 +17,7 @@ export default class CandidatesList {
     async render(content) {
         app.innerHTML = '';
 
-        const candidatesList = new NavBarInit(app, content, false, "Список резюме");
+        const candidatesList = new NavBarInit(app, false, "Список резюме");
         candidatesList.loadNavBar();
 
         const main = createElem("div", "main", app);

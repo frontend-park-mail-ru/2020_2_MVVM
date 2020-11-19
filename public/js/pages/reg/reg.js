@@ -15,7 +15,7 @@ export default class RegList{
         app.innerHTML = '';
 
 
-        const auth = new NavBarInit(app, content, false,"Регистрация");
+        const auth = new NavBarInit(app,  false,"Регистрация");
         auth.loadNavBar();
 
         const main = createElem("div", "main", app);

@@ -20,12 +20,12 @@ export default class EmployersList{
         app.innerHTML = '';
 
 
-        const employersList = new NavBarInit(app, content, false,"Список ваканский");
+        const employersList = new NavBarInit(app,  false,"Список ваканский");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);
-        const mainRow = createElem("div", "main__row", container);
+        const mainRow = createElem("div", "list-page", container);
         mainRow.style.display = "flex";
 
         const m = [
@@ -128,7 +128,7 @@ export default class EmployersList{
 
         mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
 
-        const mainList = createElem("div", "main__list",mainRow);
+        const mainList = createElem("div", "main-list",mainRow);
 
         const vacancies = await this.fetchVacancyList();
         await getVacanciesList(vacancies, main, mainList, this.router);
@@ -172,14 +172,11 @@ async function search(form, mainList, main, fetchVacancyList, router) {
 
 async function getVacanciesList(vacancies, main, mainList, router) {
     if (vacancies && vacancies.vacancyList) {
-        vacancies.vacancyList.forEach((vacancy) => {
-            vacancy.imgPath = `${DOMAIN}static/company/${vacancy.comp_id}`;
-        });
         mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancies.vacancyList));
-        let imgs = document.getElementsByClassName("listOfCompImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
-        }
+        let vacDomList = await document.getElementsByClassName('list-row-photo__bg');
+        vacancies.vacancyList.forEach((vacancy, i) => {
+            vacDomList[i].style.background = `no-repeat  0 0/contain url(${DOMAIN}static/company/${vacancy.comp_id})`;
+        });
         // mainList.insertAdjacentHTML("beforeend", paginationTemp());
         getEmplVacancy(router, main, vacancies.vacancyList);
     } else {

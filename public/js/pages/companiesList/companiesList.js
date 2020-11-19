@@ -50,7 +50,7 @@ export default class CompaniesList {
             m[0].fields.push({name:item, text:item});
         });
 
-        const compList = new NavBarInit(app, content, false, "");
+        const compList = new NavBarInit(app,  false, "");
         compList.loadNavBar();
 
 

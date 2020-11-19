@@ -50,10 +50,6 @@ module.exports = {
                 ],
             },
             {
-                test: /\.css$/,
-                use: ['css-loader'],
-            },
-            {
                 test: /\.xml$/,
                 loader: 'fest-webpack-loader'
  
@@ -94,7 +90,8 @@ module.exports = {
     devServer: {
         port: 3000,
         historyApiFallback: true,
-        https: true,
+        disableHostCheck: true,
+        // https: true,
     },
     performance: { hints: false },
 };

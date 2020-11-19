@@ -15,6 +15,7 @@ import CompanyCtrl from "./controllers/company/CompanyCtrl.js";
 import UpdateResumeCtrl from "./controllers/resume/UpdateResumeCtrl.js";
 import LogoutCtrl from "./controllers/authRegProf/LogoutCtrl.js";
 import '../styles/main.scss'
+import initScale from "Js/libs/scale";
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js', {scope: '/'})
@@ -26,6 +27,9 @@ if ('serviceWorker' in navigator) {
         });
 }
 document.addEventListener('DOMContentLoaded', ()=>{
+
+    initScale();
+
     const app = document.getElementById('app');
     const router = new Router(app);
 

@@ -36,7 +36,7 @@ export default class Profile {
         const person = (await this.loadUserInfo()).user;
 
 
-        const profile = new NavBarInit(app, content, false, "");
+        const profile = new NavBarInit(app,  false, "");
         profile.loadNavBar();
 
         const main = createElem("div", "main", app);

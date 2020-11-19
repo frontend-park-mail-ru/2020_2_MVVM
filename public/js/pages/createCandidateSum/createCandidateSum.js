@@ -20,7 +20,7 @@ export default class CreateResume{
         this.numOfJob = 0;
         this.user = await this.userInfo();
 
-        const employersList = new NavBarInit(app, content, false, "Создание резюме");
+        const employersList = new NavBarInit(app,  false, "Создание резюме");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

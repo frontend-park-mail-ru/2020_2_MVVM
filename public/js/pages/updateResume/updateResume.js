@@ -83,7 +83,7 @@ export default class UpdateResume{
 
         const user = await getAllInfo(this, resumeInfo);
 
-        const employersList = new NavBarInit(app, content, false, "");
+        const employersList = new NavBarInit(app,  false, "");
         employersList.loadNavBar();
 
         const main = createElem("div", "main", app);

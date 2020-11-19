@@ -15,13 +15,13 @@ export default class MainPage{
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, content, true,  "Самый простой способ найти новую работу");
+        const navBarInit = new NavBarInit(app,  true,  "Самый простой способ найти новую работу");
         navBarInit.loadNavBar();
 
-        const searchJob = createElem("div", "search-job", app.getElementsByClassName("header__page")[0])
-        searchJob.insertAdjacentHTML("afterEnd", searchJobTemp());
+        const searchJob = createElem("div", "search-job", app.getElementsByClassName("header-row-bottom__page")[0]);
+        searchJob.insertAdjacentHTML("beforeend", searchJobTemp());
 
-        const main = createElem("div", "main", app);
+        const main = createElem("div", "main-page", app);
         const category = [
             {
                 name: 'Дизайн',
