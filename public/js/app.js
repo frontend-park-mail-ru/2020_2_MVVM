@@ -14,6 +14,7 @@ import ResumeCtrl from "./controllers/resume/ResumeCtrl.js";
 import CompanyCtrl from "./controllers/company/CompanyCtrl.js";
 import UpdateResumeCtrl from "./controllers/resume/UpdateResumeCtrl.js";
 import LogoutCtrl from "./controllers/authRegProf/LogoutCtrl.js";
+import ChatCtrl from "./controllers/chat/chat.js";
 import '../styles/main.scss'
 
 if ('serviceWorker' in navigator) {
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         company: new CompanyCtrl(router),
         updateResume: new UpdateResumeCtrl(router),
         logout: new LogoutCtrl(router),
+        chat: new ChatCtrl(router),
     }
 
 
@@ -64,6 +66,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/company', controllers.company.page);
     router.add('/updateResume', controllers.updateResume.page);
     router.add('/logout', controllers.logout.page);
+    router.add('/chat', controllers.chat.page)
 
 
     router.start();

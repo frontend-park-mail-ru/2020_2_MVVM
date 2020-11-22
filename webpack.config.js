@@ -94,7 +94,7 @@ module.exports = {
     devServer: {
         port: 3000,
         historyApiFallback: true,
-        https: true,
+        // https: true,
     },
     performance: { hints: false },
 };
