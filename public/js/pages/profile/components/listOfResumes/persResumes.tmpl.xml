@@ -1,23 +1,20 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="main__list-profile">
-        <fest:each iterate="items" index="i" value="v">
+        <fest:each iterate="items" index="i" value="item">
             <div class="main__list_row">
-                <div class="main__candidate_photo">
-                    <img class="persResImg" src="{v.imgPath}" alt="oops"/>
-                </div>
-                <div class="main__info-employers">
-                    <div class="main__info-header">
-                        <div class="main__name-employers">
-                            <div class="main__name-employers_link"><fest:value>v.title</fest:value></div>
-                        </div>
+                <div class="list-row">
+                    <div class="list-row-photo">
+                        <div class="list-row-photo__bg list-row-photo__bg_company"/>
                     </div>
-                    <div class="main__specialosm-employers">
-                        <fest:value>v.description</fest:value>
+                    <div class="list-row-description">
+                        <div class="list-row-description__name"><a><fest:value>item.title</fest:value></a></div>
+                        <div class="list-row-description__specialism"><fest:value>item.description</fest:value><fest:space/></div>
+                        <div class="list-row-description__location"><fest:space/><fest:value>item.location</fest:value>/Росиия</div>
                     </div>
-                </div>
-                <div class="main__buttons">
-                    <div class="main__buttons_one">Просмотреть резюме</div>
-                    <div class="main__buttons_two">Изменить резюме</div>
+                    <div class="main__buttons">
+                        <div class="main__buttons_one">Просмотреть резюме</div>
+                        <div class="main__buttons_two">Изменить резюме</div>
+                    </div>
                 </div>
             </div>
         </fest:each>

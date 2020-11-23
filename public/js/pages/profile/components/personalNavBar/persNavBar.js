@@ -56,24 +56,20 @@ export function checkoutProfilePage(profile, content, body, person) {
 
 export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
     if (list && list.length) {
+        let DomList = document.getElementsByClassName('list-row-photo__bg');
         if (isCand) {
-            list.forEach((resume) => {
-                resume.imgPath = `${DOMAIN}static/resume/${resume.resume_id}`;
-            });
             mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list));
-            let imgs = document.getElementsByClassName("persResImg");
-            for (let i=0; i<imgs.length;i++){
-                imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
-            }
-        } else {
-            list.forEach((vacancy) => {
-                vacancy.imgPath = `${DOMAIN}static/company/${vacancy.comp_id}`;
+            console.log(list);
+            list.forEach((resume,i) => {
+                DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/resume/${resume.resume_id}`;
             });
+
+        } else {
             mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
-            let imgs = document.getElementsByClassName("persVacImg");
-            for (let i=0; i<imgs.length;i++){
-                imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
-            }
+            console.log(list);
+            list.forEach((vacancy,i) => {
+                DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${vacancy.comp_id}`;
+            });
         }
     } else {
         mainColumnLeft.insertAdjacentHTML("beforeend", emptyListTemp("Списк резюме пуст"));

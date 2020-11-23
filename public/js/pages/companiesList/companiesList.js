@@ -111,7 +111,6 @@ async function renderCompanyList(companies, mainList, router) {
     if (companies && companies.companyList) {
         mainList.insertAdjacentHTML("beforeend", listOfCompaniesTemp(companies.companyList));
         let compDomList = await document.getElementsByClassName('list-row-photo__bg');
-        console.log(companies.companyList);
         companies.companyList.forEach((company, i) => {
             compDomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${company.id}`;
         });

@@ -32,4 +32,7 @@
 .main__list-profile{
     max-width: 70%;
     margin: auto;
+    @include mobile {
+        max-width: 100%;
+    }
 }
