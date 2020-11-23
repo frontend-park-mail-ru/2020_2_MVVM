@@ -1,13 +1,12 @@
-import {NavBarInit} from "Js/components/header/navBar";
 import {checkBoxes} from 'Js/components/searchForm/searchForm'
 import createElem from "Js/libs/createElem";
 import {network} from "Js/libs/networks";
-import {DOMAIN, URL, vacancySearchURL} from "Js/libs/constants";
+import {DOMAIN, vacancySearchURL} from "Js/libs/constants";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml';
 import listOfEmployersTemp from './components/listOfEmployers/listOfEmployers.tmpl.xml';
 import paginationTemp from 'Js/components/pagination/pagination.tmpl.xml';
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml';
-import pNavBarTemp from "Js/components/header/phoneNavBar/phoneNavBar.tmpl.xml";
+
 import openMenuList from 'Js/components/header/phoneNavBar/pNavBar';
 
 
@@ -126,9 +125,11 @@ export default class EmployersList{
                 ]
             },
         ];
-
-
         mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
+        const searchForm = document.getElementById("main-navigation");
+        if (document.body.className === 'is-mobile') {
+            searchForm.classList.add("hide");
+        }
 
         const mainList = createElem("div", "main-list",mainRow);
 
@@ -177,7 +178,7 @@ async function getVacanciesList(vacancies, main, mainList, router) {
         mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancies.vacancyList));
         let vacDomList = await document.getElementsByClassName('list-row-photo__bg');
         vacancies.vacancyList.forEach((vacancy, i) => {
-            vacDomList[i].style.background = `no-repeat  0 0/contain url(${DOMAIN}static/company/${vacancy.comp_id})`;
+            vacDomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${vacancy.comp_id})`;
         });
         // mainList.insertAdjacentHTML("beforeend", paginationTemp());
         getEmplVacancy(router, main, vacancies.vacancyList);

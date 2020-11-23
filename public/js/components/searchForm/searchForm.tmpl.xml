@@ -1,5 +1,5 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-    <div class="main-navigation">
+    <div class="main-navigation" id="main-navigation">
         <form class="main-search-form">
             <div class="keywords-search">
                 <input class="keywords-search__input" type="text" name="keywords" placeholder="Ключевые слова"/>

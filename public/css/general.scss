@@ -77,6 +77,7 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
     --background-grey-color: rgba(185, 190, 195, 0.15);
+    --background-grey-color-no-alpha: rgba(245,245,245,1);
     --border-grey-color: #dbdbdb;
     --main-pink-color: #fb236a;
     --buttons-purple-color: #8b91dd;
@@ -384,7 +385,16 @@ svg {
         margin: 0 2rem;
 
         &_employers {
-            background: no-repeat  0 0/contain url(https://studhunt.ru/static/company/default.png);
+            border: 0.1rem solid var(--main-pink-color);
+            //background: no-repeat  0 0/cover url(https://studhunt.ru/static/company/default.png);
+        }
+        &_company {
+            border: 0.1rem solid var(--main-pink-color);
+            //background: no-repeat  0 0/cover url(https://studhunt.ru/static/company/default.png);
+        }
+        &_resume {
+            border: 0.1rem solid var(--main-pink-color);
+            //background: no-repeat  0 0/cover url(https://studhunt.ru/static/resume/default.png);
         }
     }
 }

@@ -1,6 +1,7 @@
 @import "public/css/vars";
 @import "public/css/general";
 
+
 .main-navigation {
     display: flex;
     width: fit-content;
@@ -9,14 +10,23 @@
     margin-right: 4rem;
     max-width: 15vw;
 
-     @include mobile {
-        display: none;
+    @include mobile {
+        position: absolute;
+        width: 100%;
+        background: var(--background-grey-color-no-alpha);
+        min-width: 100vw;
+        margin: auto;
+        align-items: center;
     }
+
 }
 
 .main-search-form {
     color: grey;
     margin-top: $margin-title;
+    @include mobile {
+        width: 50rem;
+    }
 
     &__btn {
         border: $border_btn solid var(--main-pink-color);
@@ -27,8 +37,16 @@
         background: white;
         cursor: pointer;
         font-size: $font-size_btn;
-        width: 100%;
         padding: $btn_padding;
+        width: 100%;
+        margin: 2rem 0;
+
+        @include mobile {
+            font-size: $font-size_btn_m;
+            padding: $btn_padding_m;
+            margin: 5rem 0;
+        }
+
 
         &:hover {
             background-color: var(--main-pink-color);
@@ -51,6 +69,12 @@
         width: 24rem;
         height: 5rem;
         font-size: $font_size_h4;
+
+        @include mobile {
+            width: 42rem;
+            height: 7rem;
+            font-size: $font_size_h3_m;
+        }
     }
 
     &:after {
@@ -59,6 +83,11 @@
         width: 1.6rem;
         height: 1.6rem;
         background: url(Img/search.svg) no-repeat 0 0/cover;
+        @include mobile {
+            vertical-align: text-top;
+            width: $font-size_h3_m;
+            height: $font-size_h3_m;
+        }
     }
 }
 
@@ -68,12 +97,18 @@
     justify-content: flex-start;
     margin-top: auto;
     margin-bottom: 1.5rem;
+    @include mobile {
+        margin-bottom: 2rem;
+    }
 }
 
 .option-type__name {
     margin-left: 1rem;
-    font-size: $font-size_h5;
+    font-size: $font-size_h4;
     cursor: pointer;
+    @include mobile {
+        font-size: $font-size_h3_m;
+    }
 }
 
 .option-single-title {
@@ -84,6 +119,9 @@
     width: 100%;
     position: relative;
     cursor: pointer;
+    @include mobile {
+        font-size: $font-size_h2_m;
+    }
 
 
     &:after {
@@ -94,6 +132,10 @@
         background: url(Img/minus.svg) no-repeat 0 0/cover;
         width: 2rem;
         height: 2rem;
+        @include mobile {
+            width: $font-size_h2_m;
+            height: $font-size_h2_m;
+        }
     }
 
     &_hidden:after {
@@ -104,5 +146,13 @@
         background: url(Img/plus.svg) no-repeat 0 0/cover;
         width: 2rem;
         height: 2rem;
+        @include mobile {
+            width: $font-size_h2_m;
+            height: $font-size_h2_m;
+        }
     }
+}
+
+.hide {
+    display: none;
 }

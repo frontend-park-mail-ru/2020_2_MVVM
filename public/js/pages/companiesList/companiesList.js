@@ -61,6 +61,11 @@ export default class CompaniesList {
 
         mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
 
+        const searchForm = document.getElementById("main-navigation");
+        if (document.body.className === 'is-mobile') {
+            searchForm.classList.add("hide");
+        }
+
         const mainList = createElem("div", "main__list", mainRow);
 
         const companies = await this.fetchCompanyList();
@@ -104,14 +109,12 @@ async function search(form, mainList, main, router) {
 
 async function renderCompanyList(companies, mainList, router) {
     if (companies && companies.companyList) {
-        companies.companyList.forEach((company) => {
-            company.imgPath = `${DOMAIN}static/company/${company.id}`;
-        });
         mainList.insertAdjacentHTML("beforeend", listOfCompaniesTemp(companies.companyList));
-        let imgs = document.getElementsByClassName("listOfCompImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
-        }
+        let compDomList = await document.getElementsByClassName('list-row-photo__bg');
+        console.log(companies.companyList);
+        companies.companyList.forEach((company, i) => {
+            compDomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${company.id}`;
+        });
         getCompanyPage(router, companies.companyList);
         // mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
     } else {

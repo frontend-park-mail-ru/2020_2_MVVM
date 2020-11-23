@@ -4,7 +4,7 @@ import createElem from "Js/libs/createElem";
 import {DOMAIN, resumePageURL, resumeSearchURL} from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
-import listOfCandidatesTemp from './components/listOfCandidates/listOfCandidates.tmpl.xml'
+import listOfCandidatesTemp from './components/listOfCandidates/listOfCandidates.tmpl.xml';
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
@@ -136,8 +136,12 @@ export default class CandidatesList {
                 ]
             }
         ];
-
         mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
+
+        const searchForm = document.getElementById("main-navigation");
+        if (document.body.className === 'is-mobile') {
+            searchForm.classList.add("hide");
+        }
 
         const mainList = createElem("div", "main__list", mainRow);
 
@@ -151,17 +155,14 @@ export default class CandidatesList {
 
 async function renderResumeList(response, main, mainList, router){
     const resume = await response.json();
-    console.log(resume);
 
     if (resume && resume.length) {
-        resume.forEach((item) => {
-            item.imgPath = `${DOMAIN}static/resume/${item.resume_id}`;
-        });
         mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
-        let imgs = document.getElementsByClassName("listOfCandImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
-        }
+        let candDomList = await document.getElementsByClassName('list-row-photo__bg');
+        resume.forEach((item, i) => {
+            candDomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/resume/${item.resume_id})`;
+        });
+
         // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
         // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
         getUserResume(router, main, resume);
@@ -172,7 +173,7 @@ async function renderResumeList(response, main, mainList, router){
 
 
 function getUserResume(router, main, resume) {
-    const linksToResume = main.getElementsByClassName("go_to_view");
+    const linksToResume = main.getElementsByClassName("list-row");
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
