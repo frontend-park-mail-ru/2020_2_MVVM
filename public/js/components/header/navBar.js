@@ -1,5 +1,6 @@
-import bNavBartemplate from './bNavBar/bNavBar.tmpl.xml'
-import sNavBartemplate from './sNavBar/sNavBar.tmpl.xml'
+import bNavBarTemp from './bNavBar/bNavBar.tmpl.xml'
+import sNavBarTemp from './sNavBar/sNavBar.tmpl.xml'
+import pNavBarTemp from './phoneNavBar/phoneNavBar.tmpl.xml'
 
 export class NavBarInit {
     constructor(app, isBig, title) {
@@ -10,16 +11,18 @@ export class NavBarInit {
         this.title = title;
     }
 
-    loadNavBar() {
+    loadNavBar(is_open) {
         let has_company = this.has_company === 'true';
         if (this.user === '') {
-            this.user=null;
+            this.user = null;
         }
-        const data = {title: this.title, user: this.user, has_company: has_company};
+        let data = {title: this.title, user: this.user, has_company: has_company};
+        data['is_open'] = is_open ? is_open : false;
+
         if (this.isBig) {
-            this.app.innerHTML = bNavBartemplate(data);
+            this.app.innerHTML = bNavBarTemp(data);
         } else {
-            this.app.innerHTML = sNavBartemplate(data);
+            this.app.innerHTML = sNavBarTemp(data);
         }
     }
 }

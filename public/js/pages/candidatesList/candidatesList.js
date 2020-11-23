@@ -6,6 +6,7 @@ import {network} from "Js/libs/networks";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
 import listOfCandidatesTemp from './components/listOfCandidates/listOfCandidates.tmpl.xml'
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById('app');
 
@@ -17,8 +18,7 @@ export default class CandidatesList {
     async render(content) {
         app.innerHTML = '';
 
-        const candidatesList = new NavBarInit(app, false, "Список резюме");
-        candidatesList.loadNavBar();
+        openMenuList(app, true);
 
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);
@@ -172,7 +172,7 @@ async function renderResumeList(response, main, mainList, router){
 
 
 function getUserResume(router, main, resume) {
-    const linksToResume = main.getElementsByClassName("go_to_resume");
+    const linksToResume = main.getElementsByClassName("go_to_view");
     for (let i = 0; i < linksToResume.length; i++) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();

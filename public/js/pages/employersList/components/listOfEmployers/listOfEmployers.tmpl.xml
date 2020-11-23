@@ -9,9 +9,6 @@
                 <div class="list-row-description__specialism"><fest:value>item.description</fest:value><fest:space/></div>
                 <div class="list-row-description__location"><fest:space/><fest:value>item.area_search</fest:value>/Росиия</div>
             </div>
-            <div class="list-row-button">
-                <a href="/vacancy" class="go_to_resume"><div class="list-row-button__shortlist">Подробнее</div></a>
-            </div>
         </div>
     </fest:each>
 </fest:template>

@@ -3,10 +3,12 @@ import {checkBoxes} from 'Js/components/searchForm/searchForm'
 import createElem from "Js/libs/createElem";
 import {network} from "Js/libs/networks";
 import {DOMAIN, URL, vacancySearchURL} from "Js/libs/constants";
-import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
-import listOfEmployersTemp from './components/listOfEmployers/listOfEmployers.tmpl.xml'
-import paginationTemp from 'Js/components/pagination/pagination.tmpl.xml'
-import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
+import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml';
+import listOfEmployersTemp from './components/listOfEmployers/listOfEmployers.tmpl.xml';
+import paginationTemp from 'Js/components/pagination/pagination.tmpl.xml';
+import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml';
+import pNavBarTemp from "Js/components/header/phoneNavBar/phoneNavBar.tmpl.xml";
+import openMenuList from 'Js/components/header/phoneNavBar/pNavBar';
 
 
 const app = window.document.getElementById('app');
@@ -20,8 +22,8 @@ export default class EmployersList{
         app.innerHTML = '';
 
 
-        const employersList = new NavBarInit(app,  false,"Список ваканский");
-        employersList.loadNavBar();
+        openMenuList(app, true);
+
 
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);
@@ -185,11 +187,12 @@ async function getVacanciesList(vacancies, main, mainList, router) {
 }
 
 function getEmplVacancy(router, main, vacancy) {
-    const linksToVacancy = main.getElementsByClassName("go_to_resume");
-    for (let i = 0; i < linksToVacancy.length; i++) {
-        linksToVacancy[i].addEventListener('click', event => {
+    const vacNameLink = main.getElementsByClassName("list-row");
+    for (let i = 0; i < vacNameLink.length; i++) {
+        vacNameLink[i].addEventListener('click', event => {
             event.preventDefault();
             router.change('/vacancy', vacancy[i].vac_id, vacancy[i].comp_id);
-        })
+        });
+
     }
 }

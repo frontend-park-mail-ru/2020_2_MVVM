@@ -6,6 +6,10 @@
         font-size: $font-size_h5;
         color: white;
         opacity: 0.8;
+
+        @include mobile {
+            font-size: $font-size_h5_m;
+        }
     }
 }
 
@@ -18,7 +22,6 @@
 
 
 .search-job {
-    height: 6rem;
     flex-grow: 2;
     margin: 1rem;
 
@@ -28,6 +31,10 @@
         height: 100%;
         padding: 0 2rem;
         font-size: $font-size_h4;
+        @include mobile {
+            padding: 0 1rem;
+            font-size: $font-size_h4_m;
+        }
     }
 
 }
@@ -43,6 +50,10 @@
         height: 100%;
         padding: 0 2rem;
         font-size: $font-size_h4;
+        @include mobile {
+            padding: 0 1rem;
+            font-size: $font-size_h4_m;
+        }
     }
 }
 

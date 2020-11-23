@@ -6,6 +6,7 @@ import persNB from './components/personalNavBar/persNavBar.tmpl.xml'
 import listOfCandidatesTemp from 'Js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.xml'
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
 import {DOMAIN} from "Js/libs/constants";
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById('app');
 
@@ -36,8 +37,7 @@ export default class Profile {
         const person = (await this.loadUserInfo()).user;
 
 
-        const profile = new NavBarInit(app,  false, "");
-        profile.loadNavBar();
+        openMenuList(app, false);
 
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);

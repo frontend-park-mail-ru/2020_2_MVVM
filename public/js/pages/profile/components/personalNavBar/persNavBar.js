@@ -125,7 +125,7 @@ function personalLikes(profile, mainColumnLeft) {
         for (let i=0; i<imgs.length;i++){
             imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
         }
-        const linksToFavResume = document.getElementsByClassName("go_to_resume");
+        const linksToFavResume = document.getElementsByClassName("go_to_view");
         for (let i = 0; i < linksToFavResume.length; i++) {
             linksToFavResume[i].addEventListener('click', event => {
                 event.preventDefault();

@@ -8,12 +8,19 @@
         font-size: $font-size_h2;
         text-align: center;
         line-height: 1.2;
+        @include mobile {
+            font-size: $font-size_h2_m;
+        }
+
     }
     &__label {
         font-size: $font-size_h5;
         color: var(--text-gray);
         text-align: center;
         margin-bottom: 5rem;
+        @include mobile {
+            font-size: $font-size_h5_m;
+        }
     }
 
     &__btn{
@@ -26,6 +33,10 @@
         width: 25rem;
         margin: auto;
         cursor: pointer;
+        @include mobile {
+            font-size: $font-size_btn_m;
+            padding: $btn_padding_m;
+        }
 
         &:hover{
             background-color: var(--main-pink-color);
@@ -54,6 +65,7 @@
     width: 100rem;
     border: $border_btn solid var(--border-grey-color);
 
+
     &__svg {
         color: var(--buttons-purple-color);
         display: inline-block;
@@ -70,12 +82,18 @@
         font-size: $font-size_h4;
         color: var(--text-light-black);
         margin: 1rem 0;
+        @include mobile {
+            font-size: $font-size_h4_m;
+        }
     }
 
     &__count {
         color: var(--main-pink-color);
         font-size: $font-size_h5;
         margin-bottom: 3rem;
+        @include mobile {
+            font-size: $font-size_h5_m;
+        }
     }
 
     &:hover{

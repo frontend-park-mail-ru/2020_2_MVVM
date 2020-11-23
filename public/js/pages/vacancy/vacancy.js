@@ -15,6 +15,7 @@ import briefInfoJobTemp from './components/briefInfoJob/briefInfoJob.tmpl.xml';
 import vacancyTemp from './components/vacancy/vacancy.tmpl.xml';
 import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml';
 import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml';
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 // import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml';
 
 
@@ -53,8 +54,7 @@ export default class Vacancy {
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app,  false, "Вакансия");
-        navBarInit.loadNavBar();
+        openMenuList(app, false);
 
         const allInfo = await vacancyInfo(vacancy_id, company_id);
 

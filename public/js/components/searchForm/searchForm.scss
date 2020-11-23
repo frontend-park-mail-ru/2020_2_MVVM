@@ -1,5 +1,5 @@
 @import "public/css/vars";
-
+@import "public/css/general";
 
 .main-navigation {
     display: flex;
@@ -9,7 +9,7 @@
     margin-right: 4rem;
     max-width: 15vw;
 
-    .mobile & {
+     @include mobile {
         display: none;
     }
 }
@@ -58,7 +58,7 @@
         display: inline-block;
         width: 1.6rem;
         height: 1.6rem;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 480.606 480.606'%3e%3cpath xmlns='http://www.w3.org/2000/svg' d='M480.606 459.394L352.832 331.619c30.306-35.168 48.654-80.918 48.654-130.876C401.485 90.053 311.433 0 200.743 0S0 90.053 0 200.743s90.053 200.743 200.743 200.743c49.958 0 95.708-18.348 130.876-48.654l127.775 127.775 21.212-21.213zM30 200.743C30 106.595 106.595 30 200.743 30s170.743 76.595 170.743 170.743-76.595 170.743-170.743 170.743S30 294.891 30 200.743z' fill='%23fb236a' data-original='%23000000'/%3e%3c/svg%3e");
+        background: url(Img/search.svg) no-repeat 0 0/cover;
     }
 }
 
@@ -91,7 +91,7 @@
         display: inline-block;
         position: absolute;
         right: 0;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 485 485'%3e%3cpath xmlns='http://www.w3.org/2000/svg' data-original='%23000000' d='M0 227.5h485v30H0z'/%3e%3c/svg%3e");
+        background: url(Img/minus.svg) no-repeat 0 0/cover;
         width: 2rem;
         height: 2rem;
     }
@@ -101,7 +101,7 @@
         display: inline-block;
         position: absolute;
         right: 0;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 485 485'%3e%3cpath xmlns='http://www.w3.org/2000/svg' data-original='%23000000' d='M485 227.5H257.5V0h-30v227.5H0v30h227.5V485h30V257.5H485z'/%3e%3c/svg%3e");
+        background: url(Img/plus.svg) no-repeat 0 0/cover;
         width: 2rem;
         height: 2rem;
     }

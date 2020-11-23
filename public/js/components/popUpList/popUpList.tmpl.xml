@@ -46,7 +46,7 @@
                             </fest:if>
                         </div>
                         <div class="main__candidate_button">
-                            <a href="" class="go_to_resume"><div class="main__candidate_shortlist">Выбрать</div></a>
+                            <a href="" class="go_to_view"><div class="main__candidate_shortlist">Выбрать</div></a>
                         </div>
                     </div>
                 </fest:for>

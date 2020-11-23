@@ -6,6 +6,7 @@ import {checkBoxes} from "Js/components/searchForm/searchForm";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml';
 import listOfCompaniesTemp from './components/listOfCompanies/listOfCompanies.tmpl.xml';
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml';
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById('app');
 
@@ -50,8 +51,7 @@ export default class CompaniesList {
             m[0].fields.push({name:item, text:item});
         });
 
-        const compList = new NavBarInit(app,  false, "");
-        compList.loadNavBar();
+        openMenuList(app, true);
 
 
         const main = createElem("div", "main", app);
@@ -122,7 +122,7 @@ async function renderCompanyList(companies, mainList, router) {
 
 
 function getCompanyPage(router, company) {
-    const linksToCompany = document.getElementsByClassName("go_to_resume");
+    const linksToCompany = document.getElementsByClassName("go_to_view");
     for (let i = 0; i < linksToCompany.length; i++) {
         linksToCompany[i].addEventListener('click', event => {
             event.preventDefault();

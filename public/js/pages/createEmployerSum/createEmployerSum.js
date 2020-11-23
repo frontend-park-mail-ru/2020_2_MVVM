@@ -4,6 +4,7 @@ import {DOMAIN, spheres} from "Js/libs/constants";
 import createEmployerSumTemp from "./components/createEmployerSum/createEmployerSum.tmpl.xml";
 import {checkFrom} from "Js/pages/createEmployerSum/components/createEmployerSum/createEmpoyerSum"
 import {afterRenderResume} from "Js/pages/createCandidateSum/createCandidateSum";
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 
 
@@ -34,9 +35,8 @@ export default class CreateVacancy {
                 this.content.comp_logo = "img/em1.jpg"
             }
         });
-        console.log(this.content)
-        const employersList = new NavBarInit(app,  false, "Создание вакансии");
-        employersList.loadNavBar();
+
+        openMenuList(app, false);
 
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("afterbegin", createEmployerSumTemp(this.content));

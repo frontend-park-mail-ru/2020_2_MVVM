@@ -20,7 +20,7 @@ function fit() {
     if (mobile) {
         currentWidth = Math.min(window.innerWidth, window.innerHeight);
         currentHeight = Math.max(window.innerWidth, window.innerHeight);
-        document.body.classList.add("mobile");
+        document.body.classList.add("is-mobile");
     } else {
         currentWidth = window.innerWidth;
         currentHeight = window.innerHeight;

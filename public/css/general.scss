@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-@import "vars";
+
 
 :focus, :active {
     outline: none;
@@ -93,7 +93,9 @@ h1, h2, h3, h4, h5, h6 {
     --reject-red: #ef6b6b;
 }
 
+@import "vars";
 /*_________________________PAGE____________________________*/
+
 
 
 
@@ -352,25 +354,28 @@ svg {
 .list-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     min-height: 20rem;
     background: white;
     padding: 2rem;
     border: 1px solid;
     border-color: white white var(--border-grey-color) var(--border-grey-color);
     margin-bottom: 1px;
-    z-index: 0;
     transition: 0.15s;
+    @include mobile {
+        min-height: 30rem;
+    }
 
     &:hover {
+        cursor: pointer;
+        position: relative;
         box-shadow: 0 0 25px 5px var(--border-grey-color);
-        z-index: 2;
         transition: 0.15s;
     }
 }
 
 
 .list-row-photo {
+    align-self: center;
 
     &__bg{
         width: 15rem;
@@ -389,11 +394,20 @@ svg {
 
 
     &__name {
+        width: fit-content;
+        cursor: pointer;
         margin-bottom: 2rem;
         height: 2.5rem;
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: $font-size_h4-5;
+        &:hover {
+            color: var(--main-pink-color);
+        }
+        @include mobile {
+            height: 3rem;
+            font-size: $font-size_h4-5_m;
+        }
     }
 
     &__specialism {
@@ -402,17 +416,27 @@ svg {
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: $font-size_txt;
+        @include mobile {
+            font-size: $font-size_txt_m;
+            height: 15rem;
+        }
     }
 
     &__location {
+        display: flex;
         color: grey;
+        font-size: $font-size_txt;
+        align-items: center;
+        @include mobile {
+            font-size: $font-size_txt_m;
+        }
 
         &:before {
             content: '';
             display: inline-block;
             width: 2rem;
             height: 2rem;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'%3e%3cpath d='M441.547 134.164C423.294 75.192 375.879 27.387 317.806 9.402 255.965-9.749 191.494.647 140.926 37.924c-24.23 17.861-44.336 41.42-58.143 68.127-14.27 27.603-21.812 58.679-21.812 89.87 0 42.548 13.459 82.982 38.923 116.931L256.02 512l155.932-198.894.195-.254c38.106-50.809 48.823-115.939 29.4-178.688zm-53.314 160.56L256.02 463.381 123.806 294.724c-21.475-28.689-32.827-62.852-32.827-98.803 0-52.533 25.328-102.568 67.753-133.842 42.814-31.561 97.559-40.312 150.198-24.012 48.752 15.098 88.584 55.32 103.953 104.969 16.528 53.402 7.543 108.682-24.65 151.688z' fill='%23fb236a' data-original='%23000000' xmlns='http://www.w3.org/2000/svg'/%3e%3cpath d='M256.02 90.895c-57.911 0-105.026 47.115-105.026 105.026 0 57.911 47.115 105.026 105.026 105.026s105.026-47.115 105.026-105.026c0-57.911-47.115-105.026-105.026-105.026zm0 180.045c-41.365 0-75.019-33.653-75.019-75.019 0-41.365 33.653-75.019 75.019-75.019s75.019 33.653 75.019 75.019c0 41.365-33.654 75.019-75.019 75.019z' fill='%23fb236a' data-original='%23000000' xmlns='http://www.w3.org/2000/svg'/%3e%3c/svg%3e");
+            background: no-repeat 0 0/cover url(Img/pin.svg);
         }
     }
 
@@ -420,6 +444,7 @@ svg {
 
 .list-row-button{
     align-self: center;
+    margin-left: auto;
     &__shortlist {
         border: 2px solid var(--main-pink-color);
         color: var(--main-pink-color);
@@ -428,6 +453,10 @@ svg {
         text-align: center;
         font-size: $font-size_btn;
         transition: 0.15s;
+        @include mobile {
+            padding: $btn_padding_m;
+            font-size: $font-size_btn_m;
+        }
 
         &:hover {
             background-color: var(--main-pink-color);

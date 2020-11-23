@@ -1,7 +1,20 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-    <header class="header header_small">
-        <div class="container">
-            <div class="header-row">
-                <fest:include context="items" src="../navigation/navigation.tmpl.xml"/></div></div>
-    </header>
+    <fest:if test="items.is_open==true">
+        <header class="header header__small header__small_phone">
+            <div class="container">
+                <div class="header-row">
+                    <fest:include context="items" src="../navigation/navigation.tmpl.xml"/>
+                </div>
+            </div>
+        </header>
+    </fest:if>
+    <fest:if test="items.is_open==false">
+        <header class="header header__small">
+            <div class="container">
+                <div class="header-row">
+                    <fest:include context="items" src="../navigation/navigation.tmpl.xml"/>
+                </div>
+            </div>
+        </header>
+    </fest:if>
 </fest:template>

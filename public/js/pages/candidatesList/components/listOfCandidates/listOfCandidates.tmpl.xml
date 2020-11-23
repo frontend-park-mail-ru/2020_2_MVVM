@@ -12,7 +12,7 @@
                     <div class="main__candidate_location"><fest:value>v.location</fest:value>/Россия</div>
                 </div>
                 <div class="main__candidate_button">
-                    <a href="/resume" class="go_to_resume"><div class="main__candidate_shortlist">Подробнее</div></a>
+                    <a href="/resume" class="go_to_view"><div class="main__candidate_shortlist">Подробнее</div></a>
                 </div>
             </div>
         </fest:each>

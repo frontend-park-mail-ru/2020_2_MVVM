@@ -17,6 +17,7 @@ import jobOverviewTemp from 'Js/components/rightColumn/jobOverview.tmpl.xml'
 import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml'
 import favoritesTemp from 'Js/pages/resume/components/briefInfo/favorites.tmpl.xml'
 import popUpList from "Js/components/popUpList/popUpList";
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 
 
@@ -103,8 +104,7 @@ export default class Resume {
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app,  false,"");
-        navBarInit.loadNavBar();
+        openMenuList(app, false);
 
         const infoAll = await resumeInfo(resume);
 
