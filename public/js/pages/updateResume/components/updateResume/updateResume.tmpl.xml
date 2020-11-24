@@ -1,10 +1,10 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="user">
     <div class="container">
-        <div class="page__name">Редактирование резюме</div>
+        <div class="page-name">Редактирование резюме</div>
         <div class="sum__form__wrap">
             <form class="sum__form" method="post" action="#">
             <div class="sum__profile">
-                <div class="sum__exp__card">
+                <div class="input-data-card">
                     <div class="sum__profile__photo">
                         <img class="updCandImg" src="{user.imgPath}" alt=""/>
                     </div>
@@ -21,14 +21,14 @@
             </div>
             <div class="summary">
                 <div class="sum__candidate">
-                    <div class="sum__exp__card">
+                    <div class="input-data-card">
                         <div class="sum__title">
                             <p class="sum__description__block">Название резюме</p>
                             <input class="sum__user__info" id="title" name="title" type="text" value="{user.title}"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
-                    <div class="sum__exp__card">
+                    <div class="input-data-card">
                         <p class="sum__description__block">Контактные данные</p>
                         <div>
                             <label class="sum__form__labels" for="surname">Фамилия</label>
@@ -110,7 +110,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="sum__exp__card">
+                    <div class="input-data-card">
                         <div>
                             <p class="sum__description__block">Основная информация</p>
                         </div>
@@ -196,7 +196,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sum__exp__card">
+                    <div class="input-data-card">
                         <div>
                             <p class="sum__description__block">Специальность</p>
                             <label class="sum__form__labels" for="place">Желаемая должность</label>

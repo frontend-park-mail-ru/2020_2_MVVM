@@ -104,6 +104,8 @@ async function search(form, mainList, main, router) {
     data.keywords = formData.get("keywords");
     const companiesResponse = await network.doPost(companySearchURL, data);
     const companies = await companiesResponse.json();
+    const searchBlock = document.getElementById("main-navigation");
+    searchBlock.classList.add("hide");
     await renderCompanyList(companies, mainList, router);
 }
 

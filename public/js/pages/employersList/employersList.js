@@ -170,6 +170,8 @@ async function search(form, mainList, main, fetchVacancyList, router) {
     const response = await network.doPost(vacancySearchURL, data);
     console.assert(response.ok);
     const vacancies = await response.json();
+    const searchBlock = document.getElementById("main-navigation");
+    searchBlock.classList.add("hide");
     await getVacanciesList(vacancies, main, mainList, router);
 }
 

@@ -201,6 +201,8 @@ async function search(form, mainList, main, router) {
 
     const response = await network.doPost(resumeSearchURL, data);
     console.assert(response.ok);
+    const searchBlock = document.getElementById("main-navigation");
+    searchBlock.classList.add("hide");
     await renderResumeList(response, main, mainList, router);
 }
 

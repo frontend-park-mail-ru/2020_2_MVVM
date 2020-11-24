@@ -1,25 +1,25 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="container">
-            <div class="page__name">Авторизация</div>
+            <div class="page-name">Авторизация</div>
             <div class="auth">
                 <form>
-                    <div class="sum__exp__card">
-                        <div class="form__field_name">
-                            <div class="form__field_lable">Email</div>
-                            <div class="form__field_cont">
+                    <div class="input-data-card">
+                        <div class="form-field">
+                            <div class="form-field__lable">Email</div>
+                            <div class="form-field__content">
                                 <input id="emailAuth" name="email" class="cfield" placeholder="Введите email"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
                         </div>
-                        <div class="form__field_name">
-                            <div class="form__field_lable">Пароль</div>
-                            <div class="form__field_cont">
+                        <div class="form-field">
+                            <div class="form-field__lable">Пароль</div>
+                            <div class="form-field__content">
                                 <input id="passAuth" type="password" name="password" class="cfield" placeholder="Введите пароль"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
                         </div>
-                        <button id="entBtnAuth" class="enterBtn" type="submit">Войти</button>
-                        <div class="form__link"><a href="/reg">Регистрация</a></div>
+                        <button id="entBtnAuth" class="input-data-card__enter-btn" type="submit">Войти</button>
+                        <a href="/reg"><div class="input-data-card__link">Нет аккаунта?</div></a>
                     </div>
                 </form>
             </div>

@@ -42,7 +42,7 @@ export default class Profile {
         const main = createElem("div", "main", app);
         const container = createElem("div", "container", main);
 
-        const title = createElem("div", "profile__title", container);
+        const title = createElem("div", "profile-title", container);
 
         await this.getMyResponses().then((data) => {
             this.responses = data;
@@ -65,8 +65,8 @@ export default class Profile {
                 this.resumes = data;
             });
         }
-        const mainPage = createElem("div", "main__page", container);
-        const body = createElem("div", "main__page_body", mainPage);
+        const mainPage = createElem("div", "main-page", container);
+        const body = createElem("div", "main-page__body", mainPage);
         await mainPage.insertAdjacentHTML("afterbegin", persNB(localStorage.getItem('user_type')));
 
         //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q

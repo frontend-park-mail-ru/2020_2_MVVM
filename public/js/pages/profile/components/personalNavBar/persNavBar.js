@@ -45,7 +45,7 @@ function doCheckout(profile, content, body, person, navBar, idx) {
 }
 
 export function checkoutProfilePage(profile, content, body, person) {
-    const profNavBar = document.getElementsByClassName("persNavBar__menu-list");
+    const profNavBar = document.getElementsByClassName("navbar-menu-list");
     for (let i = 0; i < profNavBar[0].childElementCount; i++) {
         profNavBar[0].children[i].addEventListener('click', () => {
             doCheckout(profile, content, body, person, profNavBar[0], i);
@@ -66,7 +66,6 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
 
         } else {
             mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
-            console.log(list);
             list.forEach((vacancy,i) => {
                 DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${vacancy.comp_id}`;
             });
@@ -152,9 +151,9 @@ async function personalResponses(profile, body) {
 }
 
 async function acceptReject(profile, myResponses, body) {
-    const acceptBtn = document.getElementsByClassName("response__row_buttons-accept");
-    const rejectBtn = document.getElementsByClassName("response__row_buttons-reject");
-    const respStatus = document.getElementsByClassName("response__row_status");
+    const acceptBtn = document.getElementsByClassName("response-row__buttons_accept");
+    const rejectBtn = document.getElementsByClassName("response-row__buttons_reject");
+    const respStatus = document.getElementsByClassName("response-row__status");
     for (let i=0; i<acceptBtn.length; i++) {
         acceptBtn[i].addEventListener('click', event=>{
             const elem = event.target;
@@ -184,9 +183,9 @@ async function acceptReject(profile, myResponses, body) {
 }
 
 async function createLinks(profile, myResponses) {
-    const linkToResume = document.getElementsByClassName("responses__resume-link");
-    const linkToVacancy = document.getElementsByClassName("responses__vacancy-link");
-    const linkToCompany = document.getElementsByClassName("responses__company-link");
+    const linkToResume = document.getElementsByClassName("response-row-info__resume-link");
+    const linkToVacancy = document.getElementsByClassName("response-row-info__vacancy-link");
+    const linkToCompany = document.getElementsByClassName("response-row-info__company-link");
 
     myResponses.forEach((item, idx) => {
         if (linkToResume.length) {

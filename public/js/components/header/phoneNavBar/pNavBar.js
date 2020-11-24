@@ -36,7 +36,6 @@ export default function openMenu (app, need_search) {
             }
         });
 
-        console.log(searchMenu);
         if (searchMenu.length) {
             searchMenu[0].addEventListener('click', ()=>{
                 const searchBlock = document.getElementById("main-navigation");
@@ -45,7 +44,6 @@ export default function openMenu (app, need_search) {
                 } else {
                     searchBlock.classList.add("hide");
                 }
-
             });
         }
 

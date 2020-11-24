@@ -1,53 +1,53 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="container">
-        <div class="page__name">Регистрация</div>
+        <div class="page-name">Регистрация</div>
         <div class="reg">
             <form>
-                <div class="sum__exp__card">
-                    <div class="form__field_name">
-                        <div class="form__field_lable">Зарегистрироваться как</div>
-                        <select name="type" class="form__field_lable-select">
+                <div class="input-data-card">
+                    <div class="form-field">
+                        <div class="form-field__lable">Зарегистрироваться как</div>
+                        <select name="type" class="form-field__select">
                             <option value="candidate" selected="true">соискатель</option>
                             <option value="employer">работодатель</option>
                         </select>
                     </div>
-                    <div class="form__field_name">
-                        <div class="form__field_lable">Имя</div>
-                        <div class="form__field_cont">
+                    <div class="form-field">
+                        <div class="form-field__lable">Имя</div>
+                        <div class="form-field__content">
                             <input id="firstNameReg" name="firstname" class="cfield" placeholder="Введите имя"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
-                    <div class="form__field_name">
-                        <div class="form__field_lable">Фамилия</div>
-                        <div class="form__field_cont">
+                    <div class="form-field">
+                        <div class="form-field__lable">Фамилия</div>
+                        <div class="form-field__content">
                             <input id="lastNameReg" name="lastname" class="cfield" placeholder="Введите фамилию"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
-                    <div class="form__field_name">
-                        <div class="form__field_lable">Email</div>
-                        <div class="form__field_cont">
+                    <div class="form-field">
+                        <div class="form-field__lable">Email</div>
+                        <div class="form-field__content">
                             <input id="emailReg" name="email" class="cfield" placeholder="Введите email"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
-                    <div class="form__field_name">
-                        <div class="form__field_lable">Пароль</div>
-                        <div class="form__field_cont">
+                    <div class="form-field">
+                        <div class="form-field__lable">Пароль</div>
+                        <div class="form-field__content">
                             <input id="passwReg" name="password" class="cfield" type="password" placeholder="Введите пароль"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
-                    <div class="form__field_name">
-                        <div class="form__field_lable"></div>
-                        <div class="form__field_cont">
+                    <div class="form-field">
+                        <div class="form-field__lable"/>
+                        <div class="form-field__content">
                             <input id="passwReg2" name="password2" class="cfield" type="password" placeholder="Повторите пароль"/>
                             <span class="error" aria-live="polite"/>
                         </div>
                     </div>
-                    <button class="enterBtn" type="submit">Зарегистрироваться</button>
-                    <div class="form__link"><a href="/auth">Уже есть аккаунт</a></div>
+                    <button class="input-data-card__enter-btn" type="submit">Зарегистрироваться</button>
+                    <a href="/auth"><div class="input-data-card__link">Уже есть аккаунт</div></a>
                 </div>
             </form>
 
