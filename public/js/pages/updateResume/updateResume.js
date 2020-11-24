@@ -109,7 +109,7 @@ export default class UpdateResume{
 
 
 async function popUp(classCand) {
-    const btn = document.getElementById("btn__add_exp");
+    const btn = document.getElementById("btn-add-exp");
     await btn.addEventListener('click', (event) => {
         renderInputForm(undefined, classCand);
     });

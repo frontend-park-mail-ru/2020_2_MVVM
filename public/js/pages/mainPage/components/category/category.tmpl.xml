@@ -4,7 +4,7 @@
         <p class="category__label">37 активных вакансий, 0 добавлено сегодня</p>
         <div class="category-grid">
             <div class="category-sec">
-                <fest:for from="0" to="3" index="i">
+                <fest:for from="0" to="2" index="i">
                     <div class="category-sec-row">
                         <i class="category-sec-row__svg fa fa-bullhorn fa-4x"/>
                         <br></br>
@@ -17,7 +17,7 @@
                 </fest:for>
             </div>
             <div class="category-sec">
-                <fest:for from="3" to="6" index="i">
+                <fest:for from="2" to="4" index="i">
                     <div class="category-sec-row">
                         <i class="category-sec-row__svg fa fa-bullhorn fa-4x"/>
                         <br></br>

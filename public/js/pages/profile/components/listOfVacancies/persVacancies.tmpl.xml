@@ -1,7 +1,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="main__list-profile">
         <fest:each iterate="items" index="i" value="item">
-            <div class="main__list_row">
+            <div class="main-list-row">
                 <div class="list-row">
                     <div class="list-row-photo">
                         <div class="list-row-photo__bg list-row-photo__bg_resume"/>

@@ -84,9 +84,10 @@
 }
 
 .response-row-info {
-    display: grid;
-    grid-row-gap: 1rem;
     min-width: max-content;
+    @include mobile {
+        min-width: 47rem;
+    }
 
     &__text {
         font-size: $font-size_h4;

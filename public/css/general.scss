@@ -219,14 +219,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .error {
     color: var(--main-pink-color);
-    margin-bottom: 20px;
-    font: 15px Quicksand, serif;
+    margin-bottom: 2rem;
+    font: $font-size_h5_m Quicksand, serif;
     text-align: center;
+
+    @include mobile {
+        display: block;
+        text-align: start;
+        font-size: $font-size_h4_m;
+    }
 }
 
-svg {
-    margin: 0 5px;
-}
 
 
 /*_____________________________AUTH\REG_______________________*/
@@ -473,7 +476,7 @@ svg {
 
 /*_____BUTTON________*/
 
-.btn__add_exp {
+.btn-add-exp {
     border: 2px solid var(--buttons-purple-color);
     color: var(--buttons-purple-color);
     max-width: 280px;
@@ -483,7 +486,7 @@ svg {
     transition: 0.15s;
 }
 
-.btn__add_exp:hover {
+.btn-add-exp:hover {
     background-color: var(--buttons-purple-color);
     color: white;
     transition: 0.15s;
@@ -506,4 +509,8 @@ svg {
     border-radius: $border-radius_input;
     box-shadow: 0 0 0.1rem black;
     min-width: min-content;
+
+    @include mobile {
+        box-shadow: none;
+    }
 }

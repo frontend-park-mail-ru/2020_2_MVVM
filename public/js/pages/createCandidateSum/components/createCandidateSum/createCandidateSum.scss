@@ -6,32 +6,32 @@ input.sum__achievement{
 .summary div {
     margin-bottom: 15px;
 }
-.sum__form__wrap {
+.sum-form-wrap {
     display: flex;
     width: 100%;
   justify-content: center;
 }
-.sum__form__wrap h1 {
+.sum-form-wrap h1 {
     font-size: 24px;
     font-weight: 400;
     position: relative;
     margin: 50px 0 5px;
 }
 
-.sum__profile {
+.sum-profile {
     text-align: center;
 }
-.sum__profile__photo{
+.sum-profile__photo{
     max-width: inherit;
     margin-bottom: 20px;
     width: 100%;
 }
 
-.sum__profile__photo img {
+.sum-profile__photo img {
     max-width: 50%;
 }
 
-.sum__btn__blue{
+.sum-upload-photo__btn{
     border: 2px solid var(--buttons-purple-color);
     color: var(--buttons-purple-color);
     border-radius: 25px;
@@ -41,7 +41,7 @@ input.sum__achievement{
     cursor: pointer;
     padding: 15px 25px;
 }
-.sum__btn__blue:hover{
+.sum-upload-photo__btn:hover{
     background-color: var(--buttons-purple-color);
     color: white;
     transition: 0.15s;
@@ -51,7 +51,7 @@ input.sum__achievement{
     padding: 5px;
     justify-content: space-around;
 }
-.sum__upload__resume > .sum__btn__pink{
+.sum__upload__resume > .btn-pink{
     margin: 5px;
     font-size: 15px;
 }
@@ -64,19 +64,19 @@ input.sum__achievement{
 
 }
 
-.sum__candidate{
+.sum-candidate{
     min-width: 500px;
 }
 
 /********************** стилизация элементов формы **********************/
-label.sum__form__labels {
+label.sum-form__labels {
     display: block;
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 10px;
 }
 
-input.sum__user__info {
+input.sum-user-info {
     width: 100%;
     padding: 10px 15px;
     border: 1px solid var(--border-grey-color);
@@ -84,21 +84,21 @@ input.sum__user__info {
     font-size: 18px;
 }
 
-input.sum__user__info:focus, textarea:focus { /*выделяем поле при клике*/
+input.sum-user-info:focus, textarea:focus { /*выделяем поле при клике*/
     border: 1px solid var(--main-pink-color);
 }
-label.sum__form__switch {
+label.sum-form-switch {
     position: relative;
     padding-right: 10px;
     cursor: pointer;
     float: left;
     line-height: 40px;
 }
-input.sum__input__switch {
+input.sum-form-switch__input {
     position: absolute;
     opacity: 0;
 }
-.sum__switch__control {
+.sum-form-switch__control {
     display: inline-block;
     border: 1px solid var(--border-grey-color);
     top: 0;
@@ -117,15 +117,15 @@ input.sum__input__switch {
     content: "женский";
     font-size: 15px;
 }
-.sum__switch label:hover input ~ .sum__switch__control,
-.sum__switch input:focus ~ .sum__switch__control {
+.sum-switch label:hover input ~ .sum-form-switch__control,
+.sum-switch input:focus ~ .sum-form-switch__control {
     color: var(--main-pink-color);
 }
-.sum__switch input:checked ~ .sum__switch__control {
+.sum-switch input:checked ~ .sum-form-switch__control {
     color: var(--main-pink-color);
     border: 1px solid var(--main-pink-color);
 }
-select.sum__user__all {
+select.sum-select {
     cursor: pointer;
     padding: 10px 15px;
     border: 1px solid var(--border-grey-color);
@@ -145,14 +145,14 @@ div.sum__description__single {
     display: flex;
     justify-content: space-between;
 }
-.sum__description__block {
+.sum-description-block {
     margin: 15px;
     font-size: 18px;
     font-weight: 500;
     color: black;
     text-align: center;
 }
-.sum__btn__pink {
+.btn-pink {
     border: 2px solid var(--main-pink-color);
     color: white;
     width: 100%;
@@ -164,7 +164,7 @@ div.sum__description__single {
     cursor: pointer;
     background: var(--main-pink-color);
 }
-.sum__btn__pink:hover{
+.btn-pink:hover{
     border: 2px solid var(--main-pink-color);
     background-color: white;
     color: var(--main-pink-color);
@@ -183,7 +183,7 @@ div.sum__description__single {
     display: inline-block;
     font-size: 15px;
 }
-textarea.__sum__text {
+textarea.sum-form__textarea {
     min-width: 100%;
     max-width: 100%;
     padding: 10px 15px;
@@ -197,7 +197,7 @@ input.sum__date__birth {
     text-align: center;
     padding: 10px;
 }
-div.sum__upload__photo {
+div.sum-upload-photo {
     display: flex;
     justify-content: space-around;
     color: #8473C6FF;
@@ -207,7 +207,7 @@ div.sum__achievements {
     justify-content: space-between;
     align-items: last baseline;
 }
-.sum__description__block{
+.sum-description-block{
     font-size: 23px;
     font-weight: 900;
     color: var(--text-light-black);

@@ -4,6 +4,10 @@
     max-width: 100rem;
     margin: $margin-title auto;
 
+    @include mobile {
+        max-width: 70rem;
+    }
+
     &__header{
         font-size: $font-size_h2;
         text-align: center;

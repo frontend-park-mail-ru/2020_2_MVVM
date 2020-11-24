@@ -18,9 +18,11 @@ let currentWork;
 export async function renderInputForm(value, classCand) {
 
     app.insertAdjacentHTML("afterbegin", popUpCandTemplate(value));
-    let exit = document.getElementsByClassName("popUp__cont_block");
+    let exit = document.getElementsByClassName("popUp-cont__block");
     let bg = document.getElementsByClassName("bg");
+    const exitBtn = document.getElementById("exit-btn");
     exit = Array.prototype.slice.call(exit);
+    exit.push(exitBtn);
     exit.forEach((item) => {
         item.addEventListener('click', (event) => {
             bg[0].remove();
