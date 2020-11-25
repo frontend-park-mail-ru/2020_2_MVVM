@@ -71,10 +71,8 @@ export default class Vacancy {
             my_user_type: localStorage.getItem('user_type'),
         }
         mainContent.insertAdjacentHTML("beforeend", briefInfoJobTemp(briefInfoJob));
-        let imgs = document.getElementsByClassName("pageOfVacImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
-        }
+        const photo = document.getElementById("logo-employer");
+        photo.style.background = `no-repeat 0 0/cover url(${briefInfoJob.logo})`;
 
 
         const contentLeftColumn = createElem("div", "content-left-column", mainContent);

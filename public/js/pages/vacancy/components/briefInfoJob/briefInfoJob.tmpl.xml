@@ -1,9 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="header-left-column">
-        <div class="logo-employer">
-            <fest:atttibute>
-                <img class="pageOfVacImg" src="{items.logo}"></img>
-            </fest:atttibute>
+        <div class="logo-employer" id="logo-employer">
         </div>
         <div class="describe-employer">
             <a href="" id="companyName">
