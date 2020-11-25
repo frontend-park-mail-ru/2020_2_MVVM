@@ -6,6 +6,10 @@
 
     @include mobile {
         max-width: 70rem;
+
+    }
+    @include iphone5{
+        max-width: 64rem;
     }
 
     &__header{

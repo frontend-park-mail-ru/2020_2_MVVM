@@ -8,11 +8,13 @@ $font-size_h2_m: 4rem;
 $font-size_h3: 3rem;
 $font-size_h3_m: 3.5rem;
 
+$font-size_h3-4: 2.2rem;
+
 $font-size_h4: 2rem;
 $font-size_h4_m: 2.5rem;
 
-$font-size_h4-5: 2.5rem;
-$font-size_h4-5_m: 3rem;
+$font-size_h4-5: 1.7rem;
+$font-size_h4-5_m: 2.3rem;
 
 $font-size_h5: 1.5rem;
 $font-size_h5_m: 2rem;
@@ -42,5 +44,15 @@ $margin-title: 5rem;
 @mixin mobile {
     .is-mobile & {
         @content;
+    }
+}
+
+
+
+@mixin iphone5 {
+    @media (max-width: 320px) {
+        .is-mobile & {
+            @content;
+        }
     }
 }

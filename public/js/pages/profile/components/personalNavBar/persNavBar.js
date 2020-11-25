@@ -112,15 +112,14 @@ export function personalInfo(person, mainColumnLeft) {
 
 function personalLikes(profile, mainColumnLeft) {
     if (profile.favorites) {
-        profile.favorites.forEach((res) => {
-            res.imgPath = `${DOMAIN}static/resume/${res.resume_id}`;
-        });
+
         mainColumnLeft.insertAdjacentHTML("beforeend", listOfCandidatesTemp(profile.favorites));
-        let imgs = document.getElementsByClassName("listOfCandImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
-        }
-        const linksToFavResume = document.getElementsByClassName("go_to_view");
+        const photo = document.getElementsByClassName("list-row-photo__bg");
+        profile.favorites.forEach((res,i) => {
+            photo[i].style.background = `no-repeat 0 0/cover url(${DOMAIN}static/resume/${res.resume_id})`;
+        });
+
+        const linksToFavResume = document.getElementsByClassName("list-row");
         for (let i = 0; i < linksToFavResume.length; i++) {
             linksToFavResume[i].addEventListener('click', event => {
                 event.preventDefault();

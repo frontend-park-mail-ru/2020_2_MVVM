@@ -5,13 +5,11 @@
             <form method="post" action="#" class="sum-form">
                 <div class="sum-profile">
                     <div class="input-data-card">
-                        <div class="sum-profile__photo">
-                            <img src="https://studhunt.ru/static/company/default.png" alt=""/>
-                        </div>
+                        <div class="sum-profile__photo"/>
                         <p class="sum-description-block">Загрузить логотип</p>
                         <div class="sum-upload-photo">
                             <div class="sum-upload-photo__btn">
-                                <input id="comp__img_upload" class="sum-input-photo" name="sum__avatar" type="file"
+                                <input id="sum-img-load" class="sum-input-photo" name="sum__avatar" type="file"
                                        accept=".jpg, .jpeg, .png">
                                 </input>
                             </div>
@@ -19,57 +17,59 @@
                     </div>
                 </div>
                 <div id="summary" class="summary">
-                    <div class="input-data-card">
-                        <p class="sum-description-block">Общая информация</p>
-                        <div>
-                            <label class="sum-form__labels" for="organizationName">Название организации</label>
-                            <input class="sum-user-info" name="name" id="organizationName" type="text" value=""/>
-                            <span class="error" aria-live="polite"/>
-                        </div>
-                        <div>
-                            <label class="sum-form__labels" for="description">Описание организации</label>
-                            <textarea class="sum-form__textarea" id="description" name="description"/>
-                            <span class="error" aria-live="polite"/>
-                        </div>
-                        <div>
-                            <label class="sum-form__labels" for="selectBox">Сферы деятельности</label>
-                            <div class="multiselect">
-                                <div class="selectBox" id="selectBox">
-                                    <select>
-                                        <option>Сферы</option>
-                                    </select>
-                                </div>
-                                <div id="checkboxes">
-                                    <fest:for iterate="spheres" index="i" value="v">
-                                        <label for="{i}">
-                                            <input type="checkbox" id="{i}"/>
-                                            <fest:value>v</fest:value>
-                                        </label>
-                                    </fest:for>
+                    <div class="sum-main-block-info">
+                        <div class="input-data-card">
+                            <p class="sum-description-block">Общая информация</p>
+                            <div class="data-block">
+                                <label class="sum-form-labels" for="organizationName">Название организации</label>
+                                <input class="sum-user-info" name="name" id="organizationName" type="text" value=""/>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <div class="data-block">
+                                <label class="sum-form-labels" for="description">Описание организации</label>
+                                <textarea class="sum-user-info-textarea" id="description" name="description"/>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <div class="data-block">
+                                <label class="sum-form-labels" for="selectBox">Сферы деятельности</label>
+                                <div class="multiselect">
+                                    <div class="selectBox" id="selectBox">
+                                        <select>
+                                            <option>Сферы</option>
+                                        </select>
+                                    </div>
+                                    <div id="checkboxes">
+                                        <fest:for iterate="spheres" index="i" value="v">
+                                            <label for="{i}">
+                                                <input type="checkbox" id="{i}"/>
+                                                <fest:value>v</fest:value>
+                                            </label>
+                                        </fest:for>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="input-data-card">
+                            <p class="sum-description-block">Контакты</p>
+                            <div class="data-block">
+                                <label class="sum-form-labels" for="link">Ссылка на сайт</label>
+                                <input class="sum-user-info" name="link" id="link" type="text" value=""/>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <div class="data-block">
+                                <label class="sum-form-labels" for="area_search">Город</label>
+                                <select class="sum-select" id="area_search" name="area_search">
+                                    <option value="Москва" selected="true">Москва</option>
+                                    <option value="Санкт-петербург">Санкт-Петербург</option>
+                                    <option value="Екатеринбург">Екатеринбург</option>
+                                </select>
+                            </div>
+                            <div class="sum-exp-select" id="pos1">
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                        </div>
+                        <button id="send-form-empl" class="btn-pink" type="submit">Сохранить</button>
                     </div>
-                    <div class="input-data-card">
-                        <p class="sum-description-block">Контакты</p>
-                        <div>
-                            <label class="sum-form__labels" for="link">Ссылка на сайт</label>
-                            <input class="sum-user-info" name="link" id="link" type="text" value=""/>
-                            <span class="error" aria-live="polite"/>
-                        </div>
-                        <div>
-                            <label class="sum-form__labels" for="area_search">Город</label>
-                            <select class="sum-select" id="area_search" name="area_search">
-                                <option value="Москва" selected="true">Москва</option>
-                                <option value="Санкт-петербург">Санкт-Петербург</option>
-                                <option value="Екатеринбург">Екатеринбург</option>
-                            </select>
-                        </div>
-                        <div class="sum-exp-select" id="pos1">
-                            <span class="error" aria-live="polite"/>
-                        </div>
-                    </div>
-                    <button id="send-form-empl" class="btn-pink" type="submit">Сохранить</button>
                 </div>
             </form>
         </div>

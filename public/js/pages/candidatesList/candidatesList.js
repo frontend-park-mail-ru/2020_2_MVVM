@@ -129,10 +129,7 @@ export default class CandidatesList {
                     }, {
                         name: "10",
                         text: "5-10 лет"
-                    }, {
-                        name: "11",
-                        text: "больше 10 лет"
-                    }
+                    },
                 ]
             }
         ];

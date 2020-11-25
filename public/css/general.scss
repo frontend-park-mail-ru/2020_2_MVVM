@@ -253,6 +253,9 @@ h1, h2, h3, h4, h5, h6 {
     @include mobile {
         min-width: 60rem;
     }
+    @include iphone5{
+        min-width: 52rem;
+    }
 
 
     &__lable {
@@ -262,6 +265,9 @@ h1, h2, h3, h4, h5, h6 {
         @include mobile {
             font-size: $font-size_h3_m;
         }
+        @include iphone5{
+            font-size: $font-size_h3;
+        }
     }
 
     &__content {
@@ -269,12 +275,18 @@ h1, h2, h3, h4, h5, h6 {
         @include mobile {
             width: 44rem;
         }
+        @include iphone5{
+            width: 40rem;
+        }
     }
 
     &__select {
         font-size: $font-size_h4;
         @include mobile {
             font-size: $font-size_h3_m;
+        }
+        @include iphone5{
+            font-size: $font-size_h3;
         }
     }
 
@@ -292,6 +304,9 @@ h1, h2, h3, h4, h5, h6 {
     @include mobile {
         font-size: $font-size_h3_m;
         height: 7rem;
+    }
+    @include iphone5{
+        width: auto;
     }
 
     &:focus {
@@ -347,6 +362,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .list-page {
     display: flex;
+    justify-content: center;
 }
 
 
@@ -360,6 +376,7 @@ h1, h2, h3, h4, h5, h6 {
     border-color: white white var(--border-grey-color) var(--border-grey-color);
     margin-bottom: 1px;
     transition: 0.15s;
+    min-width: fit-content;
     @include mobile {
         min-height: 30rem;
     }
@@ -415,6 +432,9 @@ h1, h2, h3, h4, h5, h6 {
         @include mobile {
             height: 3rem;
             font-size: $font-size_h4-5_m;
+        }
+        @include iphone5{
+            height: 4rem;
         }
     }
 
@@ -509,6 +529,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: $border-radius_input;
     box-shadow: 0 0 0.1rem black;
     min-width: min-content;
+
 
     @include mobile {
         box-shadow: none;

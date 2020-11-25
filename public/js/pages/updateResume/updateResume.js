@@ -90,10 +90,8 @@ export default class UpdateResume{
 
         // console.log(user);
         main.insertAdjacentHTML("afterbegin", updateResumeTemp(user));
-        let imgs = document.getElementsByClassName("updCandImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
-        }
+        const photo = document.getElementById("sum-profile__photo");
+        photo.style.background = `no-repeat 0 0/cover url(${user.imgPath})`;
 
 
         const form = main.querySelector("form");
