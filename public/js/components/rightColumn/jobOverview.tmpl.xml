@@ -1,61 +1,75 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-  <div class="job-overview">
-  <h3>Обзор <fest:space/> <fest:value>items.name</fest:value></h3>
-  <ul class="job-overview-container">
-    <li>
-      <div class="inline-icon">
-        <i class="fas fa-wallet fa-lg"></i>
-        <div>
-          <h2>Зарплата</h2>
-          <span><fest:value>items.salary_min</fest:value> - <fest:value>items.salary_max</fest:value></span>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="inline-icon">
-        <i class="fa fa-mars-double fa-lg"></i>
-        <div>
-          <h2>Пол</h2>
-          <span><fest:value>items.gender</fest:value></span>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="inline-icon">
-        <i class="fa fa-thumbtack fa-lg"></i>
-        <div>
-          <h2>Уровень</h2>
-          <span><fest:value>items.career_level</fest:value></span>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="inline-icon">
-        <i class="fa fa-puzzle-piece fa-lg"></i>
-        <div>
-          <h2>Направление</h2>
-          <span><fest:value>items.interest</fest:value></span>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="inline-icon">
-        <i class="fa fa-user-shield fa-lg"></i>
-        <div>
-          <h2>Опыт</h2>
-          <span><fest:value>items.experience_month</fest:value></span>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="inline-icon">
-        <i class="fas fa-chart-line fa-lg"></i>
-        <div>
-          <h2>Образование</h2>
-          <span><fest:value>items.education</fest:value></span>
-        </div>
-      </div>
-    </li>
-  </ul>
-  </div>
+    <div class="job-overview">
+        <div class="job-overview__title">Обзор вакансии</div>
+        <ul class="job-overview-container">
+            <div class="job-overview-li">
+                <div class="inline-icon">
+                    <div class="fas fa-wallet fa-lg inline-icon__svg"></div>
+                    <div class="inline-icon-desc">
+                        <div class="inline-icon-desc__title">Зарплата</div>
+                        <div class="inline-icon-desc__body">
+                            <fest:value>items.salary_min</fest:value>
+                            -
+                            <fest:value>items.salary_max</fest:value>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-overview-li">
+                <div class="inline-icon">
+                    <div class="fa fa-mars-double fa-lg inline-icon__svg"></div>
+                    <div class="inline-icon-desc">
+                        <div class="inline-icon-desc__title" >Пол</div>
+                        <div class="inline-icon-desc__body">
+                            <fest:value>items.gender</fest:value>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-overview-li">
+                <div class="inline-icon">
+                    <div class="fa fa-thumbtack fa-lg inline-icon__svg"></div>
+                    <div class="inline-icon-desc">
+                        <div class="inline-icon-desc__title">Уровень</div>
+                        <div class="inline-icon-desc__body">
+                            <fest:value>items.career_level</fest:value>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-overview-li">
+                <div class="inline-icon">
+                    <div class="fa fa-puzzle-piece fa-lg inline-icon__svg"></div>
+                    <div class="inline-icon-desc">
+                        <div class="inline-icon-desc__title">Направление</div>
+                        <div class="inline-icon-desc__body">
+                            <fest:value>items.interest</fest:value>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-overview-li">
+                <div class="inline-icon">
+                    <div class="fa fa-user-shield fa-lg inline-icon__svg"></div>
+                    <div class="inline-icon-desc">
+                        <div class="inline-icon-desc__title">Опыт</div>
+                        <div class="inline-icon-desc__body">
+                            <fest:value>items.experience_month</fest:value>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-overview-li">
+                <div class="inline-icon">
+                    <div class="fas fa-chart-line fa-lg inline-icon__svg"></div>
+                    <div class="inline-icon-desc">
+                        <div class="inline-icon-desc__title">Образование</div>
+                        <div class="inline-icon-desc__body">
+                            <fest:value>items.education</fest:value>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </div>
 </fest:template>

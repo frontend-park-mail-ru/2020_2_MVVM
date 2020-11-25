@@ -62,7 +62,8 @@ export default class Vacancy {
         const mainContent = createElem("div", "main-content", main);
 
         const briefInfoJob = {
-            name: allInfo.companyInfo.name,
+            name_company: allInfo.companyInfo.name,
+            name_vacancy: allInfo.vacancyInfo.title,
             logo: `${DOMAIN}static/company/`+company_id,
             location: `${allInfo.vacancyInfo.location}/${allInfo.vacancyInfo.area_search}`,
             site: allInfo.companyInfo.link,
@@ -126,10 +127,11 @@ export default class Vacancy {
                 education: educationLevel[allInfo.vacancyInfo.education_level],
             };
 
+        console.log(jobOverview.education);
 
         contentRightColumn.insertAdjacentHTML("beforeend", jobOverviewTemp(jobOverview));
 
-        contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
+        // contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
 
         // contentRightColumn.insertAdjacentHTML("beforeend", shareBarTemp());
 

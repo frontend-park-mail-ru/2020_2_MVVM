@@ -6,6 +6,14 @@
     grid-template-columns: auto 35rem;
     margin: 0 auto;
     padding: 0 1.5rem;
+
+    @include mobile {
+        display: block;
+        width: 100%;
+        max-width: 72rem;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .content-left-column{
@@ -31,17 +39,32 @@
         margin-bottom: 1.5rem;
         margin-top: 1rem;
         line-height: 1.2;
+        @include mobile {
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-size: $font-size_h3_m;
+        }
     }
 
     &__p {
+        font-size: $font-size_h4;
         margin-top: 0.5rem;
         margin-bottom: 1rem;
+        @include mobile {
+            font-size: $font-size_h4_m;
+            line-height: 2.7rem;
+        }
     }
 
     &__li {
+        font-size: $font-size_h4;
         margin-top: 0.5rem;
         margin-bottom: 1rem;
         list-style-type: none;
+        @include mobile {
+            line-height: 2.7rem;
+            font-size: $font-size_h4_m;
+        }
 
         &:before {
             margin: 0 0.5rem;

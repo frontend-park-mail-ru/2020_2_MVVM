@@ -1,42 +1,72 @@
+@import "public/css/vars";
+
 .header-left-column {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: flex-start;
-    margin-top: 50px;
+    margin-top: $margin-title;
     grid-column: 1 / 3;
+    align-items: center;
+
+    @include mobile {
+        display: block;
+    }
 }
 
 .logo-employer {
-    width: 15rem;
-    height: 15rem;
+    min-width: 20rem;
+    min-height: 20rem;
+
+    @include mobile {
+        width: 10rem;
+        height: 10rem;
+        margin: auto;
+    }
 
 }
 
 .describe-employer {
-    margin-bottom: 10px;
     font-weight: 500;
     box-sizing: border-box;
     letter-spacing: 0;
-    padding-left: 20px;
-}
-.describe-employer h4 {
-    font-size: 30px;
-    color: var(--text-light-black);
-    line-height: 1.2;
-    width: min-content;
+    padding-left: 2rem;
+
+    &__vac-name{
+        font-size: $font-size_h3;
+        color: var(--text-light-black);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+
+        @include mobile {
+            font-size: $font-size_h3_m;
+        }
+    }
+
+    &__comp-name{
+        font-size: $font-size_h4;
+        color: var(--text-light-black);
+        line-height: 1.2;
+        width: min-content;
+        margin-bottom: 1rem;
+        @include mobile {
+            font-size: $font-size_h4_m;
+        }
+        &:hover{
+            color: var(--main-pink-color);
+        }
+    }
+
+    &__location {
+        font-size: $font-size_h5;
+        @include mobile {
+            font-size: $font-size_h5_m;
+        }
+        color: #888888;
+        line-height: 1rem;
+        margin-bottom: 2rem;
+    }
 }
 
-.describe-employer h4:hover{
-    color: var(--main-pink-color);
-}
-
-.describe-employer span {
-    font-size: 13px;
-    color: #888888;
-    line-height: 10px;
-
-}
 
 .contact-employment {
     display: flex;
@@ -44,54 +74,53 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 70px;
+    height: 7rem;
 }
 
 .contact-employment-item {
-    color: #888888;
-    line-height: 29px;
-    font-size: 13px;
-    margin-right: 40px;
-    margin-top: 11px;
+    color: var(--text-gray);
+    line-height: 3rem;
+    font-size: $font-size_h5;
+    @include mobile {
+        font-size: $font-size_h5_m;
+    }
+    margin-right: 4rem;
+
+    &__body{
+        display: inline-block;
+        margin-left: 1rem;
+    }
 }
 .line-box {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 15px;
     grid-column: 1 / 3;
-}
 
-.line {
-    border-top: 1px solid #888888 !important;
-    border: 1px solid#FFFFFF;
-    width: auto;
 }
-
 
 
 .btm-apply-job {
-    border-radius: 40px;
-    padding: 20px;
-    line-height: 22.5px;
-    font-size: 15px;
+    border-radius: $border-radius_btn;
+    padding: $btn_padding;
+    font-size: $font-size_btn;
+
     text-align: center;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: 15px;
-    width: 260px;
+    width: 25rem;
     cursor: pointer;
     transition: 0.15s;
-    border: solid 2px var(--buttons-purple-color);
+    border: solid $border_btn var(--buttons-purple-color);
     color: var(--buttons-purple-color);
-}
+    margin: auto;
 
-.btm-apply-job:hover {
-    background-color: var(--buttons-purple-color);
-    color: white;
-    transition: 0.15s;
-}
+    @include mobile {
+        margin: auto auto 5rem;
+        font-size: $font-size_btn_m;
+    }
 
-.pageOfVacImg{
-  width: 100%;
+    &:hover {
+        background-color: var(--buttons-purple-color);
+        color: white;
+        transition: 0.15s;
+    }
 }
