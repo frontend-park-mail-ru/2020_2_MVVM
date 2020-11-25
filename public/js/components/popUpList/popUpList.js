@@ -4,42 +4,33 @@ import {DOMAIN} from "Js/libs/constants";
 
 
 export default function popUpList(app, responsedCls, responsedId, data) {
-    console.log(data);
+
     data.user_type = localStorage.getItem('user_type');
-    if (data.list && data.list.length) {
-        if (data.user_type==='candidate') {
-            data.list.forEach((resume) => {
-                resume.imgPath = `${DOMAIN}static/resume/${resume.resume_id}`;
-            });
-        } else if (data.user_type==='employer'){
-            data.list.forEach((vacancy) => {
-                vacancy.imgPath = `${DOMAIN}static/company/${vacancy.comp_id}`;
-            });
-        }
-    }
 
     app.insertAdjacentHTML("afterbegin", popUpListTemp(data));
-    let imgs = document.getElementsByClassName("listOfPopImg");
+    let DomList = document.getElementsByClassName('list-row-photo__bg');
     if (data.user_type==='candidate') {
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
-        }
+        data.list.forEach((resume, i) => {
+            DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/resume/${resume.resume_id}`;
+        });
     } else {
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/vacancy/default.png`};
-        }
+        data.list.forEach((vacancy, i) => {
+            DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${vacancy.comp_id}`;
+        });
     }
 
 
-    let exit = document.getElementsByClassName("popUp__cont_block");
+    let exit = document.getElementsByClassName("popUp-cont__block");
     let bg = document.getElementsByClassName("bg");
+    const exitBtn = document.getElementById("exit-btn");
     exit = Array.prototype.slice.call(exit);
+    exit.push(exitBtn);
     exit.forEach((item) => {
         item.addEventListener('click', () => {
             bg[0].remove();
         });
     });
-    let selectBtn = document.getElementsByClassName("main__candidate_shortlist");
+    let selectBtn = document.getElementsByClassName("list-row");
     selectBtn = Array.prototype.slice.call(selectBtn);
     selectBtn.forEach((item, idx)=>{
         item.addEventListener('click',()=>{

@@ -1,53 +1,51 @@
+@import "public/css/vars";
+
 
 .main-content {
     display: grid;
-    grid-template-columns: auto 290px;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    grid-template-columns: auto 35rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 .content-left-column{
     grid-column: 1;
-    padding: 0 15px;
+    padding: 0 1.5rem;
 }
 
 .content-right-column {
     grid-column: 2;
-    padding: 0 15px;
+    padding: 0 1.5rem;
 }
 
-.job-description h3 {
-    font-size: 25px;
-    font-weight: 550;
-    color: #202020;
-    margin-bottom: 15px;
-    margin-top: 10px;
-    line-height: 1.2;
-}
-
-.job-description p {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-}
-
-.job-description {
-    font-size: 18px;
+.job-description{
+    font-size: $font-size_h4;
     color: var(--text-gray);
-    line-height: 24px;
-    margin-bottom: 19px;
-}
+    line-height: 2.4rem;
+    margin-bottom: 2rem;
 
-.job-description li {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-    list-style-type: none;
-}
+    &__h3 {
+        font-size: $font-size_h3;
+        font-weight: 550;
+        color: var(--text-light-black);
+        margin-bottom: 1.5rem;
+        margin-top: 1rem;
+        line-height: 1.2;
+    }
 
-.job-description li:before {
-    margin: 0 5px;
-    content: "—";
-}
+    &__p {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
 
+    &__li {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        list-style-type: none;
+
+        &:before {
+            margin: 0 0.5rem;
+            content: "—";
+        }
+    }
+}

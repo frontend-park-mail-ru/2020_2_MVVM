@@ -4,6 +4,7 @@ import {selectCheckbox} from "./components/createCompany/createCompany.js";
 import {INPUT_TEXT_OK, spheres} from "Js/libs/constants";
 import createCompanyTemp from './components/createCompany/createCompany.tmpl.xml'
 import Validation from "Js/libs/validation";
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 
 export const app = window.document.getElementById('app');
@@ -17,8 +18,7 @@ export default class CreateCompany {
     render(content) {
         app.innerHTML = '';
 
-        const createCompanyNavBar = new NavBarInit(app, content, false, "Создание организации");
-        createCompanyNavBar.loadNavBar();
+        openMenuList(app, false);
 
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("afterbegin", createCompanyTemp(spheres));

@@ -1,0 +1,58 @@
+
+$font-size_h1: 4rem;
+$font-size_h1_m: 4.5rem;
+
+$font-size_h2: 3.5rem;
+$font-size_h2_m: 4rem;
+
+$font-size_h3: 3rem;
+$font-size_h3_m: 3.5rem;
+
+$font-size_h3-4: 2.2rem;
+
+$font-size_h4: 2rem;
+$font-size_h4_m: 2.5rem;
+
+$font-size_h4-5: 1.7rem;
+$font-size_h4-5_m: 2.3rem;
+
+$font-size_h5: 1.5rem;
+$font-size_h5_m: 2rem;
+
+$font-size_h6: 1.2rem;
+$font-size_h6_m: 1.7rem;
+
+$font-size_p: 2.5rem;
+$font-size_p_m: 3rem;
+
+$font-size_btn: 2rem;
+$font-size_btn_m: 2.5rem;
+
+$font-size_txt: 1.7rem;
+$font-size_txt_m: 2.3rem;
+
+$border_btn: 0.2rem;
+$border-radius_btn: 5rem;
+$border-radius_input: 1rem;
+
+
+$btn_padding: 2rem;
+$btn_padding_m: 2.5rem;
+
+$margin-title: 5rem;
+
+@mixin mobile {
+    .is-mobile & {
+        @content;
+    }
+}
+
+
+
+@mixin iphone5 {
+    @media (max-width: 320px) {
+        .is-mobile & {
+            @content;
+        }
+    }
+}

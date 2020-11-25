@@ -6,6 +6,7 @@ import {checkBoxes} from "Js/components/searchForm/searchForm";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml';
 import listOfCompaniesTemp from './components/listOfCompanies/listOfCompanies.tmpl.xml';
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml';
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById('app');
 
@@ -50,8 +51,7 @@ export default class CompaniesList {
             m[0].fields.push({name:item, text:item});
         });
 
-        const compList = new NavBarInit(app, content, false, "");
-        compList.loadNavBar();
+        openMenuList(app, true);
 
 
         const main = createElem("div", "main", app);
@@ -60,6 +60,11 @@ export default class CompaniesList {
         mainRow.style.display = "flex";
 
         mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
+
+        const searchForm = document.getElementById("main-navigation");
+        if (document.body.className === 'is-mobile') {
+            searchForm.classList.add("hide");
+        }
 
         const mainList = createElem("div", "main__list", mainRow);
 
@@ -99,19 +104,18 @@ async function search(form, mainList, main, router) {
     data.keywords = formData.get("keywords");
     const companiesResponse = await network.doPost(companySearchURL, data);
     const companies = await companiesResponse.json();
+    const searchBlock = document.getElementById("main-navigation");
+    searchBlock.classList.add("hide");
     await renderCompanyList(companies, mainList, router);
 }
 
 async function renderCompanyList(companies, mainList, router) {
     if (companies && companies.companyList) {
-        companies.companyList.forEach((company) => {
-            company.imgPath = `${DOMAIN}static/company/${company.id}`;
-        });
         mainList.insertAdjacentHTML("beforeend", listOfCompaniesTemp(companies.companyList));
-        let imgs = document.getElementsByClassName("listOfCompImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
-        }
+        let compDomList = await document.getElementsByClassName('list-row-photo__bg');
+        companies.companyList.forEach((company, i) => {
+            compDomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${company.id}`;
+        });
         getCompanyPage(router, companies.companyList);
         // mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());
     } else {
@@ -122,7 +126,7 @@ async function renderCompanyList(companies, mainList, router) {
 
 
 function getCompanyPage(router, company) {
-    const linksToCompany = document.getElementsByClassName("go_to_resume");
+    const linksToCompany = document.getElementsByClassName("go_to_view");
     for (let i = 0; i < linksToCompany.length; i++) {
         linksToCompany[i].addEventListener('click', event => {
             event.preventDefault();

@@ -5,6 +5,7 @@ import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 import updateResumeTemp from './components/updateResume/updateResume.tmpl.xml'
 import {network} from "Js/libs/networks";
 import {DOMAIN, resumeByIdURL} from "Js/libs/constants";
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 export const app = window.document.getElementById('app');
 
@@ -83,17 +84,14 @@ export default class UpdateResume{
 
         const user = await getAllInfo(this, resumeInfo);
 
-        const employersList = new NavBarInit(app, content, false, "");
-        employersList.loadNavBar();
+        openMenuList(app, false);
 
         const main = createElem("div", "main", app);
 
         // console.log(user);
         main.insertAdjacentHTML("afterbegin", updateResumeTemp(user));
-        let imgs = document.getElementsByClassName("updCandImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
-        }
+        const photo = document.getElementById("sum-profile__photo");
+        photo.style.background = `no-repeat 0 0/cover url(${user.imgPath})`;
 
 
         const form = main.querySelector("form");
@@ -109,7 +107,7 @@ export default class UpdateResume{
 
 
 async function popUp(classCand) {
-    const btn = document.getElementById("btn__add_exp");
+    const btn = document.getElementById("btn-add-exp");
     await btn.addEventListener('click', (event) => {
         renderInputForm(undefined, classCand);
     });

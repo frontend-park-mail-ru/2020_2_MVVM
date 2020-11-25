@@ -1,14 +1,16 @@
-.header__page h3 {
-    text-align: center;
-    font-family: Comfortaa, serif;
-    line-height: 1.2;
-}
 
-.header__page p {
-    text-align: center;
-    font-size: 15px;
-    margin: 10px;
-    color: #d5d8f3;
+@import './public/css/vars';
+
+.main-page {
+    &__label {
+        font-size: $font-size_h5;
+        color: white;
+        opacity: 0.8;
+
+        @include mobile {
+            font-size: $font-size_h5_m;
+        }
+    }
 }
 
 .search-form-header {
@@ -16,36 +18,56 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 90px;
 }
 
-.search-form-header > div {
-    margin: 10px;
-    min-height: 50px;
-}
 
-.search-form-header input {
-    border-radius: 8px;
-    width: 100%;
-    height: 100%;
-    padding: 0 20px;
-}
-
-.search-form-header .search-job {
+.search-job {
     flex-grow: 2;
+    margin: 1rem;
+
+    &__input {
+        border-radius: $border-radius_input;
+        width: 100%;
+        height: 6rem;
+        padding: 0 2rem;
+        font-size: $font-size_h4;
+        @include mobile {
+            padding: 0 1rem;
+            font-size: $font-size_h4_m;
+        }
+    }
+
 }
 
-.search-form-header .search-place {
+.search-place {
+    height: 6rem;
     flex-grow: 1;
+    margin: 1rem;
+
+    &__input {
+        border-radius: $border-radius_input;
+        width: 100%;
+        height: 100%;
+        padding: 0 2rem;
+        font-size: $font-size_h4;
+        @include mobile {
+            padding: 0 1rem;
+            font-size: $font-size_h4_m;
+        }
+    }
 }
 
-.search-form-header .btm-search {
-    padding: 10px;
-    background-color: #8b91dd;
-    font-size: 30px;
-    border-radius: 8px;
+
+.search-btn {
+    padding: 1rem;
+    background-color: var(--buttons-purple-color);
+    font-size: 3.5rem;
+    border-radius: $border-radius_input;
+    height: 100%;
+    align-self: center;
+
+    &__a {
+        color: white;
+    }
 }
 
-.search-form-header a {
-    color: white;
-}

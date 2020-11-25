@@ -2,6 +2,7 @@ import {NavBarInit} from "Js/components/header/navBar";
 import {checkFrom} from "./components/auth_form/auth.js";
 import createElem from "Js/libs/createElem";
 import authTemp from './components/auth_form/auth.tmpl.xml'
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 
 const app = window.document.getElementById('app');
@@ -16,9 +17,8 @@ export default class AuthList {
 
         app.innerHTML = '';
 
-        const auth = new NavBarInit(app, content,false, "Авторизация");
-        console.log(content);
-        auth.loadNavBar();
+        openMenuList(app, false);
+
 
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("beforeend", authTemp());

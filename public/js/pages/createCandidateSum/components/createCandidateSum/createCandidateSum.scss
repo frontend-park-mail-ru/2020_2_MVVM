@@ -1,232 +1,238 @@
-input.sum__achievement{
-    max-width: 50%;
+
+@import "public/css/vars";
+
+.data-block{
+    margin-bottom: 1.5rem;
+    @include mobile {
+        margin-bottom: 4rem;
+    }
 }
 
-
-.summary div {
-    margin-bottom: 15px;
-}
-.sum__form__wrap {
+.sum-form-wrap {
     display: flex;
-    width: 100%;
-  justify-content: center;
-}
-.sum__form__wrap h1 {
-    font-size: 24px;
-    font-weight: 400;
-    position: relative;
-    margin: 50px 0 5px;
+    justify-content: center;
+
+    @include mobile {
+        width: 64rem;
+    }
+
 }
 
-.sum__profile {
+
+.sum-profile {
     text-align: center;
-}
-.sum__profile__photo{
-    max-width: inherit;
-    margin-bottom: 20px;
-    width: 100%;
+    width: 55rem;
+
+    @include mobile {
+        width: 100%;
+    }
+
+    &__photo{
+        width: 15rem;
+        height: 15rem;
+        background: no-repeat 0 0/cover url(https://studhunt.ru/static/resume/default.png);
+        margin: auto;
+    }
 }
 
-.sum__profile__photo img {
-    max-width: 50%;
-}
-
-.sum__btn__blue{
-    border: 2px solid var(--buttons-purple-color);
-    color: var(--buttons-purple-color);
-    border-radius: 25px;
+.sum-upload-photo__btn{
+    border: $border_btn solid var(--main-pink-color);
+    color: var(--main-pink-color);
+    border-radius: $border-radius_btn;
     align-self: center;
     transition: 0.15s;
     background: white;
     cursor: pointer;
-    padding: 15px 25px;
-}
-.sum__btn__blue:hover{
-    background-color: var(--buttons-purple-color);
-    color: white;
-    transition: 0.15s;
-    cursor: pointer;
-}
-.sum__upload__resume{
-    padding: 5px;
-    justify-content: space-around;
-}
-.sum__upload__resume > .sum__btn__pink{
-    margin: 5px;
-    font-size: 15px;
-}
-.summary {
-    /*background: white;*/
-    width: 100%;
-    max-width: 50vw;
-    border-radius: 0 20px 20px 0;
-    color: var(--text-gray);
+    //padding: $btn_padding;
 
+    &:hover{
+        background-color: var(--main-pink-color);
+        color: white;
+        transition: 0.15s;
+        cursor: pointer;
+    }
 }
 
-.sum__candidate{
-    min-width: 500px;
+.sum-main-block-info{
+    width: 55rem;
+    @include mobile {
+        width: 100%;
+    }
 }
 
-/********************** стилизация элементов формы **********************/
-label.sum__form__labels {
+.sum-form-labels {
     display: block;
-    font-size: 18px;
+    font-size: $font-size_h4;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+
+    @include mobile {
+        font-size: $font-size-h3;
+    }
 }
 
-input.sum__user__info {
+.sum-user-info {
     width: 100%;
-    padding: 10px 15px;
-    border: 1px solid var(--border-grey-color);
-    border-radius: 10px;
-    font-size: 18px;
+    padding: 1rem 1.5rem;
+    border: $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
+    font-size: $font-size-h4-5;
+
+    @include mobile {
+        height: 6rem;
+        font-size: $font-size-h4_m;
+    }
+
+    &:focus {
+        border: $border-btn solid var(--main-pink-color);
+    }
 }
 
-input.sum__user__info:focus, textarea:focus { /*выделяем поле при клике*/
-    border: 1px solid var(--main-pink-color);
+.sum-user-info-textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
+    font-size: $font-size-h4-5;
+
+    @include mobile {
+        height: 10rem;
+        font-size: $font-size-h4_m;
+    }
+
+    &:focus {
+        border: $border-btn solid var(--main-pink-color);
+    }
 }
-label.sum__form__switch {
+
+.sum-form-switch {
     position: relative;
-    padding-right: 10px;
+    padding-right: 1rem;
     cursor: pointer;
     float: left;
-    line-height: 40px;
+    line-height: 5rem;
+
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    &__control {
+        display: inline-block;
+        border: $border_btn solid var(--border-grey-color);
+        top: 0;
+        left: 0;
+        height: 5.5rem;
+        width: 9rem;
+        background: white;
+        border-radius: $border-radius_input;
+        text-align: center;
+
+        @include mobile {
+            height: 6.5rem;
+            width: 15rem;
+        }
+
+        &_male:before {
+            content: "мужской";
+            font-size: $font-size-h4-5;
+
+            @include mobile {
+                font-size: $font-size-h4_m;
+            }
+        }
+
+        &_female:before {
+            content: "женский";
+            font-size: $font-size-h4-5;
+
+            @include mobile {
+                font-size: $font-size-h4_m;
+            }
+        }
+
+    }
 }
-input.sum__input__switch {
-    position: absolute;
-    opacity: 0;
-}
-.sum__switch__control {
-    display: inline-block;
-    border: 1px solid var(--border-grey-color);
-    top: 0;
-    left: 0;
-    height: 40px;
-    width: 80px;
-    background: white;
-    border-radius: 10px;
-    text-align: center;
-}
-.sum__male:before {
-    content: "мужской";
-    font-size: 15px;
-}
-.sum__female:before {
-    content: "женский";
-    font-size: 15px;
-}
-.sum__switch label:hover input ~ .sum__switch__control,
-.sum__switch input:focus ~ .sum__switch__control {
+
+.sum-form-switch:hover .sum-form-switch__input ~ .sum-form-switch__control,
+.sum-form-switch__input:focus ~ .sum-form-switch__control{
     color: var(--main-pink-color);
 }
-.sum__switch input:checked ~ .sum__switch__control {
+
+.sum-form-switch__input:checked ~ .sum-form-switch__control{
     color: var(--main-pink-color);
-    border: 1px solid var(--main-pink-color);
+    border: $border_btn solid var(--main-pink-color);
 }
-select.sum__user__all {
+
+
+.sum-select {
     cursor: pointer;
-    padding: 10px 15px;
-    border: 1px solid var(--border-grey-color);
-    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    border: $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
     width: 100%;
     background: white;
-    font-size: 18px;
+    font-size: $font-size_h4-5;
+    @include mobile {
+        font-size: $font-size-h4_m;
+    }
 }
-select.sum__small_field {
-    margin-left: 5px;
-    cursor: pointer;
-    padding: 1px 3px;
-    border-radius: 5px;
-    background: #f8f7f7;
-}
-div.sum__description__single {
-    display: flex;
-    justify-content: space-between;
-}
-.sum__description__block {
-    margin: 15px;
-    font-size: 18px;
+
+
+.sum-description-block {
+    margin: 0 0 1.5rem;
+    font-size: $font-size_h3;
     font-weight: 500;
-    color: black;
+    color: var(--text-light-black);
     text-align: center;
+    line-height: 1.2;
+
+    @include mobile {
+        font-size: $font-size_h3_m,;
+    }
 }
-.sum__btn__pink {
-    border: 2px solid var(--main-pink-color);
+
+
+.btn-pink {
+    border: $border_btn solid var(--main-pink-color);
     color: white;
     width: 100%;
-    margin: 50px 0;
-    padding: 15px 35px;
-    border-radius: 25px;
+    margin: 5rem 0;
+    padding: 1.5rem 3.5rem;
+    border-radius: $border-radius_btn;
     align-self: center;
     transition: 0.15s;
     cursor: pointer;
     background: var(--main-pink-color);
+    font-size: $font-size_btn;
+
+    @include mobile {
+        border-radius: 0;
+        font-size: $font-size_btn_m;
+    }
+
+    &:hover{
+        border: $border_btn solid var(--main-pink-color);
+        background-color: white;
+        color: var(--main-pink-color);
+        transition: 0.15s;
+    }
 }
-.sum__btn__pink:hover{
-    border: 2px solid var(--main-pink-color);
-    background-color: white;
-    color: var(--main-pink-color);
-    transition: 0.15s;
-}
-.sum__exp__card {
-    background: white;
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 3px;
-    box-shadow: 0 0 1px #000;
-}
-.sum__salary__row{
-    display: flex;
-}
-.sum__work__exp__row1 {
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.sum__work__experience > label{
-    display: inline-block;
-    font-size: 15px;
-}
-textarea.__sum__text {
+
+.sum-form__textarea {
     min-width: 100%;
     max-width: 100%;
-    padding: 10px 15px;
-    border: 1px solid var(--border-grey-color);
-    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    border:  $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
+    font-size: $font-size_h4-5;
 
-}
-input.sum__date__birth {
-    border: 1px solid var(--border-grey-color);
-    border-radius: 8px;
-    text-align: center;
-    padding: 10px;
-}
-div.sum__upload__photo {
-    display: flex;
-    justify-content: space-around;
-    color: #8473C6FF;
-}
-div.sum__achievements {
-    display: flex;
-    justify-content: space-between;
-    align-items: last baseline;
-}
-.sum__description__block{
-    font-size: 23px;
-    font-weight: 900;
-    color: var(--text-light-black);
-    line-height: 1.2;
-}
-a.sum__languages, a.sum__prof__areas {
-    text-decoration: none;
-    border-bottom:#8473C6FF 1px dotted;
-}
+    @include mobile {
+        height: 4rem;
+        font-size: $font-size_h4_m;
+    }
 
-input.sum__avatar {
-    opacity: 0.5;
-    width: 100%;
-    /*position: absolute;*/
+
 }

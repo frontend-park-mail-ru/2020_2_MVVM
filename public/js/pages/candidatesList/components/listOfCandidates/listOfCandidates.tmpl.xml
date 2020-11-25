@@ -1,19 +1,14 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-        <fest:each iterate="items" index="i" value="v">
-            <div class="main__list_row">
-                <div class="main__candidate_photo">
-                    <fest:if test="v.imgPath">
-                        <img class="listOfCandImg" src="{v.imgPath}" alt=""/>
-                    </fest:if>
-                </div>
-                <div class="main__candidate_description">
-                    <div class="main__candidate_name"><a><fest:value>v.name</fest:value><fest:space/><fest:value>v.surname</fest:value></a></div>
-                    <div class="main__candidate_specialism"><div><fest:value>v.place</fest:value></div><fest:space/></div>
-                    <div class="main__candidate_location"><fest:value>v.location</fest:value>/Россия</div>
-                </div>
-                <div class="main__candidate_button">
-                    <a href="/resume" class="go_to_resume"><div class="main__candidate_shortlist">Подробнее</div></a>
-                </div>
+    <fest:each iterate="items" index="i" value="item">
+        <div class="list-row">
+            <div class="list-row-photo">
+                <div class="list-row-photo__bg list-row-photo__bg_resume"/>
             </div>
-        </fest:each>
+            <div class="list-row-description">
+                <div class="list-row-description__name"><a><fest:value>item.title</fest:value></a></div>
+                <div class="list-row-description__specialism"><fest:value>item.description</fest:value><fest:space/></div>
+                <div class="list-row-description__location"><fest:space/><fest:value>item.location</fest:value>/Росиия</div>
+            </div>
+        </div>
+    </fest:each>
 </fest:template>

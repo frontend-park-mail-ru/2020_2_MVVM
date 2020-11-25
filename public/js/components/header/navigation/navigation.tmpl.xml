@@ -1,26 +1,132 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-    <div class="header__top">
-        <a href="/"><div class="header__item-logo logo"/></a>
-        <div class="header__item-menu menu">
-            <nav class="menu-list">
-<!--                <a href="/" class="header__item header__item_simple">Главная страница</a>-->
-                <a href="/employersList" class="header__item header__item_simple">Вакансии</a>
-                <a href="/candidatesList" class="header__item header__item_simple">Соискатели</a>
-                <a href="/companiesList" class="header__item header__item_simple">Компании</a>
+    <div class="header-row-top">
+        <div class="header-row-top-menu">
+            <a href="/">
+                <div class="header-row-top-menu__logo"/>
+            </a>
+<!--            <div class="burger-close-menu"></div>-->
+        </div>
+        <fest:if test="items.is_open==true">
+            <div class="header-row-top__menu header-row-top__menu_is-open">
+            <div class="menu-list">
+                <div class="menu-list-block">
+                    <a href="/employersList" class="menu-list-block__item menu-list-block__item_simple">Вакансии</a>
+                </div>
+                <div class="menu-list-block">
+                    <a href="/candidatesList" class="menu-list-block__item menu-list-block__item_simple">Соискатели</a>
+                </div>
+                <div class="menu-list-block">
+                    <a href="/companiesList" class="menu-list-block__item menu-list-block__item_simple">Компании</a>
+                </div>
                 <fest:if test="items.user!=null">
                     <fest:if test="items.user=='candidate'">
-                        <a href="/createResume" class="header__item header__item_big-button">+ Создать резюме</a>
+                        <div class="menu-list-block">
+                            <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>
+                        </div>
                     </fest:if>
                     <fest:if test="items.user=='employer'">
                         <fest:if test="items.has_company==true">
-                            <a href="/createVacancy" class="header__item header__item_big-button">+ Создать вакансию</a>
+                            <div class="menu-list-block">
+                                <a href="/createVacancy" class="menu-list-block__item menu-list-block__item_button">+ Создать
+                                    вакансию
+                                </a>
+                            </div>
                         </fest:if>
                         <fest:if test="items.has_company==false">
-                            <a href="/createCompany" class="header__item header__item_big-button">+ Создать организацию</a>
+                            <div class="menu-list-block">
+                                <a href="/createCompany" class="menu-list-block__item menu-list-block__item_button">+ Создать
+                                    организацию
+                                </a>
+                            </div>
                         </fest:if>
                     </fest:if>
+                    <div class="menu-list-block">
+                        <a href="/profile"
+                           class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-key js-profile">Профиль
+                        </a>
+                    </div>
+                    <div class="menu-list-block">
+                        <a href="/logout"
+                           class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-link js-logout">Выйти
+                        </a>
+                    </div>
                 </fest:if>
-            </nav>
+                <fest:if test="items.user==null">
+                    <div class="menu-list-block">
+                        <a href="/reg"
+                           class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-key js-registration">
+                            Зарегистрироваться
+                        </a>
+                    </div>
+                    <div class="menu-list-block">
+                        <a href="/auth"
+                           class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-link js-login">Войти
+                        </a>
+                    </div>
+                </fest:if>
+            </div>
         </div>
+        </fest:if>
+        <fest:if test="items.is_open==false">
+            <div class="header-row-top__menu">
+                <div class="menu-list">
+                    <div class="menu-list-block">
+                        <a href="/employersList" class="menu-list-block__item menu-list-block__item_simple">Вакансии</a>
+                    </div>
+                    <div class="menu-list-block">
+                        <a href="/candidatesList" class="menu-list-block__item menu-list-block__item_simple">Соискатели</a>
+                    </div>
+                    <div class="menu-list-block">
+                        <a href="/companiesList" class="menu-list-block__item menu-list-block__item_simple">Компании</a>
+                    </div>
+                    <fest:if test="items.user!=null">
+                        <fest:if test="items.user=='candidate'">
+                            <div class="menu-list-block">
+                                <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>
+                            </div>
+                        </fest:if>
+                        <fest:if test="items.user=='employer'">
+                            <fest:if test="items.has_company==true">
+                                <div class="menu-list-block">
+                                    <a href="/createVacancy" class="menu-list-block__item menu-list-block__item_button">+ Создать
+                                        вакансию
+                                    </a>
+                                </div>
+                            </fest:if>
+                            <fest:if test="items.has_company==false">
+                                <div class="menu-list-block">
+                                    <a href="/createCompany" class="menu-list-block__item menu-list-block__item_button">+ Создать
+                                        организацию
+                                    </a>
+                                </div>
+                            </fest:if>
+                        </fest:if>
+                        <div class="menu-list-block">
+                            <a href="/profile"
+                               class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-key js-profile">Профиль
+                            </a>
+                        </div>
+                        <div class="menu-list-block">
+                            <a href="/logout"
+                               class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-link js-logout">Выйти
+                            </a>
+                        </div>
+                    </fest:if>
+                    <fest:if test="items.user==null">
+                        <div class="menu-list-block">
+                            <a href="/reg"
+                               class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-key js-registration">
+                                Зарегистрироваться
+                            </a>
+                        </div>
+                        <div class="menu-list-block">
+                            <a href="/auth"
+                               class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-link js-login">Войти
+                            </a>
+                        </div>
+                    </fest:if>
+                </div>
+            </div>
+        </fest:if>
     </div>
 </fest:template>

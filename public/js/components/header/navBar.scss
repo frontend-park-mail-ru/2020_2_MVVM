@@ -1,127 +1,196 @@
+@import "public/css/vars";
+
 .header {
-    background: linear-gradient(to right, rgba(83,100,226,0.55) 0%,rgba(52,51,117,1) 97%,rgba(51,49,114,1) 100%),
-    url(Img/bmstuBuilding1.png) 0 0/cover no-repeat;
+
+    &__small {
+        background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
+        &_phone{
+            background: linear-gradient(to right, rgba(83, 100, 226, 1) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+        }
+    }
+
+    &_big {
+        background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%),
+        url(Img/bmstuBuilding1.png) 0 0/cover no-repeat;
+    }
+
+
     z-index: 2;
 }
 
-.header__page h3 {
-    text-align: center;
-    font-family: Comfortaa, serif;
-    line-height: 1.2;
-}
-
 .container {
-    max-width: 1380px;
+    max-width: 130rem;
     margin: 0 auto;
 }
 
-.header__row {
+.header-row {
     display: flex;
     flex-direction: column;
-    padding: 10px 0;
+    padding: 1.1rem 0;
 }
 
-.header__top {
+.header-row-phone {
+    display: flex;
+    flex-direction: row;
+    padding: 1.1rem 0;
+    justify-content: space-evenly;
+}
+
+.header-search-menu {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+    background: no-repeat 0 0/cover url(Img/filter.svg);
+}
+
+.header-burger-menu {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+    background: no-repeat 0 0/cover url(Img/menu_to_open.svg);
+}
+
+.burger-close-menu {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+    background: no-repeat 0 0/cover url(Img/menu_to_open.svg);
+}
+
+.header-row-top {
     display: flex;
     box-sizing: border-box;
-    padding: 20px 0;
+    padding: 1.2rem 0;
+    @include mobile {
+        flex-direction: column;
+    }
+    &-menu{
+        display: flex;
+        justify-content: space-evenly;
+        @include mobile {
+            justify-content: space-evenly;
+            margin-bottom: 5rem;
+        }
+        &__logo {
+            background: url(Img/logo.png) no-repeat 50% 50%;
+            width: 34rem;
+            height: 10rem;
+            @include mobile {
+                margin-left: auto;
+            }
+        }
+
+    }
+    &__menu {
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+        align-items: center;
+        &_is-open{
+            align-self: center;
+            position: absolute;
+            top: 30%;
+        }
+        @include mobile {
+            justify-content: center;
+        }
+
+    }
 }
 
-.header__item-logo {
-    background: url(Img/logo.png);
-    width: 178px;
-    margin: 27px 0 10px;
-}
 
-.logo {
-    width: 178px;
-    height: 49px;
-}
 
-.header__item-menu {
-    flex-grow: 1;
-    justify-content: flex-end;
-}
-
-.menu-list{
+.menu-list {
+    display: flex;
     text-align: right;
-    padding: 40px 0 0;
+    align-items: baseline;
+
+    @include mobile {
+        align-items: start;
+        flex-direction: column;
+    }
 }
 
-.header__item {
-    padding: 20px;
-    font-size: 14px;
+.menu-list-block {
+    &__item {
+        padding: 1.2rem;
+        font-size: $font-size_h4;
+        color: white;
+        transition: 0.15s;
+        white-space: nowrap;
+        @include mobile {
+            text-align: center;
+            //margin-bottom: 2rem;
+            font-size: $font_size_h2_m;
+        }
+
+        &_button {
+            border: $border_btn solid var(--main-pink-color);
+            background-color: var(--main-pink-color);
+            border-radius: $border-radius_btn;
+            overflow: hidden;
+            padding: $btn_padding;
+            transition: background-color 0.15s;
+
+            &:hover {
+                background-color: transparent;
+                transition: 0.15s;
+            }
+        }
+
+        &_simple:hover {
+            opacity: 0.7;
+            transition: 0.15s;
+        }
+
+        &_icon-key:before {
+            content: "";
+            width: $font-size_h4;
+            height: $font-size_h4;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            background: url(Img/key.svg) no-repeat 0 0/cover;
+        }
+
+        &_icon-link:before {
+            content: "";
+            width: $font-size_h4;
+            height: $font-size_h4;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/user.svg) no-repeat 0 0/cover;
+        }
+    }
+
+    @include mobile {
+        margin-bottom: 4rem;
+    }
+}
+
+
+
+.header-row-bottom {
     color: white;
+    margin: 3rem 0;
 }
 
-.header__item_simple{
-    transition: 0.15s;
-}
-
-.header__item_simple:hover{
-    opacity: 0.7;
-    transition: 0.15s;
-}
-
-.header__item_big-button {
-    border: 2px solid var(--main-pink-color);
-    background-color: var(--main-pink-color);
-    border-radius: 35px;
-    overflow: hidden;
-    padding: 15px 25px;
-    transition: background-color 0.15s;
-}
-
-.header__item_big-button:hover{
-    background-color: transparent;
-    transition: 0.15s;
-}
-
-.header__item_key-icon {
-    font-size: 18px;
-    transition: 0.15s;
-}
-
-.header__item_key-icon:hover{
-    opacity: 0.7;
-    transition: 0.15s;
-}
-
-.header__item_key-icon::before{
-    content: "";
-    width: 17px;
-    height: 17px;
-    display: inline-block;
-    background: url(Img/key.png);
-    margin-right: 5px;
-}
-
-.header__item_link-icon {
-    font-size: 18px;
-    transition: 0.15s;
-}
-
-.header__item_link-icon:hover{
-    opacity: 0.7;
-    transition: 0.15s;
-}
-
-.header__item_link-icon::before{
-    content: "";
-    width: 17px;
-    height: 17px;
-    display: inline-block;
-    background: url(Img/login.png);
-    margin-right: 5px;
-}
-
-.header__bottom {
-    color: white;
-    font-size: 30px;
-    margin: 50px 0;
-}
-
-.header__page {
+.header-row-bottom__page {
     text-align: center;
-    padding: 150px 0;
+    padding: 23rem 0;
+    font-size: $font-size_h2;
+    line-height: 1.2;
+    @include mobile {
+        font-size: $font-size_h2_m;
+        padding: 5rem 0;
+    }
 }

@@ -1,0 +1,15 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="need_search">
+    <header class="header header__small">
+        <div class="container">
+            <div class="header-row-phone">
+                <a href="/">
+                    <div class="header-row-top-menu__logo"/>
+                </a>
+                <fest:if test="need_search==true">
+                    <div class="header-search-menu"></div>
+                </fest:if>
+                <div class="header-burger-menu"></div>
+            </div>
+        </div>
+    </header>
+</fest:template>

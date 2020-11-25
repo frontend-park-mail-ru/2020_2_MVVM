@@ -2,6 +2,7 @@ import {NavBarInit} from "../../components/header/navBar.js";
 import {checkFrom} from "./components/reg_form/reg.js";
 import createElem from "Js/libs/createElem";
 import regTemp from './components/reg_form/reg.tmpl.xml'
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById('app');
 
@@ -15,8 +16,7 @@ export default class RegList{
         app.innerHTML = '';
 
 
-        const auth = new NavBarInit(app, content, false,"Регистрация");
-        auth.loadNavBar();
+        openMenuList(app, false);
 
         const main = createElem("div", "main", app);
         main.insertAdjacentHTML("beforeend", regTemp());

@@ -1,99 +1,157 @@
+@import "public/css/vars";
+@import "public/css/general";
 
-.main__navigation {
+
+.main-navigation {
     display: flex;
-    min-width: 270px;
+    width: fit-content;
+    min-width: 30rem;
     flex-direction: column;
-    margin-right: 45px;
+    margin-right: 4rem;
     max-width: 15vw;
+
+    @include mobile {
+        position: absolute;
+        width: 100%;
+        background: var(--background-grey-color-no-alpha);
+        min-width: 100vw;
+        margin: auto;
+        align-items: center;
+    }
+
 }
 
-.main__serch-form {
+.main-search-form {
     color: grey;
-    margin-top: 45px;
-}
+    margin-top: $margin-title;
+    @include mobile {
+        width: 50rem;
+    }
 
-.main__keywords > input{
-    width: 208px;
-    height: 50px;
-}
+    &__btn {
+        border: $border_btn solid var(--main-pink-color);
+        color: var(--main-pink-color);
+        border-radius: $border-radius_btn;
+        align-self: center;
+        transition: 0.15s;
+        background: white;
+        cursor: pointer;
+        font-size: $font-size_btn;
+        padding: $btn_padding;
+        width: 100%;
+        margin: 2rem 0;
 
-.main__keywords {
-  background: white;
-    padding: 0 5px 0 20px;
-    border: 1px solid var(--border-grey-color);
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
+        @include mobile {
+            font-size: $font-size_btn_m;
+            padding: $btn_padding_m;
+            margin: 5rem 0;
+        }
 
-.main__keywords::after{
-    content: '';
-    display: inline-block;
-    background: url('~Img/search.png') 0 0/cover;
-    width: 16px;
-    height: 16px;
-}
-
-.main__locations > input{
-    width: 208px;
-    height: 50px;
-}
-.main__locations {
-    padding: 0 5px 0 20px;
-    border: 1px solid var(--border-grey-color);
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.main__locations::after{
-    content: '';
-    display: inline-block;
-    background: url('~Img/geo.png') 0 0/cover;
-    width: 16px;
-    height: 16px;
+        &:hover {
+            background-color: var(--main-pink-color);
+            color: white;
+            transition: 0.15s;
+            cursor: pointer;
+        }
+    }
 }
 
 
-.main__type{
+.keywords-search {
+    background: white;
+    padding: 0 0.5rem 0 2rem;
+    border: $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
+    margin-bottom: $margin-title;
+
+    &__input {
+        width: 24rem;
+        height: 5rem;
+        font-size: $font_size_h4;
+
+        @include mobile {
+            width: 42rem;
+            height: 7rem;
+            font-size: $font_size_h3_m;
+        }
+    }
+
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url(Img/search.svg) no-repeat 0 0/cover;
+        @include mobile {
+            vertical-align: text-top;
+            width: $font-size_h3_m;
+            height: $font-size_h3_m;
+        }
+    }
+}
+
+
+.option-type {
     display: flex;
     justify-content: flex-start;
     margin-top: auto;
-    font-size: 13px;
-    margin-bottom: 20px;
-    margin-left: 5px;
+    margin-bottom: 1.5rem;
+    @include mobile {
+        margin-bottom: 2rem;
+    }
 }
 
-.main__type_name{
-    margin-left: 10px;
-    font-size: 15px;
+.option-type__name {
+    margin-left: 1rem;
+    font-size: $font-size_h4;
     cursor: pointer;
+    @include mobile {
+        font-size: $font-size_h3_m;
+    }
 }
 
-.main__specialism_name {
+.option-single-title {
     display: inline-block;
     color: black;
-    font-size: 18px;
-    margin-bottom: 25px;
+    font-size: $font-size_h4;
+    margin-bottom: 1.5rem;
     width: 100%;
     position: relative;
     cursor: pointer;
+    @include mobile {
+        font-size: $font-size_h2_m;
+    }
+
+
+    &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        background: url(Img/minus.svg) no-repeat 0 0/cover;
+        width: 2rem;
+        height: 2rem;
+        @include mobile {
+            width: $font-size_h2_m;
+            height: $font-size_h2_m;
+        }
+    }
+
+    &_hidden:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        background: url(Img/plus.svg) no-repeat 0 0/cover;
+        width: 2rem;
+        height: 2rem;
+        @include mobile {
+            width: $font-size_h2_m;
+            height: $font-size_h2_m;
+        }
+    }
 }
 
-.main__specialism_name:after{
-    content: '';
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    background: url('~Img/minus.png') 0 0/cover;
-    width: 20px;
-    height: 16px;
-}
-
-.hidden:after{
-    content: '';
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    background: url('~Img/plus.png') 0 0/cover;
-    width: 20px;
-    height: 16px;
+.hide {
+    display: none;
 }

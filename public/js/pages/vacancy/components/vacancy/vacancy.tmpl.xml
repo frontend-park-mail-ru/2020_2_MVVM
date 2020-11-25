@@ -2,31 +2,30 @@
   <fest:each iterate="items" index="i" value="v">
       <div class="job-description">
         <fest:each iterate="v.mainInfo" index="i" value="sp">
-          <h3>
+          <h3 class="job-description__h3">
             <fest:value>sp.name</fest:value>
           </h3>
-          <p>
+          <p class="job-description__p">
             <fest:value>sp.text</fest:value>
           </p>
         </fest:each>
-
         <fest:each iterate="v.required" index="i" value="sp">
-          <h3>
+          <h3 class="job-description__h3">
             <fest:value>sp.name</fest:value>
           </h3>
           <fest:for iterate="sp.requiredItem" index="i" value="p">
-            <li>
+            <li class="job-description__li">
               <fest:value>p</fest:value>
             </li>
           </fest:for>
         </fest:each>
 
         <fest:each iterate="v.experience" index="i" value="sp">
-          <h3>
+          <h3 class="job-description__h3">
             <fest:value>sp.name</fest:value>
           </h3>
           <fest:for iterate="sp.experienceItem" index="i" value="p">
-            <li>
+            <li class="job-description__li" >
               <fest:value>p</fest:value>
             </li>
           </fest:for>

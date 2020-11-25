@@ -2,6 +2,7 @@ import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "Js/libs/createElem";
 import companyTemp from './components/companyPage/companyPage.tmpl.xml'
 import {DOMAIN, spheres} from "Js/libs/constants";
+import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById('app');
 
@@ -11,8 +12,7 @@ export default class CompanyPage{
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app, content, false);
-        navBarInit.loadNavBar();
+        openMenuList(app, false);
 
         const main = createElem("div", "main__company", app);
 

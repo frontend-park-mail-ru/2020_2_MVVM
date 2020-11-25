@@ -1,46 +1,69 @@
-.sum__form {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  width: 90%;
-  grid-column-gap: 10%;
+@import "public/css/vars";
+
+.sum-profile-empl{
+    width: 55rem;
+
+    @include mobile {
+        width: 100%;
+    }
+}
+
+.sum-form {
+    display: flex;
+    grid-column-gap: 10%;
+
+    @include mobile {
+        display: block;
+    }
 }
 
 .rectangle {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 5px;
-    font: 14px "Trebuchet MS", "Lucida Sans";
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-  margin-bottom: 10px;
+    grid-gap: 0.5rem;
+    font: $font-size_h5 "Trebuchet MS", "Lucida Sans";
+    text-shadow: 0 0.1rem 0 rgba(255, 255, 255, .5);
+    margin-bottom: 1rem;
+
+    &__block {
+        padding: 0.4rem 0.8rem;
+        background: var(--background-grey-color);
+        font-size: $font-size_h4-5;
+        @include mobile {
+            font-size: $font-size_h4_m;
+        }
+    }
 }
 
-.rectangle p {
-    padding: .4em .4em .4em .8em;
-    background: var(--background-grey-color);
+.comp-logo {
+    display: flex;
+    grid-column-gap: 1rem;
 }
 
-.comp__logo_title {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-column-gap: 5px;
-}
-
-.comp__title {
-    font-size: 20px;
+.comp-logo__title {
+    font-size: $font-size_h4;
     color: black;
+    @include mobile {
+        font-size: $font-size_h4_m;
+    }
 }
 
-.comp__logo_avatar {
-    max-width: 200px;
-    overflow: hidden;
-    border-radius: 5%;
+.comp-logo__avatar {
+    width: 15rem;
+    height: 15rem;
+    border-radius: $border-radius_input;
+    @include mobile {
+        width: 20rem;
+        height: 20rem;
+    }
 }
 
-.comp__logo_avatar img {
-    width: 100%;
-}
 
-.comp__description {
-    font-size: 16px;
+.comp-description {
+    font-size: $font-size_h4-5;
     color: black;
+
+    @include mobile {
+        font-size: $font-size_h4_m;
+    }
 }

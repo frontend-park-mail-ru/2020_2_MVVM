@@ -1,20 +1,20 @@
-import {network} from "../../../../libs/networks.js";
-import {EMAIL_OK, INPUT_TEXT_OK, PHONE_OK, updateUserURL} from "../../../../libs/constants.js";
+import {network} from "Js/libs/networks";
+import {EMAIL_OK, INPUT_TEXT_OK, PHONE_OK, updateUserURL} from "Js/libs/constants";
 import Validation from "Js/libs/validation";
 
 export function updateProfileFields() {
-    const updateButton = document.getElementsByClassName("pers__list_refactor");
+    const updateButton = document.getElementsByClassName("pers-list-row__refactor");
     for (let i=0; i< updateButton.length; i++){
         updateButton[i].addEventListener('click', ()=>{
             if (updateButton[i].textContent === 'Изменить' || updateButton[i].textContent === 'Добавить') {
-                updateButton[i].previousSibling.innerHTML=`<input class="pers__list_refactor-input">`
+                updateButton[i].previousSibling.innerHTML=`<input class="pers-list-row__input" value="${updateButton[i].previousSibling.textContent}">`;
                 updateButton[i].innerHTML="<a href='/profile'>Принять</a>";
             } else {
                 let newValueField = updateButton[i].previousSibling.firstChild.value;
-                updateButton[i].previousSibling.innerHTML=`<div>${newValueField}</div>`;
-                updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
-
-                saveData(updateButton[i], newValueField);
+                if (saveData(updateButton[i], newValueField)) {
+                    updateButton[i].previousSibling.innerHTML=`<div>${newValueField}</div>`;
+                    updateButton[i].innerHTML="<a href='/profile'>Изменить</a>";
+                }
             }
         });
     }
@@ -74,6 +74,9 @@ function saveData(tmpField, newValueField){
             [field]: newValueField.toString(),
         };
         doSubmit(data);
+        return true;
+    } else {
+        return false;
     }
 }
 

@@ -1,38 +1,36 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="user">
-  <div class="make-account-background">
-    <div class="main-content">
-      <div class="create-account">
-          <fest:if test="user=='employer'">
-              <h3> Измени мир своей вакансией! </h3>
-              <p>Создай вакансию на StudHunt за считанные минуты!</p>
-          </fest:if>
-          <fest:if test="user!='employer'">
-              <h3> Измени мир своим резюме! </h3>
-              <p>Создай резюме на StudHunt за считанные минуты!</p>
-          </fest:if>
-          <fest:if test="user==''">
-            <a href="/reg">
-                <div class="btm-create-account">
-              Создать аккаунт
-                </div>
-            </a>
-          </fest:if>
-          <fest:if test="user=='candidate'">
-              <a href="/createResume">
-                  <div class="btm-create-account">
-                      Создать резюме
-                  </div>
-              </a>
-          </fest:if>
-          <fest:if test="user=='employer'">
-              <a href="/createVacancy">
-                  <div class="btm-create-account">
-                      Создать вакансию
-                  </div>
-              </a>
-          </fest:if>
-      </div>
+    <div class="make-account-background">
+        <div class="create-account">
+            <fest:if test="user=='employer'">
+                <h3 class="create-account__header">Измени мир своей вакансией!</h3>
+                <p class="create-account__label">Создай вакансию на StudHunt за считанные минуты!</p>
+            </fest:if>
+            <fest:if test="user!='employer'">
+                <h3 class="create-account__header">Измени мир своим резюме!</h3>
+                <p class="create-account__label">Создай резюме на StudHunt за считанные минуты!</p>
+            </fest:if>
+            <fest:if test="user==''">
+                <a href="/reg">
+                    <div class="btm-create-account">
+                        Создать аккаунт
+                    </div>
+                </a>
+            </fest:if>
+            <fest:if test="user=='candidate'">
+                <a href="/createResume">
+                    <div class="btm-create-account">
+                        Создать резюме
+                    </div>
+                </a>
+            </fest:if>
+            <fest:if test="user=='employer'">
+                <a href="/createVacancy">
+                    <div class="btm-create-account">
+                        Создать вакансию
+                    </div>
+                </a>
+            </fest:if>
+        </div>
     </div>
-  </div>
 
 </fest:template>
