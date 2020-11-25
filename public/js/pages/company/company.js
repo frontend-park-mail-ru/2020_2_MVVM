@@ -14,7 +14,7 @@ export default class CompanyPage{
 
         openMenuList(app, false);
 
-        const main = createElem("div", "main__company", app);
+        const main = createElem("div", "company-page", app);
 
 
 
@@ -38,11 +38,8 @@ export default class CompanyPage{
 
 
         main.insertAdjacentHTML("afterbegin", companyTemp(tmpContent));
-        let imgs = document.getElementsByClassName("pageOfCompImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/company/default.png`};
-            //TODO change path
-        }
+        const photo = document.getElementById("container-left-top__logo");
+        photo.style.background = `no-repeat 0 0/cover url(${tmpContent.avatar})`;
 
         // app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']());
     }

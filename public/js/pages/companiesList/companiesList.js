@@ -66,7 +66,7 @@ export default class CompaniesList {
             searchForm.classList.add("hide");
         }
 
-        const mainList = createElem("div", "main__list", mainRow);
+        const mainList = createElem("div", "main-list", mainRow);
 
         const companies = await this.fetchCompanyList();
         console.log(companies);
@@ -126,7 +126,7 @@ async function renderCompanyList(companies, mainList, router) {
 
 
 function getCompanyPage(router, company) {
-    const linksToCompany = document.getElementsByClassName("go_to_view");
+    const linksToCompany = document.getElementsByClassName("list-row");
     for (let i = 0; i < linksToCompany.length; i++) {
         linksToCompany[i].addEventListener('click', event => {
             event.preventDefault();

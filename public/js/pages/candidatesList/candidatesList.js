@@ -140,7 +140,7 @@ export default class CandidatesList {
             searchForm.classList.add("hide");
         }
 
-        const mainList = createElem("div", "main__list", mainRow);
+        const mainList = createElem("div", "main-list", mainRow);
 
 
         const response = await network.doGetLimit(resumePageURL, 0, 15);
