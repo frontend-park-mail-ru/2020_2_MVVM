@@ -4,6 +4,7 @@ import RegCtrl from './controllers/authRegProf/RegCtrl.js';
 import MainCtrl from './controllers/MainCtrl.js';
 import CompaniesListCtrl from "./controllers/company/CompaniesListCtrl.js";
 import EmployersListCtrl from "./controllers/vacancy/EmployersListCtrl.js";
+import RecommendationsListCtrl from "./controllers/vacancy/RecommendationsListCtrl.js"
 import CandidatesListCtrl from "./controllers/resume/CandidatesListCtrl.js";
 import ProfileCtrl from "./controllers/authRegProf/ProfileCtrl.js";
 import CreateResumeCtrl from "./controllers/resume/CreateResumeCtrl.js";
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         reg: new RegCtrl(router),
         mainPage: new MainCtrl(router),
         employersList: new EmployersListCtrl(router),
+        recommendationsList: new RecommendationsListCtrl(router),
         candidatesList: new CandidatesListCtrl(router),
         companiesList: new CompaniesListCtrl(router),
         profile: new ProfileCtrl(router),
@@ -57,6 +59,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/reg', controllers.reg.page);
     router.add('/', controllers.mainPage.page);
     router.add('/employersList', controllers.employersList.page);
+    router.add('/recommendations', controllers.recommendationsList.page);
     router.add('/candidatesList', controllers.candidatesList.page);
     router.add('/companiesList', controllers.companiesList.page);
     router.add('/profile', controllers.profile.page);

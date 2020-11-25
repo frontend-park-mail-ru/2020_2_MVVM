@@ -21,6 +21,9 @@
                 <fest:if test="items.user!=null">
                     <fest:if test="items.user=='candidate'">
                         <div class="menu-list-block">
+                            <a href="/recommendations" class="menu-list-block__item menu-list-block__item_simple">Рекомендации</a>
+                        </div>
+                        <div class="menu-list-block">
                             <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>
                         </div>
                     </fest:if>
@@ -81,6 +84,9 @@
                     </div>
                     <fest:if test="items.user!=null">
                         <fest:if test="items.user=='candidate'">
+                            <div class="menu-list-block">
+                                <a href="/recommendations" class="menu-list-block__item menu-list-block__item_simple">Рекомендации</a>
+                            </div>
                             <div class="menu-list-block">
                                 <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>
                             </div>
