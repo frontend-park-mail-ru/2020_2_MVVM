@@ -11,11 +11,12 @@ export default function popUpList(app, responsedCls, responsedId, data) {
     let DomList = document.getElementsByClassName('list-row-photo__bg');
     if (data.user_type==='candidate') {
         data.list.forEach((resume, i) => {
-            DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/resume/${resume.resume_id}`;
+            console.log(resume);
+            DomList[i].style.background = `no-repeat  0 0/cover url(${resume.imgPath}`;
         });
     } else {
         data.list.forEach((vacancy, i) => {
-            DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${vacancy.comp_id}`;
+            DomList[i].style.background = `no-repeat  0 0/cover url(${vacancy.imgPath}`;
         });
     }
 

@@ -36,7 +36,7 @@ async function getAllInfo (updClass, resumeSource) {
         area_search: resumeInfo.area_search,
         education_level: resumeInfo.education_level,
         experience: experienceInfo,
-        imgPath: `${DOMAIN}/static/resume/${resumeInfo.id}`,
+        imgPath: resumeInfo.avatar,
     };
 
     if (updResume.experience) {

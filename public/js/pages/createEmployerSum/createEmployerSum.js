@@ -30,7 +30,7 @@ export default class CreateVacancy {
         await this.loadCompany().then((data) => {
             if (data && data.company) {
                 this.content.company = data.company;
-                this.content.comp_logo = `${DOMAIN}static/company/${data.company.id}`
+                this.content.comp_logo = data.company.avatar;
             } else {
                 this.content.comp_logo = "${DOMAIN}static/company/default.png"
             }

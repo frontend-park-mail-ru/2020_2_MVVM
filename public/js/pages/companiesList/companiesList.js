@@ -114,7 +114,12 @@ async function renderCompanyList(companies, mainList, router) {
         mainList.insertAdjacentHTML("beforeend", listOfCompaniesTemp(companies.companyList));
         let compDomList = await document.getElementsByClassName('list-row-photo__bg');
         companies.companyList.forEach((company, i) => {
-            compDomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${company.id}`;
+            if (company.avatar) {
+                compDomList[i].style.background = `no-repeat  0 0/cover url(${company.avatar})`;
+            } else {
+                //TODO
+            }
+
         });
         getCompanyPage(router, companies.companyList);
         // mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());

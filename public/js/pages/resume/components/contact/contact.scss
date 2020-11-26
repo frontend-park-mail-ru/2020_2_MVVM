@@ -1,19 +1,23 @@
+
+@import "public/css/vars";
+
 .resume-contacts {
     width: 70%;
-    margin-top: 80px;
+    margin-top: 8rem;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 150px;
+    height: 15rem;
+    min-width: 10rem;
 }
 
 .share-bar {
-    padding: 20px;
-    font-size: 15px;
-    color: #202020;
-    line-height: 40px;
+    padding: 2rem;
+    font-size: $font-size_h4;
+    color: var(--text-light-black);
+    line-height: 4rem;
 }
 
 .share-bar a {
@@ -72,25 +76,6 @@
     background-color: var(--vk-blue);
 }
 
-.download-cv {
-  margin-left: auto;
-    border: 2px solid var(--buttons-purple-color);
-    color: var(--buttons-purple-color);
-    font-size: 13px;
-    padding: 14px 30px 28px;
-    border-radius: 8px;
-    height: 22.5px;
-    text-align: center;
-    margin-right: 30px;
-    cursor: pointer;
-    transition: 0.15ms;
-}
-
-.download-cv:hover {
-    background-color: var(--buttons-purple-color);
-    color: white;
-    transition: 0.15ms;
-}
 
 .line-box-cv {
     width: 70%;

@@ -61,12 +61,14 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
             mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list));
             console.log(list);
             list.forEach((resume,i) => {
-                DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/resume/${resume.resume_id}`;
+                DomList[i].style.background = `no-repeat  0 0/cover url(${resume.avatar}`;
             });
 
         } else {
             mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
             list.forEach((vacancy,i) => {
+                console.log(vacancy);
+                //TODO
                 DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${vacancy.comp_id}`;
             });
         }
@@ -116,7 +118,7 @@ function personalLikes(profile, mainColumnLeft) {
         mainColumnLeft.insertAdjacentHTML("beforeend", listOfCandidatesTemp(profile.favorites));
         const photo = document.getElementsByClassName("list-row-photo__bg");
         profile.favorites.forEach((res,i) => {
-            photo[i].style.background = `no-repeat 0 0/cover url(${DOMAIN}static/resume/${res.resume_id})`;
+            photo[i].style.background = `no-repeat 0 0/cover url(${res.avatar})`;
         });
 
         const linksToFavResume = document.getElementsByClassName("list-row");

@@ -1,8 +1,8 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <fest:if test="!items">
-        <span id="add_to_prefer"><i class="fas fa-save"></i>Добавить в избранное</span>
+        <div class="download-cv" id="add_to_prefer"><i class="fas fa-save download-cv__icon"></i>Добавить в избранное</div>
     </fest:if>
     <fest:if test="items">
-    <span id="delete_from_prefer"><i class="fas fa-save"></i>Убрать из избранного</span>
+        <div class="download-cv" id="delete_from_prefer"><i class="fas fa-save download-cv__icon"></i>Убрать из избранного</div>
     </fest:if>
 </fest:template>

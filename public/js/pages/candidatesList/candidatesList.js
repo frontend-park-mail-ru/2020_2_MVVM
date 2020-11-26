@@ -157,7 +157,11 @@ async function renderResumeList(response, main, mainList, router){
         mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
         let candDomList = await document.getElementsByClassName('list-row-photo__bg');
         resume.forEach((item, i) => {
-            candDomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/resume/${item.resume_id})`;
+            if (item.avatar) {
+                candDomList[i].style.background = `no-repeat  0 0/cover url(${item.avatar})`;
+            } else {
+                candDomList[i].style.background = `no-repeat  0 0/cover url()`;
+            }
         });
 
         // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());

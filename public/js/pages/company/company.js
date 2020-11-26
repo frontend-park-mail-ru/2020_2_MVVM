@@ -23,7 +23,7 @@ export default class CompanyPage{
             location: companyInfo.location,
             link: companyInfo.link,
             sphere: [],
-            avatar: `${DOMAIN}static/company/`+companyInfo.id,
+            avatar: companyInfo.avatar,
             description: companyInfo.description,
             count_vacancy: companyInfo.vac_count,
         };
