@@ -8,6 +8,10 @@ import listOfCandidatesTemp from "Js/pages/candidatesList/components/listOfCandi
 import responsesTemp from "Js/pages/profile/components/responses/responses.tmpl.xml";
 import createElem from "Js/libs/createElem";
 
+import defaultVac from 'Img/defaultVac.png';
+import defaultRes from 'Img/defaultRes.png';
+
+
 function doCheckout(profile, content, body, person, navBar, idx) {
     body.innerHTML = '';
     switch (idx) {
@@ -59,17 +63,16 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         let DomList = document.getElementsByClassName('list-row-photo__bg');
         if (isCand) {
             mainColumnLeft.insertAdjacentHTML("beforeend", persResumesTemp(list));
-            console.log(list);
             list.forEach((resume,i) => {
-                DomList[i].style.background = `no-repeat  0 0/cover url(${resume.avatar}`;
+                const photo = resume.avatar ? resume.avatar : defaultRes;
+                DomList[i].style.background = `no-repeat  0 0/cover url(${photo}`;
             });
 
         } else {
             mainColumnLeft.insertAdjacentHTML("beforeend", persVacanciesTemp(list));
             list.forEach((vacancy,i) => {
-                console.log(vacancy);
-                //TODO
-                DomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${vacancy.comp_id}`;
+                const photo = vacancy.avatar ? vacancy.avatar : defaultVac;
+                DomList[i].style.background = `no-repeat  0 0/cover url(${photo}`;
             });
         }
     } else {
@@ -84,11 +87,9 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         linksToResume[i].addEventListener('click', event => {
             event.preventDefault();
             if (isCand) {
-                console.log(list[i]);
                 profile.router.change('/resume', list[i]);
             }
             else {
-                console.log(list[i]);
                 profile.router.change('/vacancy', list[i].vac_id, list[i].comp_id);
             }
         })

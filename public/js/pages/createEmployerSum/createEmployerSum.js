@@ -5,7 +5,7 @@ import createEmployerSumTemp from "./components/createEmployerSum/createEmployer
 import {checkFrom} from "Js/pages/createEmployerSum/components/createEmployerSum/createEmpoyerSum"
 import {afterRenderResume} from "Js/pages/createCandidateSum/createCandidateSum";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
-
+import defaultVac from 'Img/defaultVac.png';
 
 
 const app = window.document.getElementById('app');
@@ -32,7 +32,7 @@ export default class CreateVacancy {
                 this.content.company = data.company;
                 this.content.comp_logo = data.company.avatar;
             } else {
-                this.content.comp_logo = "${DOMAIN}static/company/default.png"
+                this.content.comp_logo = defaultVac;
             }
         });
 

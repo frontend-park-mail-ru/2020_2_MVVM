@@ -18,6 +18,8 @@ import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml';
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 // import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml';
 
+import defaultRes from 'Img/defaultRes.png';
+
 
 
 const app = window.document.getElementById('app');
@@ -150,7 +152,7 @@ async function renderVacancyResp(vacancyCls, vac_id, title) {
         const resumeList = await vacancyCls.myResumes(vac_id);
         if (resumeList) {
             resumeList.forEach((item)=>{
-                item.imgPath = `${DOMAIN}static/resume/${item.resume_id}`;
+                item.imgPath = item.avatar ? item.avatar : defaultRes;
             })
         }
        selectedResume = popUpList(app, vacancyCls, vac_id, {list:resumeList, title:title});

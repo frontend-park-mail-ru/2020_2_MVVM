@@ -82,6 +82,10 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 30px;
+
+    @include mobile {
+        width: 100%;
+    }
 }
 
 .line {

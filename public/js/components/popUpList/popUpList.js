@@ -1,11 +1,11 @@
 import popUpListTemp from "Js/components/popUpList/popUpList.tmpl.xml";
 import responseResultTemp from "Js/components/popUpList/responseResult.tmpl.xml";
-import {DOMAIN} from "Js/libs/constants";
 
 
 export default function popUpList(app, responsedCls, responsedId, data) {
 
     data.user_type = localStorage.getItem('user_type');
+    document.body.classList.add("hide-scroll");
 
     app.insertAdjacentHTML("afterbegin", popUpListTemp(data));
     let DomList = document.getElementsByClassName('list-row-photo__bg');
@@ -28,6 +28,7 @@ export default function popUpList(app, responsedCls, responsedId, data) {
     exit.push(exitBtn);
     exit.forEach((item) => {
         item.addEventListener('click', () => {
+            document.body.classList.remove("hide-scroll");
             bg[0].remove();
         });
     });
@@ -45,6 +46,7 @@ export default function popUpList(app, responsedCls, responsedId, data) {
                 let page = document.getElementById("popUpContent");
                 page.innerHTML = responseResultTemp();
                 page.addEventListener('click',()=>{
+                    document.body.classList.remove("hide-scroll");
                     bg[0].remove();
                 });
             });

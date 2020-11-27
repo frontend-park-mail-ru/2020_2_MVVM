@@ -1,3 +1,4 @@
+
 // validation status
 export const EMAIL_OK = 'верный email'
 export const LOGIN_OK = 'верный логин'

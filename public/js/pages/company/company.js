@@ -4,6 +4,8 @@ import companyTemp from './components/companyPage/companyPage.tmpl.xml'
 import {DOMAIN, spheres} from "Js/libs/constants";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
+import defaultVac from 'Img/defaultVac.png';
+
 const app = window.document.getElementById('app');
 
 
@@ -23,7 +25,7 @@ export default class CompanyPage{
             location: companyInfo.location,
             link: companyInfo.link,
             sphere: [],
-            avatar: companyInfo.avatar,
+            avatar: companyInfo.avatar ? companyInfo.avatar : defaultVac,
             description: companyInfo.description,
             count_vacancy: companyInfo.vac_count,
         };

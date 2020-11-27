@@ -8,6 +8,8 @@ import listOfCompaniesTemp from './components/listOfCompanies/listOfCompanies.tm
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml';
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
+import defaultVac from 'Img/defaultVac.png';
+
 const app = window.document.getElementById('app');
 
 export default class CompaniesList {
@@ -69,7 +71,6 @@ export default class CompaniesList {
         const mainList = createElem("div", "main-list", mainRow);
 
         const companies = await this.fetchCompanyList();
-        console.log(companies);
         await renderCompanyList(companies, mainList, this.router);
         afterRender(mainList, main, this.router);
     }
@@ -114,12 +115,8 @@ async function renderCompanyList(companies, mainList, router) {
         mainList.insertAdjacentHTML("beforeend", listOfCompaniesTemp(companies.companyList));
         let compDomList = await document.getElementsByClassName('list-row-photo__bg');
         companies.companyList.forEach((company, i) => {
-            if (company.avatar) {
-                compDomList[i].style.background = `no-repeat  0 0/cover url(${company.avatar})`;
-            } else {
-                //TODO
-            }
-
+            const photo = company.avatar ? company.avatar : defaultVac;
+            compDomList[i].style.background = `no-repeat  0 0/cover url(${photo})`;
         });
         getCompanyPage(router, companies.companyList);
         // mainList.insertAdjacentHTML("beforeend", window.fest['pagination.tmpl']());

@@ -12,6 +12,7 @@ export default function openMenu (app, need_search) {
 
         burgerMenu[0].addEventListener('click', event =>{
             const header = document.getElementsByClassName(`header`);
+            document.body.classList.add("hide-scroll");
             const menuList = new NavBarInit(header[0],  false,"");
             menuList.loadNavBar(true);
 
@@ -19,6 +20,7 @@ export default function openMenu (app, need_search) {
             menu[0].insertAdjacentHTML("beforeend", `<div class="burger-close-menu"></div>`);
             menu[0].lastChild.addEventListener('click', () =>{
                 header[1].remove();
+                document.body.classList.remove("hide-scroll");
                 openMenu(header[0], need_search);
             });
 
@@ -26,8 +28,8 @@ export default function openMenu (app, need_search) {
             for (let i=0; i<menuBlock.length;i++) {
                 menuBlock[i].addEventListener('click', ()=>{
                     const searchBlock = document.getElementById("main-navigation");
-
                     if (searchBlock) {
+                        // document.body.classList.remove("hide-scroll");
                         searchBlock.classList.add("hide");
                     }
                     header[1].remove();

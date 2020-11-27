@@ -4,8 +4,9 @@
 .main-content {
     display: grid;
     grid-template-columns: auto 35rem;
-    margin: 0 auto;
     padding: 0 1.5rem;
+    width: 65%;
+    margin: auto;
 
     @include mobile {
         display: block;

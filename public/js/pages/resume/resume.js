@@ -19,6 +19,9 @@ import favoritesTemp from 'Js/pages/resume/components/briefInfo/favorites.tmpl.x
 import popUpList from "Js/components/popUpList/popUpList";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
+import defaultRes from 'Img/defaultRes.png';
+import defaultVac from 'Img/defaultVac.png';
+
 
 
 const app = window.document.getElementById('app');
@@ -66,7 +69,7 @@ const resumeInfo = async (resumeSource) => {
 
     return {
             infoAll : {
-                imgPath: resumeInfo.avatar,
+                imgPath: resumeInfo.avatar ? resumeInfo.avatar : defaultRes,
                 name: userInfo.name + " " + userInfo.surname,
                 position: resumeInfo.place,
                 mail: userInfo.email,
@@ -108,13 +111,6 @@ export default class Resume {
 
         const infoAll = await resumeInfo(resume);
 
-
-        // const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
-
-
-        // candOptions.insertAdjacentHTML("afterEnd", briefInfoTemp(infoAll.infoAll));
-        // const photo = document.getElementById("cand-options-photo");
-        // photo.style.background = `no-repeat 0 0/cover url(${infoAll.infoAll.imgPath})`;
 
         const main = createElem("div", "main", app);
         const contact = createElem("div", "mainPage-contact", main);
@@ -159,9 +155,7 @@ async function renderResumeResp(resumeCls, resume_id, title) {
         const vacancyList = await resumeCls.myVacancies(resume_id);
         if (vacancyList) {
             vacancyList.forEach((item)=>{
-                console.log(item);
-                //TODO
-                item.imgPath = `${DOMAIN}static/company/${item.comp_id}`;
+                item.imgPath = item.avatar ? item.avatar : defaultVac;
             });
         }
         selectedVacancy = popUpList(app, resumeCls, resume_id, {list:vacancyList, title:title} );
@@ -177,11 +171,10 @@ async function addDeleteLikes(resume_id, infoAll){
     if (addLike) {
         addLike.addEventListener('click', async () =>{
             const addLikeResp = await network.doPost(addLikeResumeURL + `${resume_id}`);
-            // console.assert(addLikeResp.ok);
+            console.assert(addLikeResp.ok);
             const data = await addLikeResp.json();
             console.log(data);
             infoAll.infoAll.is_favorite = data.favorite_id;
-            console.log(likes[0]);
             likes[0].firstChild.remove();
             likes[0].insertAdjacentHTML("afterbegin",favoritesTemp(infoAll.infoAll.is_favorite));
             addDeleteLikes(resume_id, infoAll);
@@ -191,9 +184,8 @@ async function addDeleteLikes(resume_id, infoAll){
     if (deleteLike) {
         deleteLike.addEventListener('click', async ()=>{
             const addLikeResp = await network.doDelete(deleteLikeResumeURL + `${infoAll.infoAll.is_favorite}`);
-            // console.assert(addLikeResp.ok);
+            console.assert(addLikeResp.ok);
             infoAll.infoAll.is_favorite = null;
-            console.log(likes[0]);
             likes[0].firstChild.remove();
             likes[0].insertAdjacentHTML("afterbegin", favoritesTemp(infoAll.infoAll.is_favorite));
             addDeleteLikes(resume_id, infoAll);
