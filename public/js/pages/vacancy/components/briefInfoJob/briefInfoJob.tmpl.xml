@@ -3,31 +3,41 @@
         <div class="logo-employer" id="logo-employer">
         </div>
         <div class="describe-employer">
+            <div class="describe-employer__vac-name">
+                <fest:value>items.name_vacancy</fest:value>
+            </div>
             <a href="" id="companyName">
-                <h4>
-                    <fest:value>items.name</fest:value>
-                </h4>
+                <div class="describe-employer__comp-name">
+                    <fest:value>items.name_company</fest:value>
+                </div>
             </a>
-            <span>
-                <fest:value>items.location</fest:value><fest:space/>Россия
-            </span>
+            <div class="describe-employer__location">
+                <fest:value>items.location</fest:value>
+                <fest:space/>Россия
+            </div>
             <div class="contact-employment">
                 <fest:if test="items.site">
                     <div class="contact-employment-item">
                         <i class="fa fa-unlink"></i>
-                        <fest:value>items.site</fest:value>
+                        <div class="contact-employment-item__body">
+                            <fest:value>items.site</fest:value>
+                        </div>
                     </div>
                 </fest:if>
                 <fest:if test="items.phone">
                     <div class="contact-employment-item">
                         <i class="fa fa-phone"></i>
-                        <fest:value>items.phone</fest:value>
+                        <div class="contact-employment-item__body">
+                            <fest:value>items.phone</fest:value>
+                        </div>
                     </div>
                 </fest:if>
                 <fest:if test="items.mail">
                     <div class="contact-employment-item">
                         <i class="fa fa-envelope"></i>
-                        <fest:value>items.mail</fest:value>
+                        <div class="contact-employment-item__body">
+                            <fest:value>items.mail</fest:value>
+                        </div>
                     </div>
                 </fest:if>
             </div>
