@@ -23,6 +23,15 @@
                         <div class="menu-list-block">
                             <a href="/recommendations" class="menu-list-block__item menu-list-block__item_simple">Рекомендации</a>
                         </div>
+                        <button class="menu-list-block">
+                            <a class="menu-list-block__item menu-list-block__item_button_note" type="button">Уведомления</a>
+                        </button>
+                        <div class="note-popup" id="notePopup">
+                            <h1>Login</h1>
+
+                            <label for="email"><b>Email</b></label>
+                            <label for="psw"><b>Password</b></label>
+                        </div>
                         <div class="menu-list-block">
                             <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>
                         </div>
@@ -86,6 +95,15 @@
                         <fest:if test="items.user=='candidate'">
                             <div class="menu-list-block">
                                 <a href="/recommendations" class="menu-list-block__item menu-list-block__item_simple">Рекомендации</a>
+                            </div>
+                            <button class="menu-list-block">
+                                <a class="menu-list-block__item menu-list-block__item_button_note" type="button">Уведомления</a>
+                            </button>
+                            <div class="note-popup" id="notePopup">
+                                <h1>Login</h1>
+
+                                <label for="email"><b>Email</b></label>
+                                <label for="psw"><b>Password</b></label>
                             </div>
                             <div class="menu-list-block">
                                 <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>

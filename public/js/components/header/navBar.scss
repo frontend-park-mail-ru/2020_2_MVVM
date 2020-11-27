@@ -140,6 +140,19 @@
                 transition: 0.15s;
             }
         }
+        &_button_note {
+            border: none;
+            background: none;
+            border-radius: $border-radius_btn;
+            overflow: hidden;
+            padding: $btn_padding;
+            transition: background-color 0.15s;
+
+            &:hover {
+                background-color: transparent;
+                transition: 0.15s;
+            }
+        }
 
         &_simple:hover {
             opacity: 0.7;
@@ -193,4 +206,13 @@
         font-size: $font-size_h2_m;
         padding: 5rem 0;
     }
+}
+
+.note-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
 }

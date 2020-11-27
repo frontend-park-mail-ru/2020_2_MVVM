@@ -2,7 +2,7 @@ import bNavBarTemp from './bNavBar/bNavBar.tmpl.xml'
 import sNavBarTemp from './sNavBar/sNavBar.tmpl.xml'
 import pNavBarTemp from './phoneNavBar/phoneNavBar.tmpl.xml'
 
-export class NavBarInit {
+export class NavпринBarInit {
     constructor(app, isBig, title) {
         this.app = app;
         this.user = localStorage.getItem('user_type');
