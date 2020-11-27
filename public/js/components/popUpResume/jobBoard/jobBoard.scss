@@ -26,6 +26,10 @@
     margin-bottom: 0.5rem;
     font-size: $font-size_h4;
     color: var(--buttons-purple-color);
+    @include mobile {
+        margin-bottom: 0.7rem;
+        font-size: $font-size_h4_m;
+    }
 }
 .job-container__date .minus{
     font-size: $font-size_h4;
@@ -35,11 +39,19 @@
     font-size: $font-size_h4;
     margin-bottom: 0.5rem;
     font-weight: bolder;
+    @include mobile {
+        margin-bottom: 0.7rem;
+        font-size: $font-size_h4_m;
+    }
 }
 
 .job-container__position{
     font-size: $font-size_h4;
     margin-bottom: 0.5rem;
+    @include mobile {
+        margin-bottom: 0.7rem;
+        font-size: $font-size_h4_m;
+    }
 }
 
 .job__delete{

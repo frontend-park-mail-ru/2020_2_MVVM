@@ -7,6 +7,9 @@ import {network} from "Js/libs/networks";
 import {DOMAIN, resumeByIdURL} from "Js/libs/constants";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
+import defaultRes from 'Img/defaultRes.png';
+
+
 export const app = window.document.getElementById('app');
 
 async function getAllInfo (updClass, resumeSource) {
@@ -36,7 +39,7 @@ async function getAllInfo (updClass, resumeSource) {
         area_search: resumeInfo.area_search,
         education_level: resumeInfo.education_level,
         experience: experienceInfo,
-        imgPath: `${DOMAIN}/static/resume/${resumeInfo.id}`,
+        imgPath: resumeInfo.avatar ? resumeInfo.avatar : defaultRes,
     };
 
     if (updResume.experience) {

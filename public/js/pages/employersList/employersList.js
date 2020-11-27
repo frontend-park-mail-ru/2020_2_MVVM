@@ -8,6 +8,7 @@ import paginationTemp from 'Js/components/pagination/pagination.tmpl.xml';
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml';
 
 import openMenuList from 'Js/components/header/phoneNavBar/pNavBar';
+import defaultVac from 'Img/defaultVac.png';
 
 
 const app = window.document.getElementById('app');
@@ -177,7 +178,8 @@ async function getVacanciesList(vacancies, main, mainList, router) {
         mainList.insertAdjacentHTML("beforeend", listOfEmployersTemp(vacancies.vacancyList));
         let vacDomList = await document.getElementsByClassName('list-row-photo__bg');
         vacancies.vacancyList.forEach((vacancy, i) => {
-            vacDomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${vacancy.comp_id})`;
+            const photo = vacancy.avatar ? vacancy.avatar : defaultVac;
+            vacDomList[i].style.background = `no-repeat  0 0/cover url(${photo})`;
         });
         // mainList.insertAdjacentHTML("beforeend", paginationTemp());
         getEmplVacancy(router, main, vacancies.vacancyList);

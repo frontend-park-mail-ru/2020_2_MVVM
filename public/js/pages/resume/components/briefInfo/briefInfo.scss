@@ -1,80 +1,91 @@
+@import "public/css/vars";
+
 .cand-options {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    height: 80px;
-    color: #ffffff;
+    color: white;
+    margin-top: 2rem;
+
+    @include mobile {
+        display: block;
+    }
 }
 
-.main-skill-item {
-    display: inline-block;
-    border: solid 2px #ffffff;
-    border-radius: 21px;
-    padding: 6px 20px;
-    margin-right: 20px;
-    font-size: 13px;
-}
-
-.cand-options-contact span {
-    font-size: 13px;
-    margin-right: 20px;
-}
-
-.cand-options-contact svg {
-    margin-right: 5px;
-}
 
 .cand-options-photo {
-    border: 2px solid #ffffff;
+    border: $border_btn solid white;
     border-radius: 50%;
-    width: 175px;
-    height: 175px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 20rem;
+    height: 20rem;
+    margin: auto;
+    @include mobile {
+        margin: 2rem auto;
+    }
 }
 
-.cand-options-photo img {
-    border-radius: 50%;
-    width: 90%;
-    height: 90%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7px;
-}
 
 .cand-options-bio {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     align-self: baseline;
 }
 
 .about-candidate {
     text-align: center;
-    padding: 15px 0;
+    padding: 1.5rem 0;
+
+    @include mobile {
+        padding: 0;
+    }
+
+    &__h3 {
+        font-size: $font-size_h4;
+        color: var(--text-light-black);
+        font-weight: bold;
+        @include mobile {
+            margin: 2rem;
+            font-size: $font-size_h3_m;
+        }
+    }
+
+    &__p {
+        font-size: $font-size_h5;
+        color: #888888;
+        line-height: 1.3rem;
+        margin: 1rem;
+        @include mobile {
+            font-size: $font-size_h4_m;
+            margin: 2rem;
+        }
+    }
 }
 
-.about-candidate h3 {
-    font-size: 22px;
-    color: #202020;
-    font-weight: bold;
-}
 
-.about-candidate p {
-    font-size: 13px;
-    color: #888888;
-    line-height: 13px;
-    margin: 10px;
-}
-
-#add_to_prefer:hover{
-    color:var(--main-pink-color);
+.download-cv {
+    margin-left: auto;
+    border: $border_btn solid var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
+    font-size: $font-size_btn;
+    padding: 1.4rem 3rem;
+    border-radius: $border-radius_input;
+    text-align: center;
     cursor: pointer;
-}
+    transition: 0.15ms;
+    margin-bottom: 2rem;
+    @include mobile {
+        width: 70%;
+        margin: 2rem auto;
+        font-size: $font-size_btn_m;
+    }
 
-#delete_from_prefer:hover{
-    color:var(--main-pink-color);
-    cursor: pointer;
+    &__icon{
+        margin-right:1rem ;
+    }
+
+    &:hover {
+        background-color: var(--buttons-purple-color);
+        color: white;
+        transition: 0.15ms;
+    }
 }

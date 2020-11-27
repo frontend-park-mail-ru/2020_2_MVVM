@@ -7,9 +7,11 @@
     margin-top: $margin-title;
     grid-column: 1 / 3;
     align-items: center;
+    margin-bottom: 2rem;
 
     @include mobile {
         display: block;
+        margin-bottom: 0;
     }
 }
 

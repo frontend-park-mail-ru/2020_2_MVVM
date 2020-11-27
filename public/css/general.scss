@@ -98,6 +98,9 @@ h1, h2, h3, h4, h5, h6 {
 /*_________________________PAGE____________________________*/
 
 
+.hide-scroll {
+    overflow: hidden;
+}
 
 
 .page {
@@ -118,6 +121,10 @@ h1, h2, h3, h4, h5, h6 {
     flex-grow: 1;
     overflow-y: hidden;
     min-height: 100%;
+}
+
+.main-list{
+    width: 100%;
 }
 
 .main__list_empty {

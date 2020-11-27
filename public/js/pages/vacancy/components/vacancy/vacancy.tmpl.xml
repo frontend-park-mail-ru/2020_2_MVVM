@@ -1,35 +1,34 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-  <fest:each iterate="items" index="i" value="v">
-      <div class="job-description">
-        <fest:each iterate="v.mainInfo" index="i" value="sp">
-          <h3 class="job-description__h3">
-            <fest:value>sp.name</fest:value>
-          </h3>
-          <p class="job-description__p">
-            <fest:value>sp.text</fest:value>
-          </p>
-        </fest:each>
-        <fest:each iterate="v.required" index="i" value="sp">
-          <h3 class="job-description__h3">
-            <fest:value>sp.name</fest:value>
-          </h3>
-          <fest:for iterate="sp.requiredItem" index="i" value="p">
-            <li class="job-description__li">
-              <fest:value>p</fest:value>
-            </li>
-          </fest:for>
-        </fest:each>
-
-        <fest:each iterate="v.experience" index="i" value="sp">
-          <h3 class="job-description__h3">
-            <fest:value>sp.name</fest:value>
-          </h3>
-          <fest:for iterate="sp.experienceItem" index="i" value="p">
-            <li class="job-description__li" >
-              <fest:value>p</fest:value>
-            </li>
-          </fest:for>
-        </fest:each>
-      </div>
-  </fest:each>
+    <fest:each iterate="items" index="i" value="v">
+        <div class="job-description">
+            <fest:each iterate="v.mainInfo" index="i" value="sp">
+                <div class="job-description__h3">
+                    <fest:value>sp.name</fest:value>
+                </div>
+                <div class="job-description__p">
+                    <fest:value>sp.text</fest:value>
+                </div>
+            </fest:each>
+            <fest:each iterate="v.required" index="i" value="sp">
+                <div class="job-description__h3">
+                    <fest:value>sp.name</fest:value>
+                </div>
+                <fest:for iterate="sp.requiredItem" index="i" value="p">
+                    <div class="job-description__li">
+                        <fest:value>p</fest:value>
+                    </div>
+                </fest:for>
+            </fest:each>
+            <fest:each iterate="v.experience" index="i" value="sp">
+                <div class="job-description__h3">
+                    <fest:value>sp.name</fest:value>
+                </div>
+                <fest:for iterate="sp.experienceItem" index="i" value="p">
+                    <div class="job-description__li">
+                        <fest:value>p</fest:value>
+                    </div>
+                </fest:for>
+            </fest:each>
+        </div>
+    </fest:each>
 </fest:template>

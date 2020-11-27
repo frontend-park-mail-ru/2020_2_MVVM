@@ -8,6 +8,8 @@ import listOfCandidatesTemp from './components/listOfCandidates/listOfCandidates
 import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml'
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
+import defaultRes from 'Img/defaultRes.png';
+
 const app = window.document.getElementById('app');
 
 export default class CandidatesList {
@@ -140,7 +142,7 @@ export default class CandidatesList {
             searchForm.classList.add("hide");
         }
 
-        const mainList = createElem("div", "main__list", mainRow);
+        const mainList = createElem("div", "main-list", mainRow);
 
 
         const response = await network.doGetLimit(resumePageURL, 0, 15);
@@ -157,7 +159,8 @@ async function renderResumeList(response, main, mainList, router){
         mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
         let candDomList = await document.getElementsByClassName('list-row-photo__bg');
         resume.forEach((item, i) => {
-            candDomList[i].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/resume/${item.resume_id})`;
+            const photo = item.avatar ? item.avatar : defaultRes;
+            candDomList[i].style.background = `no-repeat  0 0/cover url(${photo})`;
         });
 
         // mainRow.insertAdjacentHTML("afterend", window.fest['pagination.tmpl']());
