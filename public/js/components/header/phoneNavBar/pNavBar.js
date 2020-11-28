@@ -62,12 +62,14 @@ export default function openMenu (app, need_search) {
         list.loadNavBar(false);
         let nb = document.getElementById("note-button")
         let popup = document.getElementById("notePopup");
-        nb.addEventListener('click', () => {
-            popup.style.display = "block";
-        });
-        window.onclick = function(event) {
-            if (event.target == popup) {
-                popup.style.display = "none";
+        if (nb != null) {
+            nb.addEventListener('click', () => {
+                popup.style.display = "block";
+            });
+            window.onclick = function(event) {
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                }
             }
         }
     }
