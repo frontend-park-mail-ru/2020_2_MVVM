@@ -82,6 +82,7 @@ export const resumeSearchURL = '/v1/resume/search';
 export const addVacancyURL = "/v1/vacancy/";
 export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
+export const vacancyRecommendationsPageURL = "/v1/vacancy/recommendation?";
 export const vacancyMineURL = "/v1/vacancy/mine?";
 export const updateVacancyURL = "/v1/vacancy/";
 export const vacancySearchURL = '/v1/vacancy/search';
