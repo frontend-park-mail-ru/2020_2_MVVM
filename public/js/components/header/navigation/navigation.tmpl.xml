@@ -23,13 +23,13 @@
                         <div class="menu-list-block">
                             <a href="/recommendations" class="menu-list-block__item menu-list-block__item_simple">Рекомендации</a>
                         </div>
-                                                    <div class="menu-list-block" id="note-button">
-                        <button class="menu-list-block__item menu-list-block__item_button_note" id="note-button">Уведомления</button>
-                                                    </div>
+                        <div class="menu-list-block" id="note-button">
+                            <button class="menu-list-block__item menu-list-block__item_button_note" id="note-button">Уведомления</button>
+                        </div>
                         <div class="note-popup" id="notePopup">
                             <div class="popup-content">
                                 <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
-                                <div class="menu-list-block__item menu-list-block__item_note">Тут мы покажем вам уведомления</div>
+                                <div class="menu-list-block__item menu-list-block__item_note">Мы подобрали для вас <fest:value output="text">items.rec_vac</fest:value> <a href="/recommendations"> вакансий</a>. </div>
                             </div>
                         </div>
                         <div class="menu-list-block">
@@ -51,6 +51,12 @@
                                 </a>
                             </div>
                         </fest:if>
+                        <div class="note-popup" id="notePopup">
+                            <div class="popup-content">
+                                <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
+                                <div class="menu-list-block__item menu-list-block__item_note">Тут мы покажем вам уведомления как работодателю</div>
+                            </div>
+                        </div>
                     </fest:if>
                     <div class="menu-list-block">
                         <a href="/profile"
@@ -102,7 +108,7 @@
                             <div class="note-popup" id="notePopup">
                                 <div class="popup-content">
                                     <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
-                                    <div class="menu-list-block__item menu-list-block__item_note">Тут мы покажем вам уведомления</div>
+                                    <div class="menu-list-block__item menu-list-block__item_note">Мы подобрали для вас <fest:value output="text">items.rec_vac</fest:value> <a href="/recommendations"> вакансий</a>. </div>
                                 </div>
                             </div>
                             <div class="menu-list-block">
@@ -124,6 +130,12 @@
                                     </a>
                                 </div>
                             </fest:if>
+                            <div class="note-popup" id="notePopup">
+                                <div class="popup-content">
+                                    <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
+                                    <div class="menu-list-block__item menu-list-block__item_note">Тут мы покажем вам уведомления как работодателю</div>
+                                </div>
+                            </div>
                         </fest:if>
                         <div class="menu-list-block">
                             <a href="/profile"
