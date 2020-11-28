@@ -27,10 +27,10 @@
                             <a class="menu-list-block__item menu-list-block__item_button_note" type="button">Уведомления</a>
                         </button>
                         <div class="note-popup" id="notePopup">
-                            <h1>Login</h1>
-
-                            <label for="email"><b>Email</b></label>
-                            <label for="psw"><b>Password</b></label>
+                            <div class="popup-content">
+                                <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
+                                <div class="menu-list-block__item menu-list-block__item_note">Тут мы покажем вам уведомления</div>
+                            </div>
                         </div>
                         <div class="menu-list-block">
                             <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>
@@ -100,10 +100,10 @@
                                 <a class="menu-list-block__item menu-list-block__item_button_note" type="button">Уведомления</a>
                             </button>
                             <div class="note-popup" id="notePopup">
-                                <h1>Login</h1>
-
-                                <label for="email"><b>Email</b></label>
-                                <label for="psw"><b>Password</b></label>
+                                <div class="popup-content">
+                                    <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
+                                    <div class="menu-list-block__item menu-list-block__item_note">Тут мы покажем вам уведомления</div>
+                                </div>
                             </div>
                             <div class="menu-list-block">
                                 <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>

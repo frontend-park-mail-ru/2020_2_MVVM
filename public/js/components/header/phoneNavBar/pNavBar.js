@@ -58,12 +58,18 @@ export default function openMenu (app, need_search) {
         }
 
     } else {
-        const list = new NavBarInit(app,  false,"");
+        const list = new NavBarInit(app, false, "");
         list.loadNavBar(false);
-        // let nb = document.getElementById( "note-button")
-        // nb.addEventListener('click', ()=>{
-        //     document.getElementById("notePopup").style.display = "block";
-        // })
+        let nb = document.getElementById("note-button")
+        let popup = document.getElementById("notePopup");
+        nb.addEventListener('click', () => {
+            popup.style.display = "block";
+        });
+        window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
     }
 }
 
