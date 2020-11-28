@@ -50,6 +50,10 @@ export default function openMenu (app, need_search) {
     } else {
         const list = new NavBarInit(app,  false,"");
         list.loadNavBar(false);
+        // let nb = document.getElementById( "note-button")
+        // nb.addEventListener('click', ()=>{
+        //     document.getElementById("notePopup").style.display = "block";
+        // })
     }
 }
 
