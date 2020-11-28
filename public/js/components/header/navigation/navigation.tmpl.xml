@@ -23,9 +23,9 @@
                         <div class="menu-list-block">
                             <a href="/recommendations" class="menu-list-block__item menu-list-block__item_simple">Рекомендации</a>
                         </div>
-                        <button class="menu-list-block" id="note-button">
-                            <a class="menu-list-block__item menu-list-block__item_button_note" type="button">Уведомления</a>
-                        </button>
+                        <!--                            <button class="menu-list-block" id="note-button">-->
+                        <button class="menu-list-block__item menu-list-block__item_button_note" id="note-button">Уведомления</button>
+                        <!--                            </button>-->
                         <div class="note-popup" id="notePopup">
                             <div class="popup-content">
                                 <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
@@ -96,9 +96,9 @@
                             <div class="menu-list-block">
                                 <a href="/recommendations" class="menu-list-block__item menu-list-block__item_simple">Рекомендации</a>
                             </div>
-                            <button class="menu-list-block" id="note-button">
-                                <a class="menu-list-block__item menu-list-block__item_button_note" type="button">Уведомления</a>
-                            </button>
+<!--                            <button class="menu-list-block" id="note-button">-->
+                                <button class="menu-list-block__item menu-list-block__item_button_note" id="note-button">Уведомления</button>
+<!--                            </button>-->
                             <div class="note-popup" id="notePopup">
                                 <div class="popup-content">
                                     <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
