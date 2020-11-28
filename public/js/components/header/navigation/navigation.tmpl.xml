@@ -21,6 +21,18 @@
                 <fest:if test="items.user!=null">
                     <fest:if test="items.user=='candidate'">
                         <div class="menu-list-block">
+                            <a href="/recommendations" class="menu-list-block__item menu-list-block__item_simple">Рекомендации</a>
+                        </div>
+                        <!--                            <button class="menu-list-block" id="note-button">-->
+                        <button class="menu-list-block__item menu-list-block__item_button_note" id="note-button">Уведомления</button>
+                        <!--                            </button>-->
+                        <div class="note-popup" id="notePopup">
+                            <div class="popup-content">
+                                <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
+                                <div class="menu-list-block__item menu-list-block__item_note">Тут мы покажем вам уведомления</div>
+                            </div>
+                        </div>
+                        <div class="menu-list-block">
                             <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>
                         </div>
                     </fest:if>
@@ -81,6 +93,18 @@
                     </div>
                     <fest:if test="items.user!=null">
                         <fest:if test="items.user=='candidate'">
+                            <div class="menu-list-block">
+                                <a href="/recommendations" class="menu-list-block__item menu-list-block__item_simple">Рекомендации</a>
+                            </div>
+<!--                            <button class="menu-list-block" id="note-button">-->
+                                <button class="menu-list-block__item menu-list-block__item_button_note" id="note-button">Уведомления</button>
+<!--                            </button>-->
+                            <div class="note-popup" id="notePopup">
+                                <div class="popup-content">
+                                    <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
+                                    <div class="menu-list-block__item menu-list-block__item_note">Тут мы покажем вам уведомления</div>
+                                </div>
+                            </div>
                             <div class="menu-list-block">
                                 <a href="/createResume" class="menu-list-block__item menu-list-block__item_button">+ Создать резюме</a>
                             </div>

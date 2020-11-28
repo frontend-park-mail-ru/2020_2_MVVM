@@ -140,10 +140,32 @@
                 transition: 0.15s;
             }
         }
+        &_button_note {
+            border: none;
+            background: none;
+            border-radius: $border-radius_btn;
+            overflow: hidden;
+            padding: $btn_padding;
+            transition: background-color 0.15s;
+
+            &:hover {
+                background-color: transparent;
+                transition: 0.15s;
+            }
+        }
 
         &_simple:hover {
             opacity: 0.7;
             transition: 0.15s;
+        }
+        &_note_head {
+            position: center;
+            text-align: center;
+            background-color: #45688e;
+        }
+        &_note {
+            position: center;
+            text-align: left;
         }
 
         &_icon-key:before {
@@ -193,4 +215,28 @@
         font-size: $font-size_h2_m;
         padding: 5rem 0;
     }
+}
+
+.note-popup {
+    display: none;
+    position: absolute;
+    top: 12%;
+    z-index: 9;
+    overflow: auto;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    background-color: #1d293e;
+    max-width: 50%;
+    width: 1000px;
+    max-height: 70%;
+    height: 1500px;
 }

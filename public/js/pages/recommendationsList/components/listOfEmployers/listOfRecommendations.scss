@@ -1,0 +1,26 @@
+
+.main__logo-employers {
+    max-width: 150px;
+    min-width: 150px;
+    overflow: hidden;
+}
+
+.main__logo-employers img{
+  width: 100%;
+}
+
+
+.main__info-employers {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    grid-row-gap: 5px;
+    max-height: 150px;
+    overflow-y: hidden;
+}
+
+
+
+.main__name-employers_link {
+    font-size: 25px;
+    font-weight: bolder;
+}
