@@ -12,21 +12,28 @@ export default function openMenu (app, need_search) {
 
         burgerMenu[0].addEventListener('click', event =>{
             const header = document.getElementsByClassName(`header`);
+            document.body.classList.add("hide-scroll");
             const menuList = new NavBarInit(header[0],  false,"");
             menuList.loadNavBar(true);
+
+            const headerLogo = document.getElementsByClassName("header-row-top-menu__logo");
+            headerLogo[0].addEventListener('click', ()=>{
+                document.body.classList.remove("hide-scroll");
+            });
 
             const menu = document.getElementsByClassName("header-row-top-menu");
             menu[0].insertAdjacentHTML("beforeend", `<div class="burger-close-menu"></div>`);
             menu[0].lastChild.addEventListener('click', () =>{
                 header[1].remove();
+                document.body.classList.remove("hide-scroll");
                 openMenu(header[0], need_search);
             });
 
             const menuBlock = document.getElementsByClassName("menu-list-block");
             for (let i=0; i<menuBlock.length;i++) {
                 menuBlock[i].addEventListener('click', ()=>{
+                    document.body.classList.remove("hide-scroll");
                     const searchBlock = document.getElementById("main-navigation");
-
                     if (searchBlock) {
                         searchBlock.classList.add("hide");
                     }
@@ -39,9 +46,12 @@ export default function openMenu (app, need_search) {
         if (searchMenu.length) {
             searchMenu[0].addEventListener('click', ()=>{
                 const searchBlock = document.getElementById("main-navigation");
+                const mainList = document.getElementsByClassName("main-list");
                 if (searchBlock.classList.contains("hide")) {
+                    mainList[0].classList.add("hide");
                     searchBlock.classList.remove("hide");
                 } else {
+                    mainList[0].classList.remove("hide");
                     searchBlock.classList.add("hide");
                 }
             });

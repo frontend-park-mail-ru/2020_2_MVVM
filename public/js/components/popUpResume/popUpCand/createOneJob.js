@@ -18,6 +18,7 @@ let currentWork;
 export async function renderInputForm(value, classCand) {
 
     app.insertAdjacentHTML("afterbegin", popUpCandTemplate(value));
+    document.body.classList.add("hide-scroll");
     let exit = document.getElementsByClassName("popUp-cont__block");
     let bg = document.getElementsByClassName("bg");
     const exitBtn = document.getElementById("exit-btn");
@@ -26,6 +27,7 @@ export async function renderInputForm(value, classCand) {
     exit.forEach((item) => {
         item.addEventListener('click', (event) => {
             bg[0].remove();
+            document.body.classList.remove("hide-scroll");
         });
     });
 
@@ -45,6 +47,7 @@ export async function renderInputForm(value, classCand) {
     await form.addEventListener('submit', (event) => {
         collectInfo(classCand, event, form, bg[0]).then(value =>{
             if (value){
+                document.body.classList.remove("hide-scroll");
                 let board = document.getElementById("experience_board");
                 classCand.jobsArr.push(value);
                 board.insertAdjacentHTML("beforeend", jobBoardTemplate(value));
@@ -53,8 +56,6 @@ export async function renderInputForm(value, classCand) {
                 });
                 board.lastChild.lastChild.addEventListener('click', (event)=>{
                     (event.currentTarget).parentNode.remove();
-                    console.log(classCand.jobsArr);
-                    console.log(value);
                     delete classCand.jobsArr[value.numOfJob];
                 });
             }

@@ -18,6 +18,8 @@ import contactFormTemp from 'Js/components/rightColumn/contactForm.tmpl.xml';
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 // import shareBarTemp from 'Js/components/shareBar/shareBar.tmpl.xml';
 
+import defaultRes from 'Img/defaultRes.png';
+
 
 
 const app = window.document.getElementById('app');
@@ -64,7 +66,7 @@ export default class Vacancy {
         const briefInfoJob = {
             name_company: allInfo.companyInfo.name,
             name_vacancy: allInfo.vacancyInfo.title,
-            logo: `${DOMAIN}static/company/`+company_id,
+            logo: allInfo.companyInfo.avatar,
             location: `${allInfo.vacancyInfo.location}/${allInfo.vacancyInfo.area_search}`,
             site: allInfo.companyInfo.link,
             phone: allInfo.vacancyInfo.phone,
@@ -127,7 +129,6 @@ export default class Vacancy {
                 education: educationLevel[allInfo.vacancyInfo.education_level],
             };
 
-        console.log(jobOverview.education);
 
         contentRightColumn.insertAdjacentHTML("beforeend", jobOverviewTemp(jobOverview));
 
@@ -151,7 +152,7 @@ async function renderVacancyResp(vacancyCls, vac_id, title) {
         const resumeList = await vacancyCls.myResumes(vac_id);
         if (resumeList) {
             resumeList.forEach((item)=>{
-                item.imgPath = `${DOMAIN}static/resume/${item.resume_id}`;
+                item.imgPath = item.avatar ? item.avatar : defaultRes;
             })
         }
        selectedResume = popUpList(app, vacancyCls, vac_id, {list:resumeList, title:title});

@@ -19,6 +19,9 @@ import favoritesTemp from 'Js/pages/resume/components/briefInfo/favorites.tmpl.x
 import popUpList from "Js/components/popUpList/popUpList";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
+import defaultRes from 'Img/defaultRes.png';
+import defaultVac from 'Img/defaultVac.png';
+
 
 
 const app = window.document.getElementById('app');
@@ -66,7 +69,7 @@ const resumeInfo = async (resumeSource) => {
 
     return {
             infoAll : {
-                imgPath: `${DOMAIN}static/resume/${resumeInfo.id}`,
+                imgPath: resumeInfo.avatar ? resumeInfo.avatar : defaultRes,
                 name: userInfo.name + " " + userInfo.surname,
                 position: resumeInfo.place,
                 mail: userInfo.email,
@@ -109,19 +112,14 @@ export default class Resume {
         const infoAll = await resumeInfo(resume);
 
 
-        const candOptions = createElem("div", "cand-option", app.firstElementChild.firstElementChild.firstElementChild)
-
-
-        candOptions.insertAdjacentHTML("afterEnd", briefInfoTemp(infoAll.infoAll));
-        let imgs = document.getElementsByClassName("briefCandImg");
-        for (let i=0; i<imgs.length;i++){
-            imgs[i].onerror = ()=>{imgs[i].src = `${DOMAIN}static/resume/default.png`};
-        }
-
         const main = createElem("div", "main", app);
+        const contact = createElem("div", "mainPage-contact", main);
 
-        const contact = createElem("div", "mainPage-contact", main)
-        contact.insertAdjacentHTML("afterEnd", contactTemp(localStorage.getItem('user_type')));
+        contact.insertAdjacentHTML("afterbegin",briefInfoTemp(infoAll.infoAll));
+        const photo = document.getElementById("cand-options-photo");
+        photo.style.background = `no-repeat 0 0/cover url(${infoAll.infoAll.imgPath})`;
+
+        // contact.insertAdjacentHTML("afterEnd", contactTemp(localStorage.getItem('user_type')));
 
         const mainContent = createElem("div", "main-content", main);
 
@@ -135,7 +133,7 @@ export default class Resume {
 
         contentRightColumn.insertAdjacentHTML("beforeend", jobOverviewTemp(infoAll.jobOverview));
 
-        contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
+        // contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
 
 
         addDeleteLikes(resume.resume_id, infoAll);
@@ -157,8 +155,7 @@ async function renderResumeResp(resumeCls, resume_id, title) {
         const vacancyList = await resumeCls.myVacancies(resume_id);
         if (vacancyList) {
             vacancyList.forEach((item)=>{
-                console.log(item);
-                item.imgPath = `${DOMAIN}static/company/${item.comp_id}`;
+                item.imgPath = item.avatar ? item.avatar : defaultVac;
             });
         }
         selectedVacancy = popUpList(app, resumeCls, resume_id, {list:vacancyList, title:title} );
@@ -175,10 +172,11 @@ async function addDeleteLikes(resume_id, infoAll){
         addLike.addEventListener('click', async () =>{
             const addLikeResp = await network.doPost(addLikeResumeURL + `${resume_id}`);
             console.assert(addLikeResp.ok);
-            const data = await (addLikeResp.json());
-            infoAll.infoAll.is_favorite = data.favorite_for_empl.favorite_id;
-            likes[0].lastChild.remove();
-            likes[0].insertAdjacentHTML("beforeend",favoritesTemp(infoAll.infoAll.is_favorite));
+            const data = await addLikeResp.json();
+            console.log(data);
+            infoAll.infoAll.is_favorite = data.favorite_id;
+            likes[0].firstChild.remove();
+            likes[0].insertAdjacentHTML("afterbegin",favoritesTemp(infoAll.infoAll.is_favorite));
             addDeleteLikes(resume_id, infoAll);
         });
     }
@@ -188,8 +186,8 @@ async function addDeleteLikes(resume_id, infoAll){
             const addLikeResp = await network.doDelete(deleteLikeResumeURL + `${infoAll.infoAll.is_favorite}`);
             console.assert(addLikeResp.ok);
             infoAll.infoAll.is_favorite = null;
-            likes[0].lastChild.remove();
-            likes[0].insertAdjacentHTML("beforeend", favoritesTemp(infoAll.infoAll.is_favorite));
+            likes[0].firstChild.remove();
+            likes[0].insertAdjacentHTML("afterbegin", favoritesTemp(infoAll.infoAll.is_favorite));
             addDeleteLikes(resume_id, infoAll);
         });
     }
