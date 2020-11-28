@@ -1,6 +1,9 @@
 import bNavBarTemp from './bNavBar/bNavBar.tmpl.xml'
 import sNavBarTemp from './sNavBar/sNavBar.tmpl.xml'
 import pNavBarTemp from './phoneNavBar/phoneNavBar.tmpl.xml'
+import {network} from "Js/libs/networks";
+import {loginURL, notificationsPageURL, updateRespStatusURL} from "Js/libs/constants";
+import {recNum} from "Js/app";
 
 export class NavBarInit {
     constructor(app, isBig, title) {
@@ -18,6 +21,7 @@ export class NavBarInit {
         }
         let data = {title: this.title, user: this.user, has_company: has_company};
         data['is_open'] = is_open ? is_open : false;
+        data['rec_vac'] = recNum;
 
         if (this.isBig) {
             this.app.innerHTML = bNavBarTemp(data);

@@ -104,6 +104,8 @@ export const getMyRespURL = "/v1/response/my";
 export const myFreeResumesURL = "/v1/response/free/resumes/";
 export const myFreeVacanciesURL = "/v1/response/free/vacancies/";
 
+export const notificationsPageURL = "/v1/response/notify?";
+
 //sphere
 export const spheres = [
     "Автомобильный бизнес",
