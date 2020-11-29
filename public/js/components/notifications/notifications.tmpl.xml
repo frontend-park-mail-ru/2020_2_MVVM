@@ -1,10 +1,9 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="note-popup" id="notePopup">
-        <fest:if test="items.user=='candidate'">
+        <div class="triangle"/>
             <div class="popup-content">
                 <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
                 <div id="notes-list"></div>
             </div>
-        </fest:if>
     </div>
 </fest:template>

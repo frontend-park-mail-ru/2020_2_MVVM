@@ -1,5 +1,6 @@
 import {UNAUTHORISED, meUserURL} from "./constants.js";
 import {network} from "./networks.js";
+import {initPolling} from "Js/libs/polling";
 
 const PAGES_WITH_ABSOLUTE = ['/', '/auth', '/reg'];
 
@@ -49,6 +50,7 @@ export default class Router {
                 const obj = this.routes.get(key);
 
                 const user_type = localStorage.getItem('user_type');
+                initPolling();
 
                 obj.page.render(user_type, ...args);
                 this.changeNavBarPos(path);

@@ -68,21 +68,6 @@
                                 <div class="response-row__status_default"><fest:value>v.status</fest:value></div>
                             </fest:if>
                         </fest:if>
-
-
-<!--                        <fest:if test="v.initial=='employer'">-->
-<!--                            <fest:if test="v.status=='Отказ'">-->
-<!--                                <div class="response-row__status_reject"><fest:value>v.status</fest:value></div>-->
-<!--                            </fest:if>-->
-<!--                            <fest:if test="v.status=='Приглашение'">-->
-<!--                                <div class="response-row__status_accept"><fest:value>v.status</fest:value></div>-->
-<!--                            </fest:if>-->
-<!--                            <fest:if test="v.status=='Отправлено'">-->
-<!--                                <div class="response-row__status_default"><fest:value>v.status</fest:value></div>-->
-<!--                            </fest:if>-->
-<!--                        </fest:if>-->
-
-
                     </div>
                     <div class="response-row-info">
                         <div>
