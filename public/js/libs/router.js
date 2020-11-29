@@ -93,6 +93,7 @@ export default class Router {
             localStorage.setItem('user_type', '');
         })
 
+
         document.addEventListener('click', (evt) => {
             const linkElement = evt.target.closest('a');
 
