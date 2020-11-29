@@ -81,8 +81,6 @@ export const startPolling = () => {
                     newRecs ? createNotifVacancy(newRecs) : emptyNotif();
                     recNum = newRecs;
                 }
-                console.log(parsedJson.unread_resp.length);
-                console.log(unresponed);
                 if (parsedJson.unread_resp && parsedJson.unread_resp.length !== unresponed) {
                     createNotifResponses(parsedJson.unread_resp);
                     unresponed = parsedJson.unread_resp.length;
