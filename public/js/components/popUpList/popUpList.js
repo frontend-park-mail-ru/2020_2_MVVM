@@ -10,6 +10,11 @@ export default function popUpList(app, responsedCls, responsedId, data) {
 
     app.insertAdjacentHTML("afterbegin", popUpListTemp(data));
 
+    const createBtn = document.getElementsByClassName('btn-add-exp');
+    createBtn[0].addEventListener('click',()=>{
+        document.body.classList.remove("hide-scroll");
+    })
+
     let exit = document.getElementsByClassName("popUp-cont__block");
     let bg = document.getElementsByClassName("bg");
     const exitBtn = document.getElementById("exit-btn");

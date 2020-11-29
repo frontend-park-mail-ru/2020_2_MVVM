@@ -36,8 +36,8 @@ async function vacancyInfo(vacancy_id, company_id) {
     const pageInfo = await Promise.all(allInfo).then((values) => {
         return values;
     });
-    const vacInfo = await pageInfo[0].json()
-    const compInfo = await pageInfo[1].json()
+    const vacInfo = await pageInfo[0].json();
+    const compInfo = await pageInfo[1].json();
     return {
         vacancyInfo: vacInfo === null ? null : vacInfo.vacancy,
         companyInfo: compInfo == null ? null : compInfo.company,

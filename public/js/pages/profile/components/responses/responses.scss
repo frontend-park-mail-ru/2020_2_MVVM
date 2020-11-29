@@ -17,6 +17,20 @@
     border: $border_btn solid var(--border-grey-color);
     padding: 0.5rem;
 
+    &_notifications{
+        grid-template-columns: 10fr 4fr auto;
+        @include mobile {
+            display: block;
+        }
+    }
+
+    &__close-btn{
+        cursor: pointer;
+        &:hover {
+            color: var(--main-pink-color);
+        }
+    }
+
     @include mobile {
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 2fr 1fr;

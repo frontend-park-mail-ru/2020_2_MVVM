@@ -29,7 +29,7 @@ export default class RegCtrl {
 
             if (response.status >= 200 && response.status < 300) {
                 console.assert(response.ok);
-                this.router.change('\/auth');
+                this.router.change('\/');
             } else {
                 formReg[0].insertAdjacentHTML("afterBegin", `<div class="error">${res.error}</div>`);
 

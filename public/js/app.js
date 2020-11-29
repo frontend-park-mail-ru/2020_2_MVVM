@@ -79,6 +79,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/logout', controllers.logout.page);
 
     router.start();
-    initPolling();
 
 });
