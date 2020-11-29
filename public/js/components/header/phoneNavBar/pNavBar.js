@@ -1,9 +1,23 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import pNavBarTemp from "Js/components/header/phoneNavBar/phoneNavBar.tmpl.xml";
+import notificTemp from "Js/components/notifications/notifications.tmpl.xml";
+import {recNum} from "Js/app";
+
 
 export default function openMenu (app, need_search) {
 
-    if (document.body.className==='is-mobile') {
+
+    let myString;
+    if (recNum) {
+        const word = plural(recNum, ["вакансий", "вакансию", "вакансии"]);
+        myString = `${recNum} ${word}`;
+    }
+    const top = document.getElementById('app');
+    top.insertAdjacentHTML("beforebegin", notificTemp({user:localStorage.getItem('user_type'), rec_vac: myString}));
+
+
+
+    if (document.body.classList.contains('is-mobile')) {
         app.innerHTML = pNavBarTemp(need_search);
 
 
@@ -41,6 +55,22 @@ export default function openMenu (app, need_search) {
                     openMenu(header[0], need_search);
                 });
             }
+
+            let nb = document.getElementById("note-button");
+            let popup = document.getElementById("notePopup");
+
+            if (nb != null) {
+                nb.addEventListener('click', () => {
+                    popup.style.display = "block";
+                    header[1].remove();
+                    openMenu(header[0], need_search);
+                });
+                window.onclick = function(event) {
+                    if (event.target === popup) {
+                        popup.style.display = "none";
+                    }
+                }
+            }
         });
 
         if (searchMenu.length) {
@@ -56,20 +86,7 @@ export default function openMenu (app, need_search) {
                 }
             });
         }
-        const list = new NavBarInit(app, false, "");
-        list.loadNavBar(false);
-        let nb = document.getElementById("note-button");
-        let popup = document.getElementById("notePopup");
-        if (nb != null) {
-            nb.addEventListener('click', () => {
-                popup.style.display = "block";
-            });
-            window.onclick = function(event) {
-                if (event.target == popup) {
-                    popup.style.display = "none";
-                }
-            }
-        }
+
 
     } else {
         const list = new NavBarInit(app, false, "");
@@ -81,11 +98,32 @@ export default function openMenu (app, need_search) {
                 popup.style.display = "block";
             });
             window.onclick = function(event) {
-                if (event.target == popup) {
+                if (event.target === popup) {
                     popup.style.display = "none";
                 }
             }
         }
     }
+    // changeNavBarPos();
+
 }
+
+
+const plural = (count, variants) => {
+    const lastTwo = count % 100;
+    if (lastTwo > 10 && lastTwo < 20) {
+        return variants[0];
+    }
+
+    const last = count % 10;
+    if (last === 1) {
+        return variants[1];
+    }
+
+    if (last > 1 && last < 5) {
+        return variants[2];
+    }
+
+    return variants[0];
+};
 

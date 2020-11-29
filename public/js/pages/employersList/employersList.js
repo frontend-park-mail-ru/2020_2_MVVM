@@ -1,7 +1,7 @@
 import {checkBoxes} from 'Js/components/searchForm/searchForm'
 import createElem from "Js/libs/createElem";
 import {network} from "Js/libs/networks";
-import {DOMAIN, vacancySearchURL} from "Js/libs/constants";
+import {vacancySearchURL} from "Js/libs/constants";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml';
 import listOfEmployersTemp from './components/listOfEmployers/listOfEmployers.tmpl.xml';
 import paginationTemp from 'Js/components/pagination/pagination.tmpl.xml';

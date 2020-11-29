@@ -1,7 +1,7 @@
 @import "public/css/vars";
 
 .header {
-
+    width: 100%;
     &__small {
         background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
         &_phone{
@@ -13,18 +13,19 @@
     }
 
     &_big {
-        background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%),
-        url(Img/bmstuBuilding1.png) 0 0/cover no-repeat;
+        background: linear-gradient(to right, rgba(83, 100, 226, 1) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
+        //background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%),
+        //url(Img/bmstuBuilding1.png) 0 0/cover no-repeat;
     }
 
+    &_absolute {
+        position: absolute;
+        background: none;
+    }
 
     z-index: 2;
 }
 
-.container {
-    max-width: 130rem;
-    margin: 0 auto;
-}
 
 .header-row {
     display: flex;
@@ -135,24 +136,25 @@
             padding: $btn_padding;
             transition: background-color 0.15s;
 
-            &:hover {
-                background-color: transparent;
-                transition: 0.15s;
-            }
-        }
-        &_button_note {
-            border: none;
-            background: none;
-            border-radius: $border-radius_btn;
-            overflow: hidden;
-            padding: $btn_padding;
-            transition: background-color 0.15s;
 
             &:hover {
                 background-color: transparent;
                 transition: 0.15s;
             }
         }
+        //&_button_note {
+        //    border: none;
+        //    background: none;
+        //    border-radius: $border-radius_btn;
+        //    overflow: hidden;
+        //    padding: $btn_padding;
+        //    transition: background-color 0.15s;
+        //
+        //    &:hover {
+        //        background-color: transparent;
+        //        transition: 0.15s;
+        //    }
+        //}
 
         &_simple:hover {
             opacity: 0.7;
@@ -205,7 +207,10 @@
 
 .header-row-bottom {
     color: white;
-    margin: 3rem 0;
+    background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%),
+    url(Img/bmstuBuilding1.png) 0 0/cover no-repeat;
+    //margin: 3rem 0;
+
 }
 
 .header-row-bottom__page {
@@ -215,7 +220,7 @@
     line-height: 1.2;
     @include mobile {
         font-size: $font-size_h2_m;
-        padding: 5rem 0;
+        padding: 20rem 0 5rem;
     }
 }
 

@@ -1,7 +1,7 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "Js/libs/createElem";
 import {network} from "Js/libs/networks";
-import {companySearchURL, spheres, companyPageURL, DOMAIN} from "Js/libs/constants";
+import {companySearchURL, spheres} from "Js/libs/constants";
 import {checkBoxes} from "Js/components/searchForm/searchForm";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml';
 import listOfCompaniesTemp from './components/listOfCompanies/listOfCompanies.tmpl.xml';

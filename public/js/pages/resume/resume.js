@@ -7,7 +7,7 @@ import {
     experienceLevel,
     experienceMonth,
     addLikeResumeURL,
-    deleteLikeResumeURL, DOMAIN,
+    deleteLikeResumeURL,
 } from "Js/libs/constants";
 import createElem from "Js/libs/createElem";
 import briefInfoTemp from './components/briefInfo/briefInfo.tmpl.xml'

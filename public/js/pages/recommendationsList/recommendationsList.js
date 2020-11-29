@@ -18,7 +18,7 @@ export default class RecommendationsList{
         app.innerHTML = '';
 
 
-        openMenuList(app, true);
+        openMenuList(app, false);
 
 
         const main = createElem("div", "main", app);

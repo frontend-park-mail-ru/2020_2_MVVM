@@ -1,7 +1,7 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import {checkBoxes} from 'Js/components/searchForm/searchForm'
 import createElem from "Js/libs/createElem";
-import {DOMAIN, resumePageURL, resumeSearchURL} from "Js/libs/constants";
+import {resumePageURL, resumeSearchURL} from "Js/libs/constants";
 import {network} from "Js/libs/networks";
 import searchFormTemp from 'Js/components/searchForm/searchForm.tmpl.xml'
 import listOfCandidatesTemp from './components/listOfCandidates/listOfCandidates.tmpl.xml';

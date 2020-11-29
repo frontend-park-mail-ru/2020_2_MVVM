@@ -7,19 +7,8 @@ export default function popUpList(app, responsedCls, responsedId, data) {
     data.user_type = localStorage.getItem('user_type');
     document.body.classList.add("hide-scroll");
 
-    app.insertAdjacentHTML("afterbegin", popUpListTemp(data));
-    let DomList = document.getElementsByClassName('list-row-photo__bg');
-    if (data.user_type==='candidate') {
-        data.list.forEach((resume, i) => {
-            console.log(resume);
-            DomList[i].style.background = `no-repeat  0 0/cover url(${resume.imgPath}`;
-        });
-    } else {
-        data.list.forEach((vacancy, i) => {
-            DomList[i].style.background = `no-repeat  0 0/cover url(${vacancy.imgPath}`;
-        });
-    }
 
+    app.insertAdjacentHTML("afterbegin", popUpListTemp(data));
 
     let exit = document.getElementsByClassName("popUp-cont__block");
     let bg = document.getElementsByClassName("bg");
@@ -32,6 +21,23 @@ export default function popUpList(app, responsedCls, responsedId, data) {
             bg[0].remove();
         });
     });
+
+    let DomList = document.getElementsByClassName('list-row-photo__bg');
+
+    if (data.list) {
+        if (data.user_type==='candidate') {
+            data.list.forEach((resume, i) => {
+                console.log(resume);
+                DomList[i].style.background = `no-repeat  0 0/cover url(${resume.imgPath}`;
+            });
+        } else {
+            data.list.forEach((vacancy, i) => {
+                DomList[i].style.background = `no-repeat  0 0/cover url(${vacancy.imgPath}`;
+            });
+        }
+    }
+
+
     let selectBtn = document.getElementsByClassName("list-row");
     selectBtn = Array.prototype.slice.call(selectBtn);
     selectBtn.forEach((item, idx)=>{

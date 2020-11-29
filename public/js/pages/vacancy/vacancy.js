@@ -4,7 +4,7 @@ import createElem from "Js/libs/createElem";
 import popUpList from "Js/components/popUpList/popUpList";
 import {network} from "Js/libs/networks";
 import {
-    companyByIdURL, DOMAIN,
+    companyByIdURL,
     educationLevel,
     emplByIdURL,
     experienceLevel,

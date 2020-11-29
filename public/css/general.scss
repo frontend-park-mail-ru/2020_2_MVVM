@@ -110,6 +110,23 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
 }
 
+.container {
+    max-width: 130rem;
+    margin: 0 auto;
+
+    &_full{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%),
+        url(Img/bmstuBuilding1.png) 0 0/cover no-repeat;
+        margin: 0;
+        max-width: initial;
+    }
+}
+
 #app {
     position: relative;
     height: 100vh;
@@ -185,6 +202,11 @@ h1, h2, h3, h4, h5, h6 {
     margin: $margin-title 0;
     text-align: center;
     font-size: $font-size_h2;
+
+    &_small {
+        margin-top: 0;
+    }
+
     @include mobile {
         font-size: $font-size_h1_m;
     }
