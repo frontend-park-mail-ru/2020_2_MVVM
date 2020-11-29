@@ -29,7 +29,7 @@
                         <div class="note-popup" id="notePopup">
                             <div class="popup-content">
                                 <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
-                                <div class="menu-list-block__item menu-list-block__item_note">Мы подобрали для вас <fest:value output="text">items.rec_vac</fest:value> <a href="/recommendations"> вакансий</a>. </div>
+                                <div class="menu-list-block__item menu-list-block__item_note">Мы подобрали для вас <a href="/recommendations"> <fest:value output="text">items.rec_vac</fest:value></a>. </div>
                             </div>
                         </div>
                         <div class="menu-list-block">
@@ -108,7 +108,7 @@
                             <div class="note-popup" id="notePopup">
                                 <div class="popup-content">
                                     <div class="menu-list-block__item menu-list-block__item_note_head">Ваши уведомления</div>
-                                    <div class="menu-list-block__item menu-list-block__item_note">Мы подобрали для вас <fest:value output="text">items.rec_vac</fest:value> <a href="/recommendations"> вакансий</a>. </div>
+                                    <div class="menu-list-block__item menu-list-block__item_note">Мы подобрали для вас <a href="/recommendations"> <fest:value output="text"> items.rec_vac</fest:value></a>. </div>
                                 </div>
                             </div>
                             <div class="menu-list-block">

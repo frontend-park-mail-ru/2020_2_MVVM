@@ -21,7 +21,9 @@ export class NavBarInit {
         }
         let data = {title: this.title, user: this.user, has_company: has_company};
         data['is_open'] = is_open ? is_open : false;
-        data['rec_vac'] = recNum;
+        console.log("rec is ", recNum, recNum.toString());
+        let word = plural(recNum, ["вакансий", "вакансию", "вакансии"]);
+        data['rec_vac'] = recNum.toString() + " " + word;
 
         if (this.isBig) {
             this.app.innerHTML = bNavBarTemp(data);
@@ -31,3 +33,20 @@ export class NavBarInit {
     }
 }
 
+const plural = (count, variants) => {
+    const lastTwo = count % 100;
+    if (lastTwo > 10 && lastTwo < 20) {
+        return variants[0];
+    }
+
+    const last = count % 10;
+    if (last === 1) {
+        return variants[1];
+    }
+
+    if (last > 1 && last < 5) {
+        return variants[2];
+    }
+
+    return variants[0];
+};
