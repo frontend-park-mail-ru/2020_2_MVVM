@@ -1,7 +1,7 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "Js/libs/createElem";
 import companyTemp from './components/companyPage/companyPage.tmpl.xml'
-import {DOMAIN, spheres} from "Js/libs/constants";
+import {spheres} from "Js/libs/constants";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 import defaultVac from 'Img/defaultVac.png';

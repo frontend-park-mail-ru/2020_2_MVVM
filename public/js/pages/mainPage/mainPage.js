@@ -6,6 +6,7 @@ import createResumeTemp from 'Js/pages/mainPage/components/createResume/createRe
 import popularJobTemp from 'Js/pages/mainPage/components/popularJob/popularJob.tmpl.xml'
 import gratitudesTemp from 'Js/pages/mainPage/components/gratitudes/gratitudes.tmpl.xml'
 import footerTemp from 'Js/components/footer/footer.tmpl.xml'
+import openMenu from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById('app');
 
@@ -15,13 +16,16 @@ export default class MainPage{
 
         app.innerHTML = '';
 
-        const navBarInit = new NavBarInit(app,  true,  "Самый простой способ найти новую работу");
-        navBarInit.loadNavBar();
+        openMenu(app, false)
+        // const navBarInit = new NavBarInit(app,  true,  "");
+        // navBarInit.loadNavBar();
 
-        const searchJob = createElem("div", "search-job", app.getElementsByClassName("header-row-bottom__page")[0]);
-        searchJob.insertAdjacentHTML("beforeend", searchJobTemp());
 
-        const main = createElem("div", "main-page", app);
+
+        const mainPage = createElem("div", "main-page", app);
+        mainPage.insertAdjacentHTML("afterbegin", searchJobTemp("Самый простой способ найти новую работу"));
+
+
         const category = [
             {
                 name: 'Дизайн',
@@ -50,8 +54,8 @@ export default class MainPage{
             }
         ];
 
-        main.insertAdjacentHTML("beforeend", categoryTemp(category));
-        main.insertAdjacentHTML("beforeend", createResumeTemp(localStorage.getItem('user_type')));
+        mainPage.insertAdjacentHTML("beforeend", categoryTemp(category));
+        mainPage.insertAdjacentHTML("beforeend", createResumeTemp(localStorage.getItem('user_type')));
 
         // const jobs = [
         //     {
@@ -72,29 +76,6 @@ export default class MainPage{
         //     },
         // ]
         // main.insertAdjacentHTML("beforeend", popularJobTemp(jobs));
-
-        // const gratitudes = [
-        //     {
-        //         name: 'Маша Петрова',
-        //         position: 'Web designer',
-        //         photo: 'img/r1.jpg',
-        //         text: 'Вы помогли мне найти работу после окончания Бауманки! Спасибо! ' +
-        //             'Вы помогли мне найти работу после окончания Бауманки! Спасибо!'
-        //     },{
-        //         name: 'Саша Иванов',
-        //         position: 'Инженер',
-        //         photo: 'img/es1.jpg',
-        //         text: 'Никто не брал меня на работу, но ваш сайт помог мне устроиться в мак',
-        //     },{
-        //         name: 'Маша Петрова',
-        //         position: 'Massimo Artemisis',
-        //         photo: 'img/r1.jpg',
-        //         text: 'Вы помогли мне найти работу после окончания Бауманки! Спасибо! '
-        //     },
-        // ]
-        //
-        // main.insertAdjacentHTML("beforeend", gratitudesTemp(gratitudes));
-
 
         // app.insertAdjacentHTML("beforeend", footerTemp());
     }

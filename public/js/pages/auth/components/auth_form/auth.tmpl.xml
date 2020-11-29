@@ -1,9 +1,9 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-    <div class="container">
-            <div class="page-name">Авторизация</div>
+    <div class="container container_full">
             <div class="auth">
                 <form>
                     <div class="input-data-card">
+                        <div class="page-name page-name_small">Авторизация</div>
                         <div class="form-field">
                             <div class="form-field__lable">Email</div>
                             <div class="form-field__content">

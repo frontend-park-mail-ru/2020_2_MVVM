@@ -1,9 +1,9 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-    <div class="container">
-        <div class="page-name">Регистрация</div>
+    <div class="container container_full">
         <div class="reg">
             <form>
                 <div class="input-data-card">
+                    <div class="page-name page-name_small">Регистрация</div>
                     <div class="form-field">
                         <div class="form-field__lable">Зарегистрироваться как</div>
                         <select name="type" class="form-field__select">

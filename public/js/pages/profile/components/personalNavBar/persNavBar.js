@@ -1,4 +1,4 @@
-import {DOMAIN, responsesStatus} from "Js/libs/constants";
+import {responsesStatus} from "Js/libs/constants";
 import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
 import {updateProfileFields} from "Js/pages/profile/components/personalInfo/persInfo";
 import persResumesTemp from 'Js/pages/profile/components/listOfResumes/persResumes.tmpl.xml'

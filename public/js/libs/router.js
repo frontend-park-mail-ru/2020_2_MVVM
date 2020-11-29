@@ -1,6 +1,9 @@
 import {UNAUTHORISED, meUserURL} from "./constants.js";
 import {network} from "./networks.js";
 
+const PAGES_WITH_ABSOLUTE = ['/', '/auth', '/reg'];
+
+
 export default class Router {
     constructor(root) {
         this.root = root;
@@ -35,6 +38,7 @@ export default class Router {
      */
     change(path, ...args) {
 
+
         if (this.currentRoute === path) {
             return;
         }
@@ -46,13 +50,28 @@ export default class Router {
 
                 const user_type = localStorage.getItem('user_type');
 
-                obj.page.render(user_type, ...args)
+                obj.page.render(user_type, ...args);
+                this.changeNavBarPos(path);
 
                 window.history.pushState(null, null, path);
 
                 return;
             }
         }
+
+    }
+
+    changeNavBarPos(path) {
+
+        const header = document.getElementsByClassName("header")[0];
+        if (header) {
+            if (PAGES_WITH_ABSOLUTE.indexOf(path) !== -1) {
+                header.classList.add("header_absolute");
+            } else if (header.classList.contains('header_absolute')) {
+                header.classList.remove('header_absolute');
+            }
+        }
+
     }
 
     start() {

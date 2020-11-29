@@ -1,6 +1,6 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import createElem from "Js/libs/createElem";
-import {DOMAIN, spheres} from "Js/libs/constants";
+import {spheres} from "Js/libs/constants";
 import createEmployerSumTemp from "./components/createEmployerSum/createEmployerSum.tmpl.xml";
 import {checkFrom} from "Js/pages/createEmployerSum/components/createEmployerSum/createEmpoyerSum"
 import {afterRenderResume} from "Js/pages/createCandidateSum/createCandidateSum";

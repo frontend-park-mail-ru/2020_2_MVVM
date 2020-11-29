@@ -4,7 +4,7 @@ import {openAndDelJob,renderInputForm} from "Js/components/popUpResume/popUpCand
 import {afterRenderResume} from "../createCandidateSum/createCandidateSum.js";
 import updateResumeTemp from './components/updateResume/updateResume.tmpl.xml'
 import {network} from "Js/libs/networks";
-import {DOMAIN, resumeByIdURL} from "Js/libs/constants";
+import {resumeByIdURL} from "Js/libs/constants";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 import defaultRes from 'Img/defaultRes.png';
