@@ -183,9 +183,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .error {
     color: var(--main-pink-color);
-    margin-bottom: 2rem;
-    font: $font-size_h5_m Quicksand, serif;
+    margin: 0 auto 2rem;
+    font-size: $font-size_h6_m;
     text-align: center;
+    max-width: 20rem;
+
 
     @include mobile {
         display: block;

@@ -19,23 +19,9 @@ import '../styles/main.scss'
 import initScale from "Js/libs/scale";
 import {network} from "Js/libs/networks";
 import {notificationsPageURL, recommendationsNumber} from "Js/libs/constants";
+import {initPolling} from "Js/libs/polling";
 
-export let recNum = 0;
 
-let requestLoop = setInterval(function(){
-    // const body = {
-    //     only_new_resp_cnt: false,
-    //     vac_in_last_n_days: null,
-    //     watched_responses: null,
-    //     only_new_vac_cnt: true,
-    // };
-    // let resp = network.doPost(notificationsPageURL, body);
-    // resp.then(function(response) {
-    //     response.json().then(function(parsedJson) {
-    //         recNum = parsedJson.recommended_vac_cnt;
-    //     })
-    // });
-}, 3000);
 // let requestLoop = setInterval(network.doPost(notificationsPageURL, body), 1000);
 
 if ('serviceWorker' in navigator) {
@@ -92,9 +78,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     router.add('/updateResume', controllers.updateResume.page);
     router.add('/logout', controllers.logout.page);
 
-    console.log("started success");
-
     router.start();
-    requestLoop();
-    console.log("started success");
+    initPolling();
+
 });

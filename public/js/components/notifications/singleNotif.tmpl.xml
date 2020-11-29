@@ -1,0 +1,9 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <div class="menu-list-block__item menu-list-block__item_note">Мы подобрали для вас
+        <fest:space/>
+        <a href="/recommendations">
+            <fest:value output="text">items.rec_vac</fest:value>
+        </a>
+        .
+    </div>
+</fest:template>
