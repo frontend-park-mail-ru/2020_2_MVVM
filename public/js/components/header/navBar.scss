@@ -1,0 +1,344 @@
+@import "public/css/vars";
+
+.header {
+    width: 100%;
+
+    &__small {
+        background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
+
+        &_phone {
+            background: linear-gradient(to right, rgba(83, 100, 226, 1) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+        }
+    }
+
+    &_big {
+        background: linear-gradient(to right, rgba(83, 100, 226, 1) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
+    }
+
+    &_absolute {
+        position: absolute;
+        background: none;
+    }
+
+    z-index: 2;
+}
+
+
+.header-row {
+    display: flex;
+    flex-direction: column;
+    padding: 1.1rem 0;
+}
+
+.header-row-phone {
+    display: flex;
+    flex-direction: row;
+    padding: 1.1rem 0;
+    justify-content: space-evenly;
+}
+
+.header-search-menu {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+    background: no-repeat 0 0/cover url(Img/filter.svg);
+}
+
+.header-burger-menu {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+    background: no-repeat 0 0/cover url(Img/menu_to_open.svg);
+}
+
+.burger-close-menu {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+    background: no-repeat 0 0/cover url(Img/menu_to_open.svg);
+}
+
+.header-row-top {
+    display: flex;
+    box-sizing: border-box;
+    padding: 1.2rem 0;
+    @include mobile {
+        flex-direction: column;
+    }
+
+    &-menu {
+        display: flex;
+        justify-content: space-evenly;
+        @include mobile {
+            justify-content: space-evenly;
+            margin-bottom: 5rem;
+        }
+
+        &__logo {
+            background: url(Img/logo.png) no-repeat 50% 50%;
+            width: 34rem;
+            height: 10rem;
+            @include mobile {
+                margin-left: auto;
+            }
+        }
+
+    }
+
+    &__menu {
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+        align-items: center;
+
+        &_is-open {
+            align-self: center;
+            position: absolute;
+            top: 30%;
+        }
+
+        @include mobile {
+            justify-content: center;
+        }
+
+    }
+}
+
+.menu-list {
+    display: flex;
+    text-align: right;
+    align-items: center;
+
+    @include mobile {
+        align-items: start;
+        flex-direction: column;
+    }
+}
+
+.menu-list-block {
+    &__item {
+        padding: 1.2rem;
+        font-size: $font-size_h4;
+        color: white;
+        transition: 0.15s;
+        white-space: nowrap;
+        @include mobile {
+            text-align: center;
+            font-size: $font_size_h2_m;
+        }
+
+        &_button {
+            border: $border_btn solid var(--main-pink-color);
+            background-color: var(--main-pink-color);
+            border-radius: $border-radius_btn;
+            overflow: hidden;
+            padding: $btn_padding;
+            transition: background-color 0.15s;
+
+
+            &:hover {
+                background-color: transparent;
+                transition: 0.15s;
+            }
+        }
+
+        &_note {
+            position: relative;
+            text-align: left;
+            color: black;
+            font-size: $font-size_h4;
+            @include mobile {
+                font-size: $font-size_h4_m;
+            }
+        }
+
+        &_simple:hover {
+            opacity: 0.7;
+            transition: 0.15s;
+        }
+
+        &_note_head {
+            position: center;
+            text-align: center;
+            background-color: white;
+            color: black;
+            font-size: $font-size_h3;
+            @include mobile {
+                font-size: $font-size_h3_m;
+            }
+
+        }
+
+
+        &_icon-key:before {
+            content: "";
+            width: $font-size_h4;
+            height: $font-size_h4;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            background: url(Img/key.svg) no-repeat 0 0/cover;
+        }
+
+        &_icon-profile:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/user.svg) no-repeat 0 0/cover;
+        }
+
+        &_icon-logout:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/logout.svg) no-repeat 0 0/cover;
+        }
+
+        &_icon-notif:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/notification.svg) no-repeat 0 0/cover;
+        }
+
+        &_icon-enter:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/enter.svg) no-repeat 0 0/cover;
+        }
+
+        &_icon-signup:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/contract.svg) no-repeat 0 0/cover;
+        }
+    }
+
+    @include mobile {
+        margin-bottom: 4rem;
+    }
+}
+
+
+.single-notific {
+    font-size: $font-size_h4;
+    @include mobile {
+        font-size: $font-size_h4_m;
+    }
+}
+
+
+.header-row-bottom {
+    color: white;
+    background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%),
+    url(Img/bmstuBuilding1.png) 0 0/cover no-repeat;
+}
+
+.header-row-bottom__page {
+    text-align: center;
+    padding: 33rem 20rem;
+    font-size: $font-size_h2;
+    line-height: 1.2;
+    @include mobile {
+        font-size: $font-size_h2_m;
+        padding: 20rem 0 5rem;
+    }
+}
+
+.note-popup {
+    display: none;
+    position: absolute;
+    top: 7rem;
+    z-index: 3;
+    overflow: hidden;
+    left: 4rem;
+    width: 100%;
+    height: 100vh;
+    padding-top: 5rem;
+
+    @include mobile {
+        width: 60rem;
+    }
+}
+
+.popup-content {
+    position: absolute;
+    left: 50%;
+    padding: 2rem;
+    border: $border_btn solid var(--border-grey-color);
+    background-color: white;
+    max-width: 50%;
+    width: 55rem;
+    max-height: 70%;
+    height: 40rem;
+    border-radius: $border-radius_input;
+    overflow: auto;
+    box-shadow: 0.8rem 1.6rem 2.6rem 0.5rem var(--border-grey-color);
+    min-width: 45rem;
+
+    @include mobile {
+        position: initial;
+        height: 100rem;
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+//
+//.triangle {
+//    position: absolute;
+//    top: 2rem;
+//    left: 63%;
+//    width: 4rem;
+//    height: 4rem;
+//    background: no-repeat 0 0/cover url(Img/up-arrow.svg);
+//    z-index: 5;
+//
+//    @include mobile {
+//        width: 0;
+//        height: 0;
+//    }
+//}

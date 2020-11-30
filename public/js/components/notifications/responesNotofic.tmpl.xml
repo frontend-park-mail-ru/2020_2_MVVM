@@ -1,0 +1,51 @@
+
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="v">
+    <fest:if test="v.user_type=='employer'">
+        <fest:if test="v.initial=='candidate'">
+            <div class="response-row response-row_notifications">
+            <div class="response-row-info">
+                <div>
+                    <p class="response-row-info__text">Отклик на:</p>
+                    <div class="response-row-info__text">
+                        <fest:value>v.vacancy_name</fest:value>
+                    </div>
+                </div>
+                <div>
+                    <p class="response-row-info__text">Соискатель:</p>
+                    <div class="response-row-info__text">
+                        <fest:value>v.cand_name</fest:value><fest:space/><fest:value>v.cand_surname</fest:value><fest:space/>
+                    </div>
+                </div>
+            </div>
+            <div class="response-row__data">
+                <fest:value>v.date_create</fest:value>
+            </div>
+            <div class="response-row__close-btn">X</div>
+        </div>
+        </fest:if>
+    </fest:if>
+    <fest:if test="v.user_type=='candidate'">
+        <fest:if test="v.initial=='employer'">
+            <div class="response-row response-row_notifications">
+                <div class="response-row-info">
+                    <div>
+                        <p class="response-row-info__text">Отклик на:</p>
+                        <div class="response-row-info__text">
+                            <fest:value>v.resume_name</fest:value>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="response-row-info__text">Работодатель:</p>
+                        <div class="response-row-info__text">
+                            <fest:value>v.vacancy_name</fest:value>
+                        </div>
+                    </div>
+                </div>
+                <div class="response-row__data">
+                    <fest:value>v.date_create</fest:value>
+                </div>
+                <div class="response-row__close-btn">X</div>
+            </div>
+        </fest:if>
+    </fest:if>
+</fest:template>

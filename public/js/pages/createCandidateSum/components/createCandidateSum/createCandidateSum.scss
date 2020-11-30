@@ -1,0 +1,239 @@
+@import "public/css/vars";
+
+.data-block {
+    margin-bottom: 1.5rem;
+    @include mobile {
+        margin-bottom: 4rem;
+    }
+}
+
+.sum-form-wrap {
+    display: flex;
+    justify-content: center;
+
+    @include mobile {
+        max-width: 70rem;
+        width: 100%;
+        margin: auto;
+    }
+
+}
+
+
+.sum-profile {
+    text-align: center;
+    width: 55rem;
+
+    @include mobile {
+        width: 100%;
+    }
+
+    &__photo {
+        width: 15rem;
+        height: 15rem;
+        background: no-repeat 0 0/cover url(Img/defaultRes.png);
+        margin: auto;
+    }
+}
+
+.sum-upload-photo__btn {
+    border: $border_btn solid var(--main-pink-color);
+    color: var(--main-pink-color);
+    border-radius: $border-radius_btn;
+    align-self: center;
+    transition: 0.15s;
+    background: white;
+    cursor: pointer;
+    //padding: $btn_padding;
+
+    &:hover {
+        background-color: var(--main-pink-color);
+        color: white;
+        transition: 0.15s;
+        cursor: pointer;
+    }
+}
+
+.sum-main-block-info {
+    width: 55rem;
+    @include mobile {
+        width: 100%;
+    }
+}
+
+.sum-form-labels {
+    display: block;
+    font-size: $font-size_h4;
+    font-weight: 500;
+    margin-bottom: 1rem;
+
+    @include mobile {
+        font-size: $font-size-h3;
+    }
+}
+
+.sum-user-info {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
+    font-size: $font-size-h4-5;
+
+    @include mobile {
+        height: 6rem;
+        font-size: $font-size-h4_m;
+    }
+
+    &:focus {
+        border: $border-btn solid var(--main-pink-color);
+    }
+}
+
+.sum-user-info-textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
+    font-size: $font-size-h4-5;
+
+    @include mobile {
+        height: 10rem;
+        font-size: $font-size-h4_m;
+    }
+
+    &:focus {
+        border: $border-btn solid var(--main-pink-color);
+    }
+}
+
+.sum-form-switch {
+    position: relative;
+    padding-right: 1rem;
+    cursor: pointer;
+    float: left;
+    line-height: 5rem;
+
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    &__control {
+        display: inline-block;
+        border: $border_btn solid var(--border-grey-color);
+        top: 0;
+        left: 0;
+        height: 5.5rem;
+        width: 9rem;
+        background: white;
+        border-radius: $border-radius_input;
+        text-align: center;
+
+        @include mobile {
+            height: 6.5rem;
+            width: 15rem;
+        }
+
+        &_male:before {
+            content: "мужской";
+            font-size: $font-size-h4-5;
+
+            @include mobile {
+                font-size: $font-size-h4_m;
+            }
+        }
+
+        &_female:before {
+            content: "женский";
+            font-size: $font-size-h4-5;
+
+            @include mobile {
+                font-size: $font-size-h4_m;
+            }
+        }
+
+    }
+}
+
+.sum-form-switch:hover .sum-form-switch__input ~ .sum-form-switch__control,
+.sum-form-switch__input:focus ~ .sum-form-switch__control {
+    color: var(--main-pink-color);
+}
+
+.sum-form-switch__input:checked ~ .sum-form-switch__control {
+    color: var(--main-pink-color);
+    border: $border_btn solid var(--main-pink-color);
+}
+
+
+.sum-select {
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    border: $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
+    width: 100%;
+    background: white;
+    font-size: $font-size_h4-5;
+    @include mobile {
+        font-size: $font-size-h4_m;
+    }
+}
+
+
+.sum-description-block {
+    margin: 0 0 1.5rem;
+    font-size: $font-size_h3;
+    font-weight: 500;
+    color: var(--text-light-black);
+    text-align: center;
+    line-height: 1.2;
+
+    @include mobile {
+        font-size: $font-size_h3_m,;
+    }
+}
+
+
+.btn-pink {
+    border: $border_btn solid var(--main-pink-color);
+    color: white;
+    width: 100%;
+    margin: 5rem 0;
+    padding: 1.5rem 3.5rem;
+    border-radius: $border-radius_btn;
+    align-self: center;
+    transition: 0.15s;
+    cursor: pointer;
+    background: var(--main-pink-color);
+    font-size: $font-size_btn;
+
+    @include mobile {
+        border-radius: 0;
+        font-size: $font-size_btn_m;
+    }
+
+    &:hover {
+        border: $border_btn solid var(--main-pink-color);
+        background-color: white;
+        color: var(--main-pink-color);
+        transition: 0.15s;
+    }
+}
+
+.sum-form__textarea {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 1rem 1.5rem;
+    border: $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
+    font-size: $font-size_h4-5;
+
+    @include mobile {
+        height: 4rem;
+        font-size: $font-size_h4_m;
+    }
+
+
+}

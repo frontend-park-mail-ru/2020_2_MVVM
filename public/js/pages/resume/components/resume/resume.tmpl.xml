@@ -1,0 +1,87 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <div class="job-description">
+        <div class="job-description__h3">Подробная информация</div>
+        <div class="job-description__p">
+            <fest:value>items.text</fest:value>
+        </div>
+
+        <!--          <h3> Образование </h3>-->
+        <!--          <fest:for iterate="sp.educationItem" index="i" value="p">-->
+        <!--            <li>-->
+        <!--              <i class="fa fa-graduation-cap fa-2x"></i>-->
+        <!--              <div class="education">-->
+        <!--                <h3> <fest:value>p.type</fest:value> </h3>-->
+        <!--                <p> <fest:value>p.duration</fest:value> </p>-->
+        <!--                <span class="university"> <fest:value>p.university</fest:value> </span>-->
+        <!--                <span class="department">  <fest:value>p.department</fest:value> </span>-->
+        <!--                <p> <fest:value>p.description</fest:value> </p>-->
+        <!--              </div>-->
+        <!--            </li>-->
+        <!--          </fest:for>-->
+
+        <div class="job-description__h3">Опыт работы</div>
+        <fest:for iterate="items.experience_custom_company" index="i" value="p">
+                <div class="work-experience">
+                    <div>
+                        <span class="work-position">
+                            <fest:value>p.position</fest:value>
+                        </span>
+                        <span class="name-company">
+                            <fest:value>p.name_job</fest:value>
+                        </span>
+                        <fest:if test="p.continue_to_today==true">
+                            <div class="job-description__p">
+                                с
+                                <fest:space/>
+                                <fest:value>p.begin</fest:value>
+                                <fest:space/>
+                                до
+                                <fest:space/>
+                                текущего
+                                <fest:space/>
+                                времени
+                            </div>
+                        </fest:if>
+                        <fest:if test="p.continue_to_today==false">
+                            <p>с
+                                <fest:space/>
+                                <fest:value>p.begin</fest:value>
+                                <fest:space/>
+                                до
+                                <fest:space/>
+                                <fest:value>p.finish</fest:value>
+                            </p>
+                        </fest:if>
+                        <p>
+                            <fest:value>p.duties</fest:value>
+                        </p>
+                    </div>
+                </div>
+        </fest:for>
+
+        <div class="job-description__h3">Персональные навыки</div>
+        <div class="job-description__p">
+            <fest:value>items.skills</fest:value>
+        </div>
+
+<!--        <h3>Награды</h3>-->
+<!--        <fest:for iterate="sp.awardsItem" index="i" value="p">-->
+<!--            <li>-->
+<!--                <div class="work-experience">-->
+<!--                    <i></i>-->
+<!--                    <div>-->
+<!--                        <span class="work-position">-->
+<!--                            <fest:value>p.award</fest:value>-->
+<!--                        </span>-->
+<!--                        <p>-->
+<!--                            <fest:value>p.description</fest:value>-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </li>-->
+<!--        </fest:for>-->
+
+
+    </div>
+</fest:template>

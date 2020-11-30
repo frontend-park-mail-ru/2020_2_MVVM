@@ -1,0 +1,105 @@
+@import "public/css/vars";
+
+.job-overview {
+    margin-bottom: $margin-title;
+
+    &__title {
+        text-align: center;
+        font-size: $font-size_h3;
+        font-weight: 500;
+        color: var(--text-light-black);
+        margin-bottom: 1.2rem;
+        margin-top: 1rem;
+        line-height: 1.2;
+        @include mobile {
+            text-align: start;
+            font-size: $font-size_h3_m;
+        }
+    }
+}
+
+
+.job-overview-container {
+    border: $border_btn solid var(--border-grey-color);
+    border-radius: $border-radius_input;
+    padding: 1.5rem;
+    list-style-type: none;
+}
+
+.job-overview-li {
+    margin: 1.5rem;
+}
+
+.inline-icon {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0;
+    align-items: center;
+
+    &__svg {
+        color: var(--buttons-purple-color);
+        min-width: 3rem;
+        @include mobile {
+            min-width: 9rem;
+        }
+
+        &:hover {
+            color: var(--main-pink-color);
+        }
+    }
+}
+
+
+.inline-icon-desc {
+    font-size: $font-size_h4-5;
+    line-height: 1.2;
+    font-weight: 500;
+    margin-left: 1rem;
+
+    @include mobile {
+        font-size: $font-size_h4-5_m;
+    }
+
+    &__body {
+        font-size: $font-size_h4-5;
+        color: var(--footer-text-grey);
+        transition: all 0.4s ease 0s;
+        line-height: 1.2;
+        font-weight: 500;
+        @include mobile {
+            font-size: $font-size_h4-5_m;
+        }
+    }
+}
+
+
+//.job-overview-container input, textarea {
+//    border: 2px solid var(--border-grey-color);
+//    border-radius: 8px;
+//    font-size: 18px;
+//    color: var(--text-gray);
+//    padding: 10px 25px;
+//    //margin-bottom: 15px;
+//    width: 100%;
+//    resize: vertical;
+//}
+
+//
+//.job-overview-container textarea {
+//    height: 150px;
+//}
+//
+//.submit {
+//    border-radius: 30px;
+//    background: white;
+//    font-size: 13px;
+//    padding: 16px 10px;
+//    border: 2px solid var(--buttons-purple-color);
+//    width: 100%;
+//    color: var(--buttons-purple-color);
+//}
+//
+//.submit:hover {
+//    color: white;
+//    background-color: var(--buttons-purple-color);
+//}

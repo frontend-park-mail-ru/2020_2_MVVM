@@ -1,0 +1,14 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="user_type">
+    <div class="resume-contacts">
+        <fest:if test="user_type=='employer'">
+            <div id="responseResumeBtn" class="download-cv">
+                <i class="fa fa-paper-plane"></i>
+                Откликнуться
+            </div>
+        </fest:if>
+    </div>
+    <div class="line-box-cv">
+        <hr class="line"></hr>
+    </div>
+
+</fest:template>

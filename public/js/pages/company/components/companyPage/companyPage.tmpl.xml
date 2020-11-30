@@ -1,0 +1,48 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="company">
+    <div class="company-container">
+            <div class="container-left">
+                <div class="container-left-top">
+                    <div class="container-left-top__logo" id="container-left-top__logo"/>
+                </div>
+                <div class="container-left-middle">
+                    <div class="container-contacts">
+                        <div class="container-contacts__city"><fest:value>company.location</fest:value></div>
+                        <div class="container-contacts__web-site"><a href=""><fest:value>company.link</fest:value></a> </div>
+                    </div>
+                    <div class="container-left-vacancies">
+                        <label class="container-left-vacancies__label">Вакансии</label>
+                        <div class="container-left-vacancies__open-vacancies"><fest:value>company.count_vacancy</fest:value><fest:space/>активных вакансий</div>
+                    </div>
+                </div>
+<!--                <div class="container-left-bottom">-->
+<!--                    <div class="container-left-bottom__subscribe">Я хочу тут работать</div>-->
+<!--                    <div class="container-left-bottom__subscribe">Подписаться</div>-->
+<!--                </div>-->
+            </div>
+            <div class="container-right">
+                <div class="container-right-top">
+                    <div class="container-right-top__company-name"><fest:value>company.name</fest:value>, Россия</div>
+                </div>
+                <div class="container-right-middle">
+                    <div class="container-right-middle__info">
+                        <fest:value>company.description</fest:value>
+                    </div>
+                </div>
+                <div class="container-right-bottom">
+                    <div class="company-vacancies">
+                        <div class="company-vacancies__title">Вакансии компании</div>
+                        <div class="company-vacancies__curr-reg">
+                            <div class="company-vacancies__curr-reg_all">
+                                <span>Вакансии в текущем регионе: Россия </span>
+                            </div>
+                            <fest:each iterate="company.sphere" index="i" value="v">
+                                <div class="company-vacancies__curr-reg_group">
+                                    <span><fest:value>v</fest:value></span>
+                                </div>
+                            </fest:each>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</fest:template>

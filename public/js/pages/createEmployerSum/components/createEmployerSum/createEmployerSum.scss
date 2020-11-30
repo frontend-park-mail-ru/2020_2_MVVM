@@ -1,0 +1,70 @@
+@import "public/css/vars";
+
+.sum-profile-empl {
+    width: 55rem;
+
+    @include mobile {
+        width: 100%;
+    }
+}
+
+.sum-form {
+    display: flex;
+    grid-column-gap: 10%;
+
+    @include mobile {
+        display: block;
+        width: 100%;
+    }
+}
+
+.rectangle {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+    font: $font-size_h5 "Trebuchet MS", "Lucida Sans";
+    text-shadow: 0 0.1rem 0 rgba(255, 255, 255, .5);
+    margin-bottom: 1rem;
+
+    &__block {
+        padding: 0.4rem 0.8rem;
+        background: var(--background-grey-color);
+        font-size: $font-size_h4-5;
+        @include mobile {
+            font-size: $font-size_h4_m;
+        }
+    }
+}
+
+.comp-logo {
+    display: flex;
+    grid-column-gap: 1rem;
+}
+
+.comp-logo__title {
+    font-size: $font-size_h4;
+    color: black;
+    @include mobile {
+        font-size: $font-size_h4_m;
+    }
+}
+
+.comp-logo__avatar {
+    width: 15rem;
+    height: 15rem;
+    border-radius: $border-radius_input;
+    @include mobile {
+        width: 20rem;
+        height: 20rem;
+    }
+}
+
+
+.comp-description {
+    font-size: $font-size_h4-5;
+    color: black;
+
+    @include mobile {
+        font-size: $font-size_h4_m;
+    }
+}

@@ -1,0 +1,25 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="user_type">
+    <div class="profile-navbar">
+        <nav class="navbar-menu-list">
+            <div class="navbar-menu-list__btn" style="color: white; background: var(--buttons-purple-color);">
+                <div class="btn-href">Личная информация</div>
+            </div>
+            <fest:if test="user_type == 'candidate'">
+                <div class="navbar-menu-list__btn" style="color: var(--buttons-purple-color); background: white">
+                    <div class="btn-href">Мои резюме</div>
+                </div>
+            </fest:if>
+            <fest:if test="user_type == 'employer'">
+                <div class="navbar-menu-list__btn" style="color: var(--buttons-purple-color); background: white">
+                    <div class="btn-href">Мои вакансии</div>
+                </div>
+            </fest:if>
+            <div class="navbar-menu-list__btn" style="color: var(--buttons-purple-color); background: white">
+                <div class="btn-href">Избранные</div>
+            </div>
+            <div class="navbar-menu-list__btn" style="color: var(--buttons-purple-color); background: white">
+                <div class="btn-href">Отклики</div>
+            </div>
+        </nav>
+    </div>
+</fest:template>

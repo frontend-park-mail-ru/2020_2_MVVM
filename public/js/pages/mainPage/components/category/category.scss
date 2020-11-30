@@ -1,0 +1,113 @@
+@import './public/css/vars';
+
+.category {
+    max-width: 100rem;
+    margin: $margin-title auto;
+
+    @include mobile {
+        max-width: 70rem;
+
+    }
+    @include iphone5 {
+        max-width: 64rem;
+    }
+
+    &__header {
+        font-size: $font-size_h2;
+        text-align: center;
+        line-height: 1.2;
+        @include mobile {
+            font-size: $font-size_h2_m;
+        }
+
+    }
+
+    &__label {
+        font-size: $font-size_h5;
+        color: var(--text-gray);
+        text-align: center;
+        margin-bottom: 5rem;
+        @include mobile {
+            font-size: $font-size_h5_m;
+        }
+    }
+
+    &__btn {
+        border: $border_btn solid var(--main-pink-color);
+        color: var(--main-pink-color);
+        border-radius: $border-radius_btn;
+        padding: $btn_padding;
+        font-size: $font-size_btn;
+        text-align: center;
+        width: 25rem;
+        margin: auto;
+        cursor: pointer;
+        @include mobile {
+            font-size: $font-size_btn_m;
+            padding: $btn_padding_m;
+        }
+
+        &:hover {
+            background-color: var(--main-pink-color);
+            color: white;
+        }
+    }
+}
+
+
+.category-grid {
+    background: white;
+    margin: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category-sec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.category-sec-row {
+    text-align: center;
+    width: 100rem;
+    border: $border_btn solid var(--border-grey-color);
+
+
+    &__svg {
+        color: var(--buttons-purple-color);
+        display: inline-block;
+        width: 100%;
+        margin: 3rem 0;
+
+        &:hover {
+            color: var(--main-pink-color);
+            cursor: pointer;
+        }
+    }
+
+    &__sphere {
+        font-size: $font-size_h4;
+        color: var(--text-light-black);
+        margin: 1rem 0;
+        @include mobile {
+            font-size: $font-size_h4_m;
+        }
+    }
+
+    &__count {
+        color: var(--main-pink-color);
+        font-size: $font-size_h5;
+        margin: 0.5rem 0 3rem;
+        @include mobile {
+            font-size: $font-size_h5_m;
+        }
+    }
+
+    &:hover {
+        z-index: 2;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+}

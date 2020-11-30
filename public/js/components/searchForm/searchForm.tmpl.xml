@@ -1,0 +1,23 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <div class="main-navigation" id="main-navigation">
+        <form class="main-search-form">
+            <div class="keywords-search">
+                <input class="keywords-search__input" type="text" name="keywords" placeholder="Ключевые слова"/>
+            </div>
+            <div class="options-search">
+                <fest:each iterate="items" index="i" value="v">
+                    <div class="option-single">
+                        <div class="option-single-title"><fest:value>v.title.text</fest:value></div>
+                            <fest:each iterate="v.fields" index="i" value="n">
+                                <div class="option-type">
+                                    <input class="option-type__checkbox" type="checkbox" name="{v.title.name}" value="{n.name}"/>
+                                    <div class="option-type__name"><fest:value>n.text</fest:value></div><br/>
+                                </div>
+                            </fest:each>
+                    </div>
+                </fest:each>
+            </div>
+            <button class="main-search-form__btn" type="submit">Поиск</button>
+        </form>
+    </div>
+</fest:template>

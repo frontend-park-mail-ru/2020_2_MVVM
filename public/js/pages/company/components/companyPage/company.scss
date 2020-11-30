@@ -1,0 +1,150 @@
+@import "public/css/vars";
+
+.company-page {
+    width: 100%;
+    padding: 5rem 20rem 0;
+
+    @include mobile {
+        padding: 5rem 1rem;
+    }
+}
+
+.company-container {
+    display: flex;
+    justify-content: center;
+
+    @include mobile {
+        display: block;
+    }
+}
+
+.container-left {
+    min-width: 25rem;
+    max-width: 50rem;
+    background: var(--background-grey-color);
+    height: min-content;
+    border-radius: $border-radius_input;
+    margin: 0 2rem 5rem;
+    padding: 1.5rem;
+
+    @include mobile {
+        margin: 0 auto 5rem;
+        min-width: fit-content;
+    }
+}
+
+.container-left-top {
+    width: fit-content;
+    margin: 0 auto 1rem;
+
+}
+
+.container-left-top__logo {
+    width: 25rem;
+    height: 25rem;
+}
+
+.container-contacts {
+    margin-bottom: 2rem;
+}
+
+.container-left-vacancies {
+    margin-bottom: 2rem;
+
+    &__open-vacancies {
+        margin-top: 1rem;
+        font-size: $font-size_h4;
+        @include mobile {
+            font-size: $font-size_h4_m;
+        }
+    }
+
+    &__label {
+        font-weight: 500;
+        font-size: $font-size_h3;
+        @include mobile {
+            font-size: $font-size_h3_m;
+        }
+    }
+}
+
+//
+//.container-left-bottom {
+//    &__subscribe {
+//        padding: 10px 20px;
+//        border-radius: 5px;
+//        border: 1px solid var(--buttons-purple-color);
+//        margin-bottom: 15px;
+//        color: var(--buttons-purple-color);
+//        text-align: center;
+//        cursor: pointer;
+//        transition: 0.15s;
+//
+//        &:hover {
+//            background: var(--buttons-purple-color);
+//            color: white;
+//            transition: 0.15s;
+//        }
+//    }
+//}
+
+
+.container-right {
+    padding: 1.5rem;
+    height: fit-content;
+    max-width: 65rem;
+}
+
+.container-right-top {
+    margin-bottom: 1rem;
+
+    &__company-name {
+        font-size: $font-size_h3;
+        @include mobile {
+            font-size: $font-size_h3_m;
+        }
+    }
+}
+
+.container-right-middle {
+    &__info {
+        font-size: $font-size_h4;
+        text-align: left;
+        @include mobile {
+            font-size: $font-size_h4_m;
+        }
+    }
+}
+
+
+.company-vacancies {
+    border-top: $border_btn solid black;
+    padding-top: 1.5rem;
+    margin: 2rem 0;
+}
+
+.company-vacancies__title {
+    font-size: $font-size_h3;
+    margin-bottom: 2rem;
+    @include mobile {
+        font-size: $font-size_h3_m;
+    }
+}
+
+.company-vacancies__curr-reg {
+    &_all {
+        margin-bottom: 2rem;
+        font-size: $font-size_h4;
+        @include mobile {
+            font-size: $font-size_h4_m;
+        }
+    }
+
+    &_group {
+        margin-bottom: 1rem;
+        font-size: $font-size_h4-5;
+        @include mobile {
+            font-size: $font-size_h4-5_m;
+        }
+    }
+}

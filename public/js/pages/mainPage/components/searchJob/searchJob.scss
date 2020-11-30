@@ -1,0 +1,79 @@
+@import './public/css/vars';
+
+.main-page {
+    &__label {
+        font-size: $font-size_h5;
+        color: white;
+        opacity: 0.8;
+        margin: 0 1rem 1rem;
+
+        @include mobile {
+            font-size: $font-size_h5_m;
+        }
+    }
+}
+
+.search-form-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include mobile {
+        display: block;
+    }
+}
+
+
+.search-job {
+    flex-grow: 2;
+    margin: 0 1rem 1rem;
+
+    &__input {
+        border-radius: $border-radius_input;
+        width: 100%;
+        height: 6rem;
+        padding: 0 2rem;
+        font-size: $font-size_h4;
+        @include mobile {
+            padding: 0 1rem;
+            font-size: $font-size_h4_m;
+        }
+    }
+
+}
+
+.search-place {
+    height: 6rem;
+    flex-grow: 1;
+    margin: 0 1rem 1rem;
+
+    &__input {
+        border-radius: $border-radius_input;
+        width: 100%;
+        height: 100%;
+        padding: 0 2rem;
+        font-size: $font-size_h4;
+        @include mobile {
+            padding: 0 1rem;
+            font-size: $font-size_h4_m;
+        }
+    }
+}
+
+
+.search-btn {
+    padding: 1rem;
+    background-color: var(--buttons-purple-color);
+    font-size: 3.5rem;
+    border-radius: $border-radius_input;
+    height: 100%;
+
+    @include mobile {
+        margin: 1rem;
+    }
+
+    &__a {
+        color: white;
+    }
+}
+

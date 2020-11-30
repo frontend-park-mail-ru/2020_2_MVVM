@@ -1,0 +1,91 @@
+@import "public/css/vars";
+
+.cand-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    margin-top: 2rem;
+
+    @include mobile {
+        display: block;
+    }
+}
+
+
+.cand-options-photo {
+    border: $border_btn solid white;
+    border-radius: 50%;
+    width: 20rem;
+    height: 20rem;
+    margin: auto;
+    @include mobile {
+        margin: 2rem auto;
+    }
+}
+
+
+.cand-options-bio {
+    display: block;
+    align-self: baseline;
+}
+
+.about-candidate {
+    text-align: center;
+    padding: 1.5rem 0;
+
+    @include mobile {
+        padding: 0;
+    }
+
+    &__h3 {
+        font-size: $font-size_h4;
+        color: var(--text-light-black);
+        font-weight: bold;
+        @include mobile {
+            margin: 2rem;
+            font-size: $font-size_h3_m;
+        }
+    }
+
+    &__p {
+        font-size: $font-size_h5;
+        color: #888888;
+        line-height: 1.3rem;
+        margin: 1rem;
+        @include mobile {
+            font-size: $font-size_h4_m;
+            margin: 2rem;
+        }
+    }
+}
+
+
+.download-cv {
+    margin-left: auto;
+    border: $border_btn solid var(--buttons-purple-color);
+    color: var(--buttons-purple-color);
+    font-size: $font-size_btn;
+    padding: 1.4rem 3rem;
+    border-radius: $border-radius_input;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.15ms;
+    margin-bottom: 2rem;
+    @include mobile {
+        width: 70%;
+        margin: 2rem auto;
+        font-size: $font-size_btn_m;
+    }
+
+    &__icon {
+        margin-right: 1rem;
+    }
+
+    &:hover {
+        background-color: var(--buttons-purple-color);
+        color: white;
+        transition: 0.15ms;
+    }
+}

@@ -1,0 +1,29 @@
+.multiselect {
+    width: 100%;
+    border: 1px solid var(--border-grey-color);
+}
+
+.selectBox {
+    position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+    font-weight: bolder;
+}
+
+#checkboxes {
+    display: none;
+    /*border: 1px #dadada solid;*/
+    padding: 15px 2px 0;
+}
+
+#checkboxes label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sum-input-photo {
+    padding: 1.5rem;
+    width: 100%;
+}

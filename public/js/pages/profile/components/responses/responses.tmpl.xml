@@ -1,0 +1,102 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="data">
+    <div class="response">
+        <fest:if test="data.user_type=='candidate'">
+            <fest:for iterate="data.responses" index="i" value="v">
+                <div class="response-row">
+                    <div class="response-row__status">
+                        <fest:if test="v.status=='Отказ'">
+                            <div class="response-row__status_reject"><fest:value>v.status</fest:value></div>
+                        </fest:if>
+                        <fest:if test="v.status=='Приглашение'">
+                            <div class="response-row__status_accept"><fest:value>v.status</fest:value></div>
+                        </fest:if>
+                        <fest:if test="v.status=='Отправлено'">
+                            <fest:if test="v.initial=='employer'">
+                                <div class="response-row__status_default">Ожидается ответ</div>
+                            </fest:if>
+                            <fest:if test="v.initial=='candidate'">
+                                <div class="response-row__status_default"><fest:value>v.status</fest:value></div>
+                            </fest:if>
+                        </fest:if>
+                    </div>
+                    <div class="response-row-info">
+                        <div>
+                            <p class="response-row-info__text">Отклик на:</p>
+                            <div>
+                                <a href="" class="response-row-info__vacancy-link"><fest:value>v.vacancy_name</fest:value></a>
+                                <fest:space/>в
+                                <fest:space/>
+                                <a href="" class="response-row-info__company-link"><fest:value>v.company_name</fest:value></a>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="response-row-info__text">Ваше резюме:</p>
+                            <a href="" class="response-row-info__resume-link">
+                                <fest:value>v.resume_name</fest:value>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="response-row__data">
+                        <fest:value>v.date_create</fest:value>
+                    </div>
+                    <div class="response-row__buttons">
+                        <fest:if test="v.initial=='employer'">
+                            <fest:if test="v.status=='Отправлено'">
+                                <div id="accept{i}" class="response-row__buttons_accept">Принять</div>
+                                <div id="reject{i}" class="response-row__buttons_reject">Отказаться</div>
+                            </fest:if>
+                        </fest:if>
+                    </div>
+                </div>
+            </fest:for>
+        </fest:if>
+        <fest:if test="data.user_type=='employer'">
+            <fest:for iterate="data.responses" index="i" value="v">
+                <div class="response-row">
+                    <div class="response-row__status">
+                        <fest:if test="v.status=='Отказ'">
+                            <div class="response-row__status_reject"><fest:value>v.status</fest:value></div>
+                        </fest:if>
+                        <fest:if test="v.status=='Приглашение'">
+                            <div class="response-row__status_accept"><fest:value>v.status</fest:value></div>
+                        </fest:if>
+                        <fest:if test="v.status=='Отправлено'">
+                            <fest:if test="v.initial=='candidate'">
+                                <div class="response-row__status_default">Ожидается ответ</div>
+                            </fest:if>
+                            <fest:if test="v.initial=='employer'">
+                                <div class="response-row__status_default"><fest:value>v.status</fest:value></div>
+                            </fest:if>
+                        </fest:if>
+                    </div>
+                    <div class="response-row-info">
+                        <div>
+                            <p class="response-row-info__text">Отклик на:</p>
+                            <fest:value>v.cand_name</fest:value><fest:space/><fest:value>v.cand_surname</fest:value><fest:space/>
+                            <a class="response-row-info__resume-link" href="">
+                                <fest:value>v.resume_name</fest:value>
+                            </a>
+                        </div>
+                        <div>
+                            <p class="response-row-info__text">Ваша вакансия:</p>
+                            <a class="response-row-info__vacancy-link" href="">
+                                <fest:value>v.vacancy_name</fest:value>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="response-row__data">
+                        <fest:value>v.date_create</fest:value>
+                    </div>
+                    <div class="response-row__buttons">
+                        <fest:if test="v.initial=='candidate'">
+                            <fest:if test="v.status=='Отправлено'">
+                                <div id="accept{i}" class="response-row__buttons_accept">Принять</div>
+                                <div id="reject{i}" class="response-row__buttons_reject">Отказаться</div>
+                            </fest:if>
+                        </fest:if>
+                    </div>
+                </div>
+            </fest:for>
+        </fest:if>
+    </div>
+</fest:template>

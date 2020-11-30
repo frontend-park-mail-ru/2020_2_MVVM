@@ -1,0 +1,33 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <div class="pers">
+        <span class="error" aria-live="polite"/>
+        <div class="pers-list">
+            <div class="pers-list-row">
+                <div class="pers-list-row__description">Имя</div>
+                <div class="pers-list-row__input-field" id="name"><fest:value>items.name</fest:value></div>
+                <div class="pers-list-row__refactor"><a href="/profile">Изменить</a></div>
+            </div>
+            <div class="pers-list-row">
+                <div class="pers-list-row__description">Фамилия</div>
+                <div class="pers-list-row__input-field" id="surname"><fest:value>items.surname</fest:value></div>
+                <div class="pers-list-row__refactor"><a href="/profile">Изменить</a></div>
+            </div>
+            <div class="pers-list-row">
+                <div class="pers-list-row__description">Email</div>
+                <div class="pers-list-row__input-field" id="email"><fest:value>items.email</fest:value></div>
+                <div class="pers-list-row__refactor"><a href="/profile">Изменить</a></div>
+            </div>
+<!--            <div class="pers-list-row">-->
+<!--                <div class="description">Пароль</div>-->
+<!--                <div class="input-field" id="password"><fest:value>items.password</fest:value></div>-->
+<!--                <div class="pers__list_refactor"><a href="/profile">Изменить</a></div>-->
+<!--            </div>-->
+            <div class="pers-list-row">
+                <div class="pers-list-row__description">Мобильный телефон</div>
+                <div class="pers-list-row__input-field" id="phone"><fest:value>items.phone</fest:value></div>
+                <div class="pers-list-row__refactor"><a href="/profile">Изменить</a></div>
+            </div>
+        </div>
+        <div class="pers__delete-account"><a href="/profile">Удалить аккаунт</a></div>
+    </div>
+</fest:template>
