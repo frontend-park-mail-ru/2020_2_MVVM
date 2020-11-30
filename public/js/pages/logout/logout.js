@@ -1,10 +1,9 @@
-
 export default class Logout {
-    constructor(onsubmit) {
-        this.onsubmit = onsubmit;
-    }
+  constructor(onsubmit) {
+    this.onsubmit = onsubmit;
+  }
 
-    render() {
-        this.onsubmit();
-    }
+  render() {
+    this.onsubmit();
+  }
 }

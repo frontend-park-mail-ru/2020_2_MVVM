@@ -33,7 +33,7 @@
     letter-spacing: 0;
     padding-left: 2rem;
 
-    &__vac-name{
+    &__vac-name {
         font-size: $font-size_h3;
         color: var(--text-light-black);
         line-height: 1.2;
@@ -44,7 +44,7 @@
         }
     }
 
-    &__comp-name{
+    &__comp-name {
         font-size: $font-size_h4;
         color: var(--text-light-black);
         line-height: 1.2;
@@ -53,7 +53,8 @@
         @include mobile {
             font-size: $font-size_h4_m;
         }
-        &:hover{
+
+        &:hover {
             color: var(--main-pink-color);
         }
     }
@@ -88,11 +89,12 @@
     }
     margin-right: 4rem;
 
-    &__body{
+    &__body {
         display: inline-block;
         margin-left: 1rem;
     }
 }
+
 .line-box {
     width: 100%;
     margin-left: auto;

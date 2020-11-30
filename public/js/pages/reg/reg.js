@@ -1,29 +1,26 @@
-import {NavBarInit} from "../../components/header/navBar.js";
-import {checkFrom} from "./components/reg_form/reg.js";
+import { checkFrom } from "./components/reg_form/reg.js";
 import createElem from "Js/libs/createElem";
-import regTemp from './components/reg_form/reg.tmpl.xml'
+import regTemp from "./components/reg_form/reg.tmpl.xml";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
-const app = window.document.getElementById('app');
+const app = window.document.getElementById("app");
 
+export default class RegList {
+  constructor(onsubmit) {
+    this.onsubmit = onsubmit;
+  }
 
-export default class RegList{
-    constructor(onsubmit) {
-        this.onsubmit = onsubmit
-    }
+  render(content) {
+    app.innerHTML = "";
 
-    render(content){
-        app.innerHTML = '';
+    openMenuList(app, false);
 
+    const main = createElem("div", "main", app);
+    main.insertAdjacentHTML("beforeend", regTemp());
 
-        openMenuList(app, false);
+    const form = document.querySelector("form");
+    let error = document.getElementsByClassName("error");
 
-        const main = createElem("div", "main", app);
-        main.insertAdjacentHTML("beforeend", regTemp());
-
-        const form = document.querySelector("form");
-        let error = document.getElementsByClassName('error');
-
-        checkFrom(this.onsubmit, form, error);
-    }
+    checkFrom(this.onsubmit, form, error);
+  }
 }

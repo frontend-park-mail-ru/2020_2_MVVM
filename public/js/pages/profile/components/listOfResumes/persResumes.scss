@@ -1,6 +1,6 @@
 @import "public/css/vars";
 
-.main__buttons{
+.main__buttons {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-row-gap: 0.1rem;
@@ -8,7 +8,7 @@
     margin-left: auto;
 }
 
-.main__buttons_one{
+.main__buttons_one {
     padding: 1rem;
     border: $border_btn solid var(--main-pink-color);
     border-radius: $border-radius_btn;
@@ -16,7 +16,8 @@
     text-align: center;
     font-size: $font-size_h4_m;
 }
-.main__buttons_two{
+
+.main__buttons_two {
     padding: 1rem;
     border: $border_btn solid var(--main-pink-color);
     border-radius: $border-radius_btn;
@@ -24,17 +25,18 @@
     text-align: center;
     font-size: $font-size_h4_m;
 }
-.main__buttons_two:hover{
+
+.main__buttons_two:hover {
     background-color: var(--main-pink-color);
     color: white;
 }
 
-.main__buttons_one:hover{
+.main__buttons_one:hover {
     background-color: var(--main-pink-color);
     color: white;
 }
 
-.main__list-profile{
+.main__list-profile {
     max-width: 70%;
     margin: auto;
     @include mobile {

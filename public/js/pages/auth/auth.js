@@ -1,35 +1,30 @@
-import {NavBarInit} from "Js/components/header/navBar";
-import {checkFrom} from "./components/auth_form/auth.js";
+import { checkFrom } from "./components/auth_form/auth.js";
 import createElem from "Js/libs/createElem";
-import authTemp from './components/auth_form/auth.tmpl.xml'
+import authTemp from "./components/auth_form/auth.tmpl.xml";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
-
-const app = window.document.getElementById('app');
-
+const app = window.document.getElementById("app");
 
 export default class AuthList {
-    constructor(onsubmit) {
-        this.onsubmit = onsubmit;
-    }
+  constructor(onsubmit) {
+    this.onsubmit = onsubmit;
+  }
 
-    render(content){
+  render(content) {
+    app.innerHTML = "";
 
-        app.innerHTML = '';
+    openMenuList(app, false);
 
-        openMenuList(app, false);
+    const main = createElem("div", "main", app);
+    main.insertAdjacentHTML("beforeend", authTemp());
 
+    const form = document.querySelector("form");
+    let error = document.getElementsByClassName("error");
 
-        const main = createElem("div", "main", app);
-        main.insertAdjacentHTML("beforeend", authTemp());
-
-        const form = document.querySelector("form");
-        let error = document.getElementsByClassName('error');
-
-        afterRender(this.onsubmit, form, error);
-    }
-
+    afterRender(this.onsubmit, form, error);
+  }
 }
+
 function afterRender(submitF, form, error) {
-    checkFrom(submitF,form, error);
+  checkFrom(submitF, form, error);
 }

@@ -1,6 +1,6 @@
 @import "public/css/vars";
 
-.response{
+.response {
     display: inline-grid;
     grid-template-columns: 1fr;
     grid-row-gap: 0.5rem;
@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.response-row{
+.response-row {
     display: grid;
     align-items: center;
     grid-template-columns: 4fr 10fr 4fr 2fr;
@@ -17,15 +17,16 @@
     border: $border_btn solid var(--border-grey-color);
     padding: 0.5rem;
 
-    &_notifications{
+    &_notifications {
         grid-template-columns: 10fr 4fr auto;
         @include mobile {
             display: block;
         }
     }
 
-    &__close-btn{
+    &__close-btn {
         cursor: pointer;
+
         &:hover {
             color: var(--main-pink-color);
         }
@@ -52,15 +53,16 @@
             font-size: $font-size_h4_m;
         }
 
-        &_reject{
+        &_reject {
             color: var(--main-pink-color);
         }
-        &_accept{
+
+        &_accept {
             color: var(--accept-green);
         }
     }
 
-    &__buttons{
+    &__buttons {
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-row-gap: 0.2rem;
@@ -78,22 +80,26 @@
             display: inline-flex;
             width: 100%;
         }
-        &_accept{
+
+        &_accept {
             border: $border_btn solid var(--accept-green);
             padding: 0.5rem;
-            &:hover{
+
+            &:hover {
                 background-color: var(--accept-green);
                 color: white;
             }
+
             @include iphone5 {
                 width: 50%;
             }
         }
 
-        &_reject{
+        &_reject {
             border: $border_btn solid var(--main-pink-color);
             padding: 0.5rem;
-            &:hover{
+
+            &:hover {
                 background-color: var(--main-pink-color);
                 color: white;
             }
@@ -104,7 +110,7 @@
         }
     }
 
-    &__data{
+    &__data {
         font-size: $font-size_h4;
         @include mobile {
             text-align: center;
@@ -126,19 +132,22 @@
             font-size: $font-size_h4_m;
         }
     }
-    &__vacancy-link{
+
+    &__vacancy-link {
         font-size: $font-size_h5;
         @include mobile {
             font-size: $font-size_h4_m;
         }
     }
-    &__company-link{
+
+    &__company-link {
         font-size: $font-size_h5;
         @include mobile {
             font-size: $font-size_h4_m;
         }
     }
-    &__resume-link{
+
+    &__resume-link {
         font-size: $font-size_h5;
         @include mobile {
             font-size: $font-size_h4_m;

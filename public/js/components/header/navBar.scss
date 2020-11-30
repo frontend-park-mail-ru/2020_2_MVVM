@@ -2,20 +2,21 @@
 
 .header {
     width: 100%;
+
     &__small {
         background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
-        &_phone{
+
+        &_phone {
             background: linear-gradient(to right, rgba(83, 100, 226, 1) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
             position: absolute;
             width: 100%;
             height: 100vh;
+            overflow: auto;
         }
     }
 
     &_big {
         background: linear-gradient(to right, rgba(83, 100, 226, 1) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
-        //background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%),
-        //url(Img/bmstuBuilding1.png) 0 0/cover no-repeat;
     }
 
     &_absolute {
@@ -68,13 +69,15 @@
     @include mobile {
         flex-direction: column;
     }
-    &-menu{
+
+    &-menu {
         display: flex;
         justify-content: space-evenly;
         @include mobile {
             justify-content: space-evenly;
             margin-bottom: 5rem;
         }
+
         &__logo {
             background: url(Img/logo.png) no-repeat 50% 50%;
             width: 34rem;
@@ -85,24 +88,25 @@
         }
 
     }
+
     &__menu {
         display: flex;
         flex-grow: 1;
         justify-content: flex-end;
         align-items: center;
-        &_is-open{
+
+        &_is-open {
             align-self: center;
             position: absolute;
             top: 30%;
         }
+
         @include mobile {
             justify-content: center;
         }
 
     }
 }
-
-
 
 .menu-list {
     display: flex;
@@ -124,7 +128,6 @@
         white-space: nowrap;
         @include mobile {
             text-align: center;
-            //margin-bottom: 2rem;
             font-size: $font_size_h2_m;
         }
 
@@ -144,6 +147,9 @@
         }
 
         &_note {
+            position: relative;
+            text-align: left;
+            color: black;
             font-size: $font-size_h4;
             @include mobile {
                 font-size: $font-size_h4_m;
@@ -154,6 +160,7 @@
             opacity: 0.7;
             transition: 0.15s;
         }
+
         &_note_head {
             position: center;
             text-align: center;
@@ -165,11 +172,7 @@
             }
 
         }
-        &_note {
-            position: relative;
-            text-align: left;
-            color: black;
-        }
+
 
         &_icon-key:before {
             content: "";
@@ -197,6 +200,7 @@
             white-space: nowrap;
             background: url(Img/user.svg) no-repeat 0 0/cover;
         }
+
         &_icon-logout:before {
             content: "";
             width: $font-size_h3;
@@ -224,6 +228,7 @@
             white-space: nowrap;
             background: url(Img/notification.svg) no-repeat 0 0/cover;
         }
+
         &_icon-enter:before {
             content: "";
             width: $font-size_h3;
@@ -259,10 +264,7 @@
 }
 
 
-
-
-
-.single-notific{
+.single-notific {
     font-size: $font-size_h4;
     @include mobile {
         font-size: $font-size_h4_m;
@@ -274,8 +276,6 @@
     color: white;
     background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%),
     url(Img/bmstuBuilding1.png) 0 0/cover no-repeat;
-    //margin: 3rem 0;
-
 }
 
 .header-row-bottom__page {
@@ -303,8 +303,6 @@
     @include mobile {
         width: 60rem;
     }
-    //background-color: rgb(0,0,0);
-    //background-color: rgba(0,0,0,0.4);
 }
 
 .popup-content {
@@ -327,23 +325,20 @@
         height: 100rem;
         max-width: 100%;
         min-width: 100%;
-
-        //max-width: 90%;
     }
 }
-
-.triangle {
-    content: '';
-    position: absolute;
-    top: 2rem;
-    left: 63%;
-    width: 4rem;
-    height: 4rem;
-    background: no-repeat 0 0/cover url(Img/up-arrow.svg);
-    z-index: 5;
-
-    @include mobile {
-        width: 0;
-        height: 0;
-    }
-}
+//
+//.triangle {
+//    position: absolute;
+//    top: 2rem;
+//    left: 63%;
+//    width: 4rem;
+//    height: 4rem;
+//    background: no-repeat 0 0/cover url(Img/up-arrow.svg);
+//    z-index: 5;
+//
+//    @include mobile {
+//        width: 0;
+//        height: 0;
+//    }
+//}

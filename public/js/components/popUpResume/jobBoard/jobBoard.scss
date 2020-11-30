@@ -1,7 +1,6 @@
-
 @import "public/css/vars";
 
-.job{
+.job {
     display: flex;
     border: $border_btn solid var(--buttons-purple-color);
     padding: 1rem 1rem 0;
@@ -10,18 +9,18 @@
     width: 31rem;
     margin-bottom: 1rem;
 
-    @include mobile{
+    @include mobile {
         width: 100%;
     }
 }
 
 
-.job-container{
+.job-container {
     color: black;
     width: 100%;
 }
 
-.job-container__date{
+.job-container__date {
     display: flex;
     margin-bottom: 0.5rem;
     font-size: $font-size_h4;
@@ -31,11 +30,13 @@
         font-size: $font-size_h4_m;
     }
 }
-.job-container__date .minus{
+
+.job-container__date .minus {
     font-size: $font-size_h4;
     color: var(--buttons-purple-color);
 }
-.job-container__organization{
+
+.job-container__organization {
     font-size: $font-size_h4;
     margin-bottom: 0.5rem;
     font-weight: bolder;
@@ -45,7 +46,7 @@
     }
 }
 
-.job-container__position{
+.job-container__position {
     font-size: $font-size_h4;
     margin-bottom: 0.5rem;
     @include mobile {
@@ -54,11 +55,11 @@
     }
 }
 
-.job__delete{
+.job__delete {
     height: min-content;
 }
 
-.job__delete:hover{
+.job__delete:hover {
     cursor: pointer;
     color: black;
 }
