@@ -78,6 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 :root {
     --background-grey-color: rgba(185, 190, 195, 0.15);
     --background-grey-color-no-alpha: rgba(245,245,245,1);
+    --placeholder-color: rgb(133, 133, 133);
     --border-grey-color: #dbdbdb;
     --main-pink-color: #fb236a;
     --buttons-purple-color: #8b91dd;
@@ -290,9 +291,9 @@ h1, h2, h3, h4, h5, h6 {
     height: 6rem;
     font-size: $font-size_btn;
     border-radius: $border-radius_btn;
-    border: $border_btn solid var(--buttons-purple-color);
+    border: $border_btn solid var(--main-pink-color);
     background-color: white;
-    color: var(--buttons-purple-color);
+    color: var(--main-pink-color);
     transition: 0.15s;
     margin: 2.5rem 0;
     @include mobile {
@@ -301,7 +302,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     &:hover {
-        background-color: var(--buttons-purple-color);
+        background-color: var(--main-pink-color);
         color: white;
         transition: 0.15s;
     }
@@ -310,8 +311,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .input-data-card__link {
     text-decoration: none;
-    font-weight: 600;
-    color: var(--buttons-purple-color);
+    color: var(--placeholder-color);
     transition: 0.15s;
     font-size: $font-size_h5;
 

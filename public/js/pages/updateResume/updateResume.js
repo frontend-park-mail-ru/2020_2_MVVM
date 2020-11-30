@@ -17,7 +17,6 @@ async function getAllInfo (updClass, resumeSource) {
     console.assert(responseResume.ok);
     const resumeData = await responseResume.json();
 
-    console.log(resumeData);
     const resumeInfo = resumeData.resume;
     const experienceInfo = resumeData.custom_experience;
     const userInfo = resumeData.user;
@@ -91,7 +90,6 @@ export default class UpdateResume{
 
         const main = createElem("div", "main", app);
 
-        // console.log(user);
         main.insertAdjacentHTML("afterbegin", updateResumeTemp(user));
         const photo = document.getElementById("sum-profile__photo");
         photo.style.background = `no-repeat 0 0/cover url(${user.imgPath})`;

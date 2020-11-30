@@ -22,7 +22,7 @@ export default class CreateCompanyCtrl {
             json.area_search = formData.get("area_search");
 
             const response = await network.doPost(addCompanyURL, json);
-            console.log(response);
+
             const content = await response.json();
 
             if (response.status >= 200 && response.status < 300) {

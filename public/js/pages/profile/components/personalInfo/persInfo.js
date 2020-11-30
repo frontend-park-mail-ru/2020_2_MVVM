@@ -69,7 +69,6 @@ function saveData(tmpField, newValueField){
 
 
     if (isOk) {
-        console.log(isOk);
         let data = {
             [field]: newValueField.toString(),
         };
@@ -83,13 +82,10 @@ function saveData(tmpField, newValueField){
 async function doSubmit(data) {
     const response = await network.doPut(updateUserURL, data);
     const res = await response.json();
-    console.log(response)
-    console.log(res)
     if (response.status >= 200 && response.status < 300) {
         console.assert(response.ok);
     } else {
         let error = document.getElementsByClassName("pers");
-        console.log(error)
         error[0].insertAdjacentHTML("afterBegin", `<div class="error">${res.error}</div>`);
     }
 }

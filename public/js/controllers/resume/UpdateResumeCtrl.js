@@ -39,7 +39,6 @@ export default class updateResumeCtrl{
 
             json.custom_experience = jobsArr;
 
-            console.log(json);
 
             const response = await network.doPut(addResumeURL, json);
 

@@ -9,7 +9,6 @@ export default class RegCtrl {
         const onsubmit = async (event, form, errorMes) => {
             event.preventDefault();
 
-            console.log(form);
             const formData = new FormData(form);
             errorMes[0].innerHTML = '';
 

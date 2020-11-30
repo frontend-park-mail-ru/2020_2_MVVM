@@ -11,7 +11,7 @@ export default function popUpList(app, responsedCls, responsedId, data) {
     app.insertAdjacentHTML("afterbegin", popUpListTemp(data));
 
     const createBtn = document.getElementsByClassName('btn-add-exp');
-    if (createBtn) {
+    if (createBtn[0]) {
         createBtn[0].addEventListener('click',()=>{
             document.body.classList.remove("hide-scroll");
         })
@@ -34,7 +34,7 @@ export default function popUpList(app, responsedCls, responsedId, data) {
     if (data.list) {
         if (data.user_type==='candidate') {
             data.list.forEach((resume, i) => {
-                console.log(resume);
+
                 DomList[i].style.background = `no-repeat  0 0/cover url(${resume.imgPath}`;
             });
         } else {

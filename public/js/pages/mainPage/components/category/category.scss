@@ -98,7 +98,7 @@
     &__count {
         color: var(--main-pink-color);
         font-size: $font-size_h5;
-        margin-bottom: 3rem;
+        margin: 0.5rem 0 3rem;
         @include mobile {
             font-size: $font-size_h5_m;
         }

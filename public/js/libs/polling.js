@@ -8,14 +8,14 @@ import {convertDate} from "Js/libs/convertDate";
 
 const TIMEOUT = 3000;
 
-export let recNum = 0;
+let recNum = 0;
 
 let unresponed = 0;
 
 let intervalId = null;
 
 const createNotifResponses = (responses) => {
-    console.log(responses);
+
     responses.forEach((item) => {
         item.user_type = localStorage.getItem('user_type')
         item.date_create = convertDate(item.date_create);
@@ -26,6 +26,7 @@ const createNotifResponses = (responses) => {
     for (let i=0; i<deletedResponse.length; i++) {
         deletedResponse[i].addEventListener('click',()=>{
             responsesList[i].remove();
+            unresponed--;
             const body = {
                 watched_responses: [responses[i].response_id],
             };
@@ -37,7 +38,7 @@ const createNotifResponses = (responses) => {
 
 const createNotifVacancy = (newRecs) => {
     const word = plural(newRecs, ["рекомендуемая вакансия", "рекомендуемая вакансия", "рекомендуемые вакансии"]);
-    const myString = `${newRecs} ${word}`;
+    const myString = `Подобрано ${newRecs} ${word}`;
     let popup = document.getElementById("notePopup");
 
 
@@ -69,7 +70,7 @@ export const startPolling = () => {
     intervalId = setInterval(() => {
         const body = {
             only_new_resp_cnt: false,
-            vac_in_last_n_days: null,
+            vac_in_last_n_days: 1,
             watched_responses: [],
             only_new_vac_cnt: true,
         };
