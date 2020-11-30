@@ -280,9 +280,11 @@
 
 .header-row-bottom__page {
     text-align: center;
-    padding: 33rem 20rem;
-    font-size: $font-size_h2;
+    padding: 33rem 0;
+    max-width: 130rem;
+    font-size: 3.5rem;
     line-height: 1.2;
+    margin: 0 auto;
     @include mobile {
         font-size: $font-size_h2_m;
         padding: 20rem 0 5rem;
