@@ -16,8 +16,8 @@ export default function openMenu(app, need_search) {
       const menuList = new NavBarInit(header[0], false, "");
       menuList.loadNavBar(true);
 
-      let nb = document.getElementById("note-button");
-      let popup = document.getElementById("notePopup");
+      const nb = document.getElementById("note-button");
+      const popup = document.getElementById("notePopup");
       popup.style.display = "none";
 
       const headerLogo = document.getElementsByClassName(
@@ -71,7 +71,7 @@ export default function openMenu(app, need_search) {
     });
 
     if (searchMenu.length) {
-      let popup = document.getElementById("notePopup");
+      const popup = document.getElementById("notePopup");
       searchMenu[0].addEventListener("click", () => {
         const searchBlock = document.getElementById("main-navigation");
         const mainList = document.getElementsByClassName("main-list");

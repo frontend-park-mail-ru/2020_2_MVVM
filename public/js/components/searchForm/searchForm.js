@@ -3,7 +3,7 @@ export function checkBoxes() {
   const checkBoxName = document.getElementsByClassName("option-type__name");
   for (let i = 0; i < checkBoxName.length; i++) {
     checkBoxName[i].addEventListener("click", (e) => {
-      let t = e.target.previousSibling;
+      const t = e.target.previousSibling;
       if (t.tagName === "INPUT" && t.type === "checkbox") t.click();
     });
   }

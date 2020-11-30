@@ -19,7 +19,7 @@ export default class CreateResumeCtrl {
     };
 
     this.page = new CreateResume(loadUser, async (form, jobsArr) => {
-      let formData = new FormData(form);
+      const formData = new FormData(form);
       const json = {};
 
       const resumeLogo = formData.get("sum__avatar");
@@ -46,12 +46,12 @@ export default class CreateResumeCtrl {
       }
 
       jobsArr.forEach((item) => {
-        let dBegin = new Date(item.begin);
+        const dBegin = new Date(item.begin);
         item.begin = dBegin.toISOString();
         if (item.finish === "today") {
           item.finish = null;
         } else {
-          let dEnd = new Date(item.finish);
+          const dEnd = new Date(item.finish);
           item.finish = dEnd.toISOString();
         }
       });

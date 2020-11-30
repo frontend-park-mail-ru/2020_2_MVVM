@@ -1,4 +1,4 @@
-import Resume from "../../pages/resume/resume.js";
+import Resume from '../../pages/resume/resume.js';
 import {network} from "Js/libs/networks";
 import {createRespURL, myFreeVacanciesURL} from "Js/libs/constants";
 

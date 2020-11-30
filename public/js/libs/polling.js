@@ -64,8 +64,8 @@ const createNotifVacancy = (newRecs) => {
   });
 };
 
-const emptyNotif = () => {
-  document.getElementById("notes-list").innerHTML = "Уведомлений нет";
+const emptyNotif = (text) => {
+  document.getElementById("notes-list").innerHTML = text;
 };
 
 export const startPolling = () => {
@@ -85,15 +85,15 @@ export const startPolling = () => {
       response.json().then((parsedJson) => {
         const newRecs = parsedJson.recommended_vac_cnt;
         if (newRecs !== recNum) {
-          newRecs ? createNotifVacancy(newRecs) : emptyNotif();
+          newRecs ? createNotifVacancy(newRecs) : emptyNotif("Новых рекомендаций нет");
           recNum = newRecs;
         }
-        if (
-          parsedJson.unread_resp &&
-          parsedJson.unread_resp.length !== unresponed
-        ) {
+        if ( parsedJson.unread_resp && parsedJson.unread_resp.length !== unresponed) {
           createNotifResponses(parsedJson.unread_resp);
           unresponed = parsedJson.unread_resp.length;
+        }
+        if (!parsedJson.unread_resp && !recNum) {
+          emptyNotif("У вас нет новых уведомлений");
         }
       });
     });

@@ -176,7 +176,9 @@ async function search(form, mainList, main, fetchVacancyList, router) {
   console.assert(response.ok);
   const vacancies = await response.json();
   const searchBlock = document.getElementById("main-navigation");
-  searchBlock.classList.add("hide");
+  if (document.body.className === "is-mobile") {
+    searchBlock.classList.add("hide");
+  }
   await getVacanciesList(vacancies, main, mainList, router);
 }
 

@@ -103,7 +103,9 @@ async function search(form, mainList, main, router) {
   const companiesResponse = await network.doPost(companySearchURL, data);
   const companies = await companiesResponse.json();
   const searchBlock = document.getElementById("main-navigation");
-  searchBlock.classList.add("hide");
+  if (document.body.className === "is-mobile") {
+    searchBlock.classList.add("hide");
+  }
   await renderCompanyList(companies, mainList, router);
 }
 

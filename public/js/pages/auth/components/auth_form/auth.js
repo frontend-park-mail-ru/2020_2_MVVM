@@ -5,9 +5,7 @@ export function checkFrom(submitF, form, error) {
   const email = document.getElementById("emailAuth");
   const password = document.getElementById("passAuth");
 
-  form.addEventListener(
-    "submit",
-    function (event) {
+  form.addEventListener('submit', (event) => {
       let isOk = true;
       const resEmail = Validation.validateEmail(email.value);
       const resPasswd = Validation.validatePasswd(password.value);

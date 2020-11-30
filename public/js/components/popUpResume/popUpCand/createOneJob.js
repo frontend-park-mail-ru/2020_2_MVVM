@@ -18,7 +18,7 @@ export async function renderInputForm(value, classCand) {
   app.insertAdjacentHTML("afterbegin", popUpCandTemplate(value));
   document.body.classList.add("hide-scroll");
   let exit = document.getElementsByClassName("popUp-cont__block");
-  let bg = document.getElementsByClassName("bg");
+  const bg = document.getElementsByClassName("bg");
   const exitBtn = document.getElementById("exit-btn");
   exit = Array.prototype.slice.call(exit);
   exit.push(exitBtn);
@@ -46,7 +46,7 @@ export async function renderInputForm(value, classCand) {
     collectInfo(classCand, event, form, bg[0]).then((value) => {
       if (value) {
         document.body.classList.remove("hide-scroll");
-        let board = document.getElementById("experience_board");
+        const board = document.getElementById("experience_board");
         classCand.jobsArr.push(value);
         board.insertAdjacentHTML("beforeend", jobBoardTemplate(value));
         board.lastChild.firstChild.addEventListener("click", (event) => {
@@ -66,7 +66,7 @@ async function openJob(value, classCand) {
 }
 
 async function collectInfo(classCand, event, form, bg) {
-  let data = {};
+  const data = {};
   event.preventDefault();
   const formData = new FormData(form);
 
@@ -130,7 +130,7 @@ async function checkPopUpCand(data, form) {
 }
 
 export async function openAndDelJob(value, classCand) {
-  let board = document.getElementById("experience_board");
+  const board = document.getElementById("experience_board");
   for (let i = 0; i < board.childElementCount; i++) {
     board.children[i].firstChild.addEventListener("click", (event) => {
       openJob(value[i], classCand);

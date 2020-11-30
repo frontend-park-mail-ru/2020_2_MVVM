@@ -15,7 +15,7 @@ export default function popUpList(app, responsedCls, responsedId, data) {
   }
 
   let exit = document.getElementsByClassName("popUp-cont__block");
-  let bg = document.getElementsByClassName("bg");
+  const bg = document.getElementsByClassName("bg");
   const exitBtn = document.getElementById("exit-btn");
   exit = Array.prototype.slice.call(exit);
   exit.push(exitBtn);
@@ -26,7 +26,7 @@ export default function popUpList(app, responsedCls, responsedId, data) {
     });
   });
 
-  let DomList = document.getElementsByClassName("list-row-photo__bg");
+  const DomList = document.getElementsByClassName("list-row-photo__bg");
 
   if (data.list) {
     if (data.user_type === "candidate") {
@@ -55,7 +55,7 @@ export default function popUpList(app, responsedCls, responsedId, data) {
         selectedId = data.list[idx].vac_id;
       }
       responsedCls.createResp(responsedId, selectedId).then(() => {
-        let page = document.getElementById("popUpContent");
+        const page = document.getElementById("popUpContent");
         page.innerHTML = responseResultTemp();
         page.addEventListener("click", () => {
           document.body.classList.remove("hide-scroll");

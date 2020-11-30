@@ -20,7 +20,7 @@ export default class RegCtrl {
         user_type: formData.get("type"),
       };
 
-      let formReg = await document.getElementsByClassName("reg");
+      const formReg = await document.getElementsByClassName("reg");
       const response = await network.doPost(`${addUserURL}`, body);
 
       const res = await response.json();
