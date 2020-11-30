@@ -17,12 +17,7 @@ import UpdateResumeCtrl from "./controllers/resume/UpdateResumeCtrl.js";
 import LogoutCtrl from "./controllers/authRegProf/LogoutCtrl.js";
 import '../styles/main.scss'
 import initScale from "Js/libs/scale";
-import {network} from "Js/libs/networks";
-import {notificationsPageURL, recommendationsNumber} from "Js/libs/constants";
-import {initPolling} from "Js/libs/polling";
 
-
-// let requestLoop = setInterval(network.doPost(notificationsPageURL, body), 1000);
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js', {scope: '/'})
