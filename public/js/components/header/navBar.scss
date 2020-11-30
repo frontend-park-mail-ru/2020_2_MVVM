@@ -107,7 +107,7 @@
 .menu-list {
     display: flex;
     text-align: right;
-    align-items: baseline;
+    align-items: center;
 
     @include mobile {
         align-items: start;
@@ -175,6 +175,7 @@
             content: "";
             width: $font-size_h4;
             height: $font-size_h4;
+            margin-right: 0.5rem;
             @include mobile {
                 width: $font_size_h2_m;
                 height: $font_size_h2_m;
@@ -183,10 +184,11 @@
             background: url(Img/key.svg) no-repeat 0 0/cover;
         }
 
-        &_icon-link:before {
+        &_icon-profile:before {
             content: "";
-            width: $font-size_h4;
-            height: $font-size_h4;
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
             @include mobile {
                 width: $font_size_h2_m;
                 height: $font_size_h2_m;
@@ -195,12 +197,70 @@
             white-space: nowrap;
             background: url(Img/user.svg) no-repeat 0 0/cover;
         }
+        &_icon-logout:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/logout.svg) no-repeat 0 0/cover;
+        }
+
+        &_icon-notif:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/notification.svg) no-repeat 0 0/cover;
+        }
+        &_icon-enter:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/enter.svg) no-repeat 0 0/cover;
+        }
+
+        &_icon-signup:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/contract.svg) no-repeat 0 0/cover;
+        }
     }
 
     @include mobile {
         margin-bottom: 4rem;
     }
 }
+
+
+
+
 
 .single-notific{
     font-size: $font-size_h4;
@@ -220,7 +280,7 @@
 
 .header-row-bottom__page {
     text-align: center;
-    padding: 23rem 20rem;
+    padding: 33rem 20rem;
     font-size: $font-size_h2;
     line-height: 1.2;
     @include mobile {

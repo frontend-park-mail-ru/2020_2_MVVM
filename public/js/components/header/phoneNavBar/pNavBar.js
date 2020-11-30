@@ -1,7 +1,6 @@
 import {NavBarInit} from "Js/components/header/navBar";
 import pNavBarTemp from "Js/components/header/phoneNavBar/phoneNavBar.tmpl.xml";
 import notificTemp from "Js/components/notifications/notifications.tmpl.xml";
-import {recNum} from "Js/libs/polling";
 
 
 export default function openMenu (app, need_search) {
@@ -90,7 +89,7 @@ export default function openMenu (app, need_search) {
         list.loadNavBar(false);
         const nb = document.getElementById("note-button");
         const popup = document.getElementById("notePopup");
-        console.log('kek');
+
 
         if (nb != null) {
             nb.addEventListener('click', (event) => {

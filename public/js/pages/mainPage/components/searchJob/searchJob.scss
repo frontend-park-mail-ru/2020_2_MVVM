@@ -6,6 +6,7 @@
         font-size: $font-size_h5;
         color: white;
         opacity: 0.8;
+        margin: 0 1rem 1rem;
 
         @include mobile {
             font-size: $font-size_h5_m;
@@ -26,7 +27,7 @@
 
 .search-job {
     flex-grow: 2;
-    margin: 1rem;
+    margin: 0 1rem 1rem;
 
     &__input {
         border-radius: $border-radius_input;
@@ -45,7 +46,7 @@
 .search-place {
     height: 6rem;
     flex-grow: 1;
-    margin: 1rem;
+    margin: 0 1rem 1rem;
 
     &__input {
         border-radius: $border-radius_input;
@@ -67,7 +68,6 @@
     font-size: 3.5rem;
     border-radius: $border-radius_input;
     height: 100%;
-    align-self: center;
 
     @include mobile {
         margin: 1rem;

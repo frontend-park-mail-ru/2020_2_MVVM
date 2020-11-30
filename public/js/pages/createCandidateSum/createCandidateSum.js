@@ -15,7 +15,7 @@ export default class CreateResume{
     }
 
     async render(content, ...args){
-        //console.log(content);
+
         app.innerHTML = '';
         this.jobsArr = [];
         this.numOfJob = 0;

@@ -173,7 +173,6 @@ async function addDeleteLikes(resume_id, infoAll){
             const addLikeResp = await network.doPost(addLikeResumeURL + `${resume_id}`);
             console.assert(addLikeResp.ok);
             const data = await addLikeResp.json();
-            console.log(data);
             infoAll.infoAll.is_favorite = data.favorite_id;
             likes[0].firstChild.remove();
             likes[0].insertAdjacentHTML("afterbegin",favoritesTemp(infoAll.infoAll.is_favorite));

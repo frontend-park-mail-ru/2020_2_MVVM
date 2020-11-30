@@ -7,13 +7,13 @@
                 <div>
                     <p class="response-row-info__text">Отклик на:</p>
                     <div class="response-row-info__text">
-                        <fest:value>v.cand_name</fest:value><fest:space/><fest:value>v.cand_surname</fest:value><fest:space/>
+                        <fest:value>v.vacancy_name</fest:value>
                     </div>
                 </div>
                 <div>
-                    <p class="response-row-info__text">Ваша вакансия:</p>
+                    <p class="response-row-info__text">Соискатель:</p>
                     <div class="response-row-info__text">
-                        <fest:value>v.vacancy_name</fest:value>
+                        <fest:value>v.cand_name</fest:value><fest:space/><fest:value>v.cand_surname</fest:value><fest:space/>
                     </div>
                 </div>
             </div>
@@ -31,13 +31,13 @@
                     <div>
                         <p class="response-row-info__text">Отклик на:</p>
                         <div class="response-row-info__text">
-                            <fest:value>v.vacancy_name</fest:value>
+                            <fest:value>v.resume_name</fest:value>
                         </div>
                     </div>
                     <div>
-                        <p class="response-row-info__text">Ваше резюме:</p>
+                        <p class="response-row-info__text">Работодатель:</p>
                         <div class="response-row-info__text">
-                            <fest:value>v.resume_name</fest:value>
+                            <fest:value>v.vacancy_name</fest:value>
                         </div>
                     </div>
                 </div>

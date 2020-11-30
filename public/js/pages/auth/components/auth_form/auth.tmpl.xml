@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <button id="entBtnAuth" class="input-data-card__enter-btn" type="submit">Войти</button>
-                        <a href="/reg"><div class="input-data-card__link">Нет аккаунта?</div></a>
+                        <a href="/reg"><div class="input-data-card__link">Еще нет аккаунта? Зарегистрируйтесь</div></a>
                     </div>
                 </form>
             </div>
