@@ -59,7 +59,7 @@
         }
     }
 
-    &__label{
+    &__label {
         font-weight: 500;
         font-size: $font-size_h3;
         @include mobile {
@@ -67,6 +67,7 @@
         }
     }
 }
+
 //
 //.container-left-bottom {
 //    &__subscribe {
@@ -138,6 +139,7 @@
             font-size: $font-size_h4_m;
         }
     }
+
     &_group {
         margin-bottom: 1rem;
         font-size: $font-size_h4-5;

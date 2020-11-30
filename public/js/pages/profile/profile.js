@@ -1,4 +1,3 @@
-import { NavBarInit } from "Js/components/header/navBar";
 import {
   checkoutProfilePage,
   personalInfo,
@@ -6,8 +5,6 @@ import {
 import { updateProfileFields } from "./components/personalInfo/persInfo.js";
 import createElem from "Js/libs/createElem";
 import persNB from "./components/personalNavBar/persNavBar.tmpl.xml";
-import listOfCandidatesTemp from "Js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.xml";
-import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById("app");

@@ -1,7 +1,6 @@
-
 @import "public/css/vars";
 
-.data-block{
+.data-block {
     margin-bottom: 1.5rem;
     @include mobile {
         margin-bottom: 4rem;
@@ -29,7 +28,7 @@
         width: 100%;
     }
 
-    &__photo{
+    &__photo {
         width: 15rem;
         height: 15rem;
         background: no-repeat 0 0/cover url(Img/defaultRes.png);
@@ -37,7 +36,7 @@
     }
 }
 
-.sum-upload-photo__btn{
+.sum-upload-photo__btn {
     border: $border_btn solid var(--main-pink-color);
     color: var(--main-pink-color);
     border-radius: $border-radius_btn;
@@ -47,7 +46,7 @@
     cursor: pointer;
     //padding: $btn_padding;
 
-    &:hover{
+    &:hover {
         background-color: var(--main-pink-color);
         color: white;
         transition: 0.15s;
@@ -55,7 +54,7 @@
     }
 }
 
-.sum-main-block-info{
+.sum-main-block-info {
     width: 55rem;
     @include mobile {
         width: 100%;
@@ -159,11 +158,11 @@
 }
 
 .sum-form-switch:hover .sum-form-switch__input ~ .sum-form-switch__control,
-.sum-form-switch__input:focus ~ .sum-form-switch__control{
+.sum-form-switch__input:focus ~ .sum-form-switch__control {
     color: var(--main-pink-color);
 }
 
-.sum-form-switch__input:checked ~ .sum-form-switch__control{
+.sum-form-switch__input:checked ~ .sum-form-switch__control {
     color: var(--main-pink-color);
     border: $border_btn solid var(--main-pink-color);
 }
@@ -215,7 +214,7 @@
         font-size: $font-size_btn_m;
     }
 
-    &:hover{
+    &:hover {
         border: $border_btn solid var(--main-pink-color);
         background-color: white;
         color: var(--main-pink-color);
@@ -227,7 +226,7 @@
     min-width: 100%;
     max-width: 100%;
     padding: 1rem 1.5rem;
-    border:  $border_btn solid var(--border-grey-color);
+    border: $border_btn solid var(--border-grey-color);
     border-radius: $border-radius_input;
     font-size: $font-size_h4-5;
 

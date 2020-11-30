@@ -1,4 +1,3 @@
-import { NavBarInit } from "Js/components/header/navBar";
 import { checkBoxes } from "Js/components/searchForm/searchForm";
 import createElem from "Js/libs/createElem";
 import { resumePageURL, resumeSearchURL } from "Js/libs/constants";

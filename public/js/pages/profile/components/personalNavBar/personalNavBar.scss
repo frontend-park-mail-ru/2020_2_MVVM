@@ -1,39 +1,39 @@
 @import "public/css/vars";
 
-.main-page{
+.main-page {
     display: grid;
     grid-template-columns: 1fr;
 }
 
 
-.profile-title{
+.profile-title {
     padding: $margin-title;
     font-size: $font-size_h2;
     text-align: center;
 }
 
 
-.profile-navbar{
+.profile-navbar {
     padding-bottom: 50px;
 }
 
-.navbar-menu-list{
+.navbar-menu-list {
     display: flex;
     justify-content: space-evenly;
 
-    &__btn{
+    &__btn {
         display: flex;
         width: 50%;
         justify-content: center;
         border: $border_btn solid var(--border-grey-color);
 
-        &:hover{
+        &:hover {
             background: var(--buttons-purple-color);
         }
     }
 }
 
-.btn-href{
+.btn-href {
     padding: 2rem 0;
     width: 100%;
     text-align: center;

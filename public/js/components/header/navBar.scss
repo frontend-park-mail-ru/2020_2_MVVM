@@ -2,9 +2,11 @@
 
 .header {
     width: 100%;
+
     &__small {
         background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
-        &_phone{
+
+        &_phone {
             background: linear-gradient(to right, rgba(83, 100, 226, 1) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
             position: absolute;
             width: 100%;
@@ -69,13 +71,15 @@
     @include mobile {
         flex-direction: column;
     }
-    &-menu{
+
+    &-menu {
         display: flex;
         justify-content: space-evenly;
         @include mobile {
             justify-content: space-evenly;
             margin-bottom: 5rem;
         }
+
         &__logo {
             background: url(Img/logo.png) no-repeat 50% 50%;
             width: 34rem;
@@ -86,24 +90,25 @@
         }
 
     }
+
     &__menu {
         display: flex;
         flex-grow: 1;
         justify-content: flex-end;
         align-items: center;
-        &_is-open{
+
+        &_is-open {
             align-self: center;
             position: absolute;
             top: 30%;
         }
+
         @include mobile {
             justify-content: center;
         }
 
     }
 }
-
-
 
 .menu-list {
     display: flex;
@@ -155,6 +160,7 @@
             opacity: 0.7;
             transition: 0.15s;
         }
+
         &_note_head {
             position: center;
             text-align: center;
@@ -166,6 +172,7 @@
             }
 
         }
+
         &_note {
             position: relative;
             text-align: left;
@@ -198,6 +205,7 @@
             white-space: nowrap;
             background: url(Img/user.svg) no-repeat 0 0/cover;
         }
+
         &_icon-logout:before {
             content: "";
             width: $font-size_h3;
@@ -225,6 +233,7 @@
             white-space: nowrap;
             background: url(Img/notification.svg) no-repeat 0 0/cover;
         }
+
         &_icon-enter:before {
             content: "";
             width: $font-size_h3;
@@ -260,10 +269,7 @@
 }
 
 
-
-
-
-.single-notific{
+.single-notific {
     font-size: $font-size_h4;
     @include mobile {
         font-size: $font-size_h4_m;
