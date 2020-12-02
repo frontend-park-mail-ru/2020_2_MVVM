@@ -1,6 +1,7 @@
 import RegList from "../../pages/reg/reg.js";
-import { addUserURL } from "Js/libs/constants";
+import {addUserURL, companyMineURL} from "Js/libs/constants";
 import { network } from "Js/libs/networks";
+import {startPolling} from "Js/libs/polling";
 
 export default class RegCtrl {
   constructor(router) {
@@ -23,15 +24,29 @@ export default class RegCtrl {
       const formReg = await document.getElementsByClassName("reg");
       const response = await network.doPost(`${addUserURL}`, body);
 
-      const res = await response.json();
+      const userInfo = await response.json();
+      console.log(userInfo);
 
       if (response.status >= 200 && response.status < 300) {
-        console.assert(response.ok);
-        this.router.change("/");
+        localStorage.setItem('user_type', userInfo.user.user_type);
+        startPolling();
+        if (userInfo.user.user_type === 'employer') {
+          const response = await network.doGet(companyMineURL);
+          const ans = await response.json();
+          if (ans.company) {
+            localStorage.setItem("has_company", "true");
+          } else {
+            localStorage.setItem("has_company", "false");
+          }
+          this.router.change("/");
+        } else if (userInfo.user.user_type === "candidate") {
+          localStorage.setItem("has_company", "false");
+          this.router.change("/");
+        }
       } else {
         formReg[0].insertAdjacentHTML(
           "afterBegin",
-          `<div class="error">${res.error}</div>`
+          `<div class="error">${userInfo.error}</div>`
         );
       }
     };
