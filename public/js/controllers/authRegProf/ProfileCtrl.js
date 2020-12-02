@@ -100,7 +100,9 @@ export default class ProfileCtrl {
         const response = await network.doGet(companyByIdURL + `${company_id}`);
         const data = await response.json();
         console.assert(response.ok);
-        return data.company;
+        if (data) {
+          return data.company;
+        }
       } catch (err) {
         console.assert(err);
       }
