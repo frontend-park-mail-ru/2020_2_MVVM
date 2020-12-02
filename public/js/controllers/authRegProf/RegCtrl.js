@@ -33,7 +33,7 @@ export default class RegCtrl {
         if (userInfo.user.user_type === 'employer') {
           const response = await network.doGet(companyMineURL);
           const ans = await response.json();
-          if (ans.company) {
+          if (ans && ans.company) {
             localStorage.setItem("has_company", "true");
           } else {
             localStorage.setItem("has_company", "false");

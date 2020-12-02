@@ -63,7 +63,7 @@ export default class Profile {
         this.favorites = data;
       });
       await this.loadCompany().then((data) => {
-        this.company = data.company;
+        this.company = data ? data.company : "";
       });
     } else {
       title.innerText = "Личный кабинет соискателя";
