@@ -1,5 +1,5 @@
 import AuthList from '../../pages/auth/auth.js';
-import { companyMineURL, loginURL, UNAUTHORISED } from 'Js/libs/constants';
+import {companyMineURL, loginURL, meUserURL, UNAUTHORISED} from 'Js/libs/constants';
 import { network } from 'Js/libs/networks';
 import { startPolling } from 'Js/libs/polling';
 
@@ -20,11 +20,12 @@ export default class AuthCtrl {
       };
 
       const response = await network.doPost(`${loginURL}`, body);
-      const res = await response.json();
       if (response.status >= 200 && response.status < 300) {
-        localStorage.setItem('user_type', res.user.user_type);
+        const getUser = await network.doGet(`${meUserURL}`);
+        const getUserData = await getUser.json();
+        localStorage.setItem('user_type', getUserData.user.user_type);
         startPolling();
-        if (localStorage.getItem('user_type') === 'employer') {
+        if (getUserData.user.user_type === 'employer') {
           const response = await network.doGet(companyMineURL);
           const ans = await response.json();
           if (ans.company) {
@@ -32,7 +33,7 @@ export default class AuthCtrl {
           } else {
             localStorage.setItem("has_company", "false");
           }
-        } else if (localStorage.getItem("user_type") === "candidate") {
+        } else if (getUserData.user.user_type === "candidate") {
           localStorage.setItem("has_company", "false");
         }
         this.router.change("/");
