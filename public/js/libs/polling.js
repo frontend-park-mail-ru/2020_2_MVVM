@@ -116,5 +116,7 @@ export const initPolling = () => {
 
   if (localStorage.getItem("user_type") !== "") {
     startPolling();
+  } else {
+    stopPolling();
   }
 };
