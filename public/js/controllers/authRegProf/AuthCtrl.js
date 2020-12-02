@@ -20,6 +20,8 @@ export default class AuthCtrl {
       };
 
       const response = await network.doPost(`${loginURL}`, body);
+      const res = await response.json();
+
       if (response.status >= 200 && response.status < 300) {
         const getUser = await network.doGet(`${meUserURL}`);
         const getUserData = await getUser.json();
@@ -33,10 +35,11 @@ export default class AuthCtrl {
           } else {
             localStorage.setItem("has_company", "false");
           }
+          this.router.change("/");
         } else if (getUserData.user.user_type === "candidate") {
           localStorage.setItem("has_company", "false");
+          this.router.change("/");
         }
-        this.router.change("/");
       } else {
         const formAuth = document.getElementsByClassName("input-data-card");
         formAuth[0].insertAdjacentHTML(
