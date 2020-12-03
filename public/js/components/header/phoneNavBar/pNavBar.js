@@ -133,19 +133,28 @@ export const mobileNavBarInit = (NavBar) => {
   burgerOpen(NavBar);
 };
 
-export const desktopNavBarInit = () => {
+const notifBigMenu = () => {
   const nb = document.getElementById("note-button");
   const popup = document.getElementById("notePopup");
   const popUpContent = document.getElementsByClassName("popup-content")[0];
 
-  if (popup.classList.contains("hide")) {
+  if (nb && popup.classList.contains('hide')) {
     nb.addEventListener("click", () => {
+      nb.removeEventListener('click', ()=>{});
       popup.classList.remove("hide");
+      notifBigMenu();
+    });
+  } else if (popup){
+    popup.addEventListener("click", (event) => {
+      popup.removeEventListener('click', ()=>{});
+      if (!popup.classList.contains("hide") && event.target !== popUpContent && event.target !== nb) {
+        popup.classList.add("hide");
+        notifBigMenu();
+      }
     });
   }
-  popup.addEventListener("click", (event) => {
-    if (!popup.classList.contains("hide") && event.target !== popUpContent && event.target !== nb) {
-      popup.classList.add("hide");
-    }
-  });
+}
+
+export const desktopNavBarInit = () => {
+  notifBigMenu();
 };

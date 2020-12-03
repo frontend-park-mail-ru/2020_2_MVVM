@@ -42,7 +42,7 @@ async function getVacanciesList(vacancies, main, mainList, router) {
     vacancies.vacancyList.forEach((vacancy, i) => {
       vacDomList[
         i
-      ].style.background = `no-repeat  0 0/cover url(${DOMAIN}static/company/${vacancy.comp_id})`;
+      ].style.background = `no-repeat  0 0/cover url(${vacancy.avatar})`;
     });
     // mainList.insertAdjacentHTML("beforeend", paginationTemp());
     getEmplVacancy(router, main, vacancies.vacancyList);
