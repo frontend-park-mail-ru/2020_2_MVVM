@@ -5,6 +5,7 @@ import singleNotifTemp from "Js/components/notifications/singleNotif.tmpl.xml";
 import responseNotifTemp from "Js/components/notifications/responesNotofic.tmpl.xml";
 import { plural } from "Js/libs/plural";
 import { convertDate } from "Js/libs/convertDate";
+import {desktopNavBarInit} from "Js/components/header/phoneNavBar/pNavBar";
 
 const TIMEOUT = 3000;
 
@@ -45,7 +46,6 @@ const createNotifVacancy = (newRecs) => {
     "рекомендуемые вакансии",
   ]);
   const myString = `Подобрано ${newRecs} ${word}`;
-  let popup = document.getElementById("notePopup");
 
   document
     .getElementById("notes-list")
@@ -54,13 +54,7 @@ const createNotifVacancy = (newRecs) => {
   linkToVac[0].addEventListener("click", (event) => {
     const link = document.getElementsByClassName("menu-list-block__item_note");
     link[0].innerHTML = "";
-    event.preventDefault();
-    popup.style.display = "none";
-    const body = {
-      only_new_resp_cnt: true,
-      vac_in_last_n_days: null,
-    };
-    network.doPost(notificationsPageURL, body);
+    desktopNavBarInit();
   });
 };
 

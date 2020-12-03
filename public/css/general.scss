@@ -134,6 +134,10 @@ h1, h2, h3, h4, h5, h6 {
     //width: 100vw;
 }
 
+#main {
+    height: 100vh;
+}
+
 .notification-bg {
     background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
 }

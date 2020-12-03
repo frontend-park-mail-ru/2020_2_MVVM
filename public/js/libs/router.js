@@ -57,6 +57,7 @@ export default class Router {
         const user_type = localStorage.getItem("user_type");
         initPolling();
         removeNotifPage();
+
         NavBar.updateNavBar(PAGES_NEED_SEARCH.indexOf(path) !== -1);
 
         obj.page.render(user_type, ...args);

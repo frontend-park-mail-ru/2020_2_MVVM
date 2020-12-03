@@ -44,12 +44,12 @@ export class NavBarInit {
       this.user = tmpUser;
       this.has_company = tmpCompany;
       this.need_search = tmpNeedSearch;
-      console.log(need_search);
       if (document.body.classList.contains("is-mobile")) {
         this.loadPhoneNavBarSmall(this.need_search);
         mobileNavBarInit(this);
       } else {
-        this.loadNavBar();
+        this.loadNavBar(false);
+        desktopNavBarInit();
       }
     }
   }

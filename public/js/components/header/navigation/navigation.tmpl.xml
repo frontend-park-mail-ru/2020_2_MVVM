@@ -63,13 +63,13 @@
                 <fest:if test="items.user==null">
                     <div class="menu-list-block">
                         <a href="/reg"
-                           class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-key js-registration">
+                           class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-signup js-registration">
                             Зарегистрироваться
                         </a>
                     </div>
                     <div class="menu-list-block">
                         <a href="/auth"
-                           class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-link js-login">Войти
+                           class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-enter js-login">Войти
                         </a>
                     </div>
                 </fest:if>
