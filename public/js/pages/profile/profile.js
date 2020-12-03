@@ -7,7 +7,7 @@ import createElem from "Js/libs/createElem";
 import persNB from "./components/personalNavBar/persNavBar.tmpl.xml";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 export default class Profile {
   constructor(
@@ -43,7 +43,7 @@ export default class Profile {
 
     const person = (await this.loadUserInfo()).user;
 
-    openMenuList(app, false);
+    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     const container = createElem("div", "container", main);

@@ -5,7 +5,7 @@ import createCompanyTemp from "./components/createCompany/createCompany.tmpl.xml
 import Validation from "Js/libs/validation";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
-export const app = window.document.getElementById("app");
+export const app = window.document.getElementById("main");
 
 export default class CreateCompany {
   constructor(onsubmit) {
@@ -15,7 +15,7 @@ export default class CreateCompany {
   render(content) {
     app.innerHTML = "";
 
-    openMenuList(app, false);
+    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     main.insertAdjacentHTML("afterbegin", createCompanyTemp(spheres));

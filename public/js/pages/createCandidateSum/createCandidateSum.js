@@ -4,7 +4,7 @@ import { renderInputForm } from "Js/components/popUpResume/popUpCand/createOneJo
 import createCandidateSumTemp from "./components/createCandidateSum/createCandidateSum.tmpl.xml";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
-export const app = window.document.getElementById("app");
+export const app = window.document.getElementById("main");
 
 export default class CreateResume {
   constructor(loadUserF, onsubmit) {
@@ -18,7 +18,7 @@ export default class CreateResume {
     this.numOfJob = 0;
     this.user = await this.userInfo();
 
-    openMenuList(app, false);
+    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     main.insertAdjacentHTML(

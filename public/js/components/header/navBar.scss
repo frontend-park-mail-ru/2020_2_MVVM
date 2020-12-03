@@ -32,13 +32,17 @@
     display: flex;
     flex-direction: column;
     padding: 1.1rem 0;
+    @include mobile {
+        padding: 0;
+    }
 }
 
 .header-row-phone {
     display: flex;
     flex-direction: row;
     padding: 1.1rem 0;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    margin: 0 5rem;
 }
 
 .header-search-menu {
@@ -55,6 +59,13 @@
     background: no-repeat 0 0/cover url(Img/menu_to_open.svg);
 }
 
+.header-notification {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+    background: no-repeat 0 0/cover url(Img/notification.svg);
+}
+
 .burger-close-menu {
     width: 5rem;
     height: 5rem;
@@ -67,6 +78,7 @@
     box-sizing: border-box;
     padding: 1.2rem 0;
     @include mobile {
+        padding: 0;
         flex-direction: column;
     }
 
@@ -74,16 +86,19 @@
         display: flex;
         justify-content: space-evenly;
         @include mobile {
-            justify-content: space-evenly;
-            margin-bottom: 5rem;
+            justify-content: space-between;
+            margin: 0 5rem;
+            padding: 1.1rem 0;
+            //margin-bottom: 5rem;
         }
 
         &__logo {
-            background: url(Img/logo.png) no-repeat 50% 50%;
-            width: 34rem;
-            height: 10rem;
+            background: url(Img/logo.png) no-repeat 0 0/cover;
+            width: 23rem;
+            height: 6rem;
             @include mobile {
-                margin-left: auto;
+                width: 36rem;
+                height: 10rem;
             }
         }
 
@@ -292,18 +307,16 @@
 }
 
 .note-popup {
-    display: none;
     position: absolute;
-    top: 7rem;
     z-index: 3;
     overflow: hidden;
-    left: 4rem;
     width: 100%;
     height: 100vh;
-    padding-top: 5rem;
+    padding-top: 15rem;
 
     @include mobile {
-        width: 60rem;
+        left: 0;
+        top: 9rem;
     }
 }
 
@@ -319,7 +332,7 @@
     height: 40rem;
     border-radius: $border-radius_input;
     overflow: auto;
-    box-shadow: 0.8rem 1.6rem 2.6rem 0.5rem var(--border-grey-color);
+    box-shadow: 0 0.5rem 2.6rem 0.2rem var(--text-light-black);
     min-width: 45rem;
 
     @include mobile {

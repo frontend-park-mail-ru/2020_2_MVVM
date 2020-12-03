@@ -18,6 +18,7 @@ import LogoutCtrl from "./controllers/authRegProf/LogoutCtrl.js";
 import "../styles/main.scss";
 import initScale from "Js/libs/scale";
 
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("sw.js", { scope: "/" })

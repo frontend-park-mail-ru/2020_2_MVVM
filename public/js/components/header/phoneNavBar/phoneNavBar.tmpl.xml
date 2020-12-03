@@ -1,14 +1,17 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="need_search">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="data">
     <header class="header header__small">
         <div class="container">
             <div class="header-row-phone">
                 <a href="/">
                     <div class="header-row-top-menu__logo"/>
                 </a>
-                <fest:if test="need_search==true">
-                    <div class="header-search-menu"></div>
+                <fest:if test="data.need_search==true">
+                    <div class="header-search-menu"/>
                 </fest:if>
-                <div class="header-burger-menu"></div>
+                <fest:if test="data.user != ''">
+                    <div class="header-notification"/>
+                </fest:if>
+                <div class="header-burger-menu"/>
             </div>
         </div>
     </header>

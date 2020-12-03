@@ -4,13 +4,13 @@ import categoryTemp from "Js/pages/mainPage/components/category/category.tmpl.xm
 import createResumeTemp from "Js/pages/mainPage/components/createResume/createResume.tmpl.xml";
 import openMenu from "Js/components/header/phoneNavBar/pNavBar";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 export default class MainPage {
   render(content) {
-    app.innerHTML = "";
 
-    openMenu(app, false);
+    app.innerHTML='';
+    // openMenu(app, false);
 
     const mainPage = createElem("div", "main-page", app);
     mainPage.insertAdjacentHTML(

@@ -11,7 +11,7 @@ import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 import defaultRes from "Img/defaultRes.png";
 
-export const app = window.document.getElementById("app");
+export const app = window.document.getElementById("main");
 
 async function getAllInfo(updClass, resumeSource) {
   const responseResume = await network.doGet(
@@ -85,7 +85,7 @@ export default class UpdateResume {
 
     const user = await getAllInfo(this, resumeInfo);
 
-    openMenuList(app, false);
+    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
 

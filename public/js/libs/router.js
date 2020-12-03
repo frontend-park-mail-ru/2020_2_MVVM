@@ -1,8 +1,13 @@
 import { meUserURL, UNAUTHORISED } from "./constants.js";
 import { network } from "./networks.js";
-import { initPolling } from "Js/libs/polling";
+import {createPolling, initPolling} from "Js/libs/polling";
+import {desktopNavBarInit, mobileNavBarInit, removeNotifPage} from "Js/components/header/phoneNavBar/pNavBar";
+import { NavBarInit } from "Js/components/header/navBar";
+import {PAGES_NEED_SEARCH} from "Js/libs/constants";
+import {changeNavBarPos} from "Js/libs/chengeNavBarPos";
 
-const PAGES_WITH_ABSOLUTE = ["/", "/auth", "/reg"];
+
+const NavBar = new NavBarInit();
 
 export default class Router {
   constructor(root) {
@@ -51,24 +56,15 @@ export default class Router {
 
         const user_type = localStorage.getItem("user_type");
         initPolling();
+        removeNotifPage();
+        NavBar.updateNavBar(PAGES_NEED_SEARCH.indexOf(path) !== -1);
 
         obj.page.render(user_type, ...args);
-        this.changeNavBarPos(path);
+        changeNavBarPos(path);
 
         window.history.pushState(null, null, path);
 
         return;
-      }
-    }
-  }
-
-  changeNavBarPos(path) {
-    const header = document.getElementsByClassName("header")[0];
-    if (header) {
-      if (PAGES_WITH_ABSOLUTE.indexOf(path) !== -1) {
-        header.classList.add("header_absolute");
-      } else if (header.classList.contains("header_absolute")) {
-        header.classList.remove("header_absolute");
       }
     }
   }
@@ -90,9 +86,11 @@ export default class Router {
       .then((content) => {
         localStorage.setItem("user_type", content.user.user_type);
       })
-      .catch(() => {
-        localStorage.setItem("user_type", "");
+      .catch(() => {localStorage.setItem("user_type", "");
       });
+
+    createPolling();
+
 
     document.addEventListener("click", (evt) => {
       const linkElement = evt.target.closest("a");
@@ -103,6 +101,15 @@ export default class Router {
       }
     });
 
-    this.change(location.pathname, user);
+
+
+    if (document.body.classList.contains("is-mobile")) {
+      NavBar.loadPhoneNavBarSmall(PAGES_NEED_SEARCH.indexOf(location.pathname) !== -1);
+      mobileNavBarInit(NavBar);
+    } else {
+      NavBar.loadNavBar(false);
+      desktopNavBarInit();
+    }
+    this.change(location.pathname, user,);
   }
 }

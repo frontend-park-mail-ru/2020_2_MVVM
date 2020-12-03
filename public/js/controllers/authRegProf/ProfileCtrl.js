@@ -108,8 +108,7 @@ export default class ProfileCtrl {
       }
     };
 
-    if (localStorage.getItem("user_type") !== "") {
-      this.page = new Profile(
+    this.page = new Profile(
         router,
         loadResumes,
         loadVacancies,
@@ -121,5 +120,4 @@ export default class ProfileCtrl {
         getCompanyById
       );
     }
-  }
 }

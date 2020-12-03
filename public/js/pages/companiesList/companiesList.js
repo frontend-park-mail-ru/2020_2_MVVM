@@ -9,7 +9,7 @@ import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 import defaultVac from "Img/defaultVac.png";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 export default class CompaniesList {
   constructor(fetchCompanyList, router) {
@@ -18,7 +18,8 @@ export default class CompaniesList {
   }
 
   async render(content) {
-    app.innerHTML = "";
+
+    app.innerHTML = '';
 
     let m = [
       {
@@ -54,7 +55,7 @@ export default class CompaniesList {
       m[0].fields.push({ name: item, text: item });
     });
 
-    openMenuList(app, true);
+    // openMenuList(app, true);
 
     const main = createElem("div", "main", app);
     const container = createElem("div", "container", main);
@@ -105,6 +106,7 @@ async function search(form, mainList, main, router) {
   const searchBlock = document.getElementById("main-navigation");
   if (document.body.className === "is-mobile") {
     searchBlock.classList.add("hide");
+    mainList.classList.remove('hide');
   }
   await renderCompanyList(companies, mainList, router);
 }
@@ -129,6 +131,7 @@ async function renderCompanyList(companies, mainList, router) {
       "beforeend",
       emptyListTemp("Ничего не найдено")
     );
+
   }
   // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
 }

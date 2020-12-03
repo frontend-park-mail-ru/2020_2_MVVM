@@ -9,7 +9,7 @@ import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 import defaultRes from "Img/defaultRes.png";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 export default class CandidatesList {
   constructor(router) {
@@ -17,12 +17,12 @@ export default class CandidatesList {
   }
 
   async render(content) {
-    app.innerHTML = "";
 
-    openMenuList(app, true);
+    app.innerHTML='';
+    // openMenuList(app, true);
 
-    const main = createElem("div", "main", app);
-    const container = createElem("div", "container", main);
+    const mainPage = createElem("div", "main", app);
+    const container = createElem("div", "container", mainPage);
     const mainRow = createElem("div", "main__row", container);
     mainRow.style.display = "flex";
 
@@ -220,6 +220,7 @@ async function search(form, mainList, main, router) {
   const searchBlock = document.getElementById("main-navigation");
   if (document.body.className === "is-mobile") {
     searchBlock.classList.add("hide");
+    mainList.classList.remove('hide');
   }
   await renderResumeList(response, main, mainList, router);
 }

@@ -17,7 +17,7 @@ import jobOverviewTemp from "Js/components/rightColumn/jobOverview.tmpl.xml";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 import defaultRes from "Img/defaultRes.png";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 async function vacancyInfo(vacancy_id, company_id) {
   const allInfo = [
@@ -50,7 +50,7 @@ export default class Vacancy {
   async render(content, vacancy_id, company_id) {
     app.innerHTML = "";
 
-    openMenuList(app, false);
+    // openMenuList(app, false);
 
     const allInfo = await vacancyInfo(vacancy_id, company_id);
 

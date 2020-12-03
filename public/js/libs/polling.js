@@ -108,15 +108,17 @@ export const stopPolling = () => {
 };
 
 export const initPolling = () => {
-  const top = document.getElementById("app");
-  top.insertAdjacentHTML(
-    "beforebegin",
-    notificTemp({ user: localStorage.getItem("user_type") })
-  );
-
   if (localStorage.getItem("user_type") !== "") {
     startPolling();
   } else {
     stopPolling();
   }
 };
+
+export const createPolling = () => {
+  const top = document.getElementById("app");
+  top.insertAdjacentHTML(
+    "beforebegin",
+    notificTemp({ user: localStorage.getItem("user_type") })
+  );
+}
