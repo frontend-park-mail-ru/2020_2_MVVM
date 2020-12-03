@@ -9,7 +9,7 @@ import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 import defaultVac from "Img/defaultVac.png";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 export default class EmployersList {
   constructor(fetchVacancyList, router) {
@@ -20,7 +20,8 @@ export default class EmployersList {
   async render(content) {
     app.innerHTML = "";
 
-    openMenuList(app, true);
+    // openMenuList(app, true);
+
 
     const main = createElem("div", "main", app);
     const container = createElem("div", "container", main);
@@ -178,6 +179,7 @@ async function search(form, mainList, main, fetchVacancyList, router) {
   const searchBlock = document.getElementById("main-navigation");
   if (document.body.className === "is-mobile") {
     searchBlock.classList.add("hide");
+    mainList.classList.remove('hide');
   }
   await getVacanciesList(vacancies, main, mainList, router);
 }

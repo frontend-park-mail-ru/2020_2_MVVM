@@ -5,7 +5,7 @@ import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
 
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 export default class RecommendationsList {
   constructor(fetchVacancyList, router) {
@@ -16,7 +16,7 @@ export default class RecommendationsList {
   async render(content) {
     app.innerHTML = "";
 
-    openMenuList(app, false);
+    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     const container = createElem("div", "container", main);

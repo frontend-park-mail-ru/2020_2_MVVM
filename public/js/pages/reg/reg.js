@@ -3,7 +3,7 @@ import createElem from "Js/libs/createElem";
 import regTemp from "./components/reg_form/reg.tmpl.xml";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 export default class RegList {
   constructor(onsubmit) {
@@ -13,7 +13,7 @@ export default class RegList {
   render(content) {
     app.innerHTML = "";
 
-    openMenuList(app, false);
+    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     main.insertAdjacentHTML("beforeend", regTemp());

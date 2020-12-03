@@ -105,6 +105,9 @@ export const myFreeVacanciesURL = "/v1/response/free/vacancies/";
 
 export const notificationsPageURL = "/v1/response/notify?";
 
+export const PAGES_WITH_ABSOLUTE = ["/", "/auth", "/reg"];
+export const PAGES_NEED_SEARCH = ['/candidatesList', '/employersList', '/companiesList'];
+
 //sphere
 export const spheres = [
   "Автомобильный бизнес",

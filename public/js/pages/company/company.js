@@ -5,13 +5,13 @@ import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 import defaultVac from "Img/defaultVac.png";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 export default class CompanyPage {
   async render(content, companyInfo) {
     app.innerHTML = "";
 
-    openMenuList(app, false);
+    // openMenuList(app, false);
 
     const main = createElem("div", "company-page", app);
 

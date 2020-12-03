@@ -1,13 +1,25 @@
-import bNavBarTemp from "./bNavBar/bNavBar.tmpl.xml";
-import sNavBarTemp from "./sNavBar/sNavBar.tmpl.xml";
+import NavBarTemp from "./NavBar/NavBar.tmpl.xml";
+import pNavBarTemp from "Js/components/header/phoneNavBar/phoneNavBar.tmpl.xml";
+import {desktopNavBarInit, mobileNavBarInit} from "Js/components/header/phoneNavBar/pNavBar";
+
+
 
 export class NavBarInit {
-  constructor(app, isBig, title) {
-    this.app = app;
+  constructor() {
+    this.app = document.getElementById('header');
     this.user = localStorage.getItem("user_type");
     this.has_company = localStorage.getItem("has_company");
-    this.isBig = isBig;
-    this.title = title;
+    this.is_open = false;
+    this.need_search = false;
+  }
+
+  loadPhoneNavBarBig() {
+    this.loadNavBar(true);
+  }
+
+  loadPhoneNavBarSmall() {
+    this.user = localStorage.getItem("user_type");
+    this.app.innerHTML = this.need_search ?  pNavBarTemp({need_search:true, user:this.user}) : pNavBarTemp({need_search:false, user:this.user});
   }
 
   loadNavBar(is_open) {
@@ -16,12 +28,29 @@ export class NavBarInit {
       this.user = null;
     }
     const data = {
-      title: this.title,
       user: this.user,
       has_company: has_company,
     };
     data["is_open"] = Boolean(is_open);
+    this.app.innerHTML = NavBarTemp(data);
+  }
 
-    this.app.innerHTML = this.isBig ? bNavBarTemp(data) : sNavBarTemp(data);
+  updateNavBar(need_search) {
+    const tmpNeedSearch = need_search;
+    const tmpUser = localStorage.getItem("user_type");
+    const tmpCompany = localStorage.getItem("has_company");
+
+    if (!(this.user === tmpUser && this.has_company === tmpCompany && this.need_search === tmpNeedSearch)) {
+      this.user = tmpUser;
+      this.has_company = tmpCompany;
+      this.need_search = tmpNeedSearch;
+      console.log(need_search);
+      if (document.body.classList.contains("is-mobile")) {
+        this.loadPhoneNavBarSmall(this.need_search);
+        mobileNavBarInit(this);
+      } else {
+        this.loadNavBar();
+      }
+    }
   }
 }

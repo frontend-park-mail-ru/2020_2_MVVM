@@ -18,7 +18,7 @@ import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 import defaultRes from "Img/defaultRes.png";
 import defaultVac from "Img/defaultVac.png";
 
-const app = window.document.getElementById("app");
+const app = window.document.getElementById("main");
 
 const nullToString = (e) => {
   if (e == null) {
@@ -38,6 +38,7 @@ const resumeInfo = async (resumeSource) => {
     console.assert(responseResume.ok);
     resumeData = await responseResume.json();
   }
+
 
   const dateRegBd = resumeData.resume.date_create.toString();
   let dataReg = "";
@@ -109,7 +110,7 @@ export default class Resume {
   async render(content, resume) {
     app.innerHTML = "";
 
-    openMenuList(app, false);
+    // openMenuList(app, false);
 
     const infoAll = await resumeInfo(resume);
 
