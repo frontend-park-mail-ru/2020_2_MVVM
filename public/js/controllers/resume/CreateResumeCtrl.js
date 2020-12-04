@@ -67,7 +67,7 @@ export default class CreateResumeCtrl {
       } else {
         const errorField = document.getElementsByClassName("error");
         const errLen = errorField.length;
-        errorField[errLen - 1].innerHTML = `${content.message}`;
+        errorField[errLen - 1].innerHTML = `${content.error}`;
       }
     });
   }

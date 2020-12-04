@@ -7,6 +7,7 @@ export const SALARY_OK = 'корректное значение зарплаты
 export const INPUT_TEXT_OK = 'корректный текст для ввода'
 export const PHONE_OK = 'верный номер тел.'
 export const DATE_OK = 'корректная дата'
+export const GENDER_OK = 'корректный пол'
 
 export const EMAIL_EMPTY = 'Укажите email.'
 export const LOGIN_EMPTY = 'Укажите логин.'
@@ -17,7 +18,7 @@ export const INPUT_TEXT_EMPTY = 'Поле обязательно для запо
 export const DATE_EMPTY = 'Укажите дату.'
 export const DATE_START_EMPTY = "Начальная дата не введена."
 export const DATE_END_EMPTY = "Конечная дата не введена."
-
+export const GENDER_EMPTY = "Пол не выбран"
 
 export const INCORRECT_EMAIL = 'Email должен содержать "@" и латинские буквы, цифры, символы.';
 export const INCORRECT_LOGIN = 'Логин должен содержать 4-20 символов, а также содержать латинские символы и цифры.';
@@ -35,7 +36,7 @@ export const PASSWD_EXP = new RegExp(/^.{5,25}$/);
 export const PHONE_EXP = new RegExp(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
 export const JPEG_AVATAR_F = 'image/jpeg';
 export const PNG_AVATAR_F = 'image/png';
-export const NOT_NUMBER = 'not number';
+export const NOT_NUMBER = 'Некорректное число';
 
 
 //scales

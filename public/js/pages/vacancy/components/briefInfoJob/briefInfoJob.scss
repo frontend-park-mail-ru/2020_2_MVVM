@@ -115,7 +115,7 @@
     transition: 0.15s;
     border: solid $border_btn var(--buttons-purple-color);
     color: var(--buttons-purple-color);
-    margin: auto;
+    margin-left: auto;
 
     @include mobile {
         margin: auto auto 5rem;

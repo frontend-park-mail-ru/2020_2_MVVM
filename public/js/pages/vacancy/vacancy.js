@@ -16,6 +16,7 @@ import vacancyTemp from "./components/vacancy/vacancy.tmpl.xml";
 import jobOverviewTemp from "Js/components/rightColumn/jobOverview.tmpl.xml";
 import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 import defaultRes from "Img/defaultRes.png";
+import defaultVac from "Img/defaultVac.png";
 
 const app = window.document.getElementById("main");
 
@@ -69,7 +70,8 @@ export default class Vacancy {
     };
     mainContent.insertAdjacentHTML("beforeend", briefInfoJobTemp(briefInfoJob));
     const photo = document.getElementById("logo-employer");
-    photo.style.background = `no-repeat 0 0/cover url(${briefInfoJob.logo})`;
+    const avatar = briefInfoJob.logo ?  briefInfoJob.logo : defaultVac;
+    photo.style.background = `no-repeat 0 0/cover url(${avatar})`;
 
     const contentLeftColumn = createElem(
       "div",
