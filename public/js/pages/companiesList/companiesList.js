@@ -141,7 +141,7 @@ function getCompanyPage(router, company) {
   for (let i = 0; i < linksToCompany.length; i++) {
     linksToCompany[i].addEventListener("click", (event) => {
       event.preventDefault();
-      router.change("/company", company[i]);
+      router.change(`/company?id=${company[i].id}`);
     });
   }
 }

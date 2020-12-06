@@ -27,7 +27,8 @@ export default class CreateCompanyCtrl {
       if (response.status >= 200 && response.status < 300) {
         localStorage.setItem("has_company", "true");
         console.assert(response.ok);
-        this.router.change("/company", content.company);
+        console.log(content.company);
+        this.router.change(`/company?id=${content.company.id}`);
       } else {
         const errorField = document.getElementsByClassName("error");
         const errLen = errorField.length;

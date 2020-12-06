@@ -28,6 +28,9 @@ export default class CreateResumeCtrl {
         json.avatar = await getBase64(resumeLogo);
       }
 
+      json.cand_name = formData.get('name');
+      json.cand_surname = formData.get('surname');
+      json.cand_email = formData.get('email');
       json.title = formData.get("title");
       json.description = formData.get("description");
       json.salary_min = parseInt(formData.get("salary_min"));
@@ -63,7 +66,8 @@ export default class CreateResumeCtrl {
       console.assert(response.ok);
 
       if (response.status >= 200 && response.status < 300) {
-        this.router.change("/resume", content);
+        console.log(content);
+        this.router.change(`/resume?id=${content.resume.id}`);
       } else {
         const errorField = document.getElementsByClassName("error");
         const errLen = errorField.length;

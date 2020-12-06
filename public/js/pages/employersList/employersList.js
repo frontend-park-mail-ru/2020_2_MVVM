@@ -6,7 +6,6 @@ import searchFormTemp from "Js/components/searchForm/searchForm.tmpl.xml";
 import listOfEmployersTemp from "./components/listOfEmployers/listOfEmployers.tmpl.xml";
 import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
 
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 import defaultVac from "Img/defaultVac.png";
 
 const app = window.document.getElementById("main");
@@ -212,7 +211,7 @@ function getEmplVacancy(router, main, vacancy) {
   for (let i = 0; i < vacNameLink.length; i++) {
     vacNameLink[i].addEventListener("click", (event) => {
       event.preventDefault();
-      router.change("/vacancy", vacancy[i].vac_id, vacancy[i].comp_id);
+      router.change(`/vacancy?vac_id=${vacancy[i].vac_id}&&comp_id=${vacancy[i].comp_id}`);
     });
   }
 }

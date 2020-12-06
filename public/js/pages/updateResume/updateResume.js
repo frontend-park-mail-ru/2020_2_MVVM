@@ -22,12 +22,11 @@ async function getAllInfo(updClass, resumeSource) {
 
   const resumeInfo = resumeData.resume;
   const experienceInfo = resumeData.custom_experience;
-  const userInfo = resumeData.user;
 
   let updResume = {
-    surname: userInfo.surname,
-    name: userInfo.name,
-    email: userInfo.email,
+    surname: resumeInfo.cand_surname,
+    name: resumeInfo.cand_name,
+    email: resumeInfo.cand_email,
     resume_id: resumeInfo.id,
     title: resumeInfo.title,
     description: resumeInfo.description,

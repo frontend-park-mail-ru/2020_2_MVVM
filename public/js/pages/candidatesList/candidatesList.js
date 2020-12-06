@@ -5,7 +5,6 @@ import { network } from "Js/libs/networks";
 import searchFormTemp from "Js/components/searchForm/searchForm.tmpl.xml";
 import listOfCandidatesTemp from "./components/listOfCandidates/listOfCandidates.tmpl.xml";
 import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 import defaultRes from "Img/defaultRes.png";
 
@@ -16,10 +15,9 @@ export default class CandidatesList {
     this.router = router;
   }
 
-  async render(content) {
+  async render() {
 
     app.innerHTML='';
-    // openMenuList(app, true);
 
     const mainPage = createElem("div", "main", app);
     const container = createElem("div", "container", mainPage);
@@ -193,7 +191,7 @@ function getUserResume(router, main, resume) {
   for (let i = 0; i < linksToResume.length; i++) {
     linksToResume[i].addEventListener("click", (event) => {
       event.preventDefault();
-      router.change("/resume", resume[i]);
+      router.change(`/resume?id=${resume[i].resume_id}`);
     });
   }
 }

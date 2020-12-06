@@ -2,7 +2,6 @@ import { checkFrom } from "./components/createCandidateSum/createCandidateSum.js
 import createElem from "Js/libs/createElem";
 import { renderInputForm } from "Js/components/popUpResume/popUpCand/createOneJob";
 import createCandidateSumTemp from "./components/createCandidateSum/createCandidateSum.tmpl.xml";
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 export const app = window.document.getElementById("main");
 

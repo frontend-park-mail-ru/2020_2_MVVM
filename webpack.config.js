@@ -8,6 +8,7 @@ module.exports = {
     entry: './public/js/app.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/',
         filename: 'src/bundle.js',
     },
     resolve: {
@@ -89,7 +90,9 @@ module.exports = {
     ],
     devServer: {
         port: 3000,
-        historyApiFallback: true,
+        historyApiFallback: {
+          index: '.dist/index.html'
+        },
         disableHostCheck: true,
         // https: true,
     },

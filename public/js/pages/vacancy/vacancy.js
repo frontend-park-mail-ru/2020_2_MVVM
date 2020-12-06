@@ -14,19 +14,20 @@ import {
 import briefInfoJobTemp from "./components/briefInfoJob/briefInfoJob.tmpl.xml";
 import vacancyTemp from "./components/vacancy/vacancy.tmpl.xml";
 import jobOverviewTemp from "Js/components/rightColumn/jobOverview.tmpl.xml";
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 import defaultRes from "Img/defaultRes.png";
 import defaultVac from "Img/defaultVac.png";
 
 const app = window.document.getElementById("main");
 
-async function vacancyInfo(vacancy_id, company_id) {
+async function vacancyInfo() {
+  const windLocationSearch = window.location.search
+  console.log(window.location.search.split('comp_id=')[1]);
   const allInfo = [
     new Promise((resolve) =>
-      network.doGet(vacancyByIdURL + `${vacancy_id}`).then(resolve)
+      network.doGet(vacancyByIdURL + `${windLocationSearch.split('vac_id=')[1].split('&&')[0]}`).then(resolve)
     ),
     new Promise((resolve) =>
-      network.doGet(companyByIdURL + `${company_id}`).then(resolve)
+      network.doGet(companyByIdURL + `${windLocationSearch.split('comp_id=')[1]}`).then(resolve)
     ),
   ];
 
@@ -48,12 +49,11 @@ export default class Vacancy {
     this.myResumes = myResumesF;
   }
 
-  async render(content, vacancy_id, company_id) {
+  async render(content) {
     app.innerHTML = "";
 
-    // openMenuList(app, false);
-
-    const allInfo = await vacancyInfo(vacancy_id, company_id);
+    const allInfo = await vacancyInfo();
+    console.log(allInfo);
 
     const main = createElem("div", "main", app);
     const mainContent = createElem("div", "main-content", main);
@@ -115,7 +115,7 @@ export default class Vacancy {
     let companyLink = document.getElementById("companyName");
     companyLink.addEventListener("click", (event) => {
       event.preventDefault();
-      this.router.change("/company", allInfo.companyInfo);
+      this.router.change(`/company?id=${allInfo.vacancyInfo.comp_id}`);
     });
 
     recentJobs(contentLeftColumn);
@@ -149,7 +149,7 @@ export default class Vacancy {
     // contentRightColumn.insertAdjacentHTML("beforeend", shareBarTemp());
 
     if (localStorage.getItem("user_type") === "candidate") {
-      renderVacancyResp(this, vacancy_id, jobOverview.name);
+      renderVacancyResp(this, allInfo.vacancyInfo.vac_id, jobOverview.name);
     }
     // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
   }
