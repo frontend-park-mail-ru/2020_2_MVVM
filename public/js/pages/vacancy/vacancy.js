@@ -24,7 +24,7 @@ async function vacancyInfo() {
   console.log(window.location.search.split('comp_id=')[1]);
   const allInfo = [
     new Promise((resolve) =>
-      network.doGet(vacancyByIdURL + `${windLocationSearch.split('vac_id=')[1].split('&&')[0]}`).then(resolve)
+      network.doGet(vacancyByIdURL + `${windLocationSearch.split('vac_id=')[1].split('&')[0]}`).then(resolve)
     ),
     new Promise((resolve) =>
       network.doGet(companyByIdURL + `${windLocationSearch.split('comp_id=')[1]}`).then(resolve)

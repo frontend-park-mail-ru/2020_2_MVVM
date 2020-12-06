@@ -92,7 +92,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
         console.log(list[i]);
         profile.router.change(`/resume?id=${list[i].resume_id}`);
       } else {
-        profile.router.change(`/vacancy?vac_id=${list[i].vac_id}&&comp_id=${list[i].comp_id}`);
+        profile.router.change(`/vacancy?vac_id=${list[i].vac_id}&comp_id=${list[i].comp_id}`);
       }
     });
   }
@@ -223,7 +223,7 @@ async function createLinks(profile, myResponses) {
     if (linkToVacancy.length) {
       linkToVacancy[idx].addEventListener("click", (event) => {
         event.preventDefault();
-        profile.router.change(`/vacancy?vac_id=${item.vacancy_id}&&comp_id=${item.company_id}`);
+        profile.router.change(`/vacancy?vac_id=${item.vacancy_id}&comp_id=${item.company_id}`);
       });
     }
     if (linkToCompany.length) {

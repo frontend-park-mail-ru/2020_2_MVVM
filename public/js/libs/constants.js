@@ -87,6 +87,8 @@ export const vacancyMineURL = "/v1/vacancy/mine?";
 export const updateVacancyURL = "/v1/vacancy/";
 export const vacancySearchURL = '/v1/vacancy/search';
 
+export const vacancyCompURL = "/v1/vacancy/comp?";
+
 export const addCompanyURL = "/v1/company/";
 export const companyByIdURL = "/v1/company/by/id/";
 export const companyPageURL = "/v1/company/page?";
