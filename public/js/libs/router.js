@@ -18,7 +18,7 @@ export default class Router {
     this.currentRoute = null;
 
     window.addEventListener("popstate", () => {
-      this.change(location.pathname);
+      this.change(location.pathname+location.search);
     });
   }
 
@@ -40,9 +40,7 @@ export default class Router {
    * @param args
    */
   change(path, ...args) {
-    console.log(path);
     const routeName = path.split('?')[0];
-    console.log(routeName);
     if (this.currentRoute === path) {
       return;
     }
