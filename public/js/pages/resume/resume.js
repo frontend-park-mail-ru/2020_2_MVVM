@@ -6,7 +6,7 @@ import {
   experienceLevel,
   experienceMonth,
   gender,
-  resumeByIdURL,
+  resumeByIdURL, spheres,
 } from "Js/libs/constants";
 import createElem from "Js/libs/createElem";
 import briefInfoTemp from "./components/briefInfo/briefInfo.tmpl.xml";
@@ -84,7 +84,7 @@ const resumeInfo = async (resumeSource) => {
       experience_month: nullToString(
         experienceMonth[resumeInfo.experience_month]
       ),
-      interest: "TODOManagement",
+      interest: spheres[resumeInfo.sphere],
       education: nullToString(educationLevel[resumeInfo.education_level]),
       career_level: nullToString(resumeInfo.career_level),
     },

@@ -1,6 +1,6 @@
 import { checkBoxes } from "Js/components/searchForm/searchForm";
 import createElem from "Js/libs/createElem";
-import { resumePageURL, resumeSearchURL } from "Js/libs/constants";
+import {resumePageURL, resumeSearchURL, spheres} from "Js/libs/constants";
 import { network } from "Js/libs/networks";
 import searchFormTemp from "Js/components/searchForm/searchForm.tmpl.xml";
 import listOfCandidatesTemp from "./components/listOfCandidates/listOfCandidates.tmpl.xml";
@@ -146,6 +146,12 @@ export default class CandidatesList {
         ],
       },
     ];
+    let arrSpheres = [];
+    spheres.forEach((item) => {
+      arrSpheres.push({ name: item, text: item });
+    });
+    m.push({title: {name: "sphere", text: 'Сфера'},fields: arrSpheres});
+
     mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
 
     const searchForm = document.getElementById("main-navigation");
@@ -212,6 +218,13 @@ async function search(form, mainList, main, router) {
   // data.salary_min = 0;
   // data.salary_max = 10000;
   data.keywords = formData.get("keywords");
+  data.spheres = [];
+  formData.getAll("sphere").forEach((item) => {
+    let tmp = spheres.indexOf(item);
+    if (tmp !== -1) {
+      data.spheres.push(tmp);
+    }
+  });
 
   const response = await network.doPost(resumeSearchURL, data);
   console.assert(response.ok);

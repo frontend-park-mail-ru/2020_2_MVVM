@@ -1,7 +1,7 @@
 import { checkBoxes } from "Js/components/searchForm/searchForm";
 import createElem from "Js/libs/createElem";
 import { network } from "Js/libs/networks";
-import { vacancySearchURL } from "Js/libs/constants";
+import {spheres, vacancySearchURL} from "Js/libs/constants";
 import searchFormTemp from "Js/components/searchForm/searchForm.tmpl.xml";
 import listOfEmployersTemp from "./components/listOfEmployers/listOfEmployers.tmpl.xml";
 import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
@@ -133,6 +133,15 @@ export default class EmployersList {
         ],
       },
     ];
+
+    let arrSpheres = [];
+    spheres.forEach((item) => {
+      arrSpheres.push({ name: item, text: item });
+    });
+
+    m.push({title: {name: "sphere", text: 'Сфера'},fields: arrSpheres});
+
+    console.log(arrSpheres);
     mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
     const searchForm = document.getElementById("main-navigation");
     if (document.body.className === "is-mobile") {
@@ -170,6 +179,13 @@ async function search(form, mainList, main, fetchVacancyList, router) {
   data.experience_month = await formData.getAll("experience_month");
   data.experience_month.forEach((item, idx, arr) => {
     arr[idx] = parseInt(item);
+  });
+  data.spheres = [];
+  formData.getAll("sphere").forEach((item) => {
+    let tmp = spheres.indexOf(item);
+    if (tmp !== -1) {
+      data.spheres.push(tmp);
+    }
   });
 
   const response = await network.doPost(vacancySearchURL, data);

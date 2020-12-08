@@ -1,6 +1,6 @@
 import UpdateResume from '../../pages/updateResume/updateResume.js';
 import { network } from 'Js/libs/networks';
-import { addResumeURL } from 'Js/libs/constants';
+import {addResumeURL, updateResumeURL} from 'Js/libs/constants';
 import { getBase64 } from 'Js/components/base64FileUpload/base64Upload';
 
 export default class updateResumeCtrl {
@@ -27,6 +27,7 @@ export default class updateResumeCtrl {
       json.description = formData.get('description');
       json.salary_min = parseInt(formData.get('salary_min'));
       json.salary_max = parseInt(formData.get('salary_max'));
+      json.sphere = Number(formData.get("sphere"));
       if (formData.get('gender') !== '') {
         json.gender = formData.get('gender');
       }
@@ -41,12 +42,13 @@ export default class updateResumeCtrl {
 
       json.custom_experience = jobsArr;
 
-      const response = await network.doPut(addResumeURL, json);
+      const response = await network.doPost(updateResumeURL, json);
 
       if (response.status >= 200 && response.status < 300) {
         const content = await response.json();
         console.assert(response.ok);
-        this.router.change(`/resume?id=${content.resume_id}`);
+        console.log(content);
+        this.router.change(`/resume?id=${content.resume.id}`);
       }
     });
   }

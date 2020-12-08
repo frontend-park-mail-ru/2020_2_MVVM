@@ -2,8 +2,7 @@ import createElem from "Js/libs/createElem";
 import { DOMAIN } from "Js/libs/constants";
 import listOfEmployersTemp from "./components/listOfEmployers/listOfRecommendations.tmpl.xml";
 import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
-
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
+import defaultVac from "Img/defaultVac.png";
 
 const app = window.document.getElementById("main");
 
@@ -40,9 +39,10 @@ async function getVacanciesList(vacancies, main, mainList, router) {
       "list-row-photo__bg"
     );
     vacancies.vacancyList.forEach((vacancy, i) => {
+      const photo = vacancy.avatar ? vacancy.avatar : defaultVac;
       vacDomList[
         i
-      ].style.background = `no-repeat  0 0/cover url(${vacancy.avatar})`;
+      ].style.background = `no-repeat  0 0/cover url(${photo})`;
     });
     // mainList.insertAdjacentHTML("beforeend", paginationTemp());
     getEmplVacancy(router, main, vacancies.vacancyList);

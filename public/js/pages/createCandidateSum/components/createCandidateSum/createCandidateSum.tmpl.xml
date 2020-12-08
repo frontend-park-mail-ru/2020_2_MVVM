@@ -1,4 +1,4 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="user">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="content">
     <div class="container">
         <div class="page-name">Создание резюме</div>
         <div class="sum-form-wrap">
@@ -34,12 +34,12 @@
                             </div>
                             <div class="data-block">
                                 <label class="sum-form-labels" for="surname">Фамилия</label>
-                                <input class="sum-user-info" id="surname" name="surname" type="text" value="{user.surname}"/>
+                                <input class="sum-user-info" id="surname" name="surname" type="text" value="{content.user.surname}"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <div class="data-block">
                                 <label class="sum-form-labels" for="username">Имя</label>
-                                <input class="sum-user-info" id="name" name="name" type="text" value="{user.name}"/>
+                                <input class="sum-user-info" id="name" name="name" type="text" value="{content.user.name}"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <div class="data-block">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="data-block">
                                 <label class="sum-form-labels" for="email">E-mail</label>
-                                <input class="sum-user-info" id="email" name="email" type="email" value="{user.email}"/>
+                                <input class="sum-user-info" id="email" name="email" type="email" value="{content.user.email}"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <div class="data-block">
@@ -120,6 +120,16 @@
                         <div class="input-data-card">
                             <div class="data-block">
                                 <p class="sum-description-block">Специальность</p>
+                            </div>
+                            <div class="data-block">
+                                <label class="sum-form-labels" for="sphere">Сфера деятельности</label>
+                                <select class="sum-select" name="sphere" id="sphere">
+                                    <fest:each iterate="content.spheres" index="i" value="v">
+                                        <option value="{i}">
+                                            <fest:value>v</fest:value>
+                                        </option>
+                                    </fest:each>
+                                </select>
                             </div>
                                 <div class="data-block">
                                     <label class="sum-form-labels" for="place">Желаемая должность</label>

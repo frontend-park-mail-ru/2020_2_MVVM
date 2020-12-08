@@ -6,16 +6,18 @@ import {
 import { afterRenderResume } from "../createCandidateSum/createCandidateSum.js";
 import updateResumeTemp from "./components/updateResume/updateResume.tmpl.xml";
 import { network } from "Js/libs/networks";
-import { resumeByIdURL } from "Js/libs/constants";
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
+import { resumeByIdURL, spheres } from "Js/libs/constants";
 
 import defaultRes from "Img/defaultRes.png";
 
 export const app = window.document.getElementById("main");
 
-async function getAllInfo(updClass, resumeSource) {
+async function getAllInfo(updClass) {
+
+  const resume_id = window.location.search.split("id=")[1];
+
   const responseResume = await network.doGet(
-    `${resumeByIdURL}${resumeSource.resume_id}`
+    `${resumeByIdURL}${resume_id}`
   );
   console.assert(responseResume.ok);
   const resumeData = await responseResume.json();
@@ -24,6 +26,7 @@ async function getAllInfo(updClass, resumeSource) {
   const experienceInfo = resumeData.custom_experience;
 
   let updResume = {
+    avatar: resumeInfo.avatar,
     surname: resumeInfo.cand_surname,
     name: resumeInfo.cand_name,
     email: resumeInfo.cand_email,
@@ -41,6 +44,8 @@ async function getAllInfo(updClass, resumeSource) {
     education_level: resumeInfo.education_level,
     experience: experienceInfo,
     imgPath: resumeInfo.avatar ? resumeInfo.avatar : defaultRes,
+    user_sphere: resumeInfo.sphere,
+    all_spheres: spheres,
   };
 
   if (updResume.experience) {
@@ -77,14 +82,13 @@ export default class UpdateResume {
     this.onsubmit = onsubmit;
   }
 
-  async render(content, resumeInfo) {
+  async render() {
     app.innerHTML = "";
     this.jobsArr = [];
     this.numOfJob = 0;
 
-    const user = await getAllInfo(this, resumeInfo);
+    const user = await getAllInfo(this);
 
-    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
 

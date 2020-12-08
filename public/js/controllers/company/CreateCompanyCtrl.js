@@ -8,8 +8,8 @@ export default class CreateCompanyCtrl {
     this.router = router;
     this.page = new CreateCompany(async (form, cbArr) => {
       const formData = new FormData(form),
-        compLogo = formData.get("sum__avatar"),
-        json = {};
+      compLogo = formData.get("sum__avatar"),
+      json = {};
       json.avatar = "";
       if (compLogo !== "") {
         json.avatar = await getBase64(compLogo);

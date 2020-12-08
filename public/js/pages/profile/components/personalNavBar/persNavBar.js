@@ -106,7 +106,8 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
       event.preventDefault();
       if (isCand) {
         //TODO
-        profile.router.change(`/updateResume`, list[i]);
+        console.log(list[i]);
+        profile.router.change(`/updateResume?id=${list[i].resume_id}`, list[i]);
       }
     });
   }
