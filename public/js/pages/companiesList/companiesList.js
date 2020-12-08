@@ -17,7 +17,7 @@ export default class CompaniesList {
     this.router = router;
   }
 
-  async render(content) {
+  async render() {
 
     app.innerHTML = '';
 
@@ -93,11 +93,11 @@ async function search(form, mainList, main, router) {
   let data = {};
 
   data.area_search = formData.getAll("area_search");
-  data.spheres = [];
+  data.sphere = [];
   formData.getAll("sphere").forEach((item) => {
     let tmp = spheres.indexOf(item);
     if (tmp !== -1) {
-      data.spheres.push(tmp);
+      data.sphere.push(tmp);
     }
   });
   data.keywords = formData.get("keywords");
@@ -141,7 +141,7 @@ function getCompanyPage(router, company) {
   for (let i = 0; i < linksToCompany.length; i++) {
     linksToCompany[i].addEventListener("click", (event) => {
       event.preventDefault();
-      router.change("/company", company[i]);
+      router.change(`/company?id=${company[i].id}`);
     });
   }
 }

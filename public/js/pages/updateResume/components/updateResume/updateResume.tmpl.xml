@@ -11,7 +11,7 @@
                             <div class="sum-upload-photo__btn">
                                 <input id="sum-img-load" class="sum-input-photo" name="sum__avatar"
                                        type="file"
-                                       accept=".jpg, .jpeg, .png">
+                                       accept=".jpg, .jpeg, .png" value="{user.avatar}">
                                 </input>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="data-block">
                                 <label class="sum-form-labels" for="username">Имя</label>
-                                <input class="sum-user-info" id="username" name="name" type="text" value="{user.name}"/>
+                                <input class="sum-user-info" id="name" name="name" type="text" value="{user.name}"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <div class="sum-switch">
@@ -127,100 +127,7 @@
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <div class="data-block">
-                                <label class="sum-form-labels">Общий трудовой стаж</label>
-                                <select class="sum-select" name="experience_month">
-                                    <fest:if test="user.experience_month=='0' || user.experience_month==null">
-                                        <option value="0" selected="true">не работал</option>
-                                        <option value="1">меньше года</option>
-                                        <option value="5">1-5 лет</option>
-                                        <option value="10">5-10 лет</option>
-                                    </fest:if>
-                                    <fest:if test="user.experience_month=='1'">
-                                        <option value="0">не работал</option>
-                                        <option value="1" selected="true">меньше года</option>
-                                        <option value="5">1-5 лет</option>
-                                        <option value="10">5-10 лет</option>
-
-                                    </fest:if>
-                                    <fest:if test="user.experience_month=='5'">
-                                        <option value="0">не работал</option>
-                                        <option value="1">меньше года</option>
-                                        <option value="5" selected="true">1-5 лет</option>
-                                        <option value="10">5-10 лет</option>
-
-                                    </fest:if>
-                                    <fest:if test="user.experience_month=='10'">
-                                        <option value="0">не работал</option>
-                                        <option value="1">меньше года</option>
-                                        <option value="5">1-5 лет</option>
-                                        <option value="10" selected="true">5-10 лет</option>
-                                    </fest:if>
-                                </select>
-                            </div>
-                            <div class="data-block">
-                                <label class="sum-form-labels">Карьерный уровень</label>
-                                <select class="sum-select" name="career_level">
-                                    <fest:if test="user.career_level=='junior' || user.career_level==null">
-                                        <option value="junior" selected="true">junior</option>
-                                        <option value="middle">middle</option>
-                                        <option value="senior">senior</option>
-                                    </fest:if>
-                                    <fest:if test="user.career_level=='middle'">
-                                        <option value="junior">junior</option>
-                                        <option value="middle" selected="true">middle</option>
-                                        <option value="senior">senior</option>
-                                    </fest:if>
-                                    <fest:if test="user.career_level=='senior'">
-                                        <option value="junior">junior</option>
-                                        <option value="middle">middle</option>
-                                        <option value="senior" selected="true">senior</option>
-                                    </fest:if>
-                                </select>
-                            </div>
-                            <div class="data-block">
-                                <div class="experience-add">
-                                    <label class="sum-form-labels" for="experience">Опыт работы</label>
-                                    <div class="experience-add__board" id="experience_board">
-                                        <fest:for iterate="user.experience" index="i" value="v">
-                                            <fest:include context="v"
-                                                          src="../../../../components/popUpResume/jobBoard/jobBoard.tmpl.xml"/>
-                                        </fest:for>
-                                    </div>
-                                    <div class="btn-add-exp" id="btn-add-exp">Добавить опыт работы</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-data-card">
-                            <div class="data-block">
-                                <p class="sum-description-block">Специальность</p>
-                                <label class="sum-form-labels" for="place">Желаемая должность</label>
-                                <input class="sum-user-info" id="place" name="place" type="text"
-                                       value="{user.place}"/>
-                                <span class="error" aria-live="polite"/>
-                            </div>
-                            <div class="data-block">
-                                <label class="sum-form-labels">Профессиональные навыки</label>
-                                <textarea name="skills" class="sum-user-info-textarea" id="skills" type="text">
-                                    <fest:value>user.skills</fest:value>
-                                </textarea>
-                                <span class="error" aria-live="polite"/>
-                            </div>
-                            <div class="data-block">
-                                <label class="sum-form-labels" for="salary">Желаемая арплата</label>
-                                <div style="display:flex;">
-                                    <input name="salary_min" placeholder="min" class="sum-user-info" id="citizenship"
-                                           type="text"
-                                           value="{user.salary_min}"/>
-                                    <span class="error" aria-live="polite"/>
-                                    <input name="salary_max" placeholder="max" class="sum-user-info" id="citizenship"
-                                           type="text"
-                                           value="{user.salary_max}"/>
-                                    <span class="error" aria-live="polite"/>
-                                </div>
-                            </div>
-                            <div class="data-block">
-                                <p class="sum-description-block">Образование</p>
-                                <label class="sum-form-labels" for="education_level"/>
+                                <label class="sum-form-labels" for="education_level">Образование</label>
                                 <select class="sum-select" name="education_level">
                                     <fest:if test="user.education_level=='middle' || user.education_level==null">
                                         <option value="middle" selected="true">Среднее</option>
@@ -306,8 +213,116 @@
                                     </fest:if>
                                 </select>
                             </div>
+                            <div class="data-block">
+                                <label class="sum-form-labels">Общий трудовой стаж</label>
+                                <select class="sum-select" name="experience_month">
+                                    <fest:if test="user.experience_month=='0' || user.experience_month==null">
+                                        <option value="0" selected="true">не работал</option>
+                                        <option value="1">меньше года</option>
+                                        <option value="5">1-5 лет</option>
+                                        <option value="10">5-10 лет</option>
+                                    </fest:if>
+                                    <fest:if test="user.experience_month=='1'">
+                                        <option value="0">не работал</option>
+                                        <option value="1" selected="true">меньше года</option>
+                                        <option value="5">1-5 лет</option>
+                                        <option value="10">5-10 лет</option>
+
+                                    </fest:if>
+                                    <fest:if test="user.experience_month=='5'">
+                                        <option value="0">не работал</option>
+                                        <option value="1">меньше года</option>
+                                        <option value="5" selected="true">1-5 лет</option>
+                                        <option value="10">5-10 лет</option>
+
+                                    </fest:if>
+                                    <fest:if test="user.experience_month=='10'">
+                                        <option value="0">не работал</option>
+                                        <option value="1">меньше года</option>
+                                        <option value="5">1-5 лет</option>
+                                        <option value="10" selected="true">5-10 лет</option>
+                                    </fest:if>
+                                </select>
+                            </div>
+                            <div class="data-block">
+                                <label class="sum-form-labels">Карьерный уровень</label>
+                                <select class="sum-select" name="career_level">
+                                    <fest:if test="user.career_level=='junior' || user.career_level==null">
+                                        <option value="junior" selected="true">junior</option>
+                                        <option value="middle">middle</option>
+                                        <option value="senior">senior</option>
+                                    </fest:if>
+                                    <fest:if test="user.career_level=='middle'">
+                                        <option value="junior">junior</option>
+                                        <option value="middle" selected="true">middle</option>
+                                        <option value="senior">senior</option>
+                                    </fest:if>
+                                    <fest:if test="user.career_level=='senior'">
+                                        <option value="junior">junior</option>
+                                        <option value="middle">middle</option>
+                                        <option value="senior" selected="true">senior</option>
+                                    </fest:if>
+                                </select>
+                            </div>
+                            <div class="data-block">
+                                <div class="experience-add">
+                                    <label class="sum-form-labels" for="experience">Опыт работы</label>
+                                    <div class="experience-add__board" id="experience_board">
+                                        <fest:for iterate="user.experience" index="i" value="v">
+                                            <fest:include context="v"
+                                                          src="../../../../components/popUpResume/jobBoard/jobBoard.tmpl.xml"/>
+                                        </fest:for>
+                                    </div>
+                                    <div class="btn-add-exp" id="btn-add-exp">Добавить опыт работы</div>
+                                </div>
+                            </div>
                         </div>
-                        <span class="error" aria-live="polite"/>
+                        <div class="input-data-card">
+                            <div class="data-block">
+                                <label class="sum-form-labels" for="sphere">Сфера деятельности</label>
+                                <select class="sum-select" name="sphere" id="sphere">
+                                    <fest:each iterate="user.all_sphere" index="i" value="v">
+                                        <fest:if test="i == user.user_sphere">
+                                            <option value="{i}" selected="true">
+                                                <fest:value>v</fest:value>
+                                            </option>
+                                        </fest:if>
+                                        <fest:if test="i != user.user_sphere">
+                                            <option value="{i}">
+                                                <fest:value>v</fest:value>
+                                            </option>
+                                        </fest:if>
+                                    </fest:each>
+                                </select>
+                            </div>
+                            <div class="data-block">
+                                <p class="sum-description-block">Специальность</p>
+                                <label class="sum-form-labels" for="place">Желаемая должность</label>
+                                <input class="sum-user-info" id="place" name="place" type="text"
+                                       value="{user.place}"/>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <div class="data-block">
+                                <label class="sum-form-labels">Профессиональные навыки</label>
+                                <textarea name="skills" class="sum-user-info-textarea" id="skills" type="text">
+                                    <fest:value>user.skills</fest:value>
+                                </textarea>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <div class="data-block">
+                                <label class="sum-form-labels" for="salary">Желаемая зарплата (в тыс. руб.)</label>
+                                <div style="display:flex;">
+                                    <input name="salary_min" placeholder="min" class="sum-user-info" id="salary_min"
+                                           type="text"
+                                           value="{user.salary_min}"/>
+                                    <input name="salary_max" placeholder="max" class="sum-user-info" id="salary_max"
+                                           type="text"
+                                           value="{user.salary_max}"/>
+                                </div>
+                                <span class="error" aria-live="polite"/>
+                            </div>
+                            <span class="error" aria-live="polite"/>
+                        </div>
                     </div>
                     <input type="hidden" name="resume_id" value="{user.resume_id}"/>
                     <button id="send-form-cand" class="btn-pink" type="submit">Сохранить</button>

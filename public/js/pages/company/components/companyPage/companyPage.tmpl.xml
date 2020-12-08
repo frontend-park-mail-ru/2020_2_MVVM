@@ -13,6 +13,15 @@
                         <label class="container-left-vacancies__label">Вакансии</label>
                         <div class="container-left-vacancies__open-vacancies"><fest:value>company.count_vacancy</fest:value><fest:space/>активных вакансий</div>
                     </div>
+                    <div class="container-left-vacancies">
+                        <label class="container-left-vacancies__label">Сферы компании</label>
+                        <br/>
+                        <fest:each iterate="company.sphere" index="i" value="v">
+                            <div class="container-left-vacancies__open-vacancies">
+                                <span><fest:value>v</fest:value></span>
+                            </div>
+                        </fest:each>
+                    </div>
                 </div>
 <!--                <div class="container-left-bottom">-->
 <!--                    <div class="container-left-bottom__subscribe">Я хочу тут работать</div>-->
@@ -35,12 +44,8 @@
                             <div class="company-vacancies__curr-reg_all">
                                 <span>Вакансии в текущем регионе: Россия </span>
                             </div>
-                            <fest:each iterate="company.sphere" index="i" value="v">
-                                <div class="company-vacancies__curr-reg_group">
-                                    <span><fest:value>v</fest:value></span>
-                                </div>
-                            </fest:each>
                         </div>
+                        <fest:include context="company.vacancy" src="../../../employersList/components/listOfEmployers/listOfEmployers.tmpl.xml"/>
                     </div>
                 </div>
             </div>

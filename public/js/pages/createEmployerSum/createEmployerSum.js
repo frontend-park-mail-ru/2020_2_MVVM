@@ -2,10 +2,9 @@ import createElem from "Js/libs/createElem";
 import { spheres } from "Js/libs/constants";
 import createEmployerSumTemp from "./components/createEmployerSum/createEmployerSum.tmpl.xml";
 import { checkFrom } from "Js/pages/createEmployerSum/components/createEmployerSum/createEmpoyerSum";
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 import defaultVac from "Img/defaultVac.png";
 
-const app = window.document.getElementById("app");
+export const app = window.document.getElementById("main");
 
 export default class CreateVacancy {
   constructor(sendVacancy, loadCompany, loadUserInfo, router) {
@@ -15,13 +14,13 @@ export default class CreateVacancy {
     this.router = router;
   }
 
-  async render(content) {
+  async render() {
     app.innerHTML = "";
     this.content = {
       user: (await this.userInfo()).user,
       company: null,
       comp_logo: null,
-      spheres: spheres,
+      sphere: spheres,
     };
     await this.loadCompany().then((data) => {
       if (data && data.company) {
@@ -32,7 +31,6 @@ export default class CreateVacancy {
       }
     });
 
-    openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     main.insertAdjacentHTML("afterbegin", createEmployerSumTemp(this.content));

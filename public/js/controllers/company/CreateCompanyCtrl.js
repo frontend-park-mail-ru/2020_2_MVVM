@@ -8,15 +8,15 @@ export default class CreateCompanyCtrl {
     this.router = router;
     this.page = new CreateCompany(async (form, cbArr) => {
       const formData = new FormData(form),
-        compLogo = formData.get("sum__avatar"),
-        json = {};
+      compLogo = formData.get("sum__avatar"),
+      json = {};
       json.avatar = "";
       if (compLogo !== "") {
         json.avatar = await getBase64(compLogo);
       }
       json.name = formData.get("name");
       json.description = formData.get("description");
-      json.spheres = cbArr;
+      json.sphere = cbArr;
       json.link = formData.get("link");
       json.area_search = formData.get("area_search");
 
@@ -27,7 +27,7 @@ export default class CreateCompanyCtrl {
       if (response.status >= 200 && response.status < 300) {
         localStorage.setItem("has_company", "true");
         console.assert(response.ok);
-        this.router.change("/company", content.company);
+        this.router.change(`/company?id=${content.company.id}`);
       } else {
         const errorField = document.getElementsByClassName("error");
         const errLen = errorField.length;

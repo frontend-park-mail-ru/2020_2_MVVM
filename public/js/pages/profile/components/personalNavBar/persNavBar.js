@@ -89,9 +89,9 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
     linksToResume[i].addEventListener("click", (event) => {
       event.preventDefault();
       if (isCand) {
-        profile.router.change("/resume", list[i]);
+        profile.router.change(`/resume?id=${list[i].resume_id}`);
       } else {
-        profile.router.change("/vacancy", list[i].vac_id, list[i].comp_id);
+        profile.router.change(`/vacancy?vac_id=${list[i].vac_id}&comp_id=${list[i].comp_id}`);
       }
     });
   }
@@ -104,7 +104,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
     linksToUpdateResume[i].addEventListener("click", (event) => {
       event.preventDefault();
       if (isCand) {
-        profile.router.change("/updateResume", list[i]);
+        profile.router.change(`/updateResume?id=${list[i].resume_id}`, list[i]);
       }
     });
   }
@@ -130,7 +130,7 @@ function personalLikes(profile, mainColumnLeft) {
     for (let i = 0; i < linksToFavResume.length; i++) {
       linksToFavResume[i].addEventListener("click", (event) => {
         event.preventDefault();
-        profile.router.change("/resume", profile.favorites[i]);
+        profile.router.change(`/resume?id=${profile.favorites[i].resume_id}`);
       });
     }
   } else {
@@ -161,7 +161,7 @@ async function personalResponses(profile, body) {
   }
 }
 
-async function acceptReject(profile, myResponses, body) {
+async function acceptReject(profile, myResponses) {
   const acceptBtn = document.getElementsByClassName(
     "response-row__buttons_accept"
   );
@@ -214,21 +214,19 @@ async function createLinks(profile, myResponses) {
     if (linkToResume.length) {
       linkToResume[idx].addEventListener("click", (event) => {
         event.preventDefault();
-        profile.router.change("/resume", { resume_id: item.resume_id });
+        profile.router.change(`/resume?id=${item.resume_id}`);
       });
     }
     if (linkToVacancy.length) {
       linkToVacancy[idx].addEventListener("click", (event) => {
         event.preventDefault();
-        profile.router.change("/vacancy", item.vacancy_id, item.company_id);
+        profile.router.change(`/vacancy?vac_id=${item.vacancy_id}&comp_id=${item.company_id}`);
       });
     }
     if (linkToCompany.length) {
       linkToCompany[idx].addEventListener("click", (event) => {
         event.preventDefault();
-        profile.getCompanyById(item.company_id).then((data) => {
-          profile.router.change("/company", data);
-        });
+          profile.router.change(`/company?id=${item.company_id}`);
       });
     }
   });

@@ -18,7 +18,7 @@ export default class Router {
     this.currentRoute = null;
 
     window.addEventListener("popstate", () => {
-      this.change(location.pathname);
+      this.change(location.pathname+location.search);
     });
   }
 
@@ -30,12 +30,7 @@ export default class Router {
    */
   add(path, page, root = this.root) {
     const expr = path
-      .split("/")
-      .map((elem) => {
-        return elem;
-      })
-      .join("\\/");
-
+      .split("/").join("\\/");
     this.routes.set(RegExp(`^${expr}$`), { root: root, page: page });
   }
 
@@ -45,25 +40,26 @@ export default class Router {
    * @param args
    */
   change(path, ...args) {
+    const routeName = path.split('?')[0];
     if (this.currentRoute === path) {
       return;
     }
 
     for (const key of this.routes.keys()) {
-      if (path.match(key)) {
-        this.currentRoute = path;
+      if (routeName.match(key)) {
+        this.currentRoute = routeName;
         const obj = this.routes.get(key);
 
-        const user_type = localStorage.getItem("user_type");
         initPolling();
         removeNotifPage();
 
-        NavBar.updateNavBar(PAGES_NEED_SEARCH.indexOf(path) !== -1);
-
-        obj.page.render(user_type, ...args);
-        changeNavBarPos(path);
+        NavBar.updateNavBar(PAGES_NEED_SEARCH.indexOf(routeName) !== -1);
 
         window.history.pushState(null, null, path);
+        obj.page.render(...args);
+
+
+        changeNavBarPos(routeName);
 
         return;
       }
@@ -111,6 +107,6 @@ export default class Router {
       NavBar.loadNavBar(false);
       desktopNavBarInit();
     }
-    this.change(location.pathname, user,);
+    this.change(location.pathname+location.search, user,);
   }
 }

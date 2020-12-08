@@ -316,7 +316,9 @@
 
     @include mobile {
         left: 0;
-        top: 9rem;
+        top: 12rem;
+        padding: 0;
+        height: fit-content;
     }
 }
 

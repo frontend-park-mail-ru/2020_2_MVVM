@@ -2,7 +2,7 @@ import { checkFrom } from "./components/createCandidateSum/createCandidateSum.js
 import createElem from "Js/libs/createElem";
 import { renderInputForm } from "Js/components/popUpResume/popUpCand/createOneJob";
 import createCandidateSumTemp from "./components/createCandidateSum/createCandidateSum.tmpl.xml";
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
+import {spheres} from "Js/libs/constants";
 
 export const app = window.document.getElementById("main");
 
@@ -12,18 +12,22 @@ export default class CreateResume {
     this.userInfo = loadUserF;
   }
 
-  async render(content, ...args) {
+  async render() {
     app.innerHTML = "";
     this.jobsArr = [];
     this.numOfJob = 0;
     this.user = await this.userInfo();
+    this.content = {
+      user : this.user.user,
+      sphere : spheres,
+    }
 
     // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     main.insertAdjacentHTML(
       "afterbegin",
-      createCandidateSumTemp(this.user.user)
+      createCandidateSumTemp(this.content),
     );
 
     const form = main.querySelector("form");

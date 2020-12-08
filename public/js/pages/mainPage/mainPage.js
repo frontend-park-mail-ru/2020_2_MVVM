@@ -2,21 +2,34 @@ import createElem from "Js/libs/createElem";
 import searchJobTemp from "Js/pages/mainPage/components/searchJob/searchJob.tmpl.xml";
 import categoryTemp from "Js/pages/mainPage/components/category/category.tmpl.xml";
 import createResumeTemp from "Js/pages/mainPage/components/createResume/createResume.tmpl.xml";
-import openMenu from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById("main");
 
 export default class MainPage {
-  render(content) {
+  constructor(router, searchDataF) {
+    this.router = router;
+    this.searchData = searchDataF;
+  }
+
+  render() {
 
     app.innerHTML='';
-    // openMenu(app, false);
 
     const mainPage = createElem("div", "main-page", app);
     mainPage.insertAdjacentHTML(
       "afterbegin",
       searchJobTemp("Самый простой способ найти новую работу")
     );
+
+
+    const searchBtn = document.getElementById('searchBtn');
+    searchBtn.addEventListener('click', () => {
+      const searchJob = document.getElementById('searchJob');
+      const searchPlace = document.getElementById('searchPlace');
+      this.searchData({keywords: searchJob.value, keywordsGeo: searchPlace.value});
+    })
+
+
 
     const category = [
       {

@@ -32,7 +32,7 @@ export default class Profile {
     this.router = router;
   }
 
-  async render(content) {
+  async render() {
     app.innerHTML = "";
     this.vacancies = null;
     this.resumes = null;
@@ -81,7 +81,7 @@ export default class Profile {
     //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q
 
     await personalInfo(person, body);
-    await checkoutProfilePage(this, content, body, person);
+    await checkoutProfilePage(this, localStorage.getItem('user_type'), body, person);
     updateProfileFields(person);
   }
 }

@@ -1,12 +1,11 @@
 import { checkBoxes } from "Js/components/searchForm/searchForm";
 import createElem from "Js/libs/createElem";
 import { network } from "Js/libs/networks";
-import { vacancySearchURL } from "Js/libs/constants";
+import {spheres, vacancySearchURL} from "Js/libs/constants";
 import searchFormTemp from "Js/components/searchForm/searchForm.tmpl.xml";
 import listOfEmployersTemp from "./components/listOfEmployers/listOfEmployers.tmpl.xml";
 import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
 
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 import defaultVac from "Img/defaultVac.png";
 
 const app = window.document.getElementById("main");
@@ -17,8 +16,9 @@ export default class EmployersList {
     this.router = router;
   }
 
-  async render(content) {
+  async render(data) {
     app.innerHTML = "";
+    data = await data;
 
     // openMenuList(app, true);
 
@@ -134,6 +134,14 @@ export default class EmployersList {
         ],
       },
     ];
+
+    let arrSpheres = [];
+    spheres.forEach((item) => {
+      arrSpheres.push({ name: item, text: item });
+    });
+
+    m.push({title: {name: "sphere", text: 'Сфера'},fields: arrSpheres});
+
     mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
     const searchForm = document.getElementById("main-navigation");
     if (document.body.className === "is-mobile") {
@@ -142,8 +150,14 @@ export default class EmployersList {
 
     const mainList = createElem("div", "main-list", mainRow);
 
-    const vacancies = await this.fetchVacancyList();
-    await getVacanciesList(vacancies, main, mainList, this.router);
+    let dataJson;
+    if (data === undefined) {
+      dataJson = await this.fetchVacancyList();
+    } else {
+      dataJson = await data.json();
+    }
+
+    await getVacanciesList(dataJson, main, mainList, this.router);
 
     // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
     afterRender(mainList, main, this.fetchVacancyList, this.router);
@@ -171,6 +185,13 @@ async function search(form, mainList, main, fetchVacancyList, router) {
   data.experience_month = await formData.getAll("experience_month");
   data.experience_month.forEach((item, idx, arr) => {
     arr[idx] = parseInt(item);
+  });
+  data.sphere = [];
+  formData.getAll("sphere").forEach((item) => {
+    let tmp = spheres.indexOf(item);
+    if (tmp !== -1) {
+      data.sphere.push(tmp);
+    }
   });
 
   const response = await network.doPost(vacancySearchURL, data);
@@ -212,7 +233,7 @@ function getEmplVacancy(router, main, vacancy) {
   for (let i = 0; i < vacNameLink.length; i++) {
     vacNameLink[i].addEventListener("click", (event) => {
       event.preventDefault();
-      router.change("/vacancy", vacancy[i].vac_id, vacancy[i].comp_id);
+      router.change(`/vacancy?vac_id=${vacancy[i].vac_id}&comp_id=${vacancy[i].comp_id}`);
     });
   }
 }

@@ -1,11 +1,10 @@
 import { checkBoxes } from "Js/components/searchForm/searchForm";
 import createElem from "Js/libs/createElem";
-import { resumePageURL, resumeSearchURL } from "Js/libs/constants";
+import {resumePageURL, resumeSearchURL, spheres} from "Js/libs/constants";
 import { network } from "Js/libs/networks";
 import searchFormTemp from "Js/components/searchForm/searchForm.tmpl.xml";
 import listOfCandidatesTemp from "./components/listOfCandidates/listOfCandidates.tmpl.xml";
 import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 import defaultRes from "Img/defaultRes.png";
 
@@ -16,10 +15,10 @@ export default class CandidatesList {
     this.router = router;
   }
 
-  async render(content) {
+  async render(data) {
 
+    data = await data;
     app.innerHTML='';
-    // openMenuList(app, true);
 
     const mainPage = createElem("div", "main", app);
     const container = createElem("div", "container", mainPage);
@@ -148,6 +147,12 @@ export default class CandidatesList {
         ],
       },
     ];
+    let arrSpheres = [];
+    spheres.forEach((item) => {
+      arrSpheres.push({ name: item, text: item });
+    });
+    m.push({title: {name: "sphere", text: 'Сфера'},fields: arrSpheres});
+
     mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
 
     const searchForm = document.getElementById("main-navigation");
@@ -157,9 +162,12 @@ export default class CandidatesList {
 
     const mainList = createElem("div", "main-list", mainRow);
 
-    const response = await network.doGetLimit(resumePageURL, 0, 15);
-    console.assert(response.ok);
-    await renderResumeList(response, main, mainList, this.router);
+    if (data === undefined) {
+      data = await network.doGetLimit(resumePageURL, 0, 15);
+      console.assert(data.ok);
+    }
+
+    await renderResumeList(data, main, mainList, this.router);
     afterRender(mainList, main, this.router);
   }
 }
@@ -193,7 +201,7 @@ function getUserResume(router, main, resume) {
   for (let i = 0; i < linksToResume.length; i++) {
     linksToResume[i].addEventListener("click", (event) => {
       event.preventDefault();
-      router.change("/resume", resume[i]);
+      router.change(`/resume?id=${resume[i].resume_id}`);
     });
   }
 }
@@ -211,9 +219,14 @@ async function search(form, mainList, main, router) {
   data.experience_month.forEach((item, idx, arr) => {
     arr[idx] = parseInt(item);
   });
-  // data.salary_min = 0;
-  // data.salary_max = 10000;
   data.keywords = formData.get("keywords");
+  data.sphere = [];
+  formData.getAll("sphere").forEach((item) => {
+    let tmp = spheres.indexOf(item);
+    if (tmp !== -1) {
+      data.sphere.push(tmp);
+    }
+  });
 
   const response = await network.doPost(resumeSearchURL, data);
   console.assert(response.ok);

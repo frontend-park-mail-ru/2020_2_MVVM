@@ -7,6 +7,7 @@ export const SALARY_OK = 'корректное значение зарплаты
 export const INPUT_TEXT_OK = 'корректный текст для ввода'
 export const PHONE_OK = 'верный номер тел.'
 export const DATE_OK = 'корректная дата'
+export const GENDER_OK = 'корректный пол'
 
 export const EMAIL_EMPTY = 'Укажите email.'
 export const LOGIN_EMPTY = 'Укажите логин.'
@@ -17,7 +18,7 @@ export const INPUT_TEXT_EMPTY = 'Поле обязательно для запо
 export const DATE_EMPTY = 'Укажите дату.'
 export const DATE_START_EMPTY = "Начальная дата не введена."
 export const DATE_END_EMPTY = "Конечная дата не введена."
-
+export const GENDER_EMPTY = "Пол не выбран"
 
 export const INCORRECT_EMAIL = 'Email должен содержать "@" и латинские буквы, цифры, символы.';
 export const INCORRECT_LOGIN = 'Логин должен содержать 4-20 символов, а также содержать латинские символы и цифры.';
@@ -35,7 +36,7 @@ export const PASSWD_EXP = new RegExp(/^.{5,25}$/);
 export const PHONE_EXP = new RegExp(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
 export const JPEG_AVATAR_F = 'image/jpeg';
 export const PNG_AVATAR_F = 'image/png';
-export const NOT_NUMBER = 'not number';
+export const NOT_NUMBER = 'Некорректное число';
 
 
 //scales
@@ -74,7 +75,7 @@ export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
 export const resumeMineURL = "/v1/resume/mine";
-export const updateResumeURL = "/v1/resume/";
+export const updateResumeURL = "/v1/resume/update";
 export const resumeSearchURL = '/v1/resume/search';
 
 
@@ -86,11 +87,14 @@ export const vacancyMineURL = "/v1/vacancy/mine?";
 export const updateVacancyURL = "/v1/vacancy/";
 export const vacancySearchURL = '/v1/vacancy/search';
 
+export const vacancyCompURL = "/v1/vacancy/comp?";
+
 export const addCompanyURL = "/v1/company/";
 export const companyByIdURL = "/v1/company/by/id/";
 export const companyPageURL = "/v1/company/page?";
 export const companyMineURL = "/v1/company/mine";
 export const companySearchURL = "/v1/company/search";
+export const companyNamesURL = "/v1/company/names"
 
 export const addLikeResumeURL = "/v1/resume/favorite/by/id/";
 export const deleteLikeResumeURL = "/v1/resume/favorite/by/id/";

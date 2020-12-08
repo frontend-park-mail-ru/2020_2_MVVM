@@ -1,11 +1,11 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="spheres">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="sphere">
     <div class="container">
         <div class="page-name">Создание организации</div>
         <div class="sum-form-wrap">
             <form method="post" action="#" class="sum-form">
                 <div class="sum-profile">
                     <div class="input-data-card">
-                        <div class="sum-profile__photo"/>
+                        <div class="sum-profile__photo_company"/>
                         <p class="sum-description-block">Загрузить логотип</p>
                         <div class="sum-upload-photo">
                             <div class="sum-upload-photo__btn">
@@ -39,7 +39,7 @@
                                         </select>
                                     </div>
                                     <div id="checkboxes">
-                                        <fest:for iterate="spheres" index="i" value="v">
+                                        <fest:for iterate="sphere" index="i" value="v">
                                             <label for="{i}">
                                                 <input type="checkbox" id="{i}"/>
                                                 <fest:value>v</fest:value>

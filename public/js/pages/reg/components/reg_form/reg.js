@@ -1,7 +1,7 @@
 import Validation from "../../../../libs/validation.js";
 import {EMAIL_OK, INPUT_TEXT_OK, PASSWD_OK} from "Js/libs/constants";
 
-export function checkFrom(submitF, form, error) {
+export function checkFrom(regClass, form, error) {
   const email = document.getElementById("emailReg");
   const password = document.getElementById("passwReg");
   const password2 = document.getElementById("passwReg2");
@@ -39,8 +39,9 @@ export function checkFrom(submitF, form, error) {
         error[4].innerHTML = "Пароли не совпадают";
       }
 
+
       if (isOk) {
-        submitF(event, form, error);
+        regClass.onsubmit(event, form, regClass.user_type,regClass.company, error);
       } else {
         event.preventDefault();
       }

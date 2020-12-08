@@ -31,8 +31,15 @@
     &__photo {
         width: 15rem;
         height: 15rem;
-        background: no-repeat 0 0/cover url(Img/defaultRes.png);
         margin: auto;
+        background: no-repeat 0 0/cover url(Img/defaultRes.png);
+        &_company{
+            width: 15rem;
+            height: 15rem;
+            margin: auto;
+            background: no-repeat 0 0/cover url(Img/defaultVac.png);
+        }
+
     }
 }
 
