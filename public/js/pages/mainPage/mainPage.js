@@ -26,7 +26,7 @@ export default class MainPage {
     searchBtn.addEventListener('click', () => {
       const searchJob = document.getElementById('searchJob');
       const searchPlace = document.getElementById('searchPlace');
-      this.searchData({title: searchJob.value, place: searchPlace.value});
+      this.searchData({keywords: searchJob.value, keywordsGeo: searchPlace.value});
     })
 
 
