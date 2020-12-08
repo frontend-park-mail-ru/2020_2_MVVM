@@ -103,7 +103,7 @@ export default class Resume {
     this.myVacancies = loadMyVacanciesF;
   }
 
-  async render(content, resume) {
+  async render(resume) {
     app.innerHTML = "";
 
     // openMenuList(app, false);

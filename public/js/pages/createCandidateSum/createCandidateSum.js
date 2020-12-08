@@ -12,7 +12,7 @@ export default class CreateResume {
     this.userInfo = loadUserF;
   }
 
-  async render(content, ...args) {
+  async render() {
     app.innerHTML = "";
     this.jobsArr = [];
     this.numOfJob = 0;

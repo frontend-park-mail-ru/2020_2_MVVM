@@ -16,8 +16,9 @@ export default class EmployersList {
     this.router = router;
   }
 
-  async render(content) {
+  async render(data) {
     app.innerHTML = "";
+    data = await data;
 
     // openMenuList(app, true);
 
@@ -149,8 +150,14 @@ export default class EmployersList {
 
     const mainList = createElem("div", "main-list", mainRow);
 
-    const vacancies = await this.fetchVacancyList();
-    await getVacanciesList(vacancies, main, mainList, this.router);
+    let dataJson;
+    if (data === undefined) {
+      dataJson = await this.fetchVacancyList();
+    } else {
+      dataJson = await data.json();
+    }
+
+    await getVacanciesList(dataJson, main, mainList, this.router);
 
     // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
     afterRender(mainList, main, this.fetchVacancyList, this.router);

@@ -14,7 +14,7 @@ export default class CreateVacancy {
     this.router = router;
   }
 
-  async render(content) {
+  async render() {
     app.innerHTML = "";
     this.content = {
       user: (await this.userInfo()).user,

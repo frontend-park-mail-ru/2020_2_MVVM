@@ -50,14 +50,13 @@ export default class Router {
         this.currentRoute = routeName;
         const obj = this.routes.get(key);
 
-        const user_type = localStorage.getItem("user_type");
         initPolling();
         removeNotifPage();
 
         NavBar.updateNavBar(PAGES_NEED_SEARCH.indexOf(routeName) !== -1);
 
         window.history.pushState(null, null, path);
-        obj.page.render(user_type, ...args);
+        obj.page.render(...args);
 
 
         changeNavBarPos(routeName);

@@ -15,8 +15,9 @@ export default class CandidatesList {
     this.router = router;
   }
 
-  async render() {
+  async render(data) {
 
+    data = await data;
     app.innerHTML='';
 
     const mainPage = createElem("div", "main", app);
@@ -161,9 +162,12 @@ export default class CandidatesList {
 
     const mainList = createElem("div", "main-list", mainRow);
 
-    const response = await network.doGetLimit(resumePageURL, 0, 15);
-    console.assert(response.ok);
-    await renderResumeList(response, main, mainList, this.router);
+    if (data === undefined) {
+      data = await network.doGetLimit(resumePageURL, 0, 15);
+      console.assert(data.ok);
+    }
+
+    await renderResumeList(data, main, mainList, this.router);
     afterRender(mainList, main, this.router);
   }
 }
@@ -215,8 +219,6 @@ async function search(form, mainList, main, router) {
   data.experience_month.forEach((item, idx, arr) => {
     arr[idx] = parseInt(item);
   });
-  // data.salary_min = 0;
-  // data.salary_max = 10000;
   data.keywords = formData.get("keywords");
   data.sphere = [];
   formData.getAll("sphere").forEach((item) => {

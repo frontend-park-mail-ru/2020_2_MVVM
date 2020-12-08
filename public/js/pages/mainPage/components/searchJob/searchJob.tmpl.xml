@@ -6,15 +6,15 @@
                 <p class="main-page__label">Поиск работы для студентов</p>
                 <div class="search-form-header">
                     <div class="search-job">
-                        <input class="search-job__input" type="text"
-                               placeholder="Профессия, должность или компания"></input>
+                        <input id="searchJob" class="search-job__input" type="text"
+                               placeholder="Профессия, должность или компания"/>
                     </div>
                     <div class="search-place">
-                        <input class="search-place__input" type="text" placeholder="Местоположение"></input>
+                        <input id="searchPlace" class="search-place__input" type="text" placeholder="Местоположение"/>
                     </div>
-                    <div class="search-btn">
+                    <div id="searchBtn" class="search-btn">
                         <a href="#">
-                            <i class=" search-btn__a fa fa-search"></i>
+                            <i class=" search-btn__a fa fa-search"/>
                         </a>
                     </div>
                 </div>

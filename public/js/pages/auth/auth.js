@@ -10,7 +10,7 @@ export default class AuthList {
     this.onsubmit = onsubmit;
   }
 
-  render(content) {
+  render() {
     app.innerHTML = "";
 
     // openMenuList(app, false);

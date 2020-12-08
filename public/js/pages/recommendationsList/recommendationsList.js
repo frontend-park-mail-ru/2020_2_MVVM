@@ -12,7 +12,7 @@ export default class RecommendationsList {
     this.router = router;
   }
 
-  async render(content) {
+  async render() {
     app.innerHTML = "";
 
     // openMenuList(app, false);

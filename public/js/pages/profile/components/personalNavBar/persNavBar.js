@@ -161,7 +161,7 @@ async function personalResponses(profile, body) {
   }
 }
 
-async function acceptReject(profile, myResponses, body) {
+async function acceptReject(profile, myResponses) {
   const acceptBtn = document.getElementsByClassName(
     "response-row__buttons_accept"
   );

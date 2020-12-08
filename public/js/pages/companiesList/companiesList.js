@@ -17,7 +17,7 @@ export default class CompaniesList {
     this.router = router;
   }
 
-  async render(content) {
+  async render() {
 
     app.innerHTML = '';
 

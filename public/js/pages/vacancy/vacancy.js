@@ -48,7 +48,7 @@ export default class Vacancy {
     this.myResumes = myResumesF;
   }
 
-  async render(content) {
+  async render() {
     app.innerHTML = "";
 
     const allInfo = await vacancyInfo();
