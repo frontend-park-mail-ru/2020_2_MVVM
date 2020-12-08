@@ -1,3 +1,4 @@
+@import "public/css/vars";
 
 .reg {
     text-align: center;
@@ -5,5 +6,163 @@
     //padding-bottom: 5%;
 }
 
+.reg-input {
+    margin-right: 5rem;
+}
+
+$c-white: #fff;
+$c-black: #000;
+$c-theme: #00a8ff;
+
+.Switcher {
+    position: relative;
+    display: flex;
+    border-radius: 5em;
+    box-shadow: 0 0 0.5rem var(--buttons-purple-color);
+    overflow: hidden;
+    cursor: pointer;
+    animation: r-n .5s;
+    user-select: none;
+    font-size: $font-size_h4;
+    will-change: transform;
+    justify-content: center;
+    width: 100%;
+
+    @include mobile {
+        font-size: $font-size_h4_m;
+    }
+
+    .Switcher__checkbox:checked + & {
+        animation-name: r-p;
+    }
+
+    // indicator
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: inherit;
+        transform: translateX(-75%);
+        transition: transform .5s ease-in-out;
+
+        .Switcher__checkbox:checked + & {
+            transform: translateX(25%);
+        }
+    }
+
+}
+
+.Switcher__trigger {
+    position: relative;
+    z-index: 1;
+    padding: 1em 3em;
+
+    &::after {
+        content: attr(data-value);
+    }
+
+    &::before {
+        --i: var(--x);
+        content: attr(data-value);
+        position: absolute;
+        color: var(--main-pink-color);
+        transition: opacity .3s;
+        opacity: calc((var(--i) + 1) / 2);
+        transition-delay: calc(.3s * (var(--i) - 1) / -2);
+
+        .Switcher__checkbox:checked + .Switcher & {
+            --i: calc(var(--x) * -1);
+        }
+    }
+
+    &:nth-of-type(1)::before {
+        --x: 1;
+    }
+
+    &:nth-of-type(2)::before {
+        --x: -1;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.box {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    perspective: 750px;
+    margin-bottom: 2.5rem;
+    padding: 2rem 1rem;
+}
 
 
+
+
+.dropbtn {
+    background-color: white;
+    color: var(--main-pink-color);
+    padding: 1.6rem;
+    font-size: $font-size_h4;
+    border: $border_btn solid var(--main-pink-color);
+    cursor: pointer;
+    border-radius: $border-radius_btn;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    color: white;
+    background-color: var(--main-pink-color);
+}
+
+#myInput {
+    box-sizing: border-box;
+    font-size: $font-size_h4;
+    padding: 1.4rem 2rem;
+    border: none;
+    border-bottom: 0.1rem solid var(--background-grey-color);
+    width: 100%;
+}
+
+#myInput:focus {outline: 0.5rem solid var(--background-grey-color);}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 23rem;
+    overflow: auto;
+    border: $border_btn solid var(--border-grey-color);
+    z-index: 1;
+
+    &__div {
+        color: black;
+        padding: 1.2rem 1.6rem;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+            background-color: var(--background-grey-color);
+            cursor: pointer;
+        }
+    }
+}
+
+.show {display: block;}

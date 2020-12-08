@@ -195,13 +195,18 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto 2rem;
     font-size: $font-size_h6_m;
     text-align: center;
-    max-width: 20rem;
+    //max-width: 20rem;
 
 
     @include mobile {
         display: block;
         text-align: start;
         font-size: $font-size_h4_m;
+    }
+
+    @include iphone5 {
+        margin: 0 auto;
+        max-width: 30rem;
     }
 }
 
@@ -218,6 +223,10 @@ h1, h2, h3, h4, h5, h6 {
         margin-top: 0;
     }
 
+    &_reg {
+        margin: 0;
+    }
+
     @include mobile {
         font-size: $font-size_h1_m;
     }
@@ -230,11 +239,17 @@ h1, h2, h3, h4, h5, h6 {
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 2.5rem;
+
+    &__checkbox {
+        justify-content: start;
+    }
+
     @include mobile {
         min-width: 60rem;
     }
     @include iphone5{
         min-width: 52rem;
+        margin-bottom: 1rem;
     }
 
 
@@ -286,7 +301,11 @@ h1, h2, h3, h4, h5, h6 {
         height: 7rem;
     }
     @include iphone5{
-        width: auto;
+        width: 100%;
+        &_reg{
+            height: 5rem;
+        }
+
     }
 
     &:focus {
@@ -510,4 +529,11 @@ h1, h2, h3, h4, h5, h6 {
     @include mobile {
         box-shadow: none;
     }
+
+    @include iphone5 {
+        &_reg {
+            padding: 1rem;
+        }
+    }
+
 }

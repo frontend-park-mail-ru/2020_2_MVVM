@@ -94,6 +94,7 @@ export const companyByIdURL = "/v1/company/by/id/";
 export const companyPageURL = "/v1/company/page?";
 export const companyMineURL = "/v1/company/mine";
 export const companySearchURL = "/v1/company/search";
+export const companyNamesURL = "/v1/company/names"
 
 export const addLikeResumeURL = "/v1/resume/favorite/by/id/";
 export const deleteLikeResumeURL = "/v1/resume/favorite/by/id/";

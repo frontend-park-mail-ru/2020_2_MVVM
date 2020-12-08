@@ -1,5 +1,5 @@
 import RegList from "../../pages/reg/reg.js";
-import {addUserURL, companyMineURL} from "Js/libs/constants";
+import {addUserURL, companyMineURL, companyNamesURL} from "Js/libs/constants";
 import { network } from "Js/libs/networks";
 import {startPolling} from "Js/libs/polling";
 
@@ -7,7 +7,17 @@ export default class RegCtrl {
   constructor(router) {
     this.router = router;
 
-    const onsubmit = async (event, form, errorMes) => {
+    const getCompanyList = async () => {
+      const response = await network.doGet(companyNamesURL);
+      if (response.status >= 200 && response.status < 300) {
+        return await response.json();
+      } else {
+        return null;
+      }
+    }
+
+    const onsubmit = async (event, form, user_type, company,  errorMes) => {
+
       event.preventDefault();
 
       const formData = new FormData(form);
@@ -18,7 +28,8 @@ export default class RegCtrl {
         surname: formData.get("lastname"),
         email: formData.get("email"),
         password: formData.get("password"),
-        user_type: formData.get("type"),
+        user_type: user_type,
+        company: company === null ? "" : company.id,
       };
 
       const formReg = await document.getElementsByClassName("reg");
@@ -50,6 +61,6 @@ export default class RegCtrl {
       }
     };
 
-    this.page = new RegList(onsubmit);
+    this.page = new RegList(onsubmit, getCompanyList);
   }
 }

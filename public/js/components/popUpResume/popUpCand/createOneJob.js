@@ -30,8 +30,8 @@ export async function renderInputForm(value, classCand) {
   });
 
   const checkbox = document.getElementById("popUp__cont_checkbox");
-  const endWorkField = document.getElementById("div-finish");
   checkbox.addEventListener("change", (event) => {
+    const endWorkField = document.getElementById("div-finish");
     if (checkbox.checked) {
       endWorkField.innerHTML = "";
       currentWork = true;
