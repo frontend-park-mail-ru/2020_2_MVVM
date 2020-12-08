@@ -45,7 +45,7 @@ async function getAllInfo(updClass) {
     experience: experienceInfo,
     imgPath: resumeInfo.avatar ? resumeInfo.avatar : defaultRes,
     user_sphere: resumeInfo.sphere,
-    all_spheres: spheres,
+    all_sphere: spheres,
   };
 
   if (updResume.experience) {

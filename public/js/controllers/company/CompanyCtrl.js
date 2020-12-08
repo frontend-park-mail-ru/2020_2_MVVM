@@ -20,11 +20,9 @@ export default class CompanyCtrl {
     };
 
     const getCompaniesVac = async (company_id) => {
-      console.log(company_id);
       try {
         const response = await network.doGetLimit(`${vacancyCompURL}comp_id=${company_id}&`, 0, 10);
         const data = await response.json();
-        console.log(data);
         console.assert(response.ok);
         if (data) {
           return data.vacancyList;

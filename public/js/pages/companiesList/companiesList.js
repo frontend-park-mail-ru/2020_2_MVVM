@@ -93,11 +93,11 @@ async function search(form, mainList, main, router) {
   let data = {};
 
   data.area_search = formData.getAll("area_search");
-  data.spheres = [];
+  data.sphere = [];
   formData.getAll("sphere").forEach((item) => {
     let tmp = spheres.indexOf(item);
     if (tmp !== -1) {
-      data.spheres.push(tmp);
+      data.sphere.push(tmp);
     }
   });
   data.keywords = formData.get("keywords");

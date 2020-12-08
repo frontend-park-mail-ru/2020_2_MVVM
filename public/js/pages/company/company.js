@@ -19,8 +19,8 @@ const loadCompanyInfo = async (loadCompany) => {
     description: info.description,
     count_vacancy: info.vac_count,
   }
-  if (info.spheres) {
-    info.spheres.forEach((idx) => {companyInfo.sphere.push(spheres[idx]);})
+  if (info.sphere) {
+    info.sphere.forEach((idx) => {companyInfo.sphere.push(spheres[idx]);})
   }
   return companyInfo;
 }

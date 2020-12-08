@@ -19,7 +19,6 @@ export default class EmployersListCtrl {
       if (!limit) {
         limit = 10;
       }
-      console.log(limit);
       const response = await network.doGetLimit(
         vacancyRecommendationsPageURL,
         0,

@@ -130,7 +130,6 @@ export default class Validation {
 
   static validateSalaryAll(salaryMin, salaryMax) {
     if (Number(salaryMin) > Number(salaryMax)) {
-      console.log(salaryMin, salaryMax);
       return 'Минимальная зарплата не может быть больше максимальной';
     }
     return SALARY_OK;

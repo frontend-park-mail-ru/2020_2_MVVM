@@ -218,11 +218,11 @@ async function search(form, mainList, main, router) {
   // data.salary_min = 0;
   // data.salary_max = 10000;
   data.keywords = formData.get("keywords");
-  data.spheres = [];
+  data.sphere = [];
   formData.getAll("sphere").forEach((item) => {
     let tmp = spheres.indexOf(item);
     if (tmp !== -1) {
-      data.spheres.push(tmp);
+      data.sphere.push(tmp);
     }
   });
 

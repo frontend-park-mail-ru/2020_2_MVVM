@@ -25,7 +25,6 @@ export default class RegCtrl {
       const response = await network.doPost(`${addUserURL}`, body);
 
       const userInfo = await response.json();
-      console.log(userInfo);
 
       if (response.status >= 200 && response.status < 300) {
         localStorage.setItem('user_type', userInfo.user.user_type);

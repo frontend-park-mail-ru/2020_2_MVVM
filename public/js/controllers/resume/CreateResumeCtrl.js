@@ -67,7 +67,6 @@ export default class CreateResumeCtrl {
       console.assert(response.ok);
 
       if (response.status >= 200 && response.status < 300) {
-        console.log(content);
         this.router.change(`/resume?id=${content.resume.id}`);
       } else {
         const errorField = document.getElementsByClassName("error");

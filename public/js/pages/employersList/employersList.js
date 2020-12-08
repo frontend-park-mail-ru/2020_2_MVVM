@@ -141,7 +141,6 @@ export default class EmployersList {
 
     m.push({title: {name: "sphere", text: 'Сфера'},fields: arrSpheres});
 
-    console.log(arrSpheres);
     mainRow.insertAdjacentHTML("afterbegin", searchFormTemp(m));
     const searchForm = document.getElementById("main-navigation");
     if (document.body.className === "is-mobile") {
@@ -180,11 +179,11 @@ async function search(form, mainList, main, fetchVacancyList, router) {
   data.experience_month.forEach((item, idx, arr) => {
     arr[idx] = parseInt(item);
   });
-  data.spheres = [];
+  data.sphere = [];
   formData.getAll("sphere").forEach((item) => {
     let tmp = spheres.indexOf(item);
     if (tmp !== -1) {
-      data.spheres.push(tmp);
+      data.sphere.push(tmp);
     }
   });
 

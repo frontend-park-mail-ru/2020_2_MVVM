@@ -281,7 +281,7 @@
                             <div class="data-block">
                                 <label class="sum-form-labels" for="sphere">Сфера деятельности</label>
                                 <select class="sum-select" name="sphere" id="sphere">
-                                    <fest:each iterate="user.all_spheres" index="i" value="v">
+                                    <fest:each iterate="user.all_sphere" index="i" value="v">
                                         <fest:if test="i == user.user_sphere">
                                             <option value="{i}" selected="true">
                                                 <fest:value>v</fest:value>

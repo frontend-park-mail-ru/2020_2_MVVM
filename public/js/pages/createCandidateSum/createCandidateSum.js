@@ -19,7 +19,7 @@ export default class CreateResume {
     this.user = await this.userInfo();
     this.content = {
       user : this.user.user,
-      spheres : spheres,
+      sphere : spheres,
     }
 
     // openMenuList(app, false);

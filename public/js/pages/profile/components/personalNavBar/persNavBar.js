@@ -89,7 +89,6 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
     linksToResume[i].addEventListener("click", (event) => {
       event.preventDefault();
       if (isCand) {
-        console.log(list[i]);
         profile.router.change(`/resume?id=${list[i].resume_id}`);
       } else {
         profile.router.change(`/vacancy?vac_id=${list[i].vac_id}&comp_id=${list[i].comp_id}`);
@@ -105,8 +104,6 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
     linksToUpdateResume[i].addEventListener("click", (event) => {
       event.preventDefault();
       if (isCand) {
-        //TODO
-        console.log(list[i]);
         profile.router.change(`/updateResume?id=${list[i].resume_id}`, list[i]);
       }
     });
@@ -133,7 +130,6 @@ function personalLikes(profile, mainColumnLeft) {
     for (let i = 0; i < linksToFavResume.length; i++) {
       linksToFavResume[i].addEventListener("click", (event) => {
         event.preventDefault();
-        console.log(profile.favorites[i]);
         profile.router.change(`/resume?id=${profile.favorites[i].resume_id}`);
       });
     }

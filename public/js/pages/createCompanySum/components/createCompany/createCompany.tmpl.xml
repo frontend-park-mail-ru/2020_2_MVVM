@@ -1,4 +1,4 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="spheres">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="sphere">
     <div class="container">
         <div class="page-name">Создание организации</div>
         <div class="sum-form-wrap">
@@ -39,7 +39,7 @@
                                         </select>
                                     </div>
                                     <div id="checkboxes">
-                                        <fest:for iterate="spheres" index="i" value="v">
+                                        <fest:for iterate="sphere" index="i" value="v">
                                             <label for="{i}">
                                                 <input type="checkbox" id="{i}"/>
                                                 <fest:value>v</fest:value>

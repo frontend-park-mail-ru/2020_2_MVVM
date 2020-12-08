@@ -20,7 +20,7 @@ export default class CreateVacancy {
       user: (await this.userInfo()).user,
       company: null,
       comp_logo: null,
-      spheres: spheres,
+      sphere: spheres,
     };
     await this.loadCompany().then((data) => {
       if (data && data.company) {

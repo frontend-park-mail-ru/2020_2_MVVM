@@ -13,6 +13,7 @@ const clickHeaderLogoEvent = (NavBar, header) => {
     header.remove();
     NavBar.loadPhoneNavBarSmall();
     document.body.classList.remove("hide-scroll");
+    openNotifications(NavBar);
     changeNavBarPos(window.location.pathname);
     burgerOpen(NavBar);
   });

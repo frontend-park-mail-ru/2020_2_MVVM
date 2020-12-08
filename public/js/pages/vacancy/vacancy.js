@@ -21,7 +21,6 @@ const app = window.document.getElementById("main");
 
 async function vacancyInfo() {
   const windLocationSearch = window.location.search
-  console.log(window.location.search.split('comp_id=')[1]);
   const allInfo = [
     new Promise((resolve) =>
       network.doGet(vacancyByIdURL + `${windLocationSearch.split('vac_id=')[1].split('&')[0]}`).then(resolve)
@@ -53,7 +52,6 @@ export default class Vacancy {
     app.innerHTML = "";
 
     const allInfo = await vacancyInfo();
-    console.log(allInfo);
 
     const main = createElem("div", "main", app);
     const mainContent = createElem("div", "main-content", main);

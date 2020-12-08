@@ -18,9 +18,9 @@
                         </p>
                         <br/>
                         <div class="rectangle">
-                            <fest:for iterate="content.company.spheres" index="i">
+                            <fest:for iterate="content.company.sphere" index="i">
                                 <p class="rectangle__block">
-                                    <fest:value>content.spheres[content.company.spheres[i]]</fest:value>
+                                    <fest:value>content.sphere[content.company.sphere[i]]</fest:value>
                                 </p>
                             </fest:for>
                         </div>
@@ -78,7 +78,7 @@
                             <div class="data-block">
                                 <label class="sum-form-labels" for="sphere">Сфера деятельности</label>
                                 <select class="sum-select" name="sphere" id="sphere">
-                                    <fest:each iterate="content.spheres" index="i" value="v">
+                                    <fest:each iterate="content.sphere" index="i" value="v">
                                         <option value="{i}">
                                             <fest:value>v</fest:value>
                                         </option>

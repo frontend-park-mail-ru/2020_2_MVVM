@@ -16,7 +16,7 @@ export default class CreateCompanyCtrl {
       }
       json.name = formData.get("name");
       json.description = formData.get("description");
-      json.spheres = cbArr;
+      json.sphere = cbArr;
       json.link = formData.get("link");
       json.area_search = formData.get("area_search");
 
@@ -27,7 +27,6 @@ export default class CreateCompanyCtrl {
       if (response.status >= 200 && response.status < 300) {
         localStorage.setItem("has_company", "true");
         console.assert(response.ok);
-        console.log(content.company);
         this.router.change(`/company?id=${content.company.id}`);
       } else {
         const errorField = document.getElementsByClassName("error");
