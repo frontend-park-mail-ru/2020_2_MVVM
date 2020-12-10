@@ -152,7 +152,6 @@ export default class EmployersList {
     }
 
     const mainList = createElem("div", "main-list", mainRow);
-
     let dataJson;
     if (data === undefined) {
       dataJson = await this.fetchVacancyList((currPage - 1) * pageLimit, pageLimit);
@@ -161,7 +160,6 @@ export default class EmployersList {
     }
     mainRow.insertAdjacentHTML("beforeend", paginationTemp());
     await getVacanciesList(dataJson, main, mainList, this.router);
-
     pagi(mainList, main, this.fetchVacancyList, this.router);
     // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
     afterRender(mainList, main, this.fetchVacancyList, this.router);
@@ -178,6 +176,7 @@ function afterRender(mainList, main, fetchVacancyList, router) {
 }
 
 function pagi(form, mainList, main, fetchVacancyList, router) {
+  console.log("6");
   let prev = document.getElementsByClassName("main__left")[0];
   let next = document.getElementsByClassName("main__right")[0];
   next.addEventListener("click", (event) => {
@@ -188,7 +187,7 @@ function pagi(form, mainList, main, fetchVacancyList, router) {
     // getVacPagi(form, mainList, main, fetchVacancyList, router);
   });
   prev.addEventListener("click", (event) => {
-    if (prev > 1) {
+    if (currPage > 1) {
       event.preventDefault();
       // event.preventDefault();
       // currPage--;
