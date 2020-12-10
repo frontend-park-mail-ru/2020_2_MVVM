@@ -2,7 +2,9 @@
 
 .company-page {
     width: 100%;
+    min-height: 100%;
     padding: 5rem 20rem 0;
+    background: var(--background-grey-color);
 
     @include mobile {
         padding: 5rem 1rem;
@@ -21,7 +23,7 @@
 .container-left {
     min-width: 25rem;
     max-width: 50rem;
-    background: var(--background-grey-color);
+    background: white;
     height: min-content;
     border-radius: $border-radius_input;
     margin: 0 2rem 5rem;
@@ -36,13 +38,13 @@
 .container-left-top {
     width: fit-content;
     margin: 0 auto 1rem;
-
+    &__logo {
+        width: 25rem;
+        height: 25rem;
+        border-radius: 50rem;
+    }
 }
 
-.container-left-top__logo {
-    width: 25rem;
-    height: 25rem;
-}
 
 .container-contacts {
     margin-bottom: 2rem;

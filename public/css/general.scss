@@ -537,3 +537,13 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 }
+
+.sum-input-photo {
+    padding: 1.5rem;
+    width: 100%;
+    &_profile {
+        @include mobile {
+            padding: 2.5rem;
+        }
+    }
+}

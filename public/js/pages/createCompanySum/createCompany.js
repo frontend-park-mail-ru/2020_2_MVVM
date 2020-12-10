@@ -11,13 +11,18 @@ export default class CreateCompany {
     this.onsubmit = onsubmit;
   }
 
-  render(content) {
+  render() {
     app.innerHTML = "";
 
-    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     main.insertAdjacentHTML("afterbegin", createCompanyTemp(spheres));
+
+    const inputAvatar = document.getElementById('sum-img-load');
+    inputAvatar.addEventListener("change", async () => {
+      const photoBlock = document.getElementById('avatar');
+      photoBlock.style.background = `no-repeat 0 0/cover url(${window.URL.createObjectURL(inputAvatar.files[0])})`;
+    });
 
     const form = main.querySelector("form");
     form.addEventListener("submit", (event) => {

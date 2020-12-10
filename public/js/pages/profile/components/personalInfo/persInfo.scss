@@ -18,7 +18,7 @@
     padding: 0 2rem;
     height: 6rem;
     align-items: center;
-    background-color: var(--background-grey-color);
+    background-color: white;
     align-content: center;
     min-width: min-content;
     font-size: $font-size_h4;
@@ -41,7 +41,7 @@
     }
 
     &__input-field {
-        min-width: 20rem;
+        //min-width: 20rem;
         @include mobile {
             grid-area: b;
             height: 10rem;
@@ -50,6 +50,7 @@
     }
 
     &__input {
+        border: 1px solid var(--main-pink-color);
         height: 4rem;
         min-width: 20rem;
         font-size: $font-size_h4;
@@ -75,5 +76,14 @@
     font-size: $font-size_h5;
     @include mobile {
         font-size: $font-size_h3_m;
+    }
+}
+
+
+.profile-page {
+    display: flex;
+    justify-self: center;
+    @include mobile {
+        display: block;
     }
 }
