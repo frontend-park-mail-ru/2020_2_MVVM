@@ -1,0 +1,36 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <div id="categoryGrid" class="category-grid">
+        <fest:for from="0" to="items.countRows" index="i">
+            <fest:if test="i>1">
+                <div class="category-sec hide">
+                    <fest:for iterate="items.category[i]" value="v" index="j">
+                        <div class="category-sec-row">
+                            <i class="category-sec-row__svg fa fa-bullhorn fa-4x"/>
+                            <br></br>
+                            <span class="category-sec-row__sphere">
+                                <fest:value>v.name</fest:value>
+                            </span>
+                            <p class="category-sec-row__count">(<fest:value>v.count</fest:value><fest:space/> вакансии)
+                            </p>
+                        </div>
+                    </fest:for>
+                </div>
+            </fest:if>
+            <fest:if test="i<=1">
+                <div class="category-sec">
+                <fest:for iterate="items.category[i]" value="v" index="j">
+                    <div class="category-sec-row">
+                        <i class="category-sec-row__svg fa fa-bullhorn fa-4x"/>
+                        <br></br>
+                        <span class="category-sec-row__sphere">
+                            <fest:value>v.name</fest:value>
+                        </span>
+                        <p class="category-sec-row__count">(<fest:value>v.count</fest:value><fest:space/> вакансии)
+                        </p>
+                    </div>
+                </fest:for>
+            </div>
+            </fest:if>
+        </fest:for>
+    </div>
+</fest:template>

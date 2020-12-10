@@ -140,7 +140,7 @@
                                 <textarea name="duties" class="sum-user-info-textarea" id="duties" type="text"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
-                            <label class="sum-form-labels" for="salary">Зарплата</label>
+                            <label class="sum-form-labels" for="salary">Зарплата (в тыс. руб.)</label>
                             <div style="display:flex;">
                                 <input name="salary_min" placeholder="min" class="sum-user-info" id="salary_min"
                                        type="text" value=""/>

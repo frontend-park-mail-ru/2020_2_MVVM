@@ -33,7 +33,7 @@ export default class CreateResume {
       createCandidateSumTemp(this.content),
     );
     const photoBlock = document.getElementById('avatar');
-    const userPhoto = this.user.avatar ? this.user.avatar : defaultRes;
+    const userPhoto = this.user.user.avatar ? this.user.user.avatar : defaultRes;
     const inputAvatar = document.getElementById('sum-img-load');
     photoBlock.style.background = `no-repeat 0 0/cover url(${userPhoto})`;
     inputAvatar.addEventListener("change", async () => {
@@ -43,15 +43,15 @@ export default class CreateResume {
     const form = main.querySelector("form");
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      afterRenderResume(this.onsubmit, form, this.jobsArr);
+      afterRenderResume(this.onsubmit, form, this.jobsArr, this.user.user.avatar);
     });
 
     popUp(this);
   }
 }
 
-export function afterRenderResume(submitF, form, jobsArray) {
-  checkFrom(submitF, form, jobsArray);
+export function afterRenderResume(submitF, form, jobsArray, avatar) {
+  checkFrom(submitF, form, jobsArray, avatar);
 }
 
 async function popUp(classCand) {

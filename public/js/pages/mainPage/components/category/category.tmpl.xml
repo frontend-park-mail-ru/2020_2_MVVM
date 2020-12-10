@@ -2,36 +2,9 @@
     <div class="category">
         <h3 class="category__header">Популярные категории</h3>
         <p class="category__label">37 активных вакансий, 0 добавлено сегодня</p>
-        <div class="category-grid">
-            <div class="category-sec">
-                <fest:for from="0" to="2" index="i">
-                    <div class="category-sec-row">
-                        <i class="category-sec-row__svg fa fa-bullhorn fa-4x"/>
-                        <br></br>
-                        <span class="category-sec-row__sphere">
-                            <fest:value>items[i].name</fest:value>
-                        </span>
-                        <p class="category-sec-row__count">(<fest:value>items[i].count</fest:value> вакансии)
-                        </p>
-                    </div>
-                </fest:for>
-            </div>
-            <div class="category-sec">
-                <fest:for from="2" to="4" index="i">
-                    <div class="category-sec-row">
-                        <i class="category-sec-row__svg fa fa-bullhorn fa-4x"/>
-                        <br></br>
-                        <span class="category-sec-row__sphere">
-                            <fest:value>items[i].name</fest:value>
-                        </span>
-                        <p class="category-sec-row__count">(<fest:value>items[i].count</fest:value> вакансии)
-                        </p>
-                    </div>
-                </fest:for>
-            </div>
-        </div>
-        <div class="category__btn">
-            Показать все категории
+        <fest:include context="items" src="categoryGrid.tmpl.xml"/>
+        <div id='categoryBtn' class="category__btn">
+            Показать больше категорий
         </div>
     </div>
 </fest:template>

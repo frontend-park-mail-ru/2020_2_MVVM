@@ -113,7 +113,7 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
   }
 }
 
-export function personalInfo(profileClass, person, mainColumnLeft) {
+export function personalInfo(person, mainColumnLeft) {
   mainColumnLeft.insertAdjacentHTML("beforeend", profileTemp(person));
   if (person.user_type === "candidate") {
     const photoBlock = document.getElementById("logoProfile");

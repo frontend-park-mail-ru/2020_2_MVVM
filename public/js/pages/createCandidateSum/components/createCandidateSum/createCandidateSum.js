@@ -3,7 +3,7 @@ import {EMAIL_OK, GENDER_OK, INPUT_TEXT_OK, SALARY_OK} from "Js/libs/constants";
 
 let error = document.getElementsByClassName("error");
 
-export function checkFrom(submitF, form, jobsArr) {
+export function checkFrom(submitF, form, jobsArr, avatar) {
   let isOk = true;
 
   const title = document.getElementById("title");
@@ -88,7 +88,7 @@ export function checkFrom(submitF, form, jobsArr) {
 
 
   if (isOk) {
-    submitF(form, jobsArr);
+    submitF(form, jobsArr, avatar);
   }
 
   const arr = [

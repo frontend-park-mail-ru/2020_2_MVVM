@@ -18,15 +18,21 @@ export default class CreateResumeCtrl {
       }
     };
 
-    this.page = new CreateResume(loadUser, async (form, jobsArr) => {
+    this.page = new CreateResume(loadUser, async (form, jobsArr, avatar) => {
       const formData = new FormData(form);
       const json = {};
 
-      const resumeLogo = formData.get("sum__avatar");
-      json.avatar = "";
-      if (resumeLogo !== "") {
-        json.avatar = await getBase64(resumeLogo);
+      console.log(avatar);
+
+      if (avatar) {
+        json.avatar = avatar;
+      } else {
+        const resumeLogo = formData.get("sum__avatar");
+        if (resumeLogo !== "") {
+          json.avatar = await getBase64(resumeLogo);
+        }
       }
+
 
       json.cand_name = formData.get('name');
       json.cand_surname = formData.get('surname');
@@ -62,17 +68,19 @@ export default class CreateResumeCtrl {
 
       json.custom_experience = jobsArr;
 
-      const response = await network.doPost(addResumeURL, json);
-      const content = await response.json();
-      console.assert(response.ok);
+      console.log(json.avatar);
 
-      if (response.status >= 200 && response.status < 300) {
-        this.router.change(`/resume?id=${content.resume.id}`);
-      } else {
-        const errorField = document.getElementsByClassName("error");
-        const errLen = errorField.length;
-        errorField[errLen - 1].innerHTML = `${content.error}`;
-      }
+      // const response = await network.doPost(addResumeURL, json);
+      // const content = await response.json();
+      // console.assert(response.ok);
+
+      // if (response.status >= 200 && response.status < 300) {
+      //   this.router.change(`/resume?id=${content.resume.id}`);
+      // } else {
+      //   const errorField = document.getElementsByClassName("error");
+      //   const errLen = errorField.length;
+      //   errorField[errLen - 1].innerHTML = `${content.error}`;
+      // }
     });
   }
 }

@@ -41,7 +41,7 @@
     }
 
     &__input-field {
-        //min-width: 20rem;
+        min-width: 20rem;
         @include mobile {
             grid-area: b;
             height: 10rem;

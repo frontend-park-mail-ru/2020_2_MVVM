@@ -81,7 +81,7 @@ export default class Profile {
 
     //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q
 
-    await personalInfo(this, person, body);
+    await personalInfo(person, body);
     await checkoutProfilePage(this, localStorage.getItem('user_type'), body, person);
     updateProfileFields(person);
   }
