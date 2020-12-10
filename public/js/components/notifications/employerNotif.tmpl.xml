@@ -1,0 +1,11 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+<fest:each iterate="items" index="i" value="item">
+    <div class="menu-list-block__item menu-list-block__item_note">У вас новый отклик на вакансию
+        <fest:space/>
+        <a href="#">
+            <fest:value output="text">item.vacancy_name</fest:value>
+        </a>
+        .
+    </div>
+</fest:each>
+</fest:template>

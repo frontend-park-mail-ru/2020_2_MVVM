@@ -37,6 +37,9 @@
                                     вакансию
                                 </a>
                             </div>
+                            <div class="menu-list-block" id="note-button">
+                                <a href="" class="menu-list-block__item menu-list-block__item_simple" id="note-button">Уведомления</a>
+                            </div>
                         </fest:if>
                         <fest:if test="items.has_company==false">
                             <div class="menu-list-block">
@@ -106,6 +109,9 @@
                                     <a href="/createVacancy" class="menu-list-block__item menu-list-block__item_button">+ Создать
                                         вакансию
                                     </a>
+                                </div>
+                                <div class="menu-list-block" id="note-button">
+                                    <a href="" class="menu-list-block__item menu-list-block__item_simple" id="note-button">Уведомления</a>
                                 </div>
                             </fest:if>
                             <fest:if test="items.has_company==false">
