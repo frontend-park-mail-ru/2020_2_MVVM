@@ -1,10 +1,12 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="category">
         <h3 class="category__header">Популярные категории</h3>
-        <p class="category__label">37 активных вакансий, 0 добавлено сегодня</p>
+        <p class="category__label"><fest:value>items.allVacCnt</fest:value><fest:space/>активных вакансий, <fest:space/><fest:value>items.newVacCnt</fest:value><fest:space/> добавлено сегодня</p>
         <fest:include context="items" src="categoryGrid.tmpl.xml"/>
-        <div id='categoryBtn' class="category__btn">
-            Показать больше категорий
-        </div>
+        <fest:if test="items.countRows>2">
+            <div id='categoryBtn' class="category__btn">
+                Показать больше категорий
+            </div>
+        </fest:if>
     </div>
 </fest:template>

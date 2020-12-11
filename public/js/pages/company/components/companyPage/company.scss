@@ -48,6 +48,10 @@
 
 .container-contacts {
     margin-bottom: 2rem;
+
+    &__web-site {
+        font-size: $font-size_h4;
+    }
 }
 
 .container-left-vacancies {

@@ -1,7 +1,6 @@
 import { checkFrom } from "./components/auth_form/auth.js";
 import createElem from "Js/libs/createElem";
 import authTemp from "./components/auth_form/auth.tmpl.xml";
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
 
 const app = window.document.getElementById("main");
 
@@ -12,8 +11,6 @@ export default class AuthList {
 
   render() {
     app.innerHTML = "";
-
-    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     main.insertAdjacentHTML("beforeend", authTemp());

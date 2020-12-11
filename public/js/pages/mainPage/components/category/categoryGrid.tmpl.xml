@@ -1,5 +1,10 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div id="categoryGrid" class="category-grid">
+        <fest:if test="items.countRows==0">
+            <div class="category__header">
+            К сожалению, вакансий пока нет на сайте :(
+            </div>
+        </fest:if>
         <fest:for from="0" to="items.countRows" index="i">
             <fest:if test="i>1">
                 <div class="category-sec hide">

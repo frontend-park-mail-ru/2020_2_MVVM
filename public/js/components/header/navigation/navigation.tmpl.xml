@@ -50,6 +50,11 @@
                         </div>
                     </fest:if>
                     <div class="menu-list-block">
+                        <a href="/chats"
+                           class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-messages js-chats">Диалоги
+                        </a>
+                    </div>
+                    <div class="menu-list-block">
                         <a href="/profile"
                            class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-profile js-profile">Профиль
                         </a>
@@ -119,6 +124,11 @@
                                 <a href="" class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-notif" id="note-button"></a>
                             </div>
                         </fest:if>
+                        <div class="menu-list-block">
+                            <a href="/chats"
+                               class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-messages js-chats">
+                            </a>
+                        </div>
                         <div class="menu-list-block">
                             <a href="/profile"
                                class="menu-list-block__item menu-list-block__item_simple menu-list-block__item_icon-profile js-profile">

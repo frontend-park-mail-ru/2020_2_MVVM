@@ -271,6 +271,20 @@
             white-space: nowrap;
             background: url(Img/contract.svg) no-repeat 0 0/cover;
         }
+
+        &_icon-messages:before {
+            content: "";
+            width: $font-size_h3;
+            height: $font-size_h3;
+            margin-right: 0.5rem;
+            @include mobile {
+                width: $font_size_h2_m;
+                height: $font_size_h2_m;
+            }
+            display: inline-block;
+            white-space: nowrap;
+            background: url(Img/chat.svg) no-repeat 0 0/cover;
+        }
     }
 
     @include mobile {

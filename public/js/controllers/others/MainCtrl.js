@@ -1,4 +1,4 @@
-import MainList from "../pages/mainPage/mainPage.js";
+import MainList from "../../pages/mainPage/mainPage.js";
 import {
   getTopSpheres,
   resumeSearchURL,
@@ -23,9 +23,8 @@ export default class MainCtrl {
       }
     };
 
-    const getSpheres = async (count) => {
-      const countUrl = count !== undefined ? `/${count}` : "";
-      const response = await network.doGet(`${getTopSpheres}${countUrl}`);
+    const getSpheres = async () => {
+      const response = await network.doGet(getTopSpheres);
       if (response.status >= 200 && response.status < 300) {
         return await response.json();
       }

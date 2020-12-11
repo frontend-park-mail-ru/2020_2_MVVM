@@ -81,7 +81,7 @@ export default class Validation {
    * @param maxLength
    * @return {string}
    **/
-  static validateTextField(userInput, maxLength = 512) {
+  static validateTextField(userInput, maxLength = 1024) {
     if (!this.isString(userInput)) {
       throw TypeError;
     }
