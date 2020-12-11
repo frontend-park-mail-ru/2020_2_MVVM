@@ -197,6 +197,13 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     //max-width: 20rem;
 
+    &_limit-width {
+        max-width: 42rem;
+    }
+
+    &_center {
+        text-align: center;
+    }
 
     @include mobile {
         display: block;
@@ -243,6 +250,10 @@ h1, h2, h3, h4, h5, h6 {
     &__checkbox {
         font-size: $font-size_h4;
         justify-content: start;
+
+        @include mobile {
+            font-size: $font-size_h4_m;
+        }
     }
 
     @include mobile {
