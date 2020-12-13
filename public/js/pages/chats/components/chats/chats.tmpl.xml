@@ -2,7 +2,7 @@
 <div id="chatsPage" class="chats-page">
     <div id="chatsList" class="chat-lists">
         <div class="chat-lists__search">
-            <input class="dialogues-search-input" placeholder="Поиск..."/>
+            <input class="dialogues-search-input" placeholder="Поиск по чатам и людям..."/>
         </div>
         <div class="chat-lists-all for-scroll">
             <fest:for from="0" to="15" index="i">

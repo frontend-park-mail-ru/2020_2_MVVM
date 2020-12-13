@@ -72,10 +72,10 @@
     font-size: $font-size_h4;
     border-radius: 1rem;
     border: 0.1rem solid white;
-    background: var(--border-grey-color);
+    background: var(--background-grey-color-no-alpha);
 
     @include mobile {
-        font-size: $font-size_h4_m;
+        font-size: $font-size_h3;
     }
 }
 
