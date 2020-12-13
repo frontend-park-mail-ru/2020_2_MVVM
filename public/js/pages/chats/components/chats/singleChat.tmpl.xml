@@ -1,0 +1,37 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="data">
+        <div class="top-information">
+            <fest:if test="data.is_mobile">
+                <div id="backToChats" class="dialogue-name back-to-chats">Чаты</div>
+            </fest:if>
+            <div class="dialogue-name dialogue-name_chat">rthftgrtgrt rtgertgfg rbdfgtrgergtnertn</div>
+            <fest:if test="data.is_mobile">
+                <div id="friendPhoto" class="dialogue-name dialogue-name_photo"/>
+            </fest:if>
+        </div>
+        <div id="dialogueBody" class="dialogue-body for-scroll">
+            <fest:for from="0" to="10" index="i">
+                <div class="single-message single-message_my">
+                    <div class="single-message__body">
+                        <fest:value>i</fest:value>
+                    </div>
+                    <div class="single-message__data single-message__data_my">
+                        20.15
+                    </div>
+                </div>
+                <div class="single-message">
+                    <div class="single-message__body">
+                        <fest:value>i</fest:value>
+                    </div>
+                    <div class="single-message__data">
+                        20.15
+                    </div>
+                </div>
+            </fest:for>
+        </div>
+        <div class="input-field">
+            <div class="input-field__message">
+                <input class="send-message-input" placeholder="Напишите сообщение..."/>
+            </div>
+            <div class="input-field__send-btn"></div>
+        </div>
+</fest:template>

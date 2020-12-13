@@ -1,239 +1,33 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
-<div class="chats-page">
-    <div class="chat-lists">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="data">
+<div id="chatsPage" class="chats-page">
+    <div id="chatsList" class="chat-lists">
         <div class="chat-lists__search">
             <input class="dialogues-search-input" placeholder="Поиск..."/>
         </div>
         <div class="chat-lists-all for-scroll">
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"/>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">rthfgfg rbdfgnertn</div>
-                    <div class="dialogue-last-message">
-                        <div class="initial-message">Вы: </div>
-                        <div class="message-body">Как дела ?</div>
+            <fest:for from="0" to="15" index="i">
+                <div class="chat-lists-single">
+                    <div class="chat-lists-single__photo"/>
+                    <div class="chat-lists-single__preview">
+                        <div class="single-info">
+                            <div class="single-info__name">rthftgrtgrt rtgertgfg rbdfgtrgergtnertn</div>
+                            <div class="single-info__time">10.15</div>
+                        </div>
+
+                        <div class="dialogue-last-message">
+                            <div class="initial-message">Вы: </div>
+                            <div class="message-body">Как дела ?</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"/>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">rthfgfg rbdfgnertn</div>
-                    <div class="dialogue-last-message">
-                        <div class="initial-message">Вы: </div>
-                        <div class="message-body">Как дела ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">rthfgfg rbdfgnertn</div>
-                    <div class="dialogue-last-message">
-                        <div class="initial-message">Вы: </div>
-                        <div class="message-body">Как дела ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">rthfgfg rbdfgnertn</div>
-                    <div class="dialogue-last-message">
-                        <div class="initial-message">Вы: </div>
-                        <div class="message-body">Как дела ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">rthfgfg rbdfgnertn</div>
-                    <div class="dialogue-last-message">
-                        <div class="initial-message">Вы: </div>
-                        <div class="message-body">Как дела ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">rthfgfg rbdfgnertn</div>
-                    <div class="dialogue-last-message">
-                        <div class="initial-message">Вы: </div>
-                        <div class="message-body">Как дела ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">rthfgfg rbdfgnertn</div>
-                    <div class="dialogue-last-message">
-                        <div class="initial-message">Вы: </div>
-                        <div class="message-body">Как дела ?</div>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-lists-single">
-                <div class="chat-lists-single__photo"></div>
-                <div class="chat-lists-single__preview">
-                    <div class="dialogue-name">вамваку керкерук</div>
-                    <div class="dialogue-last-message">
-                        <!--                                <div class="initial-message">You:</div>-->
-                        <div class="message-body">Что делаешь ?</div>
-                    </div>
-                </div>
-            </div>
+            </fest:for>
         </div>
     </div>
-    <div class="chat">
-        <div class="top-information">
-            <div class="dialogue-name dialogue-name_chat">УВкпамвуиу вмваикиуи</div>
-        </div>
-        <div class="dialogue-body for-scroll">
-            <div class="single-message single-message_my">1</div>
-            <div class="single-message">2</div>
-            <div class="single-message single-message_my">3</div>
-            <div class="single-message">4</div>
-            <div class="single-message single-message_my">5</div>
-            <div class="single-message">6</div>
-            <div class="single-message single-message_my">7</div>
-            <div class="single-message">8</div>
-            <div class="single-message single-message_my">9</div>
-            <div class="single-message">10</div>
-            <div class="single-message single-message_my">11</div>
-            <div class="single-message">12</div>
-            <div class="single-message single-message_my">13</div>
-            <div class="single-message">14</div>
-            <div class="single-message single-message_my">15</div>
-            <div class="single-message">16</div>
-            <div class="single-message single-message_my">17</div>
-            <div class="single-message">10</div>
-            <div class="single-message single-message_my">11</div>
-            <div class="single-message">12</div>
-            <div class="single-message single-message_my">13</div>
-            <div class="single-message">14</div>
-            <div class="single-message single-message_my">15</div>
-            <div class="single-message">16</div>
-            <div class="single-message single-message_my">17</div>
-        </div>
-        <div class="input-field">
-            <div class="input-field__message">
-                <input class="send-message-input" placeholder="Напишите сообщение..."/>
-            </div>
-            <div class="input-field__send-btn"></div>
+    <div id="defaultChat" class="dialogue-body default-chat">
+        <div class="default-chat__message">
+            Выберите диалог, чтобы начать общение
         </div>
     </div>
+    <div id="singleChat" class="chat"></div>
 </div>
 </fest:template>
