@@ -2,6 +2,8 @@
 
 import chatsTemp from "./components/chats/chats.tmpl.xml";
 import singleChatTemp from "./components/chats/singleChat.tmpl.xml"
+import myMessageTemp from "./components/chats/myMessage.tmpl.xml"
+
 
 const app = window.document.getElementById("main");
 
@@ -36,8 +38,48 @@ export default class Chats {
       singleChat.classList.add('hide');
       chatsListDesktop(list, defaultChat, singleChat);
     }
+
+
   }
 }
+
+
+const sendMessageEvent = () => {
+  const sendMessage = document.getElementById('sendMessage');
+  const dialogueBody = document.getElementById('dialogueBody');
+  sendMessage.focus();
+
+  sendMessInput(sendMessage, dialogueBody);
+  sendMessBtn(sendMessage, dialogueBody);
+}
+
+const sendMessInput = (sendMessage, dialogueBody) => {
+  sendMessage.addEventListener('keydown', (event) => {
+    if (event.code === 'Enter') {
+      sendMess(sendMessage, dialogueBody)
+    }
+  })
+}
+
+const sendMessBtn = (sendMessage, dialogueBody) => {
+  const sendMessageBtn = document.getElementById('sendMessageBtn');
+  sendMessageBtn.addEventListener('click', (event) => {
+      sendMess(sendMessage, dialogueBody)
+  })
+}
+
+const sendMess = (sendMessage, dialogueBody) => {
+  const mesBody = sendMessage.value;
+  if (mesBody) {
+    const date = new Date();
+    const mesTime = `${date.getHours()}.${date.getMinutes()}`;
+    dialogueBody.insertAdjacentHTML('beforeend', myMessageTemp({body:mesBody, time:mesTime}));
+    sendMessage.value = '';
+    scrollDown();
+    sendMessage.focus();
+  }
+}
+
 
 
 const chatsListDesktop = (list, defaultChat, singleChat) => {
@@ -49,6 +91,7 @@ const chatsListDesktop = (list, defaultChat, singleChat) => {
         singleChat.classList.remove('hide');
         singleChat.innerHTML = singleChatTemp({is_mobile:false});
         scrollDown();
+        sendMessageEvent();
       })
     })
   }
@@ -60,7 +103,6 @@ const checkoutColors = (elem) => {
   if (tmp) {
     tmp.classList.remove('selected-chat');
   }
-  console.log(elem);
   elem.classList.add('selected-chat');
 }
 
@@ -71,6 +113,7 @@ const chatsListPhone = (list, singleChat, chatsList) => {
         changeWindow(chatsList, singleChat);
         singleChat.innerHTML = singleChatTemp({is_mobile:true});
         insertPhotoScrollDown();
+        sendMessageEvent();
 
         const backToChats = document.getElementById('backToChats');
         backToChats.addEventListener('click', () => {

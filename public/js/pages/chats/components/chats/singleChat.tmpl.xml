@@ -30,8 +30,8 @@
         </div>
         <div class="input-field">
             <div class="input-field__message">
-                <input class="send-message-input" placeholder="Напишите сообщение..."/>
+                <input id="sendMessage" class="send-message-input" placeholder="Напишите сообщение..."/>
             </div>
-            <div class="input-field__send-btn"></div>
+            <div id="sendMessageBtn" class="input-field__send-btn"></div>
         </div>
 </fest:template>

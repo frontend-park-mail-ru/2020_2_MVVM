@@ -28,6 +28,7 @@
 
 .fix-height {
     height: calc(100vh - 11rem) !important;
+    background: var(--background-grey-color-no-alpha);
     @include mobile {
         height: calc(100vh - 12.5rem) !important;
     }
@@ -35,9 +36,12 @@
 
 .chats-page{
     display: flex;
+    padding: 2.5rem 0;
     height: calc(100vh - 10.6rem);
+    border: var(--background-grey-color-no-alpha);
     @include mobile {
-        height: calc(100vh - 12.5rem);
+        padding: 0;
+        height: calc(100vh - 12.2rem);
     }
 }
 
@@ -54,7 +58,8 @@
         top: 0;
         background: white;
         height: 8rem;
-        border-right: 0.1rem solid var(--border-grey-color);
+        border-right: 0.1rem solid var(--background-grey-color);
+        border-bottom: 0.1rem solid var(--background-grey-color);
 
         @include mobile {
             height: 11rem;
@@ -181,7 +186,6 @@
 }
 
 .chat {
-    background: #8a99b3;
     width: calc(100vw - 30rem);
     display: flex;
     flex-direction: column;
@@ -192,10 +196,11 @@
 .top-information {
     width: 100%;
     background: white;
-    height: 8rem;
+    height: 11rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 0.1rem solid var(--background-grey-color);
 
     @include mobile {
         height: 10rem;
@@ -251,15 +256,15 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: linear-gradient(to right, rgba(83, 100, 226, 0.55) 0%, rgba(52, 51, 117, 1) 97%, rgba(51, 49, 114, 1) 100%);
     overflow-y: scroll;
     padding: 0 1rem;
+    background: white;
 }
 
 .default-chat {
     width: calc(100vw - 30rem);
     overflow-y: hidden;
-    height: calc(100vh - 10.6rem);
+    height: calc(100vh - 15.6rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -281,13 +286,13 @@
     height: 6rem;
 
     @include mobile {
-        background: var(--background-grey-color-no-alpha);
         height: 8rem;
     }
 
     &__message {
         margin: 0 0 0 2rem;
         width: calc(100% - 10rem);
+        padding: 0.7rem 0;
 
         @include mobile {
             padding: 1rem 0;
@@ -308,6 +313,9 @@
     height: 100%;
     width: 100%;
     font-size: $font-size_h4-5;
+    background: var(--background-grey-color-no-alpha);
+    border-radius: 50rem;
+    padding: 0 2rem;
 
     @include mobile {
         border-radius: 5rem;

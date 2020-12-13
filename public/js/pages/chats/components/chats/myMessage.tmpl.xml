@@ -1,0 +1,11 @@
+
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="data">
+    <div class="single-message single-message_my">
+        <div class="single-message__body">
+            <fest:value>data.body</fest:value>
+        </div>
+        <div class="single-message__data single-message__data_my">
+            <fest:value>data.time</fest:value>
+        </div>
+    </div>
+</fest:template>
