@@ -14,6 +14,7 @@ import VacancyCtrl from "./controllers/vacancy/VacancyCtrl.js";
 import ResumeCtrl from "./controllers/resume/ResumeCtrl.js";
 import CompanyCtrl from "./controllers/company/CompanyCtrl.js";
 import UpdateResumeCtrl from "./controllers/resume/UpdateResumeCtrl.js";
+import UpdateVacancyCtrl from "./controllers/vacancy/UpdateVacancyCtrl.js";
 import LogoutCtrl from "./controllers/authRegProf/LogoutCtrl.js";
 import ChatsCtrl from "Js/controllers/others/ChatsCtrl";
 import "../styles/main.scss";
@@ -52,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resume: new ResumeCtrl(router),
     company: new CompanyCtrl(router),
     updateResume: new UpdateResumeCtrl(router),
+    updateVacancy: new UpdateVacancyCtrl(router),
     logout: new LogoutCtrl(router),
     chats: new ChatsCtrl(router),
   };
@@ -71,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   router.add("/resume", controllers.resume.page);
   router.add("/company", controllers.company.page);
   router.add("/updateResume", controllers.updateResume.page);
+  router.add("/updateVacancy", controllers.updateVacancy.page);
   router.add("/logout", controllers.logout.page);
   router.add("/chats", controllers.chats.page);
 

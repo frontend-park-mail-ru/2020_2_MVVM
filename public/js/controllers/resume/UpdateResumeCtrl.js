@@ -1,13 +1,13 @@
 import UpdateResume from '../../pages/updateResume/updateResume.js';
 import { network } from 'Js/libs/networks';
-import {addResumeURL, updateResumeURL} from 'Js/libs/constants';
+import { deleteResumeURL, deleteUserURL, updateResumeURL} from 'Js/libs/constants';
 import { getBase64 } from 'Js/components/base64FileUpload/base64Upload';
 
 export default class updateResumeCtrl {
   constructor(router) {
     this.router = router;
 
-    this.page = new UpdateResume(async (form, jobsArr) => {
+    const submitF = async (form, jobsArr) => {
       const formData = new FormData(form);
 
       const json = {};
@@ -49,6 +49,18 @@ export default class updateResumeCtrl {
         console.assert(response.ok);
         this.router.change(`/resume?id=${content.resume.id}`);
       }
-    });
+    };
+
+    const deleteResume = async (resume_id) => {
+      try {
+        const response = await network.doDelete(deleteResumeURL+`${resume_id}`);
+        console.assert(response.ok);
+        this.router.change('/profile');
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
+    this.page = new UpdateResume(router, submitF, deleteResume);
   }
 }

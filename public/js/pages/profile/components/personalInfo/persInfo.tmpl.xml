@@ -43,6 +43,6 @@
                 <div class="pers-list-row__refactor"><a href="/profile">Изменить</a></div>
             </div>
         </div>
-<!--        <div class="pers__delete-account"><a href="/profile">Удалить аккаунт</a></div>-->
+        <div id="deleteAccount" class="pers__delete-account"><a href="">Удалить аккаунт</a></div>
     </div>
 </fest:template>

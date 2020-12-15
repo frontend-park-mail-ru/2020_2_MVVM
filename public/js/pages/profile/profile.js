@@ -20,7 +20,7 @@ export default class Profile {
     updateStatusF,
     getMyResponsesF,
     getCompanyByIdF,
-
+    deleteUserF
   ) {
     this.loadResumes = loadResumesF;
     this.loadVacancies = loadVacanciesF;
@@ -30,6 +30,7 @@ export default class Profile {
     this.updateStatus = updateStatusF;
     this.getMyResponses = getMyResponsesF;
     this.getCompanyById = getCompanyByIdF;
+    this.deleteUser = deleteUserF;
     this.router = router;
   }
 
@@ -43,8 +44,6 @@ export default class Profile {
     this.user = null;
 
     const person = (await this.loadUserInfo()).user;
-
-    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     const container = createElem("div", "container", main);
@@ -79,9 +78,9 @@ export default class Profile {
       persNB(localStorage.getItem("user_type"))
     );
 
-    //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q
+    //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']
 
-    await personalInfo(person, body);
+    await personalInfo(this, person, body);
     await checkoutProfilePage(this, localStorage.getItem('user_type'), body, person);
     updateProfileFields(person);
   }

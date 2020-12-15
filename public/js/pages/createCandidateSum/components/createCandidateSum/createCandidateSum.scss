@@ -111,6 +111,7 @@
     border: $border_btn solid var(--border-grey-color);
     border-radius: $border-radius_input;
     font-size: $font-size-h4-5;
+    resize: vertical;
 
     @include mobile {
         height: 10rem;

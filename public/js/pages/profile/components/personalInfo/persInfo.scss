@@ -83,6 +83,7 @@
 .profile-page {
     display: flex;
     justify-self: center;
+    width: 100%;
     @include mobile {
         display: block;
     }

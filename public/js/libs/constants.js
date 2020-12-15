@@ -86,7 +86,7 @@ export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
 export const vacancyRecommendationsPageURL = "/v1/vacancy/recommendation?";
 export const vacancyMineURL = "/v1/vacancy/mine?";
-export const updateVacancyURL = "/v1/vacancy/";
+export const updateVacancyURL = "/v1/vacancy/update";
 export const vacancySearchURL = '/v1/vacancy/search';
 
 export const vacancyCompURL = "/v1/vacancy/comp?";
@@ -110,6 +110,10 @@ export const myFreeResumesURL = "/v1/response/free/resumes/";
 export const myFreeVacanciesURL = "/v1/response/free/vacancies/";
 
 export const notificationsPageURL = "/v1/response/notify?";
+
+export const deleteUserURL = "/v1/users";
+export const deleteResumeURL = "/v1/resume/";
+export const deleteVacancyURL = "/v1/vacancy/";
 
 export const PAGES_WITH_ABSOLUTE = ["/", "/auth", "/reg"];
 export const PAGES_NEED_SEARCH = ['/candidatesList', '/employersList', '/companiesList'];

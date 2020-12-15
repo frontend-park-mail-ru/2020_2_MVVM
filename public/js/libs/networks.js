@@ -45,6 +45,7 @@ class Network {
     return await fetch(`${URL}${url}`, {
       credentials: "include",
       method: "DELETE",
+      mode: "cors",
     });
   }
 }

@@ -7,7 +7,7 @@ import {
   meUserURL,
   updateRespStatusURL,
   getMyRespURL,
-  companyByIdURL,
+  companyByIdURL, deleteUserURL,
 } from "Js/libs/constants";
 import { network } from "Js/libs/networks";
 
@@ -108,6 +108,16 @@ export default class ProfileCtrl {
       }
     };
 
+    const deleteUser = async () => {
+      try {
+        const response = await network.doDelete(deleteUserURL);
+        console.assert(response.ok);
+        this.router.change('/logout');
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
     this.page = new Profile(
         router,
         loadResumes,
@@ -117,7 +127,8 @@ export default class ProfileCtrl {
         loadUser,
         updateStatus,
         getMyResponses,
-        getCompanyById
+        getCompanyById,
+        deleteUser
       );
     }
 }

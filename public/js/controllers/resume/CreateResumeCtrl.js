@@ -22,9 +22,11 @@ export default class CreateResumeCtrl {
       const formData = new FormData(form);
       const json = {};
 
-      console.log(avatar);
+      // console.log(avatar);
+      const resumeLogo = formData.get("sum__avatar");
+      // console.log(resumeLogo.size);
 
-      if (avatar) {
+      if (!resumeLogo.size) {
         json.avatar = avatar;
       } else {
         const resumeLogo = formData.get("sum__avatar");
@@ -68,19 +70,18 @@ export default class CreateResumeCtrl {
 
       json.custom_experience = jobsArr;
 
-      console.log(json.avatar);
 
-      // const response = await network.doPost(addResumeURL, json);
-      // const content = await response.json();
-      // console.assert(response.ok);
+      const response = await network.doPost(addResumeURL, json);
+      const content = await response.json();
+      console.assert(response.ok);
 
-      // if (response.status >= 200 && response.status < 300) {
-      //   this.router.change(`/resume?id=${content.resume.id}`);
-      // } else {
-      //   const errorField = document.getElementsByClassName("error");
-      //   const errLen = errorField.length;
-      //   errorField[errLen - 1].innerHTML = `${content.error}`;
-      // }
+      if (response.status >= 200 && response.status < 300) {
+        this.router.change(`/resume?id=${content.resume.id}`);
+      } else {
+        const errorField = document.getElementsByClassName("error");
+        const errLen = errorField.length;
+        errorField[errLen - 1].innerHTML = `${content.error}`;
+      }
     });
   }
 }

@@ -326,6 +326,7 @@
                     </div>
                     <input type="hidden" name="resume_id" value="{user.resume_id}"/>
                     <button id="send-form-cand" class="btn-pink" type="submit">Сохранить</button>
+                    <div id="deleteResume" class="delete-link">Удалить резюме</div>
                 </div>
             </form>
         </div>

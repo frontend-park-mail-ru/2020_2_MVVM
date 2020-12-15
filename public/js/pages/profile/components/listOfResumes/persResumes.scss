@@ -6,6 +6,7 @@
     grid-row-gap: 0.1rem;
     align-self: center;
     margin-left: auto;
+    max-width: 18rem;
 }
 
 .main__buttons_one {
@@ -14,7 +15,8 @@
     border-radius: $border-radius_btn;
     cursor: pointer;
     text-align: center;
-    font-size: $font-size_h4_m;
+    font-size: $font-size_h4;
+    width: 18rem;
 }
 
 .main__buttons_two {
@@ -23,7 +25,8 @@
     border-radius: $border-radius_btn;
     cursor: pointer;
     text-align: center;
-    font-size: $font-size_h4_m;
+    font-size: $font-size_h4;
+    width: 18rem;
 }
 
 .main__buttons_two:hover {

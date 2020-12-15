@@ -17,7 +17,7 @@ function doCheckout(profile, content, body, person, navBar, idx) {
   switch (idx) {
     case 0:
       {
-        personalInfo(person, body);
+        personalInfo(profile, person, body);
         updateProfileFields();
       }
       break;
@@ -113,8 +113,12 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
   }
 }
 
-export function personalInfo(person, mainColumnLeft) {
+export function personalInfo(profileClass, person, mainColumnLeft) {
   mainColumnLeft.insertAdjacentHTML("beforeend", profileTemp(person));
+  const deleteAccount = document.getElementById('deleteAccount');
+  deleteAccount.addEventListener('click', () => {
+    profileClass.deleteUser();
+  })
   if (person.user_type === "candidate") {
     const photoBlock = document.getElementById("logoProfile");
     const photo = person.avatar ? person.avatar : defaultRes;
