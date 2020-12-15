@@ -571,6 +571,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: right;
     margin-bottom: 5rem;
     cursor: pointer;
+    font-size: $font-size_h4;
     &:hover {
         color: var(--buttons-purple-color);
     }

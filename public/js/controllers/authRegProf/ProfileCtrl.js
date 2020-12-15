@@ -10,6 +10,7 @@ import {
   companyByIdURL, deleteUserURL,
 } from "Js/libs/constants";
 import { network } from "Js/libs/networks";
+import {stopPolling} from "Js/libs/polling";
 
 export default class ProfileCtrl {
   constructor(router) {
@@ -112,7 +113,10 @@ export default class ProfileCtrl {
       try {
         const response = await network.doDelete(deleteUserURL);
         console.assert(response.ok);
-        this.router.change('/logout');
+        localStorage.setItem("user_type", "");
+        stopPolling();
+        localStorage.setItem("has_company", "false");
+        this.router.change('/');
       } catch (err) {
         console.assert(err);
       }

@@ -45,6 +45,6 @@ export default class CreateVacancy {
   }
 }
 
-function afterRenderVacancy(submitF, form) {
+export function afterRenderVacancy(submitF, form) {
   checkFrom(submitF, form);
 }

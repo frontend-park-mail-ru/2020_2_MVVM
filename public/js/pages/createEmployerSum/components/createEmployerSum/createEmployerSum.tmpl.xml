@@ -67,15 +67,6 @@
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <div class="data-block">
-                                <label class="sum-form-labels" for="gender">Требуемый пол
-                                </label>
-                                <select class="sum-select" name="gender">
-                                    <option value="all" selected="true">Любой</option>
-                                    <option value="male">Мужской</option>
-                                    <option value="female">Женский</option>
-                                </select>
-                            </div>
-                            <div class="data-block">
                                 <label class="sum-form-labels" for="sphere">Сфера деятельности</label>
                                 <select class="sum-select" name="sphere" id="sphere">
                                     <fest:each iterate="content.sphere" index="i" value="v">

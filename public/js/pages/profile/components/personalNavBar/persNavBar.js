@@ -108,6 +108,8 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
       event.preventDefault();
       if (isCand) {
         profile.router.change(`/updateResume?id=${list[i].resume_id}`, list[i]);
+      } else {
+        profile.router.change(`/updateVacancy?vac_id=${list[i].vac_id}`, list[i]);
       }
     });
   }
@@ -195,8 +197,8 @@ async function acceptReject(profile, myResponses) {
       profile
         .updateStatus(myResponses[idx].response_id, "accepted")
         .then(() => {
-          acceptBtn[i].remove();
-          rejectBtn[i].remove();
+          acceptBtn[i].classList.add('hide');
+          rejectBtn[i].classList.add('hide');
           respStatus[idx].innerHTML = "Приглашение";
           respStatus[idx].style.color = "var(--accept-green)";
           respStatus[idx].style.fontSize = "20px";
@@ -207,8 +209,8 @@ async function acceptReject(profile, myResponses) {
       const arrMatch = /.*?(\d+)$/.exec(elem.id);
       const idx = Number(arrMatch[1]);
       profile.updateStatus(myResponses[idx].response_id, "refusal").then(() => {
-        acceptBtn[i].remove();
-        rejectBtn[i].remove();
+        acceptBtn[i].classList.add('hide');
+        rejectBtn[i].classList.add('hide');
         respStatus[idx].innerHTML = "Отказ";
         respStatus[idx].style.color = "var(--reject-red)";
         respStatus[idx].style.fontSize = "20px";

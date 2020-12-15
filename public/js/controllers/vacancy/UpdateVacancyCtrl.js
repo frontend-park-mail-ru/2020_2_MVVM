@@ -1,7 +1,6 @@
-import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 import {network} from "Js/libs/networks";
-import {addVacancyURL, deleteResumeURL, deleteVacancyURL, updateResumeURL, updateVacancyURL} from "Js/libs/constants";
-import UpdateResume from "Js/pages/updateResume/updateResume";
+import {addVacancyURL, deleteVacancyURL, vacancyByIdURL} from "Js/libs/constants";
+import UpdateVacancy from "Js/pages/updateVacancy/updateVacancy";
 
 
 export default class updateVacancyCtrl {
@@ -12,10 +11,6 @@ export default class updateVacancyCtrl {
       const formData = new FormData(form);
       let json = {};
 
-      json.gender = formData.get("gender");
-      if (json.gender === "all") {
-        json.gender = null;
-      }
       json.title = formData.get("name");
       json.description = formData.get("description");
       json.salary_min = parseInt(formData.get("salary_min").toString());
@@ -57,6 +52,19 @@ export default class updateVacancyCtrl {
       }
     }
 
-    this.page = new UpdateResume(router, submitF, deleteVacancy);
+    const loadVacancyInfo = async (vacancy_id) => {
+      try {
+        const response = await network.doGet(vacancyByIdURL+`${vacancy_id}`);
+        const data = await response.json();
+        console.assert(response.ok);
+        if (data) {
+          return data.vacancy;
+        }
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
+    this.page = new UpdateVacancy(router, submitF, deleteVacancy, loadVacancyInfo);
   }
 }

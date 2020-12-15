@@ -31,10 +31,6 @@ export default class CreateResumeCtrl {
       const formData = new FormData(form);
       let json = {};
 
-      json.gender = formData.get("gender");
-      if (json.gender === "all") {
-        json.gender = null;
-      }
       json.title = formData.get("name");
       json.description = formData.get("description");
       json.salary_min = parseInt(formData.get("salary_min").toString());

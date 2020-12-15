@@ -17,17 +17,6 @@
             </div>
             <div class="job-overview-li">
                 <div class="inline-icon">
-                    <div class="fa fa-mars-double fa-lg inline-icon__svg"></div>
-                    <div class="inline-icon-desc">
-                        <div class="inline-icon-desc__title" >Пол</div>
-                        <div class="inline-icon-desc__body">
-                            <fest:value>items.gender</fest:value>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="job-overview-li">
-                <div class="inline-icon">
                     <div class="fa fa-thumbtack fa-lg inline-icon__svg"></div>
                     <div class="inline-icon-desc">
                         <div class="inline-icon-desc__title">Уровень</div>

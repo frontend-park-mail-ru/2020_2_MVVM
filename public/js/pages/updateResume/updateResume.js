@@ -35,7 +35,6 @@ async function getAllInfo(updClass) {
     description: resumeInfo.description,
     salary_min: resumeInfo.salary_min,
     salary_max: resumeInfo.salary_max,
-    gender: resumeInfo.gender,
     place: resumeInfo.place,
     career_level: resumeInfo.career_level,
     experience_month: resumeInfo.experience_month,

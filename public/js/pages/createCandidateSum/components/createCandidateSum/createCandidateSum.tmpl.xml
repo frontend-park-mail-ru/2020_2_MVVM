@@ -43,21 +43,6 @@
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <div class="data-block">
-                                <label class="sum-form-labels">Пол</label>
-                                <label class="sum-form-switch" for="male">
-                                    <input class="sum-form-switch__input" id="male" type="radio" name="gender" value="male"/>
-                                    <div class="sum-form-switch__control sum-form-switch__control_male"/>
-                                </label>
-                                <label class="sum-form-switch" for="female">
-                                    <input class="sum-form-switch__input" id="female" type="radio" name="gender" value="female"/>
-                                    <div class="sum-form-switch__control sum-form-switch__control_female"/>
-                                </label>
-                                <br/>
-                                <br/>
-                                <span class="error" aria-live="polite"/>
-                                <br/>
-                            </div>
-                            <div class="data-block">
                                 <label class="sum-form-labels" for="email">E-mail</label>
                                 <input class="sum-user-info" id="email" name="email" type="email" value="{content.user.email}"/>
                                 <span class="error" aria-live="polite"/>

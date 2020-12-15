@@ -28,9 +28,7 @@ export default class updateResumeCtrl {
       json.salary_min = parseInt(formData.get('salary_min'));
       json.salary_max = parseInt(formData.get('salary_max'));
       json.sphere = Number(formData.get("sphere"));
-      if (formData.get('gender') !== '') {
-        json.gender = formData.get('gender');
-      }
+
       json.place = formData.get('place');
       json.career_level = formData.get('career_level');
       json.experience_month = parseInt(formData.get('experience_month'));

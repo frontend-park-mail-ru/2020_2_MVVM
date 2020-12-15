@@ -44,9 +44,6 @@ export default class CreateResumeCtrl {
       json.sphere = Number(formData.get("sphere"));
       json.salary_min = parseInt(formData.get("salary_min"));
       json.salary_max = parseInt(formData.get("salary_max"));
-      if (formData.get("gender") !== "") {
-        json.gender = formData.get("gender");
-      }
       json.place = formData.get("place");
       json.career_level = formData.get("career_level");
       json.experience_month = parseInt(formData.get("experience_month"));

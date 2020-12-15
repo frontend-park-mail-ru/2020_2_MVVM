@@ -45,49 +45,6 @@
                                 <input class="sum-user-info" id="name" name="name" type="text" value="{user.name}"/>
                                 <span class="error" aria-live="polite"/>
                             </div>
-                            <div class="sum-switch">
-                                <div>Пол</div>
-                                <fest:if test="user.gender=='male'">
-                                    <label class="sum-form-switch" for="male">
-                                        <input class="sum-form-switch__input" id="male" type="radio" name="gender"
-                                               value="male"
-                                               checked="true"/>
-                                        <div class="sum-form-switch__control sum-form-switch__control_male"/>
-                                    </label>
-                                    <label class="sum-form-switch" for="female">
-                                        <input class="sum-form-switch__input" id="female" type="radio" name="gender"
-                                               value="female"/>
-                                        <div class="sum-form-switch__control sum-form-switch__control_female"/>
-                                    </label>
-                                </fest:if>
-                                <fest:if test="user.gender=='female'">
-                                    <label class="sum-form-switch" for="male">
-                                        <input class="sum-form-switch__input" id="male" type="radio" name="gender"
-                                               value="male"/>
-                                        <div class="sum-form-switch__control sum-form-switch__control_male"/>
-                                    </label>
-                                    <label class="sum-form-switch" for="female">
-                                        <input class="sum-form-switch__input" id="female" type="radio" name="gender"
-                                               value="female" checked="true"/>
-                                        <div class="sum-form-switch__control sum-form-switch__control_female"/>
-                                    </label>
-                                </fest:if>
-                                <fest:if test="user.gender==null || user.gender==''">
-                                    <label class="sum-form-switch" for="male">
-                                        <input class="sum-form-switch__input" id="male" type="radio" name="gender"
-                                               value="male"/>
-                                        <div class="sum-form-switch__control sum-form-switch__control_male"/>
-                                    </label>
-                                    <label class="sum-form-switch" for="female">
-                                        <input class="sum-form-switch__input" id="female" type="radio" name="gender"
-                                               value="female"/>
-                                        <div class="sum-form-switch__control sum-form-switch__control_female"/>
-                                    </label>
-                                </fest:if>
-                                <br/>
-                                <br/>
-                                <br/>
-                            </div>
                             <div class="data-block">
                                 <label class="sum-form-labels" for="email">E-mail</label>
                                 <input class="sum-user-info" id="email" name="email" type="email" value="{user.email}"/>
@@ -227,14 +184,12 @@
                                         <option value="1" selected="true">меньше года</option>
                                         <option value="5">1-5 лет</option>
                                         <option value="10">5-10 лет</option>
-
                                     </fest:if>
                                     <fest:if test="user.experience_month=='5'">
                                         <option value="0">не работал</option>
                                         <option value="1">меньше года</option>
                                         <option value="5" selected="true">1-5 лет</option>
                                         <option value="10">5-10 лет</option>
-
                                     </fest:if>
                                     <fest:if test="user.experience_month=='10'">
                                         <option value="0">не работал</option>
