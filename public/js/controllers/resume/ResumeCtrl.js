@@ -1,6 +1,13 @@
 import Resume from '../../pages/resume/resume.js';
 import {network} from "Js/libs/networks";
-import {createRespURL, myFreeVacanciesURL} from "Js/libs/constants";
+import {
+  addLikeResumeURL,
+  createRespURL,
+  deleteLikeResumeURL,
+  getLikeURL,
+  myFreeVacanciesURL,
+  resumeByIdURL
+} from "Js/libs/constants";
 
 export default class ResumeCtrl {
   constructor(router) {
@@ -33,6 +40,56 @@ export default class ResumeCtrl {
       }
     };
 
-    this.page = new Resume(router, createResp, loadMyVacancies);
+    const isLiked = async (resume_id) => {
+      try {
+        const response = await network.doGet(
+          getLikeURL + `${resume_id}`
+        );
+        const data = await response.json();
+        console.assert(response.ok);
+        return data.favorite_id;
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
+    const responseResume = async (resume_id) => {
+      try {
+        const responseResume = await network.doGet(
+          `${resumeByIdURL}${resume_id}`
+        );
+        console.assert(responseResume.ok);
+       return await responseResume.json();
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
+    const addLike = async (resume_id) => {
+      try {
+        const addLikeResp = await network.doPost(
+          addLikeResumeURL + `${resume_id}`
+        );
+        console.assert(addLikeResp.ok);
+        const res = await addLikeResp.json();
+        return res.favorite_id;
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
+    const deleteLike = async (is_favorite) => {
+      try {
+        const addLikeResp = await network.doDelete(
+          deleteLikeResumeURL + `${is_favorite}`
+        );
+        console.assert(addLikeResp.ok);
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
+
+    this.page = new Resume(router, createResp, loadMyVacancies, isLiked, responseResume, addLike, deleteLike);
   }
 }

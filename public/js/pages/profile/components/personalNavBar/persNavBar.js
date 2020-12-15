@@ -76,10 +76,17 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
       });
     }
   } else {
-    mainColumnLeft.insertAdjacentHTML(
-      "beforeend",
-      emptyListTemp("Списк резюме пуст")
-    );
+    if (isCand) {
+      mainColumnLeft.insertAdjacentHTML(
+        "beforeend",
+        emptyListTemp("Списк резюме пуст")
+      );
+    } else {
+      mainColumnLeft.insertAdjacentHTML(
+        "beforeend",
+        emptyListTemp("Списк вакансий пуст")
+      );
+    }
   }
 
   const linksToResume = mainColumnLeft.getElementsByClassName(

@@ -64,10 +64,8 @@ export const logoutURL = "/v1/users/logout";
 
 export const meUserURL = "/v1/users/me";
 export const addUserURL = "/v1/users/";
-export const usersByIdURL = "/v1/users/by/id/";
 export const updateUserURL = "/v1/users/";
 
-export const emplByIdURL = "/v1/users/empl/by/id/";
 
 export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";
@@ -99,6 +97,7 @@ export const companyNamesURL = "/v1/company/names"
 export const addLikeResumeURL = "/v1/resume/favorite/by/id/";
 export const deleteLikeResumeURL = "/v1/resume/favorite/by/id/";
 export const myLikeResumeURL = "/v1/resume/myfavorites";
+export const getLikeURL = "/v1/resume/favorite/"
 
 export const createRespURL = "/v1/response/";
 export const updateRespStatusURL = "/v1/response/update";

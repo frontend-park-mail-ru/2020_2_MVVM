@@ -25,15 +25,17 @@ const nullToString = (e) => {
   return e;
 };
 
-const resumeInfo = async (resumeSource) => {
+const resumeInfo = async (resumeCLass) => {
   const resume_id = window.location.search.split("id=")[1];
+  const isLiked = await resumeCLass.isLiked(resume_id);
+  const resumeData = await resumeCLass.responseResume(resume_id);
 
-  const responseResume = await network.doGet(
-    `${resumeByIdURL}${resume_id}`
-  );
-
-  console.assert(responseResume.ok);
-  const resumeData = await responseResume.json();
+  // const responseResume = await network.doGet(
+  //   `${resumeByIdURL}${resume_id}`
+  // );
+  //
+  // console.assert(responseResume.ok);
+  // const resumeData = await responseResume.json();
 
   const dateRegBd = resumeData.resume.date_create.toString();
   let dataReg = "";
@@ -70,7 +72,7 @@ const resumeInfo = async (resumeSource) => {
       dateReg: dataReg,
       area_search: resumeInfo.area_search,
       my_user_type: localStorage.getItem("user_type"),
-      is_favorite: resumeData.is_favorite,
+      is_favorite: isLiked,
     },
     jobOverview: {
       name: resumeInfo.cand_name,
@@ -95,18 +97,21 @@ const resumeInfo = async (resumeSource) => {
 };
 
 export default class Resume {
-  constructor(router, createRespF, loadMyVacanciesF) {
+  constructor(router, createRespF, loadMyVacanciesF, isLikedF, responseResumeF, addLikeF, deleteLikeF) {
     this.router = router;
     this.createResp = createRespF;
     this.myVacancies = loadMyVacanciesF;
+    this.isLiked = isLikedF;
+    this.responseResume = responseResumeF;
+    this.addLike = addLikeF;
+    this.deleteLike = deleteLikeF;
   }
 
-  async render(resume) {
+  async render() {
     app.innerHTML = "";
 
-    // openMenuList(app, false);
 
-    const infoAll = await resumeInfo(resume);
+    const infoAll = await resumeInfo(this);
 
     const main = createElem("div", "main", app);
     const contact = createElem("div", "mainPage-contact", main);
@@ -143,7 +148,7 @@ export default class Resume {
 
     // contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
 
-    addDeleteLikes(infoAll);
+    addDeleteLikes(this, infoAll);
     if (localStorage.getItem("user_type") === "employer") {
       renderResumeResp(this, infoAll);
     }
@@ -171,41 +176,42 @@ async function renderResumeResp(resumeCls, infoAll) {
   });
 }
 
-async function addDeleteLikes(infoAll) {
+async function addDeleteLikes(resumeClass, infoAll) {
   let addLike = document.getElementById("add_to_prefer");
   let deleteLike = document.getElementById("delete_from_prefer");
   let likes = document.getElementsByClassName("cand-options-contact");
 
   if (addLike) {
     addLike.addEventListener("click", async () => {
-      const addLikeResp = await network.doPost(
-        addLikeResumeURL + `${infoAll.resume_id}`
-      );
-      console.assert(addLikeResp.ok);
-      const data = await addLikeResp.json();
-      infoAll.infoAll.is_favorite = data.favorite_id;
+      // const addLikeResp = await network.doPost(
+      //   addLikeResumeURL + `${infoAll.resume_id}`
+      // );
+      // console.assert(addLikeResp.ok);
+      // const data = await addLikeResp.json();
+      infoAll.infoAll.is_favorite = await resumeClass.addLike(infoAll.resume_id);
       likes[0].firstChild.remove();
       likes[0].insertAdjacentHTML(
         "afterbegin",
         favoritesTemp(infoAll.infoAll.is_favorite)
       );
-      addDeleteLikes(infoAll);
+      addDeleteLikes(resumeClass, infoAll);
     });
   }
 
   if (deleteLike) {
     deleteLike.addEventListener("click", async () => {
-      const addLikeResp = await network.doDelete(
-        deleteLikeResumeURL + `${infoAll.infoAll.is_favorite}`
-      );
-      console.assert(addLikeResp.ok);
+      // const addLikeResp = await network.doDelete(
+      //   deleteLikeResumeURL + `${infoAll.infoAll.is_favorite}`
+      // );
+      // console.assert(addLikeResp.ok);
+      await resumeClass.deleteLike(infoAll.infoAll.is_favorite);
       infoAll.infoAll.is_favorite = null;
       likes[0].firstChild.remove();
       likes[0].insertAdjacentHTML(
         "afterbegin",
         favoritesTemp(infoAll.infoAll.is_favorite)
       );
-      addDeleteLikes(infoAll);
+      addDeleteLikes(resumeClass, infoAll);
     });
   }
 }

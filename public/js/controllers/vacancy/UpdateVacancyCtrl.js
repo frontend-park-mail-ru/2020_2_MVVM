@@ -1,5 +1,5 @@
 import {network} from "Js/libs/networks";
-import {addVacancyURL, deleteVacancyURL, vacancyByIdURL} from "Js/libs/constants";
+import {deleteVacancyURL, updateVacancyURL, vacancyByIdURL} from "Js/libs/constants";
 import UpdateVacancy from "Js/pages/updateVacancy/updateVacancy";
 
 
@@ -28,7 +28,7 @@ export default class updateVacancyCtrl {
       json.phone = formData.get("phone");
       json.area_search = formData.get("area_search");
 
-      const response = await network.doPost(addVacancyURL, json);
+      const response = await network.doPost(updateVacancyURL, json);
       const content = await response.json();
 
       if (response.status >= 200 && response.status < 300) {
