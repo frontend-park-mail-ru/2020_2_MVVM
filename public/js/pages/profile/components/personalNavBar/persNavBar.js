@@ -1,28 +1,29 @@
-import { responsesStatus } from 'Js/libs/constants';
-import emptyListTemp from 'Js/components/emptyList/emptyList.tmpl.xml';
-import { updateProfileFields } from 'Js/pages/profile/components/personalInfo/persInfo';
-import persResumesTemp from 'Js/pages/profile/components/listOfResumes/persResumes.tmpl.xml';
-import persVacanciesTemp from 'Js/pages/profile/components/listOfVacancies/persVacancies.tmpl.xml';
-import createCompanyTemp from '../personalInfo/persInfo.tmpl.xml';
-import listOfCandidatesTemp from 'Js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.xml';
-import responsesTemp from 'Js/pages/profile/components/responses/responses.tmpl.xml';
-import createElem from 'Js/libs/createElem';
+import { responsesStatus } from "Js/libs/constants";
+import emptyListTemp from "Js/components/emptyList/emptyList.tmpl.xml";
+import {doSubmit, updateProfileFields} from "Js/pages/profile/components/personalInfo/persInfo";
+import persResumesTemp from "Js/pages/profile/components/listOfResumes/persResumes.tmpl.xml";
+import persVacanciesTemp from "Js/pages/profile/components/listOfVacancies/persVacancies.tmpl.xml";
+import profileTemp from "../personalInfo/persInfo.tmpl.xml";
+import listOfCandidatesTemp from "Js/pages/candidatesList/components/listOfCandidates/listOfCandidates.tmpl.xml";
+import responsesTemp from "Js/pages/profile/components/responses/responses.tmpl.xml";
+import createElem from "Js/libs/createElem";
 
-import defaultVac from 'Img/defaultVac.png';
-import defaultRes from 'Img/defaultRes.png';
+import defaultVac from "Img/defaultVac.png";
+import defaultRes from "Img/defaultRes.png";
+import {getBase64} from "Js/components/base64FileUpload/base64Upload";
 
 function doCheckout(profile, content, body, person, navBar, idx) {
-  body.innerHTML = '';
+  body.innerHTML = "";
   switch (idx) {
     case 0:
       {
-        personalInfo(person, body);
+        personalInfo(profile, person, body);
         updateProfileFields();
       }
       break;
     case 1:
       {
-        if (localStorage.getItem('user_type') === 'candidate') {
+        if (localStorage.getItem("user_type") === "candidate") {
           personalResOrVac(profile, true, body, profile.resumes);
         } else {
           personalResOrVac(profile, false, body, profile.vacancies);
@@ -31,7 +32,7 @@ function doCheckout(profile, content, body, person, navBar, idx) {
       break;
     case 2:
       {
-        const main__list = createElem('div', 'main__list-profile', body);
+        const main__list = createElem("div", "main__list-profile", body);
         personalLikes(profile, main__list);
       }
       break;
@@ -42,17 +43,17 @@ function doCheckout(profile, content, body, person, navBar, idx) {
 
   navBar.childNodes.forEach((item, i) => {
     if (i === idx) {
-      item.style = 'color:white; background: var(--buttons-purple-color)';
+      item.style = "color:white; background: var(--buttons-purple-color)";
     } else {
-      item.style = 'color:var(--buttons-purple-color); background: white';
+      item.style = "color:var(--buttons-purple-color); background: white";
     }
   });
 }
 
 export function checkoutProfilePage(profile, content, body, person) {
-  const profNavBar = document.getElementsByClassName('navbar-menu-list');
+  const profNavBar = document.getElementsByClassName("navbar-menu-list");
   for (let i = 0; i < profNavBar[0].childElementCount; i++) {
-    profNavBar[0].children[i].addEventListener('click', () => {
+    profNavBar[0].children[i].addEventListener("click", () => {
       doCheckout(profile, content, body, person, profNavBar[0], i);
     });
   }
@@ -91,7 +92,9 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
       if (isCand) {
         profile.router.change(`/resume?id=${list[i].resume_id}`);
       } else {
-        profile.router.change(`/vacancy?vac_id=${list[i].vac_id}&comp_id=${list[i].comp_id}`);
+        profile.router.change(
+          `/vacancy?vac_id=${list[i].vac_id}&comp_id=${list[i].comp_id}`
+        );
       }
     });
   }
@@ -105,13 +108,30 @@ export function personalResOrVac(profile, isCand, mainColumnLeft, list) {
       event.preventDefault();
       if (isCand) {
         profile.router.change(`/updateResume?id=${list[i].resume_id}`, list[i]);
+      } else {
+        profile.router.change(`/updateVacancy?vac_id=${list[i].vac_id}`, list[i]);
       }
     });
   }
 }
 
-export function personalInfo(person, mainColumnLeft) {
-  mainColumnLeft.insertAdjacentHTML("beforeend", createCompanyTemp(person));
+export function personalInfo(profileClass, person, mainColumnLeft) {
+  mainColumnLeft.insertAdjacentHTML("beforeend", profileTemp(person));
+  const deleteAccount = document.getElementById('deleteAccount');
+  deleteAccount.addEventListener('click', () => {
+    profileClass.deleteUser();
+  })
+  if (person.user_type === "candidate") {
+    const photoBlock = document.getElementById("logoProfile");
+    const photo = person.avatar ? person.avatar : defaultRes;
+    photoBlock.style.background = `no-repeat 0 0/cover url(${photo})`;
+    const inputAvatar = document.getElementById("avatar");
+    inputAvatar.addEventListener("change", async () => {
+      photoBlock.style.background = `no-repeat 0 0/cover url(${window.URL.createObjectURL(inputAvatar.files[0])})`;
+      const newAvatar = await getBase64(inputAvatar.files[0]);
+      doSubmit({avatar: newAvatar});
+    });
+  }
 }
 
 function personalLikes(profile, mainColumnLeft) {
@@ -177,8 +197,8 @@ async function acceptReject(profile, myResponses) {
       profile
         .updateStatus(myResponses[idx].response_id, "accepted")
         .then(() => {
-          acceptBtn[i].remove();
-          rejectBtn[i].remove();
+          acceptBtn[i].classList.add('hide');
+          rejectBtn[i].classList.add('hide');
           respStatus[idx].innerHTML = "Приглашение";
           respStatus[idx].style.color = "var(--accept-green)";
           respStatus[idx].style.fontSize = "20px";
@@ -189,8 +209,8 @@ async function acceptReject(profile, myResponses) {
       const arrMatch = /.*?(\d+)$/.exec(elem.id);
       const idx = Number(arrMatch[1]);
       profile.updateStatus(myResponses[idx].response_id, "refusal").then(() => {
-        acceptBtn[i].remove();
-        rejectBtn[i].remove();
+        acceptBtn[i].classList.add('hide');
+        rejectBtn[i].classList.add('hide');
         respStatus[idx].innerHTML = "Отказ";
         respStatus[idx].style.color = "var(--reject-red)";
         respStatus[idx].style.fontSize = "20px";
@@ -220,13 +240,15 @@ async function createLinks(profile, myResponses) {
     if (linkToVacancy.length) {
       linkToVacancy[idx].addEventListener("click", (event) => {
         event.preventDefault();
-        profile.router.change(`/vacancy?vac_id=${item.vacancy_id}&comp_id=${item.company_id}`);
+        profile.router.change(
+          `/vacancy?vac_id=${item.vacancy_id}&comp_id=${item.company_id}`
+        );
       });
     }
     if (linkToCompany.length) {
       linkToCompany[idx].addEventListener("click", (event) => {
         event.preventDefault();
-          profile.router.change(`/company?id=${item.company_id}`);
+        profile.router.change(`/company?id=${item.company_id}`);
       });
     }
   });

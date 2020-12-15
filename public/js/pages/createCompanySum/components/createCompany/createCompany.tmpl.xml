@@ -5,7 +5,7 @@
             <form method="post" action="#" class="sum-form">
                 <div class="sum-profile">
                     <div class="input-data-card">
-                        <div class="sum-profile__photo_company"/>
+                        <div id="avatar" class="sum-profile__photo sum-profile__photo_company"/>
                         <p class="sum-description-block">Загрузить логотип</p>
                         <div class="sum-upload-photo">
                             <div class="sum-upload-photo__btn">

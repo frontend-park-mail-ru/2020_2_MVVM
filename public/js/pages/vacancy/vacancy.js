@@ -7,7 +7,6 @@ import {
   educationLevel,
   experienceLevel,
   experienceMonth,
-  gender,
   spheres,
   vacancyByIdURL,
 } from "Js/libs/constants";
@@ -128,9 +127,6 @@ export default class Vacancy {
       name: allInfo.vacancyInfo.title,
       salary_min: allInfo.vacancyInfo.salary_min,
       salary_max: allInfo.vacancyInfo.salary_max,
-      gender: allInfo.vacancyInfo.gender
-        ? gender[allInfo.vacancyInfo.gender]
-        : "Любой",
       career_level: allInfo.vacancyInfo.career_level,
       interest: spheres[allInfo.vacancyInfo.sphere],
       experience_month: allInfo.vacancyInfo.employment,

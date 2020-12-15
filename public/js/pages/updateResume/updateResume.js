@@ -35,7 +35,6 @@ async function getAllInfo(updClass) {
     description: resumeInfo.description,
     salary_min: resumeInfo.salary_min,
     salary_max: resumeInfo.salary_max,
-    gender: resumeInfo.gender,
     place: resumeInfo.place,
     career_level: resumeInfo.career_level,
     experience_month: resumeInfo.experience_month,
@@ -78,8 +77,10 @@ async function getAllInfo(updClass) {
 }
 
 export default class UpdateResume {
-  constructor(onsubmit) {
+  constructor(router, onsubmit, deleteResumeF) {
     this.onsubmit = onsubmit;
+    this.deleteResume = deleteResumeF;
+    this.router = router;
   }
 
   async render() {
@@ -95,6 +96,11 @@ export default class UpdateResume {
     main.insertAdjacentHTML("afterbegin", updateResumeTemp(user));
     const photo = document.getElementById("sum-profile__photo");
     photo.style.background = `no-repeat 0 0/cover url(${user.imgPath})`;
+
+    const deleteResume = document.getElementById('deleteResume');
+    deleteResume.addEventListener('click', ()=>{
+      this.deleteResume(user.resume_id);
+    })
 
     const form = main.querySelector("form");
     form.addEventListener("submit", (event) => {

@@ -27,7 +27,6 @@ import {
   PNG_AVATAR_F,
   SALARY_OK,
 } from "./constants.js";
-import {GENDER_EMPTY, GENDER_OK} from "Js/libs/constants";
 
 export default class Validation {
   /**
@@ -81,7 +80,7 @@ export default class Validation {
    * @param maxLength
    * @return {string}
    **/
-  static validateTextField(userInput, maxLength = 512) {
+  static validateTextField(userInput, maxLength = 1024) {
     if (!this.isString(userInput)) {
       throw TypeError;
     }
@@ -178,10 +177,4 @@ export default class Validation {
     return DATE_OK;
   }
 
-  static validateGender(female, male) {
-    if (!female.checked && !male.checked) {
-      return GENDER_EMPTY;
-    }
-    return GENDER_OK;
-  }
 }

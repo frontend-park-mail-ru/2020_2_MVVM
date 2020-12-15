@@ -91,7 +91,7 @@ function saveData(tmpField, newValueField) {
   }
 }
 
-async function doSubmit(data) {
+export async function doSubmit(data) {
   const response = await network.doPut(updateUserURL, data);
   const res = await response.json();
   if (response.status >= 200 && response.status < 300) {

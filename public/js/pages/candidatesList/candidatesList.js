@@ -28,22 +28,6 @@ export default class CandidatesList {
     const m = [
       {
         title: {
-          name: "gender",
-          text: "Пол",
-        },
-        fields: [
-          {
-            name: "male",
-            text: "Мужской",
-          },
-          {
-            name: "female",
-            text: "Женский",
-          },
-        ],
-      },
-      {
-        title: {
           name: "education_level",
           text: "Уровень образования",
         },
@@ -211,7 +195,6 @@ async function search(form, mainList, main, router) {
 
   const formData = new FormData(form);
   let data = {};
-  data.gender = formData.getAll("gender");
   data.education_level = formData.getAll("education_level");
   data.career_level = formData.getAll("career_level");
   data.area_search = formData.getAll("area_search");

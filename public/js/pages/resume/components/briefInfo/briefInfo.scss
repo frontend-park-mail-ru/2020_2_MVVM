@@ -73,6 +73,7 @@
     cursor: pointer;
     transition: 0.15ms;
     margin-bottom: 2rem;
+    width: 35rem;
     @include mobile {
         width: 70%;
         margin: 2rem auto;

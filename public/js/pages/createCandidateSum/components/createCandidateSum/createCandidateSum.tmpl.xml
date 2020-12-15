@@ -5,7 +5,7 @@
             <form class="sum-form" method="post" action="#">
                 <div class="sum-profile">
                     <div class="input-data-card">
-                        <div class="sum-profile__photo"/>
+                        <div id="avatar" class="sum-profile__photo sum-profile__photo_resume"/>
                         <p class="sum-description-block">Загрузить логотип</p>
                         <div class="sum-upload-photo">
                             <div class="sum-upload-photo__btn">
@@ -41,21 +41,6 @@
                                 <label class="sum-form-labels" for="username">Имя</label>
                                 <input class="sum-user-info" id="name" name="name" type="text" value="{content.user.name}"/>
                                 <span class="error" aria-live="polite"/>
-                            </div>
-                            <div class="data-block">
-                                <label class="sum-form-labels">Пол</label>
-                                <label class="sum-form-switch" for="male">
-                                    <input class="sum-form-switch__input" id="male" type="radio" name="gender" value="male"/>
-                                    <div class="sum-form-switch__control sum-form-switch__control_male"/>
-                                </label>
-                                <label class="sum-form-switch" for="female">
-                                    <input class="sum-form-switch__input" id="female" type="radio" name="gender" value="female"/>
-                                    <div class="sum-form-switch__control sum-form-switch__control_female"/>
-                                </label>
-                                <br/>
-                                <br/>
-                                <span class="error" aria-live="polite"/>
-                                <br/>
                             </div>
                             <div class="data-block">
                                 <label class="sum-form-labels" for="email">E-mail</label>

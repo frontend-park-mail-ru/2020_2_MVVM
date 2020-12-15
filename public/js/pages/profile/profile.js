@@ -5,7 +5,7 @@ import {
 import { updateProfileFields } from "./components/personalInfo/persInfo.js";
 import createElem from "Js/libs/createElem";
 import persNB from "./components/personalNavBar/persNavBar.tmpl.xml";
-import openMenuList from "Js/components/header/phoneNavBar/pNavBar";
+
 
 const app = window.document.getElementById("main");
 
@@ -19,7 +19,8 @@ export default class Profile {
     loadUserF,
     updateStatusF,
     getMyResponsesF,
-    getCompanyByIdF
+    getCompanyByIdF,
+    deleteUserF
   ) {
     this.loadResumes = loadResumesF;
     this.loadVacancies = loadVacanciesF;
@@ -29,6 +30,7 @@ export default class Profile {
     this.updateStatus = updateStatusF;
     this.getMyResponses = getMyResponsesF;
     this.getCompanyById = getCompanyByIdF;
+    this.deleteUser = deleteUserF;
     this.router = router;
   }
 
@@ -42,8 +44,6 @@ export default class Profile {
     this.user = null;
 
     const person = (await this.loadUserInfo()).user;
-
-    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     const container = createElem("div", "container", main);
@@ -72,15 +72,15 @@ export default class Profile {
       });
     }
     const mainPage = createElem("div", "main-page", container);
-    const body = createElem("div", "main-page__body", mainPage);
+    const body = createElem("div", "profile-page", mainPage);
     await mainPage.insertAdjacentHTML(
       "afterbegin",
       persNB(localStorage.getItem("user_type"))
     );
 
-    //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl'](q
+    //app.insertAdjacentHTML("beforeend", window.fest['footer.tmpl']
 
-    await personalInfo(person, body);
+    await personalInfo(this, person, body);
     await checkoutProfilePage(this, localStorage.getItem('user_type'), body, person);
     updateProfileFields(person);
   }

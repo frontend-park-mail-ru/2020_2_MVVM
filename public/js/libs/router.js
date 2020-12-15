@@ -6,6 +6,7 @@ import { NavBarInit } from "Js/components/header/navBar";
 import {PAGES_NEED_SEARCH} from "Js/libs/constants";
 import {changeNavBarPos} from "Js/libs/chengeNavBarPos";
 
+const app = window.document.getElementById("main");
 
 const NavBar = new NavBarInit();
 
@@ -52,6 +53,8 @@ export default class Router {
 
         initPolling();
         removeNotifPage();
+
+        app.classList.remove('fix-height');
 
         NavBar.updateNavBar(PAGES_NEED_SEARCH.indexOf(routeName) !== -1);
 

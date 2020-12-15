@@ -18,15 +18,23 @@ export default class CreateResumeCtrl {
       }
     };
 
-    this.page = new CreateResume(loadUser, async (form, jobsArr) => {
+    this.page = new CreateResume(loadUser, async (form, jobsArr, avatar) => {
       const formData = new FormData(form);
       const json = {};
 
+      // console.log(avatar);
       const resumeLogo = formData.get("sum__avatar");
-      json.avatar = "";
-      if (resumeLogo !== "") {
-        json.avatar = await getBase64(resumeLogo);
+      // console.log(resumeLogo.size);
+
+      if (!resumeLogo.size) {
+        json.avatar = avatar;
+      } else {
+        const resumeLogo = formData.get("sum__avatar");
+        if (resumeLogo !== "") {
+          json.avatar = await getBase64(resumeLogo);
+        }
       }
+
 
       json.cand_name = formData.get('name');
       json.cand_surname = formData.get('surname');
@@ -36,9 +44,6 @@ export default class CreateResumeCtrl {
       json.sphere = Number(formData.get("sphere"));
       json.salary_min = parseInt(formData.get("salary_min"));
       json.salary_max = parseInt(formData.get("salary_max"));
-      if (formData.get("gender") !== "") {
-        json.gender = formData.get("gender");
-      }
       json.place = formData.get("place");
       json.career_level = formData.get("career_level");
       json.experience_month = parseInt(formData.get("experience_month"));
@@ -61,6 +66,7 @@ export default class CreateResumeCtrl {
       });
 
       json.custom_experience = jobsArr;
+
 
       const response = await network.doPost(addResumeURL, json);
       const content = await response.json();

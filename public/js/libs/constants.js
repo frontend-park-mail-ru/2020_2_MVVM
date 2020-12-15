@@ -7,7 +7,6 @@ export const SALARY_OK = 'корректное значение зарплаты
 export const INPUT_TEXT_OK = 'корректный текст для ввода'
 export const PHONE_OK = 'верный номер тел.'
 export const DATE_OK = 'корректная дата'
-export const GENDER_OK = 'корректный пол'
 
 export const EMAIL_EMPTY = 'Укажите email.'
 export const LOGIN_EMPTY = 'Укажите логин.'
@@ -18,7 +17,6 @@ export const INPUT_TEXT_EMPTY = 'Поле обязательно для запо
 export const DATE_EMPTY = 'Укажите дату.'
 export const DATE_START_EMPTY = "Начальная дата не введена."
 export const DATE_END_EMPTY = "Конечная дата не введена."
-export const GENDER_EMPTY = "Пол не выбран"
 
 export const INCORRECT_EMAIL = 'Email должен содержать "@" и латинские буквы, цифры, символы.';
 export const INCORRECT_LOGIN = 'Логин должен содержать 4-20 символов, а также содержать латинские символы и цифры.';
@@ -78,13 +76,15 @@ export const resumeMineURL = "/v1/resume/mine";
 export const updateResumeURL = "/v1/resume/update";
 export const resumeSearchURL = '/v1/resume/search';
 
+export const getTopSpheres = '/v1/vacancy/top';
+
 
 export const addVacancyURL = "/v1/vacancy/";
 export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
 export const vacancyRecommendationsPageURL = "/v1/vacancy/recommendation?";
 export const vacancyMineURL = "/v1/vacancy/mine?";
-export const updateVacancyURL = "/v1/vacancy/";
+export const updateVacancyURL = "/v1/vacancy/update";
 export const vacancySearchURL = '/v1/vacancy/search';
 
 export const vacancyCompURL = "/v1/vacancy/comp?";
@@ -108,6 +108,10 @@ export const myFreeResumesURL = "/v1/response/free/resumes/";
 export const myFreeVacanciesURL = "/v1/response/free/vacancies/";
 
 export const notificationsPageURL = "/v1/response/notify?";
+
+export const deleteUserURL = "/v1/users";
+export const deleteResumeURL = "/v1/resume/";
+export const deleteVacancyURL = "/v1/vacancy/";
 
 export const PAGES_WITH_ABSOLUTE = ["/", "/auth", "/reg"];
 export const PAGES_NEED_SEARCH = ['/candidatesList', '/employersList', '/companiesList'];
@@ -145,11 +149,6 @@ export const spheres = [
   "Энергетика",
 ]
 
-
-export const gender = {
-  "male": "Мужской",
-  "female": "Женский",
-}
 
 export const educationLevel = {
   "middle": "Среднее",

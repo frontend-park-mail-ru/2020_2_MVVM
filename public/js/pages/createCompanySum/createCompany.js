@@ -3,6 +3,7 @@ import { selectCheckbox } from "./components/createCompany/createCompany.js";
 import { INPUT_TEXT_OK, spheres } from "Js/libs/constants";
 import createCompanyTemp from "./components/createCompany/createCompany.tmpl.xml";
 import Validation from "Js/libs/validation";
+import defaultRes from "Img/defaultRes.png";
 
 export const app = window.document.getElementById("main");
 
@@ -11,13 +12,19 @@ export default class CreateCompany {
     this.onsubmit = onsubmit;
   }
 
-  render(content) {
+  render() {
     app.innerHTML = "";
 
-    // openMenuList(app, false);
 
     const main = createElem("div", "main", app);
     main.insertAdjacentHTML("afterbegin", createCompanyTemp(spheres));
+
+
+    const inputAvatar = document.getElementById('sum-img-load');
+    inputAvatar.addEventListener("change", async () => {
+      const photoBlock = document.getElementById('avatar');
+      photoBlock.style.background = `no-repeat 0 0/cover url(${window.URL.createObjectURL(inputAvatar.files[0])})`;
+    });
 
     const form = main.querySelector("form");
     form.addEventListener("submit", (event) => {
@@ -65,4 +72,11 @@ function checkCreateOrg(submitF, form) {
   if (isOk) {
     submitF(form, cbArr);
   }
+
+  const arr = [organizationName, description, resOrganizationName];
+  arr.forEach((item, index) => {
+    item.addEventListener("keydown", () => {
+      error[index].innerHTML = "";
+    });
+  }, false);
 }

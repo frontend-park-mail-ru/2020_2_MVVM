@@ -1,0 +1,35 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="data">
+    <div class="container">
+        <div id="chatsPage" class="chats-page">
+            <div id="chatsList" class="chat-lists">
+                <div class="chat-lists__search">
+                    <input class="dialogues-search-input" placeholder="Поиск по чатам и людям..."/>
+                </div>
+                <div class="chat-lists-all for-scroll">
+                    <fest:for from="0" to="15" index="i">
+                        <div class="chat-lists-single">
+                            <div class="chat-lists-single__photo"/>
+                            <div class="chat-lists-single__preview">
+                                <div class="single-info">
+                                    <div class="single-info__name">rthftgrtgrt rtgertgfg rbdfgtrgergtnertn</div>
+                                    <div class="single-info__time">10.15</div>
+                                </div>
+
+                                <div class="dialogue-last-message">
+                                    <div class="initial-message">Вы: </div>
+                                    <div class="message-body">Как дела ?</div>
+                                </div>
+                            </div>
+                        </div>
+                    </fest:for>
+                </div>
+            </div>
+            <div id="defaultChat" class="dialogue-body default-chat">
+                <div class="default-chat__message">
+                    Выберите диалог, чтобы начать общение
+                </div>
+            </div>
+            <div id="singleChat" class="chat"></div>
+        </div>
+    </div>
+</fest:template>

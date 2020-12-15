@@ -18,6 +18,7 @@
 .logo-employer {
     min-width: 20rem;
     min-height: 20rem;
+    border-radius: 50rem;
 
     @include mobile {
         width: 10rem;

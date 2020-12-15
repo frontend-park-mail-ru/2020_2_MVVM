@@ -54,9 +54,10 @@ export default class RegCtrl {
           this.router.change("/");
         }
       } else {
+        const formReg = document.getElementsByClassName("input-data-card");
         formReg[0].insertAdjacentHTML(
           "afterBegin",
-          `<div class="error">${userInfo.error}</div>`
+          `<div class="error error_limit-width error_center">${userInfo.error}</div>`
         );
       }
     };

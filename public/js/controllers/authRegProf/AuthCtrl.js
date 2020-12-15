@@ -44,7 +44,7 @@ export default class AuthCtrl {
         const formAuth = document.getElementsByClassName("input-data-card");
         formAuth[0].insertAdjacentHTML(
           "afterBegin",
-          `<div class="error">${res.error}</div>`
+          `<div class="error error_limit-width error_center">${res.error}</div>`
         );
       }
     };

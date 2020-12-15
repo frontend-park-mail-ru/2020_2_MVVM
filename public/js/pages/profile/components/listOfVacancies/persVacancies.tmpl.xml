@@ -13,7 +13,7 @@
                     </div>
                     <div class="main__buttons">
                         <div class="main__buttons_one">Просмотреть вакансию</div>
-                        <!--                    <div class="main__buttons_two">Изменить вакансию</div>-->
+                        <div class="main__buttons_two">Изменить вакансию</div>
                     </div>
                 </div>
             </div>

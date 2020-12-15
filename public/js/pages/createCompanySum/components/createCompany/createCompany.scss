@@ -1,3 +1,6 @@
+
+@import "public/css/vars";
+
 .multiselect {
     width: 100%;
     border: 1px solid var(--border-grey-color);
@@ -15,15 +18,11 @@
 #checkboxes {
     display: none;
     /*border: 1px #dadada solid;*/
-    padding: 15px 2px 0;
+    padding: 1.5rem 0.5rem 0;
 }
 
 #checkboxes label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
-.sum-input-photo {
-    padding: 1.5rem;
-    width: 100%;
-}

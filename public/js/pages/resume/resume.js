@@ -5,7 +5,6 @@ import {
   educationLevel,
   experienceLevel,
   experienceMonth,
-  gender,
   resumeByIdURL, spheres,
 } from "Js/libs/constants";
 import createElem from "Js/libs/createElem";
@@ -77,7 +76,6 @@ const resumeInfo = async (resumeSource) => {
       name: resumeInfo.cand_name,
       salary_min: nullToString(resumeInfo.salary_min),
       salary_max: nullToString(resumeInfo.salary_max),
-      gender: nullToString(gender[resumeInfo.gender]),
       experience_level: nullToString(
         experienceLevel[resumeInfo.education_level]
       ),

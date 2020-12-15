@@ -7,9 +7,10 @@ import {
   meUserURL,
   updateRespStatusURL,
   getMyRespURL,
-  companyByIdURL,
+  companyByIdURL, deleteUserURL,
 } from "Js/libs/constants";
 import { network } from "Js/libs/networks";
+import {stopPolling} from "Js/libs/polling";
 
 export default class ProfileCtrl {
   constructor(router) {
@@ -108,6 +109,19 @@ export default class ProfileCtrl {
       }
     };
 
+    const deleteUser = async () => {
+      try {
+        const response = await network.doDelete(deleteUserURL);
+        console.assert(response.ok);
+        localStorage.setItem("user_type", "");
+        stopPolling();
+        localStorage.setItem("has_company", "false");
+        this.router.change('/');
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
     this.page = new Profile(
         router,
         loadResumes,
@@ -117,7 +131,8 @@ export default class ProfileCtrl {
         loadUser,
         updateStatus,
         getMyResponses,
-        getCompanyById
+        getCompanyById,
+        deleteUser
       );
     }
 }

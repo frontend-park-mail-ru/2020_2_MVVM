@@ -1,33 +1,13 @@
-import CreateVacancy from "../../pages/createEmployerSum/createEmployerSum.js";
-import { addVacancyURL, companyMineURL, meUserURL } from "Js/libs/constants";
-import { network } from "Js/libs/networks";
+import {network} from "Js/libs/networks";
+import {addVacancyURL, deleteVacancyURL, vacancyByIdURL} from "Js/libs/constants";
+import UpdateVacancy from "Js/pages/updateVacancy/updateVacancy";
 
-export default class CreateResumeCtrl {
+
+export default class updateVacancyCtrl {
   constructor(router) {
     this.router = router;
-    const loadCompany = async () => {
-      try {
-        const response = await network.doGet(companyMineURL);
-        const data = await response.json();
-        console.assert(response.ok);
-        return data;
-      } catch (err) {
-        console.assert(err);
-      }
-    };
 
-    const loadUser = async () => {
-      try {
-        const response = await network.doGet(meUserURL);
-        const data = await response.json();
-        console.assert(response.ok);
-        return data;
-      } catch (err) {
-        console.assert(err);
-      }
-    };
-
-    const sendVacancy = async (form) => {
+    const submitF = async (form) => {
       const formData = new FormData(form);
       let json = {};
 
@@ -62,6 +42,29 @@ export default class CreateResumeCtrl {
       }
     };
 
-    this.page = new CreateVacancy(sendVacancy, loadCompany, loadUser, router);
+    const deleteVacancy = async (vacancy_id) => {
+      try {
+        const response = await network.doDelete(deleteVacancyURL+`${vacancy_id}`);
+        console.assert(response.ok);
+        this.router.change('/profile');
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
+    const loadVacancyInfo = async (vacancy_id) => {
+      try {
+        const response = await network.doGet(vacancyByIdURL+`${vacancy_id}`);
+        const data = await response.json();
+        console.assert(response.ok);
+        if (data) {
+          return data.vacancy;
+        }
+      } catch (err) {
+        console.assert(err);
+      }
+    }
+
+    this.page = new UpdateVacancy(router, submitF, deleteVacancy, loadVacancyInfo);
   }
 }

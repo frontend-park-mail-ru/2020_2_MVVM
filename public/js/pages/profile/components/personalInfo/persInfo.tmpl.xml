@@ -1,4 +1,19 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+    <fest:if test="items.user_type=='candidate'">
+        <div class="pers-logo">
+            <div id="logoProfile" src="" class="sum-profile__photo sum-profile__photo_profile"/>
+<!--            <img id="output" src="" width="100" height="100"/>-->
+            <p class="sum-description-block">Загрузить аватар</p>
+            <div class="sum-upload-photo">
+                <div class="sum-upload-photo__btn">
+                    <input id="avatar" class="sum-input-photo sum-input-photo_profile" name="avatar"
+                           type="file"
+                           accept=".jpg, .jpeg, .png">
+                    </input>
+                </div>
+            </div>
+        </div>
+    </fest:if>
     <div class="pers">
         <span class="error" aria-live="polite"/>
         <div class="pers-list">
@@ -28,6 +43,6 @@
                 <div class="pers-list-row__refactor"><a href="/profile">Изменить</a></div>
             </div>
         </div>
-        <div class="pers__delete-account"><a href="/profile">Удалить аккаунт</a></div>
+        <div id="deleteAccount" class="pers__delete-account"><a href="">Удалить аккаунт</a></div>
     </div>
 </fest:template>

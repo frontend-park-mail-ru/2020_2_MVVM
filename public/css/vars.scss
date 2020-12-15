@@ -40,6 +40,9 @@ $btn_padding_m: 2.5rem;
 
 $margin-title: 5rem;
 
+
+$header-height: 10rem;
+
 @mixin mobile {
     .is-mobile & {
         @content;
