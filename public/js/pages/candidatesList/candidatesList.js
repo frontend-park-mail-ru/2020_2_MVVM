@@ -159,6 +159,8 @@ export default class CandidatesList {
 async function renderResumeList(response, main, mainList, router) {
   const resume = await response.json();
 
+  window.scroll(0, 0);
+
   if (resume && resume.length) {
     mainList.insertAdjacentHTML("beforeend", listOfCandidatesTemp(resume));
     let candDomList = await document.getElementsByClassName(

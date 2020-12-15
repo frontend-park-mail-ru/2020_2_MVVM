@@ -109,7 +109,7 @@ export const myFreeVacanciesURL = "/v1/response/free/vacancies/";
 export const notificationsPageURL = "/v1/response/notify?";
 
 export const deleteUserURL = "/v1/users";
-export const deleteResumeURL = "/v1/resume/";
+export const deleteResumeURL = "/v1/resume/resume/";
 export const deleteVacancyURL = "/v1/vacancy/";
 
 export const PAGES_WITH_ABSOLUTE = ["/", "/auth", "/reg"];
