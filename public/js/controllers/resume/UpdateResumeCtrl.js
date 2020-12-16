@@ -1,6 +1,6 @@
 import UpdateResume from '../../pages/updateResume/updateResume.js';
 import { network } from 'Js/libs/networks';
-import { deleteResumeURL, deleteUserURL, updateResumeURL} from 'Js/libs/constants';
+import {addResumeURL, deleteResumeURL, deleteUserURL, updateResumeURL} from 'Js/libs/constants';
 import { getBase64 } from 'Js/components/base64FileUpload/base64Upload';
 
 export default class updateResumeCtrl {
@@ -40,7 +40,7 @@ export default class updateResumeCtrl {
 
       json.custom_experience = jobsArr;
 
-      const response = await network.doPost(updateResumeURL, json);
+      const response = await network.doPut(addResumeURL, json);
 
       if (response.status >= 200 && response.status < 300) {
         const content = await response.json();

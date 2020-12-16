@@ -71,7 +71,7 @@ export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
 export const resumeMineURL = "/v1/resume/mine";
-export const updateResumeURL = "/v1/resume/update";
+// export const updateResumeURL = "/v1/resume/update";
 export const resumeSearchURL = '/v1/resume/search';
 
 export const getTopSpheres = '/v1/vacancy/top';

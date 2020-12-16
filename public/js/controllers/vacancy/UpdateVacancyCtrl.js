@@ -27,6 +27,7 @@ export default class updateVacancyCtrl {
       json.email = formData.get("email");
       json.phone = formData.get("phone");
       json.area_search = formData.get("area_search");
+      json.vac_id = formData.get("vac_id");
 
       const response = await network.doPut(addVacancyURL, json);
       const content = await response.json();

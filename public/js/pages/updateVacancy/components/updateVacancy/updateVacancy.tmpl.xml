@@ -274,6 +274,7 @@
                             </div>
                             <span class="error" aria-live="polite"/>
                         </div>
+                        <input type="hidden" name="resume_id" value="{content.vac_id}"/>
                         <button id="send-form-empl" class="btn-pink" type="submit">Сохранить</button>
                         <div id="deleteVacancy" class="delete-link">Удалить вакансию</div>
                     </div>
