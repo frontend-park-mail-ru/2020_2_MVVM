@@ -112,6 +112,10 @@ export const deleteUserURL = "/v1/users";
 export const deleteResumeURL = "/v1/resume/resume/";
 export const deleteVacancyURL = "/v1/vacancy/";
 
+export const chatsListURL = "/v1/chat/list";
+export const messageSendURL = "/v1/chat/send";
+export const getChat = "/v1/chat/by/id/";
+
 export const PAGES_WITH_ABSOLUTE = ["/", "/auth", "/reg"];
 export const PAGES_NEED_SEARCH = ['/candidatesList', '/employersList', '/companiesList'];
 

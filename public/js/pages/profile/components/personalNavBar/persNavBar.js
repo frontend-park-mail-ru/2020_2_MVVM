@@ -11,6 +11,7 @@ import createElem from "Js/libs/createElem";
 import defaultVac from "Img/defaultVac.png";
 import defaultRes from "Img/defaultRes.png";
 import {getBase64} from "Js/components/base64FileUpload/base64Upload";
+import {convertDate} from "Js/libs/convertDate";
 
 function doCheckout(profile, content, body, person, navBar, idx) {
   body.innerHTML = "";
@@ -173,7 +174,9 @@ async function personalResponses(profile, body) {
   myResponses.responses = await profile.getMyResponses();
   if (myResponses.responses && myResponses.responses.length) {
     myResponses.responses.forEach((item) => {
-      item.date_create = item.date_create.slice(0, 10);
+      // item.date_create = item.date_create.slice(0, 10);
+      item.date_create = convertDate(item.date_create);
+      //TODO Проверь!!
       item.status = responsesStatus[item.status];
     });
     myResponses.user_type = localStorage.getItem("user_type");

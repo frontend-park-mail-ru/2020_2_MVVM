@@ -210,6 +210,7 @@
 .dialogue-name {
     font-weight: 600;
     font-size: $font-size_h4;
+    border-radius: 50rem;
 
     @include mobile {
         font-weight: 550;
