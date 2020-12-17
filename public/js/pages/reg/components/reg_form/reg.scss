@@ -10,9 +10,6 @@
     margin-right: 5rem;
 }
 
-$c-white: #fff;
-$c-black: #000;
-$c-theme: #00a8ff;
 
 .Switcher {
     position: relative;
@@ -20,7 +17,6 @@ $c-theme: #00a8ff;
     box-shadow: 0 0 0.5rem var(--buttons-purple-color);
     overflow: hidden;
     cursor: pointer;
-    animation: r-n .5s;
     user-select: none;
     font-size: $font-size_h4;
     will-change: transform;
@@ -31,11 +27,7 @@ $c-theme: #00a8ff;
         font-size: $font-size_h4_m;
     }
 
-    .Switcher__checkbox:checked + & {
-        animation-name: r-p;
-    }
 
-    // indicator
     &::before {
         content: '';
         position: absolute;
@@ -43,12 +35,6 @@ $c-theme: #00a8ff;
         left: 0;
         bottom: 0;
         border-radius: inherit;
-        transform: translateX(-75%);
-        transition: transform .5s ease-in-out;
-
-        .Switcher__checkbox:checked + & {
-            transform: translateX(25%);
-        }
     }
 
 }
@@ -66,10 +52,9 @@ $c-theme: #00a8ff;
         --i: var(--x);
         content: attr(data-value);
         position: absolute;
-        color: var(--main-pink-color);
+        color: white;
         transition: opacity .3s;
         opacity: calc((var(--i) + 1) / 2);
-        transition-delay: calc(.3s * (var(--i) - 1) / -2);
 
         .Switcher__checkbox:checked + .Switcher & {
             --i: calc(var(--x) * -1);
@@ -85,16 +70,6 @@ $c-theme: #00a8ff;
     }
 }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
 
 .box {
     display: flex;
@@ -114,11 +89,10 @@ $c-theme: #00a8ff;
 .dropbtn {
     background-color: white;
     color: var(--main-pink-color);
-    padding: 1.6rem;
+    padding: 1rem;
     font-size: $font-size_h4;
     border: $border_btn solid var(--main-pink-color);
     cursor: pointer;
-    border-radius: $border-radius_btn;
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -146,7 +120,6 @@ $c-theme: #00a8ff;
     display: none;
     position: absolute;
     background-color: #f6f6f6;
-    min-width: 23rem;
     overflow: auto;
     border: $border_btn solid var(--border-grey-color);
     z-index: 1;
@@ -165,3 +138,8 @@ $c-theme: #00a8ff;
 }
 
 .show {display: block;}
+
+
+.background-color {
+    background: var(--main-pink-color);
+}

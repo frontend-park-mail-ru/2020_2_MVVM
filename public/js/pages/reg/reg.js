@@ -34,15 +34,21 @@ export default class RegList {
     const userTypeBtn = document.getElementsByClassName('Switcher')[0];
     const companyField = document.getElementById('companyField');
     const regCheckbox = document.getElementById('regCheckbox');
+    const switcher = document.getElementsByClassName('Switcher__trigger');
+    switcher[1].classList.add('background-color');
 
-    userTypeBtn.addEventListener('click', () => {
+    userTypeBtn.addEventListener('click', (event) => {
       const regCheckboxBlock = document.getElementById('regCheckboxBlock');
       if (this.user_type === "candidate") {
         this.user_type = 'employer';
+        switcher[0].classList.add('background-color');
+        switcher[1].classList.remove('background-color');
         companyField.classList.remove('hide');
         regCheckboxBlock.classList.remove('hide');
         this.company = this.selectedCompany;
       } else {
+        switcher[0].classList.remove('background-color');
+        switcher[1].classList.add('background-color');
         this.user_type = 'candidate';
         this.company = null;
         regCheckboxBlock.classList.add('hide');
