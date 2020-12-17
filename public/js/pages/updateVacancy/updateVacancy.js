@@ -18,11 +18,13 @@ export default class UpdateVacancy {
   async render() {
     app.innerHTML = "";
     const windLocationSearch = window.location.search;
+    const vac_id = windLocationSearch.split('vac_id=')[1].split('&')[0];
 
-    const vacancyInfo = await this.loadVacancyInfo(windLocationSearch.split('vac_id=')[1].split('&')[0]);
+
+    const vacancyInfo = await this.loadVacancyInfo(vac_id);
     vacancyInfo.spheres = spheres;
     vacancyInfo.sphere = vacancyInfo.sphere.toString();
-    console.log(vacancyInfo);
+    vacancyInfo.vac_id = vac_id;
     const main = createElem("div", "main", app);
     main.insertAdjacentHTML("afterbegin", updateVacancyTemp(vacancyInfo));
 

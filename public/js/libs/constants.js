@@ -64,16 +64,14 @@ export const logoutURL = "/v1/users/logout";
 
 export const meUserURL = "/v1/users/me";
 export const addUserURL = "/v1/users/";
-export const usersByIdURL = "/v1/users/by/id/";
 export const updateUserURL = "/v1/users/";
 
-export const emplByIdURL = "/v1/users/empl/by/id/";
 
 export const addResumeURL = "/v1/resume/";
 export const resumeByIdURL = "/v1/resume/by/id/";
 export const resumePageURL = "/v1/resume/page?";
 export const resumeMineURL = "/v1/resume/mine";
-export const updateResumeURL = "/v1/resume/update";
+// export const updateResumeURL = "/v1/resume/update";
 export const resumeSearchURL = '/v1/resume/search';
 
 export const getTopSpheres = '/v1/vacancy/top';
@@ -84,7 +82,7 @@ export const vacancyByIdURL = "/v1/vacancy/by/id/";
 export const vacancyPageURL = "/v1/vacancy/page?";
 export const vacancyRecommendationsPageURL = "/v1/vacancy/recommendation?";
 export const vacancyMineURL = "/v1/vacancy/mine?";
-export const updateVacancyURL = "/v1/vacancy/update";
+// export const updateVacancyURL = "/v1/vacancy/update";
 export const vacancySearchURL = '/v1/vacancy/search';
 
 export const vacancyCompURL = "/v1/vacancy/comp?";
@@ -99,6 +97,7 @@ export const companyNamesURL = "/v1/company/names"
 export const addLikeResumeURL = "/v1/resume/favorite/by/id/";
 export const deleteLikeResumeURL = "/v1/resume/favorite/by/id/";
 export const myLikeResumeURL = "/v1/resume/myfavorites";
+export const getLikeURL = "/v1/resume/favorite/"
 
 export const createRespURL = "/v1/response/";
 export const updateRespStatusURL = "/v1/response/update";
@@ -110,8 +109,12 @@ export const myFreeVacanciesURL = "/v1/response/free/vacancies/";
 export const notificationsPageURL = "/v1/response/notify?";
 
 export const deleteUserURL = "/v1/users";
-export const deleteResumeURL = "/v1/resume/";
+export const deleteResumeURL = "/v1/resume/resume/";
 export const deleteVacancyURL = "/v1/vacancy/";
+
+export const chatsListURL = "/v1/chat/list";
+export const messageSendURL = "/v1/chat/send";
+export const getChat = "/v1/chat/by/id/";
 
 export const PAGES_WITH_ABSOLUTE = ["/", "/auth", "/reg"];
 export const PAGES_NEED_SEARCH = ['/candidatesList', '/employersList', '/companiesList'];

@@ -6,18 +6,22 @@
                     <input class="dialogues-search-input" placeholder="Поиск по чатам и людям..."/>
                 </div>
                 <div class="chat-lists-all for-scroll">
-                    <fest:for from="0" to="15" index="i">
+                    <fest:if test="!data.chatList">
+                        <div class="main__list_empty"> Чатов пока нет :(</div>
+                    </fest:if>
+                    <fest:for iterate="data.chatList" index="i" value="v">
                         <div class="chat-lists-single">
                             <div class="chat-lists-single__photo"/>
                             <div class="chat-lists-single__preview">
                                 <div class="single-info">
-                                    <div class="single-info__name">rthftgrtgrt rtgertgfg rbdfgtrgergtnertn</div>
-                                    <div class="single-info__time">10.15</div>
+                                    <div class="single-info__name"><fest:value>v.name</fest:value><fest:space/><fest:value>v.surname</fest:value></div>
+                                    <div class="single-info__time"><fest:value>v.date_create</fest:value></div>
                                 </div>
-
                                 <div class="dialogue-last-message">
-                                    <div class="initial-message">Вы: </div>
-                                    <div class="message-body">Как дела ?</div>
+                                    <fest:if test="v.sender==data.user_type">
+                                        <div class="initial-message">Вы:</div>
+                                    </fest:if>
+                                    <div class="message-body"><fest:value>v.message</fest:value></div>
                                 </div>
                             </div>
                         </div>

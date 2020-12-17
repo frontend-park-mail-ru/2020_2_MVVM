@@ -4,7 +4,7 @@ import notificTemp from "Js/components/notifications/notifications.tmpl.xml";
 import singleNotifTemp from "Js/components/notifications/singleNotif.tmpl.xml";
 import responseNotifTemp from "Js/components/notifications/responesNotofic.tmpl.xml";
 import { plural } from "Js/libs/plural";
-import { convertDate } from "Js/libs/convertDate";
+import {convertDate} from "Js/libs/convertDate";
 import {desktopNavBarInit} from "Js/components/header/phoneNavBar/pNavBar";
 
 const TIMEOUT = 3000;

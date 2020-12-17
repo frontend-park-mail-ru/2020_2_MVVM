@@ -219,12 +219,12 @@
                                 <span class="error" aria-live="polite"/>
                             </div>
                             <label class="sum-form-labels" for="salary">Зарплата (в тыс. руб.)</label>
-                            <div style="display:flex;">
-                                <input name="salary_min" placeholder="min" class="sum-user-info" id="salary_min"
-                                       type="text" value="{content.salary_min}"/>
-                                <span class="error" aria-live="polite"/>
-                                <input name="salary_max" placeholder="max" class="sum-user-info" id="salary_max"
-                                       type="text" value="{content.salary_max}"/>
+                            <div class="data-block">
+                                <label class="sum-form-labels" for="salary">Желаемая зарплата (в тыс. руб.)</label>
+                                <div style="display:flex;">
+                                    <input name="salary_min" placeholder="min" class="sum-user-info" id="salary_min" type="text" value="{content.salary_min}"/>
+                                    <input name="salary_max" placeholder="max" class="sum-user-info" id="salary_max" type="text" value="{content.salary_max}"/>
+                                </div>
                                 <span class="error" aria-live="polite"/>
                             </div>
                         </div>
@@ -274,6 +274,7 @@
                             </div>
                             <span class="error" aria-live="polite"/>
                         </div>
+                        <input type="hidden" name="vac_id" value="{content.vac_id}"/>
                         <button id="send-form-empl" class="btn-pink" type="submit">Сохранить</button>
                         <div id="deleteVacancy" class="delete-link">Удалить вакансию</div>
                     </div>

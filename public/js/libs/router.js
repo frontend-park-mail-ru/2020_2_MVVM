@@ -51,7 +51,7 @@ export default class Router {
         this.currentRoute = routeName;
         const obj = this.routes.get(key);
 
-        initPolling();
+        // initPolling();
         removeNotifPage();
 
         app.classList.remove('fix-height');

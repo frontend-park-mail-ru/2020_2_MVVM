@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <button class="input-data-card__enter-btn" type="submit">Зарегистрироваться</button>
-                    <a href="/auth"><div class="input-data-card__link">Уже есть аккаунт? Войдите</div></a>
+                    <a href="/auth"><div class="input-data-card__link">Уже есть аккаунт? Войти</div></a>
                 </div>
             </form>
 

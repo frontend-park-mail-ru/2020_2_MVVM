@@ -53,25 +53,35 @@ export function checkFrom(submitF, form) {
     isOk = false;
     error[4].innerHTML = `${resDuties}`;
   }
-  if (resSalaryMin !== SALARY_OK) {
+  if (resSalaryMin !== SALARY_OK || resSalaryMax !== SALARY_OK) {
     isOk = false;
-    error[5].innerHTML = `${resSalaryMin}`;
+    if (resSalaryMin !== SALARY_OK && resSalaryMax !== SALARY_OK) {
+      error[5].innerHTML = `${resSalaryMin} и ${resSalaryMax}`;
+    } else if (resSalaryMin !== SALARY_OK) {
+      error[5].innerHTML = `${resSalaryMin}`;
+    } else {
+      error[5].innerHTML = `${resSalaryMax}`;
+    }
   }
-  if (resSalaryMax !== SALARY_OK) {
-    isOk = false;
-    error[6].innerHTML = `${resSalaryMax}`;
+  if (resSalaryMin === SALARY_OK && resSalaryMax === SALARY_OK) {
+    const resSalaryAll = Validation.validateSalaryAll(salaryMin.value, salaryMax.value);
+    if (resSalaryAll !== SALARY_OK) {
+
+      isOk = false;
+      error[5].innerHTML = `${resSalaryAll}`;
+    }
   }
   if (resPhone !== PHONE_OK) {
     isOk = false;
-    error[7].innerHTML = `${resPhone}`;
+    error[6].innerHTML = `${resPhone}`;
   }
   if (resEmail !== EMAIL_OK) {
     isOk = false;
-    error[8].innerHTML = `${resEmail}`;
+    error[7].innerHTML = `${resEmail}`;
   }
   if (resAddress !== INPUT_TEXT_OK) {
     isOk = false;
-    error[9].innerHTML = `${resAddress}`;
+    error[8].innerHTML = `${resAddress}`;
   }
 
   if (isOk) {
@@ -84,16 +94,26 @@ export function checkFrom(submitF, form) {
     skills,
     requirements,
     duties,
-    salaryMin,
-    salaryMax,
+    null,
     phone,
     email,
     address,
   ];
 
   arr.forEach((item, index) => {
-    item.addEventListener("keydown", function (event) {
-      error[index].innerHTML = "";
-    });
+    if (item !== null) {
+      item.addEventListener("keydown", function (event) {
+        error[index].innerHTML = "";
+      });
+    }
   }, false);
+
+
+  const salaryArr = [salaryMin, salaryMax];
+  salaryArr.forEach((item) => {
+    item.addEventListener("keydown", () => {
+      error[5].innerHTML = "";
+    });
+  })
+
 }

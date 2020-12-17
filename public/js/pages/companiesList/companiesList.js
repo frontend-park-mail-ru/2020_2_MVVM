@@ -112,6 +112,7 @@ async function search(form, mainList, main, router) {
 }
 
 async function renderCompanyList(companies, mainList, router) {
+  window.scroll(0, 0);
   if (companies && companies.companyList) {
     mainList.insertAdjacentHTML(
       "beforeend",

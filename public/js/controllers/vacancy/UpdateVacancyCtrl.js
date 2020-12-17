@@ -1,5 +1,5 @@
 import {network} from "Js/libs/networks";
-import {addVacancyURL, deleteVacancyURL, vacancyByIdURL} from "Js/libs/constants";
+import {addVacancyURL, deleteVacancyURL, updateVacancyURL, vacancyByIdURL} from "Js/libs/constants";
 import UpdateVacancy from "Js/pages/updateVacancy/updateVacancy";
 
 
@@ -27,11 +27,13 @@ export default class updateVacancyCtrl {
       json.email = formData.get("email");
       json.phone = formData.get("phone");
       json.area_search = formData.get("area_search");
+      json.vac_id = formData.get("vac_id");
 
-      const response = await network.doPost(addVacancyURL, json);
+      const response = await network.doPut(addVacancyURL, json);
       const content = await response.json();
 
       if (response.status >= 200 && response.status < 300) {
+        console.log(content);
         console.assert(response.ok);
         this.router.change(
           `/vacancy?vac_id=${content.vacancy.vac_id}&comp_id=${content.vacancy.comp_id}`);
