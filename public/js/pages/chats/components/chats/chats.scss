@@ -286,7 +286,7 @@
 .input-field {
     display: flex;
     background: white;
-    height: 6rem;
+    //min-height: 6rem;
 
     @include mobile {
         height: 8rem;
@@ -318,7 +318,9 @@
     font-size: $font-size_h4-5;
     background: var(--background-grey-color-no-alpha);
     border-radius: 50rem;
-    padding: 0 2rem;
+    padding: 1.3rem 2rem;
+    resize: none;
+    max-height: 10rem;
 
     @include mobile {
         border-radius: 5rem;
@@ -327,17 +329,23 @@
     }
 }
 
+.resize-textarea {
+    height:auto;
+    border-radius:0;
+}
+
 .single-message {
     width: fit-content;
     background: var(--background-grey-color-no-alpha);
     font-size: $font-size_h4-5;
     color: black;
     padding: 1rem;
-    max-width: 25rem;
+    //max-width: 25rem;
     display: flex;
     border-radius: 2rem;
     margin-bottom: 0.5rem;
     border-bottom-left-radius: 0;
+    max-width: 90%;
 
     @include mobile {
         font-size: $font-size_h3;
@@ -377,7 +385,6 @@
 
 
     &_my {
-        max-width: 100%;
         margin-left: auto;
         justify-content: flex-end;
         background: var(--buttons-purple-color);
@@ -424,6 +431,8 @@
 
 .message-body {
     width: 100%;
+    max-height: 10rem;
+    overflow: hidden;
     &_technical{
         color: var(--main-pink-color);
     }

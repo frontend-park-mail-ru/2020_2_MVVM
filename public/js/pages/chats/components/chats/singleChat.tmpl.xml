@@ -71,7 +71,7 @@
         </div>
         <div class="input-field">
             <div class="input-field__message">
-                <input id="sendMessage" class="send-message-input" placeholder="Напишите сообщение..."/>
+                <textarea id="sendMessage" class="send-message-input" placeholder="Напишите сообщение..."></textarea>
             </div>
             <div id="sendMessageBtn" class="input-field__send-btn"/>
         </div>
