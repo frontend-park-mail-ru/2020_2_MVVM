@@ -17,6 +17,15 @@ class Network {
     });
   }
 
+  // async doGetFrom(url, from) {
+  //   return await fetch(`${URL}${url}` + new URLSearchParams(
+  //     {from: from}
+  //   ), {
+  //     credentials: "include",
+  //     method: "GET",
+  //   });
+  // }
+
   async doPut(url, data) {
     return await fetch(`${URL}${url}`, {
       body: JSON.stringify(data),

@@ -19,7 +19,7 @@ export default class ChatsCtrl {
 
     const singleChatPage = async (chat_id) => {
       try {
-        const response = await network.doGet(getChat+chat_id);
+        const response = await network.doPost(getChat+chat_id);
         console.assert(response.ok);
         return await response.json();
       }catch (err) {

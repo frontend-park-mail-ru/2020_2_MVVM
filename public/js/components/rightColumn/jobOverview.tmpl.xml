@@ -1,6 +1,11 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
     <div class="job-overview">
-        <div class="job-overview__title">Обзор вакансии</div>
+        <fest:if test="items.page_type=='resume'">
+            <div class="job-overview__title">Обзор резюме</div>
+        </fest:if>
+        <fest:if test="items.page_type=='vacancy'">
+            <div class="job-overview__title">Обзор вакансии</div>
+        </fest:if>
         <ul class="job-overview-container">
             <div class="job-overview-li">
                 <div class="inline-icon">
@@ -8,9 +13,9 @@
                     <div class="inline-icon-desc">
                         <div class="inline-icon-desc__title">Зарплата</div>
                         <div class="inline-icon-desc__body">
-                            <fest:value>items.salary_min</fest:value>
+                            <fest:value>items.jobOverview.salary_min</fest:value>
                             -
-                            <fest:value>items.salary_max</fest:value>
+                            <fest:value>items.jobOverview.salary_max</fest:value>
                         </div>
                     </div>
                 </div>
@@ -21,7 +26,7 @@
                     <div class="inline-icon-desc">
                         <div class="inline-icon-desc__title">Уровень</div>
                         <div class="inline-icon-desc__body">
-                            <fest:value>items.career_level</fest:value>
+                            <fest:value>items.jobOverview.career_level</fest:value>
                         </div>
                     </div>
                 </div>
@@ -32,7 +37,7 @@
                     <div class="inline-icon-desc">
                         <div class="inline-icon-desc__title">Направление</div>
                         <div class="inline-icon-desc__body">
-                            <fest:value>items.interest</fest:value>
+                            <fest:value>items.jobOverview.interest</fest:value>
                         </div>
                     </div>
                 </div>
@@ -43,7 +48,7 @@
                     <div class="inline-icon-desc">
                         <div class="inline-icon-desc__title">Опыт</div>
                         <div class="inline-icon-desc__body">
-                            <fest:value>items.experience_month</fest:value>
+                            <fest:value>items.jobOverview.experience_month</fest:value>
                         </div>
                     </div>
                 </div>
@@ -54,7 +59,7 @@
                     <div class="inline-icon-desc">
                         <div class="inline-icon-desc__title">Образование</div>
                         <div class="inline-icon-desc__body">
-                            <fest:value>items.education</fest:value>
+                            <fest:value>items.jobOverview.education</fest:value>
                         </div>
                     </div>
                 </div>

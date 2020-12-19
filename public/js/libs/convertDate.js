@@ -8,7 +8,7 @@ export const convertDate = (date) => {
   if (!diff && newDate.getDay()===today.getDay()) {
     return `${newDate.getHours()}:${newDate.getMinutes()}`;
   } else if (!diff || diff < 7){
-    return `${days[today.getDay()]} ${newDate.getHours()}:${newDate.getMinutes()}`;
+    return `${days[newDate.getDay()]} ${newDate.getHours()}:${newDate.getMinutes()}`;
   } else {
     return `${newDate.getDate()}.${newDate.getMonth()}.${newDate.getFullYear()}`
   }

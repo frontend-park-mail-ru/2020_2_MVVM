@@ -5,6 +5,7 @@ import {desktopNavBarInit, mobileNavBarInit, removeNotifPage} from "Js/component
 import { NavBarInit } from "Js/components/header/navBar";
 import {PAGES_NEED_SEARCH} from "Js/libs/constants";
 import {changeNavBarPos} from "Js/libs/chengeNavBarPos";
+import {initMessPolling} from "Js/libs/newMessages";
 
 const app = window.document.getElementById("main");
 
@@ -51,7 +52,8 @@ export default class Router {
         this.currentRoute = routeName;
         const obj = this.routes.get(key);
 
-        // initPolling();
+        initPolling();
+        initMessPolling(path);
         removeNotifPage();
 
         app.classList.remove('fix-height');

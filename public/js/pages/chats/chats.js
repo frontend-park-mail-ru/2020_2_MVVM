@@ -10,6 +10,7 @@ const app = window.document.getElementById("main");
 import defaultVac from "Img/defaultVac.png";
 import defaultRes from "Img/defaultRes.png";
 import {convertDate} from "Js/libs/convertDate";
+import {responsesStatus} from "Js/libs/constants";
 
 
 export default class Chats {
@@ -29,11 +30,13 @@ export default class Chats {
     this.chatListData = await this.getChatList();
 
     if (this.chatListData) {
-      this.chatListData.forEach( (item, i) => {
-        item.date_create = convertDate(item.date_create);
+      this.chatListData.forEach( (item) => {
+        item.message.date_create = convertDate(item.message.date_create);
+        if (item.type==='technical') {
+          item.message.response_status = responsesStatus[item.message.response_status];
+        }
       })
     }
-
 
     app.insertAdjacentHTML('afterbegin', chatsTemp({chatList: this.chatListData, user_type: this.user_type }));
 
@@ -102,27 +105,66 @@ const sendMess = async (chatClass, sendMessage, dialogueBody, chat_id) => {
     sendMessage.value = '';
 
     const res = await chatClass.sendMessage(chat_id, mesBody);
-    console.log(res);
 
     scrollDown();
     sendMessage.focus();
   }
 }
 
+const oneMess = (mess) => {
+  return {
+    company_id: mess.hasOwnProperty('company_id') ? mess.company_id : null,
+    company_name: mess.hasOwnProperty('company_name') ? mess.company_name : null,
+    date_create: mess.hasOwnProperty('date_create') ? convertDate(mess.date_create) : null,
+    response_id: mess.hasOwnProperty('response_id') ? mess.response_id : null,
+    response_initial: mess.hasOwnProperty('response_initial') ? mess.response_initial : null,
+    response_status: mess.hasOwnProperty('response_status') ? responsesStatus[mess.response_status] : null,
+    resume_id: mess.hasOwnProperty('resume_id') ? mess.resume_id : null,
+    resume_title: mess.hasOwnProperty('resume_title') ? mess.resume_title : null,
+    vacancy_id: mess.hasOwnProperty('vacancy_id') ? mess.vacancy_id : null,
+    vacancy_title: mess.hasOwnProperty('vacancy_title') ? mess.vacancy_title : null,
+    is_read: mess.hasOwnProperty('is_read') ? mess.is_read : null,
+    message: mess.hasOwnProperty('message') ? mess.message : null,
+    sender: mess.hasOwnProperty('sender') ? mess.sender : null
+  }
+}
 
+const createSingleDialogue = (chatData) => {
+  const dialogue = chatData.dialog;
+  const technical = chatData.technical_messages;
+  let dCounter = 0;
+  let tCounter = 0;
+  let chat = [];
+  while ((dialogue && (dCounter < dialogue.length)) || (technical && (tCounter < technical.length))) {
+    if ((dialogue && (dCounter < dialogue.length)) && (technical && (tCounter < technical.length))) {
+      if (dialogue[dCounter].date_create < technical[tCounter].date_create) {
+        chat.push(oneMess(dialogue[dCounter]));
+        dCounter++;
+      } else {
+        chat.push(oneMess(technical[tCounter]));
+        tCounter++;
+      }
+    } else if (dialogue) {
+      chat.push(oneMess(dialogue[dCounter]));
+      dCounter++;
+    } else if (technical) {
+      chat.push(oneMess(technical[tCounter]));
+      tCounter++;
+    }
+  }
+  return chat;
+}
 
 const chatsListDesktop = (chatClass, list, defaultChat, singleChat) => {
   if (list) {
     [].forEach.call(list, (elem, i) => {
       elem.addEventListener('click', async () => {
         const chatData = await chatClass.singleChatPage(chatClass.chatListData[i].chat_id);
-        chatData.forEach((item) => {
-          item.date_create = convertDate(item.date_create);
-        });
+        const chat = createSingleDialogue(chatData);
         checkoutColors(elem);
         defaultChat.classList.add('hide');
         singleChat.classList.remove('hide');
-        singleChat.innerHTML = singleChatTemp({is_mobile:false, chat: chatData, friendInfo:chatClass.chatListData[i], user_type: chatClass.user_type});
+        singleChat.innerHTML = singleChatTemp({is_mobile:false, chat: chat, friendInfo:chatClass.chatListData[i], user_type: chatClass.user_type});
         scrollDown();
         sendMessageEvent(chatClass, chatClass.chatListData[i].chat_id);
       })
@@ -144,12 +186,9 @@ const chatsListPhone = (chatClass, list, singleChat, chatsList) => {
     [].forEach.call(list, (elem, i) => {
       elem.addEventListener('click', async () => {
         const chatData = await chatClass.singleChatPage(chatClass.chatListData[i].chat_id);
-        chatData.forEach((item) => {
-          item.date_create = convertDate(item.date_create);
-        })
-
+        const chat = createSingleDialogue(chatData);
         changeWindow(chatsList, singleChat);
-        singleChat.innerHTML = singleChatTemp({is_mobile:true, chat: chatData, friendInfo:chatClass.chatListData[i], user_type: chatClass.user_type});
+        singleChat.innerHTML = singleChatTemp({is_mobile:true, chat: chat, friendInfo:chatClass.chatListData[i], user_type: chatClass.user_type});
 
         const friendPhoto = document.getElementById('friendPhoto');
         const inputPhoto = chatClass.user_type === 'candidate' ? defaultVac : defaultRes;
