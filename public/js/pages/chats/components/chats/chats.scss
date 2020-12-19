@@ -174,9 +174,11 @@
     display: flex;
     overflow: hidden;
     font-size: $font-size_h4-5;
+    min-height: 2rem;
 
     @include mobile {
         font-size: $font-size_h4_m;
+        min-height: 3rem;
     }
 }
 
