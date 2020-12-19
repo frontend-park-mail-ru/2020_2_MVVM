@@ -5,9 +5,13 @@ import {desktopNavBarInit, mobileNavBarInit, removeNotifPage} from "Js/component
 import { NavBarInit } from "Js/components/header/navBar";
 import {PAGES_NEED_SEARCH} from "Js/libs/constants";
 import {changeNavBarPos} from "Js/libs/chengeNavBarPos";
-import {initMessPolling} from "Js/libs/newMessages";
+
+import MessagePollingClass from "Js/libs/newMessages";
+export const MessagePolling = new MessagePollingClass();
+
 
 const app = window.document.getElementById("main");
+
 
 const NavBar = new NavBarInit();
 
@@ -53,7 +57,7 @@ export default class Router {
         const obj = this.routes.get(key);
 
         initPolling();
-        initMessPolling(path);
+        MessagePolling.initMessPolling(path);
         removeNotifPage();
 
         app.classList.remove('fix-height');
@@ -92,7 +96,6 @@ export default class Router {
       });
 
     createPolling();
-
 
     document.addEventListener("click", (evt) => {
       const linkElement = evt.target.closest("a");

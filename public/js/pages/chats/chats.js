@@ -1,16 +1,16 @@
 
 
-import chatsTemp from "./components/chats/chats.tmpl.xml";
+import chatsTemp from "./components/chats/chatsCarcass.tmpl.xml";
 import singleChatTemp from "./components/chats/singleChat.tmpl.xml"
 import myMessageTemp from "./components/chats/myMessage.tmpl.xml"
-
-
 const app = window.document.getElementById("main");
+import {MessagePolling} from "Js/libs/router";
 
 import defaultVac from "Img/defaultVac.png";
 import defaultRes from "Img/defaultRes.png";
 import {convertDate} from "Js/libs/convertDate";
 import {responsesStatus} from "Js/libs/constants";
+import {changeAvatar, changeDate, checkoutChatPages} from "Js/components/chats/chatsFunc";
 
 
 export default class Chats {
@@ -29,45 +29,13 @@ export default class Chats {
     this.user_type = localStorage.getItem('user_type');
     this.chatListData = await this.getChatList();
 
-    if (this.chatListData) {
-      this.chatListData.forEach( (item) => {
-        item.message.date_create = convertDate(item.message.date_create);
-        if (item.type==='technical') {
-          item.message.response_status = responsesStatus[item.message.response_status];
-        }
-      })
-    }
+    this.chatListData = changeDate(this.chatListData);
 
     app.insertAdjacentHTML('afterbegin', chatsTemp({chatList: this.chatListData, user_type: this.user_type }));
+    this.chatListData = changeAvatar(this.user_type, this.chatListData);
+    checkoutChatPages(this, this.is_mobile, true);
 
-    const chatAvatars = document.getElementsByClassName('chat-lists-single__photo');
-
-    const friendDefPhoto = this.user_type === 'candidate' ? defaultVac : defaultRes;
-
-    if (this.chatListData) {
-      this.chatListData.forEach((item, i) => {
-        const photo = item.avatar ? item.avatar : friendDefPhoto;
-        chatAvatars[i].style.background = `no-repeat  0 0/cover url(${photo})`;
-      });
-
-    }
-
-
-    const chatsList = document.getElementById('chatsList');
-    const defaultChat = document.getElementById('defaultChat');
-    const singleChat = document.getElementById('singleChat');
-
-    const list = document.getElementsByClassName('chat-lists-single');
-
-    if (this.is_mobile) {
-      defaultChat.classList.add('hide');
-      chatsList.classList.add('max-width');
-      singleChat.classList.add('hide');
-      chatsListPhone(this, list, singleChat, chatsList);
-    } else {
-      singleChat.classList.add('hide');
-      chatsListDesktop(this, list, defaultChat, singleChat);
-    }
+    MessagePolling.setChatClass(this);
   }
 }
 
@@ -83,6 +51,7 @@ const sendMessageEvent = (chatClass, chat_id) => {
 
 const sendMessInput = (chatClass, sendMessage, dialogueBody,chat_id) => {
   sendMessage.addEventListener('keydown', (event) => {
+    sendMessage.removeEventListener('keydown', ()=>{});
     if (event.code === 'Enter') {
       sendMess(chatClass, sendMessage, dialogueBody, chat_id)
     }
@@ -92,6 +61,7 @@ const sendMessInput = (chatClass, sendMessage, dialogueBody,chat_id) => {
 const sendMessBtn = (chatClass, sendMessage, dialogueBody,chat_id) => {
   const sendMessageBtn = document.getElementById('sendMessageBtn');
   sendMessageBtn.addEventListener('click', (event) => {
+    sendMessageBtn.removeEventListener('keydown', ()=>{});
       sendMess(chatClass,sendMessage, dialogueBody, chat_id)
   })
 }
@@ -129,7 +99,7 @@ const oneMess = (mess) => {
   }
 }
 
-const createSingleDialogue = (chatData) => {
+export const createSingleDialogue = (chatData) => {
   const dialogue = chatData.dialog;
   const technical = chatData.technical_messages;
   let dCounter = 0;
@@ -155,13 +125,17 @@ const createSingleDialogue = (chatData) => {
   return chat;
 }
 
-const chatsListDesktop = (chatClass, list, defaultChat, singleChat) => {
+export const chatsListDesktop = (chatClass, list, defaultChat, singleChat, need_checkout) => {
   if (list) {
     [].forEach.call(list, (elem, i) => {
       elem.addEventListener('click', async () => {
+        elem.removeEventListener('click', ()=>{});
+        MessagePolling.setChatId(chatClass.chatListData[i].chat_id);
+        MessagePolling.startMessPolling();
         const chatData = await chatClass.singleChatPage(chatClass.chatListData[i].chat_id);
         const chat = createSingleDialogue(chatData);
         checkoutColors(elem);
+
         defaultChat.classList.add('hide');
         singleChat.classList.remove('hide');
         singleChat.innerHTML = singleChatTemp({is_mobile:false, chat: chat, friendInfo:chatClass.chatListData[i], user_type: chatClass.user_type});
@@ -181,10 +155,11 @@ const checkoutColors = (elem) => {
   elem.classList.add('selected-chat');
 }
 
-const chatsListPhone = (chatClass, list, singleChat, chatsList) => {
+export const chatsListPhone = (chatClass, list, singleChat, chatsList) => {
   if (list) {
     [].forEach.call(list, (elem, i) => {
       elem.addEventListener('click', async () => {
+        elem.removeEventListener('click', ()=>{});
         const chatData = await chatClass.singleChatPage(chatClass.chatListData[i].chat_id);
         const chat = createSingleDialogue(chatData);
         changeWindow(chatsList, singleChat);
@@ -225,7 +200,7 @@ const insertPhotoScrollDown = () => {
   scrollDown();
 }
 
-const scrollDown = () => {
+export const scrollDown = () => {
   const dialogueBody = document.getElementById('dialogueBody');
   dialogueBody.scrollTop = dialogueBody.scrollHeight;
 }

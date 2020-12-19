@@ -5,7 +5,7 @@
                 <div class="chat-lists__search">
                     <input class="dialogues-search-input" placeholder="Поиск по чатам и людям..."/>
                 </div>
-                <div class="chat-lists-all for-scroll">
+                <div id="toInputChatList" class="chat-lists-all for-scroll">
                     <fest:if test="!data.chatList">
                         <div class="main__list_empty"> Чатов пока нет :(</div>
                     </fest:if>
