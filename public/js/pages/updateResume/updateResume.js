@@ -96,6 +96,11 @@ export default class UpdateResume {
     main.insertAdjacentHTML("afterbegin", updateResumeTemp(user));
     const photo = document.getElementById("sum-profile__photo");
     photo.style.background = `no-repeat 0 0/cover url(${user.imgPath})`;
+    const inputAvatar = document.getElementById('sum-img-load');
+    inputAvatar.addEventListener("change", async () => {
+      photo.style.background = `no-repeat 0 0/cover url(${window.URL.createObjectURL(inputAvatar.files[0])})`;
+    });
+
 
     const deleteResume = document.getElementById('deleteResume');
     deleteResume.addEventListener('click', ()=>{

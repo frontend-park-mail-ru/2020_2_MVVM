@@ -143,7 +143,7 @@ export default class Resume {
 
     contentRightColumn.insertAdjacentHTML(
       "beforeend",
-      jobOverviewTemp(infoAll.jobOverview)
+      jobOverviewTemp({jobOverview: infoAll.jobOverview, page_type:'resume'})
     );
 
     // contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());

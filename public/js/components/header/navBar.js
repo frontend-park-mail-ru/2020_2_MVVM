@@ -13,9 +13,6 @@ export class NavBarInit {
     this.need_search = false;
   }
 
-  loadPhoneNavBarBig() {
-    this.loadNavBar(true);
-  }
 
   loadPhoneNavBarSmall() {
     this.user = localStorage.getItem("user_type");

@@ -135,7 +135,7 @@ export default class Vacancy {
 
     contentRightColumn.insertAdjacentHTML(
       "beforeend",
-      jobOverviewTemp(jobOverview)
+      jobOverviewTemp({jobOverview:jobOverview, page_type:'vacancy'})
     );
 
     // contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());

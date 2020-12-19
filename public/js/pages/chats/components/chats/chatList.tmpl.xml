@@ -1,0 +1,96 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="data">
+    <fest:if test="!data.chatList">
+        <div class="main__list_empty"> Чатов пока нет :(</div>
+    </fest:if>
+    <fest:for iterate="data.chatList" index="i" value="v">
+        <fest:if test="data.selected==v.chat_id">
+            <fest:if test="data.is_mobile">
+                <div class="chat-lists-single">
+                    <div class="chat-lists-single__photo"/>
+                    <div class="chat-lists-single__preview">
+                        <div class="single-info">
+                            <div class="single-info__name"><fest:value>v.name</fest:value><fest:space/><fest:value>v.surname</fest:value></div>
+                            <div class="single-info__time"><fest:value>v.message.date_create</fest:value></div>
+                        </div>
+                        <fest:if test="v.type=='message'">
+                            <div class="dialogue-last-message">
+                                <fest:if test="v.message.sender==data.user_type">
+                                    <div class="initial-message">Вы:</div>
+                                </fest:if>
+                                <div class="message-body"><fest:value>v.message.message</fest:value></div>
+                                <fest:if test="!v.message.is_read">
+                                    <fest:if test="v.message.sender!=data.user_type">
+                                        <div class="not-read"/>
+                                    </fest:if>
+                                </fest:if>
+                            </div>
+                        </fest:if>
+                        <fest:if test="v.type=='technical'">
+                            <div class="dialogue-last-message">
+                                <div class="message-body message-body_technical">Новый статус заявки</div>
+                            </div>
+                        </fest:if>
+                    </div>
+                </div>
+            </fest:if>
+            <fest:if test="!data.is_mobile">
+                <div class="chat-lists-single selected-chat">
+                    <div class="chat-lists-single__photo"/>
+                    <div class="chat-lists-single__preview">
+                        <div class="single-info">
+                            <div class="single-info__name"><fest:value>v.name</fest:value><fest:space/><fest:value>v.surname</fest:value></div>
+                            <div class="single-info__time"><fest:value>v.message.date_create</fest:value></div>
+                        </div>
+                        <fest:if test="v.type=='message'">
+                            <div class="dialogue-last-message">
+                                <fest:if test="v.message.sender==data.user_type">
+                                    <div class="initial-message">Вы:</div>
+                                </fest:if>
+                                <div class="message-body"><fest:value>v.message.message</fest:value></div>
+                                <fest:if test="!v.message.is_read">
+                                    <fest:if test="v.message.sender!=data.user_type">
+                                        <div class="not-read"/>
+                                    </fest:if>
+                                </fest:if>
+                            </div>
+                        </fest:if>
+                        <fest:if test="v.type=='technical'">
+                            <div class="dialogue-last-message">
+                                <div class="message-body message-body_technical">Новый статус заявки</div>
+                            </div>
+                        </fest:if>
+                    </div>
+                </div>
+            </fest:if>
+        </fest:if>
+        <fest:if test="data.selected!=v.chat_id">
+            <div class="chat-lists-single">
+                <div class="chat-lists-single__photo"/>
+                <div class="chat-lists-single__preview">
+                    <div class="single-info">
+                        <div class="single-info__name"><fest:value>v.name</fest:value><fest:space/><fest:value>v.surname</fest:value></div>
+                        <div class="single-info__time"><fest:value>v.message.date_create</fest:value></div>
+                    </div>
+                    <fest:if test="v.type=='message'">
+                        <div class="dialogue-last-message">
+                            <fest:if test="v.message.sender==data.user_type">
+                                <div class="initial-message">Вы:</div>
+                            </fest:if>
+                            <div class="message-body"><fest:value>v.message.message</fest:value></div>
+                            <fest:if test="!v.message.is_read">
+                                <fest:if test="v.message.sender!=data.user_type">
+                                    <div class="not-read"/>
+                                </fest:if>
+                            </fest:if>
+                        </div>
+                    </fest:if>
+                    <fest:if test="v.type=='technical'">
+                        <div class="dialogue-last-message">
+                            <div class="message-body message-body_technical">Новый статус заявки</div>
+                        </div>
+                    </fest:if>
+                </div>
+            </div>
+        </fest:if>
+    </fest:for>
+</fest:template>
