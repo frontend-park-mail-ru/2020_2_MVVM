@@ -60,7 +60,7 @@ export default class MessagePolling {
           const responseJSON = await response.json();
           let chatsList = changeDate(responseJSON.chats);
           const chatsListBlock = document.getElementById('toInputChatList');
-          chatsListBlock.innerHTML = chatsListTemp({chatList:chatsList, user_type:localStorage.getItem('user_type'), selected:this.chat_id});
+          chatsListBlock.innerHTML = chatsListTemp({chatList:chatsList, user_type:localStorage.getItem('user_type'), selected:this.chat_id, is_mobile:this.chatClass.is_mobile});
           changeAvatar(this.user_type, chatsList);
           checkoutChatPages(this.chatClass, this.chatClass.is_mobile, false);
 

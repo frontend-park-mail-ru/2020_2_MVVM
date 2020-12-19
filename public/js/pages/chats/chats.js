@@ -160,6 +160,8 @@ export const chatsListPhone = (chatClass, list, singleChat, chatsList) => {
     [].forEach.call(list, (elem, i) => {
       elem.addEventListener('click', async () => {
         elem.removeEventListener('click', ()=>{});
+        MessagePolling.setChatId(chatClass.chatListData[i].chat_id);
+        MessagePolling.startMessPolling();
         const chatData = await chatClass.singleChatPage(chatClass.chatListData[i].chat_id);
         const chat = createSingleDialogue(chatData);
         changeWindow(chatsList, singleChat);

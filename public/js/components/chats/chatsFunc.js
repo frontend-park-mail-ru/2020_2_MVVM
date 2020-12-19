@@ -36,9 +36,11 @@ export const checkoutChatPages = (chatClass, is_mobile, need_checkout) => {
   const list = document.getElementsByClassName('chat-lists-single');
 
   if (is_mobile) {
-    defaultChat.classList.add('hide');
-    chatsList.classList.add('max-width');
-    singleChat.classList.add('hide');
+    if (need_checkout) {
+      defaultChat.classList.add('hide');
+      chatsList.classList.add('max-width');
+      singleChat.classList.add('hide');
+    }
     chatsListPhone(chatClass, list, singleChat, chatsList);
   } else {
     if (need_checkout) {
