@@ -53,7 +53,8 @@ const headerLinkEvent = (NavBar, header) => {
       NavBar.loadPhoneNavBarSmall();
       changeNavBarPos(window.location.pathname);
       openSearchMenu(NavBar);
-      openNotifications(NavBar);
+      // openNotifications(NavBar);
+      addNotifPage();
       burgerOpen(NavBar);
     });
   }
@@ -98,6 +99,7 @@ const openSearchMenu = () => {
 export const removeNotifPage = () => {
   const popup = document.getElementById("notePopup");
   if (!popup.classList.contains("hide")) {
+    console.log('kek');
     popup.classList.add("hide");
     main.classList.remove("hide");
     app.classList.remove("notification-bg");

@@ -73,6 +73,7 @@ export const resumePageURL = "/v1/resume/page?";
 export const resumeMineURL = "/v1/resume/mine";
 // export const updateResumeURL = "/v1/resume/update";
 export const resumeSearchURL = '/v1/resume/search';
+export const downloadResumeURL = '/v1/resume/make/pdf/';
 
 export const getTopSpheres = '/v1/vacancy/top';
 
@@ -119,6 +120,8 @@ export const getNewMesAndList = "/v1/chat/messenger/";
 
 export const PAGES_WITH_ABSOLUTE = ["/", "/auth", "/reg"];
 export const PAGES_NEED_SEARCH = ['/candidatesList', '/employersList', '/companiesList'];
+export const ONLY_AUTH = ['/profile', '/chats', '/createVacancy', '/createResume', '/createCompany', '/updateVacancy', '/updateResume', '/recommendations'];
+export const NOT_ONLY_AUTH = ['/auth', '/reg'];
 
 //sphere
 export const spheres = [

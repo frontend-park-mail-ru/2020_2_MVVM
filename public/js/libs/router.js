@@ -3,7 +3,7 @@ import { network } from "./networks.js";
 import {createPolling, initPolling} from "Js/libs/polling";
 import {desktopNavBarInit, mobileNavBarInit, removeNotifPage} from "Js/components/header/phoneNavBar/pNavBar";
 import { NavBarInit } from "Js/components/header/navBar";
-import {PAGES_NEED_SEARCH} from "Js/libs/constants";
+import {ONLY_AUTH, PAGES_NEED_SEARCH} from "Js/libs/constants";
 import {changeNavBarPos} from "Js/libs/chengeNavBarPos";
 
 import MessagePollingClass from "Js/libs/newMessages";
@@ -54,6 +54,7 @@ export default class Router {
     for (const key of this.routes.keys()) {
       if (routeName.match(key)) {
         this.currentRoute = routeName;
+
         const obj = this.routes.get(key);
 
         initPolling();

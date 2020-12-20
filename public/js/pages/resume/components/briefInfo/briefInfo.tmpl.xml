@@ -22,26 +22,26 @@
                 </div>
             </div>
         </div>
-        <fest:if test="items.my_user_type=='employer'">
             <div class="cand-options-contact">
-<!--                <i class="fa fa-envelope"></i>-->
-<!--                <span>Написать</span>-->
-                <fest:template xmlns:fest="http://fest.mail.ru" context_name="items">
+                <fest:if test="items.my_user_type=='employer'">
                     <fest:if test="!items.is_favorite">
-                        <div class="download-cv" id="add_to_prefer"><i class="fas fa-save download-cv__icon"></i>Добавить в избранное
+                        <div class="download-cv" id="add_to_prefer"><i class="fas fa-heart download-cv__icon"></i>Добавить в избранное
                         </div>
                     </fest:if>
                     <fest:if test="items.is_favorite">
-                        <div class="download-cv" id="delete_from_prefer"><i class="fas fa-save download-cv__icon"></i>Убрать из избранного
+                        <div class="download-cv" id="delete_from_prefer"><i class="fas fa-eraser download-cv__icon"></i>Убрать из избранного
                         </div>
                     </fest:if>
-                </fest:template>
-                <div id="responseResumeBtn" class="download-cv">
-                    <i class="fa fa-paper-plane download-cv__icon"></i>
-                    Откликнуться
+                    <div id="responseResumeBtn" class="download-cv">
+                        <i class="fa fa-paper-plane download-cv__icon"></i>
+                        Откликнуться
+                    </div>
+                </fest:if>
+                <div id="downloadResumePdf" class="download-cv">
+                    <i class="fa fa-save download-cv__icon"></i>
+                    Скачать PDF
                 </div>
             </div>
-        </fest:if>
     </div>
     <div class="line-box-cv">
         <hr class="line"></hr>
