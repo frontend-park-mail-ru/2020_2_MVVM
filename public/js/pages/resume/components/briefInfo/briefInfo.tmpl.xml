@@ -37,10 +37,12 @@
                         Откликнуться
                     </div>
                 </fest:if>
-                <div id="downloadResumePdf" class="download-cv">
-                    <i class="fa fa-save download-cv__icon"></i>
-                    Скачать PDF
-                </div>
+                <fest:if test="items.my_user_type!=''">
+                    <div id="downloadResumePdf" class="download-cv">
+                        <i class="fa fa-save download-cv__icon"></i>
+                        Скачать PDF
+                    </div>
+                </fest:if>
             </div>
     </div>
     <div class="line-box-cv">

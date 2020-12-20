@@ -28,6 +28,7 @@ export default class Chats {
     app.classList.add('fix-height');
     this.user_type = localStorage.getItem('user_type');
     this.chatListData = await this.getChatList();
+    this.chatListData.sort((a, b) => a.message.date_create < b.message.date_create ? 1 : -1);
 
     this.chatListData = changeDate(this.chatListData);
 
@@ -58,10 +59,13 @@ const sendMessInput = (chatClass, sendMessage, dialogueBody,chat_id) => {
         sendMess(chatClass, sendMessage, dialogueBody, chat_id);
       } else {
         sendMessage.addEventListener('keydown', () => {
-          setTimeout(() => {
-            sendMessage.style.cssText = 'height:auto; padding:0; border-radius:0;';
-            sendMessage.style.cssText = 'height:' + 0.2*sendMessage.scrollHeight + 'rem';
-          }, 1);
+          if (event.shiftKey) {
+            const inputField = document.getElementsByClassName('input-field')[0];
+            setTimeout(() => {
+              inputField.style.height = 'auto';
+              sendMessage.style.cssText = 'height:' + 0.1*sendMessage.scrollHeight + 'rem';
+            }, 1);
+          }
         });
       }
     }
@@ -178,9 +182,10 @@ export const chatsListPhone = (chatClass, list, singleChat, chatsList) => {
         const friendPhoto = document.getElementById('friendPhoto');
         const inputPhoto = chatClass.user_type === 'candidate' ? defaultVac : defaultRes;
         const photo = chatClass.chatListData[i].avatar ? chatClass.chatListData[i].avatar : inputPhoto;
+
         friendPhoto.style.background = `no-repeat  0 0/cover url(${photo})`;
 
-        insertPhotoScrollDown();
+        scrollDown();
         sendMessageEvent(chatClass, chatClass.chatListData[i].chat_id);
 
         const backToChats = document.getElementById('backToChats');
@@ -197,17 +202,6 @@ const changeWindow = (chatsList, singleChat) => {
   chatsList.classList.toggle('hide');
   singleChat.classList.toggle('hide');
   singleChat.classList.toggle('max-width');
-}
-
-const insertPhotoScrollDown = () => {
-  const friendPhoto = document.getElementById('friendPhoto');
-  if (localStorage.getItem('user_type') === 'candidate') {
-    friendPhoto.style.background = `no-repeat 0 0/cover url(${defaultVac})`;
-  } else {
-    friendPhoto.style.background = `no-repeat 0 0/cover url(${defaultRes})`;
-  }
-
-  scrollDown();
 }
 
 export const scrollDown = () => {

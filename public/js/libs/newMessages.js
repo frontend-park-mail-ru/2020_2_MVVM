@@ -58,7 +58,8 @@ export default class MessagePolling {
         const response = network.doGet(getNewMesAndList+this.chat_id);
         response.then( async (response) => {
           const responseJSON = await response.json();
-          let chatsList = changeDate(responseJSON.chats);
+          let chatsList = responseJSON.chats.sort((a, b) => a.message.date_create < b.message.date_create ? 1 : -1);
+          chatsList = changeDate(chatsList);
           const chatsListBlock = document.getElementById('toInputChatList');
           chatsListBlock.innerHTML = chatsListTemp({chatList:chatsList, user_type:localStorage.getItem('user_type'), selected:this.chat_id, is_mobile:this.chatClass.is_mobile});
           changeAvatar(this.user_type, chatsList);
