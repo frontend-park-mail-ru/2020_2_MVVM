@@ -69,7 +69,7 @@ export default class MessagePolling {
             const newMess = createSingleDialogue(responseJSON.dialog);
             const friendInfo = chatsList.find(item => item.chat_id === responseJSON.dialog);
             dialogueBody.insertAdjacentHTML('beforeend', singleBodyTemp({is_mobile:this.chatClass.is_mobile, chat:newMess, friendInfo: friendInfo, user_type:localStorage.getItem('user_type')}));
-            scrollDown();
+            // scrollDown();
           }
 
         })

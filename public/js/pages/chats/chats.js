@@ -40,6 +40,7 @@ export default class Chats {
 }
 
 
+
 const sendMessageEvent = (chatClass, chat_id) => {
   const sendMessage = document.getElementById('sendMessage');
   const dialogueBody = document.getElementById('dialogueBody');
@@ -52,8 +53,17 @@ const sendMessageEvent = (chatClass, chat_id) => {
 const sendMessInput = (chatClass, sendMessage, dialogueBody,chat_id) => {
   sendMessage.addEventListener('keydown', (event) => {
     sendMessage.removeEventListener('keydown', ()=>{});
-    if (event.code === 'Enter') {
-      sendMess(chatClass, sendMessage, dialogueBody, chat_id)
+    if (event.keyCode === 13) {
+      if (!event.shiftKey) {
+        sendMess(chatClass, sendMessage, dialogueBody, chat_id);
+      } else {
+        sendMessage.addEventListener('keydown', () => {
+          setTimeout(() => {
+            sendMessage.style.cssText = 'height:auto; padding:0; border-radius:0;';
+            sendMessage.style.cssText = 'height:' + 0.2*sendMessage.scrollHeight + 'rem';
+          }, 1);
+        });
+      }
     }
   })
 }
@@ -68,14 +78,12 @@ const sendMessBtn = (chatClass, sendMessage, dialogueBody,chat_id) => {
 
 const sendMess = async (chatClass, sendMessage, dialogueBody, chat_id) => {
   const mesBody = sendMessage.value;
-  if (mesBody) {
+  sendMessage.value = "";
+  if (mesBody.replace(/\s+/g, '') !== '') {
     const date = new Date();
     const mesTime = `${date.getHours()}.${date.getMinutes()}`;
     dialogueBody.insertAdjacentHTML('beforeend', myMessageTemp({body:mesBody, time:mesTime}));
-    sendMessage.value = '';
-
-    const res = await chatClass.sendMessage(chat_id, mesBody);
-
+    await chatClass.sendMessage(chat_id, mesBody);
     scrollDown();
     sendMessage.focus();
   }
