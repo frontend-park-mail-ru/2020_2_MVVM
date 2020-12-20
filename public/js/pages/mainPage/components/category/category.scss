@@ -73,7 +73,7 @@
     text-align: center;
     width: 100rem;
     border: $border_btn solid var(--border-grey-color);
-
+    cursor: pointer;
 
     &__svg {
         color: var(--buttons-purple-color);
