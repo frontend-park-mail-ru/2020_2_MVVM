@@ -286,7 +286,7 @@
 .input-field {
     display: flex;
     background: white;
-    //min-height: 6rem;
+    height: 6rem;
 
     @include mobile {
         height: 8rem;
@@ -317,15 +317,15 @@
     width: 100%;
     font-size: $font-size_h4-5;
     background: var(--background-grey-color-no-alpha);
-    border-radius: 50rem;
     padding: 1.3rem 2rem;
     resize: none;
-    max-height: 10rem;
+    max-height: 12rem;
 
     @include mobile {
         border-radius: 5rem;
         padding: 0 4rem;
         font-size: $font-size_h3;
+        min-height: 6rem;
     }
 }
 

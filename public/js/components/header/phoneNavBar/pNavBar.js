@@ -99,7 +99,7 @@ const openSearchMenu = () => {
 export const removeNotifPage = () => {
   const popup = document.getElementById("notePopup");
   if (!popup.classList.contains("hide")) {
-    console.log('kek');
+    console.log("kek");
     popup.classList.add("hide");
     main.classList.remove("hide");
     app.classList.remove("notification-bg");
@@ -141,22 +141,30 @@ const notifBigMenu = () => {
   const popup = document.getElementById("notePopup");
   const popUpContent = document.getElementsByClassName("popup-content")[0];
 
-  if (nb && popup.classList.contains('hide')) {
+  if (nb && popup.classList.contains("hide")) {
     nb.addEventListener("click", () => {
-      nb.removeEventListener('click', ()=>{});
+      nb.removeEventListener("click", () => {});
       popup.classList.remove("hide");
       notifBigMenu();
     });
-  } else if (popup){
+  } else if (popup) {
     popup.addEventListener("click", (event) => {
-      popup.removeEventListener('click', ()=>{});
-      if (!popup.classList.contains("hide") && event.target !== popUpContent && event.target !== nb) {
+      popup.removeEventListener("click", () => {});
+      if (popUpContent.onmouseleave) {
+        popup.classList.add("hide");
+        notifBigMenu();
+      }
+      if (
+        !popup.classList.contains("hide") &&
+        event.target !== popUpContent &&
+        event.target !== nb
+      ) {
         popup.classList.add("hide");
         notifBigMenu();
       }
     });
   }
-}
+};
 
 export const desktopNavBarInit = () => {
   notifBigMenu();
