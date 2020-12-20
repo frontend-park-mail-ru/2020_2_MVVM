@@ -4,6 +4,8 @@ export default class Logout {
   }
 
   render() {
+    const notePopup = document.getElementById('notes-list');
+    notePopup.innerHTML = '';
     this.onsubmit();
   }
 }

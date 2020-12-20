@@ -3,7 +3,7 @@ import {network} from "Js/libs/networks";
 import {
   addLikeResumeURL,
   createRespURL,
-  deleteLikeResumeURL,
+  deleteLikeResumeURL, downloadResumeURL,
   getLikeURL,
   myFreeVacanciesURL,
   resumeByIdURL
@@ -89,7 +89,16 @@ export default class ResumeCtrl {
       }
     }
 
+    const downloadResumePdf = async (resume_id) => {
+      try {
+        const response = await network.doGet(downloadResumeURL+`${resume_id}`);
+        console.assert(response.ok);
+        return await response.json();
+      } catch (err) {
+        console.assert(err);
+      }
+    }
 
-    this.page = new Resume(router, createResp, loadMyVacancies, isLiked, responseResume, addLike, deleteLike);
+    this.page = new Resume(router, createResp, loadMyVacancies, isLiked, responseResume, addLike, deleteLike, downloadResumePdf);
   }
 }

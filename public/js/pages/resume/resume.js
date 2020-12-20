@@ -5,7 +5,8 @@ import {
   educationLevel,
   experienceLevel,
   experienceMonth,
-  resumeByIdURL, spheres,
+  resumeByIdURL,
+  spheres,
 } from "Js/libs/constants";
 import createElem from "Js/libs/createElem";
 import briefInfoTemp from "./components/briefInfo/briefInfo.tmpl.xml";
@@ -26,16 +27,11 @@ const nullToString = (e) => {
 };
 
 const resumeInfo = async (resumeCLass) => {
-  const resume_id = window.location.search.split("id=")[1];
-  const isLiked = await resumeCLass.isLiked(resume_id);
-  const resumeData = await resumeCLass.responseResume(resume_id);
+  const isEmployer = localStorage.getItem("user_type") === "employer";
 
-  // const responseResume = await network.doGet(
-  //   `${resumeByIdURL}${resume_id}`
-  // );
-  //
-  // console.assert(responseResume.ok);
-  // const resumeData = await responseResume.json();
+  const resume_id = window.location.search.split("id=")[1];
+  const isLiked = isEmployer ? await resumeCLass.isLiked(resume_id) : null;
+  const resumeData = await resumeCLass.responseResume(resume_id);
 
   const dateRegBd = resumeData.resume.date_create.toString();
   let dataReg = "";
@@ -97,7 +93,16 @@ const resumeInfo = async (resumeCLass) => {
 };
 
 export default class Resume {
-  constructor(router, createRespF, loadMyVacanciesF, isLikedF, responseResumeF, addLikeF, deleteLikeF) {
+  constructor(
+    router,
+    createRespF,
+    loadMyVacanciesF,
+    isLikedF,
+    responseResumeF,
+    addLikeF,
+    deleteLikeF,
+    downloadResumePdf
+  ) {
     this.router = router;
     this.createResp = createRespF;
     this.myVacancies = loadMyVacanciesF;
@@ -105,11 +110,12 @@ export default class Resume {
     this.responseResume = responseResumeF;
     this.addLike = addLikeF;
     this.deleteLike = deleteLikeF;
+    this.downloadResumePdf = downloadResumePdf;
   }
 
   async render() {
     app.innerHTML = "";
-
+    this.user_type = localStorage.getItem("user_type");
 
     const infoAll = await resumeInfo(this);
 
@@ -143,19 +149,45 @@ export default class Resume {
 
     contentRightColumn.insertAdjacentHTML(
       "beforeend",
-      jobOverviewTemp({jobOverview: infoAll.jobOverview, page_type:'resume'})
+      jobOverviewTemp({ jobOverview: infoAll.jobOverview, page_type: "resume" })
     );
 
     // contentRightColumn.insertAdjacentHTML("beforeend", contactFormTemp());
 
-    addDeleteLikes(this, infoAll);
-    if (localStorage.getItem("user_type") === "employer") {
+    if (this.user_type === "employer") {
+      addDeleteLikes(this, infoAll);
       renderResumeResp(this, infoAll);
+    }
+    if (this.user_type !== "") {
+      downloadPdf(this, infoAll.resume_id);
     }
 
     // main.insertAdjacentHTML("afterEnd", window.fest['footer.tmpl']());
   }
 }
+
+const downloadPdf = async (resumeCls, resume_id) => {
+  const downloadBtn = document.getElementById("downloadResumePdf");
+  downloadBtn.addEventListener("click", async () => {
+    const hrefToDownload = await resumeCls.downloadResumePdf(resume_id);
+    if (hrefToDownload) {
+      getFileUrl(hrefToDownload.link_to_pdf);
+    }
+  });
+};
+
+const getFileUrl = (url) => {
+  let link = document.createElement("a");
+  link.setAttribute("href", "");
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.addEventListener('click', ()=>{
+    link.removeEventListener('click', ()=>{});
+    window.open(url);
+  })
+  link.click();
+  document.body.removeChild(link);
+};
 
 async function renderResumeResp(resumeCls, infoAll) {
   const responseBtn = document.getElementById("responseResumeBtn");
@@ -183,12 +215,9 @@ async function addDeleteLikes(resumeClass, infoAll) {
 
   if (addLike) {
     addLike.addEventListener("click", async () => {
-      // const addLikeResp = await network.doPost(
-      //   addLikeResumeURL + `${infoAll.resume_id}`
-      // );
-      // console.assert(addLikeResp.ok);
-      // const data = await addLikeResp.json();
-      infoAll.infoAll.is_favorite = await resumeClass.addLike(infoAll.resume_id);
+      infoAll.infoAll.is_favorite = await resumeClass.addLike(
+        infoAll.resume_id
+      );
       likes[0].firstChild.remove();
       likes[0].insertAdjacentHTML(
         "afterbegin",
@@ -200,10 +229,6 @@ async function addDeleteLikes(resumeClass, infoAll) {
 
   if (deleteLike) {
     deleteLike.addEventListener("click", async () => {
-      // const addLikeResp = await network.doDelete(
-      //   deleteLikeResumeURL + `${infoAll.infoAll.is_favorite}`
-      // );
-      // console.assert(addLikeResp.ok);
       await resumeClass.deleteLike(infoAll.infoAll.is_favorite);
       infoAll.infoAll.is_favorite = null;
       likes[0].firstChild.remove();
