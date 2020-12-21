@@ -43,14 +43,15 @@
                             </div>
                         </fest:if>
                         <fest:if test="p.continue_to_today==false">
-                            <p>с
+                            <div class="job-description__p">
+                                с
                                 <fest:space/>
                                 <fest:value>p.begin</fest:value>
                                 <fest:space/>
                                 до
                                 <fest:space/>
                                 <fest:value>p.finish</fest:value>
-                            </p>
+                            </div>
                         </fest:if>
                         <p>
                             <fest:value>p.duties</fest:value>
