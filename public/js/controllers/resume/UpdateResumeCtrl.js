@@ -7,15 +7,19 @@ export default class updateResumeCtrl {
   constructor(router) {
     this.router = router;
 
-    const submitF = async (form, jobsArr) => {
+    const submitF = async (form, jobsArr, avatar) => {
       const formData = new FormData(form);
 
       const json = {};
 
-      const resumeLogo = formData.get('sum__avatar');
-      json.avatar = '';
-      if (resumeLogo !== '') {
-        json.avatar = await getBase64(resumeLogo);
+      const resumeLogo = formData.get("sum__avatar");
+      if (!resumeLogo.size) {
+        json.avatar = avatar;
+      } else {
+        const resumeLogo = formData.get("sum__avatar");
+        if (resumeLogo !== "") {
+          json.avatar = await getBase64(resumeLogo);
+        }
       }
 
       json.id = formData.get('resume_id');
@@ -37,6 +41,17 @@ export default class updateResumeCtrl {
       if (formData.get("awards") !== "") {
         json.awards = formData.get("awards");
       }
+
+      jobsArr.forEach((item) => {
+        const dBegin = new Date(item.begin);
+        item.begin = dBegin.toISOString();
+        if (item.finish === "today") {
+          item.finish = null;
+        } else {
+          const dEnd = new Date(item.finish);
+          item.finish = dEnd.toISOString();
+        }
+      });
 
       json.custom_experience = jobsArr;
 

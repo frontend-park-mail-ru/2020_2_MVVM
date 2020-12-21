@@ -110,7 +110,7 @@ export default class UpdateResume {
     const form = main.querySelector("form");
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      afterRenderResume(this.onsubmit, form, this.jobsArr);
+      afterRenderResume(this.onsubmit, form, this.jobsArr, user.avatar);
     });
 
     openAndDelJob(this.jobsArr, this);
