@@ -1,0 +1,26 @@
+@import "public/css/vars";
+
+.work-experience {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    font-size: $font-size_h4;
+
+    @include mobile {
+        font-size: $font-size_h4_m;
+    }
+}
+
+
+.work-position {
+    color: var(--buttons-purple-color);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.name-company {
+    color: #202020;
+    margin-left: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
