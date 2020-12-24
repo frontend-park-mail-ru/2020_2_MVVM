@@ -28,12 +28,11 @@ export const changeDate = (list) => {
   return list;
 }
 
-export const checkoutChatPages = (chatClass, is_mobile, need_checkout) => {
+export const checkoutChatPages = (chatClass, is_mobile, need_checkout, list) => {
   const chatsList = document.getElementById('chatsList');
   const defaultChat = document.getElementById('defaultChat');
   const singleChat = document.getElementById('singleChat');
 
-  const list = document.getElementsByClassName('chat-lists-single');
 
   if (is_mobile) {
     if (need_checkout) {
@@ -41,11 +40,11 @@ export const checkoutChatPages = (chatClass, is_mobile, need_checkout) => {
       chatsList.classList.add('max-width');
       singleChat.classList.add('hide');
     }
-    chatsListPhone(chatClass, list, singleChat, chatsList);
+    chatsListPhone(chatClass,list, singleChat, chatsList);
   } else {
     if (need_checkout) {
       singleChat.classList.add('hide');
     }
-    chatsListDesktop(chatClass, list, defaultChat, singleChat, need_checkout);
+    chatsListDesktop(chatClass,list, defaultChat, singleChat, need_checkout);
   }
 }

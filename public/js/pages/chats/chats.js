@@ -33,8 +33,11 @@ export default class Chats {
     this.chatListData = changeDate(this.chatListData);
 
     app.insertAdjacentHTML('afterbegin', chatsTemp({chatList: this.chatListData, user_type: this.user_type }));
+
+    const list = document.getElementsByClassName('chat-lists-single');
+
     this.chatListData = changeAvatar(this.user_type, this.chatListData);
-    checkoutChatPages(this, this.is_mobile, true);
+    checkoutChatPages(this, this.is_mobile, true, list);
 
     MessagePolling.setChatClass(this);
   }
