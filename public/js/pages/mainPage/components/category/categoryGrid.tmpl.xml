@@ -10,7 +10,7 @@
                 <div class="category-sec hide">
                     <fest:for iterate="items.category[i]" value="v" index="j">
                         <div class="category-sec-row">
-                            <i class="category-sec-row__svg fa fa-bullhorn fa-4x"/>
+                            <i class="category-sec-row__svg {v.iconCLass} fa-4x"/>
                             <br></br>
                             <span class="category-sec-row__sphere">
                                 <fest:value>v.name</fest:value>
@@ -25,7 +25,7 @@
                 <div class="category-sec">
                 <fest:for iterate="items.category[i]" value="v" index="j">
                     <div class="category-sec-row">
-                        <i class="category-sec-row__svg fa fa-bullhorn fa-4x"/>
+                        <i class="category-sec-row__svg {v.iconCLass} fa-4x"/>
                         <br></br>
                         <span class="category-sec-row__sphere">
                             <fest:value>v.name</fest:value>

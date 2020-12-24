@@ -2,7 +2,7 @@ import createElem from "Js/libs/createElem";
 import searchJobTemp from "Js/pages/mainPage/components/searchJob/searchJob.tmpl.xml";
 import categoryTemp from "Js/pages/mainPage/components/category/category.tmpl.xml";
 import goToCreateResumeTemp from "Js/pages/mainPage/components/createResume/goToCreateResume.tmpl.xml";
-import { spheres } from "Js/libs/constants";
+import {iconClassSpheres, spheres} from "Js/libs/constants";
 
 
 const app = window.document.getElementById("main");
@@ -38,6 +38,15 @@ export default class MainPage {
       });
     });
 
+    // spheres.forEach((item, i)=>{
+    //   tmpMass.push({
+    //             name: item,
+    //             count: i,
+    //             iconCLass: iconClassSpheres[i]
+    //           });
+    // })
+    // category.push(tmpMass);
+
     if (topSpheresInfo) {
       topSpheresInfo.top_spheres.forEach((item, i) => {
         const j = i + 1;
@@ -45,6 +54,7 @@ export default class MainPage {
           tmpMass.push({
             name: spheres[item.sphere_idx],
             count: item.sph_vac_cnt,
+            iconCLass: iconClassSpheres[item.sphere_idx]
           });
           category.push(tmpMass);
           tmpMass = [];
@@ -52,6 +62,7 @@ export default class MainPage {
           tmpMass.push({
             name: spheres[item.sphere_idx],
             count: item.sph_vac_cnt,
+            iconCLass: iconClassSpheres[item.sphere_idx]
           });
         }
       });

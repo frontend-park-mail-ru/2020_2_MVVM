@@ -16,7 +16,6 @@ let unresponed = 0;
 let intervalId = null;
 
 const createNotifResponses = (responses) => {
-  console.log(unresponed);
   const user_type = localStorage.getItem("user_type");
   let myResponses = [];
   responses.forEach((item) => {

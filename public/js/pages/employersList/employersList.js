@@ -207,7 +207,7 @@ async function search(form, mainList, main, fetchVacancyList, router) {
 
 async function getVacanciesList(vacancies, main, mainList, router) {
   window.scroll(0, 0);
-  if (vacancies && vacancies.vacancyList.length !== 0) {
+  if (vacancies && vacancies.vacancyList && vacancies.vacancyList.length !== 0) {
     mainList.insertAdjacentHTML(
       "beforeend",
       listOfEmployersTemp(vacancies.vacancyList)

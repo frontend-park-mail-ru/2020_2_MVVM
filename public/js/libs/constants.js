@@ -156,6 +156,37 @@ export const spheres = [
   "Энергетика",
 ]
 
+export const iconClassSpheres = [
+  "fas fa-car",
+  "fas fa-utensils",
+  "fas fa-chess-queen",
+  "fas fa-search",
+  "fas fa-house-damage",
+  "fas fa-laptop-code",
+  "fas fa-tree",
+  "fas fa-plus-square",
+  "fas fa-industry",
+  "fas fa-oil-can",
+  "fas fa-graduation-cap",
+  "fas fa-users",
+  "fas fa-shipping-fast",
+  "fas fa-pizza-slice",
+  "fas fa-tools",
+  "fas fa-shopping-bag",
+  "fas fa-bullhorn",
+  "fas fa-tractor",
+  "fas fa-drafting-compass",
+  "fas fa-wifi",
+  "fas fa-shopping-cart",
+  "fas fa-cogs",
+  "fas fa-chart-line",
+  "fas fa-user-tie",
+  "fas fa-people-arrows",
+  "fas fa-coins",
+  "fas fa-atom",
+  "fas fa-headphones",
+  "fas fa-charging-station"
+]
 
 export const educationLevel = {
   "middle": "Среднее",

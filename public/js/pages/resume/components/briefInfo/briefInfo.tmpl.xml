@@ -17,7 +17,7 @@
                     <fest:value>items.dateReg</fest:value>
                 </div>
                 <div class="about-candidate__p">
-                    <i class="fa fa-map-marker"></i>
+                    <i class="fa fa-map-marker"></i><fest:space/>
                     <fest:value>items.area_search</fest:value>/Россия
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 <fest:if test="items.my_user_type!=''">
                     <div id="downloadResumePdf" class="download-cv">
                         <i class="fa fa-save download-cv__icon"></i>
-                        Скачать PDF
+                        Создать резюме в PDF
                     </div>
                 </fest:if>
             </div>
