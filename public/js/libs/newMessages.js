@@ -59,11 +59,15 @@ export default class MessagePolling {
         response.then( async (response) => {
           const responseJSON = await response.json();
           let chatsList = responseJSON.chats.sort((a, b) => a.message.date_create < b.message.date_create ? 1 : -1);
+          this.chatClass.chatListData = chatsList;
           chatsList = changeDate(chatsList);
           const chatsListBlock = document.getElementById('toInputChatList');
           chatsListBlock.innerHTML = chatsListTemp({chatList:chatsList, user_type:localStorage.getItem('user_type'), selected:this.chat_id, is_mobile:this.chatClass.is_mobile});
+
+          const list = document.getElementsByClassName('chat-lists-single');
+
           changeAvatar(this.user_type, chatsList);
-          checkoutChatPages(this.chatClass, this.chatClass.is_mobile, false);
+          checkoutChatPages(this.chatClass, this.chatClass.is_mobile, false, list);
 
           if (responseJSON.dialog) {
             const dialogueBody = document.getElementById('dialogueBody');
