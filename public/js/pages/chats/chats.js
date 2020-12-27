@@ -8,12 +8,15 @@ import { MessagePolling } from "Js/libs/router";
 import defaultVac from "Img/defaultVac.png";
 import defaultRes from "Img/defaultRes.png";
 import { convertDate } from "Js/libs/convertDate";
-import { responsesStatus } from "Js/libs/constants";
+import {getNewMesAndList, responsesStatus} from "Js/libs/constants";
 import {
   changeAvatar,
   changeDate,
   checkoutChatPages,
 } from "Js/components/chats/chatsFunc";
+import {network} from "Js/libs/networks";
+import chatsListTemp from "Js/pages/chats/components/chats/chatList.tmpl.xml";
+import singleBodyTemp from "Js/pages/chats/components/chats/singleBody.tmpl.xml";
 
 export default class Chats {
   constructor(router, getChatListF, singleChatPageF, sendMessageF) {
@@ -50,21 +53,21 @@ export default class Chats {
   }
 }
 
-const sendMessageEvent = (chatClass, chat_id) => {
+const sendMessageEvent = (chatClass, chat_id, is_mobile) => {
   const sendMessage = document.getElementById("sendMessage");
   const dialogueBody = document.getElementById("dialogueBody");
   sendMessage.focus();
 
-  sendMessInput(chatClass, sendMessage, dialogueBody, chat_id);
-  sendMessBtn(chatClass, sendMessage, dialogueBody, chat_id);
+  sendMessInput(chatClass, sendMessage, dialogueBody, chat_id, is_mobile);
+  sendMessBtn(chatClass, sendMessage, dialogueBody, chat_id, is_mobile);
 };
 
-const sendMessInput = (chatClass, sendMessage, dialogueBody, chat_id) => {
+const sendMessInput = (chatClass, sendMessage, dialogueBody, chat_id, is_mobile) => {
   sendMessage.addEventListener("keydown", (event) => {
     sendMessage.removeEventListener("keydown", () => {});
     if (event.keyCode === 13) {
       if (!event.shiftKey) {
-        sendMess(chatClass, sendMessage, dialogueBody, chat_id);
+        sendMess(chatClass, sendMessage, dialogueBody, chat_id, is_mobile);
       } else {
         sendMessage.addEventListener("keydown", () => {
           if (event.shiftKey) {
@@ -83,15 +86,15 @@ const sendMessInput = (chatClass, sendMessage, dialogueBody, chat_id) => {
   });
 };
 
-const sendMessBtn = (chatClass, sendMessage, dialogueBody, chat_id) => {
+const sendMessBtn = (chatClass, sendMessage, dialogueBody, chat_id, is_mobile) => {
   const sendMessageBtn = document.getElementById("sendMessageBtn");
   sendMessageBtn.addEventListener("click", (event) => {
     sendMessageBtn.removeEventListener("keydown", () => {});
-    sendMess(chatClass, sendMessage, dialogueBody, chat_id);
+    sendMess(chatClass, sendMessage, dialogueBody, chat_id, is_mobile);
   });
 };
 
-const sendMess = async (chatClass, sendMessage, dialogueBody, chat_id) => {
+const sendMess = async (chatClass, sendMessage, dialogueBody, chat_id, is_mobile) => {
   const mesBody = sendMessage.value;
   sendMessage.value = "";
   if (mesBody.replace(/\s+/g, "") !== "") {
@@ -102,10 +105,42 @@ const sendMess = async (chatClass, sendMessage, dialogueBody, chat_id) => {
       myMessageTemp({ body: mesBody, time: mesTime })
     );
     await chatClass.sendMessage(chat_id, mesBody);
+    updateList(chat_id, is_mobile, chatClass);
     scrollDown();
     sendMessage.focus();
   }
 };
+
+const updateList = (chat_id, is_mobile, chatClass) => {
+  const response =  network.doGet(getNewMesAndList+chat_id);
+  response.then( async (response) => {
+    const responseJSON = await response.json();
+    let chatsList = responseJSON.chats.sort((a, b) => a.message.date_create < b.message.date_create ? 1 : -1);
+    chatClass.chatListData = chatsList;
+    chatsList = changeDate(chatsList);
+    const chatsListBlock = document.getElementById('toInputChatList');
+    chatsListBlock.innerHTML = chatsListTemp({chatList:chatsList, user_type:localStorage.getItem('user_type'), selected:chat_id, is_mobile:is_mobile});
+
+    const list = document.getElementsByClassName('chat-lists-single');
+
+    changeAvatar(localStorage.getItem('user_type'), chatsList);
+    checkoutChatPages(chatClass, is_mobile, false, list);
+
+    const friendInfo = chatsList.find(item => item.chat_id === responseJSON.dialog);
+
+    if (responseJSON.dialog) {
+      const dialogueBody = document.getElementById('dialogueBody');
+      const newMess = createSingleDialogue(responseJSON.dialog);
+
+      if (dialogueBody) {
+        dialogueBody.insertAdjacentHTML('beforeend', singleBodyTemp({is_mobile:is_mobile, chat:newMess, friendInfo: friendInfo, user_type:localStorage.getItem('user_type')}));
+      } else {
+        const singleChat = document.getElementById('singleChat');
+        singleChat.insertAdjacentHTML('afterbegin', singleChatTemp({is_mobile:is_mobile, chat: newMess, friendInfo: friendInfo, user_type: localStorage.getItem('user_type')}))
+      }
+    }
+  })
+}
 
 const oneMess = (mess) => {
   if (mess) {
@@ -206,7 +241,7 @@ export const chatsListDesktop = (
           user_type: chatClass.user_type,
         });
         scrollDown();
-        sendMessageEvent(chatClass, chatClass.chatListData[i].chat_id);
+        sendMessageEvent(chatClass, chatClass.chatListData[i].chat_id, false);
       });
     });
   }
@@ -249,7 +284,7 @@ export const chatsListPhone = (chatClass, list, singleChat, chatsList) => {
         friendPhoto.style.background = `no-repeat  0 0/cover url(${photo})`;
 
         scrollDown();
-        sendMessageEvent(chatClass, chatClass.chatListData[i].chat_id);
+        sendMessageEvent(chatClass, chatClass.chatListData[i].chat_id, true);
 
         const backToChats = document.getElementById("backToChats");
         backToChats.addEventListener("click", () => {
