@@ -9,65 +9,67 @@
             </fest:if>
         </div>
         <div id="dialogueBody" class="dialogue-body for-scroll">
-            <fest:for iterate="data.chat" index="i" value="v">
-                <fest:if test="!v.sender">
-                    <div class="technical">
-                        <fest:if test="v.response_initial==data.user_type">
-                            <fest:if test="data.user_type=='candidate'">
-                                <div class="technical-mess">Ваш отклик на вакансию<fest:space/><fest:value>v.vacancy_title</fest:value>
-                                    <fest:space/>в организацию<fest:space/><fest:value>v.company_name</fest:value>
-                                    <fest:space/>изменил статус на<fest:space/><fest:value>v.response_status</fest:value>
-                                </div>
+            <fest:if test="data.chat!=null">
+                <fest:for iterate="data.chat" index="i" value="v">
+                    <fest:if test="!v.sender">
+                        <div class="technical">
+                            <fest:if test="v.response_initial==data.user_type">
+                                <fest:if test="data.user_type=='candidate'">
+                                    <div class="technical-mess">Ваш отклик на вакансию<fest:space/><fest:value>v.vacancy_title</fest:value>
+                                        <fest:space/>в организацию<fest:space/><fest:value>v.company_name</fest:value>
+                                        <fest:space/>изменил статус на<fest:space/><fest:value>v.response_status</fest:value>
+                                    </div>
+                                </fest:if>
+                                <fest:if test="data.user_type=='employer'">
+                                    <div class="technical-mess">Ваш отклик на резюме<fest:space/><fest:value>v.resume_title</fest:value>
+                                        <fest:space/>изменил статус на<fest:space/><fest:value>v.response_status</fest:value>
+                                    </div>
+                                </fest:if>
                             </fest:if>
-                            <fest:if test="data.user_type=='employer'">
-                                <div class="technical-mess">Ваш отклик на резюме<fest:space/><fest:value>v.resume_title</fest:value>
-                                    <fest:space/>изменил статус на<fest:space/><fest:value>v.response_status</fest:value>
-                                </div>
+                            <fest:if test="v.response_initial!=data.user_type">
+                                <fest:if test="data.user_type=='candidate'">
+                                    <div class="technical-mess">На ваше резюме<fest:space/><fest:value>v.resume_title</fest:value>
+                                        <fest:space/>откликнулись вакансией<fest:space/><fest:value>v.vacancy_title</fest:value>
+                                        <fest:space/>из организации<fest:space/><fest:value>v.company_name</fest:value>.
+                                        <fest:space/>Статус отклика изменен на<fest:space/><fest:value>v.response_status</fest:value>
+                                    </div>
+                                </fest:if>
+                                <fest:if test="data.user_type=='employer'">
+                                    <div class="technical-mess">На вашу вакансию<fest:space/><fest:value>v.vacancy_title</fest:value>
+                                        <fest:space/>откликнулись резюме<fest:space/><fest:value>v.resume_title</fest:value>.
+                                        <fest:space/>Статус отклика изменен на<fest:space/><fest:value>v.response_status</fest:value>
+                                    </div>
+                                </fest:if>
                             </fest:if>
-                        </fest:if>
-                        <fest:if test="v.response_initial!=data.user_type">
-                            <fest:if test="data.user_type=='candidate'">
-                                <div class="technical-mess">На ваше резюме<fest:space/><fest:value>v.resume_title</fest:value>
-                                    <fest:space/>откликнулись вакансией<fest:space/><fest:value>v.vacancy_title</fest:value>
-                                    <fest:space/>из организации<fest:space/><fest:value>v.company_name</fest:value>.
-                                    <fest:space/>Статус отклика изменен на<fest:space/><fest:value>v.response_status</fest:value>
-                                </div>
-                            </fest:if>
-                            <fest:if test="data.user_type=='employer'">
-                                <div class="technical-mess">На вашу вакансию<fest:space/><fest:value>v.vacancy_title</fest:value>
-                                    <fest:space/>откликнулись резюме<fest:space/><fest:value>v.resume_title</fest:value>.
-                                    <fest:space/>Статус отклика изменен на<fest:space/><fest:value>v.response_status</fest:value>
-                                </div>
-                            </fest:if>
-                        </fest:if>
-                        <div class="single-message__data single-message__data_tech">
-                            <fest:value>v.date_create</fest:value>
-                        </div>
-                    </div>
-                </fest:if>
-                <fest:if test="v.sender">
-                    <fest:if test="v.sender==data.user_type">
-                        <div class="single-message single-message_my">
-                            <div class="single-message__body">
-                                <fest:value>v.message</fest:value>
-                            </div>
-                            <div class="single-message__data single-message__data_my">
+                            <div class="single-message__data single-message__data_tech">
                                 <fest:value>v.date_create</fest:value>
                             </div>
                         </div>
                     </fest:if>
-                    <fest:if test="v.sender!=data.user_type">
-                        <div class="single-message">
-                            <div class="single-message__body">
-                                <fest:value>v.message</fest:value>
+                    <fest:if test="v.sender">
+                        <fest:if test="v.sender==data.user_type">
+                            <div class="single-message single-message_my">
+                                <div class="single-message__body">
+                                    <fest:value>v.message</fest:value>
+                                </div>
+                                <div class="single-message__data single-message__data_my">
+                                    <fest:value>v.date_create</fest:value>
+                                </div>
                             </div>
-                            <div class="single-message__data">
-                                <fest:value>v.date_create</fest:value>
+                        </fest:if>
+                        <fest:if test="v.sender!=data.user_type">
+                            <div class="single-message">
+                                <div class="single-message__body">
+                                    <fest:value>v.message</fest:value>
+                                </div>
+                                <div class="single-message__data">
+                                    <fest:value>v.date_create</fest:value>
+                                </div>
                             </div>
-                        </div>
+                        </fest:if>
                     </fest:if>
-                </fest:if>
-            </fest:for>
+                </fest:for>
+            </fest:if>
         </div>
         <div class="input-field">
             <div class="input-field__message">

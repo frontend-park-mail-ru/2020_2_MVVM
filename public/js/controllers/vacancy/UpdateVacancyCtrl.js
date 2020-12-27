@@ -33,7 +33,6 @@ export default class updateVacancyCtrl {
       const content = await response.json();
 
       if (response.status >= 200 && response.status < 300) {
-        console.log(content);
         console.assert(response.ok);
         this.router.change(
           `/vacancy?vac_id=${content.vacancy.vac_id}&comp_id=${content.vacancy.comp_id}`);

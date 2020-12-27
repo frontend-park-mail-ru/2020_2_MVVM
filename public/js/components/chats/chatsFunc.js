@@ -33,6 +33,7 @@ export const checkoutChatPages = (chatClass, is_mobile, need_checkout, list) => 
   const defaultChat = document.getElementById('defaultChat');
   const singleChat = document.getElementById('singleChat');
 
+  // const list = document.getElementsByClassName('chat-lists-single');
 
   if (is_mobile) {
     if (need_checkout) {

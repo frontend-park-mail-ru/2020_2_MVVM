@@ -21,6 +21,7 @@ export default class ChatsCtrl {
       try {
         const response = await network.doGet(getChat+chat_id);
         console.assert(response.ok);
+        // console.log(await response.json());
         return await response.json();
       }catch (err) {
         console.assert(err);
