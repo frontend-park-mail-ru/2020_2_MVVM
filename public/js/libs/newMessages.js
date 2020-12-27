@@ -1,7 +1,8 @@
 import {network} from "Js/libs/networks";
 import {getNewMesAndList} from "Js/libs/constants";
 import chatsListTemp from "Js/pages/chats/components/chats/chatList.tmpl.xml";
-import singleBodyTemp from "Js/pages/chats/components/chats/singleBody.tmpl.xml"
+import singleBodyTemp from "Js/pages/chats/components/chats/singleBody.tmpl.xml";
+import singleChatTemp from "Js/pages/chats/components/chats/singleChat.tmpl.xml";
 import {changeAvatar, changeDate, checkoutChatPages} from "Js/components/chats/chatsFunc";
 import {createSingleDialogue, scrollDown} from "Js/pages/chats/chats";
 
@@ -53,9 +54,8 @@ export default class MessagePolling {
     }
 
     if (this.chat_id) {
-      this.intervalId = setInterval(() => {
-
-        const response = network.doGet(getNewMesAndList+this.chat_id);
+      this.intervalId = setInterval( () => {
+        const response =  network.doGet(getNewMesAndList+this.chat_id);
         response.then( async (response) => {
           const responseJSON = await response.json();
           let chatsList = responseJSON.chats.sort((a, b) => a.message.date_create < b.message.date_create ? 1 : -1);
@@ -69,14 +69,19 @@ export default class MessagePolling {
           changeAvatar(this.user_type, chatsList);
           checkoutChatPages(this.chatClass, this.chatClass.is_mobile, false, list);
 
+          const friendInfo = chatsList.find(item => item.chat_id === responseJSON.dialog);
+
           if (responseJSON.dialog) {
             const dialogueBody = document.getElementById('dialogueBody');
             const newMess = createSingleDialogue(responseJSON.dialog);
-            const friendInfo = chatsList.find(item => item.chat_id === responseJSON.dialog);
-            dialogueBody.insertAdjacentHTML('beforeend', singleBodyTemp({is_mobile:this.chatClass.is_mobile, chat:newMess, friendInfo: friendInfo, user_type:localStorage.getItem('user_type')}));
-            // scrollDown();
-          }
 
+            if (dialogueBody) {
+              dialogueBody.insertAdjacentHTML('beforeend', singleBodyTemp({is_mobile:this.chatClass.is_mobile, chat:newMess, friendInfo: friendInfo, user_type:localStorage.getItem('user_type')}));
+            } else {
+                const singleChat = document.getElementById('singleChat');
+                singleChat.insertAdjacentHTML('afterbegin', singleChatTemp({is_mobile:this.chatClass.is_mobile, chat: newMess, friendInfo: friendInfo, user_type: localStorage.getItem('user_type')}))
+            }
+           }
         })
       }, this.TIMEOUT);
     }

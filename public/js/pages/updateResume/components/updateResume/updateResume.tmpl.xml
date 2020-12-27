@@ -175,27 +175,27 @@
                                 <select class="sum-select" name="experience_month">
                                     <fest:if test="user.experience_month=='0' || user.experience_month==null">
                                         <option value="0" selected="true">не работал</option>
-                                        <option value="1">меньше года</option>
-                                        <option value="5">1-5 лет</option>
-                                        <option value="10">5-10 лет</option>
+                                        <option value="1">полгода</option>
+                                        <option value="5">один год</option>
+                                        <option value="10">больше года</option>
                                     </fest:if>
                                     <fest:if test="user.experience_month=='1'">
                                         <option value="0">не работал</option>
-                                        <option value="1" selected="true">меньше года</option>
-                                        <option value="5">1-5 лет</option>
-                                        <option value="10">5-10 лет</option>
+                                        <option value="1" selected="true">полгода</option>
+                                        <option value="5">один год</option>
+                                        <option value="10">больше года</option>
                                     </fest:if>
                                     <fest:if test="user.experience_month=='5'">
                                         <option value="0">не работал</option>
-                                        <option value="1">меньше года</option>
-                                        <option value="5" selected="true">1-5 лет</option>
-                                        <option value="10">5-10 лет</option>
+                                        <option value="1">полгода</option>
+                                        <option value="5" selected="true">один год</option>
+                                        <option value="10">больше года</option>
                                     </fest:if>
                                     <fest:if test="user.experience_month=='10'">
                                         <option value="0">не работал</option>
-                                        <option value="1">меньше года</option>
-                                        <option value="5">1-5 лет</option>
-                                        <option value="10" selected="true">5-10 лет</option>
+                                        <option value="1">полгода</option>
+                                        <option value="5">один год</option>
+                                        <option value="10" selected="true">больше года</option>
                                     </fest:if>
                                 </select>
                             </div>

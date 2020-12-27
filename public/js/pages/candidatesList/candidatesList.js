@@ -118,15 +118,15 @@ export default class CandidatesList {
           },
           {
             name: "1",
-            text: "Меньше года",
+            text: "полгода",
           },
           {
             name: "5",
-            text: "1-5 лет",
+            text: "один год",
           },
           {
             name: "10",
-            text: "5-10 лет",
+            text: "больше года",
           },
         ],
       },
