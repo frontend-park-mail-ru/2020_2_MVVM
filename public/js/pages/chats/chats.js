@@ -124,7 +124,7 @@ const updateList = (chat_id, is_mobile, chatClass) => {
     const list = document.getElementsByClassName('chat-lists-single');
 
     changeAvatar(localStorage.getItem('user_type'), chatsList);
-    checkoutChatPages(chatClass, is_mobile, false, list);
+    chatsList = checkoutChatPages(chatClass, is_mobile, false, list);
 
     const friendInfo = chatsList.find(item => item.chat_id === responseJSON.dialog);
 
