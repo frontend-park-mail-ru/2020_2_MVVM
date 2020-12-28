@@ -66,7 +66,7 @@ export default class MessagePolling {
 
           const list = document.getElementsByClassName('chat-lists-single');
 
-          chatsList = changeAvatar(this.user_type, chatsList);
+          this.chatClass.chatListData = changeAvatar(this.user_type, chatsList);
           checkoutChatPages(this.chatClass, this.chatClass.is_mobile, false, list);
 
           const friendInfo = chatsList.find(item => item.chat_id === responseJSON.dialog);
